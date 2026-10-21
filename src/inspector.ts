@@ -45,6 +45,16 @@ export function renderMath(expression: MathNode, params?: Params): Element {
 export function createInspector(root: HTMLElement, initial: Params): (params: Params) => void {
   const bindings: {root: HTMLElement; expression: MathNode}[] = [];
   const values: {output: HTMLOutputElement; key: keyof Params}[] = [];
+  const scrollRegions: HTMLElement[] = [];
+  function updateTabStops() {
+    for (const scroll of scrollRegions) {
+      // Hidden panels measure zero. A later resize notification handles showing them.
+      const tabIndex = scroll.clientWidth > 0 && scroll.scrollWidth > scroll.clientWidth ? 0 : -1;
+      if (scroll.tabIndex !== tabIndex) scroll.tabIndex = tabIndex;
+      // Do not blur an already focused region when it stops overflowing.
+    }
+  }
+  const resizeObserver = new ResizeObserver(updateTabStops);
   root.append(element('p', '背景と太字の数値は調整中の現在値です。通常の数値は固定係数。d・t・nは条件が未指定のため記号のまま表示します。'));
   for (const structure of structures) {
     const article = element('article');
@@ -72,13 +82,17 @@ export function createInspector(root: HTMLElement, initial: Params): (params: Pa
         block.append(element('p',numeric ? '現在値の代入式' : '一般式'));
         const scroll = element('div');
         scroll.className = 'math-scroll';
-        scroll.tabIndex = 0;
+        scroll.tabIndex = -1;
         scroll.setAttribute('role','region');
-        scroll.setAttribute('aria-label',`${formula.name}・${numeric ? '代入式' : '一般式'}（横スクロール可）`);
+        scroll.setAttribute('aria-label',`${formula.name}・${numeric ? '代入式' : '一般式'}`);
         const math = document.createElementNS('http://www.w3.org/1998/Math/MathML','math');
         math.setAttribute('display','block');
         math.append(renderMath(formula.expression, numeric ? initial : undefined));
         scroll.append(math);
+        scrollRegions.push(scroll);
+        // Region size handles layout/visibility; math size handles content/fonts.
+        resizeObserver.observe(scroll);
+        resizeObserver.observe(math);
         if (numeric) bindings.push({root:scroll,expression:formula.expression});
         block.append(scroll);
       }
@@ -100,6 +114,7 @@ export function createInspector(root: HTMLElement, initial: Params): (params: Pa
   function sync(params: Params) {
     for (const {output,key} of values) output.textContent = String(params[key]);
     for (const binding of bindings) binding.root.querySelector('math')!.replaceChildren(renderMath(binding.expression,params));
+    updateTabStops();
   }
   sync(initial);
   return sync;

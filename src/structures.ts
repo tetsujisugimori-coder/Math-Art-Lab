@@ -28,19 +28,19 @@ export interface StructureDefinition {
   parameters: (keyof Params)[]; variables: [string, string][];
   formulas: FormulaDefinition[]; composition: string; source: {path: string; symbols: string};
 }
-const L = sub('L','n'), theta = sub('θ','n');
+const L = sub('L','n'), theta = sub('θ','branch');
 export const structures: StructureDefinition[] = [
   {
     id:'binary-fractal', name:'二分岐フラクタル', classification:'有限深さの自己相似な平面分岐木',
     description:'幹から各枝を2本ずつ生成し、長さを縮めます。有限回で打ち切る再帰構造です。',
     parameters:['depth','angle','shrink'],
-    variables:[['n','幹を0とする世代。0 ≤ n < D。'],['L₀','初期長1.15（固定）。Lₙは世代nの枝長。'],['θₙ','各枝の方向角。初期方向θ₀ = π/2 rad。'],['x, y, z','変形前の枝端点。根元は(0, −2.4, 0)。']],
+    variables:[['n','幹を0とする世代。0 ≤ n < D。'],['L₀','初期長1.15（固定）。Lₙは世代nの枝長。'],['θ_parent, θ_child','選んだ親枝とその子枝の方向角。θ_child = θ_parent ± α。'],['θ_branch','座標を計算する枝自身の方向角（growのheading）。子枝の再帰呼び出しではθ_childがその呼び出しのθ_branchになります。同じ世代でも枝ごとに異なり、幹ではπ/2 radです。'],['x, y, z','変形前の枝端点。根元は(0, −2.4, 0)。']],
     formulas:[
       {id:'length',name:'枝の長さ',expression:eq(L,{fixed:1.15,symbol:sub('L',0)},op('×'),pow(param('shrink'),id('n'))),explanation:'L₀ = 1.15（固定）。再帰で length × shrink を子枝へ渡します。'},
-      {id:'heading',name:'子枝の方向',expression:eq(sub('θ','child'),theta,op('±'),param('angle')),explanation:'grow の2回の再帰呼び出しが +α と −α に対応。子枝同士の開きは2αです。'},
+      {id:'heading',name:'子枝の方向',expression:eq(sub('θ','child'),sub('θ','parent'),op('±'),param('angle')),explanation:'親枝を処理するgrowのheadingがθ_parent。2回の再帰呼び出しへ渡す heading ± p.angle がθ_childで、子枝同士の開きは2αです。'},
       {id:'count',name:'深さと枝数',expression:eq(id('B'),pow(num(2),param('depth')),op('−'),num(1)),explanation:'Dは幹を含む段数。remaining ≤ 0 で停止するので、最大世代はD − 1です。'},
-      {id:'endpoint-x',name:'枝端点 x',expression:eq(sub('x','end'),sub('x','start'),op('+'),call('cos',theta),op('×'),L),explanation:'現在の枝の方向と長さから終点を生成します。'},
-      {id:'endpoint-y',name:'枝端点 y',expression:eq(sub('y','end'),sub('y','start'),op('+'),call('sin',theta),op('×'),L),explanation:'z = 0 の平面上で生成し、この終点を両方の子枝の始点にします。'},
+      {id:'endpoint-x',name:'枝端点 x',expression:eq(sub('x','end'),sub('x','start'),op('+'),call('cos',theta),op('×'),L),explanation:'θ_branchはこの枝のgrowにおけるheading、Lₙはこの枝の世代の長さです。同じ世代の枝長は等しくても、方向角は異なり得ます。'},
+      {id:'endpoint-y',name:'枝端点 y',expression:eq(sub('y','end'),sub('y','start'),op('+'),call('sin',theta),op('×'),L),explanation:'同じ枝自身のθ_branch（heading）でyも計算します。z = 0 の平面上で生成し、この終点を両方の子枝の始点にします。'},
     ],
     composition:'まず変形前の平面座標と累積距離を生成します。',
     source:{path:'src/fractal.ts',symbols:'generateTree / grow: heading ± p.angle, length * p.shrink, remaining - 1'},
