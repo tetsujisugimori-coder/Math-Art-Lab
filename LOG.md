@@ -166,3 +166,12 @@
 - mainにマージ後、GitHub PagesワークフローのValidate / Deploy成功と公開URLでの実動作を受入確認する。Actions > GitHub Pages > Run workflowでmainを選んで再実行できる。
 - 本PR段階のPagesデプロイ、artifactのジョブ間転送、OIDC公開、実際の公開URLでの動作は未検証。PRの検証成功と本番公開成功を区別する。公開・手動実行の分岐条件はコードレビューで確認し、PRで公開されないことはCIのジョブ結果でも確認する予定。
 - 実機端末・Safari製品版・スクリーンリーダーの確認は引き続き未実施。今回の基盤以外の作品・デザイン・保存・認証・外部アプリ連携は対象外とした。
+
+### 2026-10-22 06:25 JST — PR #4のUbuntu CI確認
+
+- PR: https://github.com/tetsujisugimori-coder/Math-Art-Lab/pull/4
+- 実装コミット: `8aed076538cb52023bc1e3615480322272cd138f`。
+- [GitHub Actions run 39678412207](https://github.com/tetsujisugimori-coder/Math-Art-Lab/actions/runs/39678412207) はpull_requestイベントで成功した。Ubuntu上のcheckout、Node設定、npm ci、単体、型検査、build、Playwright導入、開発E2E、本番スモークの全ステップ成功を確認した。
+- CIのNodeは24.22.0。開発E2Eは12件（19.8秒）、本番スモークは6件（12.9秒）成功したことをrunログでも確認した。
+- PRでは `Save validated build` ステップと `Deploy to GitHub Pages` ジョブがskippedであり、本番公開しないことを実際のCI結果から確認した。
+- 上記の「PR作成前のためCI未実行」という状態を更新する。本PRの実装とPR検証は成功しているが、mainへのマージ・本番デプロイは未実施。本番URLとmain / workflow_dispatchの公開経路はマージ後の受入対象のままである。
