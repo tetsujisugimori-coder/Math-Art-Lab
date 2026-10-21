@@ -119,3 +119,59 @@
 - 数式のはみ出し量は数学フォントとブラウザで異なるため、幅の固定閾値ではなく実測する。非表示からの表示・レイアウト変更の判定はResizeObserverの通知タイミングで反映される。
 - MathML非対応ブラウザ向けフォールバックは今回の対象外。キーボード操作の検証はChromium / WebKitの現行テスト環境に限る。
 - 今後は実機・支援技術での操作感を確認する。枝選択や全枝の比較を実装する際には、局所的な親子表記に加えて枝の識別方法を検討する。
+
+## 2026-10-22 06:11 JST — GitHub Pages自動デプロイ基盤
+
+### 開始状態と対象範囲
+
+- 開始ブランチmain、コミット `cc560c0f0282541c85e14a2978cf9bfc702feb79`。未コミット・未追跡変更なし。PR #2がmainへマージ済みであることをGitHubから確認した。originをfetchし、mainが最新であることを確認して `chore/github-pages-deploy` を作成した。
+- package.json / lockfile、index.html、Playwright設定、既存テスト、README / LOGを確認した。Vite設定・GitHub Actionsは未作成だった。
+- 変更対象は `.github/workflows/deploy-pages.yml`、`vite.config.ts`、`playwright.production.config.ts`、`e2e-production/pages.spec.ts`、package.jsonの実行コマンド、README、本LOG。`src`、index.html、既存開発E2E、既存Playwright設定、lockfileは変更しない。新しい依存は追加しない。
+
+### 実装と設計判断
+
+- Viteのビルドとpreviewで `base: /Math-Art-Lab/`、開発時は従来の `/` を使用する。既存のソースモジュールを直接読み込む開発E2Eを維持しつつ、本番アセットをプロジェクトサイト配下へ向けるため採用した。
+- baseをすべての環境で固定する案も検討したが、開発テストの `/src/` 参照と表示先を変更する必要があるため採用しなかった。index.htmlの `/src/main.ts` はViteがビルド時に書き換えることを成果物で確認し、ソースの修正は不要と判断した。
+- 公式の[Viteプロジェクトサイト設定](https://vite.dev/guide/static-deploy.html#github-pages)と[GitHub Pagesカスタムワークフロー](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)を確認した。
+- GitHub Pagesワークフローはmain向けpull_requestで検証のみ、mainへのpushとmainでのworkflow_dispatchで検証後に公開する。main以外の手動実行は両ジョブをスキップする。pull_request_targetは使用しない。
+- 検証順序はcheckout → Node.js 24 → npm ci → 単体 → 型検査 → build → Playwrightのブラウザ・OS依存導入 → 開発E2E → 本番スモークテスト。Vite 7のNode要件を満たす24を採用し、ローカルも24.20.0で検証した。
+- デプロイは `needs: validate` とmain・イベント条件で制御し、configure-pages → upload-pages-artifact → deploy-pagesを実行する。検証済みdistを汎用artifact経由で取得し、再ビルドしない。検証ジョブ内でPages公開まで行う案は権限分離が弱くなるため不採用とした。
+- 全体の権限をcontents: readとし、pages: write / id-token: writeはdeployジョブだけに付与する。checkoutに認証情報を保持しない。PRでは公開用artifactの保存も行わない。
+- github-pages environmentと同名のconcurrency groupで同時公開を防ぎ、進行中のデプロイはキャンセルしない。artifactの保存期間は1日。承認待ち等で期限を過ぎた場合はmainで検証から再実行する。
+- 公式の最新安定リリースと参照先SHAをGitHub APIで確認し、checkout v7.0.1、setup-node v7.1.0、configure-pages v6.0.0、upload-pages-artifact v5.0.0、deploy-pages v5.0.1、upload-artifact v7.0.2、download-artifact v8.0.2をコミットSHAで固定した。タグの追従だけに任せず実行内容を固定する判断。
+- 本番用Playwright設定は既存のChromium / WebKitプロジェクトを再利用し、port4174の専用previewのみ起動する。既存E2Eのソース直接importを本番へ流用せず、本番ではユーザー操作と配信リソースから確認する。
+
+### 発見した問題と修正
+
+- 初回の通常サンドボックス実行では、esbuildがVite設定を読み込む際に親ディレクトリアクセスを拒否され、単体・buildの起動が失敗した。失敗を成功扱いせず、許可された制限外環境でnpm ciから再実行して解消した。型検査自体は初回も成功した。
+- PlaywrightのdefineConfigに複数設定を渡すとwebServerが置換ではなく連結されることをインストール済み実装で確認した。最初の本番実行は開発・preview両方を起動したため、設定を1個のオブジェクトとして上書きする方式へ修正し、previewだけで6件を再実行した。
+- npm ciで既存依存の脆弱性集計（moderate 1 / critical 2）が表示された。今回の依存追加・更新によるものではなく、lockfileは維持した。依存更新は別途影響を確認して扱う。
+
+### ローカル検証結果
+
+- `npm.cmd ci`: 成功。lockfile差分なし。
+- `npm.cmd test`: 2ファイル・9件成功。
+- `npm.cmd run typecheck`: 成功。
+- `npm.cmd run build`: 成功。dist/index.htmlのJS / CSSが `/Math-Art-Lab/assets/` を参照することを確認。
+- `npm.cmd run test:e2e`: Chromium 6件 / WebKit 6件、全12件成功。従来どおり開発サーバーの `/` とソース直接importで動作した。
+- `npm.cmd run test:e2e:production`: Chromium 3件 / WebKit 3件、全6件成功。最終のpreview単独構成で17.9秒、終了コード0。
+- 本番テストでは `/Math-Art-Lab/` のHTTP 200、JS / CSSのパスとロード、コンソール例外・通信失敗・HTTPエラーなし、1280px / 375px / 390pxの表示を確認。キャンバス画像比較で描画とアニメーション、停止・再開、タブ切替中の描画不変性、振幅変更と数式同期、リセット、回転・ズームを確認した。両エンジンの本番画像も目視した。
+- `git diff --check`: 成功。srcとlockfileの差分なし。
+- この記録時点ではPRを作成する前のため、GitHub上のUbuntu CIは未実行。PR作成後の結果を追記する。
+
+### GitHub側の手動操作・未検証事項・今後の課題
+
+- 読取APIでPagesのbuild_typeがworkflow、公開予定URLが `https://tetsujisugimori-coder.github.io/Math-Art-Lab/`、github-pages environmentの許可ブランチがmainであることを確認した。設定の書込変更は行っていない。
+- 管理者はSettings > Pages > SourceがGitHub Actions、Actionsが使用する公式actionを許可し、environmentがmain限定であることを確認する。今回確認した設定を維持していればSourceの再設定は不要。承認が必要な設定に変えた場合は公開時に手動承認する。
+- mainにマージ後、GitHub PagesワークフローのValidate / Deploy成功と公開URLでの実動作を受入確認する。Actions > GitHub Pages > Run workflowでmainを選んで再実行できる。
+- 本PR段階のPagesデプロイ、artifactのジョブ間転送、OIDC公開、実際の公開URLでの動作は未検証。PRの検証成功と本番公開成功を区別する。公開・手動実行の分岐条件はコードレビューで確認し、PRで公開されないことはCIのジョブ結果でも確認する予定。
+- 実機端末・Safari製品版・スクリーンリーダーの確認は引き続き未実施。今回の基盤以外の作品・デザイン・保存・認証・外部アプリ連携は対象外とした。
+
+### 2026-10-22 06:25 JST — PR #4のUbuntu CI確認
+
+- PR: https://github.com/tetsujisugimori-coder/Math-Art-Lab/pull/4
+- 実装コミット: `8aed076538cb52023bc1e3615480322272cd138f`。
+- [GitHub Actions run 39678412207](https://github.com/tetsujisugimori-coder/Math-Art-Lab/actions/runs/39678412207) はpull_requestイベントで成功した。Ubuntu上のcheckout、Node設定、npm ci、単体、型検査、build、Playwright導入、開発E2E、本番スモークの全ステップ成功を確認した。
+- CIのNodeは24.22.0。開発E2Eは12件（19.8秒）、本番スモークは6件（12.9秒）成功したことをrunログでも確認した。
+- PRでは `Save validated build` ステップと `Deploy to GitHub Pages` ジョブがskippedであり、本番公開しないことを実際のCI結果から確認した。
+- 上記の「PR作成前のためCI未実行」という状態を更新する。本PRの実装とPR検証は成功しているが、mainへのマージ・本番デプロイは未実施。本番URLとmain / workflow_dispatchの公開経路はマージ後の受入対象のままである。

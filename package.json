@@ -8,7 +8,9 @@
     "build": "tsc && vite build",
     "test": "vitest run src",
     "typecheck": "tsc --noEmit",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "preview": "vite preview",
+    "test:e2e:production": "playwright test --config playwright.production.config.ts"
   },
   "dependencies": {
     "three": "^0.180.0"

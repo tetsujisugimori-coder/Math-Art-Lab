@@ -9,7 +9,7 @@
 ### 実行
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
@@ -24,6 +24,46 @@ npm run test:e2e
 ```
 
 GUIテストはPlaywrightでChromium・WebKitを実行する。Windows / PowerShellで実行ポリシーにより `npm` / `npx` が使えない場合は、`npm.cmd` / `npx.cmd` を使用する。単体テストの対象は `src` 以下とし、GUIテストは別コマンドで実行する。
+
+### GitHub Pagesと自動デプロイ
+
+公開予定URL: https://tetsujisugimori-coder.github.io/Math-Art-Lab/
+
+Node.js 24をCIとローカル検証に使用する。`npm ci` でlockfileに対応する依存をインストールする。開発サーバーは `http://localhost:5173/`。公開用ビルドと同じ成果物をローカル確認する場合は、次の順で実行する。
+
+```bash
+npm run build
+npm run preview -- --host 127.0.0.1 --port 4174
+```
+
+previewの表示先は `http://127.0.0.1:4174/Math-Art-Lab/`。previewを終了してから `npm run test:e2e:production` を実行すると、同じ `dist` を使ってChromium・WebKitの本番スモークテストが動く。テストは専用previewを起動するため、ポート4174を空けておく。単体・開発GUIテストに加え、1280px / 375px / 390pxでアセット読み込み、描画・アニメーション・停止再開・パラメータ・リセット・回転・ズーム・数式同期・通信失敗を確認する。本番テストはビルドを自動実行しないので、変更後は必ず先に `npm run build` を実行する。
+
+`vite.config.ts` はビルドとpreviewの `base` を `/Math-Art-Lab/` とし、開発時だけ `/` を使う。[Viteのプロジェクトサイト用設定](https://vite.dev/guide/static-deploy.html#github-pages)に対応する。本番のJavaScript・CSSは `/Math-Art-Lab/assets/` から読む。`index.html` のソース参照 `/src/main.ts` はViteのビルド対象なので、そのまま保持する。今後ルート絶対パスで画像・データを参照すると公開先で404になり得るため、Viteでのimportや `import.meta.env.BASE_URL` を使う。リポジトリ名・公開先を変える場合はbaseと本番テストのURLも更新する。
+
+初回公開前に、リポジトリ管理者が以下を確認する。
+
+1. **Settings > Pages > Build and deployment > Source** で **GitHub Actions** を選択する。別のスターターワークフローを追加する必要はない。
+2. **Settings > Actions > General** で、このリポジトリのActionsと使用する公式 `actions/*` が実行可能になっていることを確認する。
+3. **Settings > Environments > github-pages** の公開可能ブランチをmainに限定する。承認ルールがある場合はデプロイ時に承認する。
+
+これらのリポジトリ設定はワークフローから自動変更しない。実装時の読取確認ではPagesは既にGitHub Actions方式、github-pages environmentはmain限定だった。設定を維持している場合、Sourceの再設定は不要。
+
+`.github/workflows/deploy-pages.yml` は以下の動作を行う。
+
+| イベント | 検証 | 公開 |
+| --- | --- | --- |
+| main向けPR | npm ci → 単体 → 型検査 → ビルド → Chromium / WebKitの開発GUI・本番スモークテスト | 実行しない |
+| mainへのpush（PRマージを含む） | 同じ検証 | 検証成功後に実行 |
+| Actionsから手動実行、ブランチmain | 同じ検証 | 検証成功後に実行 |
+| 手動実行、main以外 | ジョブを実行しない | 実行しない |
+
+検証ジョブの権限は `contents: read`。`pages: write` と `id-token: write` はデプロイジョブだけに付与する。検証済み `dist` をartifact経由で渡し、再ビルドせず `configure-pages` → `upload-pages-artifact` → `deploy-pages` で公開する。デプロイは同時に1件とし、実行中の公開は途中キャンセルしない。公式Actionsは確認した安定版のコミットSHAで固定する。[GitHub公式のカスタムPagesワークフロー](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)を参照。
+
+手動で再デプロイする場合は、**Actions > GitHub Pages > Run workflow** でブランチ **main** を選ぶ。ワークフローがmainに取り込まれるまでは手動実行のボタンが表示されない場合がある。
+
+公開に失敗した場合はActionsの該当runを開き、最初に失敗したステップを確認する。検証失敗時は公開されない。デプロイ失敗時はSource、environmentのブランチ制限・承認待ち、Pages / OIDC権限、artifactの有無を確認する。公開URLでアセットが404になる場合は `base` と `dist/index.html` の `/Math-Art-Lab/assets/` を確認する。
+
+PRのCI成功は本番公開の成功を意味しない。マージ後にmainのrunで **Validate** と **Deploy to GitHub Pages** が成功したことを確認し、公開予定URLでデスクトップ・モバイルの描画、パラメータ変更と数式同期、リセット、停止再開、回転・ズーム、開発者ツールのエラー・404を受入確認する。
 
 ### 数理構造インスペクター
 
