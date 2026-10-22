@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 
 test('現在値・全スライダー・キーボードタブ・リセットが同期する',async({page})=>{
   const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
-  await page.goto('/');
+  await page.goto('/');await page.locator('#experiment').selectOption('fractal');
   await expect(page.locator('canvas')).toBeVisible();
   await page.screenshot({path:`test-results/${test.info().project.name}-desktop-parameters.png`});
   await page.getByRole('tab',{name:'パラメータ',exact:true}).focus();
@@ -46,7 +46,7 @@ test('現在値・全スライダー・キーボードタブ・リセットが�
 });
 
 test('数式はテキストを安全に扱い、アニメーション中に再生成されない',async({page})=>{
-  await page.goto('/');
+  await page.goto('/');await page.locator('#experiment').selectOption('fractal');
   const result=await page.evaluate(async()=>{
     // @ts-expect-error Vite serves the source module in this browser-only test.
     const {renderMath,createInspector}=await import('/src/inspector.ts');
@@ -72,7 +72,7 @@ test('数式はテキストを安全に扱い、アニメーション中に再�
 });
 
 test('タブ変更後も描画・停止再開・回転・ズームを維持する',async({page})=>{
-  await page.goto('/');
+  await page.goto('/');await page.locator('#experiment').selectOption('fractal');
   const canvas=page.locator('canvas');
   await expect.poll(async()=> (await canvas.screenshot()).length).toBeGreaterThan(2000);
   await page.getByRole('button',{name:'一時停止'}).click();
@@ -93,7 +93,7 @@ test('タブ変更後も描画・停止再開・回転・ズームを維持す�
 
 for(const width of [390,375])test(`${width}px・文字拡大・タッチ操作・数式の横スクロール`,async({browser})=>{
   const context=await browser.newContext({viewport:{width,height:844},hasTouch:true});
-  const page=await context.newPage();await page.goto('/');
+  const page=await context.newPage();await page.goto('/');await page.locator('#experiment').selectOption('fractal');
   await page.getByRole('tab',{name:'数式・構造'}).tap();
   await expect(page.locator('#panel-structures')).toBeVisible();
   for(const scale of [1,2]){
@@ -132,7 +132,7 @@ for(const width of [390,375])test(`${width}px・文字拡大・タッチ操作�
 });
 
 test('横幅・表示切替・現在値に応じて必要な数式だけTab移動し、更新中もフォーカスを保つ',async({page})=>{
-  await page.goto('/');
+  await page.goto('/');await page.locator('#experiment').selectOption('fractal');
   const regions=page.locator('.math-scroll');
   // Initial panel is hidden, so no formula is a tab stop.
   await expect.poll(()=>regions.evaluateAll(els=>els.every(el=>el.getAttribute('tabindex')==='-1'))).toBe(true);

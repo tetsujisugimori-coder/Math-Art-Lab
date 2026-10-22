@@ -43,7 +43,7 @@ export function renderMath(expression: MathNode, params?: Params): Element {
   return el;
 }
 
-export function createInspector(root: HTMLElement, initial: Params, onVisual?: (id: VisualId) => void): (params: Params) => void {
+export function createInspector(root: HTMLElement, initial: Params, onVisual?: (id: VisualId) => void): ((params: Params) => void) & {dispose:()=>void} {
   const bindings: {root: HTMLElement; expression: MathNode}[] = [];
   const values: {output: HTMLOutputElement; key: keyof Params}[] = [];
   const scrollRegions: HTMLElement[] = [];
@@ -128,5 +128,5 @@ export function createInspector(root: HTMLElement, initial: Params, onVisual?: (
     updateTabStops();
   }
   sync(initial);
-  return sync;
+  return Object.assign(sync,{dispose:()=>resizeObserver.disconnect()});
 }
