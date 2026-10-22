@@ -1,3 +1,5 @@
+import { createVisualOverlay } from './visual-overlay';
+import type { VisualId } from './visual-model';
 import * as THREE from 'three';
 import{defaults,generateTree,sampleTree,type Params}from'./fractal';
 import { createInspector } from './inspector';
@@ -8,7 +10,7 @@ app.innerHTML=`
 <main>
  <header><small>MATH ART LAB / EXPERIMENT 001</small><h1>Fractal × Wave</h1><p>枝分かれする構造を、根から枝先へ伝わる波で変形する。</p></header>
  <section class="workspace">
-  <div id="stage"></div>
+  <div class="stage-column"><div id="stage" tabindex="0" role="region" aria-label="作品と数式の補助図。ドラッグで回転"></div><div class="view-actions"><button id="rotate">奥行きを回転</button><button id="zoom-in">拡大</button><button id="zoom-out">縮小</button></div></div>
   <aside aria-label="作品の設定と数理構造">
    <div role="tablist" aria-label="表示内容">
     <button id="tab-parameters" role="tab" aria-selected="true" aria-controls="panel-parameters">パラメータ</button>
@@ -30,10 +32,25 @@ const camera=new THREE.PerspectiveCamera(45,1,.1,100);camera.position.z=9;
 const geometry=new THREE.BufferGeometry();
 const tree=new THREE.LineSegments(geometry,new THREE.LineBasicMaterial({color:0x7dd3fc}));
 scene.add(tree);
-let params:Params={...defaults},branches=generateTree(params),time=0,playing=true,previous=0;
-const syncInspector = createInspector(document.querySelector<HTMLElement>('#inspector')!,params);
+let params:Params={...defaults},branches=generateTree(params),time=0,playing=!matchMedia('(prefers-reduced-motion: reduce)').matches,previous=0;
+let selectedVisual:VisualId|null=null;
+const updateOverlay=createVisualOverlay(tree,stage,()=>selectVisual(null));
+function selectVisual(id:VisualId|null){
+ selectedVisual=selectedVisual===id?null:id;
+ document.querySelectorAll<HTMLElement>('[data-formula]').forEach(card=>{
+  const active=card.dataset.formula===selectedVisual;card.classList.toggle('is-selected',active);
+  const button=card.querySelector<HTMLButtonElement>('.visual-toggle')!;
+  button.setAttribute('aria-pressed',String(active));button.textContent=active?'解説を解除':'図で見る';
+  button.setAttribute('aria-label',`${card.querySelector('h4')!.textContent}：${button.textContent}`);
+  card.querySelector<HTMLButtonElement>('.visual-jump')!.hidden=!active;
+ });
+ updateOverlay(selectedVisual,branches,params,time);
+}
+const syncInspector = createInspector(document.querySelector<HTMLElement>('#inspector')!,params,id=>selectVisual(id));
+window.addEventListener('keydown',e=>{if(e.key==='Escape'&&selectedVisual)selectVisual(null);});
 const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
 function selectTab(index: number) {
+ if(index===0&&selectedVisual)selectVisual(null);
  tabs.forEach((tab,i)=>{tab.setAttribute('aria-selected',String(i===index));tab.tabIndex=i===index?0:-1;document.getElementById(tab.getAttribute('aria-controls')!)!.hidden=i!==index;});
 }
 tabs.forEach((tab,i)=>{
@@ -47,7 +64,7 @@ tabs.forEach((tab,i)=>{
   e.preventDefault();selectTab(next);tabs[next].focus();
  });
 });
-function update(){geometry.setAttribute('position',new THREE.BufferAttribute(sampleTree(branches,time,params),3));geometry.computeBoundingSphere();}
+function update(){geometry.setAttribute('position',new THREE.BufferAttribute(sampleTree(branches,time,params),3));geometry.computeBoundingSphere();if(selectedVisual)updateOverlay(selectedVisual,branches,params,time);}
 function sliders(){const root=document.querySelector<HTMLDivElement>('#sliders')!;root.replaceChildren();
 for(const field of parameterFields){const label=document.createElement('label'),value=document.createElement('output'),slider=document.createElement('input');
 slider.id=`param-${field.key}`;label.htmlFor=slider.id;value.htmlFor=slider.id;value.className='current-value';slider.setAttribute('aria-valuetext',`${params[field.key]} ${field.unit}`);
@@ -55,8 +72,14 @@ value.textContent=String(params[field.key]);slider.type='range';slider.min=Strin
 slider.addEventListener('input',()=>{params[field.key]=Number(slider.value);value.textContent=slider.value;slider.setAttribute('aria-valuetext',`${slider.value} ${field.unit}`);if(['depth','angle','shrink'].includes(field.key))branches=generateTree(params);syncInspector(params);update();});
 label.append(`${field.symbol} · ${field.label} (${field.unit})`,value,slider);root.append(label);}}
 sliders();update();
+const pauseButton=document.querySelector<HTMLButtonElement>('#pause')!;
+pauseButton.textContent=playing?'一時停止':'再開';pauseButton.setAttribute('aria-pressed',String(!playing));
+matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',e=>{if(e.matches){playing=false;pauseButton.textContent='再開';pauseButton.setAttribute('aria-pressed','true');}});
 document.querySelector<HTMLButtonElement>('#pause')!.onclick=(e)=>{playing=!playing;(e.currentTarget as HTMLButtonElement).textContent=playing?'一時停止':'再開';(e.currentTarget as HTMLButtonElement).setAttribute('aria-pressed',String(!playing));};
-document.querySelector<HTMLButtonElement>('#reset')!.onclick=()=>{params={...defaults};branches=generateTree(params);time=0;sliders();syncInspector(params);update();};
+document.querySelector<HTMLButtonElement>('#reset')!.onclick=()=>{selectVisual(null);params={...defaults};branches=generateTree(params);time=0;sliders();syncInspector(params);update();};
+document.querySelector<HTMLButtonElement>('#rotate')!.onclick=()=>{tree.rotation.y+=Math.PI/6;};
+document.querySelector<HTMLButtonElement>('#zoom-in')!.onclick=()=>{camera.position.z=THREE.MathUtils.clamp(camera.position.z-1,4,20);};
+document.querySelector<HTMLButtonElement>('#zoom-out')!.onclick=()=>{camera.position.z=THREE.MathUtils.clamp(camera.position.z+1,4,20);};
 let dragging=false,lastX=0,lastY=0;
 renderer.domElement.onpointerdown=e=>{dragging=true;lastX=e.clientX;lastY=e.clientY;renderer.domElement.setPointerCapture(e.pointerId);};
 renderer.domElement.onpointerup=()=>{dragging=false;};

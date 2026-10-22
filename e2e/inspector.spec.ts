@@ -148,6 +148,10 @@ test('横幅・表示切替・現在値に応じて必要な数式だけTab移�
   await expect(beforeShort).toHaveAttribute('tabindex','0');
   await expect(afterShort).toHaveAttribute('tabindex','0');
   await beforeShort.focus();await page.keyboard.press('Tab');
+  await expect(page.locator('[data-formula=deform-x] .visual-toggle')).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(page.locator('[data-formula=deform-y] .visual-toggle')).toBeFocused();
+  await page.keyboard.press('Tab');
   await expect(afterShort).toBeFocused();
   await beforeShort.evaluate(el=>el.style.maxWidth='');
   await afterShort.evaluate(el=>el.style.maxWidth='');
