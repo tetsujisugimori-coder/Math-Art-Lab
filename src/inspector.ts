@@ -1,3 +1,4 @@
+import { visualDefinitions, type VisualId } from './visual-model';
 import type { Params } from './fractal';
 import { parameterFields, structures, type MathNode } from './structures';
 
@@ -42,7 +43,7 @@ export function renderMath(expression: MathNode, params?: Params): Element {
   return el;
 }
 
-export function createInspector(root: HTMLElement, initial: Params): (params: Params) => void {
+export function createInspector(root: HTMLElement, initial: Params, onVisual?: (id: VisualId) => void): (params: Params) => void {
   const bindings: {root: HTMLElement; expression: MathNode}[] = [];
   const values: {output: HTMLOutputElement; key: keyof Params}[] = [];
   const scrollRegions: HTMLElement[] = [];
@@ -97,6 +98,16 @@ export function createInspector(root: HTMLElement, initial: Params): (params: Pa
         block.append(scroll);
       }
       block.append(element('p',formula.explanation));
+      if (onVisual && formula.id in visualDefinitions) {
+        const button = element('button','図で見る');
+        button.className='visual-toggle';
+        button.setAttribute('aria-pressed','false');
+        button.setAttribute('aria-label',`${formula.name}：図で見る`);
+        button.onclick=()=>onVisual(formula.id as VisualId);
+        const jump=element('button','図形を確認');jump.className='visual-jump';jump.hidden=true;
+        jump.onclick=()=>{const stage=document.getElementById('stage')!;stage.scrollIntoView({block:'start',behavior:'instant'});stage.focus({preventScroll:true});};
+        block.append(button,jump);
+      }
       article.append(block);
     }
     const details = element('details');

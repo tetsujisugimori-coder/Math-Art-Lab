@@ -1,0 +1,88 @@
+﻿import {test,expect} from '@playwright/test';
+const groups={length:0,heading:0,count:0,'endpoint-x':0,'endpoint-y':0,phase:1,envelope:1,'deform-x':1,'deform-y':1,'deform-z':1,distance:2};
+for(const width of [1280,390,375])test(`Escape restores panel focus without moving outside focus ${width}px`,async({page})=>{
+ await page.setViewportSize({width,height:900});
+ await page.emulateMedia({reducedMotion:'reduce'});
+ await page.goto('/');await page.locator('#tab-structures').click();
+ const length=page.locator('[data-formula=length] .visual-toggle');
+ const count=page.locator('[data-formula=count] .visual-toggle');
+ const panel=page.locator('.visual-caption');
+ const clear=panel.getByRole('button',{name:'解説を解除',exact:true});
+ const scroll=()=>page.evaluate(()=>({page:scrollY,aside:document.querySelector('aside')!.scrollTop}));
+ await length.focus();await page.keyboard.press('Enter');
+ await clear.focus();await page.keyboard.press('Shift+Tab');
+ await expect(panel.getByRole('button',{name:'次の世代'})).toBeFocused();
+ // Keep a valid page offset after the panel shrinks; still check the sidebar's scroll too.
+ await page.evaluate(()=>window.scrollTo(0,0));
+ const beforeEscape=await scroll();await page.keyboard.press('Escape');
+ await expect(panel).toBeHidden();await expect(length).toBeFocused();
+ await expect(length).toHaveAttribute('aria-pressed','false');
+ await expect(page.locator('#stage')).toHaveAttribute('data-visual','');
+ expect(await scroll()).toEqual(beforeEscape);
+ // Keyboard operation continues from the restored card, including same-card dismissal.
+ await page.keyboard.press('Space');await expect(length).toHaveAttribute('aria-pressed','true');
+ await page.keyboard.press('Enter');await expect(panel).toBeHidden();await expect(length).toBeFocused();
+ await length.click();await count.click();
+ await expect(length).toHaveAttribute('aria-pressed','false');await expect(count).toHaveAttribute('aria-pressed','true');
+ // The normal clear button shares restoration and does not scroll back to the card.
+ await clear.focus();await page.evaluate(()=>window.scrollTo(0,0));
+ const beforeClear=await scroll();await page.keyboard.press('Enter');
+ await expect(panel).toBeHidden();await expect(count).toBeFocused();expect(await scroll()).toEqual(beforeClear);
+ await length.click();await page.locator('#pause').focus();await page.keyboard.press('Escape');
+ await expect(panel).toBeHidden();await expect(page.locator('#pause')).toBeFocused();
+ await length.click();await page.locator('#reset').focus();await page.keyboard.press('Enter');
+ await expect(panel).toBeHidden();await expect(page.locator('#reset')).toBeFocused();
+ await length.click();await page.locator('#tab-parameters').focus();await page.keyboard.press('Enter');
+ await expect(panel).toBeHidden();await expect(page.locator('#tab-parameters')).toBeFocused();
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
+
+test('Escape safely clears when the original toggle is missing or disabled',async({page})=>{
+ await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');await page.locator('#tab-structures').click();
+ const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
+ const length=page.locator('[data-formula=length] .visual-toggle');
+ for(const unavailable of ['missing','disabled']){
+  await length.click();await page.locator('.visual-caption').getByRole('button',{name:'次の世代'}).focus();
+  // A detached card is no longer a restoration target; the remaining inspector still syncs.
+  if(unavailable==='missing')await page.locator('[data-formula=length]').evaluate(card=>card.remove());
+  else await length.evaluate(button=>(button as HTMLButtonElement).disabled=true);
+  await page.keyboard.press('Escape');await expect(page.locator('.visual-caption')).toBeHidden();
+  await expect(page.locator('#stage')).toHaveAttribute('data-visual','');
+  await page.reload();await page.locator('#tab-structures').click();
+ }
+ expect(errors).toEqual([]);
+});
+
+for(const width of [1280,390,375])test(`all eleven explanations ${width}px`,async({page})=>{
+ await page.setViewportSize({width,height:900});const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('/');
+ await page.locator('#pause').click();await page.locator('#tab-structures').click();
+ const canvas=page.locator('canvas');const baseline=await canvas.screenshot();
+ for(const id of Object.keys(groups)){
+  const card=page.locator(`[data-formula="${id}"]`),button=card.locator('.visual-toggle');await button.click();
+  await expect(button).toHaveAttribute('aria-pressed','true');await expect(page.locator('.formula.is-selected')).toHaveCount(1);await expect(page.locator('#stage')).toHaveAttribute('data-visual',id);
+  await expect(page.locator('.visual-caption')).toBeVisible();await expect(page.locator('.visual-caption p').last()).not.toBeEmpty();
+  await card.locator('.visual-jump').click();await expect(page.locator('#stage')).toBeFocused();
+  const active=await canvas.screenshot();expect(active.equals(baseline)).toBe(false);expect(await canvas.screenshot()).toEqual(active);
+  if(id==='count'){await page.getByRole('button',{name:'次の世代'}).click();await expect(page.locator('.visual-caption')).toContainText('n=1');}
+  if(['heading','deform-z','envelope'].includes(id)){await page.locator('.stage-column').screenshot({path:`test-results/${test.info().project.name}-${width}-${id}-visual.png`});}
+  await page.locator('.visual-caption').getByRole('button',{name:'解説を解除',exact:true}).click();await expect(page.locator('.visual-caption')).toBeHidden();expect(await canvas.screenshot()).toEqual(baseline);
+ }
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);expect(errors).toEqual([]);
+});
+test('keyboard, pause, reset, parameters, rotation, zoom, resize and reduced motion',async({page})=>{
+ await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');await expect(page.locator('#pause')).toHaveText('再開');await page.locator('#tab-structures').click();
+ const button=page.locator('[data-formula=phase] .visual-toggle');await button.focus();await page.keyboard.press('Enter');await expect(button).toHaveAttribute('aria-pressed','true');
+ const caption=page.locator('.visual-caption p').last();const text=await caption.textContent();await page.waitForTimeout(150);expect(await caption.textContent()).toBe(text);
+ await page.locator('#pause').click();await expect.poll(()=>caption.textContent()).not.toBe(text);await page.locator('#pause').click();
+ await page.keyboard.press('Escape');await expect(button).toHaveAttribute('aria-pressed','false');
+ await page.locator('[data-formula=deform-z] .visual-toggle').click();const canvas=page.locator('canvas');const before=await canvas.screenshot();await page.locator('#rotate').click();await expect.poll(async()=>(await canvas.screenshot()).equals(before)).toBe(false);
+ await page.locator('.stage-column').screenshot({path:`test-results/${test.info().project.name}-rotated-z-visual.png`});
+ const rotated=await canvas.screenshot();await page.locator('#zoom-in').click();await expect.poll(async()=>(await canvas.screenshot()).equals(rotated)).toBe(false);
+ await page.setViewportSize({width:375,height:844});await expect(page.locator('#stage')).toHaveAttribute('data-visual','deform-z');
+ // Direct input while inspector stays visible verifies rebuilding against fresh geometry.
+ const oldDetail=await caption.textContent();
+ await page.locator('#param-depth').evaluate(el=>{(el as HTMLInputElement).value='2';el.dispatchEvent(new Event('input'));});await expect(caption).toContainText('代表端点');expect(await caption.textContent()).not.toBe(oldDetail);
+ await page.locator('#param-amplitude').evaluate(el=>{(el as HTMLInputElement).value='0';el.dispatchEvent(new Event('input'));});await expect(caption).toContainText('Δx=0.000、Δy=0.000、Δz=0.000');
+ await page.locator('#reset').click();await expect(page.locator('.visual-caption')).toBeHidden();await expect(page.locator('#pause')).toHaveText('再開');
+ await page.locator('[data-formula=length] .visual-toggle').click();await page.locator('#tab-parameters').click();await expect(page.locator('.visual-caption')).toBeHidden();
+});
