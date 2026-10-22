@@ -1,5 +1,58 @@
 ﻿import {test,expect} from '@playwright/test';
 const groups={length:0,heading:0,count:0,'endpoint-x':0,'endpoint-y':0,phase:1,envelope:1,'deform-x':1,'deform-y':1,'deform-z':1,distance:2};
+for(const width of [1280,390,375])test(`Escape restores panel focus without moving outside focus ${width}px`,async({page})=>{
+ await page.setViewportSize({width,height:900});
+ await page.emulateMedia({reducedMotion:'reduce'});
+ await page.goto('/');await page.locator('#tab-structures').click();
+ const length=page.locator('[data-formula=length] .visual-toggle');
+ const count=page.locator('[data-formula=count] .visual-toggle');
+ const panel=page.locator('.visual-caption');
+ const clear=panel.getByRole('button',{name:'解説を解除',exact:true});
+ const scroll=()=>page.evaluate(()=>({page:scrollY,aside:document.querySelector('aside')!.scrollTop}));
+ await length.focus();await page.keyboard.press('Enter');
+ await clear.focus();await page.keyboard.press('Shift+Tab');
+ await expect(panel.getByRole('button',{name:'次の世代'})).toBeFocused();
+ // Keep a valid page offset after the panel shrinks; still check the sidebar's scroll too.
+ await page.evaluate(()=>window.scrollTo(0,0));
+ const beforeEscape=await scroll();await page.keyboard.press('Escape');
+ await expect(panel).toBeHidden();await expect(length).toBeFocused();
+ await expect(length).toHaveAttribute('aria-pressed','false');
+ await expect(page.locator('#stage')).toHaveAttribute('data-visual','');
+ expect(await scroll()).toEqual(beforeEscape);
+ // Keyboard operation continues from the restored card, including same-card dismissal.
+ await page.keyboard.press('Space');await expect(length).toHaveAttribute('aria-pressed','true');
+ await page.keyboard.press('Enter');await expect(panel).toBeHidden();await expect(length).toBeFocused();
+ await length.click();await count.click();
+ await expect(length).toHaveAttribute('aria-pressed','false');await expect(count).toHaveAttribute('aria-pressed','true');
+ // The normal clear button shares restoration and does not scroll back to the card.
+ await clear.focus();await page.evaluate(()=>window.scrollTo(0,0));
+ const beforeClear=await scroll();await page.keyboard.press('Enter');
+ await expect(panel).toBeHidden();await expect(count).toBeFocused();expect(await scroll()).toEqual(beforeClear);
+ await length.click();await page.locator('#pause').focus();await page.keyboard.press('Escape');
+ await expect(panel).toBeHidden();await expect(page.locator('#pause')).toBeFocused();
+ await length.click();await page.locator('#reset').focus();await page.keyboard.press('Enter');
+ await expect(panel).toBeHidden();await expect(page.locator('#reset')).toBeFocused();
+ await length.click();await page.locator('#tab-parameters').focus();await page.keyboard.press('Enter');
+ await expect(panel).toBeHidden();await expect(page.locator('#tab-parameters')).toBeFocused();
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
+
+test('Escape safely clears when the original toggle is missing or disabled',async({page})=>{
+ await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');await page.locator('#tab-structures').click();
+ const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
+ const length=page.locator('[data-formula=length] .visual-toggle');
+ for(const unavailable of ['missing','disabled']){
+  await length.click();await page.locator('.visual-caption').getByRole('button',{name:'次の世代'}).focus();
+  // A detached card is no longer a restoration target; the remaining inspector still syncs.
+  if(unavailable==='missing')await page.locator('[data-formula=length]').evaluate(card=>card.remove());
+  else await length.evaluate(button=>(button as HTMLButtonElement).disabled=true);
+  await page.keyboard.press('Escape');await expect(page.locator('.visual-caption')).toBeHidden();
+  await expect(page.locator('#stage')).toHaveAttribute('data-visual','');
+  await page.reload();await page.locator('#tab-structures').click();
+ }
+ expect(errors).toEqual([]);
+});
+
 for(const width of [1280,390,375])test(`all eleven explanations ${width}px`,async({page})=>{
  await page.setViewportSize({width,height:900});const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('/');
  await page.locator('#pause').click();await page.locator('#tab-structures').click();

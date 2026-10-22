@@ -10,7 +10,7 @@ export function createVisualOverlay(tree:THREE.Object3D, stage:HTMLElement, onCl
  const panel=document.createElement('div');panel.className='visual-caption';panel.hidden=true;
  const title=document.createElement('strong'),description=document.createElement('p'),detail=document.createElement('p');
  const phase=document.createElement('meter');phase.min=0;phase.max=2*Math.PI;phase.setAttribute('aria-label','代表端点の位相（0〜2π）');
- const clear=document.createElement('button');clear.textContent='解説を解除';clear.onclick=()=>{const button=document.querySelector<HTMLElement>('.formula.is-selected .visual-toggle');onClear();button?.focus();};
+ const clear=document.createElement('button');clear.textContent='解説を解除';clear.onclick=onClear;
  const back=document.createElement('button');back.textContent='選択中の数式へ';back.onclick=()=>document.querySelector<HTMLElement>('.formula.is-selected button')?.focus();
  const previous=document.createElement('button'),next=document.createElement('button');previous.textContent='前の世代';next.textContent='次の世代';
  let generation=0,selected:VisualId|null=null,infos:ReturnType<typeof describeBranches>=[],source:Branch[]|null=null;

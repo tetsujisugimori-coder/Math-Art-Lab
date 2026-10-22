@@ -34,7 +34,13 @@ const tree=new THREE.LineSegments(geometry,new THREE.LineBasicMaterial({color:0x
 scene.add(tree);
 let params:Params={...defaults},branches=generateTree(params),time=0,playing=!matchMedia('(prefers-reduced-motion: reduce)').matches,previous=0;
 let selectedVisual:VisualId|null=null;
-const updateOverlay=createVisualOverlay(tree,stage,()=>selectVisual(null));
+const updateOverlay=createVisualOverlay(tree,stage,()=>clearVisual(true));
+function clearVisual(restoreFocus:boolean){
+ // Capture before selectVisual removes the selection and hides the focused panel.
+ const button=restoreFocus?document.querySelector<HTMLButtonElement>('.formula.is-selected .visual-toggle'):null;
+ selectVisual(null);
+ if(button?.isConnected&&!button.disabled)button.focus({preventScroll:true});
+}
 function selectVisual(id:VisualId|null){
  selectedVisual=selectedVisual===id?null:id;
  document.querySelectorAll<HTMLElement>('[data-formula]').forEach(card=>{
@@ -47,7 +53,7 @@ function selectVisual(id:VisualId|null){
  updateOverlay(selectedVisual,branches,params,time);
 }
 const syncInspector = createInspector(document.querySelector<HTMLElement>('#inspector')!,params,id=>selectVisual(id));
-window.addEventListener('keydown',e=>{if(e.key==='Escape'&&selectedVisual)selectVisual(null);});
+window.addEventListener('keydown',e=>{if(e.key==='Escape'&&selectedVisual)clearVisual(!!document.activeElement?.closest('.visual-caption'));});
 const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
 function selectTab(index: number) {
  if(index===0&&selectedVisual)selectVisual(null);
