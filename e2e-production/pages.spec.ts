@@ -18,6 +18,7 @@ for (const width of [1280, 375, 390]) {
       const response = await page.goto(baseURL!);
       expect(response?.status()).toBe(200);
       expect(new URL(page.url()).pathname).toBe('/Math-Art-Lab/');
+      await page.locator('#experiment').selectOption('fractal');
       await expect(page.getByRole('heading', { name: 'Fractal × Wave' })).toBeVisible();
       const assets = await page.locator('script[src], link[rel=stylesheet]').evaluateAll(elements =>
         elements.map(el => el.getAttribute('src') || el.getAttribute('href')!));

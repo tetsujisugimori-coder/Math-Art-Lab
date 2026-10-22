@@ -3,7 +3,7 @@ const groups={length:0,heading:0,count:0,'endpoint-x':0,'endpoint-y':0,phase:1,e
 for(const width of [1280,390,375])test(`Escape restores panel focus without moving outside focus ${width}px`,async({page})=>{
  await page.setViewportSize({width,height:900});
  await page.emulateMedia({reducedMotion:'reduce'});
- await page.goto('/');await page.locator('#tab-structures').click();
+ await page.goto('/');await page.locator('#experiment').selectOption('fractal');await page.locator('#tab-structures').click();
  const length=page.locator('[data-formula=length] .visual-toggle');
  const count=page.locator('[data-formula=count] .visual-toggle');
  const panel=page.locator('.visual-caption');
@@ -38,7 +38,7 @@ for(const width of [1280,390,375])test(`Escape restores panel focus without movi
 });
 
 test('Escape safely clears when the original toggle is missing or disabled',async({page})=>{
- await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');await page.locator('#tab-structures').click();
+ await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');await page.locator('#experiment').selectOption('fractal');await page.locator('#tab-structures').click();
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
  const length=page.locator('[data-formula=length] .visual-toggle');
  for(const unavailable of ['missing','disabled']){
@@ -48,13 +48,13 @@ test('Escape safely clears when the original toggle is missing or disabled',asyn
   else await length.evaluate(button=>(button as HTMLButtonElement).disabled=true);
   await page.keyboard.press('Escape');await expect(page.locator('.visual-caption')).toBeHidden();
   await expect(page.locator('#stage')).toHaveAttribute('data-visual','');
-  await page.reload();await page.locator('#tab-structures').click();
+  await page.reload();await page.locator('#experiment').selectOption('fractal');await page.locator('#tab-structures').click();
  }
  expect(errors).toEqual([]);
 });
 
 for(const width of [1280,390,375])test(`all eleven explanations ${width}px`,async({page})=>{
- await page.setViewportSize({width,height:900});const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('/');
+ await page.setViewportSize({width,height:900});const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('/');await page.locator('#experiment').selectOption('fractal');
  await page.locator('#pause').click();await page.locator('#tab-structures').click();
  const canvas=page.locator('canvas');const baseline=await canvas.screenshot();
  for(const id of Object.keys(groups)){
@@ -70,7 +70,7 @@ for(const width of [1280,390,375])test(`all eleven explanations ${width}px`,asyn
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);expect(errors).toEqual([]);
 });
 test('keyboard, pause, reset, parameters, rotation, zoom, resize and reduced motion',async({page})=>{
- await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');await expect(page.locator('#pause')).toHaveText('再開');await page.locator('#tab-structures').click();
+ await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');await page.locator('#experiment').selectOption('fractal');await expect(page.locator('#pause')).toHaveText('再開');await page.locator('#tab-structures').click();
  const button=page.locator('[data-formula=phase] .visual-toggle');await button.focus();await page.keyboard.press('Enter');await expect(button).toHaveAttribute('aria-pressed','true');
  const caption=page.locator('.visual-caption p').last();const text=await caption.textContent();await page.waitForTimeout(150);expect(await caption.textContent()).toBe(text);
  await page.locator('#pause').click();await expect.poll(()=>caption.textContent()).not.toBe(text);await page.locator('#pause').click();
