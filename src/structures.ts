@@ -1,7 +1,7 @@
 import type { Params } from './fractal';
 
 // A small presentation tree, not a formula parser or a second calculation engine.
-type MathTag = 'mi' | 'mn' | 'mo' | 'mrow' | 'msub' | 'msup' | 'mfrac';
+type MathTag = 'mi' | 'mn' | 'mo' | 'mrow' | 'msub' | 'msup' | 'mfrac' | 'msqrt';
 export type MathNode = string | { tag: MathTag; children: MathNode[] } | { param: keyof Params } | { fixed: number; symbol: MathNode };
 const node = (tag: MathTag, ...children: MathNode[]): MathNode => ({ tag, children });
 const id = (s: string) => node('mi', s);

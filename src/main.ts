@@ -1,10 +1,12 @@
 import {mountFractal} from './fractal-view';
 import {mountHarmonograph} from './harmonograph-view';
+import {mountGarden} from './garden-view';
 import './style.css';
 const app=document.querySelector<HTMLElement>('#app')!;
-app.innerHTML='<nav class="experiment-picker" aria-label="作品の選択"><label for="experiment">作品<select id="experiment"><option value="harmonograph">002 · 光のハーモノグラフ</option><option value="fractal">001 · Fractal × Wave</option></select></label></nav><div id="experiment-root"></div>';
+app.innerHTML='<nav class="experiment-picker" aria-label="作品の選択"><label for="experiment">作品<select id="experiment"><option value="harmonograph">002 · 光のハーモノグラフ</option><option value="fractal">001 · Fractal × Wave</option><option value="garden">003 · 光の花園</option></select></label></nav><div id="experiment-root"></div>';
 const host=app.querySelector<HTMLElement>('#experiment-root')!;
 const select=app.querySelector<HTMLSelectElement>('#experiment')!;
 let dispose=mountHarmonograph(host);
-select.onchange=()=>{dispose();dispose=select.value==='fractal'?mountFractal(host):mountHarmonograph(host);};
+const mounts={fractal:mountFractal,harmonograph:mountHarmonograph,garden:mountGarden};
+select.onchange=()=>{dispose();dispose=(mounts[select.value as keyof typeof mounts]??mountHarmonograph)(host);};
 window.addEventListener('pagehide',event=>{if(!event.persisted)dispose();});
