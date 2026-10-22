@@ -1,5 +1,68 @@
 import {test,expect} from '@playwright/test';
 import {GOLDEN_ANGLE,GARDEN_SPACING,gardenPoint} from '../src/garden';
+
+test('lesson stage four retains playing progress across the small lesson',async({page})=>{
+ test.setTimeout(60000);
+ await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');await page.locator('#experiment').selectOption('garden');
+ const stage=page.locator('#garden-stage');
+ await page.locator('#garden-lesson').click();await page.locator('[data-garden-step="4"]').click();
+ await page.locator('#garden-rate').fill('1');await page.locator('#garden-restart').click();
+ for(let n=0;n<100;n++)await page.locator('#garden-next').click();
+ await expect(stage).toHaveAttribute('data-count','100');await page.locator('#garden-play').click();
+ await page.locator('[data-garden-step="1"]').click();await page.waitForTimeout(1100);
+ await page.locator('[data-garden-step="4"]').click();
+ await expect(stage).toHaveAttribute('data-mode','drawing');
+ expect(Number(await stage.getAttribute('data-count'))).toBeLessThan(103);
+ await expect.poll(()=>stage.getAttribute('data-count').then(Number)).toBeGreaterThan(100);
+});
+
+for(const width of [1280,390,375])test(`lesson saved progress, completion and controls ${width}px`,async({page})=>{
+ await page.setViewportSize({width,height:1000});await page.emulateMedia({reducedMotion:'reduce'});
+ await page.goto('/');await page.locator('#experiment').selectOption('garden');const stage=page.locator('#garden-stage');
+ const step=(n:number)=>page.locator(`[data-garden-step="${n}"]`),next=page.locator('#garden-next'),play=page.locator('#garden-play');
+ await page.locator('#garden-total').fill('200');await page.locator('#garden-rate').fill('80');await page.locator('#garden-angle-number').fill('137.3');
+ await page.locator('#garden-restart').click();for(let i=0;i<3;i++)await next.click();
+ await expect(page.locator('#garden-math')).toHaveJSProperty('open',false);
+ await page.locator('#garden-lesson').click();await step(4).click();await next.click();
+ await expect(stage).toHaveAttribute('data-count','7');
+ for(const n of [1,2,3,4,2,4])await step(n).click();
+ await expect(stage).toHaveAttribute('data-count','7');await expect(stage).toHaveAttribute('data-mode','paused');
+ await page.locator('#garden-complete').click();
+ for(const n of [1,2,3,4])await step(n).click();
+ await expect(stage).toHaveAttribute('data-count','200');await expect(stage).toHaveAttribute('data-mode','complete');await expect(stage).toHaveAttribute('data-completion','explicit');
+ // Small steps share progress, but neither limit arrival nor their complete button changes step four.
+ await step(1).click();await expect(stage).toHaveAttribute('data-count','6');
+ await next.focus();await page.keyboard.press('Enter');await expect(stage).toHaveAttribute('data-count','7');
+ await play.click();await expect(stage).toHaveAttribute('data-mode','drawing');await play.click();await expect(stage).toHaveAttribute('data-mode','paused');
+ await page.locator('#garden-restart').click();await expect(stage).toHaveAttribute('data-count','0');
+ for(let i=0;i<12;i++)await next.click();
+ await expect(stage).toHaveAttribute('data-count','12');await expect(stage).toHaveAttribute('data-completion','limit');
+ await step(2).click();await step(3).click();await expect(stage).toHaveAttribute('data-count','12');
+ await page.locator('#garden-complete').click();await expect(stage).toHaveAttribute('data-completion','explicit');
+ await page.locator('#garden-restart').click();await expect(stage).toHaveAttribute('data-count','0');await expect(play).toBeEnabled();
+ await next.click();await expect(stage).toHaveAttribute('data-count','1');await expect(next).toBeEnabled();
+ await page.locator('#garden-angle-number').fill('90');await step(4).click();
+ await expect(stage).toHaveAttribute('data-count','200');await expect(stage).toHaveAttribute('data-angle','90');
+ await page.locator('#garden-total').fill('6');await expect(stage).toHaveAttribute('data-count','6');await step(1).click();await expect(stage).toHaveAttribute('data-count','1');
+ await step(4).click();await page.locator('#garden-total').fill('1200');await expect(stage).toHaveAttribute('data-count','1200');
+ await page.locator('#garden-lesson').click();
+ await expect(stage).toHaveAttribute('data-count','3');await expect(stage).toHaveAttribute('data-mode','paused');await expect(stage).toHaveAttribute('data-angle','137.3');
+ await expect(page.locator('#garden-total')).toHaveValue('200');await expect(page.locator('#garden-rate')).toHaveValue('80');await expect(page.locator('#garden-math')).toHaveJSProperty('open',false);
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
+
+test('lesson boundaries and reduced motion preserve saved playback',async({page})=>{
+ await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');await page.locator('#experiment').selectOption('garden');const stage=page.locator('#garden-stage');
+ for(const total of [1,6,12,1200]){
+  await page.locator('#garden-total').fill(String(total));await page.locator('#garden-lesson').click();
+  for(const n of [4,1,2,3,4])await page.locator(`[data-garden-step="${n}"]`).click();
+  await expect(stage).toHaveAttribute('data-count',String(Math.min(6,total)));await expect(stage).toHaveAttribute('data-mode',total<=6?'complete':'paused');
+  await page.locator('#garden-complete').click();await page.locator('[data-garden-step="1"]').click();await page.locator('[data-garden-step="4"]').click();await expect(stage).toHaveAttribute('data-count',String(total));
+  await page.locator('#garden-lesson').click();
+ }
+ await page.emulateMedia({reducedMotion:'no-preference'});await page.locator('#garden-lesson').click();await page.locator('[data-garden-step="4"]').click();await page.locator('#garden-play').click();
+ await page.locator('[data-garden-step="1"]').click();await page.emulateMedia({reducedMotion:'reduce'});await page.locator('[data-garden-step="4"]').click();await expect(stage).toHaveAttribute('data-mode','paused');
+});
 for(const width of [1280,390,375])test(`garden presets, mathematics and teaching ${width}px`,async({browser})=>{
  const context=await browser.newContext({viewport:{width,height:1000},deviceScaleFactor:width<750?2:1,hasTouch:width<750,reducedMotion:'reduce'}),page=await context.newPage();
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',e=>{if(e.type()==='error')errors.push(e.text());});await page.goto('/');await page.locator('#experiment').selectOption('garden');
