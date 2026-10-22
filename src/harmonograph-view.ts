@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import {advancePlayback,axes,presets,restartPlayback,resetProgress,sampleHarmonograph,shapeFields,visibleCount,type Axis,type Playback} from './harmonograph';
 import {createHarmonographInspector} from './harmonograph-inspector';
 import {createHarmonographGuide} from './harmonograph-guide';
+import {createMotionLesson} from './harmonograph-lesson-view';
 
 export function mountHarmonograph(root:HTMLElement):()=>void{
  const lifecycle=new AbortController(),motion=matchMedia('(prefers-reduced-motion: reduce)');
@@ -10,7 +11,7 @@ export function mountHarmonograph(root:HTMLElement):()=>void{
  const stage=$('#harm-stage'),presetControl=$<HTMLSelectElement>('#harm-preset'),play=$<HTMLButtonElement>('#harm-play'),progress=$<HTMLProgressElement>('#harm-progress');
  let presetId=presets[0].id,shape={...presets[0].shape},trajectory=sampleHarmonograph(presetId,shape),rate=6;
  let state:Playback={time:motion.matches?shape.duration:0,mode:motion.matches?'complete':'drawing'};
- let selected:Axis|null=null,disposed=false,raf:number|null=null,previous:number|null=null,zoom=1;
+ let selected:Axis|null=null,disposed=false,raf:number|null=null,previous:number|null=null,zoom=1,pauseArtworkOnReturn=false,renderWidth=0;
  const renderer=new THREE.WebGLRenderer({antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,1.75));stage.prepend(renderer.domElement);
  const scene=new THREE.Scene();scene.background=new THREE.Color('#040712');
  const camera=new THREE.PerspectiveCamera(40,1,.1,100),pivot=new THREE.Group(),group=new THREE.Group();scene.add(pivot);pivot.add(group);pivot.rotation.set(.22,-.45,-.12);
@@ -21,11 +22,20 @@ export function mountHarmonograph(root:HTMLElement):()=>void{
  const glowCanvas=document.createElement('canvas');glowCanvas.width=glowCanvas.height=64;const context=glowCanvas.getContext('2d')!;
  const gradient=context.createRadialGradient(32,32,0,32,32,32);gradient.addColorStop(0,'rgba(220,249,255,.9)');gradient.addColorStop(.15,'rgba(120,215,255,.5)');gradient.addColorStop(1,'rgba(30,90,255,0)');context.fillStyle=gradient;context.fillRect(0,0,64,64);
  const glowTexture=new THREE.CanvasTexture(glowCanvas),glow=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTexture,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,depthTest:false}));glow.scale.setScalar(.35);group.add(glow);
+ const aside=$('aside'),artControls=document.createElement('div');artControls.id='harm-art-controls';artControls.append(...Array.from(aside.childNodes));aside.append(artControls);
+ const lessonToggle=document.createElement('button');lessonToggle.id='harm-lesson-start';lessonToggle.textContent='動きの仕組みを見る';lessonToggle.setAttribute('aria-expanded','false');aside.prepend(lessonToggle);
+ const lesson=createMotionLesson(stage,aside,()=>{previous=null;invalidate();});scene.add(lesson.group);
+ function toggleLesson(){
+  const leaving=lesson.active,restore=leaving&&(lesson.panel.contains(document.activeElement)||lesson.caption.contains(document.activeElement));
+  previous=null;if(leaving){lesson.stop();if(pauseArtworkOnReturn&&state.mode==='drawing'){state={...state,mode:'paused'};syncControls();}}else{pauseArtworkOnReturn=false;lesson.start();}
+  pivot.visible=leaving;artControls.hidden=!leaving;$('.harmonograph').classList.toggle('lesson-active',!leaving);lessonToggle.textContent=leaving?'動きの仕組みを見る':'作品へ戻る';lessonToggle.setAttribute('aria-expanded',String(!leaving));$('.stage-kicker').textContent=leaving?'LIGHT / HARMONOGRAPH':'LESSON / 同じ時刻の位置';stage.setAttribute('aria-label',leaving?'光の軌跡。ドラッグで回転':'教材の点と軌跡。段階3・4はドラッグで回転');fitCamera();if(restore)lessonToggle.focus({preventScroll:true});
+ }
+ lessonToggle.onclick=toggleLesson;
  const inspector=createHarmonographInspector($('#harm-inspector'),axis=>selectAxis(selected===axis?null:axis));
  const guide=createHarmonographGuide(group,stage,()=>clearGuide(true),()=>inspector.selectedButton()?.focus());
  function selectAxis(axis:Axis|null){selected=axis;inspector.select(axis);guide.set(axis,trajectory);invalidate();}
  function clearGuide(restoreFocus:boolean){const button=restoreFocus?inspector.selectedButton():undefined;selectAxis(null);button?.focus({preventScroll:true});}
- window.addEventListener('keydown',event=>{if(event.key==='Escape'&&selected)clearGuide(guide.panel.contains(document.activeElement));},{signal:lifecycle.signal});
+ window.addEventListener('keydown',event=>{if(event.key==='Escape'){if(lesson.active)toggleLesson();else if(selected)clearGuide(guide.panel.contains(document.activeElement));}},{signal:lifecycle.signal});
  $('#harm-math').addEventListener('toggle',()=>{if(!($<HTMLDetailsElement>('#harm-math')).open)selectAxis(null);},{signal:lifecycle.signal});
  for(const preset of presets){const option=document.createElement('option');option.value=preset.id;option.textContent=preset.name;presetControl.append(option);}
  const controls=shapeFields.map(field=>{
@@ -39,7 +49,10 @@ export function mountHarmonograph(root:HTMLElement):()=>void{
  }
  function fitCamera(){
   const width=stage.clientWidth,height=stage.clientHeight;if(!width||!height)return;
-  camera.aspect=width/height;camera.updateProjectionMatrix();renderer.setSize(width,height,false);
+  // Retain the initial drawing-buffer budget. CSS and camera aspect follow layout changes;
+  // resizing a reused WebGL surface can blank stationary frames in Windows WebKit.
+  if(!renderWidth){renderer.setSize(width,height,false);renderWidth=width;}if(lesson.active){lesson.resize(width,height);invalidate();return;}
+  camera.aspect=width/height;camera.updateProjectionMatrix();
   const sphere=line.geometry.boundingSphere;const radius=Math.max(1,sphere?.radius??2.5);
   camera.position.set(0,0,radius/Math.sin(Math.atan(Math.tan(THREE.MathUtils.degToRad(20))*Math.min(1,camera.aspect)))*1.06*zoom);camera.lookAt(0,0,0);invalidate();
  }
@@ -64,14 +77,15 @@ export function mountHarmonograph(root:HTMLElement):()=>void{
  let dragging=false,lastX=0,lastY=0;
  renderer.domElement.onpointerdown=event=>{dragging=true;lastX=event.clientX;lastY=event.clientY;renderer.domElement.setPointerCapture(event.pointerId);};
  renderer.domElement.onpointerup=renderer.domElement.onpointercancel=()=>{dragging=false;};
- renderer.domElement.onpointermove=event=>{if(!dragging)return;pivot.rotation.y+=(event.clientX-lastX)*.008;pivot.rotation.x+=(event.clientY-lastY)*.008;lastX=event.clientX;lastY=event.clientY;invalidate();};
- renderer.domElement.addEventListener('wheel',event=>{event.preventDefault();zoom=THREE.MathUtils.clamp(zoom+event.deltaY*.001,.6,1.8);fitCamera();},{passive:false,signal:lifecycle.signal});
+ renderer.domElement.onpointermove=event=>{if(!dragging)return;if(lesson.active)lesson.rotate(event.clientX-lastX,event.clientY-lastY);else{pivot.rotation.y+=(event.clientX-lastX)*.008;pivot.rotation.x+=(event.clientY-lastY)*.008;}lastX=event.clientX;lastY=event.clientY;invalidate();};
+ renderer.domElement.addEventListener('wheel',event=>{event.preventDefault();if(lesson.active)return;zoom=THREE.MathUtils.clamp(zoom+event.deltaY*.001,.6,1.8);fitCamera();},{passive:false,signal:lifecycle.signal});
  document.addEventListener('visibilitychange',()=>{previous=null;if(document.hidden&&raf!==null){cancelAnimationFrame(raf);raf=null;}else invalidate();},{signal:lifecycle.signal});
- motion.addEventListener('change',event=>{if(event.matches){state={time:shape.duration,mode:'complete'};previous=null;syncControls();invalidate();}},{signal:lifecycle.signal});
+ motion.addEventListener('change',event=>{if(event.matches){if(lesson.active){pauseArtworkOnReturn=true;lesson.pause();previous=null;invalidate();return;}state={time:shape.duration,mode:'complete'};previous=null;syncControls();invalidate();}},{signal:lifecycle.signal});
  const resize=new ResizeObserver(fitCamera);resize.observe(stage);
  function invalidate(){if(!disposed&&!document.hidden&&raf===null)raf=requestAnimationFrame(frame);}
  function frame(now:number){
   raf=null;if(disposed||document.hidden){previous=null;return;}
+  if(lesson.active){lesson.frame(previous===null?0:Math.min((now-previous)/1000,.1));previous=now;renderer.render(scene,lesson.camera);if(lesson.playing)invalidate();return;}
   const oldMode=state.mode;if(previous!==null)state=advancePlayback(state,Math.min((now-previous)/1000,.1),rate,shape.duration);previous=now;
   const count=visibleCount(trajectory,state),index=count-1;line.geometry.setDrawRange(0,count);tail.geometry.setDrawRange(Math.max(0,count-90),Math.min(count,90));
   const point=trajectory.positions.subarray(index*3,index*3+3);(tipGeometry.getAttribute('position') as THREE.BufferAttribute).setXYZ(0,point[0],point[1],point[2]);tipGeometry.getAttribute('position').needsUpdate=true;tipGeometry.computeBoundingSphere();glow.position.set(point[0],point[1],point[2]);
@@ -81,7 +95,7 @@ export function mountHarmonograph(root:HTMLElement):()=>void{
  }
  updateShape();
  return()=>{
-  disposed=true;if(raf!==null)cancelAnimationFrame(raf);resize.disconnect();inspector.dispose();lifecycle.abort();
+  disposed=true;if(raf!==null)cancelAnimationFrame(raf);resize.disconnect();lesson.dispose();inspector.dispose();lifecycle.abort();
   scene.traverse(object=>{const drawable=object as THREE.Mesh;drawable.geometry?.dispose();if(drawable.material)for(const material of Array.isArray(drawable.material)?drawable.material:[drawable.material])material.dispose();});
   glowTexture.dispose();renderer.dispose();renderer.forceContextLoss();root.replaceChildren();
  };
