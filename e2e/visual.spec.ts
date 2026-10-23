@@ -9,11 +9,18 @@ for(const width of [1280,390,375])test(`Escape restores panel focus without movi
  const panel=page.locator('.visual-caption');
  const clear=panel.getByRole('button',{name:'解説を解除',exact:true});
  const scroll=()=>page.evaluate(()=>({page:scrollY,aside:document.querySelector('aside')!.scrollTop}));
+ // WebKit may commit focus-induced scrolling after focus() returns. Establish
+ // the intended top-of-page precondition over paint frames before measuring.
+ const atTop=async()=>{await expect.poll(()=>page.evaluate(async()=>{
+  window.scrollTo({top:0,left:0,behavior:'instant'});
+  for(let frame=0;frame<3;frame++){await new Promise<void>(resolve=>requestAnimationFrame(()=>resolve()));if(scrollY!==0)return false;}
+  return true;
+ })).toBe(true);};
  await length.focus();await page.keyboard.press('Enter');
- await clear.focus();await page.keyboard.press('Shift+Tab');
+ await clear.evaluate(button=>(button as HTMLElement).focus({preventScroll:true}));await page.keyboard.press('Shift+Tab');
  await expect(panel.getByRole('button',{name:'次の世代'})).toBeFocused();
  // Keep a valid page offset after the panel shrinks; still check the sidebar's scroll too.
- await page.evaluate(()=>window.scrollTo(0,0));
+ await atTop();
  const beforeEscape=await scroll();await page.keyboard.press('Escape');
  await expect(panel).toBeHidden();await expect(length).toBeFocused();
  await expect(length).toHaveAttribute('aria-pressed','false');
@@ -25,7 +32,7 @@ for(const width of [1280,390,375])test(`Escape restores panel focus without movi
  await length.click();await count.click();
  await expect(length).toHaveAttribute('aria-pressed','false');await expect(count).toHaveAttribute('aria-pressed','true');
  // The normal clear button shares restoration and does not scroll back to the card.
- await clear.focus();await page.evaluate(()=>window.scrollTo(0,0));
+ await clear.evaluate(button=>(button as HTMLElement).focus({preventScroll:true}));await atTop();
  const beforeClear=await scroll();await page.keyboard.press('Enter');
  await expect(panel).toBeHidden();await expect(count).toBeFocused();expect(await scroll()).toEqual(beforeClear);
  await length.click();await page.locator('#pause').focus();await page.keyboard.press('Escape');
