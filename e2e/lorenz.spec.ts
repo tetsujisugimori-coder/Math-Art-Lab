@@ -23,6 +23,22 @@ for(const width of [1280,390,375])for(const colorScheme of ['dark','light'] as c
  await page.locator('#lorenz-rho').fill('');await page.locator('#lorenz-form button').click();await expect(page.locator('#lorenz-error')).toContainText('未適用');await expect(stage).toHaveAttribute('data-settings',old!);
  await page.locator('#lorenz-rho').fill('20');await page.locator('#lorenz-form button').click();await expect(page.locator('#lorenz-error')).toBeHidden();await expect(stage).toHaveAttribute('data-index','0');await expect(page.locator('#lorenz-applied')).toContainText('ρ=20');
  await page.locator('#lorenz-defaults').click();await expect(stage).toHaveAttribute('data-settings',JSON.stringify(lorenzDefaults));await page.locator('#lorenz-complete').click();
+ // P2: the annotation, applied delta and numerical distance must agree even at the minimum delta.
+ for(const [delta,display] of [['1e-8','1e-8'],['0.00000499999','4.99999e-6'],['0.00001','0.00001']]){
+  await page.locator('#lorenz-compare').check();await page.locator('#lorenz-delta').fill(delta);await page.locator('#lorenz-form button').click();await page.locator('#lorenz-restart').click();await expect(stage).toHaveAttribute('data-index','0');
+  const button=page.locator('[data-symbol="delta"]');if(width<750)await button.tap();else await button.hover();
+  await expect(page.locator('#lorenz-annotation')).toContainText(`δ：適用値 ${display} ／`);await expect(page.locator('[data-value="delta"]')).toHaveText(`δ=${display}`);await expect(page.locator('#lorenz-distance')).toContainText(`初期δ=${display}`);
+  const distance=Number(await stage.getAttribute('data-distance'));expect(distance).toBeGreaterThan(0);expect(Math.abs(distance-Number(delta))).toBeLessThanOrEqual(Math.max(2*Number.EPSILON,Number(delta)*1e-6));
+  const distanceText=(await page.locator('#lorenz-distance').textContent())!.match(/ d=([\de+.-]+)/)![1];expect(Number(distanceText)).toBeGreaterThan(0);expect(Math.abs(Number(distanceText)-distance)).toBeLessThanOrEqual(distance*1e-5);
+  await stage.focus();await page.keyboard.press('Escape');await button.focus();await page.keyboard.press('Enter');await expect(button).toHaveAttribute('aria-pressed','true');await expect(stage).toHaveAttribute('data-guide','delta');
+  await page.locator('#lorenz-step').click();await expect(stage).toHaveAttribute('data-index','1');await expect(page.locator('#lorenz-annotation')).toContainText(`適用値 ${display} ／`);
+  if(delta==='1e-8')await page.locator('.lorenz .stage-column').screenshot({path:`test-results/lorenz-delta-${test.info().project.name}-${width}-${colorScheme}.png`});
+ }
+ const valid=await stage.getAttribute('data-settings');for(const delta of ['0','1e-9','0.100001']){await page.locator('#lorenz-delta').fill(delta);await page.locator('#lorenz-form button').click();await expect(page.locator('#lorenz-error')).toContainText('未適用');await expect(stage).toHaveAttribute('data-settings',valid!);}
+ // Other shared-formatter fields: tiny signed coordinates and a true zero remain distinguishable.
+ await page.locator('#lorenz-delta').fill('0.00001');await page.locator('#lorenz-x').fill('1e-8');await page.locator('#lorenz-y').fill('-1e-8');await page.locator('#lorenz-z').fill('0');await page.locator('#lorenz-form button').click();await expect(stage).toHaveAttribute('data-index','0');await expect(page.locator('#lorenz-current')).toContainText('A: x=1e-8, y=-1e-8, z=0');
+ for(const [id,display] of [['x','1e-8'],['y','-1e-8'],['z','0']]){await page.locator(`[data-symbol="${id}"]`).first().click();await expect(page.locator('#lorenz-annotation')).toContainText(`Aの${id} ≈ ${display}`);}
+ await page.locator('#lorenz-defaults').click();await page.locator('#lorenz-complete').click();
  if(process.env.LORENZ_CAPTURE&&test.info().project.name==='chromium'&&colorScheme==='dark'&&width!==390)await page.locator('main').screenshot({path:`docs/lorenz/standard-${width}.png`});
  await page.evaluate(()=>document.documentElement.style.fontSize='200%');expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);expect(errors).toEqual([]);await context.close();
 });

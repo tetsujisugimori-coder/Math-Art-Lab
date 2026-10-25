@@ -1,7 +1,7 @@
 import * as THREE from 'three';
+import {formatLorenzValue as fmt} from './lorenz-format';
 import {advanceLorenz,LORENZ_DT,lorenzDefaults,lorenzDerivative,lorenzIndex,lorenzLessons,lorenzPresets,pointAt,reshapeLorenz,restartLorenz,sampleLorenz,type LorenzPlayback,type LorenzSettings,type Point} from './lorenz';
 
-const fmt=(n:number)=>Number(n.toFixed(5)).toString();
 const world=(p:Point)=>new THREE.Vector3(p.x,p.z-25,-p.y);
 const symbols=['sigma','rho','beta','x','y','z','delta'] as const;
 type SymbolId=typeof symbols[number];
@@ -62,7 +62,7 @@ export function mountLorenz(root:HTMLElement):()=>void{
  }
  function rebuild(){
   a.geometry.dispose();b.geometry.dispose();a.geometry=geometry(sample.a);b.geometry=sample.b?geometry(sample.b):new THREE.BufferGeometry();if(sample.b)b.computeLineDistances();b.visible=!!sample.b;tipB.visible=!!sample.b;connector.visible=!!sample.b;
-  fill();$('#lorenz-applied').innerHTML=`適用値：${(['sigma','rho','beta'] as const).map(id=>`<span data-value="${id}">${names[id]}=${fmt(settings[id])}</span>`).join('、')}。初期(x,y,z)=(${settings.x}, ${settings.y}, ${settings.z})、<span data-value="delta">δ=${settings.delta}</span>。`;
+  fill();$('#lorenz-applied').innerHTML=`適用値：${(['sigma','rho','beta'] as const).map(id=>`<span data-value="${id}">${names[id]}=${fmt(settings[id])}</span>`).join('、')}。初期(x,y,z)=(${settings.x}, ${settings.y}, ${settings.z})、<span data-value="delta">δ=${fmt(settings.delta)}</span>。`;
   root.querySelectorAll<HTMLElement>('[data-value]').forEach(el=>el.classList.toggle('lorenz-selected',el.dataset.value===selected));
   $('#lorenz-preset-description').textContent=lorenzPresets.find(p=>p.id===preset.value)?.description??'カスタム係数での数値軌道です。カオスになるとは限りません。';
   $('#lorenz-budget').textContent=`${settings.points.toLocaleString()}点 × ${sample.b?2:1}本、t=0〜${fmt((settings.points-1)*LORENZ_DT)}。${settings.points>16000?'高負荷設定。点数を減らすと軽くなります。':''} DPRは最大1.75、描画バッファ各辺は最大1,600px。`;
@@ -122,7 +122,7 @@ export function mountLorenz(root:HTMLElement):()=>void{
   let distance:number|null=null;if(sample.b){const q=pointAt(sample.b,index),qpos=world(q);tipB.position.copy(qpos);distance=Math.hypot(p.x-q.x,p.y-q.y,p.z-q.z);const positions=connector.geometry.getAttribute('position') as THREE.BufferAttribute;positions.setXYZ(0,pos.x,pos.y,pos.z);positions.setXYZ(1,qpos.x,qpos.y,qpos.z);positions.needsUpdate=true;connector.geometry.computeBoundingSphere();}
   $('#lorenz-current').textContent=`t ≈ ${fmt(index*LORENZ_DT)} · 点 ${index+1}/${settings.points} · A: x=${fmt(p.x)}, y=${fmt(p.y)}, z=${fmt(p.z)}`;
   $('#lorenz-velocity').textContent=`変化速度 v: dx/dt=${fmt(v.x)}, dy/dt=${fmt(v.y)}, dz/dt=${fmt(v.z)}`;
-  $('#lorenz-distance').textContent=distance===null?'A：実線・丸い点（比較Bは非表示）':`A：実線・丸い点 ／ B：破線・菱形 · 同時刻の距離 d=${distance.toExponential(5)}（初期δ=${settings.delta}）`;
+  $('#lorenz-distance').textContent=distance===null?'A：実線・丸い点（比較Bは非表示）':`A：実線・丸い点 ／ B：破線・菱形 · 同時刻の距離 d=${distance.toExponential(5)}（初期δ=${fmt(settings.delta)}）`;
   $('#lorenz-annotation').textContent=selected?`${names[selected]}：${selected==='x'||selected==='y'||selected==='z'?`Aの${names[selected]} ≈ ${fmt(p[selected])}`:`適用値 ${fmt(settings[selected])}`} ／ A:現在位置、v:変化方向`:'A:現在位置 ／ v:変化方向';
   pivot.updateMatrixWorld(true);labelAt(labels[0],pos);labelAt(labels[1],tipB.position,!!sample.b);labelAt(labels[2],pos.clone().add(vector.multiplyScalar(5)),direction.visible);
   for(const axis of axes){axis.arrow.setColor(selected===axis.axis?0xf9d879:0x7186a6);axis.label.classList.toggle('lorenz-selected',selected===axis.axis);labelAt(axis.label,world({x:0,y:0,z:0}).add(axis.v.clone().multiplyScalar(11)));}
