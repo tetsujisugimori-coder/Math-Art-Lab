@@ -38,6 +38,14 @@ Julia表示は充填集合Kcと境界の有限近似で、数学的なJcが境�
 
 全作品の本番E2Eは44/44成功（既存36＋新規8、約1.4分）。Chromium／Windows WebKit、Pages配下パスの実ビルドとWorker読込、既知条件の画素、教材復元、横はみ出しとネットワーク失敗なしを確認した。最終差分検査も成功。修正後の全開発126件を同一HEADで実行するGitHub Actionsの実結果はPRへ記録する。
 
+### CI環境の依存配信遅延への対応
+
+初回HEAD `7258746de24bb2a804782c53e78b74dc7e046dbc` のActions run `40328890302` attempt1は、単体・型・ビルド成功後、PlaywrightのOS依存をaptで取得する途中に20分上限でcancelledとなった。E2Eは未開始、Deployはskipped。119MBの取得予定に対し、Azure Ubuntuミラーから7.47MBのフォントが約197秒、9MBのライブラリが約232秒かかっていた。同じHEADのattempt2を別ランナーで再実行したが、GitHubの進行中ログ画面でも4分時点で同じミラーの7番目のパッケージ取得までという遅延が再現した。
+
+実装側のテスト失敗ではないため、CIのPlaywright導入ステップで、存在する `/etc/apt/apt-mirrors.txt` 内のAzure HTTPミラーを `https://archive.ubuntu.com/ubuntu` へ置換する最小修正を追加した。[Ubuntu公式のパッケージアーカイブ説明](https://documentation.ubuntu.com/project/how-ubuntu-is-made/concepts/package-archive/)に基づく公式配信元で、ディストリビューション・suite・署名検証・パッケージ条件は維持する。タイムアウト延長やテスト削減は行わない。Vite base、公開URL、mainのみのデプロイ条件、権限、artifact、Actionsの固定バージョンも変更しない。Issueの原本は不変で、CI導入部分の変更を追加の実装差異としてPRへ記録する。旧attempt2は新HEADでの検証へ置き換えるため中断する。
+
+CI導入修正後も型検査・単体87/87・本番ビルド・diff検査が成功した。アプリ／テストのソースに追加差分はなく、ビルドのJS・CSS・Workerのハッシュも直前のGUI検証済みビルドと同一。新HEADの全検証はGitHub Actionsで再実行する。
+
 ### 未検証事項
 
 実機iPhone Safari、ネイティブ複数指操作、スクリーンリーダー、低性能端末、GPU負荷、実メモリ総量、電池・熱・長時間負荷、初期読込性能の変更前後比較は未検証。Windows WebKitの成功を実機Safariの成功とは扱わない。有限画素・反復・丸めによる境界分類の限界がある。初期仕様の原本はIssue #18に維持し、最終SHA・CI実結果はDraft PRへ記録する。マージ・auto-merge・公開更新は実行しない。
