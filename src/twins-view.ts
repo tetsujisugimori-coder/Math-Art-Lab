@@ -1,6 +1,7 @@
-import {BASE_SPAN,complexToScreen,defaultView,escapeRadius,formatComplex,formatTwinsNumber as fmt,magnitude,orbit,panView,rasterSize,screenToComplex,twinsDefaults,twinsPresets,validateTwins,zoomView,type Complex,type Plane,type PlaneView,type TwinsState} from './twins';
+import {BASE_SPAN,complexToScreen,defaultView,escapeRadius,formatComplex,formatTwinsNumber as fmt,magnitude,orbit,panView,rasterSize,screenToComplex,twinsDefaults,twinsPresets,validateTwins,zoomView,type Plane,type PlaneView,type TwinsState} from './twins';
 import {LatestRenderGate,type RenderRequest,type RenderResult} from './twins-render';
 import './twins.css';
+import {TwinsGesture} from './twins-gesture';
 import {parseTwinsNumber} from './twins';
 
 const kinds:Plane[]=['mandelbrot','julia'];
@@ -25,11 +26,14 @@ export function mountTwins(root:HTMLElement):()=>void{
  const lifecycle=new AbortController();let state=twinsDefaults(),selected:SymbolId|null=null,steps=3,disposed=false;
  let saved:{state:TwinsState;selected:SymbolId|null;steps:number}|null=null;
  let resizeTimer:ReturnType<typeof setTimeout>|undefined;
+ const gestures:TwinsGesture[]=[];
+ const selectionHint=(kind:Plane)=>kind==='mandelbrot'?'表示範囲と選択範囲は異なります。cは実部・虚部とも−4〜4（境界を含む）を選択できます。':'調べるz₀は実部・虚部とも−16〜16を選択できます。';
  const planeMarkup=(kind:Plane)=>`<article class="twins-plane" data-plane="${kind}"><h2>${kind==='mandelbrot'?'左 · ':'右 · '}${titles[kind]}</h2>
  <p>${kind==='mandelbrot'?'cのパラメータ平面 · z₀=0':'z₀の出発点の平面 · cは左と共通'}</p>
  <output id="twins-${kind}-condition" class="twins-condition"></output>
- <div id="twins-${kind}-stage" class="twins-stage" tabindex="0" role="region" aria-label="${titles[kind]}。矢印で移動、Enterで中央を選択、プラスとマイナスで拡大縮小">
+ <div id="twins-${kind}-stage" class="twins-stage" tabindex="0" role="region" aria-describedby="twins-${kind}-selection" aria-label="${titles[kind]}。矢印で移動、Enterで中央を選択、プラスとマイナスで拡大縮小">
  <canvas aria-label="${titles[kind]}の有限反復画像"></canvas><svg class="twins-overlay" aria-hidden="true"><line data-axis="horizontal"/><line data-axis="vertical"/><g class="twins-marker"><circle r="7"/><path d="M-12 0H12M0-12V12"/><text x="13" y="-10">${kind==='mandelbrot'?'c':'z₀'}</text></g><text class="twins-axis-real" y="20" text-anchor="end">Re ${kind==='mandelbrot'?'c':'z₀'} →</text><text x="10" y="20">↑ Im ${kind==='mandelbrot'?'c':'z₀'}</text></svg></div>
+ <p id="twins-${kind}-selection" class="twins-selection" role="status" aria-atomic="true">${selectionHint(kind)}</p>
  <p id="twins-${kind}-status" class="twins-status" role="status"></p><output id="twins-${kind}-range"></output>
  <div class="view-actions"><button data-view="${kind}" data-action="in">拡大</button><button data-view="${kind}" data-action="out">縮小</button><button data-view="${kind}" data-action="reset">表示範囲をリセット</button></div></article>`;
  root.innerHTML=`<main class="twins"><header><small>MATH ART LAB / EXPERIMENT 006</small><h1>フラクタルの双子</h1><p>一つの式、二つの世界。<br>Mandelbrot × Julia</p></header>
@@ -41,7 +45,8 @@ export function mountTwins(root:HTMLElement):()=>void{
  <form id="twins-form" novalidate><label for="twins-real">cの実部（−4〜4）<input id="twins-real" type="number" min="-4" max="4" step="any" required></label><label for="twins-imaginary">cの虚部（−4〜4）<input id="twins-imaginary" type="number" min="-4" max="4" step="any" required></label><label for="twins-iterations">最大反復 N（50〜500）<input id="twins-iterations" type="number" min="50" max="500" step="1" required></label><button type="submit">設定を適用</button></form>
  <p class="control-note">入力中の値は候補です。適用成功後に図と式を更新し、不正値は未適用のまま有効な図を保ちます。プリセットはcのみを変え、表示範囲とNを保ちます。</p><button id="twins-defaults">初期設定に戻す</button><p id="twins-error" role="status" hidden></p><button id="twins-lesson-toggle">4段階の教材を開く</button>
  <div id="twins-lesson" hidden><div class="lesson-steps" role="group" aria-label="双子の解説段階">${lessons.map(([title],i)=>`<button data-twins-step="${i}" aria-pressed="false">${i+1}. ${title}</button>`).join('')}</div><p id="twins-lesson-text"></p><p class="control-note">教材中の変更は一時的です。閉じると開始前のc・z₀・N・両表示範囲・反復段階・強調へ戻ります。</p></div></aside>
- <div class="twins-inspector"><h2>数式と適用値</h2><div class="math-scroll" tabindex="0" role="region" aria-label="二次反復式"><math display="block"><mrow><msub><mi>z</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mrow data-term="square"><msup><msub><mi>z</mi><mi>n</mi></msub><mn>2</mn></msup></mrow><mo>+</mo><mi data-term="c">c</mi></mrow></math></div>
+ <div class="twins-inspector"><h2>数式と適用値</h2><div class="math-scroll" tabindex="0" role="region" aria-label="二次反復式"><math display="block"><mrow><msub><mi>z</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mpadded data-term="square" width="2.5em" lspace=".75em" height="1.4em" depth=".6em"><msup><msub><mi>z</mi><mi>n</mi></msub><mn>2</mn></msup></mpadded><mo>+</mo><mpadded data-term="c" width="2.5em" lspace=".75em" height="1.4em" depth=".6em"><mi>c</mi></mpadded></mrow></math></div>
+ <p class="control-note">式のc・z²はクリック／タップでも強調できます。キーボードでは下の記号ボタンをTabで選べます。</p>
  <div class="twins-symbols">${([['c','c · 左の一点'],['seed','z₀ · 出発点'],['square','z² · 二乗'],['iterations','N · 反復上限'],['radius','R · 発散半径']] as const).map(([id,label])=>`<button data-twins-symbol="${id}" aria-pressed="false">${label}</button>`).join('')}</div>
  <output id="twins-applied"></output><p id="twins-guide">記号をホバー・タップ・Tabで選び、式と図の対応を確認します。</p><button id="twins-guide-clear">強調を解除</button>
  <h3>複素数の数列表</h3><p>左：現在のcからz₀=0。右：同じcと選択したz₀。最大16ステップ、閾値を超えたら停止します。</p><button id="twins-orbit-step">1反復進める</button><button id="twins-orbit-reset">数列をz₀へ戻す</button><div id="twins-orbits" class="twins-orbits"></div>
@@ -51,7 +56,8 @@ export function mountTwins(root:HTMLElement):()=>void{
  const $=<T extends HTMLElement=HTMLElement>(selector:string)=>root.querySelector<T>(selector)!;
  const panels:Panel[]=[];
  function fail(message:string){$('#twins-error').textContent=`未適用です。${message}`;$('#twins-error').hidden=false;}
- function attempt(change:()=>TwinsState,fill=false){try{const next=change();validateTwins(next);state=next;$('#twins-error').hidden=true;sync(fill);}catch(error){fail((error as Error).message);}}
+ function clearSelectionNotices(){for(const kind of kinds){const notice=$(`#twins-${kind}-selection`);if(notice.classList.contains('twins-rejected')){notice.textContent=selectionHint(kind);notice.classList.remove('twins-rejected');}}}
+ function attempt(change:()=>TwinsState,fill=false,reject=fail){try{const next=change();validateTwins(next);state=next;$('#twins-error').hidden=true;clearSelectionNotices();sync(fill);}catch(error){reject((error as Error).message);}}
  try{
   for(const kind of kinds){
    const stage=$(`#twins-${kind}-stage`),canvas=stage.querySelector('canvas')!,ctx=canvas.getContext('2d',{alpha:false});if(!ctx)throw new Error('Canvas 2Dを開始できません。');
@@ -121,6 +127,7 @@ export function mountTwins(root:HTMLElement):()=>void{
  }
  function selectSymbol(id:SymbolId|null){selected=id;sync();}
  root.querySelectorAll<HTMLButtonElement>('[data-twins-symbol]').forEach(button=>{const id=button.dataset.twinsSymbol as SymbolId;button.onclick=()=>selectSymbol(id);button.onfocus=()=>selectSymbol(id);button.onpointerenter=()=>{if(matchMedia('(hover:hover)').matches)selectSymbol(id);};});
+ root.querySelectorAll('math [data-term]').forEach(term=>term.addEventListener('click',()=>selectSymbol(term.getAttribute('data-term') as SymbolId),{signal:lifecycle.signal}));
  $('#twins-guide-clear').onclick=()=>selectSymbol(null);
  $<HTMLFormElement>('#twins-form').onsubmit=event=>{event.preventDefault();attempt(()=>({...state,c:{re:parseTwinsNumber($<HTMLInputElement>('#twins-real').value),im:parseTwinsNumber($<HTMLInputElement>('#twins-imaginary').value)},iterations:parseTwinsNumber($<HTMLInputElement>('#twins-iterations').value)}),true);};
  $<HTMLSelectElement>('#twins-preset').onchange=event=>{const p=twinsPresets.find(p=>p.id===(event.target as HTMLSelectElement).value);if(p)attempt(()=>({...state,c:{...p.c}}),true);};
@@ -131,34 +138,31 @@ export function mountTwins(root:HTMLElement):()=>void{
  for(const panel of panels){
   const {stage,kind}=panel;
   const position=(x:number,y:number)=>{const r=panel.canvas.getBoundingClientRect();return{u:(x-r.left)/r.width,v:(y-r.top)/r.height};};
-  function selectPoint(u:number,v:number){const point=screenToComplex(state.views[kind],u,v,panel.width/panel.height);attempt(()=>kind==='mandelbrot'?{...state,c:point}:{...state,seed:point},true);}
+  function selectPoint(u:number,v:number){const point=screenToComplex(state.views[kind],u,v,panel.width/panel.height);attempt(()=>kind==='mandelbrot'?{...state,c:point}:{...state,seed:point},true,message=>{const notice=$(`#twins-${kind}-selection`),symbol=kind==='mandelbrot'?'c':'z₀';notice.textContent=`未適用：選択した${symbol}≈${formatComplex(point)}。${message}表示範囲は選択範囲より広く移動できます。適用中の${symbol}≈${formatComplex(kind==='mandelbrot'?state.c:state.seed)}と画像を保持しています。`;notice.classList.add('twins-rejected');});}
   stage.addEventListener('wheel',event=>{event.preventDefault();const p=position(event.clientX,event.clientY);try{setView(kind,zoomView(state.views[kind],event.deltaY<0?1.25:.8,p.u,p.v,panel.width/panel.height));}catch(error){fail((error as Error).message);}},{passive:false,signal:lifecycle.signal});
   stage.addEventListener('keydown',event=>{
    if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','+','=','-','Home','Enter'].includes(event.key))return;event.preventDefault();
    if(event.key==='Enter'){selectPoint(.5,.5);return;}
    try{let view=state.views[kind];if(event.key==='Home')view=defaultView(kind);else if(['+','=','-'].includes(event.key))view=zoomView(view,event.key==='-'?.5:2,.5,.5,panel.width/panel.height);else view=panView(view,event.key==='ArrowLeft'?panel.width*.1:event.key==='ArrowRight'?-panel.width*.1:0,event.key==='ArrowUp'?-panel.width*.1:event.key==='ArrowDown'?panel.width*.1:0,panel.width);setView(kind,view);}catch(error){fail((error as Error).message);}
   },{signal:lifecycle.signal});
-  const pointers=new Map<number,{x:number;y:number}>();let down:{x:number;y:number;view:PlaneView;moved:boolean}|null=null,pinch:{distance:number;view:PlaneView;anchor:Complex}|null=null,multi=false;
-  stage.addEventListener('pointerdown',event=>{if(event.button!==0)return;stage.focus({preventScroll:true});stage.setPointerCapture(event.pointerId);pointers.set(event.pointerId,{x:event.clientX,y:event.clientY});if(pointers.size===1){down={x:event.clientX,y:event.clientY,view:structuredClone(state.views[kind]),moved:false};multi=false;}else if(pointers.size===2){multi=true;const [a,b]=Array.from(pointers.values()),p=position((a.x+b.x)/2,(a.y+b.y)/2);pinch={distance:Math.hypot(a.x-b.x,a.y-b.y),view:structuredClone(state.views[kind]),anchor:screenToComplex(state.views[kind],p.u,p.v,panel.width/panel.height)};}},{signal:lifecycle.signal});
-  stage.addEventListener('pointermove',event=>{
-   if(!pointers.has(event.pointerId))return;pointers.set(event.pointerId,{x:event.clientX,y:event.clientY});
-   try{if(pinch&&pointers.size>=2){const [a,b]=Array.from(pointers.values()),distance=Math.hypot(a.x-b.x,a.y-b.y);if(distance<1||pinch.distance<1)return;const p=position((a.x+b.x)/2,(a.y+b.y)/2),span=pinch.view.span*pinch.distance/distance;setView(kind,{span,center:{re:pinch.anchor.re-(p.u-.5)*span,im:pinch.anchor.im-(.5-p.v)*span/(panel.width/panel.height)}});}
-    else if(down&&!multi){const dx=event.clientX-down.x,dy=event.clientY-down.y;if(Math.hypot(dx,dy)>6)down.moved=true;if(down.moved)setView(kind,panView(down.view,dx,dy,panel.width));}
-   }catch(error){fail((error as Error).message);}
-  },{signal:lifecycle.signal});
-  stage.addEventListener('pointerup',event=>{if(!pointers.has(event.pointerId))return;const p=position(event.clientX,event.clientY);if(down&&!down.moved&&!multi)selectPoint(p.u,p.v);pointers.delete(event.pointerId);if(!pointers.size){down=null;pinch=null;}},{signal:lifecycle.signal});
-  for(const event of ['pointercancel','lostpointercapture'])stage.addEventListener(event,()=>{pointers.clear();down=null;pinch=null;multi=false;},{signal:lifecycle.signal});
+  const gesture=new TwinsGesture();gestures.push(gesture);
+  const bounds=()=>panel.canvas.getBoundingClientRect();
+  const point=(event:PointerEvent)=>({x:event.clientX,y:event.clientY});
+  stage.addEventListener('pointerdown',event=>{if(event.button!==0)return;stage.focus({preventScroll:true});stage.setPointerCapture(event.pointerId);gesture.down(event.pointerId,point(event),state.views[kind],bounds());},{signal:lifecycle.signal});
+  stage.addEventListener('pointermove',event=>{try{const view=gesture.move(event.pointerId,point(event),bounds());if(view)setView(kind,view);}catch(error){fail((error as Error).message);}},{signal:lifecycle.signal});
+  stage.addEventListener('pointerup',event=>{const tap=gesture.end(event.pointerId,point(event),state.views[kind],bounds(),true);if(tap){const p=position(tap.x,tap.y);selectPoint(p.u,p.v);}},{signal:lifecycle.signal});
+  for(const type of ['pointercancel','lostpointercapture'] as const)stage.addEventListener(type,event=>{gesture.end(event.pointerId,point(event),state.views[kind],bounds(),false);},{signal:lifecycle.signal});
  }
  function lessonStep(index:number){
-  steps=3;if(index===1)state={...state,c:{re:-1,im:0},seed:{re:0,im:0}};if(index===2)state={...state,c:{re:1,im:0},seed:{re:1.5,im:0}};if(index===3)state={...state,c:{...twinsPresets[0].c}};
+  clearSelectionNotices();steps=3;if(index===1)state={...state,c:{re:-1,im:0},seed:{re:0,im:0}};if(index===2)state={...state,c:{re:1,im:0},seed:{re:1.5,im:0}};if(index===3)state={...state,c:{...twinsPresets[0].c}};
   selected=index===0?'c':index===1?'square':index===2?'radius':'seed';$('#twins-lesson-text').textContent=lessons[index][1];root.querySelectorAll<HTMLButtonElement>('[data-twins-step]').forEach((b,i)=>b.setAttribute('aria-pressed',String(i===index)));sync(true);
  }
  root.querySelectorAll<HTMLButtonElement>('[data-twins-step]').forEach((button,index)=>button.onclick=()=>lessonStep(index));
- function closeLesson(){if(!saved)return;const restore=$('#twins-lesson').contains(document.activeElement);({state,selected,steps}=saved);saved=null;$('#twins-lesson').hidden=true;$('#twins-lesson-toggle').textContent='4段階の教材を開く';sync(true);if(restore)$('#twins-lesson-toggle').focus({preventScroll:true});}
+ function closeLesson(){if(!saved)return;const restore=$('#twins-lesson').contains(document.activeElement);({state,selected,steps}=saved);saved=null;clearSelectionNotices();$('#twins-lesson').hidden=true;$('#twins-lesson-toggle').textContent='4段階の教材を開く';sync(true);if(restore)$('#twins-lesson-toggle').focus({preventScroll:true});}
  $('#twins-lesson-toggle').onclick=()=>{if(saved){closeLesson();return;}saved={state:structuredClone(state),selected,steps};state={...state,views:{mandelbrot:defaultView('mandelbrot'),julia:defaultView('julia')}};$('#twins-lesson').hidden=false;$('#twins-lesson-toggle').textContent='教材を閉じて作品へ戻る';lessonStep(0);};
  root.addEventListener('keydown',event=>{if(event.key==='Escape'){if(saved)closeLesson();else selectSymbol(null);}},{signal:lifecycle.signal});
  const resize=new ResizeObserver(()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>sync(),120);});panels.forEach(p=>resize.observe(p.stage));
- document.addEventListener('visibilitychange',()=>{if(document.hidden){for(const panel of panels){if(panel.gate.pending){panel.key='';panel.stage.dataset.status='hidden';$(`#twins-${panel.kind}-status`).textContent='非表示のため計算停止中';}panel.gate.cancel();panel.worker.postMessage({type:'cancel'});}}else sync();},{signal:lifecycle.signal});
+ document.addEventListener('visibilitychange',()=>{if(document.hidden){gestures.forEach(g=>g.reset());for(const panel of panels){if(panel.gate.pending){panel.key='';panel.stage.dataset.status='hidden';$(`#twins-${panel.kind}-status`).textContent='非表示のため計算停止中';}panel.gate.cancel();panel.worker.postMessage({type:'cancel'});}}else sync();},{signal:lifecycle.signal});
  sync(true);
- return()=>{disposed=true;clearTimeout(resizeTimer);resize.disconnect();lifecycle.abort();for(const panel of panels){panel.gate.dispose();panel.worker.terminate();panel.canvas.width=1;panel.canvas.height=1;}saved=null;root.replaceChildren();};
+ return()=>{disposed=true;gestures.forEach(g=>g.reset());clearTimeout(resizeTimer);resize.disconnect();lifecycle.abort();for(const panel of panels){panel.gate.dispose();panel.worker.terminate();panel.canvas.width=1;panel.canvas.height=1;}saved=null;root.replaceChildren();};
 }
