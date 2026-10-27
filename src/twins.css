@@ -20,3 +20,16 @@
 .twins .twins-selection{line-height:1.7;overflow-wrap:anywhere}.twins .twins-rejected{color:#ffd778;border-left:3px solid currentColor;padding-left:10px}
 .twins math [data-term]{cursor:pointer}
 @media(prefers-color-scheme:light){.twins .twins-rejected{color:#9d2d18}}
+.twins #twins-observation-toggle{margin:0 0 18px}.twins-observation{margin:22px 0;padding:20px;border:1px solid #627d9c;border-radius:16px;background:#101b2c}
+.twins-observation{display:block}.twins-observation[hidden]{display:none}.twins-observation p,.twins-observation label{font-size:.86rem;line-height:1.8;overflow-wrap:anywhere}
+.twins-observation .obs-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}.obs-layout>div{min-width:0}
+.twins-observation .obs-sides{display:flex;flex-wrap:wrap;gap:8px}.twins-observation select{width:100%;min-width:0;white-space:normal;appearance:none;background:#11192b;color:#e5efff;padding-right:30px;background-image:linear-gradient(45deg,transparent 50%,#e5efff 50%),linear-gradient(135deg,#e5efff 50%,transparent 50%);background-position:calc(100% - 15px) 50%,calc(100% - 10px) 50%;background-size:5px 5px;background-repeat:no-repeat}
+#twins-observation-plot{border:1px solid #7189a9;border-radius:10px;overflow:hidden;background:#080f20}#twins-observation-plot:focus-visible{outline:3px solid #f9d879;outline-offset:3px}
+#twins-observation-plot svg{display:block;width:100%;height:auto;aspect-ratio:500/360;overflow:hidden}#twins-observation-plot text{font:14px system-ui,sans-serif;fill:#eef5ff;paint-order:stroke;stroke:#080f20;stroke-width:3px;stroke-linejoin:round}
+.obs-axis{stroke:#849ab7;stroke-width:1}.obs-segment{stroke:#b9cee6;stroke-width:1.5}.obs-past{fill:#b9cee6;stroke:#080f20;stroke-width:1}.obs-start{fill:none;stroke:#f9d879;stroke-width:2}.obs-current{fill:#61e3ff;stroke:#fff;stroke-width:2}
+.twins-observation #twins-observation-values{font-variant-numeric:tabular-nums;overflow-wrap:anywhere;font-size:.95rem;line-height:1.9;color:#61e3ff}.twins-observation .obs-equation{padding:12px 0;color:#61e3ff}.twins-observation .obs-equation button{color:inherit}
+.twins-observation #twins-observation-status{font-weight:700;border-left:3px solid #f9d879;padding-left:12px}.twins-observation #twins-observation-notice{min-height:1.8em}.twins-observation .view-actions{gap:6px}
+@media(max-width:780px){.twins-observation{padding:12px}.twins-observation .obs-layout{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-color-scheme:light){.twins-observation{background:#fff}.twins-observation #twins-observation-values,.twins-observation .obs-equation{color:#07576b}.twins-observation .obs-equation button{color:#e5efff}.twins [data-observation-side]{color:#6b4600}}
+.twins-observation .obs-equation button[aria-pressed=true]{color:#142134}
+@media(max-width:780px){#twins-observation-plot text{font-size:23px}}
