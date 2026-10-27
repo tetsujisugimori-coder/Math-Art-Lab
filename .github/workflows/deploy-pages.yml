@@ -35,7 +35,13 @@ jobs:
       - name: Build for GitHub Pages
         run: npm run build
       - name: Install Playwright browsers and system dependencies
-        run: npx playwright install --with-deps chromium webkit
+        run: |
+          # Slow Azure mirror downloads exhausted the job budget before E2E (Issue #18).
+          # Keep Ubuntu suites/signatures; change only the runner's download mirror.
+          if [ -f /etc/apt/apt-mirrors.txt ]; then
+            sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu|https://archive.ubuntu.com/ubuntu|g' /etc/apt/apt-mirrors.txt
+          fi
+          npx playwright install --with-deps chromium webkit
       - name: Development regression tests
         run: npm run test:e2e
       - name: Production build smoke tests
