@@ -1,4 +1,9 @@
 import {test,expect} from '@playwright/test';
+test('play button remains stable while playback redraws',async({page})=>{
+ await page.goto('/');await page.locator('#experiment').selectOption('flow');await page.locator('#flow-play').click();await expect(page.locator('#flow-observation')).not.toContainText('時刻 ≈ 0.00 秒');
+ await page.evaluate(()=>{const button=document.querySelector('#flow-play')!;const state=window as typeof window & {flowButtonChanges:number};state.flowButtonChanges=0;new MutationObserver(()=>state.flowButtonChanges++).observe(button,{childList:true,characterData:true,subtree:true});});
+ await page.waitForTimeout(300);expect(await page.evaluate(()=>(window as typeof window & {flowButtonChanges:number}).flowButtonChanges)).toBe(0);await page.locator('#flow-play').click();await expect(page.locator('#flow-play')).toHaveText('再生');
+});
 test('velocity emphasis follows the observed start, not the candidate',async({page})=>{
  await page.addInitScript(()=>{
   type Stroke={color:string;points:[number,number][]};
