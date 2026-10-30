@@ -1,4 +1,28 @@
 import {test,expect} from '@playwright/test';
+test('velocity emphasis follows the observed start, not the candidate',async({page})=>{
+ await page.addInitScript(()=>{
+  type Stroke={color:string;points:[number,number][]};
+  const state=window as typeof window & {flowStrokes:Stroke[]};state.flowStrokes=[];
+  const proto=CanvasRenderingContext2D.prototype,clear=proto.clearRect,begin=proto.beginPath,move=proto.moveTo,line=proto.lineTo,stroke=proto.stroke;
+  let path:[number,number][]=[];
+  proto.clearRect=function(...args){state.flowStrokes=[];return clear.apply(this,args);};
+  proto.beginPath=function(){path=[];return begin.call(this);};
+  proto.moveTo=function(x,y){path.push([x,y]);return move.call(this,x,y);};
+  proto.lineTo=function(x,y){path.push([x,y]);return line.call(this,x,y);};
+  proto.stroke=function(){state.flowStrokes.push({color:String(this.strokeStyle),points:[...path]});return stroke.call(this);};
+ });
+ await page.goto('/');await page.locator('#experiment').selectOption('flow');
+ await page.locator('#flow-x').fill('1');await page.locator('#flow-y').fill('0');await page.locator('#flow-add').click();
+ const canvas=page.locator('#flow-canvas');await canvas.focus();await page.keyboard.press('ArrowUp');
+ const read=()=>page.evaluate(()=>{const c=document.querySelector<HTMLCanvasElement>('#flow-canvas')!;const state=window as typeof window & {flowStrokes:{color:string;points:[number,number][]}[]};return {size:c.width,strokes:state.flowStrokes};});
+ const assertArrow=async(color:string,x:number,y:number,dx:number,dy:number)=>{const {size,strokes}=await read();const arrow=strokes.find(s=>s.color===color&&s.points.length===5);expect(arrow,`missing ${color} arrow`).toBeTruthy();expect(arrow!.points[0][0]).toBeCloseTo((x+5)*size/10,1);expect(arrow!.points[0][1]).toBeCloseTo((5-y)*size/10,1);expect(arrow!.points[1][0]-arrow!.points[0][0]).toBeCloseTo(dx*size/10,1);expect(arrow!.points[1][1]-arrow!.points[0][1]).toBeCloseTo(-dy*size/10,1);};
+ await expect(page.locator('#flow-observation')).toContainText('出発点 P ≈ (1.000, 0.000)');
+ for(const symbol of ['dx/dt','dy/dt']){await page.getByRole('button',{name:symbol,exact:true}).click();await assertArrow('#ffe18a',1,0,0,.18);}
+ await page.locator('#flow-unselect').click();expect((await read()).strokes.filter(s=>s.color==='#ffe18a'&&s.points.length===5)).toHaveLength(0);
+ await canvas.focus();await page.keyboard.press('Enter');await expect(page.locator('#flow-observation')).toContainText('出発点 P ≈ (1.000, 0.100)');await page.getByRole('button',{name:'dx/dt',exact:true}).click();await assertArrow('#ffe18a',1,.1,-.018,.18);
+ await page.locator('#flow-lesson').click();await page.locator('#flow-next').click();await page.locator('#flow-step').click();const t=.2;await assertArrow('#ff9f6e',Math.cos(t)-.1*Math.sin(t),Math.sin(t)+.1*Math.cos(t),-.18*(Math.sin(t)+.1*Math.cos(t)),.18*(Math.cos(t)-.1*Math.sin(t)));
+ await page.keyboard.press('Escape');await expect(page.locator('#flow-observation')).toContainText('出発点 P ≈ (1.000, 0.100)');await assertArrow('#ffe18a',1,.1,-.018,.18);
+});
 test('flow field controls, comparison, lesson and disposal',async({page})=>{
  await page.goto('/');await page.locator('#experiment').selectOption('flow');await expect(page.locator('h1')).toHaveText('風の軌跡');
  await page.locator('#flow-step').click();await expect(page.locator('#flow-observation')).toContainText('0.20 秒');
