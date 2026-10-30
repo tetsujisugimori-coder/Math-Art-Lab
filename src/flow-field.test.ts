@@ -1,0 +1,8 @@
+import {describe,it,expect} from 'vitest';
+import {defaults,field,fromScreen,parseNumber,pointValid,rk4,seeds,toScreen,trajectory,valid,type Model} from './flow-field';
+describe('flow field',()=>{
+ it('matches independent analytic solutions at t=1',()=>{for(const model of ['rotation','spiral','sink','source','saddle'] as Model[]){const s={...defaults(),model},start=model==='source'||model==='saddle'?{x:.5,y:model==='saddle'?.5:0}:{x:1,y:0};let p=start;for(let i=0;i<50;i++)p=rk4(s,p);const e=Math.exp(-.5),q=Math.exp(.5);const expected:Record<Model,[number,number]>={rotation:[Math.cos(1),Math.sin(1)],spiral:[e*Math.cos(1),e*Math.sin(1)],sink:[e,0],source:[.5*q,0],saddle:[.5*q,.5*e]};expect(p.x).toBeCloseTo(expected[model][0],7);expect(p.y).toBeCloseTo(expected[model][1],7);expect(Math.hypot(field(s,{x:0,y:0}).x,field(s,{x:0,y:0}).y)).toBe(0);}});
+ it('validates inputs including underflow',()=>{for(const raw of ['', 'Infinity','abc','1e-999','0x1'])expect(Number.isNaN(parseNumber(raw))).toBe(true);expect(valid(defaults())).toBe(true);expect(valid({...defaults(),a:0})).toBe(false);expect(pointValid({x:5,y:-5})).toBe(true);expect(pointValid({x:5.1,y:0})).toBe(false);});
+ it('maps coordinates and produces deterministic seeds',()=>{expect(fromScreen(toScreen({x:2,y:-3},500),500)).toEqual({x:2,y:-3});expect(seeds()).toHaveLength(48);expect(seeds()).toEqual(seeds());});
+ it('stops outside and on numerical failure',()=>{const t=trajectory({...defaults(),model:'source'}, {x:4,y:0});expect(t.reason).toBe('範囲外');expect(t.points.every(pointValid)).toBe(true);expect(trajectory({...defaults(),omega:Infinity},{x:1,y:0}).reason).toBe('非有限値');});
+});
