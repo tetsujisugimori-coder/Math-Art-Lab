@@ -1,0 +1,1 @@
+import './reaction-diffusion-checks';
