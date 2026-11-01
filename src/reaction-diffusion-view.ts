@@ -9,10 +9,16 @@ export function mountReactionDiffusion(host:HTMLElement){
  type Snapshot={grid:Grid;settings:Settings;x:number;y:number;playing:boolean;symbol:string;controls:Record<string,string>;error:string};
  let saved:Snapshot|null=null;
  const controls=['f','k','x','y','count','preset','display'];
- const stop=()=>{gate.next();playing=false;busy=false;remaining=0;clearTimeout(timer);timer=0;};
+ let workerUsed=false,workerFailure='';
+ // ErrorEvent has no request id. Once an epoch has used a worker, invalidate
+ // its entire lifetime; create a replacement lazily on the next explicit run.
+ const retire=()=>{const previous=worker;worker=null;workerUsed=false;previous?.terminate();};
+ const stop=()=>{gate.next();playing=false;busy=false;remaining=0;clearTimeout(timer);timer=0;if(workerUsed)retire();};
  const fmt=(v:number)=>Number.isFinite(v)?v.toPrecision(7):String(v);
  const render=()=>{
   if(disposed)return;
+  if(workerFailure)$('error').textContent=workerFailure;
+  host.querySelector<HTMLElement>('.rd-stage + p')!.textContent=`v濃度：${$<HTMLSelectElement>('display').value==='contrast'?'黒 0 → 白 0.5':'暗色 0 → 青 → 金色 0.5'}（描画だけ0〜0.5へ正規化）。白枠は観察セル。図内のタッチは種の描画、図外でスクロールできます。`;
   if(ctx){const image=ctx.createImageData(SIZE,SIZE),contrast=$<HTMLSelectElement>('display').value==='contrast';for(let i=0;i<grid.v.length;i++){const t=Math.max(0,Math.min(1,grid.v[i]/.5)),j=i*4;image.data[j]=contrast?t*255:15+240*t*t;image.data[j+1]=contrast?t*255:24+200*t;image.data[j+2]=contrast?t*255:40+120*Math.sin(t*Math.PI);image.data[j+3]=255;}ctx.putImageData(image,0,0);ctx.strokeStyle=symbol?'#ffe18a':'#ffffff';ctx.lineWidth=1;ctx.strokeRect(x-.5,y-.5,2,2);if(symbol==='∇²'){ctx.strokeRect(Math.max(0,x-1)-.5,Math.max(0,y-1)-.5,3,3);}}
   const t=terms(grid,settings,y*SIZE+x,mode);
   $('applied').textContent=`適用 F=${settings.f}, k=${settings.k}｜計算ステップ ${grid.step}｜${mode==='full'?'完全な式':mode==='diffusion'?'教材：拡散のみ':'教材：拡散なし'}`;
@@ -26,12 +32,26 @@ export function mountReactionDiffusion(host:HTMLElement){
   for(const b of Array.from(host.querySelectorAll<HTMLElement>('[data-rd-symbol]')))b.setAttribute('aria-pressed',String(b.dataset.rdSymbol===symbol));
   $('observation').classList.toggle('rd-highlight',Boolean(symbol));$('equations').classList.toggle('rd-highlight',Boolean(symbol));
  };
- const send=()=>{if(!worker||disposed||busy||document.hidden)return;const count=remaining?Math.min(32,remaining):16;busy=true;const id=gate.next();worker.postMessage({id,grid,settings,count,mode});render();};
- const failure=(message:string)=>{stop();$('error').textContent=message;render();};
- if(ctx)try{worker=new Worker(new URL('./reaction-diffusion-worker.ts',import.meta.url),{type:'module'});worker.onmessage=(e:MessageEvent<Reply>)=>{if(disposed||!gate.accept(e.data.id))return;busy=false;if(e.data.error){failure(e.data.error);return;}if(!e.data.grid){failure('Worker応答が不正です');return;}const delta=e.data.grid.step-grid.step;grid=e.data.grid;ms=e.data.ms;remaining=Math.max(0,remaining-delta);render();if(remaining||playing)timer=window.setTimeout(send,playing?50:0);};worker.onerror=()=>{if(disposed)return;worker?.terminate();worker=null;failure('Workerで計算できません。再読込してください。数式と初期濃度のみ表示します。');};}catch{failure('Worker作成失敗。計算は無効です。');}else $('error').textContent='Canvas 2Dを利用できません。計算は無効です。';
+ const send=()=>{if(disposed||busy||document.hidden)return;if(!ensureWorker())return;const count=remaining?Math.min(32,remaining):16;busy=true;workerUsed=true;const id=gate.next();worker!.postMessage({id,grid,settings,count,mode});render();};
+ const failure=(message:string,fatal=false)=>{if(fatal)workerFailure=message;stop();$('error').textContent=message;render();};
+ const ensureWorker=():boolean=>{
+  if(disposed||!ctx)return false;if(worker)return true;
+  try{
+   const active=new Worker(new URL('./reaction-diffusion-worker.ts',import.meta.url),{type:'module'});worker=active;if(workerFailure)$('error').textContent='';workerFailure='';
+   active.onmessage=(e:MessageEvent<Reply>)=>{
+    if(disposed||worker!==active||!gate.accept(e.data.id))return;
+    busy=false;if(e.data.error){failure(e.data.error);return;}if(!e.data.grid){failure('Worker応答が不正です');return;}
+    const delta=e.data.grid.step-grid.step;grid=e.data.grid;ms=e.data.ms;remaining=Math.max(0,remaining-delta);render();
+    if(remaining||playing){const id=e.data.id;timer=window.setTimeout(()=>{if(!disposed&&worker===active&&gate.accept(id))send();},playing?50:0);}
+   };
+   active.onerror=()=>{if(disposed||worker!==active)return;retire();failure('Workerで計算できません。再読込してください。数式と初期濃度のみ表示します。',true);};
+   return true;
+  }catch{failure('Worker作成失敗。計算は無効です。',true);return false;}
+ };
+ if(ctx)ensureWorker();else $('error').textContent='Canvas 2Dを利用できません。計算は無効です。';
  const reset=(seeded=true)=>{stop();grid=initial(SIZE,seeded);$('error').textContent='';render();};
- const run=(count:number)=>{stop();if(!worker){failure('Workerを利用できないため計算できません。');return;}remaining=count;send();};
- $('play').onclick=()=>{if(playing){stop();render();}else if(worker&&!document.hidden){stop();playing=true;send();}};
+ const run=(count:number)=>{stop();if(!ctx){failure('Canvas 2Dを利用できません。計算は無効です。');return;}remaining=count;send();};
+ $('play').onclick=()=>{if(playing){stop();render();}else if(ctx&&!document.hidden){stop();playing=true;send();}};
  $('stop').onclick=()=>{stop();render();};$('step').onclick=()=>run(1);$('fast').onclick=()=>{const n=parse(input('count').value);if(!Number.isInteger(n)||n<1||n>10000){$('error').textContent='ステップ数は1〜10000の整数です。';return;}run(n);};$('reset').onclick=()=>reset();
  const choose=()=>{const index=Number($<HTMLSelectElement>('preset').value);settings={...presets[index]};input('f').value=String(settings.f);input('k').value=String(settings.k);reset();};$<HTMLSelectElement>('preset').onchange=choose;
  $('apply').onclick=()=>{const candidate={f:parse(input('f').value),k:parse(input('k').value)};if(!valid(candidate)){$('error').textContent='F、kは指定範囲の有限値が必要です。空欄・非有限・範囲外・アンダーフローは拒否します。';return;}settings=candidate;$<HTMLSelectElement>('preset').value='custom';reset();};
@@ -39,16 +59,16 @@ export function mountReactionDiffusion(host:HTMLElement){
  $('add').onclick=()=>add(parse(input('x').value),parse(input('y').value));$('clear').onclick=()=>reset(false);$('default').onclick=()=>{$<HTMLSelectElement>('preset').value='0';x=y=64;input('x').value=input('y').value='64';choose();};$('display').onchange=render;
  let pointer:number|null=null;
  const paint=(e:PointerEvent)=>{const r=canvas.getBoundingClientRect();if(e.clientX<r.left||e.clientY<r.top||e.clientX>=r.right||e.clientY>=r.bottom)return;add(Math.floor((e.clientX-r.left)/r.width*SIZE),Math.floor((e.clientY-r.top)/r.height*SIZE));};
- canvas.onpointerdown=e=>{if(pointer!==null||e.button!==0)return;pointer=e.pointerId;canvas.setPointerCapture(pointer);paint(e);};canvas.onpointermove=e=>{if(e.pointerId===pointer)paint(e);};canvas.onpointerup=canvas.onpointercancel=canvas.onlostpointercapture=()=>{pointer=null;};
+ canvas.onpointerdown=e=>{if(pointer!==null||e.button!==0)return;pointer=e.pointerId;canvas.setPointerCapture(pointer);paint(e);};canvas.onpointermove=e=>{if(e.pointerId===pointer)paint(e);};canvas.onpointerup=canvas.onpointercancel=canvas.onlostpointercapture=e=>{if(e.pointerId===pointer)pointer=null;};
  canvas.onkeydown=e=>{const d:Record<string,[number,number]>={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]};if(e.key==='Enter'){e.preventDefault();add(x,y);}else if(d[e.key]){e.preventDefault();x=Math.max(0,Math.min(127,x+d[e.key][0]));y=Math.max(0,Math.min(127,y+d[e.key][1]));input('x').value=String(x);input('y').value=String(y);render();}};
  for(const b of Array.from(host.querySelectorAll<HTMLButtonElement>('[data-rd-symbol]'))){const select=()=>{symbol=b.dataset.rdSymbol!;render();};b.onpointerenter=select;b.onfocus=select;b.onclick=select;}$('unselect').onclick=()=>{symbol='';render();};
  const showLesson=()=>{mode=lesson===0?'diffusion':lesson===1?'reaction':'full';reset();$('lesson-title').textContent=`${lesson+1}. ${lessons[lesson][0]}`;$('lesson-text').textContent=lessons[lesson][1];$<HTMLButtonElement>('prev').disabled=lesson===0;$<HTMLButtonElement>('next').disabled=lesson===3;$('compare').hidden=lesson!==3;};
  $('lesson').onclick=()=>{saved={grid:clone(grid),settings:{...settings},x,y,playing,symbol,controls:Object.fromEntries(controls.map(id=>[id,input(id).value])),error:$('error').textContent??''};stop();forcedStop=false;lesson=0;$('lesson-panel').hidden=false;$('lesson').hidden=true;showLesson();$('lesson-title').tabIndex=-1;$('lesson-title').focus();};
- const close=()=>{if(!saved)return;stop();const snapshot=saved;grid=snapshot.grid;settings=snapshot.settings;x=snapshot.x;y=snapshot.y;symbol=snapshot.symbol;for(const id of controls)input(id).value=snapshot.controls[id];$('error').textContent=snapshot.error;mode='full';lesson=-1;saved=null;$('lesson-panel').hidden=true;$('lesson').hidden=false;render();$('lesson').focus();if(snapshot.playing&&!forcedStop&&!document.hidden&&!motion.matches){playing=true;send();}};
+ const close=()=>{if(!saved)return;stop();const snapshot=saved;grid=snapshot.grid;settings=snapshot.settings;x=snapshot.x;y=snapshot.y;symbol=snapshot.symbol;for(const id of controls)input(id).value=snapshot.controls[id];$('error').textContent=snapshot.error;mode='full';lesson=-1;saved=null;$('lesson-panel').hidden=true;$('lesson').hidden=false;render();$('lesson').focus();if(snapshot.playing&&!workerFailure&&!forcedStop&&!document.hidden&&!motion.matches){playing=true;send();}};
  $('close').onclick=close;$('prev').onclick=()=>{if(lesson>0){lesson--;showLesson();}};$('next').onclick=()=>{if(lesson<3){lesson++;showLesson();}};$('compare').onclick=()=>{reset();run(2000);};
  const key=(e:KeyboardEvent)=>{if(e.key==='Escape'){if(saved)close();else{symbol='';render();}}};
  const safetyStop=()=>{forcedStop=true;stop();render();};const visibility=()=>{if(document.hidden)safetyStop();};const reduced=()=>{if(motion.matches)safetyStop();};
  document.addEventListener('keydown',key);document.addEventListener('visibilitychange',visibility);motion.addEventListener('change',reduced);render();
  // Start paused so an initial seed remains inspectable; explicit play works in reduced-motion.
- return ()=>{stop();disposed=true;worker?.terminate();worker=null;document.removeEventListener('keydown',key);document.removeEventListener('visibilitychange',visibility);motion.removeEventListener('change',reduced);canvas.width=canvas.height=0;host.replaceChildren();};
+ return ()=>{disposed=true;stop();retire();document.removeEventListener('keydown',key);document.removeEventListener('visibilitychange',visibility);motion.removeEventListener('change',reduced);canvas.width=canvas.height=0;host.replaceChildren();};
 }

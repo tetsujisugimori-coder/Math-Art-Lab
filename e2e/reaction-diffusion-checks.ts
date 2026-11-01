@@ -1,4 +1,5 @@
 import {test,expect} from '@playwright/test';
+import './reaction-diffusion-lifecycle-checks';
 test.beforeEach(async({page})=>{await page.goto('./');await page.locator('#experiment').selectOption('reaction');});
 test('exact numerical step, controls and candidate rejection',async({page})=>{
  const c=page.locator('#rd-canvas');await expect(c).toHaveAttribute('data-step','0');await expect(c).toHaveAttribute('data-u','0.5');await page.locator('#rd-step').click();await expect(c).toHaveAttribute('data-step','1');expect(Number(await c.getAttribute('data-u'))).toBeCloseTo(.48375,8);expect(Number(await c.getAttribute('data-v'))).toBeCloseTo(.25825,8);
