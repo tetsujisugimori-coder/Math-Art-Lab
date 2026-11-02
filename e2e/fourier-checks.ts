@@ -1,4 +1,4 @@
-﻿import {test,expect,type Page} from '@playwright/test';
+import {test,expect,type Page} from '@playwright/test';
 const canvas=(page:Page)=>page.locator('#fourier-canvas');
 const step=(page:Page,n:number)=>page.evaluate(n=>{for(let i=0;i<n;i++)(document.querySelector('#fourier-step') as HTMLButtonElement).click();},n);
 const setK=(page:Page,k:number)=>page.locator('#fourier-k').evaluate((el,k)=>{(el as HTMLInputElement).value=String(k);el.dispatchEvent(new Event('input',{bubbles:true}));},k);
@@ -66,4 +66,3 @@ test.describe('touch',()=>{test.use({hasTouch:true,deviceScaleFactor:2});test('t
 for(const width of [320,375,390,768,1280])test(`layout ${width}, themes and 200% text`,async({page})=>{
  await page.setViewportSize({width,height:1000});for(const colorScheme of ['dark','light'] as const){await page.emulateMedia({colorScheme});for(const font of ['100%','200%']){await page.evaluate(font=>document.documentElement.style.fontSize=font,font);const size=await canvas(page).evaluate(el=>{const r=el.getBoundingClientRect();return {w:r.width,h:r.height,scroll:document.documentElement.scrollWidth,client:document.documentElement.clientWidth};});expect(size.w).toBeGreaterThan(240);expect(size.w).toBeCloseTo(size.h,0);expect(size.scroll).toBeLessThanOrEqual(size.client+1);await page.locator('#fourier-play').focus();await expect(page.locator('#fourier-play')).toBeFocused();}}
 });
-
