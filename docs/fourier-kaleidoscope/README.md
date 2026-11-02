@@ -2,7 +2,7 @@
 
 作品メニューで「010」を選択。回転を足すと複雑な輪郭を組み立てられることを、図・操作・数式から観察する。初期は魚、K=16、停止、参考輪郭と円・腕ON。
 
-依頼・受入仕様：[Issue #28](https://github.com/tetsujisugimori-coder/Math-Art-Lab/issues/28)。本文は保持し、具体化と検証履歴をLOG.mdとDraft PRに残す。基点は最新origin/main `b221e158b472a4db883bd7f190fdfd345b2d61c6`（PR #27統合済み）、開始時クリーン、専用ブランチ `feat/fourier-kaleidoscope`。既存9作品のモデル・描画・教材・試験、依存、Pages・CI設定は変更しない。
+依頼・受入仕様：[Issue #28](https://github.com/tetsujisugimori-coder/Math-Art-Lab/issues/28)。本文は保持し、具体化と検証履歴をLOG.mdとDraft PRに残す。基点は最新origin/main `b221e158b472a4db883bd7f190fdfd345b2d61c6`（PR #27統合済み）、開始時クリーン、専用ブランチ `feat/fourier-kaleidoscope`。既存9作品のモデル・描画・教材・試験、依存、Pages公開条件とCIの検証内容を保持する。提出後のCI環境不整合に対応し、ValidateのOSのみUbuntu 24.04へ固定した（下記）。
 
 ## 数学規約
 
@@ -121,6 +121,7 @@ Canvasは1470×1470、RGBA理論バッファ約8.24MiB。513点は数値だけ�
 
 ## 検証履歴・制約
 
+- PR #29初回HEAD `96c035b` の [CI run 41451796814](https://github.com/tetsujisugimori-coder/Math-Art-Lab/actions/runs/41451796814) はattempt 1で単体・型・build成功後、Playwright導入で失敗。ログは `Playwright does not support chromium on ubuntu26.04-x64`。同じHEAD・同じ設定のattempt 2も導入で失敗し、いずれもE2E未到達。固定版Playwright 1.58.2の [公式プラットフォーム定義](https://github.com/microsoft/playwright/blob/v1.58.2/packages/playwright-core/src/server/utils/hostPlatform.ts) とローカル実装で24.04対応を確認し、Validateジョブの `runs-on` だけ `ubuntu-latest`→`ubuntu-24.04` に具体化した。依存更新、試験変更、時間延長、skip追加はせず、deployジョブ・公開条件・権限は維持。最終HEADの実行結果はPR最終コメントへ追記する。
 - サンドボックス内Vitest/Viteは親ディレクトリ参照拒否で起動不可。許可された制限外実行で検証し、起動拒否は試験成功に含めない。
 - 単体初回155成功・新規2失敗。60/120Hzの整数境界で1ステップ遅れる丸めを修正。座標の完全一致試験も許容誤差へ修正。再実行157/157（既存137＋新規20）成功。
 - 新規開発E2E初回19成功・7失敗。WebKitのCanvas縦横2px差5件はCSS絶対配置で修正し期待値は維持。残る2件はライト先端色を白と同じ条件で検査していた試験を、テーマの正しいRGBAとの一致へ修正。再実行26/26成功。新規skip・待機延長なし。
