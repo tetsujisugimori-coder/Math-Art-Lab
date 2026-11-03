@@ -1,6 +1,7 @@
 import {distance,inBounds,MAX_SITES,observe,presetNames,voronoi,type Cell,type Point,type Preset} from './voronoi';
 import {createState,editState,resetState,restoreState,stepState,type State,type SymbolId} from './voronoi-state';
 import {drawVoronoi,modelPoint} from './voronoi-render';
+import {submitCanvas} from './voronoi-paint';
 import './voronoi.css';
 
 const symbols:Record<Exclude<SymbolId,''>,{label:string;name:string;reading:string;meaning:string}>={
@@ -27,11 +28,11 @@ const symbolButton=(id:Exclude<SymbolId,''>)=>`<button type="button" data-vc-sym
 export function mountVoronoi(host:HTMLElement):()=>void{
  const life=new AbortController(),motion=matchMedia('(prefers-reduced-motion: reduce)'),theme=matchMedia('(prefers-color-scheme: light)');
  let state=createState(),cells=voronoi(state.sites),referenceCells=cells,saved:State|null=null,lesson=-1,forcedStop=false,disposed=false;
- let timer:ReturnType<typeof setTimeout>|null=null,drawFrame:number|null=null,epoch=0,drag:{id:number;site:number}|null=null;
+ let timer:ReturnType<typeof setTimeout>|null=null,drawFrame:{id:number}|null=null,epoch=0,drag:{id:number;site:number}|null=null,paintError='';
  let computeMs=0,renderMs=0,siteKey='',referenceKey='';
  host.innerHTML=`<main class="crystal"><header><small>MATH ART LAB / EXPERIMENT 011</small><h1>距離の結晶</h1><p>近い点を選ぶ。その繰り返しが、空間を整える。<br>Voronoi Crystal / ボロノイ図とロイド緩和</p></header>
  <div class="vc-layout"><div class="vc-art"><h2>現在の配置</h2><div class="vc-stage"><canvas id="vc-canvas" tabindex="0" role="img" aria-label="ボロノイ図の操作面" aria-describedby="vc-help vc-legend vc-observation"></canvas></div>
- <p class="vc-legend" id="vc-legend">丸：母点pᵢ ／ 四角：面積重心cᵢ ／ 十字：観察点x ／ 矢印：次の移動候補。上がyの正。色に加え、番号と境界で領域を区別します。</p>
+ <p class="vc-legend" id="vc-legend">丸：母点pᵢ ／ 四角：面積重心cᵢ ／ 十字：観察点x ／ 矢印：次の移動候補。上がyの正。距離の金色（ライトでは茶色）は表示候補、実線は保持座標の数学的最近点、破線はその他。色に加え、番号と境界で領域を区別します。</p>
  <output id="vc-observation" aria-live="off"></output><p id="vc-status" role="status"></p><p id="vc-error" role="status"></p>
  <div id="vc-reference-panel" class="vc-reference"><h3 id="vc-reference-title">初期配置 · 0ステップ</h3><div class="vc-stage"><canvas id="vc-reference-canvas" role="img" aria-label="比較用の配置"></canvas></div></div>
  <button id="vc-lesson">仕組みを見る · 4段階</button><section id="vc-lesson-panel" class="vc-panel" hidden aria-label="仕組みを見る"><h2 id="vc-lesson-title" tabindex="-1"></h2><p id="vc-lesson-text"></p><div class="vc-actions">${lessons.map(([title],i)=>`<button data-vc-lesson="${i}" aria-pressed="false">${i+1}. ${title}</button>`).join('')}</div><button id="vc-close">教材を終了して戻る</button><p>終了・Escapeで開始前の配置・設定・選択・観察点・ステップ・表示を復元します。元が再生中なら再開しますが、非表示やreduced-motionで停止した場合は停止を保ちます。</p></section></div>
@@ -48,7 +49,7 @@ export function mountVoronoi(host:HTMLElement):()=>void{
  <div class="vc-equation" aria-label="ボロノイ領域の定義">${symbolButton('cell')} = { x ${symbolButton('member')} ${symbolButton('omega')} ${symbolButton('bar')} <span class="vc-math">‖x − pᵢ‖</span> ${symbolButton('leq')} <span class="vc-math">‖x − pⱼ‖,</span> ${symbolButton('all')} }</div><div class="vc-actions">${symbolButton('norm')}${symbolButton('index')}${symbolButton('centroid')}${symbolButton('update')}<button id="vc-clear">強調を解除</button></div>
  <p>Vᵢは、Ω内でpᵢまでの距離が、ほかのどの点までの距離よりも大きくない場所の集合です。境界の等距離点は数学的には複数の領域に属し得ます。</p><dl><dt>A. 記号の名前</dt><dd id="vc-symbol-name"></dd><dt>B. 式の中での読み方</dt><dd id="vc-symbol-reading"></dd><dt>C. 数学的な意味</dt><dd id="vc-symbol-meaning"></dd></dl><p>名称・用法・読み方には別称があります。ここではこの式での使い方を説明します。</p>
  <output id="vc-values" aria-live="off"></output><p id="vc-membership"></p><details open><summary>現在の距離をすべて比べる</summary><ul id="vc-distance-list" class="vc-distance-list"></ul></details>
- <details><summary>重心と計算の規則</summary><p>cᵢ = (1 / area(Vᵢ)) ∫∫[Vᵢ] x dA。均一な面積に基づく重心です。多角形を三角形に分け、符号付き面積を重みとして求めます。頂点を単純平均する計算とは異なります。</p><p>‖x−pᵢ‖² ≤ ‖x−pⱼ‖² ⇔ (pⱼ−pᵢ)·(x−(pᵢ+pⱼ)/2) ≤ 0。垂直二等分線の半平面で正方形を切り取ります。描画はその頂点と同じモデル座標を使用し、画素による最近点近似は使いません。</p><p>距離の差が10⁻¹²以下のとき、観察表示では同距離の候補とし、その中で番号が最小の点を表示上の所属にします。色の共有境界は小さい番号を手前に描きます。これは浮動小数点と画面上の規則で、数学的な境界の定義ではありません。</p><p>完全重複点・不正座標・不正な領域は拒否し、正常な配置を保持します。ロイド緩和は全重心を先に計算して一括更新します。有限回での完全な正六角形化や大域的最適解を保証しません。</p></details></section></main>`;
+ <details><summary>重心と計算の規則</summary><p>cᵢ = (1 / area(Vᵢ)) ∫∫[Vᵢ] x dA。均一な面積に基づく重心です。多角形を三角形に分け、符号付き面積を重みとして求めます。頂点を単純平均する計算とは異なります。</p><p>‖x−pᵢ‖² ≤ ‖x−pⱼ‖² ⇔ (pⱼ−pᵢ)·(x−(pᵢ+pⱼ)/2) ≤ 0。垂直二等分線の半平面で正方形を切り取ります。描画はその頂点と同じモデル座標を使用し、画素による最近点近似は使いません。</p><p>座標は有限精度の値として保持します。数学的所属は、その保持値について二乗距離を整数化し、丸めずに比較した結果です。入力前の任意精度の実数や、多角形の描画境界まで無誤差という意味ではありません。距離一覧は丸め表示なので、同じ値に見えても数学的所属が異なる場合があります。</p><p>表示候補は、浮動小数点で計算した最小距離との差が10⁻¹²以下の点です。これは表示をまとめるための規則で、数学的所属や計算誤差の許容値ではありません。表示候補の最小IDを表示上の所属にします。Canvasの金色／茶色の距離線は表示候補、実線は数学的最近点です。色の共有境界は小さい番号を手前に描きます。</p><p>完全重複点・不正座標・不正な領域は拒否し、正常な配置を保持します。ロイド緩和は全重心を先に計算して一括更新します。有限回での完全な正六角形化や大域的最適解を保証しません。</p></details></section></main>`;
  const $=<T extends HTMLElement=HTMLElement>(id:string)=>host.querySelector<T>(`#vc-${id}`)!;
  const input=(id:string)=>$<HTMLInputElement>(id),select=(id:string)=>$<HTMLSelectElement>(id),button=(id:string)=>$<HTMLButtonElement>(id);
  const canvas=$<HTMLCanvasElement>('canvas'),ctx=canvas.getContext('2d'),refCanvas=$<HTMLCanvasElement>('reference-canvas'),refCtx=refCanvas.getContext('2d');
@@ -65,14 +66,34 @@ export function mountVoronoi(host:HTMLElement):()=>void{
  function edit(action:'add'|'move'|'delete',point?:Point){stop();attempt(()=>editState(state,action,point));}
  function step(){try{const start=performance.now(),next=stepState(state);state=next;cells=voronoi(state.sites);computeMs=performance.now()-start;message();if(state.step>=500)stop();render();}catch(error){stop();message(error instanceof Error?error.message:'更新できません。');render();}}
  function schedule(){if(disposed||!state.playing||document.hidden||timer!==null)return;const generation=epoch;timer=setTimeout(()=>{if(disposed||generation!==epoch)return;timer=null;step();schedule();},700);}
- function drawOne(c:HTMLCanvasElement,context:CanvasRenderingContext2D|null,cs:Cell[],reference:boolean){
-  if(!context||disposed||document.hidden)return;const size=c.getBoundingClientRect().width;if(size<=0)return;
-  const dpr=Math.min(devicePixelRatio||1,2),pixels=Math.max(1,Math.round(size*dpr));if(c.width!==pixels||c.height!==pixels)c.width=c.height=pixels;
-  drawVoronoi(context,state,cs,size,dpr,theme.matches,reference);
+ function drawOne(c:HTMLCanvasElement,context:CanvasRenderingContext2D|null,cs:Cell[],reference:boolean):boolean{
+  const start=performance.now(),result=submitCanvas(c,context,Math.min(devicePixelRatio||1,2),(context,size,dpr)=>drawVoronoi(context,state,cs,size,dpr,theme.matches,reference));
+  c.dataset.drawStatus=result.status;
+  if(result.status!=='submitted'){
+   if(result.status==='failed'||result.status==='context-lost'){paintError=`${reference?'比較図':'主図'}を描画できません。状態を保持しています。再表示・再操作で再試行します。`;message(paintError);}
+   return false;
+  }
+  c.dataset.renderMs=String(performance.now()-start);
+  c.dataset.renderedStep=c.dataset.requestedStep;
+  c.dataset.renderedRevision=c.dataset.requestedRevision;
+  c.dataset.renderedSites=JSON.stringify(cs.map(cell=>cell.site));
+  c.dataset.renderCount=String(Number(c.dataset.renderCount??0)+1);
+  return true;
  }
- function draw(){if(disposed||document.hidden)return;const start=performance.now();drawOne(canvas,ctx,cells,false);if(state.layers.compare)drawOne(refCanvas,refCtx,referenceCells,true);renderMs=performance.now()-start;canvas.dataset.renderMs=String(renderMs);canvas.dataset.renderedStep=String(state.step);canvas.dataset.renderedRevision=canvas.dataset.revision;canvas.dataset.renderCount=String(Number(canvas.dataset.renderCount??0)+1);}
+ function draw(){
+  if(disposed||document.hidden)return;
+  const main=drawOne(canvas,ctx,cells,false),reference=!state.layers.compare||drawOne(refCanvas,refCtx,referenceCells,true);
+  if(main){renderMs=Number(canvas.dataset.renderMs);if(reference&&paintError&&$('error').textContent===paintError){message();paintError='';}}
+ }
  // Geometry advances synchronously; one pending frame always paints the latest state.
- function requestDraw(){if(disposed||document.hidden||!ctx||drawFrame!==null)return;drawFrame=requestAnimationFrame(()=>{drawFrame=null;draw();});}
+ function requestDraw(){
+  if(disposed)return;
+  canvas.dataset.drawStatus=document.hidden?'hidden':'pending';refCanvas.dataset.drawStatus=!state.layers.compare?'disabled':document.hidden?'hidden':'pending';
+  if(document.hidden||drawFrame!==null)return;
+  const request={id:0};drawFrame=request;
+  request.id=requestAnimationFrame(()=>{if(disposed||drawFrame!==request)return;drawFrame=null;draw();});
+ }
+ function cancelDraw(){if(drawFrame!==null)cancelAnimationFrame(drawFrame.id);drawFrame=null;}
  function render(){
   if(disposed)return;
   const key=state.sites.map(p=>p.id).join(',');if(key!==siteKey){siteKey=key;select('selected').replaceChildren(...state.sites.map(p=>new Option(`p${p.id}`,String(p.id))));}select('selected').value=String(state.selected);
@@ -89,13 +110,17 @@ export function mountVoronoi(host:HTMLElement):()=>void{
   const observation=observe(state.sites,state.probe);
   $('observation').textContent=`現在：${state.step}ステップ · ${state.sites.length}点 ／ 最大移動 ${fmt(state.maxMove)} ／ 面積和 ${fmt(cells.reduce((sum,c)=>sum+c.area,0))} ／ 観察点x=(${fmt(state.probe.x)}, ${fmt(state.probe.y)})`;
   $('values').textContent=`選択 i=${state.selected}：pᵢ=(${fmt(selected.x)}, ${fmt(selected.y)}) ／ Vᵢの面積=${fmt(cell.area)} ／ cᵢ=(${fmt(cell.centroid.x)}, ${fmt(cell.centroid.y)}) ／ 重心までの距離=${fmt(distance(selected,cell.centroid))}`;
-  $('membership').textContent=`観察点xの表示上の所属：p${observation.displayOwner}。同距離候補（差≤10⁻¹²）：${observation.nearest.map(id=>`p${id}`).join('・')}。選択中V${state.selected}の距離条件は${observation.nearest.includes(state.selected)?'成立する候補です':'成立しません'}。`;
-  $('distance-list').replaceChildren(...observation.distances.map(d=>{const li=document.createElement('li');li.textContent=`p${d.id}: ${fmt(d.distance)}${observation.nearest.includes(d.id)?' · 最近':''}`;return li;}));
+  const owners=observation.mathematicalOwners.map(id=>`p${id}`).join('・'),candidates=observation.displayCandidates.map(id=>`p${id}`).join('・');
+  const membership=observation.mathematicalOwners.includes(state.selected)?observation.mathematicalOwners.length>1?'成立（等距離境界）':'成立':'不成立';
+  $('membership').textContent=`入力は有限精度に丸められます。保持座標 x=(${state.probe.x}, ${state.probe.y}) に対する数学的最近点：${owners}。選択中V${state.selected}の数学的所属：${membership}。観察点xの表示上の所属：p${observation.displayOwner}。表示候補：${candidates}（計算距離の最小値との差≤10⁻¹²）。表示候補は数学的所属を意味しません。`;
+  $('distance-list').replaceChildren(...observation.distances.map(d=>{const li=document.createElement('li');li.textContent=`p${d.id}: ${fmt(d.distance)} · 表示差 ${fmt(d.displayGap)}${observation.mathematicalOwners.includes(d.id)?' · 数学的最近点':''}${observation.displayCandidates.includes(d.id)?' · 表示候補':''}`;return li;}));
   const note=state.symbol?symbols[state.symbol]:null;$('symbol-name').textContent=note?.name??'記号を選んでください。';$('symbol-reading').textContent=note?.reading??'式の記号ボタンで確認できます。';$('symbol-meaning').textContent=note?.meaning??'図の対象と説明が連動します。';
   backSymbol.hidden=!state.symbol;showArt.disabled=!state.symbol;
   host.querySelectorAll<HTMLElement>('[data-vc-symbol]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.vcSymbol===state.symbol)));
   canvas.dataset.step=String(state.step);canvas.dataset.count=String(state.sites.length);canvas.dataset.computeMs=String(computeMs);canvas.dataset.state=JSON.stringify(state);canvas.dataset.cells=JSON.stringify(cells);canvas.dataset.symbol=state.symbol;
   canvas.dataset.revision=String(Number(canvas.dataset.revision??0)+1);
+  canvas.dataset.requestedRevision=canvas.dataset.revision;canvas.dataset.requestedStep=String(state.step);
+  refCanvas.dataset.requestedRevision=canvas.dataset.revision;refCanvas.dataset.requestedStep=String(state.reference==='initial'?0:Math.max(0,state.step-1));refCanvas.dataset.reference=state.reference;
   requestDraw();
  }
  button('play').onclick=()=>{cancelDrag();if(state.playing)stop();else if(ctx&&!document.hidden){state.playing=true;schedule();}render();};
@@ -145,9 +170,10 @@ export function mountVoronoi(host:HTMLElement):()=>void{
  function closeLesson(){if(!saved)return;cancelDrag();stop();state=restoreState(saved,forcedStop,motion.matches,document.hidden);saved=null;lesson=-1;$('lesson-panel').hidden=true;button('lesson').hidden=false;message();refresh();button('lesson').focus({preventScroll:true});schedule();}
  button('close').onclick=closeLesson;host.querySelectorAll<HTMLButtonElement>('[data-vc-lesson]').forEach(b=>b.onclick=()=>showLesson(Number(b.dataset.vcLesson)));
  document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(saved)closeLesson();else{const returnToCanvas=document.activeElement===backSymbol;cancelDrag();state.symbol='';render();if(returnToCanvas)canvas.focus({preventScroll:true});}}},{signal:life.signal});
- const safetyStop=()=>{forcedStop=true;cancelDrag();stop();if(drawFrame!==null)cancelAnimationFrame(drawFrame);drawFrame=null;render();};document.addEventListener('visibilitychange',()=>{if(document.hidden)safetyStop();else requestDraw();},{signal:life.signal});motion.addEventListener('change',()=>{if(motion.matches)safetyStop();},{signal:life.signal});theme.addEventListener('change',requestDraw,{signal:life.signal});
+ const safetyStop=()=>{forcedStop=true;cancelDrag();stop();cancelDraw();render();};document.addEventListener('visibilitychange',()=>{if(document.hidden)safetyStop();else requestDraw();},{signal:life.signal});motion.addEventListener('change',()=>{if(motion.matches)safetyStop();},{signal:life.signal});theme.addEventListener('change',requestDraw,{signal:life.signal});
+ for(const c of [canvas,refCanvas])c.addEventListener('contextrestored',requestDraw,{signal:life.signal});
  const resize=new ResizeObserver(requestDraw);resize.observe(canvas);resize.observe(refCanvas);let resolution:MediaQueryList|null=null;
  const dprChange=()=>{resolution?.removeEventListener('change',dprChange);resolution=matchMedia(`(resolution: ${devicePixelRatio}dppx)`);resolution.addEventListener('change',dprChange);requestDraw();};dprChange();
  if(!ctx)message('Canvas 2Dを利用できません。数式と距離の数値は確認できます。再生は利用できません。');render();
- return ()=>{disposed=true;cancelDrag();stop();if(drawFrame!==null)cancelAnimationFrame(drawFrame);drawFrame=null;life.abort();resize.disconnect();resolution?.removeEventListener('change',dprChange);saved=null;canvas.width=canvas.height=refCanvas.width=refCanvas.height=0;host.replaceChildren();};
+ return ()=>{disposed=true;cancelDrag();stop();cancelDraw();life.abort();resize.disconnect();resolution?.removeEventListener('change',dprChange);saved=null;canvas.width=canvas.height=refCanvas.width=refCanvas.height=0;host.replaceChildren();};
 }

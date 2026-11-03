@@ -1,0 +1,381 @@
+{
+  "date": "2026-11-03T17:16:55.324Z",
+  "sources": {
+    "voronoi.ts": "3d6b275ec102018f626b0d4b1112dff6df8ede67e04ed7cb52947e3f6cae7e7a",
+    "voronoi-view.ts": "800828bebfeae789022f6dd6852d3195288d12918061cb90c287b2771bdce675",
+    "voronoi-render.ts": "265f9f3931c643032432f2ac75eff5705773447b99e70c328fb6eb00819056b9",
+    "voronoi-paint.ts": "0dcb98ffb5938ff476a5a0747a9d9023a94525230e2c2ffa93db39e1c9554e29"
+  },
+  "results": [
+    {
+      "name": "chromium",
+      "checks": {
+        "zeroHeightNoCompletion": true,
+        "heightRecoveryLatest": true,
+        "referenceIndependent": true,
+        "initialReferenceStep": true,
+        "previousReferenceSource": true,
+        "hiddenNoCompletion": true,
+        "staleCannotConsumeNewFrame": true,
+        "synchronousBatchCoalesced": true,
+        "latestClosedForm": true,
+        "latestCanvasPixel": true,
+        "lessonCompleteState": true,
+        "lessonPixelRestoration": true,
+        "lessonFocus": true,
+        "paintExceptionNoCompletion": true,
+        "paintExceptionRecovery": true,
+        "reportedContextLostNoCompletion": true,
+        "reportedContextLostRecovery": true,
+        "boundaryUI": true,
+        "canvasMathDisplayStyles": true,
+        "reducedMotionSafeRestore": true,
+        "disposedCallbackHarmless": true,
+        "noPageError": true
+      },
+      "evidence": {
+        "stale": {
+          "before": 16,
+          "hiddenCount": 16,
+          "hiddenStep": 3,
+          "afterOld": 16,
+          "afterFresh": 17,
+          "distinct": true,
+          "completed": 3,
+          "revision": "15",
+          "requested": "15"
+        },
+        "batch": {
+          "before": 17,
+          "inside": 17,
+          "state": {
+            "sites": [
+              {
+                "x": 0.2499755859375,
+                "y": 0.5,
+                "id": 1
+              },
+              {
+                "x": 0.7499755859374999,
+                "y": 0.5,
+                "id": 2
+              }
+            ],
+            "initial": [
+              {
+                "x": 0.1,
+                "y": 0.4,
+                "id": 1
+              },
+              {
+                "x": 0.5,
+                "y": 0.4,
+                "id": 2
+              }
+            ],
+            "previous": [
+              {
+                "x": 0.24995117187499993,
+                "y": 0.5,
+                "id": 1
+              },
+              {
+                "x": 0.749951171875,
+                "y": 0.5,
+                "id": 2
+              }
+            ],
+            "step": 13,
+            "selected": 2,
+            "probe": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "mode": "select",
+            "preset": "basic",
+            "symbol": "",
+            "playing": false,
+            "maxMove": 0.000024414062500061062,
+            "layers": {
+              "regions": true,
+              "edges": true,
+              "sites": true,
+              "centroids": false,
+              "vectors": false,
+              "distances": false,
+              "compare": true
+            },
+            "reference": "previous"
+          },
+          "afterCount": 18,
+          "beforePixel": {
+            "rgb": [
+              87,
+              104,
+              37,
+              255
+            ],
+            "hue": 75.22388059701493
+          },
+          "afterPixel": {
+            "rgb": [
+              80,
+              28,
+              82,
+              255
+            ],
+            "hue": 297.77777777777777
+          }
+        },
+        "probes": [
+          {
+            "x": "0.5",
+            "owners": "p1・p2",
+            "text": "入力は有限精度に丸められます。保持座標 x=(0.5, 0.5) に対する数学的最近点：p1・p2。選択中V1の数学的所属：成立（等距離境界）。観察点xの表示上の所属：p1。表示候補：p1・p2（計算距離の最小値との差≤10⁻¹²）。表示候補は数学的所属を意味しません。",
+            "pass": true
+          },
+          {
+            "x": "0.5000000000001",
+            "owners": "p2",
+            "text": "入力は有限精度に丸められます。保持座標 x=(0.5000000000001, 0.5) に対する数学的最近点：p2。選択中V1の数学的所属：不成立。観察点xの表示上の所属：p1。表示候補：p1・p2（計算距離の最小値との差≤10⁻¹²）。表示候補は数学的所属を意味しません。",
+            "pass": true
+          },
+          {
+            "x": "0.4999999999999",
+            "owners": "p1",
+            "text": "入力は有限精度に丸められます。保持座標 x=(0.4999999999999, 0.5) に対する数学的最近点：p1。選択中V1の数学的所属：成立。観察点xの表示上の所属：p1。表示候補：p1・p2（計算距離の最小値との差≤10⁻¹²）。表示候補は数学的所属を意味しません。",
+            "pass": true
+          }
+        ],
+        "lineSemantics": {
+          "lines": [
+            {
+              "path": [
+                [
+                  50.0000000000091,
+                  49.99999999999999
+                ],
+                [
+                  27.250000000000004,
+                  49.99999999999999
+                ]
+              ],
+              "dash": [
+                3,
+                5
+              ],
+              "color": "#ffdf9c"
+            },
+            {
+              "path": [
+                [
+                  50.0000000000091,
+                  49.99999999999999
+                ],
+                [
+                  72.75,
+                  49.99999999999999
+                ]
+              ],
+              "dash": [],
+              "color": "#ffdf9c"
+            }
+          ],
+          "pass": true
+        },
+        "disposed": {
+          "oldWidth": 0,
+          "oldHeight": 0,
+          "freshCountUnchanged": true,
+          "freshStep": 0
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "webkit",
+      "checks": {
+        "zeroHeightNoCompletion": true,
+        "heightRecoveryLatest": true,
+        "referenceIndependent": true,
+        "initialReferenceStep": true,
+        "previousReferenceSource": true,
+        "hiddenNoCompletion": true,
+        "staleCannotConsumeNewFrame": true,
+        "synchronousBatchCoalesced": true,
+        "latestClosedForm": true,
+        "latestCanvasPixel": true,
+        "lessonCompleteState": true,
+        "lessonPixelRestoration": true,
+        "lessonFocus": true,
+        "paintExceptionNoCompletion": true,
+        "paintExceptionRecovery": true,
+        "reportedContextLostNoCompletion": true,
+        "reportedContextLostRecovery": true,
+        "boundaryUI": true,
+        "canvasMathDisplayStyles": true,
+        "reducedMotionSafeRestore": true,
+        "disposedCallbackHarmless": true,
+        "noPageError": true
+      },
+      "evidence": {
+        "stale": {
+          "before": 14,
+          "hiddenCount": 14,
+          "hiddenStep": 3,
+          "afterOld": 14,
+          "afterFresh": 15,
+          "distinct": true,
+          "completed": 3,
+          "revision": "15",
+          "requested": "15"
+        },
+        "batch": {
+          "before": 15,
+          "inside": 15,
+          "state": {
+            "sites": [
+              {
+                "x": 0.2499755859375,
+                "y": 0.5,
+                "id": 1
+              },
+              {
+                "x": 0.7499755859374999,
+                "y": 0.5,
+                "id": 2
+              }
+            ],
+            "initial": [
+              {
+                "x": 0.1,
+                "y": 0.4,
+                "id": 1
+              },
+              {
+                "x": 0.5,
+                "y": 0.4,
+                "id": 2
+              }
+            ],
+            "previous": [
+              {
+                "x": 0.24995117187499993,
+                "y": 0.5,
+                "id": 1
+              },
+              {
+                "x": 0.749951171875,
+                "y": 0.5,
+                "id": 2
+              }
+            ],
+            "step": 13,
+            "selected": 2,
+            "probe": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "mode": "select",
+            "preset": "basic",
+            "symbol": "",
+            "playing": false,
+            "maxMove": 0.000024414062500061062,
+            "layers": {
+              "regions": true,
+              "edges": true,
+              "sites": true,
+              "centroids": false,
+              "vectors": false,
+              "distances": false,
+              "compare": true
+            },
+            "reference": "previous"
+          },
+          "afterCount": 16,
+          "beforePixel": {
+            "rgb": [
+              88,
+              104,
+              37,
+              255
+            ],
+            "hue": 74.32835820895522
+          },
+          "afterPixel": {
+            "rgb": [
+              80,
+              27,
+              82,
+              255
+            ],
+            "hue": 297.8181818181818
+          }
+        },
+        "probes": [
+          {
+            "x": "0.5",
+            "owners": "p1・p2",
+            "text": "入力は有限精度に丸められます。保持座標 x=(0.5, 0.5) に対する数学的最近点：p1・p2。選択中V1の数学的所属：成立（等距離境界）。観察点xの表示上の所属：p1。表示候補：p1・p2（計算距離の最小値との差≤10⁻¹²）。表示候補は数学的所属を意味しません。",
+            "pass": true
+          },
+          {
+            "x": "0.5000000000001",
+            "owners": "p2",
+            "text": "入力は有限精度に丸められます。保持座標 x=(0.5000000000001, 0.5) に対する数学的最近点：p2。選択中V1の数学的所属：不成立。観察点xの表示上の所属：p1。表示候補：p1・p2（計算距離の最小値との差≤10⁻¹²）。表示候補は数学的所属を意味しません。",
+            "pass": true
+          },
+          {
+            "x": "0.4999999999999",
+            "owners": "p1",
+            "text": "入力は有限精度に丸められます。保持座標 x=(0.4999999999999, 0.5) に対する数学的最近点：p1。選択中V1の数学的所属：成立。観察点xの表示上の所属：p1。表示候補：p1・p2（計算距離の最小値との差≤10⁻¹²）。表示候補は数学的所属を意味しません。",
+            "pass": true
+          }
+        ],
+        "lineSemantics": {
+          "lines": [
+            {
+              "path": [
+                [
+                  50.0000000000091,
+                  49.99999999999999
+                ],
+                [
+                  27.250000000000004,
+                  49.99999999999999
+                ]
+              ],
+              "dash": [
+                3,
+                5
+              ],
+              "color": "#ffdf9c"
+            },
+            {
+              "path": [
+                [
+                  50.0000000000091,
+                  49.99999999999999
+                ],
+                [
+                  72.75,
+                  49.99999999999999
+                ]
+              ],
+              "dash": [],
+              "color": "#ffdf9c"
+            }
+          ],
+          "pass": true
+        },
+        "disposed": {
+          "oldWidth": 0,
+          "oldHeight": 0,
+          "freshCountUnchanged": true,
+          "freshStep": 0
+        }
+      },
+      "errors": []
+    }
+  ]
+}

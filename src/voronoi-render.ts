@@ -9,7 +9,11 @@ export function drawVoronoi(ctx:CanvasRenderingContext2D,state:State,cells:Cell[
  const xy=(p:Point)=>screenPoint(p,size),path=(points:Point[])=>{ctx.beginPath();points.forEach((p,i)=>{const q=xy(p);if(i)ctx.lineTo(q.x,q.y);else ctx.moveTo(q.x,q.y);});ctx.closePath();};
  const line=(a:Point,b:Point,color:string,width=1)=>{const p=xy(a),q=xy(b);ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke();};
  const dot=(p:Point,r:number,color:string,square=false)=>{const q=xy(p);ctx.beginPath();if(square)ctx.rect(q.x-r,q.y-r,r*2,r*2);else ctx.arc(q.x,q.y,r,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();ctx.strokeStyle=light?'#fff':'#081221';ctx.lineWidth=1.5;ctx.stroke();};
- ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,size,size);ctx.fillStyle=light?'#e8eef0':'#080f1b';ctx.fillRect(0,0,size,size);
+ // Clear whole backing pixels, including the fractional CSS edge. Otherwise a
+ // partially cleared edge pixel can accumulate alpha across identical frames.
+ ctx.setLineDash([]); // A failed distance stroke may have left a dash behind.
+ ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,Math.ceil(size*dpr),Math.ceil(size*dpr));
+ ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle=light?'#e8eef0':'#080f1b';ctx.fillRect(0,0,size,size);
  // Paint smaller IDs last, for the shared antialiased boundary pixels.
  for(const cell of [...cells].sort((a,b)=>b.site.id-a.site.id)){
   path(cell.polygon);
@@ -37,7 +41,7 @@ export function drawVoronoi(ctx:CanvasRenderingContext2D,state:State,cells:Cell[
  const distanceFocus=['norm','leq','all','member','bar'].includes(state.symbol);
  if(!reference&&(state.layers.distances||state.mode!=='select'||distanceFocus)){
   const observation=observe(state.sites,state.probe);
-  for(const site of state.sites){const nearest=observation.nearest.includes(site.id);ctx.setLineDash(nearest?[]:[3,5]);line(state.probe,site,nearest?accent:ink,nearest?(distanceFocus?3.5:2.5):(distanceFocus?1.3:.7));}
+  for(const site of state.sites){const candidate=observation.displayCandidates.includes(site.id),owner=observation.mathematicalOwners.includes(site.id);ctx.setLineDash(owner?[]:[3,5]);line(state.probe,site,candidate?accent:ink,candidate?(distanceFocus?3.5:2.5):(distanceFocus?1.3:.7));}
   ctx.setLineDash([]);const p=xy(state.probe);ctx.strokeStyle=ink;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(p.x-7,p.y);ctx.lineTo(p.x+7,p.y);ctx.moveTo(p.x,p.y-7);ctx.lineTo(p.x,p.y+7);ctx.stroke();ctx.fillStyle=ink;ctx.font='bold 13px system-ui';
   const width=ctx.measureText('x').width,labelX=p.x+8+width>size-3?p.x-8-width:p.x+8,labelY=p.y-8<14?p.y+18:p.y-8;
   ctx.fillText('x',Math.max(3,labelX),Math.min(size-4,labelY));

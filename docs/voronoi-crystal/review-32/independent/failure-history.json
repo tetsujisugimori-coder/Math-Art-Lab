@@ -1,0 +1,45 @@
+{
+  "dateJST": "2026-11-04",
+  "baselineHEAD": "cab21143b9263904da2a9fc95571b79a58b22cd0",
+  "events": [
+    {
+      "kind": "evidence-directory-cleanup",
+      "cause": "Implementer ran a diagnostic Playwright invocation without explicit --output. Playwright cleared its default test-results directory, which also contained the initial independent evidence.",
+      "effect": "Initial scratch scripts and JSON were deleted. Findings remained in the agent conversation. No claim that the original files were restored.",
+      "response": "Reconstructed independent scripts under ignored node_modules/.review32-independent. Reacquired baseline RED from git-show copies of cab2114, then reran current GREEN. Future Playwright runner invocations use explicit output; this independent harness uses the browser library directly."
+    },
+    {
+      "kind": "harness-startup-failure",
+      "message": "Vite config esbuild: Cannot read directory ../../../..: Access is denied. Could not resolve baseline/vite.config.ts.",
+      "cause": "Independent baseline scratch server config bundling under restricted filesystem.",
+      "response": "Use Vite createServer with configFile:false and equivalent development base '/', not a product source change."
+    },
+    {
+      "kind": "harness-property-error",
+      "message": "page.evaluate: SyntaxError: undefined is not valid JSON",
+      "cause": "Independent harness incorrectly read dataset.currentState; application publishes dataset.state.",
+      "response": "Correct harness to documented/existing dataset.state; rerun same product conditions."
+    },
+    {
+      "kind": "harness-expectation-errors",
+      "report": "extended-review-harness-failure.json",
+      "cause": "Boundary UI expected punctuation 、 instead of actual ・. Canvas command filter required exact floating-point screenY===50 rather than a bounded coordinate comparison.",
+      "response": "Correct delimiter and filter screen coordinate with abs(y-50)<1e-8 at size 100. Mathematical membership expectations and expected line styles were unchanged. Both P2 checks then pass in Chromium and WebKit. All P3 checks had already passed in the failed harness run."
+    },
+    {
+      "kind": "page-load-timeout",
+      "message": "page.goto: Timeout 30000ms exceeded. navigating to http://127.0.0.1:4187/, waiting until load; at configure extended-check.mjs:15:13; at extended-check.mjs:26:10",
+      "cause": "UNKNOWN",
+      "location": "First browser/configure call of the corrected extended harness; before its feature assertions.",
+      "response": "Preserved failure. Repeated unmodified with the same default 30000ms timeout; both browsers completed all feature assertions. No skip, timeout increase, or product change. This does not establish a cause or resolve the earlier PR initial-load UNKNOWN."
+    },
+    {
+      "kind": "page-load-timeout-after-dash-fix",
+      "message": "page.goto: Timeout 30000ms exceeded. navigating to http://127.0.0.1:4187/, waiting until load; configure extended-check.mjs:16:13; extended-check.mjs:27:10",
+      "cause": "UNKNOWN",
+      "location": "WebKit first configure/page.goto, after Chromium completed all22 assertions on renderer SHA256 265f9f3931c643032432f2ac75eff5705773447b99e70c328fb6eb00819056b9.",
+      "response": "Preserved failed attempt; reran all22 in both engines with unchanged 30000ms timeout and feature expectations, both passed. Pixel11 and dash recovery also passed both engines on the final renderer. No cause is established by the successful rerun."
+    }
+  ],
+  "preciseAttemptTimestamps": "NOT_RECORDED; ordered tool transcript retained the messages. No invented timestamp or resource diagnosis."
+}

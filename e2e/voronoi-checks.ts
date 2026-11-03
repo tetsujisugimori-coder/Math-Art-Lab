@@ -68,7 +68,7 @@ test('crystal: old scheduled callbacks cannot overwrite reset, lesson or a new m
 
 test('crystal: known diagram aligns model, coordinates, bisector and raster',async({page})=>{
  await press(page,'lesson');await press(page,'clear');await page.locator('#vc-distances').uncheck();await page.locator('#vc-mode').evaluate(el=>{(el as HTMLSelectElement).disabled=false;(el as HTMLSelectElement).value='select';el.dispatchEvent(new Event('change'));});await page.locator('#vc-sites').uncheck();
- await expect.poll(()=>c(page).evaluate(el=>(el as HTMLCanvasElement).dataset.revision===(el as HTMLCanvasElement).dataset.renderedRevision)).toBe(true);
+ await expect.poll(()=>c(page).evaluate(el=>(el as HTMLCanvasElement).dataset.drawStatus==='submitted'&&(el as HTMLCanvasElement).dataset.revision===(el as HTMLCanvasElement).dataset.renderedRevision)).toBe(true);
  const result=await c(page).evaluate((el:HTMLCanvasElement)=>{
   const ctx=el.getContext('2d')!,s=el.width,rgba=(x:number,y:number)=>Array.from(ctx.getImageData(Math.round(s*(.045+.91*x)),Math.round(s*(.955-.91*y)),1,1).data);
   return {left:rgba(.3,.3),right:rgba(.7,.3),boundary:rgba(.5,.3),state:JSON.parse(el.dataset.state!),cells:JSON.parse(el.dataset.cells!)};

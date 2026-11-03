@@ -22,12 +22,12 @@ describe('Voronoi geometry: hand-calculated references',()=>{
   const cs=voronoi(sites([[0,0],[1,0],[1,1],[0,1]]));cs.forEach((c,i)=>{close(c.area,.25);close(c.centroid.x,[.25,.75,.75,.25][i]);close(c.centroid.y,[.25,.25,.75,.75][i]);});
  });
  it('a boundary belongs to both nearest cells; display tie uses smallest ID',()=>{
-  const ps=sites([[.25,.5],[.75,.5]]);const result=observe([...ps].reverse(),{x:.5,y:.17});expect(result.nearest).toEqual([1,2]);expect(result.displayOwner).toBe(1);
-  expect(observe(ps,{x:.49,y:.17}).nearest).toEqual([1]);
+  const ps=sites([[.25,.5],[.75,.5]]);const result=observe([...ps].reverse(),{x:.5,y:.17});expect(result.displayCandidates).toEqual([1,2]);expect(result.displayOwner).toBe(1);
+  expect(observe(ps,{x:.49,y:.17}).displayCandidates).toEqual([1]);
  });
  it('four-way equidistance and display-only numerical tolerance are explicit',()=>{
-  expect(observe(sites([[0,0],[1,0],[1,1],[0,1]]),{x:.5,y:.5}).nearest).toEqual([1,2,3,4]);
-  expect(observe(sites([[.25,.5],[.75,.5]]),{x:.5+1e-13,y:.5}).nearest).toEqual([1,2]);
+  expect(observe(sites([[0,0],[1,0],[1,1],[0,1]]),{x:.5,y:.5}).displayCandidates).toEqual([1,2,3,4]);
+  expect(observe(sites([[.25,.5],[.75,.5]]),{x:.5+1e-13,y:.5}).displayCandidates).toEqual([1,2]);
  });
  it('half-plane clipping retains only the rectangle interior and exact intersections',()=>{
   const poly=clipHalfPlane(square,{x:1,y:0},{x:.3,y:2});expect(poly).toEqual([{x:0,y:0},{x:.3,y:0},{x:.30000000000000004,y:1},{x:0,y:1}]);close(polygonMetrics(poly).area,.3);

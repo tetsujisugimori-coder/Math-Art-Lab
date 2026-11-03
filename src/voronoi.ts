@@ -6,7 +6,8 @@ export const MAX_SITES=64;
 export const MIN_SEPARATION=1e-6;
 export const COORD_TOL=128*Number.EPSILON;
 export const AREA_TOL=1e-10;
-export const DISTANCE_TOL=1e-12;
+/** Presentation grouping only. Never a mathematical membership tolerance. */
+export const DISPLAY_DISTANCE_TOL=1e-12;
 export const inBounds=(p:Point)=>Number.isFinite(p.x)&&Number.isFinite(p.y)&&p.x>=0&&p.x<=1&&p.y>=0&&p.y<=1;
 export const distance=(a:Point,b:Point)=>Math.hypot(a.x-b.x,a.y-b.y);
 const clamp=(n:number)=>Math.max(0,Math.min(1,n));
@@ -79,12 +80,26 @@ export function lloyd(sites:Site[]):{sites:Site[];cells:Cell[];maxMove:number}{
  return {sites:next,cells,maxMove:Math.max(...sites.map((p,i)=>distance(p,next[i])))};
 }
 
+// Every finite binary64 coordinate in [0,1] is an integer multiple of 2^-1074.
+// Use that common unit to compare squared distances without rounding, including
+// subnormals. This proves statements about stored coordinates, not decimal intent.
+const coordinateBits=new DataView(new ArrayBuffer(8));
+function coordinateInteger(value:number):bigint{
+ coordinateBits.setFloat64(0,value);
+ const bits=coordinateBits.getBigUint64(0),exponent=(bits>>52n)&2047n,fraction=bits&((1n<<52n)-1n);
+ return exponent===0n?fraction:((1n<<52n)|fraction)<<(exponent-1n);
+}
 export function observe(sites:Site[],point:Point){
  validateSites(sites);
  if(!inBounds(point))throw new Error('観察点は領域内に置いてください。');
- const distances=sites.map(p=>({id:p.id,distance:distance(p,point)})).sort((a,b)=>a.distance-b.distance||a.id-b.id);
- const nearest=distances.filter(d=>d.distance-distances[0].distance<=DISTANCE_TOL).map(d=>d.id).sort((a,b)=>a-b);
- return {distances,nearest,displayOwner:nearest[0]};
+ const px=coordinateInteger(point.x),py=coordinateInteger(point.y);
+ const squared=sites.map(p=>{const dx=px-coordinateInteger(p.x),dy=py-coordinateInteger(p.y);return {id:p.id,key:dx*dx+dy*dy};});
+ const minimum=squared.reduce((a,b)=>a<b.key?a:b.key,squared[0].key);
+ const mathematicalOwners=squared.filter(p=>p.key===minimum).map(p=>p.id).sort((a,b)=>a-b);
+ const measured=sites.map(p=>({id:p.id,distance:distance(p,point)})).sort((a,b)=>a.distance-b.distance||a.id-b.id);
+ const distances=measured.map(p=>({...p,displayGap:p.distance-measured[0].distance}));
+ const displayCandidates=distances.filter(p=>p.displayGap<=DISPLAY_DISTANCE_TOL).map(p=>p.id).sort((a,b)=>a-b);
+ return {distances,mathematicalOwners,displayCandidates,displayOwner:displayCandidates[0]};
 }
 
 export const presetNames={basic:'基本の4点',irregular:'不規則な結晶',grid:'格子の秩序',cluster:'中央に集まる点'};

@@ -1,5 +1,19 @@
 # Math-Art-Lab 開発・研究記録
 
+## 2026-11-04 JST — PR #32 独立指摘 P2-01・P3-01
+
+基準cab21143・レビュー5755523261・Issue #31原文・base/main1c29194を確認し、既存ブランチで修正。P2は表示候補のnearestを数学的所属へ流用したことが原因。保持binary64座標の二乗距離をBigIntで厳密比較するmathematicalOwnersと、従来の計算距離差≤10⁻¹²によるdisplayCandidatesを分け、最小ID優先は維持した。数式・距離一覧・所属文・Canvas実線／破線と候補色を対応させ、入力前の実数の意図と多角形近似の限界も明示する。
+
+P3は描画未実施でも完了記録を進めたことが原因。Canvas命令の結果を返し、主図・比較図の要求と実行済みstep/revisionを別管理する。幅0・contextなし／喪失・例外では記録を進めず、復帰時に最新状態を再描画する。rAF予約の同一性で旧callbackを拒否。完了はCPU側Canvas命令の復帰で、GPU表示の保証ではない。
+
+修正前の新規単体10失敗・GUI4失敗を保存し、同一条件でGREEN。拡張単体23件、全単体207件、型検査、build成功。追加GUI初回15成功・WebKit1失敗を調べ、小数CSS幅の端画素が部分消去され透明度が蓄積する不具合を確認。全バッファ画素を消去してから描くよう修正し、画像期待値を変えず16/16成功。独立Python Fraction基準でも1517/1517一致、旧実装のfalse positive738ケースを再取得。診断の出力先指定漏れで独立一時証拠を削除した手順ミスと、その再取得も記録した。
+
+[追補記録](docs/voronoi-crystal/review-32/README.md)に方式比較・RED/GREEN・全件回帰・画像8枚・CPU生データ・独立再レビューをまとめる。JS748.88KB/gzip215.60KB、追加依存なし。実機iPhone/SR/低性能端末/OS拡大はNOT_TESTED、以前の初回goto30秒失敗は原因UNKNOWNを維持。最終HEAD・CI対応と判定はPR #32追補コメントへ固定。Issue #31原文・Issue #30・Pages公開条件は変更せず、Draft維持、merge／auto-mergeは実施しない。
+
+独立再レビュー中、破線stroke例外後にdash[3,5]が残り、最初の復帰だけ正常PNGと異なる追加反例を両browserで確認。通常の最初のstroke例外では見つからなかったため、恒久GUIを追加して両2失敗のREDを取り、描画開始時に線種を初期化した。最終buildはJS748.90KB/gzip215.61KB。その前の本番全236成功は履歴として保持し、開発全件はChromium完了・WebKit204/356進行中にこの修正を優先して明示中断、全件PASSとは扱わない。最終新作48件×両環境と、最終HEADのCI全358/238件を別に検証する。今回も独立ハーネス・最終撮影の初回loadで30秒失敗が再発し、原因UNKNOWNを維持、ログを保存する。
+
+最終ローカル本番48/48成功。開発47成功・375pxの初回load30秒失敗1件、同じコード／上限の該当再試行1/1成功と区別して保存。独立最終はFraction1517、両browser各11/11＋22/22、破線例外後の最初の復帰PNG一致が成功。対象P2/P3はPASS、総合はPARTIAL、最終HEAD・CI成功に条件を置く限定推奨YES。独立担当の全既存作品／本番／全表示行列はNOT_TESTEDとして自己検証と区別した。最終画像再撮影もGUI終了後の同一条件でexit0、8枚・pageerror0・横幅320を確認。最終CPU64点観察の最大0.2／2msより大きかった初回0.6／3msも生データを保持する。
+
 ## 2026-11-03 JST — 距離の結晶（Issue #31）
 
 初回commit6cdf5d2をpushしてDraft PR #32を作成（Issue #31）。CI待機中に、ライトのbackground短縮指定がselect矢印を消す競合を画像で確認。background-colorに限定し、background-imageの保持試験を加えた追補は開発8/8・本番8/8成功。元のrun41655323790は初回HEADの結果として区別し、追補後の最終HEADとCIをPR本文・最終コメントで照合する。最終CSS33.86KB/gzip7.09KB、JS745.81KB/gzip214.37KB。マージ・auto-mergeは実施しない。

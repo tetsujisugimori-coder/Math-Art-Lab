@@ -16,7 +16,7 @@ try{
   const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('http://127.0.0.1:4182');await page.locator('#experiment').selectOption('voronoi');
   async function capture(target,file,options={}){
    await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
-   await page.waitForFunction(()=>{const c=document.querySelector('#vc-canvas');return c.dataset.revision===c.dataset.renderedRevision;});
+   await page.waitForFunction(()=>{const c=document.querySelector('#vc-canvas'),r=document.querySelector('#vc-reference-canvas'),s=JSON.parse(c.dataset.state);return c.dataset.drawStatus==='submitted'&&c.dataset.revision===c.dataset.renderedRevision&&(!s.layers.compare||(r.dataset.drawStatus==='submitted'&&r.dataset.renderedRevision===c.dataset.revision));});
    await target.screenshot({path:file,...options});
    const metadata=await page.locator('#vc-canvas').evaluate(c=>{const s=JSON.parse(c.dataset.state);return {preset:s.preset,step:s.step,sites:s.sites,selected:s.selected,probe:s.probe,symbol:s.symbol,layers:s.layers,revision:c.dataset.revision,renderedRevision:c.dataset.renderedRevision,canvasPixels:[c.width,c.height],theme:matchMedia('(prefers-color-scheme:light)').matches?'light':'dark',font:getComputedStyle(document.documentElement).fontSize};});
    captures.push({file,engine:engine.name(),version:browser.version(),viewport:page.viewportSize(),...metadata});
