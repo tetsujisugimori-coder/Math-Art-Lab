@@ -1,0 +1,71 @@
+
+[WebServer] (node:36292) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+
+(node:34172) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:34172) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1/2] [chromium] › e2e\voronoi-review-checks.ts:288:1 › P3-01 RED→GREEN: first recovery after a dashed-distance exception matches the normal bitmap
+  1) [chromium] › e2e\voronoi-review-checks.ts:288:1 › P3-01 RED→GREEN: first recovery after a dashed-distance exception matches the normal bitmap
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      101 |  // The first successful recovery must paint the correct pixels, rather than
+      102 |  // needing an extra frame to remove a dash left by the failed command.
+    > 103 |  expect(await canvas(page).evaluate(c=>c.toDataURL())===before.image).toBe(true);
+          |                                                                       ^
+      104 | });
+      105 |
+        at C:\Users\tetsu\.codex\worktrees\3dc6\Math-Art-Lab\e2e\voronoi-review-checks.ts:103:71
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\review32-dash-red\voronoi-review-P3-01-RED→G-ea7b0-n-matches-the-normal-bitmap-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\review32-dash-red\voronoi-review-P3-01-RED→G-ea7b0-n-matches-the-normal-bitmap-chromium\error-context.md
+
+
+(node:34228) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:34228) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[2/2] [webkit] › e2e\voronoi-review-checks.ts:288:1 › P3-01 RED→GREEN: first recovery after a dashed-distance exception matches the normal bitmap
+  2) [webkit] › e2e\voronoi-review-checks.ts:288:1 › P3-01 RED→GREEN: first recovery after a dashed-distance exception matches the normal bitmap
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      101 |  // The first successful recovery must paint the correct pixels, rather than
+      102 |  // needing an extra frame to remove a dash left by the failed command.
+    > 103 |  expect(await canvas(page).evaluate(c=>c.toDataURL())===before.image).toBe(true);
+          |                                                                       ^
+      104 | });
+      105 |
+        at C:\Users\tetsu\.codex\worktrees\3dc6\Math-Art-Lab\e2e\voronoi-review-checks.ts:103:71
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\review32-dash-red\voronoi-review-P3-01-RED→G-ea7b0-n-matches-the-normal-bitmap-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\review32-dash-red\voronoi-review-P3-01-RED→G-ea7b0-n-matches-the-normal-bitmap-webkit\error-context.md
+
+
+  2 failed
+    [chromium] › e2e\voronoi-review-checks.ts:288:1 › P3-01 RED→GREEN: first recovery after a dashed-distance exception matches the normal bitmap
+    [webkit] › e2e\voronoi-review-checks.ts:288:1 › P3-01 RED→GREEN: first recovery after a dashed-distance exception matches the normal bitmap

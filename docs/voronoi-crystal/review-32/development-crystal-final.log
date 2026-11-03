@@ -1,0 +1,109 @@
+
+[WebServer] (node:9564) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 48 tests using 1 worker
+
+
+(node:34960) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+(node:34960) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/48] [chromium] › e2e\voronoi-review-checks.ts:47:1 › P2-01 RED→GREEN: a display tie must not become mathematical membership
+[2/48] [chromium] › e2e\voronoi-review-checks.ts:64:1 › P3-01 RED→GREEN: zero width cannot advance completed drawing records
+[3/48] [chromium] › e2e\voronoi-review-checks.ts:93:1 › P3-01: actual pixels follow the hand-calculated latest split after resize
+[4/48] [chromium] › e2e\voronoi-review-checks.ts:124:1 › P3-01: comparison completion is independent and records its own source step
+[5/48] [chromium] › e2e\voronoi-review-checks.ts:156:1 › P3-01: context loss and thrown commands preserve last successful completion
+[6/48] [chromium] › e2e\voronoi-review-checks.ts:198:1 › P3-01: unavailable main context never completes while comparison may paint
+[7/48] [chromium] › e2e\voronoi-review-checks.ts:215:1 › P3-01: old rAF cannot consume a replacement request or draw after teardown
+[8/48] [chromium] › e2e\voronoi-review-checks.ts:264:1 › P3-01: a lesson can start and restore while drawing is unavailable
+[9/48] [chromium] › e2e\voronoi-review-checks.ts:288:1 › P3-01 RED→GREEN: first recovery after a dashed-distance exception matches the normal bitmap
+[10/48] [chromium] › e2e\voronoi-checks.ts:32:1 › crystal: editing, invalid operations, deterministic step and reset
+[11/48] [chromium] › e2e\voronoi-checks.ts:83:1 › crystal: canvas keyboard, numeric forms, presets, layers and symbols
+[12/48] [chromium] › e2e\voronoi-checks.ts:140:1 › crystal: all four lesson stages, distances, centroid and complete snapshot restoration
+[13/48] [chromium] › e2e\voronoi-checks.ts:177:1 › crystal: replay, stop, reset, switching, reduced-motion and safety restoration
+[14/48] [chromium] › e2e\voronoi-checks.ts:223:1 › crystal: hidden document pauses and forbids lesson autoplay restoration
+[15/48] [chromium] › e2e\voronoi-checks.ts:250:1 › crystal: old scheduled callbacks cannot overwrite reset, lesson or a new mount
+[16/48] [chromium] › e2e\voronoi-checks.ts:288:1 › crystal: known diagram aligns model, coordinates, bisector and raster
+[17/48] [chromium] › e2e\voronoi-checks.ts:326:1 › crystal: pointer drag and cancellation retain a valid configuration
+[18/48] [chromium] › e2e\voronoi-checks.ts:359:1 › crystal: unavailable Canvas gives readable fallback
+[19/48] [chromium] › e2e\voronoi-checks.ts:370:1 › crystal: resolution change redraws the same geometry without advancing a step
+[20/48] [chromium] › e2e\voronoi-checks.ts:401:3 › crystal touch and DPR › tap adds and selects; outside scrolling stays available
+[21/48] [chromium] › e2e\voronoi-checks.ts:438:44 › crystal: layout 1280px dark/light 100/200 percent text
+[22/48] [chromium] › e2e\voronoi-checks.ts:438:44 › crystal: layout 390px dark/light 100/200 percent text
+[23/48] [chromium] › e2e\voronoi-checks.ts:438:44 › crystal: layout 375px dark/light 100/200 percent text
+  1) [chromium] › e2e\voronoi-checks.ts:438:44 › crystal: layout 375px dark/light 100/200 percent text
+
+    Test timeout of 30000ms exceeded while running "beforeEach" hook.
+
+       6 | async function probe(p:Page,x:number,y:number){await p.locator('#vc-probe-x').fill(String(x));await p.locator('#vc-probe-y').fill(String(y));await p.locator('#vc-probe-form button').click();}
+       7 | const pageErrors=new WeakMap<Page,string[]>();
+    >  8 | test.beforeEach(async({page})=>{const errors:string[]=[];pageErrors.set(page,errors);page.on('pageerror',error=>errors.push(error.message));await page.goto('./');await page.locator('#experiment').selectOption('voronoi');});
+         |      ^
+       9 | test.afterEach(async({page})=>{expect(pageErrors.get(page)).toEqual([]);});
+      10 |
+      11 | test('crystal: editing, invalid operations, deterministic step and reset',async({page})=>{
+        at C:\Users\tetsu\.codex\worktrees\3dc6\Math-Art-Lab\e2e\voronoi-checks.ts:8:6
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+      - navigating to "http://127.0.0.1:4173/", waiting until "load"
+
+
+       6 | async function probe(p:Page,x:number,y:number){await p.locator('#vc-probe-x').fill(String(x));await p.locator('#vc-probe-y').fill(String(y));await p.locator('#vc-probe-form button').click();}
+       7 | const pageErrors=new WeakMap<Page,string[]>();
+    >  8 | test.beforeEach(async({page})=>{const errors:string[]=[];pageErrors.set(page,errors);page.on('pageerror',error=>errors.push(error.message));await page.goto('./');await page.locator('#experiment').selectOption('voronoi');});
+         |                                                                                                                                                        ^
+       9 | test.afterEach(async({page})=>{expect(pageErrors.get(page)).toEqual([]);});
+      10 |
+      11 | test('crystal: editing, invalid operations, deterministic step and reset',async({page})=>{
+        at C:\Users\tetsu\.codex\worktrees\3dc6\Math-Art-Lab\e2e\voronoi-checks.ts:8:152
+
+
+
+(node:22728) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+(node:22728) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[24/48] [chromium] › e2e\voronoi-checks.ts:438:44 › crystal: layout 320px dark/light 100/200 percent text
+(node:24608) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:24608) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[25/48] [webkit] › e2e\voronoi-review-checks.ts:47:1 › P2-01 RED→GREEN: a display tie must not become mathematical membership
+[26/48] [webkit] › e2e\voronoi-review-checks.ts:64:1 › P3-01 RED→GREEN: zero width cannot advance completed drawing records
+[27/48] [webkit] › e2e\voronoi-review-checks.ts:93:1 › P3-01: actual pixels follow the hand-calculated latest split after resize
+[28/48] [webkit] › e2e\voronoi-review-checks.ts:124:1 › P3-01: comparison completion is independent and records its own source step
+[29/48] [webkit] › e2e\voronoi-review-checks.ts:156:1 › P3-01: context loss and thrown commands preserve last successful completion
+[30/48] [webkit] › e2e\voronoi-review-checks.ts:198:1 › P3-01: unavailable main context never completes while comparison may paint
+[31/48] [webkit] › e2e\voronoi-review-checks.ts:215:1 › P3-01: old rAF cannot consume a replacement request or draw after teardown
+[32/48] [webkit] › e2e\voronoi-review-checks.ts:264:1 › P3-01: a lesson can start and restore while drawing is unavailable
+[33/48] [webkit] › e2e\voronoi-review-checks.ts:288:1 › P3-01 RED→GREEN: first recovery after a dashed-distance exception matches the normal bitmap
+[34/48] [webkit] › e2e\voronoi-checks.ts:32:1 › crystal: editing, invalid operations, deterministic step and reset
+[35/48] [webkit] › e2e\voronoi-checks.ts:83:1 › crystal: canvas keyboard, numeric forms, presets, layers and symbols
+[36/48] [webkit] › e2e\voronoi-checks.ts:140:1 › crystal: all four lesson stages, distances, centroid and complete snapshot restoration
+[37/48] [webkit] › e2e\voronoi-checks.ts:177:1 › crystal: replay, stop, reset, switching, reduced-motion and safety restoration
+[38/48] [webkit] › e2e\voronoi-checks.ts:223:1 › crystal: hidden document pauses and forbids lesson autoplay restoration
+[39/48] [webkit] › e2e\voronoi-checks.ts:250:1 › crystal: old scheduled callbacks cannot overwrite reset, lesson or a new mount
+[40/48] [webkit] › e2e\voronoi-checks.ts:288:1 › crystal: known diagram aligns model, coordinates, bisector and raster
+[41/48] [webkit] › e2e\voronoi-checks.ts:326:1 › crystal: pointer drag and cancellation retain a valid configuration
+[42/48] [webkit] › e2e\voronoi-checks.ts:359:1 › crystal: unavailable Canvas gives readable fallback
+[43/48] [webkit] › e2e\voronoi-checks.ts:370:1 › crystal: resolution change redraws the same geometry without advancing a step
+[44/48] [webkit] › e2e\voronoi-checks.ts:401:3 › crystal touch and DPR › tap adds and selects; outside scrolling stays available
+[45/48] [webkit] › e2e\voronoi-checks.ts:438:44 › crystal: layout 1280px dark/light 100/200 percent text
+[46/48] [webkit] › e2e\voronoi-checks.ts:438:44 › crystal: layout 390px dark/light 100/200 percent text
+[47/48] [webkit] › e2e\voronoi-checks.ts:438:44 › crystal: layout 375px dark/light 100/200 percent text
+[48/48] [webkit] › e2e\voronoi-checks.ts:438:44 › crystal: layout 320px dark/light 100/200 percent text
+  1 failed
+    [chromium] › e2e\voronoi-checks.ts:438:44 › crystal: layout 375px dark/light 100/200 percent text
+  47 passed (4.7m)

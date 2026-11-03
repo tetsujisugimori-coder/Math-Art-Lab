@@ -1,0 +1,61 @@
+import {observe,type Cell,type Point} from './voronoi';
+import type {State} from './voronoi-state';
+export const MARGIN=.045;
+export function screenPoint(p:Point,size:number):Point{return {x:size*(MARGIN+p.x*(1-2*MARGIN)),y:size*(1-MARGIN-p.y*(1-2*MARGIN))};}
+export function modelPoint(p:Point,size:number):Point{return {x:(p.x/size-MARGIN)/(1-2*MARGIN),y:(1-MARGIN-p.y/size)/(1-2*MARGIN)};}
+
+export function drawVoronoi(ctx:CanvasRenderingContext2D,state:State,cells:Cell[],size:number,dpr:number,light:boolean,reference=false):void{
+ const ink=light?'#142b40':'#e9f5ff',edge=light?'#203e51':'#061222',accent=light?'#5b2500':'#ffdf9c';
+ const xy=(p:Point)=>screenPoint(p,size),path=(points:Point[])=>{ctx.beginPath();points.forEach((p,i)=>{const q=xy(p);if(i)ctx.lineTo(q.x,q.y);else ctx.moveTo(q.x,q.y);});ctx.closePath();};
+ const line=(a:Point,b:Point,color:string,width=1)=>{const p=xy(a),q=xy(b);ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke();};
+ const dot=(p:Point,r:number,color:string,square=false)=>{const q=xy(p);ctx.beginPath();if(square)ctx.rect(q.x-r,q.y-r,r*2,r*2);else ctx.arc(q.x,q.y,r,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();ctx.strokeStyle=light?'#fff':'#081221';ctx.lineWidth=1.5;ctx.stroke();};
+ // Clear whole backing pixels, including the fractional CSS edge. Otherwise a
+ // partially cleared edge pixel can accumulate alpha across identical frames.
+ ctx.setLineDash([]); // A failed distance stroke may have left a dash behind.
+ ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,Math.ceil(size*dpr),Math.ceil(size*dpr));
+ ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle=light?'#e8eef0':'#080f1b';ctx.fillRect(0,0,size,size);
+ // Paint smaller IDs last, for the shared antialiased boundary pixels.
+ for(const cell of [...cells].sort((a,b)=>b.site.id-a.site.id)){
+  path(cell.polygon);
+  if(reference||state.layers.regions){
+   const hue=(cell.site.id*137.508+160)%360,q=xy(cell.centroid);
+   const gradient=ctx.createLinearGradient(q.x-size*.2,q.y-size*.3,q.x+size*.3,q.y+size*.3);
+   gradient.addColorStop(0,`hsl(${hue} ${light?40:46}% ${light?83:37}%)`);gradient.addColorStop(1,`hsl(${hue} ${light?35:50}% ${light?64:20}%)`);
+   ctx.fillStyle=gradient;ctx.fill();
+  }
+  if(reference||state.layers.edges){ctx.strokeStyle=edge;ctx.lineWidth=1.4;ctx.stroke();}
+ }
+ if(!reference){
+  const selected=cells.find(c=>c.site.id===state.selected);
+  if(selected&&['member','bar','cell','index','centroid','update','leq'].includes(state.symbol)){
+   path(selected.polygon);ctx.fillStyle=light?'#8a45001a':'#ffe4a522';ctx.fill();ctx.strokeStyle=accent;ctx.lineWidth=3;ctx.stroke();
+  }
+  if(['all','leq'].includes(state.symbol)){for(const c of cells){path(c.polygon);ctx.strokeStyle=accent;ctx.lineWidth=2;ctx.stroke();}}
+ }
+ const corners=[{x:0,y:0},{x:1,y:0},{x:1,y:1},{x:0,y:1}];path(corners);ctx.strokeStyle=!reference&&['omega','member','bar'].includes(state.symbol)?accent:ink;ctx.lineWidth=!reference&&state.symbol==='omega'?4:1;ctx.stroke();
+ const centroidFocus=['centroid','update'].includes(state.symbol);
+ if(!reference&&(state.layers.centroids||state.layers.vectors||centroidFocus))for(const c of cells){
+  if(state.layers.vectors||centroidFocus){line(c.site,c.centroid,accent,1.5);const p=xy(c.site),q=xy(c.centroid),a=Math.atan2(q.y-p.y,q.x-p.x);if(Math.hypot(q.x-p.x,q.y-p.y)>8){ctx.beginPath();ctx.moveTo(q.x-6*Math.cos(a-.45),q.y-6*Math.sin(a-.45));ctx.lineTo(q.x,q.y);ctx.lineTo(q.x-6*Math.cos(a+.45),q.y-6*Math.sin(a+.45));ctx.strokeStyle=accent;ctx.stroke();}}
+  if(state.layers.centroids||centroidFocus)dot(c.centroid,centroidFocus&&c.site.id===state.selected?6:3.5,accent,true);
+ }
+ const distanceFocus=['norm','leq','all','member','bar'].includes(state.symbol);
+ if(!reference&&(state.layers.distances||state.mode!=='select'||distanceFocus)){
+  const observation=observe(state.sites,state.probe);
+  for(const site of state.sites){const candidate=observation.displayCandidates.includes(site.id),owner=observation.mathematicalOwners.includes(site.id);ctx.setLineDash(owner?[]:[3,5]);line(state.probe,site,candidate?accent:ink,candidate?(distanceFocus?3.5:2.5):(distanceFocus?1.3:.7));}
+  ctx.setLineDash([]);const p=xy(state.probe);ctx.strokeStyle=ink;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(p.x-7,p.y);ctx.lineTo(p.x+7,p.y);ctx.moveTo(p.x,p.y-7);ctx.lineTo(p.x,p.y+7);ctx.stroke();ctx.fillStyle=ink;ctx.font='bold 13px system-ui';
+  const width=ctx.measureText('x').width,labelX=p.x+8+width>size-3?p.x-8-width:p.x+8,labelY=p.y-8<14?p.y+18:p.y-8;
+  ctx.fillText('x',Math.max(3,labelX),Math.min(size-4,labelY));
+ }
+ if(reference||state.layers.sites||state.symbol==='index'||state.symbol==='all'||centroidFocus)for(const c of cells){
+  const selected=!reference&&c.site.id===state.selected;
+  if(selected){const q=xy(c.site);ctx.strokeStyle=accent;ctx.lineWidth=2;ctx.beginPath();ctx.arc(q.x,q.y,9,0,2*Math.PI);ctx.stroke();}
+  if(selected&&state.symbol==='index'){const q=xy(c.site);ctx.strokeStyle=accent;ctx.lineWidth=2;ctx.strokeRect(q.x-12,q.y-12,24,24);}
+  dot(c.site,selected?4.5:3,ink);
+  if(!reference&&(cells.length<=8||selected||state.symbol==='all')){
+   const p=xy(c.site);ctx.font='600 12px system-ui';ctx.lineWidth=3;ctx.strokeStyle=light?'#f5f8f3':'#111c28';
+   const label=`p${c.site.id}`,width=ctx.measureText(label).width,labelX=Math.max(3,p.x+10+width>size-3?p.x-10-width:p.x+10),labelY=Math.max(14,Math.min(size-4,p.y+4));
+   ctx.strokeText(label,labelX,labelY);ctx.fillStyle=ink;ctx.fillText(label,labelX,labelY);
+  }
+ }
+ ctx.fillStyle=ink;ctx.font='10px system-ui';ctx.fillText('0',size*MARGIN-3,size-3);ctx.fillText('1',size*(1-MARGIN)-2,size-3);ctx.fillText('y',2,size*MARGIN+4);
+}

@@ -1,0 +1,157 @@
+
+[WebServer] (node:14908) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+
+
+(node:26376) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+(node:26376) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/4] [chromium] › e2e\voronoi-review-checks.ts:16:1 › P2-01 RED→GREEN: a display tie must not become mathematical membership
+  1) [chromium] › e2e\voronoi-review-checks.ts:16:1 › P2-01 RED→GREEN: a display tie must not become mathematical membership
+
+    Error: expect(locator).not.toContainText(expected) failed
+
+    Locator: locator('#vc-membership')
+    Expected substring: not "距離条件は成立する候補です"
+    Received string: "観察点xの表示上の所属：p1。同距離候補（差≤10⁻¹²）：p1・p2。選択中V1の距離条件は成立する候補です。"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "not toContainText" with timeout 5000ms
+      - waiting for locator('#vc-membership')
+        9 × locator resolved to <p id="vc-membership">観察点xの表示上の所属：p1。同距離候補（差≤10⁻¹²）：p1・p2。選択中V1の距離条件は成立…</p>
+          - unexpected value "観察点xの表示上の所属：p1。同距離候補（差≤10⁻¹²）：p1・p2。選択中V1の距離条件は成立する候補です。"
+
+
+       8 |  for(const [x,owners,selected] of [['0.5000000000001','p2','不成立'],['0.4999999999999','p1','成立'],['0.5','p1・p2','成立（等距離境界）']] as const){
+       9 |   await page.locator('#vc-probe-x').fill(x);await page.locator('#vc-probe-y').fill('0.5');await page.locator('#vc-probe-form button').click();await ready(page);
+    > 10 |   if(x==='0.5000000000001')await expect(page.locator('#vc-membership')).not.toContainText('距離条件は成立する候補です');
+         |                                                                             ^
+      11 |   await expect(page.locator('#vc-membership')).toContainText(`選択中V1の数学的所属：${selected}`);
+      12 |   await expect(page.locator('#vc-membership')).toContainText(`数学的最近点：${owners}`);
+      13 |   await expect(page.locator('#vc-membership')).toContainText('表示上の所属：p1');
+        at C:\Users\tetsu\.codex\worktrees\3dc6\Math-Art-Lab\e2e\voronoi-review-checks.ts:10:77
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\review32-red\voronoi-review-P2-01-RED→G-b7ae3-ome-mathematical-membership-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\review32-red\voronoi-review-P2-01-RED→G-b7ae3-ome-mathematical-membership-chromium\error-context.md
+
+
+(node:33024) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:33024) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2/4] [chromium] › e2e\voronoi-review-checks.ts:33:1 › P3-01 RED→GREEN: zero width cannot advance completed drawing records
+  2) [chromium] › e2e\voronoi-review-checks.ts:33:1 › P3-01 RED→GREEN: zero width cannot advance completed drawing records
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "2"
+    Received: "4"
+
+      20 |  await page.evaluate(()=>{for(let i=0;i<10;i++)document.querySelector<HTMLButtonElement>('#vc-step')!.click();});await frames(page);
+      21 |  const skipped=await canvas(page).evaluate(c=>({count:c.dataset.renderCount,revision:c.dataset.renderedRevision,requested:c.dataset.revision,image:c.toDataURL()}));
+    > 22 |  expect(skipped.image).toBe(before.image);expect(skipped.count).toBe(before.count);expect(skipped.revision).toBe(before.revision);expect(skipped.revision).not.toBe(skipped.requested);
+         |                                                                 ^
+      23 |  await canvas(page).evaluate(c=>c.style.width='100%');await ready(page);await expect(canvas(page)).toHaveAttribute('data-rendered-step','10');
+      24 |  expect(await canvas(page).evaluate(c=>c.toDataURL())).not.toBe(before.image);
+      25 | });
+        at C:\Users\tetsu\.codex\worktrees\3dc6\Math-Art-Lab\e2e\voronoi-review-checks.ts:22:65
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\review32-red\voronoi-review-P3-01-RED→G-49947-e-completed-drawing-records-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\review32-red\voronoi-review-P3-01-RED→G-49947-e-completed-drawing-records-chromium\error-context.md
+
+
+
+
+(node:16340) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:16340) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[3/4] [webkit] › e2e\voronoi-review-checks.ts:16:1 › P2-01 RED→GREEN: a display tie must not become mathematical membership
+  3) [webkit] › e2e\voronoi-review-checks.ts:16:1 › P2-01 RED→GREEN: a display tie must not become mathematical membership
+
+    Error: expect(locator).not.toContainText(expected) failed
+
+    Locator: locator('#vc-membership')
+    Expected substring: not "距離条件は成立する候補です"
+    Received string: "観察点xの表示上の所属：p1。同距離候補（差≤10⁻¹²）：p1・p2。選択中V1の距離条件は成立する候補です。"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "not toContainText" with timeout 5000ms
+      - waiting for locator('#vc-membership')
+        9 × locator resolved to <p id="vc-membership">観察点xの表示上の所属：p1。同距離候補（差≤10⁻¹²）：p1・p2。選択中V1の距離条件は成立…</p>
+          - unexpected value "観察点xの表示上の所属：p1。同距離候補（差≤10⁻¹²）：p1・p2。選択中V1の距離条件は成立する候補です。"
+
+
+       8 |  for(const [x,owners,selected] of [['0.5000000000001','p2','不成立'],['0.4999999999999','p1','成立'],['0.5','p1・p2','成立（等距離境界）']] as const){
+       9 |   await page.locator('#vc-probe-x').fill(x);await page.locator('#vc-probe-y').fill('0.5');await page.locator('#vc-probe-form button').click();await ready(page);
+    > 10 |   if(x==='0.5000000000001')await expect(page.locator('#vc-membership')).not.toContainText('距離条件は成立する候補です');
+         |                                                                             ^
+      11 |   await expect(page.locator('#vc-membership')).toContainText(`選択中V1の数学的所属：${selected}`);
+      12 |   await expect(page.locator('#vc-membership')).toContainText(`数学的最近点：${owners}`);
+      13 |   await expect(page.locator('#vc-membership')).toContainText('表示上の所属：p1');
+        at C:\Users\tetsu\.codex\worktrees\3dc6\Math-Art-Lab\e2e\voronoi-review-checks.ts:10:77
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\review32-red\voronoi-review-P2-01-RED→G-b7ae3-ome-mathematical-membership-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\review32-red\voronoi-review-P2-01-RED→G-b7ae3-ome-mathematical-membership-webkit\error-context.md
+
+
+(node:34572) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+
+(node:34572) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[4/4] [webkit] › e2e\voronoi-review-checks.ts:33:1 › P3-01 RED→GREEN: zero width cannot advance completed drawing records
+  4) [webkit] › e2e\voronoi-review-checks.ts:33:1 › P3-01 RED→GREEN: zero width cannot advance completed drawing records
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "2"
+    Received: "4"
+
+      20 |  await page.evaluate(()=>{for(let i=0;i<10;i++)document.querySelector<HTMLButtonElement>('#vc-step')!.click();});await frames(page);
+      21 |  const skipped=await canvas(page).evaluate(c=>({count:c.dataset.renderCount,revision:c.dataset.renderedRevision,requested:c.dataset.revision,image:c.toDataURL()}));
+    > 22 |  expect(skipped.image).toBe(before.image);expect(skipped.count).toBe(before.count);expect(skipped.revision).toBe(before.revision);expect(skipped.revision).not.toBe(skipped.requested);
+         |                                                                 ^
+      23 |  await canvas(page).evaluate(c=>c.style.width='100%');await ready(page);await expect(canvas(page)).toHaveAttribute('data-rendered-step','10');
+      24 |  expect(await canvas(page).evaluate(c=>c.toDataURL())).not.toBe(before.image);
+      25 | });
+        at C:\Users\tetsu\.codex\worktrees\3dc6\Math-Art-Lab\e2e\voronoi-review-checks.ts:22:65
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\review32-red\voronoi-review-P3-01-RED→G-49947-e-completed-drawing-records-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\review32-red\voronoi-review-P3-01-RED→G-49947-e-completed-drawing-records-webkit\error-context.md
+
+
+  4 failed
+    [chromium] › e2e\voronoi-review-checks.ts:16:1 › P2-01 RED→GREEN: a display tie must not become mathematical membership
+    [chromium] › e2e\voronoi-review-checks.ts:33:1 › P3-01 RED→GREEN: zero width cannot advance completed drawing records
+    [webkit] › e2e\voronoi-review-checks.ts:16:1 › P2-01 RED→GREEN: a display tie must not become mathematical membership
+    [webkit] › e2e\voronoi-review-checks.ts:33:1 › P3-01 RED→GREEN: zero width cannot advance completed drawing records

@@ -1,0 +1,878 @@
+{
+  "date": "2026-11-03T16:58:02.274Z",
+  "method": "Python Fraction.from_float exact rational squared distances, no product imports",
+  "cases": 1517,
+  "strictAvailable": false,
+  "failures": [],
+  "baselineMisclaimCount": 738,
+  "baselineMisclaims": [
+    {
+      "label": "boundary offset 1e-13",
+      "point": {
+        "x": 0.5000000000001,
+        "y": 0.5
+      },
+      "expected": [
+        2
+      ],
+      "displayCandidates": [
+        1,
+        2
+      ],
+      "falseCandidates": [
+        1
+      ]
+    },
+    {
+      "label": "boundary offset -1e-13",
+      "point": {
+        "x": 0.4999999999999,
+        "y": 0.5
+      },
+      "expected": [
+        1
+      ],
+      "displayCandidates": [
+        1,
+        2
+      ],
+      "falseCandidates": [
+        2
+      ]
+    },
+    {
+      "label": "boundary offset 4.9e-13",
+      "point": {
+        "x": 0.50000000000049,
+        "y": 0.5
+      },
+      "expected": [
+        2
+      ],
+      "displayCandidates": [
+        1,
+        2
+      ],
+      "falseCandidates": [
+        1
+      ]
+    },
+    {
+      "label": "boundary offset -4.9e-13",
+      "point": {
+        "x": 0.49999999999951,
+        "y": 0.5
+      },
+      "expected": [
+        1
+      ],
+      "displayCandidates": [
+        1,
+        2
+      ],
+      "falseCandidates": [
+        2
+      ]
+    },
+    {
+      "label": "one ULP at horizontal bisector",
+      "point": {
+        "x": 0.49999999999999994,
+        "y": 0.5
+      },
+      "expected": [
+        1
+      ],
+      "displayCandidates": [
+        1,
+        2
+      ],
+      "falseCandidates": [
+        2
+      ]
+    },
+    {
+      "label": "one ULP at horizontal bisector",
+      "point": {
+        "x": 0.5000000000000001,
+        "y": 0.5
+      },
+      "expected": [
+        2
+      ],
+      "displayCandidates": [
+        1,
+        2
+      ],
+      "falseCandidates": [
+        1
+      ]
+    },
+    {
+      "label": "ID permutation",
+      "point": {
+        "x": 0.5000000000001,
+        "y": 0.5
+      },
+      "expected": [
+        3
+      ],
+      "displayCandidates": [
+        3,
+        29
+      ],
+      "falseCandidates": [
+        29
+      ]
+    },
+    {
+      "label": "ID permutation",
+      "point": {
+        "x": 0.4999999999999,
+        "y": 0.5
+      },
+      "expected": [
+        29
+      ],
+      "displayCandidates": [
+        3,
+        29
+      ],
+      "falseCandidates": [
+        3
+      ]
+    },
+    {
+      "label": "ID permutation",
+      "point": {
+        "x": 0.5000000000001,
+        "y": 0.5
+      },
+      "expected": [
+        29
+      ],
+      "displayCandidates": [
+        3,
+        29
+      ],
+      "falseCandidates": [
+        3
+      ]
+    },
+    {
+      "label": "ID permutation",
+      "point": {
+        "x": 0.4999999999999,
+        "y": 0.5
+      },
+      "expected": [
+        3
+      ],
+      "displayCandidates": [
+        3,
+        29
+      ],
+      "falseCandidates": [
+        29
+      ]
+    },
+    {
+      "label": "four corners and range edges",
+      "point": {
+        "x": 0.49999999999999994,
+        "y": 0.5
+      },
+      "expected": [
+        2,
+        13
+      ],
+      "displayCandidates": [
+        2,
+        7,
+        13,
+        29
+      ],
+      "falseCandidates": [
+        7,
+        29
+      ]
+    },
+    {
+      "label": "four corners and range edges",
+      "point": {
+        "x": 0.49999999999999994,
+        "y": 0
+      },
+      "expected": [
+        13
+      ],
+      "displayCandidates": [
+        7,
+        13
+      ],
+      "falseCandidates": [
+        7
+      ]
+    },
+    {
+      "label": "four corners and range edges",
+      "point": {
+        "x": 0.49999999999999994,
+        "y": 1
+      },
+      "expected": [
+        2
+      ],
+      "displayCandidates": [
+        2,
+        29
+      ],
+      "falseCandidates": [
+        29
+      ]
+    },
+    {
+      "label": "four corners and range edges",
+      "point": {
+        "x": 0.5000000000000001,
+        "y": 0.5
+      },
+      "expected": [
+        7,
+        29
+      ],
+      "displayCandidates": [
+        2,
+        7,
+        13,
+        29
+      ],
+      "falseCandidates": [
+        2,
+        13
+      ]
+    },
+    {
+      "label": "four corners and range edges",
+      "point": {
+        "x": 0.5000000000000001,
+        "y": 0
+      },
+      "expected": [
+        7
+      ],
+      "displayCandidates": [
+        7,
+        13
+      ],
+      "falseCandidates": [
+        13
+      ]
+    },
+    {
+      "label": "four corners and range edges",
+      "point": {
+        "x": 0.5000000000000001,
+        "y": 1
+      },
+      "expected": [
+        29
+      ],
+      "displayCandidates": [
+        2,
+        29
+      ],
+      "falseCandidates": [
+        2
+      ]
+    },
+    {
+      "label": "near sites, rounded norm equality",
+      "point": {
+        "x": 5.499999999999999e-7,
+        "y": 1
+      },
+      "expected": [
+        1
+      ],
+      "displayCandidates": [
+        1,
+        2
+      ],
+      "falseCandidates": [
+        2
+      ]
+    },
+    {
+      "label": "near sites, rounded norm equality",
+      "point": {
+        "x": 5.500000000000001e-7,
+        "y": 1
+      },
+      "expected": [
+        2
+      ],
+      "displayCandidates": [
+        1,
+        2
+      ],
+      "falseCandidates": [
+        1
+      ]
+    },
+    {
+      "label": "subnormal exact distance gap",
+      "point": {
+        "x": 5e-324,
+        "y": 0
+      },
+      "expected": [
+        2
+      ],
+      "displayCandidates": [
+        1,
+        2
+      ],
+      "falseCandidates": [
+        1
+      ]
+    },
+    {
+      "label": "subnormal exact distance gap",
+      "point": {
+        "x": 0,
+        "y": 5e-324
+      },
+      "expected": [
+        1
+      ],
+      "displayCandidates": [
+        1,
+        2
+      ],
+      "falseCandidates": [
+        2
+      ]
+    },
+    {
+      "label": "adjacent representable x below",
+      "point": {
+        "x": 0.858626365661621,
+        "y": 0.5248279571533203
+      },
+      "expected": [
+        5
+      ],
+      "displayCandidates": [
+        5,
+        71
+      ],
+      "falseCandidates": [
+        71
+      ]
+    },
+    {
+      "label": "adjacent representable x above",
+      "point": {
+        "x": 0.8586263656616212,
+        "y": 0.5248279571533203
+      },
+      "expected": [
+        71
+      ],
+      "displayCandidates": [
+        5,
+        71
+      ],
+      "falseCandidates": [
+        5
+      ]
+    },
+    {
+      "label": "adjacent representable x below",
+      "point": {
+        "x": 0.8643971681594848,
+        "y": 0.5232987403869629
+      },
+      "expected": [
+        5
+      ],
+      "displayCandidates": [
+        5,
+        71
+      ],
+      "falseCandidates": [
+        71
+      ]
+    },
+    {
+      "label": "adjacent representable x above",
+      "point": {
+        "x": 0.864397168159485,
+        "y": 0.5232987403869629
+      },
+      "expected": [
+        71
+      ],
+      "displayCandidates": [
+        5,
+        71
+      ],
+      "falseCandidates": [
+        5
+      ]
+    },
+    {
+      "label": "adjacent representable x below",
+      "point": {
+        "x": 0.4325795173645019,
+        "y": 0.2584691047668457
+      },
+      "expected": [
+        71
+      ],
+      "displayCandidates": [
+        5,
+        71
+      ],
+      "falseCandidates": [
+        5
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "label": "boundary offset 0.0",
+      "point": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "expectedMathematical": [
+        1,
+        2
+      ],
+      "actual": {
+        "distances": [
+          {
+            "id": 1,
+            "distance": 0.25
+          },
+          {
+            "id": 2,
+            "distance": 0.25
+          }
+        ],
+        "nearest": [
+          1,
+          2
+        ],
+        "displayOwner": 1
+      }
+    },
+    {
+      "label": "boundary offset 1e-13",
+      "point": {
+        "x": 0.5000000000001,
+        "y": 0.5
+      },
+      "expectedMathematical": [
+        2
+      ],
+      "actual": {
+        "distances": [
+          {
+            "id": 2,
+            "distance": 0.24999999999989997
+          },
+          {
+            "id": 1,
+            "distance": 0.25000000000010003
+          }
+        ],
+        "nearest": [
+          1,
+          2
+        ],
+        "displayOwner": 1
+      }
+    },
+    {
+      "label": "boundary offset -1e-13",
+      "point": {
+        "x": 0.4999999999999,
+        "y": 0.5
+      },
+      "expectedMathematical": [
+        1
+      ],
+      "actual": {
+        "distances": [
+          {
+            "id": 1,
+            "distance": 0.24999999999990002
+          },
+          {
+            "id": 2,
+            "distance": 0.2500000000001
+          }
+        ],
+        "nearest": [
+          1,
+          2
+        ],
+        "displayOwner": 1
+      }
+    },
+    {
+      "label": "boundary offset 4.9e-13",
+      "point": {
+        "x": 0.50000000000049,
+        "y": 0.5
+      },
+      "expectedMathematical": [
+        2
+      ],
+      "actual": {
+        "distances": [
+          {
+            "id": 2,
+            "distance": 0.24999999999950995
+          },
+          {
+            "id": 1,
+            "distance": 0.25000000000049005
+          }
+        ],
+        "nearest": [
+          1,
+          2
+        ],
+        "displayOwner": 1
+      }
+    },
+    {
+      "label": "boundary offset -4.9e-13",
+      "point": {
+        "x": 0.49999999999951,
+        "y": 0.5
+      },
+      "expectedMathematical": [
+        1
+      ],
+      "actual": {
+        "distances": [
+          {
+            "id": 1,
+            "distance": 0.24999999999951
+          },
+          {
+            "id": 2,
+            "distance": 0.25000000000049
+          }
+        ],
+        "nearest": [
+          1,
+          2
+        ],
+        "displayOwner": 1
+      }
+    },
+    {
+      "label": "boundary offset 5.1e-13",
+      "point": {
+        "x": 0.50000000000051,
+        "y": 0.5
+      },
+      "expectedMathematical": [
+        2
+      ],
+      "actual": {
+        "distances": [
+          {
+            "id": 2,
+            "distance": 0.24999999999948996
+          },
+          {
+            "id": 1,
+            "distance": 0.25000000000051004
+          }
+        ],
+        "nearest": [
+          2
+        ],
+        "displayOwner": 2
+      }
+    },
+    {
+      "label": "boundary offset -5.1e-13",
+      "point": {
+        "x": 0.49999999999949,
+        "y": 0.5
+      },
+      "expectedMathematical": [
+        1
+      ],
+      "actual": {
+        "distances": [
+          {
+            "id": 1,
+            "distance": 0.24999999999949002
+          },
+          {
+            "id": 2,
+            "distance": 0.25000000000051
+          }
+        ],
+        "nearest": [
+          1
+        ],
+        "displayOwner": 1
+      }
+    },
+    {
+      "label": "boundary offset 1e-08",
+      "point": {
+        "x": 0.50000001,
+        "y": 0.5
+      },
+      "expectedMathematical": [
+        2
+      ],
+      "actual": {
+        "distances": [
+          {
+            "id": 2,
+            "distance": 0.24999998999999995
+          },
+          {
+            "id": 1,
+            "distance": 0.25000001000000005
+          }
+        ],
+        "nearest": [
+          2
+        ],
+        "displayOwner": 2
+      }
+    },
+    {
+      "label": "boundary offset -1e-08",
+      "point": {
+        "x": 0.49999999,
+        "y": 0.5
+      },
+      "expectedMathematical": [
+        1
+      ],
+      "actual": {
+        "distances": [
+          {
+            "id": 1,
+            "distance": 0.24999999
+          },
+          {
+            "id": 2,
+            "distance": 0.25000001
+          }
+        ],
+        "nearest": [
+          1
+        ],
+        "displayOwner": 1
+      }
+    },
+    {
+      "label": "near sites, rounded norm equality",
+      "point": {
+        "x": 5.5e-7,
+        "y": 1
+      },
+      "expectedMathematical": [
+        1,
+        2
+      ],
+      "actual": {
+        "distances": [
+          {
+            "id": 1,
+            "distance": 1.0000000000001512
+          },
+          {
+            "id": 2,
+            "distance": 1.0000000000001512
+          }
+        ],
+        "nearest": [
+          1,
+          2
+        ],
+        "displayOwner": 1
+      }
+    },
+    {
+      "label": "near sites, rounded norm equality",
+      "point": {
+        "x": 5.499999999999999e-7,
+        "y": 1
+      },
+      "expectedMathematical": [
+        1
+      ],
+      "actual": {
+        "distances": [
+          {
+            "id": 1,
+            "distance": 1.0000000000001512
+          },
+          {
+            "id": 2,
+            "distance": 1.0000000000001512
+          }
+        ],
+        "nearest": [
+          1,
+          2
+        ],
+        "displayOwner": 1
+      }
+    },
+    {
+      "label": "near sites, rounded norm equality",
+      "point": {
+        "x": 5.500000000000001e-7,
+        "y": 1
+      },
+      "expectedMathematical": [
+        2
+      ],
+      "actual": {
+        "distances": [
+          {
+            "id": 1,
+            "distance": 1.0000000000001512
+          },
+          {
+            "id": 2,
+            "distance": 1.0000000000001512
+          }
+        ],
+        "nearest": [
+          1,
+          2
+        ],
+        "displayOwner": 1
+      }
+    },
+    {
+      "label": "subnormal exact distance gap",
+      "point": {
+        "x": 0,
+        "y": 0
+      },
+      "expectedMathematical": [
+        1,
+        2
+      ],
+      "actual": {
+        "distances": [
+          {
+            "id": 1,
+            "distance": 0.0000011
+          },
+          {
+            "id": 2,
+            "distance": 0.0000011
+          }
+        ],
+        "nearest": [
+          1,
+          2
+        ],
+        "displayOwner": 1
+      }
+    },
+    {
+      "label": "subnormal exact distance gap",
+      "point": {
+        "x": 5e-324,
+        "y": 0
+      },
+      "expectedMathematical": [
+        2
+      ],
+      "actual": {
+        "distances": [
+          {
+            "id": 1,
+            "distance": 0.0000011
+          },
+          {
+            "id": 2,
+            "distance": 0.0000011
+          }
+        ],
+        "nearest": [
+          1,
+          2
+        ],
+        "displayOwner": 1
+      }
+    },
+    {
+      "label": "subnormal exact distance gap",
+      "point": {
+        "x": 0,
+        "y": 5e-324
+      },
+      "expectedMathematical": [
+        1
+      ],
+      "actual": {
+        "distances": [
+          {
+            "id": 1,
+            "distance": 0.0000011
+          },
+          {
+            "id": 2,
+            "distance": 0.0000011
+          }
+        ],
+        "nearest": [
+          1,
+          2
+        ],
+        "displayOwner": 1
+      }
+    },
+    {
+      "label": "subnormal exact distance gap",
+      "point": {
+        "x": 0,
+        "y": 0
+      },
+      "expectedMathematical": [
+        1,
+        2
+      ],
+      "actual": {
+        "distances": [
+          {
+            "id": 1,
+            "distance": 0.0000011
+          },
+          {
+            "id": 2,
+            "distance": 0.0000011
+          }
+        ],
+        "nearest": [
+          1,
+          2
+        ],
+        "displayOwner": 1
+      }
+    }
+  ],
+  "sourceSHA256": "1265e34a2e32df5c0841e49eca6fe52475364e252bde303725f015e022f060dd"
+}

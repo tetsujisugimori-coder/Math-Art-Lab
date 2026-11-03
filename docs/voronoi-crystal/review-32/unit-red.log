@@ -1,0 +1,206 @@
+
+ RUN  v3.2.7 C:/Users/tetsu/.codex/worktrees/3dc6/Math-Art-Lab
+
+ × src/voronoi-observation.test.ts > boundary: mathematical owners and display candidates have separate meanings 5ms
+   → expected undefined to deeply equal [ 1, 2 ]
+ × src/voronoi-observation.test.ts > right inside display tolerance: mathematical owners and display candidates have separate meanings 1ms
+   → expected undefined to deeply equal [ 2 ]
+ × src/voronoi-observation.test.ts > left inside display tolerance: mathematical owners and display candidates have separate meanings 0ms
+   → expected undefined to deeply equal [ 1 ]
+ × src/voronoi-observation.test.ts > right outside display tolerance: mathematical owners and display candidates have separate meanings 0ms
+   → expected undefined to deeply equal [ 2 ]
+ × src/voronoi-observation.test.ts > ordinary left: mathematical owners and display candidates have separate meanings 0ms
+   → expected undefined to deeply equal [ 1 ]
+ × src/voronoi-observation.test.ts > three exact equidistant sites and a four-cell vertex include every mathematical owner 0ms
+   → expected undefined to deeply equal [ 3, 8, 12 ]
+ × src/voronoi-observation.test.ts > coordinate-range edges and negative zero retain their exact geometric meaning 0ms
+   → expected undefined to deeply equal [ 1, 2 ]
+ × src/voronoi-observation.test.ts > nearby sites: rounded hypot equality does not prove a mathematical tie 0ms
+   → expected undefined to deeply equal [ 2 ]
+ × src/voronoi-observation.test.ts > subnormal differences do not underflow in mathematical comparison 0ms
+   → expected undefined to deeply equal [ 2 ]
+ × src/voronoi-observation.test.ts > the contract refers to stored coordinates, not unrecoverable decimal intent 0ms
+   → expected undefined to deeply equal [ 1, 2 ]
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/voronoi-observation.test.ts > boundary: mathematical owners and display candidates have separate meanings
+AssertionError: expected undefined to deeply equal [ 1, 2 ]
+
+- Expected:
+[
+  1,
+  2,
+]
+
++ Received:
+undefined
+
+ ❯ src/voronoi-observation.test.ts:12:36
+     10| ] as const)('%s: mathematical owners and display candidates have separ…
+     11|  const result=observe(pair,{x,y:.5});
+     12|  expect(result.mathematicalOwners).toEqual(owners);expect(result.displ…
+       |                                    ^
+     13| });
+     14| it('three exact equidistant sites and a four-cell vertex include every…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+
+ FAIL  src/voronoi-observation.test.ts > right inside display tolerance: mathematical owners and display candidates have separate meanings
+ FAIL  src/voronoi-observation.test.ts > right outside display tolerance: mathematical owners and display candidates have separate meanings
+AssertionError: expected undefined to deeply equal [ 2 ]
+
+- Expected:
+[
+  2,
+]
+
++ Received:
+undefined
+
+ ❯ src/voronoi-observation.test.ts:12:36
+     10| ] as const)('%s: mathematical owners and display candidates have separ…
+     11|  const result=observe(pair,{x,y:.5});
+     12|  expect(result.mathematicalOwners).toEqual(owners);expect(result.displ…
+       |                                    ^
+     13| });
+     14| it('three exact equidistant sites and a four-cell vertex include every…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/10]⎯
+
+ FAIL  src/voronoi-observation.test.ts > left inside display tolerance: mathematical owners and display candidates have separate meanings
+ FAIL  src/voronoi-observation.test.ts > ordinary left: mathematical owners and display candidates have separate meanings
+AssertionError: expected undefined to deeply equal [ 1 ]
+
+- Expected:
+[
+  1,
+]
+
++ Received:
+undefined
+
+ ❯ src/voronoi-observation.test.ts:12:36
+     10| ] as const)('%s: mathematical owners and display candidates have separ…
+     11|  const result=observe(pair,{x,y:.5});
+     12|  expect(result.mathematicalOwners).toEqual(owners);expect(result.displ…
+       |                                    ^
+     13| });
+     14| it('three exact equidistant sites and a four-cell vertex include every…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/10]⎯
+
+ FAIL  src/voronoi-observation.test.ts > three exact equidistant sites and a four-cell vertex include every mathematical owner
+AssertionError: expected undefined to deeply equal [ 3, 8, 12 ]
+
+- Expected:
+[
+  3,
+  8,
+  12,
+]
+
++ Received:
+undefined
+
+ ❯ src/voronoi-observation.test.ts:16:68
+     14| it('three exact equidistant sites and a four-cell vertex include every…
+     15|  const points=[{id:8,x:.25,y:.5},{id:3,x:.75,y:.5},{id:12,x:.5,y:.75},…
+     16|  expect(observe(points.slice(0,3),{x:.5,y:.5}).mathematicalOwners).toE…
+       |                                                                    ^
+     17|  const result=observe(points,{x:.5,y:.5});expect(result.mathematicalOw…
+     18|  expect(observe([...points].reverse(),{x:.5,y:.5})).toEqual(result);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/10]⎯
+
+ FAIL  src/voronoi-observation.test.ts > coordinate-range edges and negative zero retain their exact geometric meaning
+AssertionError: expected undefined to deeply equal [ 1, 2 ]
+
+- Expected:
+[
+  1,
+  2,
+]
+
++ Received:
+undefined
+
+ ❯ src/voronoi-observation.test.ts:21:82
+     19| });
+     20| it('coordinate-range edges and negative zero retain their exact geomet…
+     21|  expect(observe([{id:2,x:0,y:0},{id:1,x:0,y:1}],{x:-0,y:.5}).mathemati…
+       |                                                                                  ^
+     22|  expect(observe(pair,{x:1,y:1}).mathematicalOwners).toEqual([2]);
+     23|  expect(observe([{id:9,x:1,y:1}],{x:0,y:0}).mathematicalOwners).toEqua…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/10]⎯
+
+ FAIL  src/voronoi-observation.test.ts > nearby sites: rounded hypot equality does not prove a mathematical tie
+AssertionError: expected undefined to deeply equal [ 2 ]
+
+- Expected:
+[
+  2,
+]
+
++ Received:
+undefined
+
+ ❯ src/voronoi-observation.test.ts:30:36
+     28|  const result=observe(ps,probe);expect(result.distances[0].distance).t…
+     29|  // x is above the midpoint, so the right-hand site is strictly closer.
+     30|  expect(result.mathematicalOwners).toEqual([2]);expect(result.displayC…
+       |                                    ^
+     31| });
+     32| it('subnormal differences do not underflow in mathematical comparison'…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/10]⎯
+
+ FAIL  src/voronoi-observation.test.ts > subnormal differences do not underflow in mathematical comparison
+AssertionError: expected undefined to deeply equal [ 2 ]
+
+- Expected:
+[
+  2,
+]
+
++ Received:
+undefined
+
+ ❯ src/voronoi-observation.test.ts:35:66
+     33|  const ps=[{id:1,x:0,y:1.1e-6},{id:2,x:1.1e-6,y:0}];
+     34|  // d1²-d2² = 2 * 1.1e-6 * MIN_VALUE > 0 as a real number.
+     35|  expect(observe(ps,{x:Number.MIN_VALUE,y:0}).mathematicalOwners).toEqu…
+       |                                                                  ^
+     36|  expect(observe(ps,{x:0,y:0}).mathematicalOwners).toEqual([1,2]);
+     37| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/10]⎯
+
+ FAIL  src/voronoi-observation.test.ts > the contract refers to stored coordinates, not unrecoverable decimal intent
+AssertionError: expected undefined to deeply equal [ 1, 2 ]
+
+- Expected:
+[
+  1,
+  2,
+]
+
++ Received:
+undefined
+
+ ❯ src/voronoi-observation.test.ts:40:60
+     38| it('the contract refers to stored coordinates, not unrecoverable decim…
+     39|  const rounded=Number('0.50000000000000001');expect(rounded).toBe(.5);
+     40|  expect(observe(pair,{x:rounded,y:.5}).mathematicalOwners).toEqual([1,…
+       |                                                            ^
+     41| });
+     42|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/10]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  10 failed (10)
+   Start at  01:33:31
+   Duration  383ms (transform 47ms, setup 0ms, collect 40ms, tests 9ms, environment 0ms, prepare 105ms)

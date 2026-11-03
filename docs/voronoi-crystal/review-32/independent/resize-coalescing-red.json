@@ -1,0 +1,70 @@
+{
+  "date": "2026-11-03T17:42:39.936Z",
+  "method": "Native ResizeObserver is only traced, not suppressed or stubbed; restore CSS width in a later rAF of the same rendering opportunity as the zero-size application draw",
+  "sources": {
+    "voronoi-view.ts": "800828bebfeae789022f6dd6852d3195288d12918061cb90c287b2771bdce675",
+    "voronoi-paint.ts": "0dcb98ffb5938ff476a5a0747a9d9023a94525230e2c2ffa93db39e1c9554e29"
+  },
+  "results": [
+    {
+      "name": "chromium",
+      "intermediate": {
+        "widthDuring": 0,
+        "afterDraw": {
+          "status": "zero-size",
+          "count": "2",
+          "revision": "1",
+          "step": 1
+        },
+        "widthRestored": 757.84375
+      },
+      "after": {
+        "status": "zero-size",
+        "count": "2",
+        "revision": "1",
+        "requested": "2",
+        "renderedStep": "0",
+        "modelStep": 1,
+        "width": 757.84375,
+        "before": {
+          "count": "2",
+          "revision": "1",
+          "width": 757.84375
+        },
+        "pixelsUnchanged": true,
+        "resizeDeliveries": []
+      },
+      "errors": []
+    },
+    {
+      "name": "webkit",
+      "intermediate": {
+        "widthDuring": 0,
+        "afterDraw": {
+          "status": "zero-size",
+          "count": "2",
+          "revision": "1",
+          "step": 1
+        },
+        "widthRestored": 757.84375
+      },
+      "after": {
+        "status": "zero-size",
+        "count": "2",
+        "revision": "1",
+        "requested": "2",
+        "renderedStep": "0",
+        "modelStep": 1,
+        "width": 757.84375,
+        "before": {
+          "count": "2",
+          "revision": "1",
+          "width": 757.84375
+        },
+        "pixelsUnchanged": true,
+        "resizeDeliveries": []
+      },
+      "errors": []
+    }
+  ]
+}
