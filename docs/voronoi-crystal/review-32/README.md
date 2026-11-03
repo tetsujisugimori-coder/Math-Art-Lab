@@ -1,5 +1,7 @@
 # PR #32 再検証 — P2-01 / P3-01
 
+**最新の追補：[CI4038の失敗とサイズ復帰の第2次修正](size-recovery.md)。** 4038c87のCIは開発WebKitの復帰待ち2件で失敗し、以下の第1次修正時のPASSはCI成功を条件とする暫定判定だった。native ROでの通知併合による取りこぼしを独立再現し、幅0の面だけを再確認する待機処理と恒久試験を追加した。最新の判定・HEAD／CI対応はこの追補とPRの最終コメントを優先する。第1次の失敗・見逃しと記録は保持する。
+
 2026-11-04 JST。対象は[独立レビュー](https://github.com/tetsujisugimori-coder/Math-Art-Lab/pull/32#pullrequestreview-5755523261)、基準HEADは`cab21143b9263904da2a9fc95571b79a58b22cd0`。PR #32の既存ブランチへ積み上げる。作業開始時はクリーン、origin/mainとPR baseは`1c29194eb27872e8930122eae7c4cef0eb537f0b`。PR・レビュー全文・Issue #31・過去の失敗／CIを取得して確認した。[Issue #31](https://github.com/tetsujisugimori-coder/Math-Art-Lab/issues/31)の要求原本は変更しない。Issue #30は別件のまま。
 
 端末ログはANSI制御列と行末空白だけを除去し、失敗・警告・数値・結果は保持した。JSON生データは変更しない。破線復帰RED時の[renderer控え](independent/voronoi-render-before-dash.ts.txt)は最終ファイルから線種初期化1行だけを除いて再構築し、独立RED記録のSHA256 `5c92445ecc561dab7592ddaad852c3015d1c132a4105249cfafe9529a38e0dc2`との一致を確認した。再現は隔離したコピーにこのファイルを適用し、作業ツリーを変更せず行える。
@@ -62,7 +64,7 @@ Canvasの距離線は実線＝数学的最近点、破線＝その他、金色�
 
 最終ローカル結果：本番48/48成功（4.2分）。開発は47成功・1失敗（4.7分）で、失敗はChromiumの375px試験のbeforeEach、作品選択前のpage.goto(load)30秒。原因UNKNOWN。同じコード・timeoutで該当1件を単独実行し[1/1成功（5.2秒）](development-375-retry.log)。最初の失敗を取り消さず、47成功＋初回load失敗＋同条件再試行成功と報告する。数式・描画・教材など試験本文へ到達した条件は両環境で成功し、最終CI全件の結果を別途照合する。
 
-[追加画像とCPU生データ](capture-report.json)は両ブラウザの境界・左右、320pxライト文字200%の8枚。各画像のモデル・描画revision、保持座標、テーマ・DPRを併記。64点の厳密観察は20回warmup＋300回のCPU標本を採取し、平均だけでなく最大値と全標本を保持する。他GUI検証と同時の同一ホスト実測で、低性能端末の上限保証ではない。撮影／計測は[再実行可能スクリプト](../../../tools/capture-voronoi-review.mjs)。
+[第1次の画像とCPU生データ](capture-report-4038.json)は両ブラウザの境界・左右、320pxライト文字200%の8枚。境界画像はモデル・描画revisionと保持座標、狭幅画像はDOM幅と所属文を保存し、全画像で描画完了を待った。テーマ・DPRも併記。64点の厳密観察は20回warmup＋300回のCPU標本を採取し、平均だけでなく最大値と全標本を保持する。同一ホスト実測で、低性能端末の上限保証ではない。第2次の最新12枚・4製品hashは[capture-report.json](capture-report.json)。撮影／計測は[再実行可能スクリプト](../../../tools/capture-voronoi-review.mjs)。
 
 測定条件はWindows、Intel Core i7-14650HX、Node24.20、Chromium145.0.7632.6／WebKit26.0。最終64点観察1回の平均0.096／0.110ms、最大0.200／2.000ms。[初回生データ](capture-report-initial.json)は平均0.119／0.123ms、最大0.600／3.000msで、全観測中の最大はこちら。再測定の低い値で過去の最大を上書きしない。両browserのpageerrorは0。320px・文字200%のdocument.scrollWidthも320px。目視では境界右でp1への距離線が破線・p2へ実線、両方は表示候補色で、V1不成立・表示所属p1という独立の説明と一致した。最終画像8枚に加え、破線復帰REDの失敗画像2枚もscreenshots/に保持する。
 

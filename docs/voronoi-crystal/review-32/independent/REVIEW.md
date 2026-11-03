@@ -2,7 +2,7 @@
 
 Reviewer: separate read-only review agent. No product or tracked test edits, no formal GitHub review, no merge. The implementer supplied its design; this review challenged it using independently implemented rational and pixel/command oracles. This is separate from the implementer's unit and regression results.
 
-Status after the additional exception-recovery fix: scoped P2-01 PASS; scoped P3-01 PASS. Overall independent verification PARTIAL because the environments and regressions listed below were not independently exercised. No new blocking finding remains in the reviewed scope. Limited merge recommendation YES for these two fixes, conditional on final HEAD matching the source fingerprints and required CI/regressions passing. This is not an authorization to merge; Draft remains unchanged. Final commit HEAD association is pending the implementer's commit and is recorded separately after it is supplied.
+Current status after CI follow-up and fallback repair: scoped P2-01 PASS; scoped P3-01 PASS for the independently executed scope. CI at4038c87 failed two WebKit zero-size recovery checks; that failed attempt is preserved and does not become PASS. An independent native ResizeObserver counterexample confirmed the missed repaint wakeup. The new zero-size fallback closes the same counterexample in both engines, and lifecycle/regression checks pass. Overall independent verification PARTIAL. Limited merge recommendation YES remains conditional on the new final HEAD matching the tested fingerprints and required final CI succeeding. Draft remains unchanged. See ci-resize-review.md and resize-coalescing-{red,green}.json; the final CI gate is still pending.
 
 ## P2-01
 
@@ -28,6 +28,8 @@ Additional adversarial recovery counterexample: the prior injected stroke except
 
 The implementer added a start-of-frame setLineDash([]). Independent same-condition rerun in both engines preserves failed count4/dash[3,5], then the first recovery count5 already matches the normal same-state PNG, as does count6. dash-recovery-green.json records GREEN. The pixel11 and extended22 suites were subsequently rerun on the final renderer and pass in both engines. Thus the additional defect is closed by its own counterexample, not by the earlier22 passes. Final renderer SHA256 is265f9f3931c643032432f2ac75eff5705773447b99e70c328fb6eb00819056b9.
 
+CI follow-up found a separate recovery-liveness defect at4038c87. Native ResizeObserver can observe the same initial/restored size without reporting an intermediate zero. An independent same-frame rAF counterexample leaves a positive-size Canvas permanently zero-size/old bitmap, with no resize entries. A100ms size-only fallback now tracks only zero-size surfaces. On the same native counterexample, both engines update to submitted/revision2/step1 with changed PNG while resize entries remain empty. Eleven additional lifecycle assertions pass per engine: no completion or unnecessary current-reference repaint during sustained zero; one pending fallback; hidden cancellation; latest-state recovery; old timer callbacks cannot revive work; zero reference does not repaint current main; comparison disable stops polling; disposal stops old callbacks; no pageerror. Pixel11, extended22 and dashed-exception recovery were rerun successfully on this final fallback code; the rational1517 oracle also still agrees. No product changes were made by the reviewer.
+
 ## Evidence and failure history
 
 | File | Result |
@@ -39,6 +41,9 @@ The implementer added a start-of-frame setLineDash([]). Independent same-conditi
 | extended-review.json | Both engines: all22 checks pass |
 | extended-review-harness-failure.json | Preserved earlier harness-only punctuation and exact-screen-float expectation failures |
 | dash-recovery-red.json / dash-recovery-green.json | Both engines: non-owner dashed stroke exception first-recovery PNG mismatch before the additional fix, exact match after |
+| resize-coalescing-red.json / resize-coalescing-green.json | Both engines, native RO: no observer delivery; old bitmap remains before fallback, latest step/PNG after |
+| size-wait-lifecycle.json | Both engines: all11 timer/lifecycle/no-unnecessary-repaint checks pass |
+| head-4038c87-provenance.json | Four source hashes matched earlier tests, but that CI attempt failed; not the pending new HEAD |
 | failure-history.json | Evidence cleanup/reacquisition, scratch server failure, harness fixes, recurring initial-load timeout |
 | environment.json | Node, Playwright, engine versions |
 
@@ -59,9 +64,11 @@ node node_modules/.review32-independent/browser-check.mjs --baseline
 node node_modules/.review32-independent/browser-check.mjs
 node node_modules/.review32-independent/extended-check.mjs
 node node_modules/.review32-independent/dash-recovery-check.mjs --green
+node node_modules/.review32-independent/resize-coalescing-check.mjs --green
+node node_modules/.review32-independent/size-wait-lifecycle-check.mjs
 ```
 
-Required scripts: extract-baseline.mjs, oracle.py, check-oracle.mjs, serve.mjs, browser-check.mjs, extended-check.mjs, dash-recovery-check.mjs. The baseline script copies source files with git-show from cab2114; it does not alter the checkout. Browser harnesses use their own Vite server on4187 and the Playwright library directly, without the Playwright runner's output-directory cleanup. Execute them sequentially. Browser evidence requires the installed Playwright Chromium/WebKit binaries. No new dependencies were added. The generated oracle-cases.json is retained for audit, but regenerated deterministically by oracle.py. To recreate dash RED, use pre-dash-fix renderer SHA5c92445ecc561dab7592ddaad852c3015d1c132a4105249cfafe9529a38e0dc2 with dash-recovery-check.mjs (no --green); the baseline cab2114 snapshot is a different earlier product state.
+Required scripts: extract-baseline.mjs, oracle.py, check-oracle.mjs, serve.mjs, browser-check.mjs, extended-check.mjs, dash-recovery-check.mjs, resize-coalescing-check.mjs, size-wait-lifecycle-check.mjs. The baseline script copies source files with git-show from cab2114; it does not alter the checkout. Browser harnesses use their own Vite server on4187 and the Playwright library directly, without the Playwright runner's output-directory cleanup. Execute them sequentially. Browser evidence requires the installed Playwright Chromium/WebKit binaries. No new dependencies were added. The generated oracle-cases.json is retained for audit, but regenerated deterministically by oracle.py. To recreate dash RED, use pre-dash-fix renderer SHA5c92445ecc561dab7592ddaad852c3015d1c132a4105249cfafe9529a38e0dc2 with dash-recovery-check.mjs (no --green); the baseline cab2114 snapshot is a different earlier product state. Resize-coalescing RED uses pre-fallback4038c87 source and the resize script without --green.
 
 ## Limits and handoff
 
@@ -69,4 +76,4 @@ NOT_TESTED independently: production preview, complete width/theme/font/DPR matr
 
 The reviewed source SHA256 fingerprints are embedded in oracle-green.json and extended-review.json. Final HEAD/CI association is an additional provenance step; code changes after those fingerprints require review of the delta. Finite clipping remains approximate and separately documented; exact membership of stored coordinates does not make the painted polygons or pixels exact geometry.
 
-Review updated after dash recovery GREEN and final reruns: 2026-11-04 02:17 JST.
+Review updated after zero-size fallback GREEN and all scoped reruns: 2026-11-04 02:50 JST.

@@ -102,3 +102,28 @@ test('P3-01 RED→GREEN: first recovery after a dashed-distance exception matche
  // needing an extra frame to remove a dash left by the failed command.
  expect(await canvas(page).evaluate(c=>c.toDataURL())===before.image).toBe(true);
 });
+
+test('P3-01 RED→GREEN: zero and original size within one frame cannot lose the repaint',async({page})=>{
+ await page.emulateMedia({colorScheme:'dark'});await pair(page);await frames(page);
+ const before=await canvas(page).evaluate(c=>({image:c.toDataURL(),count:c.dataset.renderCount}));
+ await page.evaluate(()=>{
+  const c=document.querySelector<HTMLCanvasElement>('#vc-canvas')!;c.style.width='0px';document.querySelector<HTMLButtonElement>('#vc-step')!.click();
+  requestAnimationFrame(()=>{(window as unknown as {reviewSkipped:unknown}).reviewSkipped={status:c.dataset.drawStatus,count:c.dataset.renderCount,image:c.toDataURL()};c.style.width='100%';});
+ });await frames(page);
+ const skipped=await page.evaluate(()=>(window as unknown as {reviewSkipped:{status:string;count:string;image:string}}).reviewSkipped);
+ expect(skipped.status).toBe('zero-size');expect(skipped.count).toBe(before.count);expect(skipped.image===before.image).toBe(true);
+ await ready(page);await expect(canvas(page)).toHaveAttribute('data-rendered-step','1');
+ expect((await pixel(page))[0]).toBeGreaterThan((await pixel(page))[1]);
+});
+
+test('P3-01: size retries do not paint while zero and retired retry callbacks cannot act',async({page})=>{
+ await page.evaluate(()=>{const w=window as unknown as {reviewSizeTimers:(()=>void)[];reviewRectReads:number};w.reviewSizeTimers=[];w.reviewRectReads=0;const native=setTimeout;window.setTimeout=((callback:()=>void,delay?:number,...args:unknown[])=>{if(delay===100)w.reviewSizeTimers.push(callback);return native(callback,delay,...args);}) as typeof setTimeout;const c=document.querySelector<HTMLCanvasElement>('#vc-canvas')!,rect=c.getBoundingClientRect.bind(c);c.getBoundingClientRect=()=>{w.reviewRectReads++;return rect();};c.style.width='0px';document.querySelector<HTMLButtonElement>('#vc-step')!.click();});await frames(page);
+ const count=await canvas(page).getAttribute('data-render-count');await page.waitForTimeout(350);
+ await expect(canvas(page)).toHaveAttribute('data-render-count',count!);await expect(canvas(page)).toHaveAttribute('data-step','1');await expect(canvas(page)).toHaveAttribute('data-draw-status','zero-size');
+ expect(await page.evaluate(()=>(window as unknown as {reviewSizeTimers:unknown[]}).reviewSizeTimers.length)).toBeGreaterThan(0);
+ await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:true});document.dispatchEvent(new Event('visibilitychange'));Object.defineProperty(document,'hidden',{configurable:true,value:false});document.dispatchEvent(new Event('visibilitychange'));});await frames(page);
+ const stale=await page.evaluate(()=>{const w=window as unknown as {reviewSizeTimers:(()=>void)[];reviewRectReads:number};const reads=w.reviewRectReads;for(const callback of w.reviewSizeTimers.slice(0,-1))callback();return {before:reads,after:w.reviewRectReads};});expect(stale.after).toBe(stale.before);
+ await canvas(page).evaluate(c=>c.style.width='100%');await ready(page);await expect(canvas(page)).toHaveAttribute('data-rendered-step','1');
+ await page.locator('#experiment').selectOption('fourier');await page.locator('#experiment').selectOption('voronoi');await ready(page);const fresh=await canvas(page).getAttribute('data-render-count');
+ await page.evaluate(()=>{for(const callback of (window as unknown as {reviewSizeTimers:(()=>void)[]}).reviewSizeTimers)callback();});await expect(canvas(page)).toHaveAttribute('data-render-count',fresh!);await expect(canvas(page)).toHaveAttribute('data-step','0');
+});

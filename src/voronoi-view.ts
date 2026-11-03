@@ -29,6 +29,8 @@ export function mountVoronoi(host:HTMLElement):()=>void{
  const life=new AbortController(),motion=matchMedia('(prefers-reduced-motion: reduce)'),theme=matchMedia('(prefers-color-scheme: light)');
  let state=createState(),cells=voronoi(state.sites),referenceCells=cells,saved:State|null=null,lesson=-1,forcedStop=false,disposed=false;
  let timer:ReturnType<typeof setTimeout>|null=null,drawFrame:{id:number}|null=null,epoch=0,drag:{id:number;site:number}|null=null,paintError='';
+ const waitingForSize=new Set<HTMLCanvasElement>();
+ let sizeRetry:{id?:ReturnType<typeof setTimeout>}|null=null;
  let computeMs=0,renderMs=0,siteKey='',referenceKey='';
  host.innerHTML=`<main class="crystal"><header><small>MATH ART LAB / EXPERIMENT 011</small><h1>距離の結晶</h1><p>近い点を選ぶ。その繰り返しが、空間を整える。<br>Voronoi Crystal / ボロノイ図とロイド緩和</p></header>
  <div class="vc-layout"><div class="vc-art"><h2>現在の配置</h2><div class="vc-stage"><canvas id="vc-canvas" tabindex="0" role="img" aria-label="ボロノイ図の操作面" aria-describedby="vc-help vc-legend vc-observation"></canvas></div>
@@ -69,6 +71,7 @@ export function mountVoronoi(host:HTMLElement):()=>void{
  function drawOne(c:HTMLCanvasElement,context:CanvasRenderingContext2D|null,cs:Cell[],reference:boolean):boolean{
   const start=performance.now(),result=submitCanvas(c,context,Math.min(devicePixelRatio||1,2),(context,size,dpr)=>drawVoronoi(context,state,cs,size,dpr,theme.matches,reference));
   c.dataset.drawStatus=result.status;
+  if(result.status==='zero-size')waitingForSize.add(c);else waitingForSize.delete(c);
   if(result.status!=='submitted'){
    if(result.status==='failed'||result.status==='context-lost'){paintError=`${reference?'比較図':'主図'}を描画できません。状態を保持しています。再表示・再操作で再試行します。`;message(paintError);}
    return false;
@@ -84,16 +87,31 @@ export function mountVoronoi(host:HTMLElement):()=>void{
   if(disposed||document.hidden)return;
   const main=drawOne(canvas,ctx,cells,false),reference=!state.layers.compare||drawOne(refCanvas,refCtx,referenceCells,true);
   if(main){renderMs=Number(canvas.dataset.renderMs);if(reference&&paintError&&$('error').textContent===paintError){message();paintError='';}}
+  scheduleSizeRetry();
+ }
+ function cancelSizeRetry(){if(sizeRetry?.id!==undefined)clearTimeout(sizeRetry.id);sizeRetry=null;}
+ // ResizeObserver reports delivered sizes, not every intermediate size. A zero
+ // paint followed by a same-frame restoration can therefore have no RO wakeup.
+ // Check only waiting surfaces; issue no Canvas commands while they stay zero.
+ function scheduleSizeRetry(){
+  if(disposed||document.hidden||!waitingForSize.size||sizeRetry!==null)return;
+  const retry:{id?:ReturnType<typeof setTimeout>}={};sizeRetry=retry;
+  retry.id=setTimeout(()=>{
+   if(disposed||sizeRetry!==retry)return;sizeRetry=null;if(document.hidden)return;
+   const available=[...waitingForSize].some(c=>{const r=c.getBoundingClientRect();return Number.isFinite(r.width)&&Number.isFinite(r.height)&&r.width>0&&r.height>0;});
+   if(available)requestDraw();else scheduleSizeRetry();
+  },100);
  }
  // Geometry advances synchronously; one pending frame always paints the latest state.
  function requestDraw(){
   if(disposed)return;
+  cancelSizeRetry();if(!state.layers.compare)waitingForSize.delete(refCanvas);
   canvas.dataset.drawStatus=document.hidden?'hidden':'pending';refCanvas.dataset.drawStatus=!state.layers.compare?'disabled':document.hidden?'hidden':'pending';
   if(document.hidden||drawFrame!==null)return;
   const request={id:0};drawFrame=request;
   request.id=requestAnimationFrame(()=>{if(disposed||drawFrame!==request)return;drawFrame=null;draw();});
  }
- function cancelDraw(){if(drawFrame!==null)cancelAnimationFrame(drawFrame.id);drawFrame=null;}
+ function cancelDraw(){if(drawFrame!==null)cancelAnimationFrame(drawFrame.id);drawFrame=null;cancelSizeRetry();waitingForSize.clear();}
  function render(){
   if(disposed)return;
   const key=state.sites.map(p=>p.id).join(',');if(key!==siteKey){siteKey=key;select('selected').replaceChildren(...state.sites.map(p=>new Option(`p${p.id}`,String(p.id))));}select('selected').value=String(state.selected);

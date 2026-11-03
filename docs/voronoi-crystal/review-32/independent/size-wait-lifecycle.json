@@ -1,0 +1,333 @@
+{
+  "date": "2026-11-03T17:53:32.518Z",
+  "sources": {
+    "voronoi-view.ts": "282e573a267938b6391a87dacd5fb3c5062b54632fc9819d11d7d5f8ea88b03b",
+    "voronoi-paint.ts": "0dcb98ffb5938ff476a5a0747a9d9023a94525230e2c2ffa93db39e1c9554e29"
+  },
+  "results": [
+    {
+      "name": "chromium",
+      "checks": {
+        "zeroDoesNotComplete": true,
+        "sizePollingDoesNotRepaintCurrentReference": true,
+        "singlePendingFallback": true,
+        "hiddenStopsFallback": true,
+        "oldTimersCannotConsumeReplacement": true,
+        "recoveredLatest": true,
+        "oldTimersCannotReviveWork": true,
+        "referenceWaitDoesNotRepaintMain": true,
+        "disabledReferenceStopsFallback": true,
+        "disposeStopsOldCallbacks": true,
+        "noPageError": true
+      },
+      "evidence": {
+        "sustained": {
+          "before": {
+            "main": 2,
+            "ref": 2,
+            "step": 0,
+            "rendered": 0,
+            "status": "submitted",
+            "refStatus": "submitted",
+            "timers": 0,
+            "active": 0
+          },
+          "zero": {
+            "main": 2,
+            "ref": 4,
+            "step": 1,
+            "rendered": 0,
+            "status": "zero-size",
+            "refStatus": "submitted",
+            "timers": 2,
+            "active": 1
+          },
+          "sustained": {
+            "main": 2,
+            "ref": 4,
+            "step": 1,
+            "rendered": 0,
+            "status": "zero-size",
+            "refStatus": "submitted",
+            "timers": 5,
+            "active": 1
+          }
+        },
+        "hidden": {
+          "hidden": {
+            "unchanged": true,
+            "active": 0,
+            "timers": 5
+          },
+          "hiddenLater": {
+            "main": 2,
+            "ref": 4,
+            "step": 1,
+            "rendered": 0,
+            "status": "hidden",
+            "refStatus": "hidden",
+            "timers": 5,
+            "active": 0
+          }
+        },
+        "replacement": {
+          "replacementBefore": {
+            "main": 2,
+            "ref": 5,
+            "step": 1,
+            "rendered": 0,
+            "status": "zero-size",
+            "refStatus": "submitted",
+            "timers": 6,
+            "active": 1
+          },
+          "replacementAfter": {
+            "main": 2,
+            "ref": 5,
+            "step": 1,
+            "rendered": 0,
+            "status": "zero-size",
+            "refStatus": "submitted",
+            "timers": 6,
+            "active": 1
+          }
+        },
+        "recovered": {
+          "recovered": {
+            "main": 3,
+            "ref": 6,
+            "step": 1,
+            "rendered": 1,
+            "status": "submitted",
+            "refStatus": "submitted",
+            "timers": 6,
+            "active": 0
+          },
+          "recoveredLater": {
+            "main": 3,
+            "ref": 6,
+            "step": 1,
+            "rendered": 1,
+            "status": "submitted",
+            "refStatus": "submitted",
+            "timers": 6,
+            "active": 0
+          }
+        },
+        "refZero": {
+          "refZero": {
+            "main": 5,
+            "ref": 6,
+            "step": 2,
+            "rendered": 2,
+            "status": "submitted",
+            "refStatus": "zero-size",
+            "timers": 8,
+            "active": 1
+          },
+          "refSustained": {
+            "main": 5,
+            "ref": 6,
+            "step": 2,
+            "rendered": 2,
+            "status": "submitted",
+            "refStatus": "zero-size",
+            "timers": 11,
+            "active": 1
+          }
+        },
+        "disabled": {
+          "disabled": {
+            "main": 7,
+            "ref": 6,
+            "step": 2,
+            "rendered": 2,
+            "status": "submitted",
+            "refStatus": "disabled",
+            "timers": 12,
+            "active": 0
+          },
+          "disabledLater": {
+            "main": 7,
+            "ref": 6,
+            "step": 2,
+            "rendered": 2,
+            "status": "submitted",
+            "refStatus": "disabled",
+            "timers": 12,
+            "active": 0
+          }
+        },
+        "disposed": {
+          "oldWidth": 0,
+          "newCountUnchanged": true,
+          "newStep": 0,
+          "active": 0
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "webkit",
+      "checks": {
+        "zeroDoesNotComplete": true,
+        "sizePollingDoesNotRepaintCurrentReference": true,
+        "singlePendingFallback": true,
+        "hiddenStopsFallback": true,
+        "oldTimersCannotConsumeReplacement": true,
+        "recoveredLatest": true,
+        "oldTimersCannotReviveWork": true,
+        "referenceWaitDoesNotRepaintMain": true,
+        "disabledReferenceStopsFallback": true,
+        "disposeStopsOldCallbacks": true,
+        "noPageError": true
+      },
+      "evidence": {
+        "sustained": {
+          "before": {
+            "main": 2,
+            "ref": 2,
+            "step": 0,
+            "rendered": 0,
+            "status": "submitted",
+            "refStatus": "submitted",
+            "timers": 0,
+            "active": 0
+          },
+          "zero": {
+            "main": 2,
+            "ref": 4,
+            "step": 1,
+            "rendered": 0,
+            "status": "zero-size",
+            "refStatus": "submitted",
+            "timers": 2,
+            "active": 1
+          },
+          "sustained": {
+            "main": 2,
+            "ref": 4,
+            "step": 1,
+            "rendered": 0,
+            "status": "zero-size",
+            "refStatus": "submitted",
+            "timers": 5,
+            "active": 1
+          }
+        },
+        "hidden": {
+          "hidden": {
+            "unchanged": true,
+            "active": 0,
+            "timers": 5
+          },
+          "hiddenLater": {
+            "main": 2,
+            "ref": 4,
+            "step": 1,
+            "rendered": 0,
+            "status": "hidden",
+            "refStatus": "hidden",
+            "timers": 5,
+            "active": 0
+          }
+        },
+        "replacement": {
+          "replacementBefore": {
+            "main": 2,
+            "ref": 5,
+            "step": 1,
+            "rendered": 0,
+            "status": "zero-size",
+            "refStatus": "submitted",
+            "timers": 6,
+            "active": 1
+          },
+          "replacementAfter": {
+            "main": 2,
+            "ref": 5,
+            "step": 1,
+            "rendered": 0,
+            "status": "zero-size",
+            "refStatus": "submitted",
+            "timers": 6,
+            "active": 1
+          }
+        },
+        "recovered": {
+          "recovered": {
+            "main": 3,
+            "ref": 6,
+            "step": 1,
+            "rendered": 1,
+            "status": "submitted",
+            "refStatus": "submitted",
+            "timers": 6,
+            "active": 0
+          },
+          "recoveredLater": {
+            "main": 3,
+            "ref": 6,
+            "step": 1,
+            "rendered": 1,
+            "status": "submitted",
+            "refStatus": "submitted",
+            "timers": 6,
+            "active": 0
+          }
+        },
+        "refZero": {
+          "refZero": {
+            "main": 5,
+            "ref": 6,
+            "step": 2,
+            "rendered": 2,
+            "status": "submitted",
+            "refStatus": "zero-size",
+            "timers": 9,
+            "active": 1
+          },
+          "refSustained": {
+            "main": 5,
+            "ref": 6,
+            "step": 2,
+            "rendered": 2,
+            "status": "submitted",
+            "refStatus": "zero-size",
+            "timers": 12,
+            "active": 1
+          }
+        },
+        "disabled": {
+          "disabled": {
+            "main": 7,
+            "ref": 6,
+            "step": 2,
+            "rendered": 2,
+            "status": "submitted",
+            "refStatus": "disabled",
+            "timers": 15,
+            "active": 0
+          },
+          "disabledLater": {
+            "main": 7,
+            "ref": 6,
+            "step": 2,
+            "rendered": 2,
+            "status": "submitted",
+            "refStatus": "disabled",
+            "timers": 15,
+            "active": 0
+          }
+        },
+        "disposed": {
+          "oldWidth": 0,
+          "newCountUnchanged": true,
+          "newStep": 0,
+          "active": 0
+        }
+      },
+      "errors": []
+    }
+  ]
+}

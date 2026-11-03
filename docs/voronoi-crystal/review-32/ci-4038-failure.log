@@ -1,0 +1,66 @@
+CI run 41683574524: first attempt FAILURE
+HEAD 4038c87a5a8b5e359b34018e04cdb14c086c7874
+Actual checkout af1f34a56987f296286c671e923fa259291fc059
+Tree 6f32dd14c01ccdbc9b7d51bf9f95ea1e91e68cc9 matches HEAD
+Unit 207 passed; type/build success; development 354 passed, 2 failed, 2 existing skipped; production not run.
+https://github.com/tetsujisugimori-coder/Math-Art-Lab/actions/runs/41683574524
+Failure excerpt (ANSI/trailing whitespace removed).
+
+2026-11-03T17:38:28.8098422Z   1) [webkit] › e2e/voronoi-review-checks.ts:64:1 › P3-01 RED→GREEN: zero width cannot advance completed drawing records
+2026-11-03T17:38:28.8099337Z
+2026-11-03T17:38:28.8100276Z     Error: expect(received).toBe(expected) // Object.is equality
+2026-11-03T17:38:28.8101064Z
+2026-11-03T17:38:28.8101349Z     Expected: true
+2026-11-03T17:38:28.8101884Z     Received: false
+2026-11-03T17:38:28.8102190Z
+2026-11-03T17:38:28.8102357Z     Call Log:
+2026-11-03T17:38:28.8102829Z     - Timeout 5000ms exceeded while waiting on the predicate
+2026-11-03T17:38:28.8103149Z
+2026-11-03T17:38:28.8103423Z       3 | const reference=(p:Page)=>p.locator('#vc-reference-canvas');
+2026-11-03T17:38:28.8104510Z       4 | async function frames(page:Page){await page.evaluate(()=>new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve()))));}
+2026-11-03T17:38:28.8106383Z     > 5 | async function ready(page:Page){await expect.poll(()=>canvas(page).evaluate(c=>c.dataset.drawStatus==='submitted'&&c.dataset.revision===c.dataset.renderedRevision)).toBe(true);}
+2026-11-03T17:38:28.8107718Z         |                                 ^
+2026-11-03T17:38:28.8108300Z       6 | const errors=new WeakMap<Page,string[]>();
+2026-11-03T17:38:28.8109820Z       7 | test.beforeEach(async({page})=>{const list:string[]=[];errors.set(page,list);page.on('pageerror',e=>list.push(e.message));await page.goto('./');await page.locator('#experiment').selectOption('voronoi');await ready(page);});
+2026-11-03T17:38:28.8113457Z       8 | test.afterEach(async({page})=>{expect(errors.get(page)).toEqual([]);});
+2026-11-03T17:38:28.8114778Z         at ready (/home/runner/work/Math-Art-Lab/Math-Art-Lab/e2e/voronoi-review-checks.ts:5:33)
+2026-11-03T17:38:28.8116222Z         at /home/runner/work/Math-Art-Lab/Math-Art-Lab/e2e/voronoi-review-checks.ts:32:55
+2026-11-03T17:38:28.8116873Z
+2026-11-03T17:38:28.8118014Z     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+2026-11-03T17:38:28.8119653Z     test-results/voronoi-review-P3-01-RED→G-49947-e-completed-drawing-records-webkit/test-failed-1.png
+2026-11-03T17:38:28.8121074Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-11-03T17:38:28.8121570Z
+2026-11-03T17:38:28.8122402Z     Error Context: test-results/voronoi-review-P3-01-RED→G-49947-e-completed-drawing-records-webkit/error-context.md
+2026-11-03T17:38:28.8122908Z
+2026-11-03T17:38:28.8123485Z   2) [webkit] › e2e/voronoi-review-checks.ts:93:1 › P3-01: actual pixels follow the hand-calculated latest split after resize
+2026-11-03T17:38:28.8123988Z
+2026-11-03T17:38:28.8124473Z     Error: expect(received).toBe(expected) // Object.is equality
+2026-11-03T17:38:28.8124895Z
+2026-11-03T17:38:28.8125030Z     Expected: true
+2026-11-03T17:38:28.8125571Z     Received: false
+2026-11-03T17:38:28.8125753Z
+2026-11-03T17:38:28.8125845Z     Call Log:
+2026-11-03T17:38:28.8126162Z     - Timeout 5000ms exceeded while waiting on the predicate
+2026-11-03T17:38:28.8126473Z
+2026-11-03T17:38:28.8126709Z       3 | const reference=(p:Page)=>p.locator('#vc-reference-canvas');
+2026-11-03T17:38:28.8128108Z       4 | async function frames(page:Page){await page.evaluate(()=>new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve()))));}
+2026-11-03T17:38:28.8129482Z     > 5 | async function ready(page:Page){await expect.poll(()=>canvas(page).evaluate(c=>c.dataset.drawStatus==='submitted'&&c.dataset.revision===c.dataset.renderedRevision)).toBe(true);}
+2026-11-03T17:38:28.8130300Z         |                                 ^
+2026-11-03T17:38:28.8130665Z       6 | const errors=new WeakMap<Page,string[]>();
+2026-11-03T17:38:28.8131781Z       7 | test.beforeEach(async({page})=>{const list:string[]=[];errors.set(page,list);page.on('pageerror',e=>list.push(e.message));await page.goto('./');await page.locator('#experiment').selectOption('voronoi');await ready(page);});
+2026-11-03T17:38:28.8132922Z       8 | test.afterEach(async({page})=>{expect(errors.get(page)).toEqual([]);});
+2026-11-03T17:38:28.8133605Z         at ready (/home/runner/work/Math-Art-Lab/Math-Art-Lab/e2e/voronoi-review-checks.ts:5:33)
+2026-11-03T17:38:28.8134315Z         at /home/runner/work/Math-Art-Lab/Math-Art-Lab/e2e/voronoi-review-checks.ts:40:55
+2026-11-03T17:38:28.8134914Z
+2026-11-03T17:38:28.8135418Z     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+2026-11-03T17:38:28.8136224Z     test-results/voronoi-review-P3-01-actua-245ec-d-latest-split-after-resize-webkit/test-failed-1.png
+2026-11-03T17:38:28.8137080Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-11-03T17:38:28.8137802Z
+2026-11-03T17:38:28.8138360Z     Error Context: test-results/voronoi-review-P3-01-actua-245ec-d-latest-split-after-resize-webkit/error-context.md
+2026-11-03T17:38:28.8138923Z
+2026-11-03T17:38:28.8139007Z   2 failed
+2026-11-03T17:38:28.8139734Z     [webkit] › e2e/voronoi-review-checks.ts:64:1 › P3-01 RED→GREEN: zero width cannot advance completed drawing records
+2026-11-03T17:38:28.8140784Z     [webkit] › e2e/voronoi-review-checks.ts:93:1 › P3-01: actual pixels follow the hand-calculated latest split after resize
+2026-11-03T17:38:28.8141394Z   2 skipped
+2026-11-03T17:38:28.8141608Z   354 passed (14.7m)
+2026-11-03T17:38:28.8461237Z ##[error]Process completed with exit code 1.
