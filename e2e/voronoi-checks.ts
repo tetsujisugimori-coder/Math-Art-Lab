@@ -120,7 +120,7 @@ for(const width of [1280,390,375,320])test(`crystal: layout ${width}px dark/ligh
    const a=luminance(getComputedStyle(el).color),b=luminance(getComputedStyle(el.closest('.vc-panel')!).backgroundColor);return (Math.max(a,b)+.05)/(Math.min(a,b)+.05);
   });expect(contrast).toBeGreaterThanOrEqual(4.5);
   expect(await page.locator('aside').evaluate(el=>getComputedStyle(el).maxHeight)).toBe('none');
-  for(const id of ['#vc-preset','#vc-mode','#vc-selected','#vc-reference','#experiment'])expect(await page.locator(id).evaluate(el=>getComputedStyle(el).appearance)).toBe('none');
+  for(const id of ['#vc-preset','#vc-mode','#vc-selected','#vc-reference','#experiment']){expect(await page.locator(id).evaluate(el=>getComputedStyle(el).appearance)).toBe('none');expect(await page.locator(id).evaluate(el=>getComputedStyle(el).backgroundImage)).not.toBe('none');}
   await c(page).focus();await page.keyboard.press('Tab');await page.keyboard.press('Shift+Tab');await expect(c(page)).toBeFocused();expect(await c(page).evaluate(el=>getComputedStyle(el).outlineStyle)).toBe('solid');await page.keyboard.press('Escape');await expect(page.locator('#vc-lesson')).toBeFocused();
  }
  expect(errors).toEqual([]);

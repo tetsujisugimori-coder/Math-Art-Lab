@@ -90,6 +90,8 @@ CIジョブ全体の実行予算は20分→30分へ具体化した。直前main�
 
 10. 描画を非同期化した後の撮影で、WebKitの全ページ画像に切替前のCanvasが残り、現在値と図の対象が違う撮影手順の不備を発見。各画像で2回の画面更新と描画リビジョンの一致を待つよう撮影スクリプトを修正し、54枚を撮り直した。[画像マニフェスト](screenshot-manifest.json)に点配置・設定・ステップ・モデル／描画リビジョン・テーマ・文字サイズ・DPRの画素寸法を保存。全54件のリビジョン一致と、代表画像のp1位置・現在値・フォームの文字を照合した。製品の数学モデルや試験期待値は変更しない。
 
+11. 初回提出HEAD6cdf5d2のCI待機中の画像点検で、ライトテーマのbackground短縮指定が選択欄の矢印画像を消すCSS競合を確認。background-colorへ限定し、全選択欄のbackground-imageがnoneにならないことを追加検査。追補の対象試験は開発8/8（58.2秒）・本番8/8（53.6秒）成功。[開発](validation/development-arrows-final.log)・[本番](validation/production-arrows-final.log)。数理・状態・描画方式は変更せず、追補HEADのCIを最終として照合する。
+
 全体回帰は、上記4・5の最終調整前に開発338成功＋既存の手動撮影2skip（340件、30.3分）、本番220/220成功（10.7分）。開発のChromium終了後、本番を別ポート・別出力先で併行実行した。数学モデル・既存作品・共通UIはその後変更せず、新作内のラベル・フォーム・往復ナビゲーション・状態通知だけを調整した。最終調整後の単体は184/184成功（既存157＋新作27）、型検査・build成功。最終の新作GUIとCIを別に照合する。全体回帰の[開発ログ](validation/development-full.log)・[本番ログ](validation/production-full.log)を保持する。
 
 最終修正後の新作GUIは開発30/30成功（2.1分）・本番30/30成功（2.0分）。両ブラウザで境界座標(1,1)の移動、再生中の座標入力保持、式と図の往復フォーカス、教材第4段階のプリセット変更も通過した。[開発の最終ログ](validation/development-crystal-final.log)・[本番の最終ログ](validation/production-crystal-final.log)を保持する。最終HEADとCIの実行コミット・結論はDraft PRの最終検証コメントへ固定して記録する。
@@ -132,7 +134,7 @@ Windows / Intel Core i7-14650HX / Node24.20.0 / Chromium145.0.7632.6・WebKit26.
 
 [デスクトップ全体](screenshots/chromium-desktop-dark.png)／[375px・ライト・文字200%の教材](screenshots/chromium-mobile-lesson-light-200.png)／[記号の3分類](screenshots/chromium-mobile-inspector-light-200.png)／[内側に描くフォーカス枠](screenshots/chromium-focus-light-200.png)。[全スクリーンショット](screenshots/)には両ブラウザ・4幅・両テーマ・文字100/200%と4プリセットを保存する。
 
-ビルド基準は同じNode24.20.0・lockfileの依存を用いた最新mainのアーカイブ。mainのJS715.77KB/gzip204.70KB、CSS29.65KB/gzip6.30KB。最終実装はJS745.81KB/gzip214.37KB、CSS33.85KB/gzip7.09KB。JS約4.20%増、gzip約4.72%増で、新規依存なし。500KB超のchunk警告はmainにも存在し、警告抑制の設定変更はしていない。
+ビルド基準は同じNode24.20.0・lockfileの依存を用いた最新mainのアーカイブ。mainのJS715.77KB/gzip204.70KB、CSS29.65KB/gzip6.30KB。最終実装はJS745.81KB/gzip214.37KB、CSS33.86KB/gzip7.09KB。JS約4.20%増、gzip約4.72%増で、新規依存なし。500KB超のchunk警告はmainにも存在し、警告抑制の設定変更はしていない。
 
 NOT_TESTED：実機iPhone Safari、実スクリーンリーダーでの読み上げ、低性能端末、OS拡大・実ページズーム200%、電池・熱・長時間運用。文字200%はルートfont-size変更。WindowsのPlaywright WebKitは実機Safariではない。独立レビューは別判定であり、この自己検証を独立レビュー済みとは扱わない。新作を含む本番Pagesへの公開はマージ後となるため未実施。既存Pagesの設定とローカル本番成果物は別に確認する。
 
