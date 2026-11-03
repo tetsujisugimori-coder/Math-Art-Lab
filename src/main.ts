@@ -1,3 +1,4 @@
+import {mountVoronoi} from './voronoi-view';
 import {mountFourier} from './fourier-view';
 import {mountReactionDiffusion} from './reaction-diffusion-view';
 import {mountFractal} from './fractal-view';
@@ -14,6 +15,7 @@ app.innerHTML='<nav class="experiment-picker" aria-label="作品の選択"><labe
 const host=app.querySelector<HTMLElement>('#experiment-root')!;
 const select=app.querySelector<HTMLSelectElement>('#experiment')!;
 let dispose=mountHarmonograph(host);
-const mounts={fractal:mountFractal,harmonograph:mountHarmonograph,garden:mountGarden,knot:mountKnot,lorenz:mountLorenz,twins:mountTwins,wave:mountWave,flow:mountFlowField,reaction:mountReactionDiffusion,fourier:mountFourier};
+select.add(new Option('011 · 距離の結晶','voronoi'));
+const mounts={fractal:mountFractal,harmonograph:mountHarmonograph,garden:mountGarden,knot:mountKnot,lorenz:mountLorenz,twins:mountTwins,wave:mountWave,flow:mountFlowField,reaction:mountReactionDiffusion,fourier:mountFourier,voronoi:mountVoronoi};
 select.onchange=()=>{dispose();dispose=(mounts[select.value as keyof typeof mounts]??mountHarmonograph)(host);};
 window.addEventListener('pagehide',event=>{if(!event.persisted)dispose();});

@@ -1,0 +1,55 @@
+
+[WebServer] (node:35716) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+
+(node:23412) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:23412) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1/2] [chromium] › e2e\voronoi-checks.ts:83:1 › crystal: canvas keyboard, numeric forms, presets, layers and symbols
+  1) [chromium] › e2e\voronoi-checks.ts:83:1 › crystal: canvas keyboard, numeric forms, presets, layers and symbols
+
+    Test timeout of 30000ms exceeded while running "beforeEach" hook.
+
+       6 | async function probe(p:Page,x:number,y:number){await p.locator('#vc-probe-x').fill(String(x));await p.locator('#vc-probe-y').fill(String(y));await p.locator('#vc-probe-form button').click();}
+       7 | const pageErrors=new WeakMap<Page,string[]>();
+    >  8 | test.beforeEach(async({page})=>{const errors:string[]=[];pageErrors.set(page,errors);page.on('pageerror',error=>errors.push(error.message));await page.goto('./');await page.locator('#experiment').selectOption('voronoi');});
+         |      ^
+       9 | test.afterEach(async({page})=>{expect(pageErrors.get(page)).toEqual([]);});
+      10 |
+      11 | test('crystal: editing, invalid operations, deterministic step and reset',async({page})=>{
+        at C:\Users\tetsu\.codex\worktrees\3dc6\Math-Art-Lab\e2e\voronoi-checks.ts:8:6
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+      - navigating to "http://127.0.0.1:4174/Math-Art-Lab/", waiting until "load"
+
+
+       6 | async function probe(p:Page,x:number,y:number){await p.locator('#vc-probe-x').fill(String(x));await p.locator('#vc-probe-y').fill(String(y));await p.locator('#vc-probe-form button').click();}
+       7 | const pageErrors=new WeakMap<Page,string[]>();
+    >  8 | test.beforeEach(async({page})=>{const errors:string[]=[];pageErrors.set(page,errors);page.on('pageerror',error=>errors.push(error.message));await page.goto('./');await page.locator('#experiment').selectOption('voronoi');});
+         |                                                                                                                                                        ^
+       9 | test.afterEach(async({page})=>{expect(pageErrors.get(page)).toEqual([]);});
+      10 |
+      11 | test('crystal: editing, invalid operations, deterministic step and reset',async({page})=>{
+        at C:\Users\tetsu\.codex\worktrees\3dc6\Math-Art-Lab\e2e\voronoi-checks.ts:8:152
+
+
+
+(node:19420) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+(node:19420) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[2/2] [webkit] › e2e\voronoi-checks.ts:83:1 › crystal: canvas keyboard, numeric forms, presets, layers and symbols
+  1 failed
+    [chromium] › e2e\voronoi-checks.ts:83:1 › crystal: canvas keyboard, numeric forms, presets, layers and symbols
+  1 passed (56.5s)

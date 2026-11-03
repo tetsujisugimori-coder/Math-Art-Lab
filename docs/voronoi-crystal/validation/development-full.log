@@ -1,0 +1,424 @@
+
+> math-art-lab@0.1.0 test:e2e
+> playwright test --reporter=line
+
+
+[WebServer] (node:37600) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 340 tests using 1 worker
+
+
+
+(node:24224) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+(node:24224) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1/340] [chromium] › e2e\flow-field.spec.ts:2:1 › play button remains stable while playback redraws
+[2/340] [chromium] › e2e\flow-field.spec.ts:7:1 › velocity emphasis follows the observed start, not the candidate
+[3/340] [chromium] › e2e\flow-field.spec.ts:31:1 › flow field controls, comparison, lesson and disposal
+[4/340] [chromium] › e2e\flow-field.spec.ts:42:1 › motion preference and visibility stop playback
+[5/340] [chromium] › e2e\flow-field.spec.ts:47:2 › touch and DPR 2 › tap selects a point and reduced motion stops a lesson without resuming
+[6/340] [chromium] › e2e\flow-field.spec.ts:52:48 › layout 320px
+[7/340] [chromium] › e2e\flow-field.spec.ts:52:48 › layout 375px
+[8/340] [chromium] › e2e\flow-field.spec.ts:52:48 › layout 390px
+[9/340] [chromium] › e2e\flow-field.spec.ts:52:48 › layout 751px
+[10/340] [chromium] › e2e\flow-field.spec.ts:52:48 › layout 1024px
+[11/340] [chromium] › e2e\flow-field.spec.ts:52:48 › layout 1280px
+[12/340] [chromium] › e2e\fourier-checks.ts:18:1 › initial stop, exact step, complete, redraw and setting contracts
+[13/340] [chromium] › e2e\fourier-checks.ts:53:1 › progressive and complete pixels match, pause remains unchanged, fixed scale across K
+[14/340] [chromium] › e2e\fourier-checks.ts:78:1 › keyboard selects a real circle and formula with analytic quarter-turn endpoint
+[15/340] [chromium] › e2e\fourier-checks.ts:116:1 › lessons navigate both ways and restore all settings and exact pixels
+[16/340] [chromium] › e2e\fourier-checks.ts:149:1 › reduced motion, hidden stop, lesson resume and resize preserve phase
+[17/340] [chromium] › e2e\fourier-checks.ts:202:1 › retired animation callbacks cannot change reset, lessons or remounted work; delayed frames are bounded
+[18/340] [chromium] › e2e\fourier-checks.ts:257:1 › every control has a working keyboard path
+[19/340] [chromium] › e2e\fourier-checks.ts:309:1 › Canvas failure has readable explanation and disables playback
+[20/340] [chromium] › e2e\fourier-checks.ts:323:3 › touch › tap term and symbol retains phase and distinguishes selection in the raster
+[21/340] [chromium] › e2e\fourier-checks.ts:339:49 › layout 320, themes and 200% text
+[22/340] [chromium] › e2e\fourier-checks.ts:339:49 › layout 375, themes and 200% text
+[23/340] [chromium] › e2e\fourier-checks.ts:339:49 › layout 390, themes and 200% text
+[24/340] [chromium] › e2e\fourier-checks.ts:339:49 › layout 768, themes and 200% text
+[25/340] [chromium] › e2e\fourier-checks.ts:339:49 › layout 1280, themes and 200% text
+[26/340] [chromium] › e2e\garden.spec.ts:4:1 › lesson stage four retains playing progress across the small lesson
+[27/340] [chromium] › e2e\garden.spec.ts:19:35 › lesson saved progress, completion and controls 1280px
+[28/340] [chromium] › e2e\garden.spec.ts:19:35 › lesson saved progress, completion and controls 390px
+[29/340] [chromium] › e2e\garden.spec.ts:19:35 › lesson saved progress, completion and controls 375px
+[30/340] [chromium] › e2e\garden.spec.ts:54:1 › lesson boundaries and reduced motion preserve saved playback
+[31/340] [chromium] › e2e\garden.spec.ts:66:35 › garden presets, mathematics and teaching 1280px
+[32/340] [chromium] › e2e\garden.spec.ts:66:35 › garden presets, mathematics and teaching 390px
+[33/340] [chromium] › e2e\garden.spec.ts:66:35 › garden presets, mathematics and teaching 375px
+[34/340] [chromium] › e2e\garden.spec.ts:101:1 › garden drawing clock, stable colors, hidden tab and lesson restoration
+[35/340] [chromium] › e2e\garden.spec.ts:115:1 › garden resizes sharply and releases old GPU contexts, observers and callbacks
+[36/340] [chromium] › e2e\garden.spec.ts:137:1 › garden handles a central point, the first reference direction and the measured point cap
+[37/340] [chromium] › e2e\harmonograph.spec.ts:3:35 › three real harmonograph presets and guides 1280px
+[38/340] [chromium] › e2e\harmonograph.spec.ts:3:35 › three real harmonograph presets and guides 390px
+[39/340] [chromium] › e2e\harmonograph.spec.ts:3:35 › three real harmonograph presets and guides 375px
+[40/340] [chromium] › e2e\harmonograph.spec.ts:38:1 › playback pauses in place, resumes, redraws and completes independently of shape
+[41/340] [chromium] › e2e\harmonograph.spec.ts:56:1 › coefficients, preset and shape controls stay consistent with the completed trajectory
+[42/340] [chromium] › e2e\harmonograph.spec.ts:74:1 › repeated work switches release WebGL contexts, observers and animation callbacks
+[43/340] [chromium] › e2e\inspector.spec.ts:3:1 › 現在値・全スライダー・キーボードタブ・リセットが同期する
+[44/340] [chromium] › e2e\inspector.spec.ts:48:1 › 数式はテキストを安全に扱い、アニメーション中に再生成されない
+[45/340] [chromium] › e2e\inspector.spec.ts:74:1 › タブ変更後も描画・停止再開・回転・ズームを維持する
+[46/340] [chromium] › e2e\inspector.spec.ts:94:30 › 390px・文字拡大・タッチ操作・数式の横スクロール
+[47/340] [chromium] › e2e\inspector.spec.ts:94:30 › 375px・文字拡大・タッチ操作・数式の横スクロール
+[48/340] [chromium] › e2e\inspector.spec.ts:134:1 › 横幅・表示切替・現在値に応じて必要な数式だけTab移動し、更新中もフォーカスを保つ
+[49/340] [chromium] › e2e\knot.spec.ts:4:86 › knot geometry, guides and controls 1280px dark
+[50/340] [chromium] › e2e\knot.spec.ts:4:86 › knot geometry, guides and controls 1280px light
+[51/340] [chromium] › e2e\knot.spec.ts:4:86 › knot geometry, guides and controls 390px dark
+[52/340] [chromium] › e2e\knot.spec.ts:4:86 › knot geometry, guides and controls 390px light
+[53/340] [chromium] › e2e\knot.spec.ts:4:86 › knot geometry, guides and controls 375px dark
+[54/340] [chromium] › e2e\knot.spec.ts:4:86 › knot geometry, guides and controls 375px light
+[55/340] [chromium] › e2e\knot.spec.ts:44:1 › knot clock, sampling, visibility, replay and reduced motion
+[56/340] [chromium] › e2e\knot.spec.ts:56:1 › knot resize and work switching release contexts, observers and callbacks
+[57/340] [chromium] › e2e\lesson.spec.ts:2:35 › motion lesson stages, keyboard and artwork restoration 1280px
+[58/340] [chromium] › e2e\lesson.spec.ts:2:35 › motion lesson stages, keyboard and artwork restoration 390px
+[59/340] [chromium] › e2e\lesson.spec.ts:2:35 › motion lesson stages, keyboard and artwork restoration 375px
+[60/340] [chromium] › e2e\lesson.spec.ts:35:1 › artwork clock freezes during lesson and resumes without consuming lesson time
+[61/340] [chromium] › e2e\lesson.spec.ts:42:1 › reentry keeps one animation loop and reduced-motion changes pause safely
+[62/340] [chromium] › e2e\lorenz.spec.ts:4:86 › lorenz controls, equations and lessons 1280px dark
+[63/340] [chromium] › e2e\lorenz.spec.ts:4:86 › lorenz controls, equations and lessons 1280px light
+[64/340] [chromium] › e2e\lorenz.spec.ts:4:86 › lorenz controls, equations and lessons 390px dark
+[65/340] [chromium] › e2e\lorenz.spec.ts:4:86 › lorenz controls, equations and lessons 390px light
+[66/340] [chromium] › e2e\lorenz.spec.ts:4:86 › lorenz controls, equations and lessons 375px dark
+[67/340] [chromium] › e2e\lorenz.spec.ts:4:86 › lorenz controls, equations and lessons 375px light
+[68/340] [chromium] › e2e\lorenz.spec.ts:46:1 › lorenz clock, pause, speed, hidden tab and reduced motion
+[69/340] [chromium] › e2e\lorenz.spec.ts:56:1 › lorenz releases contexts, observers, frames and restores initial state on remount
+[70/340] [chromium] › e2e\lorenz.spec.ts:63:1 › lorenz numerical refinement and bounded sampling measurements
+[chromium] › e2e\lorenz.spec.ts:63:1 › lorenz numerical refinement and bounded sampling measurements
+LORENZ_MEASUREMENTS {"coarse":{"x":-9.37857128994133,"y":-8.35703586856754,"z":29.362326013453504},"fine":{"x":-9.378570040800168,"y":-8.357033931485105,"z":29.36232524718988},"finer":{"x":-9.378570011223951,"y":-8.357033797761162,"z":29.36232532759671},"refinementDistance":0.000002428950790343031,"nextRefinementDistance":1.5881468549577816e-7,"timings":{"standard":[5,2.5999999940395355,2.300000011920929,1.199999988079071,1.2000000178813934,1.199999988079071,1.199999988079071],"maxComparison":[4.9000000059604645,4.5999999940395355,4.5,4.4000000059604645,4.9000000059604645,4.5999999940395355,4.4000000059604645]},"userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/145.0.7632.6 Safari/537.36"}
+
+[71/340] [chromium] › e2e\reaction-diffusion-lifecycle-checks.ts:101:97 › worker isolation after reset
+[72/340] [chromium] › e2e\reaction-diffusion-lifecycle-checks.ts:101:97 › worker isolation after stop
+[73/340] [chromium] › e2e\reaction-diffusion-lifecycle-checks.ts:101:97 › worker isolation after add
+[74/340] [chromium] › e2e\reaction-diffusion-lifecycle-checks.ts:101:97 › worker isolation after preset
+[75/340] [chromium] › e2e\reaction-diffusion-lifecycle-checks.ts:101:97 › worker isolation after lesson
+[76/340] [chromium] › e2e\reaction-diffusion-lifecycle-checks.ts:101:97 › worker isolation after close
+[77/340] [chromium] › e2e\reaction-diffusion-lifecycle-checks.ts:101:97 › worker isolation after hidden
+[78/340] [chromium] › e2e\reaction-diffusion-lifecycle-checks.ts:101:97 › worker isolation after motion
+[79/340] [chromium] › e2e\reaction-diffusion-lifecycle-checks.ts:122:1 › interruption then new request rejects old instance even with current request id
+[80/340] [chromium] › e2e\reaction-diffusion-lifecycle-checks.ts:137:1 › retired instance cannot affect remount; active instance error must stop
+[81/340] [chromium] › e2e\reaction-diffusion-lifecycle-checks.ts:152:1 › queued playback callback cannot start a new generation; idle stop does not recreate
+[82/340] [chromium] › e2e\reaction-diffusion-lifecycle-checks.ts:170:1 › replacement construction failure is visible and cannot resume from lesson
+[83/340] [chromium] › e2e\reaction-diffusion-lifecycle-checks.ts:189:44 › pointer ownership, cancellation, outside movement and release 320px
+[84/340] [chromium] › e2e\reaction-diffusion-lifecycle-checks.ts:189:44 › pointer ownership, cancellation, outside movement and release 375px
+[85/340] [chromium] › e2e\reaction-diffusion-lifecycle-checks.ts:189:44 › pointer ownership, cancellation, outside movement and release 390px
+[86/340] [chromium] › e2e\reaction-diffusion-lifecycle-checks.ts:189:44 › pointer ownership, cancellation, outside movement and release 1280px
+[87/340] [chromium] › e2e\reaction-diffusion-lifecycle-checks.ts:252:1 › legend matches grayscale and switching display leaves grid unchanged
+[88/340] [chromium] › e2e\reaction-diffusion-checks.ts:9:1 › exact numerical step, controls and candidate rejection
+[89/340] [chromium] › e2e\reaction-diffusion-checks.ts:39:1 › all presets and fixed-seed comparison
+[90/340] [chromium] › e2e\reaction-diffusion-checks.ts:50:1 › keyboard and numeric seed, erase equilibrium
+[91/340] [chromium] › e2e\reaction-diffusion-checks.ts:69:1 › four lessons restore exact state and input candidates
+[92/340] [chromium] › e2e\reaction-diffusion-checks.ts:87:1 › reduced motion and visibility stop and prevent lesson resume
+[93/340] [chromium] › e2e\reaction-diffusion-checks.ts:107:1 › stale worker reply ignored after reset, lesson close and switch
+[94/340] [chromium] › e2e\reaction-diffusion-checks.ts:131:1 › worker creation failure explained
+[95/340] [chromium] › e2e\reaction-diffusion-checks.ts:145:1 › computation error preserves last committed grid
+[96/340] [chromium] › e2e\reaction-diffusion-checks.ts:164:1 › Canvas unavailable explained
+[97/340] [chromium] › e2e\reaction-diffusion-checks.ts:174:1 › disposed Worker error cannot overwrite a remounted garden
+[98/340] [chromium] › e2e\reaction-diffusion-checks.ts:208:3 › touch › tap seeds actual concentration and symbol focus
+[99/340] [chromium] › e2e\reaction-diffusion-checks.ts:224:55 › layout 320
+[100/340] [chromium] › e2e\reaction-diffusion-checks.ts:224:55 › layout 375
+[101/340] [chromium] › e2e\reaction-diffusion-checks.ts:224:55 › layout 390
+[102/340] [chromium] › e2e\reaction-diffusion-checks.ts:224:55 › layout 751
+[103/340] [chromium] › e2e\reaction-diffusion-checks.ts:224:55 › layout 1024
+[104/340] [chromium] › e2e\reaction-diffusion-checks.ts:224:55 › layout 1280
+[105/340] [chromium] › e2e\twins-observation.spec.ts:4:90 › observation flow 320 dark
+[106/340] [chromium] › e2e\twins-observation.spec.ts:4:90 › observation flow 320 light
+[107/340] [chromium] › e2e\twins-observation.spec.ts:4:90 › observation flow 375 dark
+[108/340] [chromium] › e2e\twins-observation.spec.ts:4:90 › observation flow 375 light
+[109/340] [chromium] › e2e\twins-observation.spec.ts:4:90 › observation flow 390 dark
+[110/340] [chromium] › e2e\twins-observation.spec.ts:4:90 › observation flow 390 light
+[111/340] [chromium] › e2e\twins-observation.spec.ts:4:90 › observation flow 1280 dark
+[112/340] [chromium] › e2e\twins-observation.spec.ts:4:90 › observation flow 1280 light
+[113/340] [chromium] › e2e\twins-observation.spec.ts:9:1 › observation latest selection survives asynchronous rendering
+[chromium] › e2e\twins-observation.spec.ts:9:1 › observation latest selection survives asynchronous rendering
+Observation 50 steps + SVG DOM updates: 6.9ms; background requests unchanged (single run, no frame-time claim).
+
+[114/340] [chromium] › e2e\twins-observation.spec.ts:19:1 › observation timer lifecycle
+[115/340] [chromium] › e2e\twins-observation.spec.ts:20:1 › observation bounded history, touch selection and rejected c
+[116/340] [chromium] › e2e\twins-review.spec.ts:9:90 › review UI 320px dark
+[117/340] [chromium] › e2e\twins-review.spec.ts:9:90 › review UI 320px light
+[118/340] [chromium] › e2e\twins-review.spec.ts:9:90 › review UI 375px dark
+[119/340] [chromium] › e2e\twins-review.spec.ts:9:90 › review UI 375px light
+[120/340] [chromium] › e2e\twins-review.spec.ts:9:90 › review UI 390px dark
+[121/340] [chromium] › e2e\twins-review.spec.ts:9:90 › review UI 390px light
+[122/340] [chromium] › e2e\twins-review.spec.ts:9:90 › review UI 1280px dark
+[123/340] [chromium] › e2e\twins-review.spec.ts:9:90 › review UI 1280px light
+[124/340] [chromium] › e2e\twins-review.spec.ts:17:1 › review touch, fractional dimensions and DPR=2
+[125/340] [chromium] › e2e\twins-review.spec.ts:22:1 › review both lift orders, cancel, lost capture and active disposal
+[126/340] [chromium] › e2e\twins-review.spec.ts:24:1 › review P2 rejected selection explains the range beside the plane
+[127/340] [chromium] › e2e\twins-review.spec.ts:36:1 › review P3 formula symbols share the existing highlight state
+[128/340] [chromium] › e2e\twins-review.spec.ts:44:1 › review P3 pinch survivor continues dragging without selecting c
+[129/340] [chromium] › e2e\twins.spec.ts:4:90 › twins mathematics, gestures and lessons 320px dark
+[130/340] [chromium] › e2e\twins.spec.ts:4:90 › twins mathematics, gestures and lessons 320px light
+[131/340] [chromium] › e2e\twins.spec.ts:4:90 › twins mathematics, gestures and lessons 375px dark
+[132/340] [chromium] › e2e\twins.spec.ts:4:90 › twins mathematics, gestures and lessons 375px light
+[133/340] [chromium] › e2e\twins.spec.ts:4:90 › twins mathematics, gestures and lessons 390px dark
+[134/340] [chromium] › e2e\twins.spec.ts:4:90 › twins mathematics, gestures and lessons 390px light
+[135/340] [chromium] › e2e\twins.spec.ts:4:90 › twins mathematics, gestures and lessons 1280px dark
+[136/340] [chromium] › e2e\twins.spec.ts:4:90 › twins mathematics, gestures and lessons 1280px light
+[137/340] [chromium] › e2e\twins.spec.ts:42:1 › twins latest results, bounded zoom, visibility and worker responsiveness
+[chromium] › e2e\twins.spec.ts:42:1 › twins latest results, bounded zoom, visibility and worker responsiveness
+TWINS_BASELINE {"browser":"chromium","iterations":200,"measurements":[{"computeMs":"21.30000001192093","responseMs":"51.19999998807907","width":510,"height":407},{"computeMs":"15.599999994039536","responseMs":"50","width":510,"height":407}]}
+
+TWINS_MEASUREMENTS {"browser":"chromium","iterations":500,"measurements":[{"computeMs":"38.19999998807907","responseMs":"38.80000001192093","width":510,"height":407},{"computeMs":"93","responseMs":"99.7000000178814","width":510,"height":407}],"beats":28}
+
+[138/340] [chromium] › e2e\twins.spec.ts:52:1 › twins touch gesture logic, resize and work-switch cleanup
+[139/340] [chromium] › e2e\visual.spec.ts:3:35 › Escape restores panel focus without moving outside focus 1280px
+[140/340] [chromium] › e2e\visual.spec.ts:3:35 › Escape restores panel focus without moving outside focus 390px
+[141/340] [chromium] › e2e\visual.spec.ts:3:35 › Escape restores panel focus without moving outside focus 375px
+[142/340] [chromium] › e2e\visual.spec.ts:47:1 › Escape safely clears when the original toggle is missing or disabled
+[143/340] [chromium] › e2e\visual.spec.ts:63:35 › all eleven explanations 1280px
+[144/340] [chromium] › e2e\visual.spec.ts:63:35 › all eleven explanations 390px
+[145/340] [chromium] › e2e\visual.spec.ts:63:35 › all eleven explanations 375px
+[146/340] [chromium] › e2e\visual.spec.ts:79:1 › keyboard, pause, reset, parameters, rotation, zoom, resize and reduced motion
+[147/340] [chromium] › e2e\voronoi-checks.ts:32:1 › crystal: editing, invalid operations, deterministic step and reset
+[148/340] [chromium] › e2e\voronoi-checks.ts:70:1 › crystal: canvas keyboard, numeric forms, presets, layers and symbols
+[149/340] [chromium] › e2e\voronoi-checks.ts:115:1 › crystal: all four lesson stages, distances, centroid and complete snapshot restoration
+[150/340] [chromium] › e2e\voronoi-checks.ts:148:1 › crystal: replay, stop, reset, switching, reduced-motion and safety restoration
+[151/340] [chromium] › e2e\voronoi-checks.ts:184:1 › crystal: hidden document pauses and forbids lesson autoplay restoration
+[152/340] [chromium] › e2e\voronoi-checks.ts:211:1 › crystal: old scheduled callbacks cannot overwrite reset, lesson or a new mount
+[153/340] [chromium] › e2e\voronoi-checks.ts:241:1 › crystal: known diagram aligns model, coordinates, bisector and raster
+[154/340] [chromium] › e2e\voronoi-checks.ts:278:1 › crystal: pointer drag and cancellation retain a valid configuration
+[155/340] [chromium] › e2e\voronoi-checks.ts:308:1 › crystal: unavailable Canvas gives readable fallback
+[156/340] [chromium] › e2e\voronoi-checks.ts:319:1 › crystal: resolution change redraws the same geometry without advancing a step
+[157/340] [chromium] › e2e\voronoi-checks.ts:354:3 › crystal touch and DPR › tap adds and selects; outside scrolling stays available
+[158/340] [chromium] › e2e\voronoi-checks.ts:391:44 › crystal: layout 1280px dark/light 100/200 percent text
+[159/340] [chromium] › e2e\voronoi-checks.ts:391:44 › crystal: layout 390px dark/light 100/200 percent text
+[160/340] [chromium] › e2e\voronoi-checks.ts:391:44 › crystal: layout 375px dark/light 100/200 percent text
+[161/340] [chromium] › e2e\voronoi-checks.ts:391:44 › crystal: layout 320px dark/light 100/200 percent text
+[162/340] [chromium] › e2e\wave-capture.spec.ts:3:1 › capture wave modes and measure pixel generation
+[163/340] [chromium] › e2e\wave-review-checks.ts:11:3 › review: stage fills its column at all widths, themes and text sizes
+[chromium] › e2e\wave-review-checks.ts:11:3 › review: stage fills its column at all widths, themes and text sizes
+WAVE_WIDTH chromium 320: column=288.0 stage=288.0 CSS px
+
+WAVE_WIDTH chromium 375: column=343.0 stage=343.0 CSS px
+
+WAVE_WIDTH chromium 390: column=358.0 stage=358.0 CSS px
+
+WAVE_WIDTH chromium 700: column=658.0 stage=658.0 CSS px
+
+WAVE_WIDTH chromium 751: column=380.9 stage=380.9 CSS px
+
+WAVE_WIDTH chromium 800: column=407.0 stage=407.0 CSS px
+
+WAVE_WIDTH chromium 1024: column=526.0 stage=526.0 CSS px
+
+WAVE_WIDTH chromium 1280: column=616.8 stage=616.8 CSS px
+
+[164/340] [chromium] › e2e\wave-review-checks.ts:85:3 › review: preset follows applied settings
+[165/340] [chromium] › e2e\wave-review-checks.ts:147:3 › review: hidden while playing pauses until explicit resume
+[166/340] [chromium] › e2e\wave-review-checks.ts:212:3 › review: one wave animation loop and disposal on work switch
+[167/340] [chromium] › e2e\wave-checks.ts:6:3 › mode, time, point, invalid input, lesson and cleanup
+[168/340] [chromium] › e2e\wave-checks.ts:45:3 › narrow light layout and keyboard symbols
+[169/340] [chromium] › e2e\wave-checks.ts:66:3 › motion preference, hidden tab and point selection do not advance paused state
+[170/340] [chromium] › e2e\wave-checks.ts:110:3 › touch selects a point without starting playback
+(node:18812) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:18812) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[171/340] [webkit] › e2e\flow-field.spec.ts:2:1 › play button remains stable while playback redraws
+[172/340] [webkit] › e2e\flow-field.spec.ts:7:1 › velocity emphasis follows the observed start, not the candidate
+[173/340] [webkit] › e2e\flow-field.spec.ts:31:1 › flow field controls, comparison, lesson and disposal
+[174/340] [webkit] › e2e\flow-field.spec.ts:42:1 › motion preference and visibility stop playback
+[175/340] [webkit] › e2e\flow-field.spec.ts:47:2 › touch and DPR 2 › tap selects a point and reduced motion stops a lesson without resuming
+[176/340] [webkit] › e2e\flow-field.spec.ts:52:48 › layout 320px
+[177/340] [webkit] › e2e\flow-field.spec.ts:52:48 › layout 375px
+[178/340] [webkit] › e2e\flow-field.spec.ts:52:48 › layout 390px
+[179/340] [webkit] › e2e\flow-field.spec.ts:52:48 › layout 751px
+[180/340] [webkit] › e2e\flow-field.spec.ts:52:48 › layout 1024px
+[181/340] [webkit] › e2e\flow-field.spec.ts:52:48 › layout 1280px
+[182/340] [webkit] › e2e\fourier-checks.ts:18:1 › initial stop, exact step, complete, redraw and setting contracts
+[183/340] [webkit] › e2e\fourier-checks.ts:53:1 › progressive and complete pixels match, pause remains unchanged, fixed scale across K
+[184/340] [webkit] › e2e\fourier-checks.ts:78:1 › keyboard selects a real circle and formula with analytic quarter-turn endpoint
+[185/340] [webkit] › e2e\fourier-checks.ts:116:1 › lessons navigate both ways and restore all settings and exact pixels
+[186/340] [webkit] › e2e\fourier-checks.ts:149:1 › reduced motion, hidden stop, lesson resume and resize preserve phase
+[187/340] [webkit] › e2e\fourier-checks.ts:202:1 › retired animation callbacks cannot change reset, lessons or remounted work; delayed frames are bounded
+[188/340] [webkit] › e2e\fourier-checks.ts:257:1 › every control has a working keyboard path
+[189/340] [webkit] › e2e\fourier-checks.ts:309:1 › Canvas failure has readable explanation and disables playback
+[190/340] [webkit] › e2e\fourier-checks.ts:323:3 › touch › tap term and symbol retains phase and distinguishes selection in the raster
+[191/340] [webkit] › e2e\fourier-checks.ts:339:49 › layout 320, themes and 200% text
+[192/340] [webkit] › e2e\fourier-checks.ts:339:49 › layout 375, themes and 200% text
+[193/340] [webkit] › e2e\fourier-checks.ts:339:49 › layout 390, themes and 200% text
+[194/340] [webkit] › e2e\fourier-checks.ts:339:49 › layout 768, themes and 200% text
+[195/340] [webkit] › e2e\fourier-checks.ts:339:49 › layout 1280, themes and 200% text
+[196/340] [webkit] › e2e\garden.spec.ts:4:1 › lesson stage four retains playing progress across the small lesson
+[197/340] [webkit] › e2e\garden.spec.ts:19:35 › lesson saved progress, completion and controls 1280px
+[198/340] [webkit] › e2e\garden.spec.ts:19:35 › lesson saved progress, completion and controls 390px
+[199/340] [webkit] › e2e\garden.spec.ts:19:35 › lesson saved progress, completion and controls 375px
+[200/340] [webkit] › e2e\garden.spec.ts:54:1 › lesson boundaries and reduced motion preserve saved playback
+[201/340] [webkit] › e2e\garden.spec.ts:66:35 › garden presets, mathematics and teaching 1280px
+[202/340] [webkit] › e2e\garden.spec.ts:66:35 › garden presets, mathematics and teaching 390px
+[203/340] [webkit] › e2e\garden.spec.ts:66:35 › garden presets, mathematics and teaching 375px
+[204/340] [webkit] › e2e\garden.spec.ts:101:1 › garden drawing clock, stable colors, hidden tab and lesson restoration
+[205/340] [webkit] › e2e\garden.spec.ts:115:1 › garden resizes sharply and releases old GPU contexts, observers and callbacks
+[206/340] [webkit] › e2e\garden.spec.ts:137:1 › garden handles a central point, the first reference direction and the measured point cap
+[207/340] [webkit] › e2e\harmonograph.spec.ts:3:35 › three real harmonograph presets and guides 1280px
+[208/340] [webkit] › e2e\harmonograph.spec.ts:3:35 › three real harmonograph presets and guides 390px
+[209/340] [webkit] › e2e\harmonograph.spec.ts:3:35 › three real harmonograph presets and guides 375px
+[210/340] [webkit] › e2e\harmonograph.spec.ts:38:1 › playback pauses in place, resumes, redraws and completes independently of shape
+[211/340] [webkit] › e2e\harmonograph.spec.ts:56:1 › coefficients, preset and shape controls stay consistent with the completed trajectory
+[212/340] [webkit] › e2e\harmonograph.spec.ts:74:1 › repeated work switches release WebGL contexts, observers and animation callbacks
+[213/340] [webkit] › e2e\inspector.spec.ts:3:1 › 現在値・全スライダー・キーボードタブ・リセットが同期する
+[214/340] [webkit] › e2e\inspector.spec.ts:48:1 › 数式はテキストを安全に扱い、アニメーション中に再生成されない
+[215/340] [webkit] › e2e\inspector.spec.ts:74:1 › タブ変更後も描画・停止再開・回転・ズームを維持する
+[216/340] [webkit] › e2e\inspector.spec.ts:94:30 › 390px・文字拡大・タッチ操作・数式の横スクロール
+[217/340] [webkit] › e2e\inspector.spec.ts:94:30 › 375px・文字拡大・タッチ操作・数式の横スクロール
+[218/340] [webkit] › e2e\inspector.spec.ts:134:1 › 横幅・表示切替・現在値に応じて必要な数式だけTab移動し、更新中もフォーカスを保つ
+[219/340] [webkit] › e2e\knot.spec.ts:4:86 › knot geometry, guides and controls 1280px dark
+[220/340] [webkit] › e2e\knot.spec.ts:4:86 › knot geometry, guides and controls 1280px light
+[221/340] [webkit] › e2e\knot.spec.ts:4:86 › knot geometry, guides and controls 390px dark
+[222/340] [webkit] › e2e\knot.spec.ts:4:86 › knot geometry, guides and controls 390px light
+[223/340] [webkit] › e2e\knot.spec.ts:4:86 › knot geometry, guides and controls 375px dark
+[224/340] [webkit] › e2e\knot.spec.ts:4:86 › knot geometry, guides and controls 375px light
+[225/340] [webkit] › e2e\knot.spec.ts:44:1 › knot clock, sampling, visibility, replay and reduced motion
+[226/340] [webkit] › e2e\knot.spec.ts:56:1 › knot resize and work switching release contexts, observers and callbacks
+[227/340] [webkit] › e2e\lesson.spec.ts:2:35 › motion lesson stages, keyboard and artwork restoration 1280px
+[228/340] [webkit] › e2e\lesson.spec.ts:2:35 › motion lesson stages, keyboard and artwork restoration 390px
+[229/340] [webkit] › e2e\lesson.spec.ts:2:35 › motion lesson stages, keyboard and artwork restoration 375px
+[230/340] [webkit] › e2e\lesson.spec.ts:35:1 › artwork clock freezes during lesson and resumes without consuming lesson time
+[231/340] [webkit] › e2e\lesson.spec.ts:42:1 › reentry keeps one animation loop and reduced-motion changes pause safely
+[232/340] [webkit] › e2e\lorenz.spec.ts:4:86 › lorenz controls, equations and lessons 1280px dark
+[233/340] [webkit] › e2e\lorenz.spec.ts:4:86 › lorenz controls, equations and lessons 1280px light
+[234/340] [webkit] › e2e\lorenz.spec.ts:4:86 › lorenz controls, equations and lessons 390px dark
+[235/340] [webkit] › e2e\lorenz.spec.ts:4:86 › lorenz controls, equations and lessons 390px light
+[236/340] [webkit] › e2e\lorenz.spec.ts:4:86 › lorenz controls, equations and lessons 375px dark
+[237/340] [webkit] › e2e\lorenz.spec.ts:4:86 › lorenz controls, equations and lessons 375px light
+[238/340] [webkit] › e2e\lorenz.spec.ts:46:1 › lorenz clock, pause, speed, hidden tab and reduced motion
+[239/340] [webkit] › e2e\lorenz.spec.ts:56:1 › lorenz releases contexts, observers, frames and restores initial state on remount
+[240/340] [webkit] › e2e\lorenz.spec.ts:63:1 › lorenz numerical refinement and bounded sampling measurements
+[webkit] › e2e\lorenz.spec.ts:63:1 › lorenz numerical refinement and bounded sampling measurements
+LORENZ_MEASUREMENTS {"coarse":{"x":-9.37857128994133,"y":-8.35703586856754,"z":29.362326013453504},"fine":{"x":-9.378570040800168,"y":-8.357033931485105,"z":29.36232524718988},"finer":{"x":-9.378570011223951,"y":-8.357033797761162,"z":29.36232532759671},"refinementDistance":0.000002428950790343031,"nextRefinementDistance":1.5881468549577816e-7,"timings":{"standard":[10,4,5,2,2,2,2],"maxComparison":[11,10,10,9,11,12,11]},"userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15"}
+
+[241/340] [webkit] › e2e\reaction-diffusion-lifecycle-checks.ts:101:97 › worker isolation after reset
+[242/340] [webkit] › e2e\reaction-diffusion-lifecycle-checks.ts:101:97 › worker isolation after stop
+[243/340] [webkit] › e2e\reaction-diffusion-lifecycle-checks.ts:101:97 › worker isolation after add
+[244/340] [webkit] › e2e\reaction-diffusion-lifecycle-checks.ts:101:97 › worker isolation after preset
+[245/340] [webkit] › e2e\reaction-diffusion-lifecycle-checks.ts:101:97 › worker isolation after lesson
+[246/340] [webkit] › e2e\reaction-diffusion-lifecycle-checks.ts:101:97 › worker isolation after close
+[247/340] [webkit] › e2e\reaction-diffusion-lifecycle-checks.ts:101:97 › worker isolation after hidden
+[248/340] [webkit] › e2e\reaction-diffusion-lifecycle-checks.ts:101:97 › worker isolation after motion
+[249/340] [webkit] › e2e\reaction-diffusion-lifecycle-checks.ts:122:1 › interruption then new request rejects old instance even with current request id
+[250/340] [webkit] › e2e\reaction-diffusion-lifecycle-checks.ts:137:1 › retired instance cannot affect remount; active instance error must stop
+[251/340] [webkit] › e2e\reaction-diffusion-lifecycle-checks.ts:152:1 › queued playback callback cannot start a new generation; idle stop does not recreate
+[252/340] [webkit] › e2e\reaction-diffusion-lifecycle-checks.ts:170:1 › replacement construction failure is visible and cannot resume from lesson
+[253/340] [webkit] › e2e\reaction-diffusion-lifecycle-checks.ts:189:44 › pointer ownership, cancellation, outside movement and release 320px
+[254/340] [webkit] › e2e\reaction-diffusion-lifecycle-checks.ts:189:44 › pointer ownership, cancellation, outside movement and release 375px
+[255/340] [webkit] › e2e\reaction-diffusion-lifecycle-checks.ts:189:44 › pointer ownership, cancellation, outside movement and release 390px
+[256/340] [webkit] › e2e\reaction-diffusion-lifecycle-checks.ts:189:44 › pointer ownership, cancellation, outside movement and release 1280px
+[257/340] [webkit] › e2e\reaction-diffusion-lifecycle-checks.ts:252:1 › legend matches grayscale and switching display leaves grid unchanged
+[258/340] [webkit] › e2e\reaction-diffusion-checks.ts:9:1 › exact numerical step, controls and candidate rejection
+[259/340] [webkit] › e2e\reaction-diffusion-checks.ts:39:1 › all presets and fixed-seed comparison
+[260/340] [webkit] › e2e\reaction-diffusion-checks.ts:50:1 › keyboard and numeric seed, erase equilibrium
+[261/340] [webkit] › e2e\reaction-diffusion-checks.ts:69:1 › four lessons restore exact state and input candidates
+[262/340] [webkit] › e2e\reaction-diffusion-checks.ts:87:1 › reduced motion and visibility stop and prevent lesson resume
+[263/340] [webkit] › e2e\reaction-diffusion-checks.ts:107:1 › stale worker reply ignored after reset, lesson close and switch
+[264/340] [webkit] › e2e\reaction-diffusion-checks.ts:131:1 › worker creation failure explained
+[265/340] [webkit] › e2e\reaction-diffusion-checks.ts:145:1 › computation error preserves last committed grid
+[266/340] [webkit] › e2e\reaction-diffusion-checks.ts:164:1 › Canvas unavailable explained
+[267/340] [webkit] › e2e\reaction-diffusion-checks.ts:174:1 › disposed Worker error cannot overwrite a remounted garden
+[268/340] [webkit] › e2e\reaction-diffusion-checks.ts:208:3 › touch › tap seeds actual concentration and symbol focus
+[269/340] [webkit] › e2e\reaction-diffusion-checks.ts:224:55 › layout 320
+[270/340] [webkit] › e2e\reaction-diffusion-checks.ts:224:55 › layout 375
+[271/340] [webkit] › e2e\reaction-diffusion-checks.ts:224:55 › layout 390
+[272/340] [webkit] › e2e\reaction-diffusion-checks.ts:224:55 › layout 751
+[273/340] [webkit] › e2e\reaction-diffusion-checks.ts:224:55 › layout 1024
+[274/340] [webkit] › e2e\reaction-diffusion-checks.ts:224:55 › layout 1280
+[275/340] [webkit] › e2e\twins-observation.spec.ts:4:90 › observation flow 320 dark
+[276/340] [webkit] › e2e\twins-observation.spec.ts:4:90 › observation flow 320 light
+[277/340] [webkit] › e2e\twins-observation.spec.ts:4:90 › observation flow 375 dark
+[278/340] [webkit] › e2e\twins-observation.spec.ts:4:90 › observation flow 375 light
+[279/340] [webkit] › e2e\twins-observation.spec.ts:4:90 › observation flow 390 dark
+[280/340] [webkit] › e2e\twins-observation.spec.ts:4:90 › observation flow 390 light
+[281/340] [webkit] › e2e\twins-observation.spec.ts:4:90 › observation flow 1280 dark
+[282/340] [webkit] › e2e\twins-observation.spec.ts:4:90 › observation flow 1280 light
+[283/340] [webkit] › e2e\twins-observation.spec.ts:9:1 › observation latest selection survives asynchronous rendering
+[webkit] › e2e\twins-observation.spec.ts:9:1 › observation latest selection survives asynchronous rendering
+Observation 50 steps + SVG DOM updates: 12.0ms; background requests unchanged (single run, no frame-time claim).
+
+[284/340] [webkit] › e2e\twins-observation.spec.ts:19:1 › observation timer lifecycle
+[285/340] [webkit] › e2e\twins-observation.spec.ts:20:1 › observation bounded history, touch selection and rejected c
+[286/340] [webkit] › e2e\twins-review.spec.ts:9:90 › review UI 320px dark
+[287/340] [webkit] › e2e\twins-review.spec.ts:9:90 › review UI 320px light
+[288/340] [webkit] › e2e\twins-review.spec.ts:9:90 › review UI 375px dark
+[289/340] [webkit] › e2e\twins-review.spec.ts:9:90 › review UI 375px light
+[290/340] [webkit] › e2e\twins-review.spec.ts:9:90 › review UI 390px dark
+[291/340] [webkit] › e2e\twins-review.spec.ts:9:90 › review UI 390px light
+[292/340] [webkit] › e2e\twins-review.spec.ts:9:90 › review UI 1280px dark
+[293/340] [webkit] › e2e\twins-review.spec.ts:9:90 › review UI 1280px light
+[294/340] [webkit] › e2e\twins-review.spec.ts:17:1 › review touch, fractional dimensions and DPR=2
+[295/340] [webkit] › e2e\twins-review.spec.ts:22:1 › review both lift orders, cancel, lost capture and active disposal
+[296/340] [webkit] › e2e\twins-review.spec.ts:24:1 › review P2 rejected selection explains the range beside the plane
+[297/340] [webkit] › e2e\twins-review.spec.ts:36:1 › review P3 formula symbols share the existing highlight state
+[298/340] [webkit] › e2e\twins-review.spec.ts:44:1 › review P3 pinch survivor continues dragging without selecting c
+[299/340] [webkit] › e2e\twins.spec.ts:4:90 › twins mathematics, gestures and lessons 320px dark
+[300/340] [webkit] › e2e\twins.spec.ts:4:90 › twins mathematics, gestures and lessons 320px light
+[301/340] [webkit] › e2e\twins.spec.ts:4:90 › twins mathematics, gestures and lessons 375px dark
+[302/340] [webkit] › e2e\twins.spec.ts:4:90 › twins mathematics, gestures and lessons 375px light
+[303/340] [webkit] › e2e\twins.spec.ts:4:90 › twins mathematics, gestures and lessons 390px dark
+[304/340] [webkit] › e2e\twins.spec.ts:4:90 › twins mathematics, gestures and lessons 390px light
+[305/340] [webkit] › e2e\twins.spec.ts:4:90 › twins mathematics, gestures and lessons 1280px dark
+[306/340] [webkit] › e2e\twins.spec.ts:4:90 › twins mathematics, gestures and lessons 1280px light
+[307/340] [webkit] › e2e\twins.spec.ts:42:1 › twins latest results, bounded zoom, visibility and worker responsiveness
+[webkit] › e2e\twins.spec.ts:42:1 › twins latest results, bounded zoom, visibility and worker responsiveness
+TWINS_BASELINE {"browser":"webkit","iterations":200,"measurements":[{"computeMs":"24","responseMs":"81","width":510,"height":407},{"computeMs":"19","responseMs":"57","width":510,"height":407}]}
+
+TWINS_MEASUREMENTS {"browser":"webkit","iterations":500,"measurements":[{"computeMs":"44.99999999999997","responseMs":"47.000000000000114","width":510,"height":407},{"computeMs":"78","responseMs":"88","width":510,"height":407}],"beats":19}
+
+[308/340] [webkit] › e2e\twins.spec.ts:52:1 › twins touch gesture logic, resize and work-switch cleanup
+[309/340] [webkit] › e2e\visual.spec.ts:3:35 › Escape restores panel focus without moving outside focus 1280px
+[310/340] [webkit] › e2e\visual.spec.ts:3:35 › Escape restores panel focus without moving outside focus 390px
+[311/340] [webkit] › e2e\visual.spec.ts:3:35 › Escape restores panel focus without moving outside focus 375px
+[312/340] [webkit] › e2e\visual.spec.ts:47:1 › Escape safely clears when the original toggle is missing or disabled
+[313/340] [webkit] › e2e\visual.spec.ts:63:35 › all eleven explanations 1280px
+[314/340] [webkit] › e2e\visual.spec.ts:63:35 › all eleven explanations 390px
+[315/340] [webkit] › e2e\visual.spec.ts:63:35 › all eleven explanations 375px
+[316/340] [webkit] › e2e\visual.spec.ts:79:1 › keyboard, pause, reset, parameters, rotation, zoom, resize and reduced motion
+[317/340] [webkit] › e2e\voronoi-checks.ts:32:1 › crystal: editing, invalid operations, deterministic step and reset
+[318/340] [webkit] › e2e\voronoi-checks.ts:70:1 › crystal: canvas keyboard, numeric forms, presets, layers and symbols
+[319/340] [webkit] › e2e\voronoi-checks.ts:115:1 › crystal: all four lesson stages, distances, centroid and complete snapshot restoration
+[320/340] [webkit] › e2e\voronoi-checks.ts:148:1 › crystal: replay, stop, reset, switching, reduced-motion and safety restoration
+[321/340] [webkit] › e2e\voronoi-checks.ts:184:1 › crystal: hidden document pauses and forbids lesson autoplay restoration
+[322/340] [webkit] › e2e\voronoi-checks.ts:211:1 › crystal: old scheduled callbacks cannot overwrite reset, lesson or a new mount
+[323/340] [webkit] › e2e\voronoi-checks.ts:241:1 › crystal: known diagram aligns model, coordinates, bisector and raster
+[324/340] [webkit] › e2e\voronoi-checks.ts:278:1 › crystal: pointer drag and cancellation retain a valid configuration
+[325/340] [webkit] › e2e\voronoi-checks.ts:308:1 › crystal: unavailable Canvas gives readable fallback
+[326/340] [webkit] › e2e\voronoi-checks.ts:319:1 › crystal: resolution change redraws the same geometry without advancing a step
+[327/340] [webkit] › e2e\voronoi-checks.ts:354:3 › crystal touch and DPR › tap adds and selects; outside scrolling stays available
+[328/340] [webkit] › e2e\voronoi-checks.ts:391:44 › crystal: layout 1280px dark/light 100/200 percent text
+[329/340] [webkit] › e2e\voronoi-checks.ts:391:44 › crystal: layout 390px dark/light 100/200 percent text
+[330/340] [webkit] › e2e\voronoi-checks.ts:391:44 › crystal: layout 375px dark/light 100/200 percent text
+[331/340] [webkit] › e2e\voronoi-checks.ts:391:44 › crystal: layout 320px dark/light 100/200 percent text
+[332/340] [webkit] › e2e\wave-capture.spec.ts:3:1 › capture wave modes and measure pixel generation
+[333/340] [webkit] › e2e\wave-review-checks.ts:11:3 › review: stage fills its column at all widths, themes and text sizes
+[webkit] › e2e\wave-review-checks.ts:11:3 › review: stage fills its column at all widths, themes and text sizes
+WAVE_WIDTH webkit 320: column=288.0 stage=288.0 CSS px
+
+WAVE_WIDTH webkit 375: column=343.0 stage=343.0 CSS px
+
+WAVE_WIDTH webkit 390: column=358.0 stage=358.0 CSS px
+
+WAVE_WIDTH webkit 700: column=658.0 stage=658.0 CSS px
+
+WAVE_WIDTH webkit 751: column=380.9 stage=380.9 CSS px
+
+WAVE_WIDTH webkit 800: column=407.0 stage=407.0 CSS px
+
+WAVE_WIDTH webkit 1024: column=526.0 stage=526.0 CSS px
+
+WAVE_WIDTH webkit 1280: column=616.8 stage=616.8 CSS px
+
+[334/340] [webkit] › e2e\wave-review-checks.ts:85:3 › review: preset follows applied settings
+[335/340] [webkit] › e2e\wave-review-checks.ts:147:3 › review: hidden while playing pauses until explicit resume
+[336/340] [webkit] › e2e\wave-review-checks.ts:212:3 › review: one wave animation loop and disposal on work switch
+[337/340] [webkit] › e2e\wave-checks.ts:6:3 › mode, time, point, invalid input, lesson and cleanup
+[338/340] [webkit] › e2e\wave-checks.ts:45:3 › narrow light layout and keyboard symbols
+[339/340] [webkit] › e2e\wave-checks.ts:66:3 › motion preference, hidden tab and point selection do not advance paused state
+[340/340] [webkit] › e2e\wave-checks.ts:110:3 › touch selects a point without starting playback
+  2 skipped
+  338 passed (30.3m)
