@@ -1,5 +1,15 @@
 # Math-Art-Lab 開発・研究記録
 
+## 2026-11-04 JST — 第12作「振動の砂絵」
+
+PR #32のMERGEDと最新main503c03cを確認、変更のないdetached worktreeからfeat/012-vibrating-sandを作成。依頼全文をIssue #33へ保存し、ローカル原本と読戻し一致を確認した。Issue #30等の既存残件は保持。Neumann正方形のcos積の線形結合によるF、正規化位相時間のuを採用し、UCSB・Toronto・Stanfordの大学資料で位置付けを確認。実際の自由端板の双調和モデルと、砂の人工的な移動を区別する。
+
+砂3000粒の固定step・xorshift32 seed、F²減少候補と停留点脱出の乱数候補、反射境界、600step停止、有限320step初期表示。砂と位相の独立再生、4模様、適用候補の検証、観察点のクリック／座標／矢印、記号10種の名前・読み・意味と図、4段階教材のdeep復元、非表示／reduced-motion安全停止、破棄と古いcallback拒否、幅0の最新描画待ちと失敗fallbackを実装。新依存なし。
+
+初回単体234成功＋2失敗は−0比較の試験不備を修正、236成功。開発GUI初回24成功＋2失敗で、CSS幅0でも枠線2pxを描画幅としていた不具合を検出し修正。初回結果・失敗画像を保存した。開発／本番・両engineの画像画素検査と消去負対照、全回帰、性能・複数seed、CI・最終HEADは[作品記録](docs/vibrating-sand/README.md)とDraft PRへ記録する。独立レビューは未実施、merge／auto-mergeなし。
+
+最終対象GUIは開発34/34・本番34/34、教材前半の表示制限追補は各2/2、型・build成功。46枚を実state／描画revision付きで保存。画像点検でWebKitライトpickerの判読性と、曲線の破線が短片で実線に見える問題を検出し、012限定CSSと線分接続で修正。砂の消去と強制実線の負対照も通過した。砂・F・uをraster／節pathキャッシュで軽量化し、単独paced描画CPU最大はChromium25.1ms／WebKit21ms、uの2rAF待ち最大63.8／192ms。画面更新なしのWebKit切替は最終777／728ms、過去F最大1408msを保持、原因を完全解決扱いしない。4模様×4seed×3000粒で集積傾向を確認。JS774.34KB/gzip225.27KB、CSS38.86KB/gzip7.99KB。全既存回帰はDraft PRの標準CIで最終HEADを照合。総合PARTIAL、実機等NOT_TESTED、独立レビュー待ち・マージ推奨保留。
+
 ## 2026-11-04 JST — PR #32 独立指摘 P2-01・P3-01
 
 第2次修正：4038c87の最初のCI41683574524は単体207・型・build成功後、開発354成功＋既存2skip＋WebKit復帰待ち2失敗、本番は未実行。native ROでも0→元サイズの同フレーム復帰を通知しない反例を両browserで再現し、P3判定を保留へ戻した。待機Canvasだけの100msサイズ確認を1本追加、0の間は再描画せず、正サイズへ戻れば最新状態を描く。旧timer identityで取消後の新予約を保護し、非表示／比較OFF／破棄で解放する。恒久GUIの同条件2RED→GREEN、独立待機11/11・native復帰・従来11/22・破線復帰・Fraction1517も成功。新作52件／環境、最終CI362／242件を別HEADで照合する。JS749.45KB/gzip215.81KB、依存・Pages条件は変更なし。[第2次詳細](docs/voronoi-crystal/review-32/size-recovery.md)。以下の第1次記録とCI失敗も保持する。
