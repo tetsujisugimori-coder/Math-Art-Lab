@@ -1,0 +1,129 @@
+
+Running 26 tests using 1 worker
+
+
+
+(node:17116) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:17116) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/26] [chromium] › e2e\sand-checks.ts:38:1 › sand: initial finite reference is visible and both clocks stop
+[2/26] [chromium] › e2e\sand-checks.ts:47:1 › sand: settings candidates preserve valid state and reject degeneracy
+[3/26] [chromium] › e2e\sand-checks.ts:67:1 › sand: play and manual advance agree; clocks independent
+[4/26] [chromium] › e2e\sand-checks.ts:85:1 › sand: F sign, components, instantaneous zero and approximate nodes reach pixels
+[5/26] [chromium] › e2e\sand-checks.ts:111:1 › sand: raster detector fails for deliberately missing sand (negative control)
+[6/26] [chromium] › e2e\sand-checks.ts:124:1 › sand: symbols link formula, three explanations and drawing without moving rng
+[7/26] [chromium] › e2e\sand-checks.ts:142:1 › sand: observation supports input pointer keyboard and invalid preservation
+[8/26] [chromium] › e2e\sand-checks.ts:172:1 › sand: lesson restores settings particles rng clocks point display and highlight
+[9/26] [chromium] › e2e\sand-checks.ts:192:1 › sand: hidden/reduced motion safety overrides lesson autoplay restoration
+[10/26] [chromium] › e2e\sand-checks.ts:225:1 › sand: stale timers and frames cannot change settings or new mount
+[11/26] [chromium] › e2e\sand-checks.ts:260:1 › sand: zero width keeps draw pending and latest state paints after recovery
+  1) [chromium] › e2e\sand-checks.ts:260:1 › sand: zero width keeps draw pending and latest state paints after recovery
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('#sd-canvas')
+    Expected: "waiting-size"
+    Received: "submitted"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" with timeout 5000ms
+      - waiting for locator('#sd-canvas')
+        9 × locator resolved to <canvas width="2" role="img" height="2" tabindex="0" id="sd-canvas" data-revision="4" data-rendered-revision="4" data-draw-status="submitted" aria-describedby="sd-key sd-caption" aria-label="砂と振動の正方形。クリックまたは矢印キーで観察点を選択" data-state="{"settings":{"name":"交差のひろがり","m":1,"n":3,"a":1},"sand":{"seed":12012,"rng":3101937829,"step":0,"hash":1486091880},"t":0,"phaseSteps":0,"speed":1,"sandPlaying":false,"wavePlaying":false,"point":{"x":0.3,"y":0.4},"mode":"sand","nodes":false,"symbol":"","preset":"交差のひろがり","le…></canvas>
+          - unexpected value "submitted"
+
+
+      15 | test('sand: hidden/reduced motion safety overrides lesson autoplay restoration',async({page})=>{await press(page,'wave-play');await press(page,'start');await page.emulateMedia({reducedMotion:'reduce'});await press(page,'close');expect((await state(page)).wavePlaying).toBe(false);await page.emulateMedia({reducedMotion:'no-preference'});await press(page,'sand-play');await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:true});document.dispatchEvent(new Event('visibilitychange'));});const paused=await state(page);await page.waitForTimeout(200);expect(await state(page)).toEqual(paused);await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:false});document.dispatchEvent(new Event('visibilitychange'));});expect((await state(page)).sandPlaying).toBe(false);});
+      16 | test('sand: stale timers and frames cannot change settings or new mount',async({page})=>{await page.evaluate(()=>{const w=window as any;w.sandTimers=[];w.sandFrames=[];const nativeTimeout=window.setTimeout,nativeFrame=window.requestAnimationFrame;window.setTimeout=((fn:any,ms:number,...args:any[])=>{if(ms===50)w.sandTimers.push(fn);return nativeTimeout(fn,ms,...args);}) as any;window.requestAnimationFrame=(fn:any)=>{w.sandFrames.push(fn);return nativeFrame(fn);};});await press(page,'sand-play');await page.locator('#sd-preset').selectOption('0');const s=await state(page);await page.evaluate(()=>{for(const f of (window as any).sandTimers)f();for(const f of (window as any).sandFrames)f(0);});expect(await state(page)).toEqual(s);await page.locator('#experiment').selectOption('voronoi');await page.locator('#experiment').selectOption('sand');const fresh=await state(page);await page.evaluate(()=>{for(const f of (window as any).sandTimers)f();for(const f of (window as any).sandFrames)f(0);});expect(await state(page)).toEqual(fresh);});
+    > 17 | test('sand: zero width keeps draw pending and latest state paints after recovery',async({page})=>{await page.locator('#sd-canvas').evaluate((c:HTMLCanvasElement)=>c.style.width='0px');await page.locator('#sd-preset').selectOption('0');await expect(page.locator('#sd-canvas')).toHaveAttribute('data-draw-status','waiting-size');const pending=await page.locator('#sd-canvas').evaluate(c=>({r:(c as HTMLElement).dataset.revision,p:(c as HTMLElement).dataset.renderedRevision}));expect(pending.r).not.toBe(pending.p);await press(page,'sand-step');await page.locator('#sd-canvas').evaluate((c:HTMLCanvasElement)=>c.style.width='100%');await ready(page);expect((await pixels(page)).gold).toBeGreaterThan(1000);expect((await state(page)).sand.step).toBe(1);});
+         |                                                                                                                                                                                                                                                                                     ^
+      18 | test('sand: canvas failure explains reason and can recover',async({page})=>{await page.locator('#sd-canvas').evaluate((c:any)=>{c.nativeContext=c.getContext;c.getContext=()=>null;});await page.locator('[data-mode="F"]').click();await expect(page.locator('#sd-fallback')).toContainText('描画できません');await page.locator('#sd-canvas').evaluate((c:any)=>c.getContext=c.nativeContext);await page.locator('[data-mode="F"]').click();await ready(page);expect((await pixels(page)).blue).toBeGreaterThan(10000);});
+      19 | test('sand: widths themes and 200 percent text retain controls without overflow',async({page})=>{for(const width of [375,390,768,1280])for(const colorScheme of ['light','dark'] as const){await page.setViewportSize({width,height:900});await page.emulateMedia({colorScheme});await page.evaluate(()=>document.documentElement.style.fontSize='200%');await ready(page);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);for(const id of ['settings','observation','symbol-copy'])expect(await page.locator('#sd-'+id).evaluate(el=>el.scrollWidth<=el.clientWidth+1)).toBe(true);await page.locator('#sd-reset').scrollIntoViewIfNeeded();await expect(page.locator('#sd-reset')).toBeVisible();} });
+      20 |
+        at C:\Users\tetsu\.codex\worktrees\d553\Math-Art-Lab\e2e\sand-checks.ts:17:277
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sand-sand-zero-width-keeps-98d06-state-paints-after-recovery-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sand-sand-zero-width-keeps-98d06-state-paints-after-recovery-chromium\error-context.md
+
+
+
+
+(node:17964) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:17964) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[12/26] [chromium] › e2e\sand-checks.ts:277:1 › sand: canvas failure explains reason and can recover
+[13/26] [chromium] › e2e\sand-checks.ts:291:1 › sand: widths themes and 200 percent text retain controls without overflow
+
+(node:17660) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+(node:17660) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[14/26] [webkit] › e2e\sand-checks.ts:38:1 › sand: initial finite reference is visible and both clocks stop
+[15/26] [webkit] › e2e\sand-checks.ts:47:1 › sand: settings candidates preserve valid state and reject degeneracy
+[16/26] [webkit] › e2e\sand-checks.ts:67:1 › sand: play and manual advance agree; clocks independent
+[17/26] [webkit] › e2e\sand-checks.ts:85:1 › sand: F sign, components, instantaneous zero and approximate nodes reach pixels
+[18/26] [webkit] › e2e\sand-checks.ts:111:1 › sand: raster detector fails for deliberately missing sand (negative control)
+[19/26] [webkit] › e2e\sand-checks.ts:124:1 › sand: symbols link formula, three explanations and drawing without moving rng
+[20/26] [webkit] › e2e\sand-checks.ts:142:1 › sand: observation supports input pointer keyboard and invalid preservation
+[21/26] [webkit] › e2e\sand-checks.ts:172:1 › sand: lesson restores settings particles rng clocks point display and highlight
+[22/26] [webkit] › e2e\sand-checks.ts:192:1 › sand: hidden/reduced motion safety overrides lesson autoplay restoration
+[23/26] [webkit] › e2e\sand-checks.ts:225:1 › sand: stale timers and frames cannot change settings or new mount
+[24/26] [webkit] › e2e\sand-checks.ts:260:1 › sand: zero width keeps draw pending and latest state paints after recovery
+  2) [webkit] › e2e\sand-checks.ts:260:1 › sand: zero width keeps draw pending and latest state paints after recovery
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('#sd-canvas')
+    Expected: "waiting-size"
+    Received: "submitted"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" with timeout 5000ms
+      - waiting for locator('#sd-canvas')
+        9 × locator resolved to <canvas width="2" role="img" height="2" tabindex="0" id="sd-canvas" data-revision="4" data-rendered-revision="4" data-draw-status="submitted" aria-describedby="sd-key sd-caption" aria-label="砂と振動の正方形。クリックまたは矢印キーで観察点を選択" data-state="{"settings":{"name":"交差のひろがり","m":1,"n":3,"a":1},"sand":{"seed":12012,"rng":3101937829,"step":0,"hash":1486091880},"t":0,"phaseSteps":0,"speed":1,"sandPlaying":false,"wavePlaying":false,"point":{"x":0.3,"y":0.4},"mode":"sand","nodes":false,"symbol":"","preset":"交差のひろがり","le…></canvas>
+          - unexpected value "submitted"
+
+
+      15 | test('sand: hidden/reduced motion safety overrides lesson autoplay restoration',async({page})=>{await press(page,'wave-play');await press(page,'start');await page.emulateMedia({reducedMotion:'reduce'});await press(page,'close');expect((await state(page)).wavePlaying).toBe(false);await page.emulateMedia({reducedMotion:'no-preference'});await press(page,'sand-play');await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:true});document.dispatchEvent(new Event('visibilitychange'));});const paused=await state(page);await page.waitForTimeout(200);expect(await state(page)).toEqual(paused);await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:false});document.dispatchEvent(new Event('visibilitychange'));});expect((await state(page)).sandPlaying).toBe(false);});
+      16 | test('sand: stale timers and frames cannot change settings or new mount',async({page})=>{await page.evaluate(()=>{const w=window as any;w.sandTimers=[];w.sandFrames=[];const nativeTimeout=window.setTimeout,nativeFrame=window.requestAnimationFrame;window.setTimeout=((fn:any,ms:number,...args:any[])=>{if(ms===50)w.sandTimers.push(fn);return nativeTimeout(fn,ms,...args);}) as any;window.requestAnimationFrame=(fn:any)=>{w.sandFrames.push(fn);return nativeFrame(fn);};});await press(page,'sand-play');await page.locator('#sd-preset').selectOption('0');const s=await state(page);await page.evaluate(()=>{for(const f of (window as any).sandTimers)f();for(const f of (window as any).sandFrames)f(0);});expect(await state(page)).toEqual(s);await page.locator('#experiment').selectOption('voronoi');await page.locator('#experiment').selectOption('sand');const fresh=await state(page);await page.evaluate(()=>{for(const f of (window as any).sandTimers)f();for(const f of (window as any).sandFrames)f(0);});expect(await state(page)).toEqual(fresh);});
+    > 17 | test('sand: zero width keeps draw pending and latest state paints after recovery',async({page})=>{await page.locator('#sd-canvas').evaluate((c:HTMLCanvasElement)=>c.style.width='0px');await page.locator('#sd-preset').selectOption('0');await expect(page.locator('#sd-canvas')).toHaveAttribute('data-draw-status','waiting-size');const pending=await page.locator('#sd-canvas').evaluate(c=>({r:(c as HTMLElement).dataset.revision,p:(c as HTMLElement).dataset.renderedRevision}));expect(pending.r).not.toBe(pending.p);await press(page,'sand-step');await page.locator('#sd-canvas').evaluate((c:HTMLCanvasElement)=>c.style.width='100%');await ready(page);expect((await pixels(page)).gold).toBeGreaterThan(1000);expect((await state(page)).sand.step).toBe(1);});
+         |                                                                                                                                                                                                                                                                                     ^
+      18 | test('sand: canvas failure explains reason and can recover',async({page})=>{await page.locator('#sd-canvas').evaluate((c:any)=>{c.nativeContext=c.getContext;c.getContext=()=>null;});await page.locator('[data-mode="F"]').click();await expect(page.locator('#sd-fallback')).toContainText('描画できません');await page.locator('#sd-canvas').evaluate((c:any)=>c.getContext=c.nativeContext);await page.locator('[data-mode="F"]').click();await ready(page);expect((await pixels(page)).blue).toBeGreaterThan(10000);});
+      19 | test('sand: widths themes and 200 percent text retain controls without overflow',async({page})=>{for(const width of [375,390,768,1280])for(const colorScheme of ['light','dark'] as const){await page.setViewportSize({width,height:900});await page.emulateMedia({colorScheme});await page.evaluate(()=>document.documentElement.style.fontSize='200%');await ready(page);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);for(const id of ['settings','observation','symbol-copy'])expect(await page.locator('#sd-'+id).evaluate(el=>el.scrollWidth<=el.clientWidth+1)).toBe(true);await page.locator('#sd-reset').scrollIntoViewIfNeeded();await expect(page.locator('#sd-reset')).toBeVisible();} });
+      20 |
+        at C:\Users\tetsu\.codex\worktrees\d553\Math-Art-Lab\e2e\sand-checks.ts:17:277
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sand-sand-zero-width-keeps-98d06-state-paints-after-recovery-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sand-sand-zero-width-keeps-98d06-state-paints-after-recovery-webkit\error-context.md
+
+
+(node:9564) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+(node:9564) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+[25/26] [webkit] › e2e\sand-checks.ts:277:1 › sand: canvas failure explains reason and can recover
+[26/26] [webkit] › e2e\sand-checks.ts:291:1 › sand: widths themes and 200 percent text retain controls without overflow
+  2 failed
+    [chromium] › e2e\sand-checks.ts:260:1 › sand: zero width keeps draw pending and latest state paints after recovery
+    [webkit] › e2e\sand-checks.ts:260:1 › sand: zero width keeps draw pending and latest state paints after recovery
+  24 passed (1.6m)

@@ -1,3 +1,4 @@
+import {mountSand} from './sand-view';
 import {mountVoronoi} from './voronoi-view';
 import {mountFourier} from './fourier-view';
 import {mountReactionDiffusion} from './reaction-diffusion-view';
@@ -16,6 +17,7 @@ const host=app.querySelector<HTMLElement>('#experiment-root')!;
 const select=app.querySelector<HTMLSelectElement>('#experiment')!;
 let dispose=mountHarmonograph(host);
 select.add(new Option('011 · 距離の結晶','voronoi'));
-const mounts={fractal:mountFractal,harmonograph:mountHarmonograph,garden:mountGarden,knot:mountKnot,lorenz:mountLorenz,twins:mountTwins,wave:mountWave,flow:mountFlowField,reaction:mountReactionDiffusion,fourier:mountFourier,voronoi:mountVoronoi};
+select.add(new Option('012 · 振動の砂絵','sand'));
+const mounts={fractal:mountFractal,harmonograph:mountHarmonograph,garden:mountGarden,knot:mountKnot,lorenz:mountLorenz,twins:mountTwins,wave:mountWave,flow:mountFlowField,reaction:mountReactionDiffusion,fourier:mountFourier,voronoi:mountVoronoi,sand:mountSand};
 select.onchange=()=>{dispose();dispose=(mounts[select.value as keyof typeof mounts]??mountHarmonograph)(host);};
 window.addEventListener('pagehide',event=>{if(!event.persisted)dispose();});

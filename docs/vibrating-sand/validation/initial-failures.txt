@@ -1,0 +1,9 @@
+2026-11-04 JST 初回結果（再試行と分離）
+1. npm ci: PowerShell npm.ps1 execution policy restriction. npm.cmd ci succeeded (64 packages).
+2. npm.cmd test sandbox: esbuild Cannot read directory ../../../.. Access is denied; no tests started.
+3. typecheck: PASS.
+4. npm.cmd test elevated: 234 PASS, 2 FAIL. Both new mathematical tests compared -0 to +0 with Object.is. Changed those zero derivative assertions to numeric closeness, keeping the zero target and tolerance 1e-12. This is a test assertion correction; no model change.
+5. initial build: PASS, existing >500KB chunk warning retained. JS771.43KB/gzip224.10KB, CSS38.02KB/gzip7.90KB.
+6. Initial development GUI: 24 PASS, 2 FAIL (zero-width content counted the 2px border as drawable size). Saved both failure screenshots. Content-width check corrected; identical suite 26/26 PASS.
+7. Pre-polish production GUI: 26/26 PASS. Subsequent visual inspection found WebKit light picker native rendering unreadable; scoped appearance:none CSS added for 012 only, and first-lesson moving cross-section added. Both changes receive fresh target tests and images.
+8. Initial measurements overlap with production target tests for part of their run. Preserve as measurements-initial-overlap.json, not the final isolated measurement. F render maxima Chromium162.6ms/WebKit1408ms; many fillRect calls and repeat contour computation motivated caching a raster field and normalized node paths. Do not erase the earlier observations.
