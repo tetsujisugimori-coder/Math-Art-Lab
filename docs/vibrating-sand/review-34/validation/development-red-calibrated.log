@@ -1,0 +1,74 @@
+﻿
+Running 2 tests using 1 worker
+
+
+
+(node:37008) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+(node:37008) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/2] [chromium] › e2e\sand-review-checks.ts:43:1 › sand P2-01: reported first plus F excludes C1 zeros and includes the F diagonal on screen
+  1) [chromium] › e2e\sand-review-checks.ts:43:1 › sand P2-01: reported first plus F excludes C1 zeros and includes the F diagonal on screen
+
+    Error: white C1-only line must be absent when the explanation says F=0
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 96
+
+      35 |     await page.screenshot({ path: test.info().outputPath('first-F.png'), fullPage: true });
+      36 |     const w = await witnesses(page);
+    > 37 |     expect(w.firstOnly, 'white C1-only line must be absent when the explanation says F=0').toBe(0);
+         |                                                                                            ^
+      38 |     expect(w.FOnly, 'F diagonal must actually reach the raster').toBeGreaterThan(2);
+      39 | });
+      40 |
+        at C:\Users\tetsu\.codex\worktrees\d553\Math-Art-Lab\e2e\sand-review-checks.ts:37:92
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sand-review-sand-P2-01-rep-83d3f-es-the-F-diagonal-on-screen-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sand-review-sand-P2-01-rep-83d3f-es-the-F-diagonal-on-screen-chromium\error-context.md
+
+
+
+(node:24648) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24648) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2/2] [webkit] › e2e\sand-review-checks.ts:43:1 › sand P2-01: reported first plus F excludes C1 zeros and includes the F diagonal on screen
+  2) [webkit] › e2e\sand-review-checks.ts:43:1 › sand P2-01: reported first plus F excludes C1 zeros and includes the F diagonal on screen
+
+    Error: white C1-only line must be absent when the explanation says F=0
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 94
+
+      35 |     await page.screenshot({ path: test.info().outputPath('first-F.png'), fullPage: true });
+      36 |     const w = await witnesses(page);
+    > 37 |     expect(w.firstOnly, 'white C1-only line must be absent when the explanation says F=0').toBe(0);
+         |                                                                                            ^
+      38 |     expect(w.FOnly, 'F diagonal must actually reach the raster').toBeGreaterThan(2);
+      39 | });
+      40 |
+        at C:\Users\tetsu\.codex\worktrees\d553\Math-Art-Lab\e2e\sand-review-checks.ts:37:92
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sand-review-sand-P2-01-rep-83d3f-es-the-F-diagonal-on-screen-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sand-review-sand-P2-01-rep-83d3f-es-the-F-diagonal-on-screen-webkit\error-context.md
+
+
+  2 failed
+    [chromium] › e2e\sand-review-checks.ts:43:1 › sand P2-01: reported first plus F excludes C1 zeros and includes the F diagonal on screen
+    [webkit] › e2e\sand-review-checks.ts:43:1 › sand P2-01: reported first plus F excludes C1 zeros and includes the F diagonal on screen

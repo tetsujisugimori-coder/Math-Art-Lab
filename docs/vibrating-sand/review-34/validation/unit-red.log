@@ -1,0 +1,69 @@
+﻿
+> math-art-lab@0.1.0 test
+> vitest run src --reporter=dot src/sand-render.test.ts
+
+
+ RUN  v3.2.7 C:/Users/tetsu/.codex/worktrees/d553/Math-Art-Lab
+
+·····························································································································································x············································································xxxxxxxx·············
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 9 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > reported (1/4,0): C1=0, C2=-sqrt(2)/2, F=+sqrt(2)/2; F highlight must exclude it
+AssertionError: expected 0 to be greater than 0.01
+ ❯ src/sand-render.test.ts:40:41
+     38|         expect(components(s.settings, .25, 0).F).toBeCloseTo(Math.SQRT…
+     39|         const lines = commands(s);
+     40|         expect(distance(lines, .25, 0)).toBeGreaterThan(.01);
+       |                                         ^
+     41|         // (1/8,1/8) is a node of F by antisymmetry, but neither compo…
+     42|         expect(distance(lines, .125, .125)).toBeLessThan(1e-8);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/9]⎯
+
+ FAIL  src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > first, F: overlay is F, independent of background and nodes checkbox
+ FAIL  src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > first, a: overlay is F, independent of background and nodes checkbox
+ FAIL  src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > factorX, F: overlay is F, independent of background and nodes checkbox
+ FAIL  src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > factorX, a: overlay is F, independent of background and nodes checkbox
+AssertionError: expected 0 to be greater than 0.01
+ ❯ src/sand-render.test.ts:50:53
+     48|                 for (const nodes of [false, true]) {
+     49|                     s.nodes = nodes; const lines = commands(s);
+     50|                     expect(distance(lines, .25, 0)).toBeGreaterThan(.0…
+       |                                                     ^
+     51|                     expect(distance(lines, 0, .25)).toBeGreaterThan(.0…
+     52|                     expect(distance(lines, 0, 1 / 6)).toBeGreaterThan(…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/9]⎯
+
+ FAIL  src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > second, F: overlay is F, independent of background and nodes checkbox
+ FAIL  src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > second, a: overlay is F, independent of background and nodes checkbox
+AssertionError: expected 9.540979117872439e-18 to be greater than 0.01
+ ❯ src/sand-render.test.ts:51:53
+     49|                     s.nodes = nodes; const lines = commands(s);
+     50|                     expect(distance(lines, .25, 0)).toBeGreaterThan(.0…
+     51|                     expect(distance(lines, 0, .25)).toBeGreaterThan(.0…
+       |                                                     ^
+     52|                     expect(distance(lines, 0, 1 / 6)).toBeGreaterThan(…
+     53|                     expect(distance(lines, .125, .125)).toBeLessThan(1…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/9]⎯
+
+ FAIL  src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > factorY, F: overlay is F, independent of background and nodes checkbox
+ FAIL  src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > factorY, a: overlay is F, independent of background and nodes checkbox
+AssertionError: expected 5.229892177105455e-7 to be greater than 0.01
+ ❯ src/sand-render.test.ts:52:55
+     50|                     expect(distance(lines, .25, 0)).toBeGreaterThan(.0…
+     51|                     expect(distance(lines, 0, .25)).toBeGreaterThan(.0…
+     52|                     expect(distance(lines, 0, 1 / 6)).toBeGreaterThan(…
+       |                                                       ^
+     53|                     expect(distance(lines, .125, .125)).toBeLessThan(1…
+     54|                 }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/9]⎯
+
+
+ Test Files  1 failed | 22 passed (23)
+      Tests  9 failed | 246 passed (255)
+   Start at  06:07:23
+   Duration  2.18s (transform 1.69s, setup 0ms, collect 3.65s, tests 5.92s, environment 4ms, prepare 2.53s)

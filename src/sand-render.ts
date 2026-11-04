@@ -1,4 +1,5 @@
 import { components, displacement, type State } from './sand';
+import { displayValue, presentation, shapeValue } from './sand-presentation';
 interface Cache {
     raster: HTMLCanvasElement;
     rasterKey: string;
@@ -16,18 +17,9 @@ function getCache(canvas: HTMLCanvasElement) { let c = caches.get(canvas); if (!
     c = { raster, rasterKey: '', nodeKey: '', nodePath: new Path2D() };
     caches.set(canvas, c);
 } return c; }
-export const field = (s: State, x: number, y: number) => {
-    const c = components(s.settings, x, y);
-    switch (s.mode) {
-        case 'first': return c.first;
-        case 'second': return c.second;
-        case 'factorX': return Math.cos(s.settings.m * Math.PI * x);
-        case 'factorY': return Math.cos(s.settings.n * Math.PI * y);
-        case 'u': return displacement(c.F, s.t) / (1 + s.settings.a);
-        default: return c.F / (1 + s.settings.a);
-    }
-};
-export function drawSand(canvas: HTMLCanvasElement, s: State): boolean {
+export const field = (s: State, x: number, y: number) => displayValue(s, s.mode, x, y);
+export function drawSand(canvas: HTMLCanvasElement, s: State, lesson = -1): boolean {
+    const view = presentation(s, lesson), mode = view.mode;
     // Borders are not drawable content: a CSS width of zero can still have a 2px rect.
     const rect = canvas.getBoundingClientRect(), style = getComputedStyle(canvas);
     const size = rect.width - parseFloat(style.borderLeftWidth) - parseFloat(style.borderRightWidth);
@@ -48,8 +40,8 @@ export function drawSand(canvas: HTMLCanvasElement, s: State): boolean {
     ctx.fillRect(0, 0, pixels, pixels);
     const pad = .055 * pixels, extent = .89 * pixels, X = (x: number) => pad + x * extent, Y = (y: number) => pad + (1 - y) * extent;
     const cache = getCache(canvas), settingsKey = `${s.settings.m},${s.settings.n},${s.settings.a}`;
-    if (s.mode !== 'sand') {
-        const key = `${settingsKey}/${s.mode}/${s.mode === 'u' ? s.t : ''}`;
+    if (mode !== 'sand') {
+        const key = `${settingsKey}/${mode}/${mode === 'u' ? s.t : ''}`;
         if (cache.rasterKey !== key) {
             const N = 144, rasterContext = cache.raster.getContext('2d');
             if (!rasterContext)
@@ -57,7 +49,7 @@ export function drawSand(canvas: HTMLCanvasElement, s: State): boolean {
             const data = rasterContext.createImageData(N, N);
             for (let j = 0; j < N; j++)
                 for (let i = 0; i < N; i++) {
-                    const v = field(s, (i + .5) / N, 1 - (j + .5) / N), a = Math.min(1, Math.abs(v)), k = 4 * (j * N + i);
+                    const v = displayValue(s, mode, (i + .5) / N, 1 - (j + .5) / N), a = Math.min(1, Math.abs(v)), k = 4 * (j * N + i);
                     data.data[k] = Math.round(v >= 0 ? 19 + 176 * a : 17 + 26 * a);
                     data.data[k + 1] = Math.round(v >= 0 ? 28 + 101 * a : 28 + 103 * a);
                     data.data[k + 2] = Math.round(v >= 0 ? 42 + 20 * a : 42 + 145 * a);
@@ -69,7 +61,7 @@ export function drawSand(canvas: HTMLCanvasElement, s: State): boolean {
         ctx.imageSmoothingEnabled = true;
         ctx.drawImage(cache.raster, pad, pad, extent, extent);
     }
-    if (s.mode === 'sand') {
+    if (mode === 'sand') {
         const r = Math.max(.7, pixels / 730);
         for (let group = 0; group < 3; group++) {
             ctx.fillStyle = ['#fae1a1', '#b28745', '#d6b16a'][group];
@@ -80,7 +72,7 @@ export function drawSand(canvas: HTMLCanvasElement, s: State): boolean {
             ctx.fill();
         }
     }
-    if (s.mode === 'factorX') {
+    if (mode === 'factorX') {
         // A schematic cross-section: color is the static factor, curve is its instantaneous displacement.
         ctx.strokeStyle = '#fff';
         ctx.lineWidth = Math.max(1.5, pixels / 450);
@@ -101,11 +93,11 @@ export function drawSand(canvas: HTMLCanvasElement, s: State): boolean {
         }
     }
     // Marching triangles avoids the ambiguous saddle case of marching squares.
-    if (s.nodes || ['F', 'a'].includes(s.symbol)) {
-        const key = `${settingsKey}/${['factorX', 'factorY', 'first', 'second'].includes(s.mode) ? s.mode : 'F'}`;
+    if (view.nodeTarget) {
+        const key = `${settingsKey}/${view.cacheShape}`;
         if (cache.nodeKey !== key) {
             const path = new Path2D(), segments: number[][][] = [];
-            const N = 128, fn = (x: number, y: number) => ['factorX', 'factorY', 'first', 'second'].includes(s.mode) ? field(s, x, y) : components(s.settings, x, y).F;
+            const N = 128, fn = (x: number, y: number) => shapeValue(s.settings, view.nodeTarget!, x, y);
             const triangle = (v: number[][]) => { const hits: number[][] = []; for (let k = 0; k < 3; k++) {
                 const a = v[k], b = v[(k + 1) % 3];
                 if ((a[2] < 0) !== (b[2] < 0)) {
@@ -171,8 +163,7 @@ export function drawSand(canvas: HTMLCanvasElement, s: State): boolean {
         ctx.strokeStyle = '#f4f5ed';
         ctx.lineWidth = Math.max(1, pixels / 700) / extent;
         ctx.setLineDash([4 * pixels / 600 / extent, 4 * pixels / 600 / extent]);
-        ctx.stroke(cache.nodePath);
-        ctx.restore();
+        try { ctx.stroke(cache.nodePath); } finally { ctx.restore(); }
     }
     ctx.strokeStyle = '#546176';
     ctx.lineWidth = 1;
@@ -186,16 +177,16 @@ export function drawSand(canvas: HTMLCanvasElement, s: State): boolean {
     ctx.moveTo(px, py - 7);
     ctx.lineTo(px, py + 7);
     ctx.stroke();
-    if (s.symbol) {
+    if (view.symbol) {
         ctx.strokeStyle = '#ffe39d';
         ctx.lineWidth = 2;
-        if (['x', 'm', 'π', 'cos'].includes(s.symbol)) {
+        if (view.axes.includes('x')) {
             ctx.beginPath();
             ctx.moveTo(pad, py);
             ctx.lineTo(pad + extent, py);
             ctx.stroke();
         }
-        if (['y', 'n'].includes(s.symbol)) {
+        if (view.axes.includes('y')) {
             ctx.setLineDash([6, 3]);
             ctx.beginPath();
             ctx.moveTo(px, pad);
@@ -203,13 +194,13 @@ export function drawSand(canvas: HTMLCanvasElement, s: State): boolean {
             ctx.stroke();
             ctx.setLineDash([]);
         }
-        if (['t', 'u'].includes(s.symbol)) {
+        if (view.ring) {
             const u = displacement(components(s.settings, s.point.x, s.point.y).F, s.t) / (1 + s.settings.a);
             ctx.beginPath();
             ctx.arc(px, py, 10 + 18 * Math.abs(u), 0, 2 * Math.PI);
             ctx.stroke();
         }
-        if (s.symbol === 'a') {
+        if (view.symbol === 'a') {
             ctx.strokeRect(pad + 3, pad + 3, extent - 6, extent - 6);
         }
     }
