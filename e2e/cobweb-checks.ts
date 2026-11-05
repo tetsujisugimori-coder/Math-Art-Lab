@@ -3,6 +3,19 @@ import {expect,test,type Page} from '@playwright/test';
 async function open(page:Page){await page.goto('./');await page.locator('#experiment').selectOption('cobweb');await expect(page.locator('#cw-price')).toHaveText('40');}
 async function steps(page:Page,n:number){for(let i=0;i<n;i++)await page.locator('#cw-step').click();}
 const number=async(page:Page,id:string)=>Number(await page.locator(id).textContent());
+// Read composited PNG pixels: computed background alone missed native WebKit paint.
+async function checkSelectContrast(page:Page,selector:string){
+  const select=page.locator(selector),png=await select.screenshot({scale:'css'});
+  const foreground=await select.evaluate(el=>getComputedStyle(el).color.match(/[\d.]+/g)!.slice(0,3).map(Number));
+  const background=await page.evaluate(async base64=>{
+    const image=new Image();image.src='data:image/png;base64,'+base64;await image.decode();
+    const canvas=document.createElement('canvas');canvas.width=image.naturalWidth;canvas.height=image.naturalHeight;const ctx=canvas.getContext('2d')!;ctx.drawImage(image,0,0);
+    return Array.from(ctx.getImageData(12,8,1,1).data).slice(0,3);
+  },png.toString('base64'));
+  const luminance=(rgb:number[])=>rgb.map(v=>{const c=v/255;return c<=0.04045?c/12.92:((c+0.055)/1.055)**2.4;}).reduce((sum,v,i)=>sum+v*[0.2126,0.7152,0.0722][i],0);
+  const a=luminance(foreground),b=luminance(background);
+  expect((Math.max(a,b)+0.05)/(Math.min(a,b)+0.05),`${selector}: text versus painted background`).toBeGreaterThanOrEqual(4.5);
+}
 
 test.use({reducedMotion:'reduce'});
 test('one period follows supply at old price then demand at new price, with exact SVG corners',async({page})=>{
@@ -67,6 +80,7 @@ for(const [width,scheme] of [[1280,'dark'],[375,'light'],[320,'dark']] as const)
     const errors:string[]=[],failures:string[]=[];page.on('pageerror',e=>errors.push(e.message));page.on('requestfailed',r=>failures.push(r.url()));
     await page.setViewportSize({width,height:900});await page.emulateMedia({colorScheme:scheme});await open(page);await steps(page,7);
     const chart=page.locator('#cw-chart');await expect(chart.locator('.cw-demand')).toBeVisible();await expect(chart.locator('.cw-supply')).toBeVisible();await expect(chart.locator('.cw-equilibrium')).toBeVisible();await expect(chart.locator('.cw-history path')).toHaveCount(7);
+    for(const selector of ['#experiment','#cw-mode','#cw-preset'])await checkSelectContrast(page,selector);
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
     // The mobile renderer uses fewer ticks and CSS-size text, rather than shrinking a desktop viewBox.
     if(width<460){expect((await chart.getAttribute('viewBox'))!.split(' ').map(Number)[2]).toBeLessThan(460);await expect(chart.locator('.cw-tick')).toHaveCount(8);}
