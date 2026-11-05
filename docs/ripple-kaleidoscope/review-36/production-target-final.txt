@@ -1,0 +1,163 @@
+
+[1A[2K[WebServer] (node:9168) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 48 tests using 1 worker
+
+
+
+[1A[2K(node:34640) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:34640) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1A[2K[1/48] [chromium] › e2e\ripple-review-checks.ts:37:1 › ripple review P2: signed angles keep geometry, direction and source zero consistent
+[1A[2K[2/48] [chromium] › e2e\ripple-review-checks.ts:55:1 › ripple review P3: composited legend pixels match independent colors in all nine combinations
+[1A[2K  1) [chromium] › e2e\ripple-review-checks.ts:55:1 › ripple review P3: composited legend pixels match independent colors in all nine combinations
+
+    Test timeout of 30000ms exceeded while running "beforeEach" hook.
+
+       8 | const state=(page:import('@playwright/test').Page)=>page.locator('#rk-stage').evaluate(el=>JSON.parse((el as HTMLElement).dataset.state!));
+       9 |
+    > 10 | test.beforeEach(async({page},info)=>{starts.set(info,performance.now());await page.emulateMedia({reducedMotion:'reduce'});await page.goto('./',{waitUntil:'domcontentloaded'});await page.locator('#experiment').selectOption('ripple');await expect(page.locator('#rk-stage')).toHaveAttribute('data-draws',/[1-9]/);});
+         |      ^
+      11 |
+      12 | test('ripple review P2: signed angles keep geometry, direction and source zero consistent',async({page},info)=>{
+      13 |   await page.locator('[data-rk-symbol="theta"]').click();const results=[];
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:10:6
+
+    Error: browserContext.newPage: Test timeout of 30000ms exceeded.
+
+
+
+[1A[2K(node:5912) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:5912) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K[3/48] [chromium] › e2e\ripple-review-checks.ts:80:3 › DPR2 width 375 › ripple review: width 375 DPR2 themes text scale and live theta/legend updates
+[1A[2K  2) [chromium] › e2e\ripple-review-checks.ts:80:3 › DPR2 width 375 › ripple review: width 375 DPR2 themes text scale and live theta/legend updates
+
+    Test timeout of 60000ms exceeded.
+
+    Error: page.evaluate: Test timeout of 60000ms exceeded.
+
+       at ..\e2e\ripple-review-oracle.ts:70
+
+      68 |   const rect=(await bar.boundingBox())!;
+      69 |   const png=capture==='element'?await bar.screenshot({scale:'device'}):await page.screenshot({clip:rect,scale:'device'}),qs=mode==='displacement'?[...anchors.slice(1).reverse().map(q=>-q),...anchors]:anchors;
+    > 70 |   const data=await page.evaluate(async({base64,border,qs})=>{
+         |                         ^
+      71 |     const img=new Image();img.src='data:image/png;base64,'+base64;await img.decode();
+      72 |     const c=document.createElement('canvas');c.width=img.naturalWidth;c.height=img.naturalHeight;const ctx=c.getContext('2d')!;ctx.drawImage(img,0,0);
+      73 |     const left=Math.round(border.left*border.dpr),right=c.width-1-Math.round(border.right*border.dpr);
+        at measureLegend (C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-oracle.ts:70:25)
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:35:136
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\ripple-review-DPR2-width-3-42187-d-live-theta-legend-updates-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\ripple-review-DPR2-width-3-42187-d-live-theta-legend-updates-chromium\error-context.md
+
+
+
+
+[1A[2K(node:39972) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1A[2K(node:39972) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[4/48] [chromium] › e2e\ripple-review-checks.ts:80:3 › DPR2 width 390 › ripple review: width 390 DPR2 themes text scale and live theta/legend updates
+[1A[2K  3) [chromium] › e2e\ripple-review-checks.ts:80:3 › DPR2 width 390 › ripple review: width 390 DPR2 themes text scale and live theta/legend updates
+
+    Test timeout of 60000ms exceeded.
+
+    Error: page.evaluate: Target page, context or browser has been closed
+
+       at ..\e2e\ripple-review-oracle.ts:27
+
+      25 | }
+      26 | export async function setReviewDisplay(page:Page,mode:ReviewMode,palette:ReviewPalette) {
+    > 27 |   await page.evaluate(({mode,palette})=>{for(const [id,value] of [['rk-mode',mode],['rk-palette',palette]]){const el=document.getElementById(id) as HTMLSelectElement;el.value=value;el.dispatchEvent(new Event('change'));}},{mode,palette});
+         |              ^
+      28 | }
+      29 | export async function measureRotation(page:Page,angle:number,radius=2.2) {
+      30 |   const data=await page.locator('#rk-guides').evaluate(svg=>{
+        at setReviewDisplay (C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-oracle.ts:27:14)
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:35:83
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\ripple-review-DPR2-width-3-60e8b-d-live-theta-legend-updates-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\ripple-review-DPR2-width-3-60e8b-d-live-theta-legend-updates-chromium\error-context.md
+
+
+
+[1A[2K(node:33968) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:33968) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K[5/48] [chromium] › e2e\ripple-review-checks.ts:80:3 › DPR2 width 768 › ripple review: width 768 DPR2 themes text scale and live theta/legend updates
+[1A[2K[6/48] [chromium] › e2e\ripple-review-checks.ts:80:3 › DPR2 width 1280 › ripple review: width 1280 DPR2 themes text scale and live theta/legend updates
+[1A[2K[7/48] [chromium] › e2e\ripple-review-checks.ts:133:1 › ripple review: normal controls pass and reversed arc, moved source and red legend are rejected
+[1A[2K[8/48] [chromium] › e2e\ripple-review-checks.ts:189:1 › ripple review: signed formula selection and exact color scale survive all lesson stages and amplitude changes
+[1A[2K[9/48] [chromium] › e2e\ripple-review-checks.ts:256:3 › DPR3 touch › ripple review: touch DPR3 keeps negative theta and legend correct after resize
+[1A[2K[10/48] [chromium] › e2e\ripple-review-checks.ts:291:3 › PNG capture parity DPR2 › ripple review: direct screen clip and element screenshot have identical composited color pixels
+[1A[2K[11/48] [chromium] › e2e\ripple-checks.ts:31:1 › ripple: default, fixed legend and all three rendering modes
+[1A[2K[12/48] [chromium] › e2e\ripple-checks.ts:46:1 › ripple: actual raster colors match independent direct wave sums
+[1A[2K[13/48] [chromium] › e2e\ripple-checks.ts:84:1 › ripple: play stop step and invariants do not rebuild static field
+[1A[2K[14/48] [chromium] › e2e\ripple-checks.ts:108:1 › ripple: presets palette amplitude rotation and phase update both geometry and raster
+[1A[2K  4) [chromium] › e2e\ripple-checks.ts:108:1 › ripple: presets palette amplitude rotation and phase update both geometry and raster
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator: locator('#rk-stage')
+    Expected pattern: /[1-9]/
+    Received string:  ""
+
+    Call log:
+      - Expect "toHaveAttribute" with timeout 5000ms
+      - waiting for locator('#rk-stage')
+
+
+      2 |
+      3 | const state=(page:Page)=>page.locator('#rk-stage').evaluate(el=>JSON.parse((el as HTMLElement).dataset.state!));
+    > 4 | const ready=async(page:Page)=>{await expect(page.locator('#rk-stage')).toHaveAttribute('data-draws',/[1-9]/);await expect(page.locator('#rk-fallback')).toBeHidden();};
+        |                                                                        ^
+      5 | const hash=(page:Page)=>page.locator('#rk-canvas').evaluate((el:HTMLCanvasElement)=>{
+      6 |   const data=el.getContext('2d')!.getImageData(0,0,el.width,el.height).data;let hash=2166136261;for(const byte of data)hash=Math.imul(hash^byte,16777619);return hash>>>0;
+      7 | });
+        at ready (C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-checks.ts:4:72)
+        at apply (C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-checks.ts:8:282)
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-checks.ts:34:40
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\ripple-ripple-presets-pale-a8130-te-both-geometry-and-raster-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\ripple-ripple-presets-pale-a8130-te-both-geometry-and-raster-chromium\error-context.md
+
+
+
+
+[1A[2K(node:42340) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K(node:42340) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K[15/48] [chromium] › e2e\ripple-checks.ts:144:1 › ripple: invalid candidates do not reach settings and bounds are accepted
+[1A[2K[16/48] [chromium] › e2e\ripple-checks.ts:168:1 › ripple: every formula symbol selects an actual diagram; keyboard and pointer
+[1A[2K[17/48] [chromium] › e2e\ripple-checks.ts:208:1 › ripple: all four lessons isolate settings and restore full state and drafts
+[1A[2K[18/48] [chromium] › e2e\ripple-checks.ts:233:1 › ripple: safety stop survives lesson restore and switching artworks cleans up

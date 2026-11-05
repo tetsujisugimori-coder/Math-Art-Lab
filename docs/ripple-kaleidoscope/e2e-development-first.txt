@@ -1,0 +1,105 @@
+
+[WebServer] (node:38236) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 22 tests using 1 worker
+
+
+
+(node:12536) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+(node:12536) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/22] [chromium] › e2e\ripple-checks.ts:31:1 › ripple: default, fixed legend and all three rendering modes
+[2/22] [chromium] › e2e\ripple-checks.ts:46:1 › ripple: actual raster colors match independent direct wave sums
+[3/22] [chromium] › e2e\ripple-checks.ts:84:1 › ripple: play stop step and invariants do not rebuild static field
+[4/22] [chromium] › e2e\ripple-checks.ts:108:1 › ripple: presets palette amplitude rotation and phase update both geometry and raster
+[5/22] [chromium] › e2e\ripple-checks.ts:144:1 › ripple: invalid candidates do not reach settings and bounds are accepted
+[6/22] [chromium] › e2e\ripple-checks.ts:168:1 › ripple: every formula symbol selects an actual diagram; keyboard and pointer
+[7/22] [chromium] › e2e\ripple-checks.ts:198:1 › ripple: all four lessons isolate settings and restore full state and drafts
+[8/22] [chromium] › e2e\ripple-checks.ts:223:1 › ripple: safety stop survives lesson restore and switching artworks cleans up
+[9/22] [chromium] › e2e\ripple-checks.ts:262:1 › ripple: responsive themes 200 percent text and resize preserve usable art
+[10/22] [chromium] › e2e\ripple-checks.ts:283:1 › ripple: glow and guide effects preserve numerical state and base raster
+[11/22] [chromium] › e2e\ripple-checks.ts:299:1 › ripple: high DPR and touch retain raster cap and coordinate selection
+(node:13164) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+
+(node:13164) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[12/22] [webkit] › e2e\ripple-checks.ts:31:1 › ripple: default, fixed legend and all three rendering modes
+[13/22] [webkit] › e2e\ripple-checks.ts:46:1 › ripple: actual raster colors match independent direct wave sums
+[14/22] [webkit] › e2e\ripple-checks.ts:84:1 › ripple: play stop step and invariants do not rebuild static field
+[15/22] [webkit] › e2e\ripple-checks.ts:108:1 › ripple: presets palette amplitude rotation and phase update both geometry and raster
+[16/22] [webkit] › e2e\ripple-checks.ts:144:1 › ripple: invalid candidates do not reach settings and bounds are accepted
+[17/22] [webkit] › e2e\ripple-checks.ts:168:1 › ripple: every formula symbol selects an actual diagram; keyboard and pointer
+[18/22] [webkit] › e2e\ripple-checks.ts:198:1 › ripple: all four lessons isolate settings and restore full state and drafts
+  1) [webkit] › e2e\ripple-checks.ts:198:1 › ripple: all four lessons isolate settings and restore full state and drafts
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 4
+    + Received  + 4
+
+      Object {
+        "glow": true,
+        "guides": true,
+    -   "mode": "displacement",
+    +   "mode": "intensity",
+        "palette": "aurora",
+        "playing": false,
+        "point": Object {
+          "x": 0.7,
+          "y": 0.4,
+        },
+        "settings": Object {
+          "amplitude": 1,
+          "angle": 0,
+          "count": 6,
+    -     "phase": 0,
+    +     "phase": 80,
+          "radius": 2.2,
+          "wavelength": 1.25,
+        },
+    -   "symbol": "R",
+    +   "symbol": null,
+        "target": 0,
+    -   "time": 0.05,
+    +   "time": 0,
+      }
+
+      53 |   await page.locator('#rk-lesson-toggle').click();expect((await state(page)).settings.count).toBe(1);
+      54 |   for(let i=1;i<4;i++){await page.locator(`[data-rk-lesson="${i}"]`).click();expect((await state(page)).settings.count).toBe([1,2,6,6][i]);await expect(page.locator('#rk-lesson-copy')).toContainText(['','2つ','N回','強度相当量'][i]);}
+    > 55 |   await apply(page,{phase:'80'});await page.keyboard.press('Escape');expect(await state(page)).toEqual(before);await expect(page.locator('#rk-wavelength')).toHaveValue('2.345');await expect(page.locator('#rk-lesson')).toBeHidden();await expect(page.locator('#rk-lesson-toggle')).toBeFocused();
+         |                                                                                                ^
+      56 | });
+      57 | test('ripple: safety stop survives lesson restore and switching artworks cleans up',async({page})=>{
+      58 |   await page.emulateMedia({reducedMotion:'no-preference'});await page.locator('#rk-play').click();await page.locator('#rk-lesson-toggle').click();await page.emulateMedia({reducedMotion:'reduce'});await expect.poll(async()=>(await state(page)).playing).toBe(false);await page.locator('#rk-lesson-toggle').click();expect((await state(page)).playing).toBe(false);
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-checks.ts:55:96
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\ripple-ripple-all-four-les-96be8-store-full-state-and-drafts-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\ripple-ripple-all-four-les-96be8-store-full-state-and-drafts-webkit\error-context.md
+
+
+(node:37192) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:37192) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[19/22] [webkit] › e2e\ripple-checks.ts:223:1 › ripple: safety stop survives lesson restore and switching artworks cleans up
+[20/22] [webkit] › e2e\ripple-checks.ts:262:1 › ripple: responsive themes 200 percent text and resize preserve usable art
+[21/22] [webkit] › e2e\ripple-checks.ts:283:1 › ripple: glow and guide effects preserve numerical state and base raster
+[22/22] [webkit] › e2e\ripple-checks.ts:299:1 › ripple: high DPR and touch retain raster cap and coordinate selection
+  1 failed
+    [webkit] › e2e\ripple-checks.ts:198:1 › ripple: all four lessons isolate settings and restore full state and drafts
+  21 passed (1.3m)

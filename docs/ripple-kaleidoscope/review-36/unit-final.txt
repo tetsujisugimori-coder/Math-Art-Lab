@@ -1,0 +1,98 @@
+
+> math-art-lab@0.1.0 test
+> vitest run src --reporter=dot
+
+
+ RUN  v3.2.7 C:/Users/tetsu/.codex/worktrees/bbc9/Math-Art-Lab
+
+·······································································································································································································································x······················x··x··········xx·····xx····
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/harmonograph.test.ts > harmonograph model > basket: deterministic, finite, bounded and samples both endpoints
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/harmonograph.test.ts:8:30
+      6|
+      7| describe('harmonograph model',()=>{
+      8|  for(const preset of presets)it(`${preset.id}: deterministic, finite, …
+       |                              ^
+      9|   const data=sampleHarmonograph(preset.id,preset.shape);
+     10|   expect(sampleHarmonograph(preset.id,preset.shape).positions).toEqual…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  src/knot.test.ts > torus knot mathematics > is deterministic, finite and stays on its defining torus at all supported integer pairs
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/knot.test.ts:27:2
+     25|   for(const segments of [0,255,8193,1.5,Infinity])expect(()=>sampleKno…
+     26|  });
+     27|  it('is deterministic, finite and stays on its defining torus at all s…
+       |  ^
+     28|   for(let p=1;p<=9;p++)for(let q=1;q<=9;q++)if(gcd(p,q)===1){
+     29|    const s={...knotDefaults,p,q},a=sampleKnot(s);expect(a.positions).t…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  src/knot.test.ts > torus knot mathematics > has bounded chord error and identical samples at shared parameter positions
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/knot.test.ts:33:2
+     31|   }
+     32|  });
+     33|  it('has bounded chord error and identical samples at shared parameter…
+       |  ^
+     34|   for(const s of [knotDefaults,{R:6,r:2.5,p:9,q:8}]){
+     35|    const coarse=sampleKnot(s),fine=sampleKnot(s,coarse.segments*2);let…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > first, F: overlay is F, independent of background and nodes checkbox
+ FAIL  src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > factorX, F: overlay is F, independent of background and nodes checkbox
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/sand-render.test.ts:48:13
+     46|     for (const mode of ['sand', 'F', 'u', 'first', 'second', 'factorX'…
+     47|         for (const symbol of ['F', 'a'])
+     48|             it(`${mode}, ${symbol}: overlay is F, independent of backg…
+       |             ^
+     49|                 const s = initial(); s.mode = mode; s.symbol = symbol;
+     50|                 for (const nodes of [false, true]) {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+ FAIL  src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > second: ordinary auxiliary lines retain their own zero set after clearing F
+ FAIL  src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > factorX: ordinary auxiliary lines retain their own zero set after clearing F
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/sand-render.test.ts:59:9
+     57|             });
+     58|     for (const [mode, x, y] of [['first', .25, 0], ['second', 0, .25],…
+     59|         it(`${mode}: ordinary auxiliary lines retain their own zero se…
+       |         ^
+     60|             const s = initial(); s.mode = mode; s.symbol = ''; s.nodes…
+     61|             expect(distance(commands(s), x, y)).toBeLessThan(2e-5);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/7]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 1 unhandled error during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: [vitest-worker]: Timeout calling "onTaskUpdate"
+ ❯ Object.onTimeoutError node_modules/vitest/dist/chunks/rpc.-pEldfrD.js:53:10
+ ❯ Timeout._onTimeout node_modules/vitest/dist/chunks/index.B521nVV-.js:59:62
+ ❯ listOnTimeout node:internal/timers:685:17
+ ❯ processTimers node:internal/timers:618:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  3 failed | 23 passed (26)
+      Tests  7 failed | 274 passed (281)
+     Errors  1 error
+   Start at  13:07:11
+   Duration  73.48s (transform 34.11s, setup 0ms, collect 59.19s, tests 152.91s, environment 11ms, prepare 30.03s)

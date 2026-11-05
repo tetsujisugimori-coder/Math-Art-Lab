@@ -1,0 +1,42 @@
+
+[1A[2K[WebServer] (node:5996) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+
+
+[1A[2K(node:36448) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K(node:36448) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K[1/2] [webkit] › e2e\ripple-review-checks.ts:80:3 › DPR2 width 375 › ripple review: width 375 DPR2 themes text scale and live theta/legend updates
+[1A[2K[2/2] [webkit] › e2e\ripple-review-checks.ts:291:3 › PNG capture parity DPR2 › ripple review: direct screen clip and element screenshot have identical composited color pixels
+[1A[2K  1) [webkit] › e2e\ripple-review-checks.ts:291:3 › PNG capture parity DPR2 › ripple review: direct screen clip and element screenshot have identical composited color pixels
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 26
+    Received: 24
+
+      71 | test('ripple review: direct screen clip and element screenshot have identical composited color pixels',async({page},info)=>{
+      72 |   const observations=[];
+    > 73 |   for(const [mode,palette] of [['displacement','aurora'],['intensity','iris']] as const){await setReviewDisplay(page,mode,palette);const {png:one,...element}=await measureLegend(page,mode,palette,'element'),{png:two,...clip}=await measureLegend(page,mode,palette,'clip');expect(clip.width).toBe(element.width);expect(clip.height).toBe(element.height);expect(clip.profileHash).toBe(element.profileHash);expect(clip.pass).toBe(true);expect(element.pass).toBe(true);observations.push({element,clip});}
+         |                                                                                                                                                                                                                                                                                                                                           ^
+      74 |   await save(info,observations);
+      75 | });
+      76 | });
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:73:331
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\ripple-review-PNG-capture--39811-cal-composited-color-pixels-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\ripple-review-PNG-capture--39811-cal-composited-color-pixels-webkit\error-context.md
+
+
+[1A[2K  1 failed
+    [webkit] › e2e\ripple-review-checks.ts:291:3 › PNG capture parity DPR2 › ripple review: direct screen clip and element screenshot have identical composited color pixels
+  1 passed (1.4m)

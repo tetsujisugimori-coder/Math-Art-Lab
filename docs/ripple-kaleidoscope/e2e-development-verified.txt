@@ -1,0 +1,114 @@
+
+[WebServer] (node:32056) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 26 tests using 1 worker
+
+
+
+(node:39120) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:39120) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1/26] [chromium] › e2e\ripple-checks.ts:31:1 › ripple: default, fixed legend and all three rendering modes
+[2/26] [chromium] › e2e\ripple-checks.ts:46:1 › ripple: actual raster colors match independent direct wave sums
+[3/26] [chromium] › e2e\ripple-checks.ts:84:1 › ripple: play stop step and invariants do not rebuild static field
+[4/26] [chromium] › e2e\ripple-checks.ts:108:1 › ripple: presets palette amplitude rotation and phase update both geometry and raster
+[5/26] [chromium] › e2e\ripple-checks.ts:144:1 › ripple: invalid candidates do not reach settings and bounds are accepted
+[6/26] [chromium] › e2e\ripple-checks.ts:168:1 › ripple: every formula symbol selects an actual diagram; keyboard and pointer
+  1) [chromium] › e2e\ripple-checks.ts:168:1 › ripple: every formula symbol selects an actual diagram; keyboard and pointer
+
+    Error: expect(received).toBeLessThan(expected)
+
+    Expected: < 0.05
+    Received:   0.8737098623853212
+
+      47 |   await page.locator('[data-rk-symbol="lambda"]').focus();await page.keyboard.press('Enter');await expect(page.locator('#rk-symbol-copy')).toContainText('ラムダ');
+      48 |   await page.locator('#rk-jump').click();await expect(page.locator('#rk-stage')).toBeFocused();const x=(await state(page)).point.x;await page.keyboard.press('ArrowRight');expect((await state(page)).point.x).toBeCloseTo(x+.1,8);
+    > 49 |   await page.locator('#rk-stage').click();const selected=await state(page);expect(Math.abs(selected.point.x)).toBeLessThan(.05);expect(Math.abs(selected.point.y)).toBeLessThan(.05);
+         |                                                                                                                                                                    ^
+      50 |   await page.locator('#rk-clear').click();await expect(page.locator('#rk-stage')).toHaveAttribute('data-highlight','');await expect(page.locator('#rk-guides [data-source]')).toHaveCount(0);
+      51 | });
+      52 | test('ripple: all four lessons isolate settings and restore full state and drafts',async({page})=>{
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-checks.ts:49:164
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\ripple-ripple-every-formul-a80c4-iagram-keyboard-and-pointer-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\ripple-ripple-every-formul-a80c4-iagram-keyboard-and-pointer-chromium\error-context.md
+
+
+(node:12924) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+(node:12924) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[7/26] [chromium] › e2e\ripple-checks.ts:202:1 › ripple: all four lessons isolate settings and restore full state and drafts
+[8/26] [chromium] › e2e\ripple-checks.ts:227:1 › ripple: safety stop survives lesson restore and switching artworks cleans up
+[9/26] [chromium] › e2e\ripple-checks.ts:266:1 › ripple: lesson restores point validation error and its candidate
+[10/26] [chromium] › e2e\ripple-checks.ts:279:1 › ripple: responsive themes 200 percent text and resize preserve usable art
+[11/26] [chromium] › e2e\ripple-checks.ts:300:1 › ripple: glow and guide effects preserve numerical state and base raster
+[12/26] [chromium] › e2e\ripple-checks.ts:316:1 › ripple: high DPR and touch retain raster cap and coordinate selection
+[13/26] [chromium] › e2e\ripple-checks.ts:344:1 › ripple: rendering failure is explicit and next successful draw recovers
+
+(node:34164) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+(node:34164) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[14/26] [webkit] › e2e\ripple-checks.ts:31:1 › ripple: default, fixed legend and all three rendering modes
+[15/26] [webkit] › e2e\ripple-checks.ts:46:1 › ripple: actual raster colors match independent direct wave sums
+[16/26] [webkit] › e2e\ripple-checks.ts:84:1 › ripple: play stop step and invariants do not rebuild static field
+[17/26] [webkit] › e2e\ripple-checks.ts:108:1 › ripple: presets palette amplitude rotation and phase update both geometry and raster
+[18/26] [webkit] › e2e\ripple-checks.ts:144:1 › ripple: invalid candidates do not reach settings and bounds are accepted
+[19/26] [webkit] › e2e\ripple-checks.ts:168:1 › ripple: every formula symbol selects an actual diagram; keyboard and pointer
+  2) [webkit] › e2e\ripple-checks.ts:168:1 › ripple: every formula symbol selects an actual diagram; keyboard and pointer
+
+    Error: expect(received).toBeLessThan(expected)
+
+    Expected: < 0.05
+    Received:   0.8851777522935778
+
+      47 |   await page.locator('[data-rk-symbol="lambda"]').focus();await page.keyboard.press('Enter');await expect(page.locator('#rk-symbol-copy')).toContainText('ラムダ');
+      48 |   await page.locator('#rk-jump').click();await expect(page.locator('#rk-stage')).toBeFocused();const x=(await state(page)).point.x;await page.keyboard.press('ArrowRight');expect((await state(page)).point.x).toBeCloseTo(x+.1,8);
+    > 49 |   await page.locator('#rk-stage').click();const selected=await state(page);expect(Math.abs(selected.point.x)).toBeLessThan(.05);expect(Math.abs(selected.point.y)).toBeLessThan(.05);
+         |                                                                                                                                                                    ^
+      50 |   await page.locator('#rk-clear').click();await expect(page.locator('#rk-stage')).toHaveAttribute('data-highlight','');await expect(page.locator('#rk-guides [data-source]')).toHaveCount(0);
+      51 | });
+      52 | test('ripple: all four lessons isolate settings and restore full state and drafts',async({page})=>{
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-checks.ts:49:164
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\ripple-ripple-every-formul-a80c4-iagram-keyboard-and-pointer-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\ripple-ripple-every-formul-a80c4-iagram-keyboard-and-pointer-webkit\error-context.md
+
+
+
+
+(node:5928) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:5928) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[20/26] [webkit] › e2e\ripple-checks.ts:202:1 › ripple: all four lessons isolate settings and restore full state and drafts
+[21/26] [webkit] › e2e\ripple-checks.ts:227:1 › ripple: safety stop survives lesson restore and switching artworks cleans up
+[22/26] [webkit] › e2e\ripple-checks.ts:266:1 › ripple: lesson restores point validation error and its candidate
+[23/26] [webkit] › e2e\ripple-checks.ts:279:1 › ripple: responsive themes 200 percent text and resize preserve usable art
+[24/26] [webkit] › e2e\ripple-checks.ts:300:1 › ripple: glow and guide effects preserve numerical state and base raster
+[25/26] [webkit] › e2e\ripple-checks.ts:316:1 › ripple: high DPR and touch retain raster cap and coordinate selection
+[26/26] [webkit] › e2e\ripple-checks.ts:344:1 › ripple: rendering failure is explicit and next successful draw recovers
+  2 failed
+    [chromium] › e2e\ripple-checks.ts:168:1 › ripple: every formula symbol selects an actual diagram; keyboard and pointer
+    [webkit] › e2e\ripple-checks.ts:168:1 › ripple: every formula symbol selects an actual diagram; keyboard and pointer
+  24 passed (1.2m)
