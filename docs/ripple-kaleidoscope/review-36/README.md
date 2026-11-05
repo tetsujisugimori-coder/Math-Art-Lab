@@ -109,3 +109,11 @@ Canvas方式を選び、`legendPixels`が実描画と**同じ2049段の色LUT**�
 通常の並列単体実行は274成功・7失敗、workerのonTaskUpdate timeout 1件（unit-final.txt）。7件は既存harmonograph/knot/sand-renderの5000ms timeoutで、色・幾何の不一致ではない。原因を製品・環境のいずれかに断定しない。期待値・5000ms上限を変更せず、同じ全281件をmaxWorkers=1で実行すると281/281成功、10.28秒（unit-serial.txt）。型検査・本番ビルドも成功（typecheck-final.txt / build-final.txt）。初回並列失敗は取り消さず、CIの標準並列実行で別途確認する。既存の500KB chunk警告は継続。
 
 最終追加E2EはPNG取得方式の対照2件も含め、開発20件・本番20件。初回開発18件の成功数と区別する。全件の最終結果は既存PRのCI対象HEADに対応付けて記録する。
+
+## commit済み最終ハーネスのWindows再確認
+
+製品・測定器・試験条件・固定許容差・個別の制限時間を変更せず、修正commit b0c37c7の本番ビルド／開発版を再実行した。最終は**本番20/20（3.1分）・開発20/20（2.9分）成功**、Chromium／Windows WebKit各10件、新作skip・retryなし。前の時間切れ・中断もそのまま残す。
+
+[開発最終ログ](development-final.txt)・[測定JSON](development-final-observations.json)、[本番最終ログ](production-final.txt)・[測定JSON](production-final-observations.json)。両環境とも必須アンカー最大差1、中央行全画素最大差3（故意の赤凡例の負対照を除外）。4幅×両テーマ×文字100/200%×全9組合せ・DPR2、DPR3タッチ、5角度、弧反転／波源移動／色改ざんの負対照、キー・マウス操作、θ選択と教材全状態復元、A非依存尺度、再生中の凡例再利用、PNG取得方式の中央行完全一致を含む。
+
+ここで追加するcommitは記録のみ。製品コードはb0c37c7から不変。途中のCI run 41966546367は単体・型・buildを通過したが、証拠を含む最終HEADへ更新するためsupersededとして停止し、その未完了結果を全件PASSへ数えない。最終HEADの標準CI全回帰の結果・件数・HEAD照合はPR #36へ確定記録する。
