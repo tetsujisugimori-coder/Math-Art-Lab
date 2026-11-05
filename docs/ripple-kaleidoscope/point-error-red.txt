@@ -1,0 +1,91 @@
+
+[WebServer] (node:41372) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+
+
+(node:37376) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:37376) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1/2] [chromium] › e2e\ripple-checks.ts:262:1 › ripple: lesson restores point validation error and its candidate
+  1) [chromium] › e2e\ripple-checks.ts:262:1 › ripple: lesson restores point validation error and its candidate
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('#rk-point-error')
+    Expected: "−5〜5の有限な座標を入力してください。"
+    Received: ""
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" with timeout 5000ms
+      - waiting for locator('#rk-point-error')
+        9 × locator resolved to <p role="status" id="rk-point-error"></p>
+          - unexpected value ""
+
+
+      63 |   await page.locator('#rk-point-form input[name=x]').fill('5.1');await page.locator('#rk-point-form button').click();const error=await page.locator('#rk-point-error').textContent();
+      64 |   await page.locator('#rk-lesson-toggle').click();await page.locator('#rk-point-form input[name=x]').fill('1');await page.locator('#rk-point-form button').click();await page.locator('#rk-lesson-toggle').click();
+    > 65 |   await expect(page.locator('#rk-point-form input[name=x]')).toHaveValue('5.1');await expect(page.locator('#rk-point-error')).toHaveText(error!);
+         |                                                                                                                               ^
+      66 | });
+      67 | test('ripple: responsive themes 200 percent text and resize preserve usable art',async({page})=>{
+      68 |   for(const width of [375,390,768,1280])for(const colorScheme of ['light','dark'] as const){await page.setViewportSize({width,height:900});await page.emulateMedia({colorScheme});await page.evaluate(()=>document.documentElement.style.fontSize='200%');await ready(page);
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-checks.ts:65:127
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\ripple-ripple-lesson-resto-310b7-ion-error-and-its-candidate-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\ripple-ripple-lesson-resto-310b7-ion-error-and-its-candidate-chromium\error-context.md
+
+
+
+(node:25360) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:25360) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[2/2] [webkit] › e2e\ripple-checks.ts:262:1 › ripple: lesson restores point validation error and its candidate
+  2) [webkit] › e2e\ripple-checks.ts:262:1 › ripple: lesson restores point validation error and its candidate
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('#rk-point-error')
+    Expected: "−5〜5の有限な座標を入力してください。"
+    Received: ""
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" with timeout 5000ms
+      - waiting for locator('#rk-point-error')
+        9 × locator resolved to <p role="status" id="rk-point-error"></p>
+          - unexpected value ""
+
+
+      63 |   await page.locator('#rk-point-form input[name=x]').fill('5.1');await page.locator('#rk-point-form button').click();const error=await page.locator('#rk-point-error').textContent();
+      64 |   await page.locator('#rk-lesson-toggle').click();await page.locator('#rk-point-form input[name=x]').fill('1');await page.locator('#rk-point-form button').click();await page.locator('#rk-lesson-toggle').click();
+    > 65 |   await expect(page.locator('#rk-point-form input[name=x]')).toHaveValue('5.1');await expect(page.locator('#rk-point-error')).toHaveText(error!);
+         |                                                                                                                               ^
+      66 | });
+      67 | test('ripple: responsive themes 200 percent text and resize preserve usable art',async({page})=>{
+      68 |   for(const width of [375,390,768,1280])for(const colorScheme of ['light','dark'] as const){await page.setViewportSize({width,height:900});await page.emulateMedia({colorScheme});await page.evaluate(()=>document.documentElement.style.fontSize='200%');await ready(page);
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-checks.ts:65:127
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\ripple-ripple-lesson-resto-310b7-ion-error-and-its-candidate-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\ripple-ripple-lesson-resto-310b7-ion-error-and-its-candidate-webkit\error-context.md
+
+
+  2 failed
+    [chromium] › e2e\ripple-checks.ts:262:1 › ripple: lesson restores point validation error and its candidate
+    [webkit] › e2e\ripple-checks.ts:262:1 › ripple: lesson restores point validation error and its candidate

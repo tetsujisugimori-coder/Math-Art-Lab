@@ -1,0 +1,73 @@
+
+[WebServer] (node:42404) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+
+
+(node:41940) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:41940) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/2] [chromium] › e2e\ripple-checks.ts:372:1 › ripple: picker has explicit theme colors and native appearance does not hide text
+  1) [chromium] › e2e\ripple-checks.ts:372:1 › ripple: picker has explicit theme colors and native appearance does not hide text
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "none"
+    Received: "auto"
+
+      85 | });
+      86 | test('ripple: picker has explicit theme colors and native appearance does not hide text',async({page})=>{
+    > 87 |   for(const colorScheme of ['light','dark'] as const){await page.emulateMedia({colorScheme});expect(await page.locator('#experiment').evaluate(el=>getComputedStyle(el).appearance)).toBe('none');}
+         |                                                                                                                                                                                      ^
+      88 |   await page.locator('#experiment').selectOption('wave');expect(await page.locator('body').evaluate(el=>el.classList.contains('ripple-active'))).toBe(false);
+      89 | });
+      90 |
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-checks.ts:87:182
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\ripple-ripple-picker-has-e-4c93b-pearance-does-not-hide-text-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\ripple-ripple-picker-has-e-4c93b-pearance-does-not-hide-text-chromium\error-context.md
+
+
+(node:5264) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+
+(node:5264) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[2/2] [webkit] › e2e\ripple-checks.ts:372:1 › ripple: picker has explicit theme colors and native appearance does not hide text
+  2) [webkit] › e2e\ripple-checks.ts:372:1 › ripple: picker has explicit theme colors and native appearance does not hide text
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "none"
+    Received: "auto"
+
+      85 | });
+      86 | test('ripple: picker has explicit theme colors and native appearance does not hide text',async({page})=>{
+    > 87 |   for(const colorScheme of ['light','dark'] as const){await page.emulateMedia({colorScheme});expect(await page.locator('#experiment').evaluate(el=>getComputedStyle(el).appearance)).toBe('none');}
+         |                                                                                                                                                                                      ^
+      88 |   await page.locator('#experiment').selectOption('wave');expect(await page.locator('body').evaluate(el=>el.classList.contains('ripple-active'))).toBe(false);
+      89 | });
+      90 |
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-checks.ts:87:182
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\ripple-ripple-picker-has-e-4c93b-pearance-does-not-hide-text-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\ripple-ripple-picker-has-e-4c93b-pearance-does-not-hide-text-webkit\error-context.md
+
+
+  2 failed
+    [chromium] › e2e\ripple-checks.ts:372:1 › ripple: picker has explicit theme colors and native appearance does not hide text
+    [webkit] › e2e\ripple-checks.ts:372:1 › ripple: picker has explicit theme colors and native appearance does not hide text

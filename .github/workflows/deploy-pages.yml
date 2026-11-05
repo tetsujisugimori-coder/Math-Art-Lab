@@ -16,9 +16,10 @@ jobs:
     if: github.event_name != 'workflow_dispatch' || github.ref == 'refs/heads/main'
     # Playwright 1.58.2 has no ubuntu26.04 browser/dependency bundles (PR #29).
     runs-on: ubuntu-24.04
-    # main run 41511807633 used 18m58s before the 30+30 crystal GUI cases.
-    # Keep every test and its own timeout; allow the larger suite to finish.
-    timeout-minutes: 30
+    # main c8c5381 Validate (41936056463) took 25m19s before ripple's
+    # 28 development + 28 production cases. Keep every test and its timeout;
+    # give the expanded regression suite enough total job time to finish.
+    timeout-minutes: 40
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1

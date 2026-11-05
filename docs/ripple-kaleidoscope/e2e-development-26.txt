@@ -1,0 +1,268 @@
+
+[WebServer] (node:33392) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 26 tests using 1 worker
+
+
+
+(node:5380) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+(node:5380) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/26] [chromium] › e2e\ripple-checks.ts:31:1 › ripple: default, fixed legend and all three rendering modes
+[2/26] [chromium] › e2e\ripple-checks.ts:46:1 › ripple: actual raster colors match independent direct wave sums
+[3/26] [chromium] › e2e\ripple-checks.ts:84:1 › ripple: play stop step and invariants do not rebuild static field
+[4/26] [chromium] › e2e\ripple-checks.ts:108:1 › ripple: presets palette amplitude rotation and phase update both geometry and raster
+[5/26] [chromium] › e2e\ripple-checks.ts:144:1 › ripple: invalid candidates do not reach settings and bounds are accepted
+[6/26] [chromium] › e2e\ripple-checks.ts:168:1 › ripple: every formula symbol selects an actual diagram; keyboard and pointer
+  1) [chromium] › e2e\ripple-checks.ts:168:1 › ripple: every formula symbol selects an actual diagram; keyboard and pointer
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for locator('#rk-stage')
+        - locator resolved to <div tabindex="0" role="group" id="rk-stage" data-draws="2" data-builds="1" data-highlight="lambda" aria-describedby="rk-hint" aria-label="干渉模様。クリック・タップで観察点Pを選択。矢印キーでPを移動" data-painted="{"settings":{"count":6,"wavelength":1.25,"radius":2.2,"amplitude":1.8,"angle":0,"phase":0},"mode":"intensity","palette":"aurora","time":0}" data-state="{"settings":{"count":6,"wavelength":1.25,"radius":2.2,"amplitude":1.8,"angle":0,"phase":0},"time":0,"playing":false,"mode":"intensity","palette":"aurora","guides":fa…>…</div>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <div class="rk-art">…</div> intercepts pointer events
+      - retrying click action
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <html lang="ja">…</html> intercepts pointer events
+      - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div class="rk-art">…</div> intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        13 × waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div class="rk-art">…</div> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <html lang="ja">…</html> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div class="rk-art">…</div> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div class="rk-art">…</div> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <div class="rk-art">…</div> intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <html lang="ja">…</html> intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <div class="rk-art">…</div> intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - element is not visible
+      - retrying click action
+        - waiting 500ms
+
+
+      47 |   await page.locator('[data-rk-symbol="lambda"]').focus();await page.keyboard.press('Enter');await expect(page.locator('#rk-symbol-copy')).toContainText('ラムダ');
+      48 |   await page.locator('#rk-jump').click();await expect(page.locator('#rk-stage')).toBeFocused();const x=(await state(page)).point.x;await page.keyboard.press('ArrowRight');expect((await state(page)).point.x).toBeCloseTo(x+.1,8);
+    > 49 |   await page.locator('#rk-stage').click({position:{x:100,y:100}});const selected=await state(page);expect(selected.point).not.toEqual({x:x+.1,y:.4});
+         |                                   ^
+      50 |   await page.locator('#rk-clear').click();await expect(page.locator('#rk-stage')).toHaveAttribute('data-highlight','');await expect(page.locator('#rk-guides [data-source]')).toHaveCount(0);
+      51 | });
+      52 | test('ripple: all four lessons isolate settings and restore full state and drafts',async({page})=>{
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-checks.ts:49:35
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\ripple-ripple-every-formul-a80c4-iagram-keyboard-and-pointer-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\ripple-ripple-every-formul-a80c4-iagram-keyboard-and-pointer-chromium\error-context.md
+
+
+
+(node:6928) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+(node:6928) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[7/26] [chromium] › e2e\ripple-checks.ts:209:1 › ripple: all four lessons isolate settings and restore full state and drafts
+[8/26] [chromium] › e2e\ripple-checks.ts:234:1 › ripple: safety stop survives lesson restore and switching artworks cleans up
+[9/26] [chromium] › e2e\ripple-checks.ts:273:1 › ripple: lesson restores point validation error and its candidate
+[10/26] [chromium] › e2e\ripple-checks.ts:286:1 › ripple: responsive themes 200 percent text and resize preserve usable art
+[11/26] [chromium] › e2e\ripple-checks.ts:307:1 › ripple: glow and guide effects preserve numerical state and base raster
+[12/26] [chromium] › e2e\ripple-checks.ts:323:1 › ripple: high DPR and touch retain raster cap and coordinate selection
+[13/26] [chromium] › e2e\ripple-checks.ts:351:1 › ripple: rendering failure is explicit and next successful draw recovers
+
+(node:6996) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:6996) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[14/26] [webkit] › e2e\ripple-checks.ts:31:1 › ripple: default, fixed legend and all three rendering modes
+[15/26] [webkit] › e2e\ripple-checks.ts:46:1 › ripple: actual raster colors match independent direct wave sums
+[16/26] [webkit] › e2e\ripple-checks.ts:84:1 › ripple: play stop step and invariants do not rebuild static field
+[17/26] [webkit] › e2e\ripple-checks.ts:108:1 › ripple: presets palette amplitude rotation and phase update both geometry and raster
+[18/26] [webkit] › e2e\ripple-checks.ts:144:1 › ripple: invalid candidates do not reach settings and bounds are accepted
+[19/26] [webkit] › e2e\ripple-checks.ts:168:1 › ripple: every formula symbol selects an actual diagram; keyboard and pointer
+  2) [webkit] › e2e\ripple-checks.ts:168:1 › ripple: every formula symbol selects an actual diagram; keyboard and pointer
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for locator('#rk-stage')
+        - locator resolved to <div tabindex="0" role="group" id="rk-stage" data-draws="2" data-builds="1" data-highlight="lambda" aria-describedby="rk-hint" aria-label="干渉模様。クリック・タップで観察点Pを選択。矢印キーでPを移動" data-painted="{"settings":{"count":6,"wavelength":1.25,"radius":2.2,"amplitude":1.8,"angle":0,"phase":0},"mode":"intensity","palette":"aurora","time":0}" data-state="{"settings":{"count":6,"wavelength":1.25,"radius":2.2,"amplitude":1.8,"angle":0,"phase":0},"time":0,"playing":false,"mode":"intensity","palette":"aurora","guides":fa…>…</div>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <div class="rk-art">…</div> intercepts pointer events
+      - retrying click action
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <html lang="ja">…</html> intercepts pointer events
+      - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div class="rk-art">…</div> intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        5 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div class="rk-art">…</div> intercepts pointer events
+        - retrying click action
+          - waiting 500ms
+          - waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <html lang="ja">…</html> intercepts pointer events
+        - retrying click action
+          - waiting 500ms
+          - waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div class="rk-art">…</div> intercepts pointer events
+        - retrying click action
+          - waiting 500ms
+          - waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div class="rk-art">…</div> intercepts pointer events
+        - retrying click action
+          - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <div class="rk-art">…</div> intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <html lang="ja">…</html> intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <div class="rk-art">…</div> intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+      - element was detached from the DOM, retrying
+
+
+      47 |   await page.locator('[data-rk-symbol="lambda"]').focus();await page.keyboard.press('Enter');await expect(page.locator('#rk-symbol-copy')).toContainText('ラムダ');
+      48 |   await page.locator('#rk-jump').click();await expect(page.locator('#rk-stage')).toBeFocused();const x=(await state(page)).point.x;await page.keyboard.press('ArrowRight');expect((await state(page)).point.x).toBeCloseTo(x+.1,8);
+    > 49 |   await page.locator('#rk-stage').click();const selected=await state(page);expect(Math.abs(selected.point.x)).toBeLessThan(.05);expect(Math.abs(selected.point.y)).toBeLessThan(.05);
+         |                                   ^
+      50 |   await page.locator('#rk-clear').click();await expect(page.locator('#rk-stage')).toHaveAttribute('data-highlight','');await expect(page.locator('#rk-guides [data-source]')).toHaveCount(0);
+      51 | });
+      52 | test('ripple: all four lessons isolate settings and restore full state and drafts',async({page})=>{
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-checks.ts:49:35
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\ripple-ripple-every-formul-a80c4-iagram-keyboard-and-pointer-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\ripple-ripple-every-formul-a80c4-iagram-keyboard-and-pointer-webkit\error-context.md
+
+
+
+
+(node:39564) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+(node:39564) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[20/26] [webkit] › e2e\ripple-checks.ts:209:1 › ripple: all four lessons isolate settings and restore full state and drafts
+[21/26] [webkit] › e2e\ripple-checks.ts:234:1 › ripple: safety stop survives lesson restore and switching artworks cleans up
+[22/26] [webkit] › e2e\ripple-checks.ts:273:1 › ripple: lesson restores point validation error and its candidate
+[23/26] [webkit] › e2e\ripple-checks.ts:286:1 › ripple: responsive themes 200 percent text and resize preserve usable art
+[24/26] [webkit] › e2e\ripple-checks.ts:307:1 › ripple: glow and guide effects preserve numerical state and base raster
+[25/26] [webkit] › e2e\ripple-checks.ts:323:1 › ripple: high DPR and touch retain raster cap and coordinate selection
+[26/26] [webkit] › e2e\ripple-checks.ts:351:1 › ripple: rendering failure is explicit and next successful draw recovers
+  2 failed
+    [chromium] › e2e\ripple-checks.ts:168:1 › ripple: every formula symbol selects an actual diagram; keyboard and pointer
+    [webkit] › e2e\ripple-checks.ts:168:1 › ripple: every formula symbol selects an actual diagram; keyboard and pointer
+  24 passed (2.1m)
