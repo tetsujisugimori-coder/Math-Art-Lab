@@ -1,0 +1,545 @@
+
+[1A[2K[WebServer] (node:41048) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+
+[1A[2K(node:38800) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:38800) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1A[2K[1/4] [chromium] › e2e\ripple-review-checks.ts:15:1 › ripple review P2: signed angles keep geometry, direction and source zero consistent
+[1A[2K  1) [chromium] › e2e\ripple-review-checks.ts:15:1 › ripple review P2: signed angles keep geometry, direction and source zero consistent
+
+    Error: description -90
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "label contradicts angle",
+    +   "Japanese explanation contradicts angle",
+    + ]
+
+       6 | test('ripple review P2: signed angles keep geometry, direction and source zero consistent',async({page},info)=>{
+       7 |   await page.locator('[data-rk-symbol="theta"]').click();const results=[];
+    >  8 |   for(const angle of angles){await setReviewSettings(page,{angle});const v=await measureRotation(page,angle);results.push(v);expect.soft(v.sourcePass,`source zero ${angle}`).toBe(true);expect.soft(v.geometryFailures,`arc ${angle}`).toEqual([]);expect.soft(v.explanationFailures,`description ${angle}`).toEqual([]);expect.soft(v.labelVisible).toBe(true);}
+         |                                                                                                                                                                                                                                                                                                               ^
+       9 |   await info.attach('rotation-observations',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      10 | });
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:8:303
+
+    Error: arc 0
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "zero has an arrow",
+    + ]
+
+       6 | test('ripple review P2: signed angles keep geometry, direction and source zero consistent',async({page},info)=>{
+       7 |   await page.locator('[data-rk-symbol="theta"]').click();const results=[];
+    >  8 |   for(const angle of angles){await setReviewSettings(page,{angle});const v=await measureRotation(page,angle);results.push(v);expect.soft(v.sourcePass,`source zero ${angle}`).toBe(true);expect.soft(v.geometryFailures,`arc ${angle}`).toEqual([]);expect.soft(v.explanationFailures,`description ${angle}`).toEqual([]);expect.soft(v.labelVisible).toBe(true);}
+         |                                                                                                                                                                                                                                         ^
+       9 |   await info.attach('rotation-observations',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      10 | });
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:8:233
+
+    Error: description 0
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "label contradicts angle",
+    +   "Japanese explanation contradicts angle",
+    + ]
+
+       6 | test('ripple review P2: signed angles keep geometry, direction and source zero consistent',async({page},info)=>{
+       7 |   await page.locator('[data-rk-symbol="theta"]').click();const results=[];
+    >  8 |   for(const angle of angles){await setReviewSettings(page,{angle});const v=await measureRotation(page,angle);results.push(v);expect.soft(v.sourcePass,`source zero ${angle}`).toBe(true);expect.soft(v.geometryFailures,`arc ${angle}`).toEqual([]);expect.soft(v.explanationFailures,`description ${angle}`).toEqual([]);expect.soft(v.labelVisible).toBe(true);}
+         |                                                                                                                                                                                                                                                                                                               ^
+       9 |   await info.attach('rotation-observations',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      10 | });
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:8:303
+
+    Error: description -180
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "label contradicts angle",
+    +   "Japanese explanation contradicts angle",
+    + ]
+
+       6 | test('ripple review P2: signed angles keep geometry, direction and source zero consistent',async({page},info)=>{
+       7 |   await page.locator('[data-rk-symbol="theta"]').click();const results=[];
+    >  8 |   for(const angle of angles){await setReviewSettings(page,{angle});const v=await measureRotation(page,angle);results.push(v);expect.soft(v.sourcePass,`source zero ${angle}`).toBe(true);expect.soft(v.geometryFailures,`arc ${angle}`).toEqual([]);expect.soft(v.explanationFailures,`description ${angle}`).toEqual([]);expect.soft(v.labelVisible).toBe(true);}
+         |                                                                                                                                                                                                                                                                                                               ^
+       9 |   await info.attach('rotation-observations',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      10 | });
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:8:303
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\ripple-review-ripple-revie-580fa--and-source-zero-consistent-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\ripple-review-ripple-revie-580fa--and-source-zero-consistent-chromium\error-context.md
+
+
+
+
+[1A[2K(node:12748) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K(node:12748) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K[2/4] [chromium] › e2e\ripple-review-checks.ts:36:1 › ripple review P3: composited legend pixels match independent colors in all nine combinations
+[1A[2K  2) [chromium] › e2e\ripple-review-checks.ts:36:1 › ripple review P3: composited legend pixels match independent colors in all nine combinations
+
+    Error: displacement/aurora
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 4
+    Received:    14
+
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+      12 |   const results=[];
+    > 13 |   for(const mode of modes)for(const palette of palettes){await setReviewDisplay(page,mode,palette);const {png,...v}=await measureLegend(page,mode,palette);results.push(v);expect.soft(v.maxError,`${mode}/${palette}`).toBeLessThanOrEqual(COLOR_TOLERANCE);expect.soft(v.samples.every(p=>p.rgba[3]===255)).toBe(true);}
+         |                                                                                                                                                                                                                         ^
+      14 |   await info.attach('legend-pixels',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      15 | });
+      16 |
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:13:217
+
+    Error: displacement/iris
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 4
+    Received:    14
+
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+      12 |   const results=[];
+    > 13 |   for(const mode of modes)for(const palette of palettes){await setReviewDisplay(page,mode,palette);const {png,...v}=await measureLegend(page,mode,palette);results.push(v);expect.soft(v.maxError,`${mode}/${palette}`).toBeLessThanOrEqual(COLOR_TOLERANCE);expect.soft(v.samples.every(p=>p.rgba[3]===255)).toBe(true);}
+         |                                                                                                                                                                                                                         ^
+      14 |   await info.attach('legend-pixels',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      15 | });
+      16 |
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:13:217
+
+    Error: displacement/gold
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 4
+    Received:    14
+
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+      12 |   const results=[];
+    > 13 |   for(const mode of modes)for(const palette of palettes){await setReviewDisplay(page,mode,palette);const {png,...v}=await measureLegend(page,mode,palette);results.push(v);expect.soft(v.maxError,`${mode}/${palette}`).toBeLessThanOrEqual(COLOR_TOLERANCE);expect.soft(v.samples.every(p=>p.rgba[3]===255)).toBe(true);}
+         |                                                                                                                                                                                                                         ^
+      14 |   await info.attach('legend-pixels',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      15 | });
+      16 |
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:13:217
+
+    Error: envelope/aurora
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 4
+    Received:    9
+
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+      12 |   const results=[];
+    > 13 |   for(const mode of modes)for(const palette of palettes){await setReviewDisplay(page,mode,palette);const {png,...v}=await measureLegend(page,mode,palette);results.push(v);expect.soft(v.maxError,`${mode}/${palette}`).toBeLessThanOrEqual(COLOR_TOLERANCE);expect.soft(v.samples.every(p=>p.rgba[3]===255)).toBe(true);}
+         |                                                                                                                                                                                                                         ^
+      14 |   await info.attach('legend-pixels',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      15 | });
+      16 |
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:13:217
+
+    Error: envelope/iris
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 4
+    Received:    7
+
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+      12 |   const results=[];
+    > 13 |   for(const mode of modes)for(const palette of palettes){await setReviewDisplay(page,mode,palette);const {png,...v}=await measureLegend(page,mode,palette);results.push(v);expect.soft(v.maxError,`${mode}/${palette}`).toBeLessThanOrEqual(COLOR_TOLERANCE);expect.soft(v.samples.every(p=>p.rgba[3]===255)).toBe(true);}
+         |                                                                                                                                                                                                                         ^
+      14 |   await info.attach('legend-pixels',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      15 | });
+      16 |
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:13:217
+
+    Error: envelope/gold
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 4
+    Received:    7
+
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+      12 |   const results=[];
+    > 13 |   for(const mode of modes)for(const palette of palettes){await setReviewDisplay(page,mode,palette);const {png,...v}=await measureLegend(page,mode,palette);results.push(v);expect.soft(v.maxError,`${mode}/${palette}`).toBeLessThanOrEqual(COLOR_TOLERANCE);expect.soft(v.samples.every(p=>p.rgba[3]===255)).toBe(true);}
+         |                                                                                                                                                                                                                         ^
+      14 |   await info.attach('legend-pixels',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      15 | });
+      16 |
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:13:217
+
+    Error: intensity/aurora
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 4
+    Received:    47
+
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+      12 |   const results=[];
+    > 13 |   for(const mode of modes)for(const palette of palettes){await setReviewDisplay(page,mode,palette);const {png,...v}=await measureLegend(page,mode,palette);results.push(v);expect.soft(v.maxError,`${mode}/${palette}`).toBeLessThanOrEqual(COLOR_TOLERANCE);expect.soft(v.samples.every(p=>p.rgba[3]===255)).toBe(true);}
+         |                                                                                                                                                                                                                         ^
+      14 |   await info.attach('legend-pixels',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      15 | });
+      16 |
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:13:217
+
+    Error: intensity/iris
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 4
+    Received:    36
+
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+      12 |   const results=[];
+    > 13 |   for(const mode of modes)for(const palette of palettes){await setReviewDisplay(page,mode,palette);const {png,...v}=await measureLegend(page,mode,palette);results.push(v);expect.soft(v.maxError,`${mode}/${palette}`).toBeLessThanOrEqual(COLOR_TOLERANCE);expect.soft(v.samples.every(p=>p.rgba[3]===255)).toBe(true);}
+         |                                                                                                                                                                                                                         ^
+      14 |   await info.attach('legend-pixels',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      15 | });
+      16 |
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:13:217
+
+    Error: intensity/gold
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 4
+    Received:    38
+
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+      12 |   const results=[];
+    > 13 |   for(const mode of modes)for(const palette of palettes){await setReviewDisplay(page,mode,palette);const {png,...v}=await measureLegend(page,mode,palette);results.push(v);expect.soft(v.maxError,`${mode}/${palette}`).toBeLessThanOrEqual(COLOR_TOLERANCE);expect.soft(v.samples.every(p=>p.rgba[3]===255)).toBe(true);}
+         |                                                                                                                                                                                                                         ^
+      14 |   await info.attach('legend-pixels',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      15 | });
+      16 |
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:13:217
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\ripple-review-ripple-revie-54345-rs-in-all-nine-combinations-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\ripple-review-ripple-revie-54345-rs-in-all-nine-combinations-chromium\error-context.md
+
+
+[1A[2K(node:11552) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K(node:11552) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[3/4] [webkit] › e2e\ripple-review-checks.ts:15:1 › ripple review P2: signed angles keep geometry, direction and source zero consistent
+[1A[2K  3) [webkit] › e2e\ripple-review-checks.ts:15:1 › ripple review P2: signed angles keep geometry, direction and source zero consistent
+
+    Error: description -90
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "label contradicts angle",
+    +   "Japanese explanation contradicts angle",
+    + ]
+
+       6 | test('ripple review P2: signed angles keep geometry, direction and source zero consistent',async({page},info)=>{
+       7 |   await page.locator('[data-rk-symbol="theta"]').click();const results=[];
+    >  8 |   for(const angle of angles){await setReviewSettings(page,{angle});const v=await measureRotation(page,angle);results.push(v);expect.soft(v.sourcePass,`source zero ${angle}`).toBe(true);expect.soft(v.geometryFailures,`arc ${angle}`).toEqual([]);expect.soft(v.explanationFailures,`description ${angle}`).toEqual([]);expect.soft(v.labelVisible).toBe(true);}
+         |                                                                                                                                                                                                                                                                                                               ^
+       9 |   await info.attach('rotation-observations',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      10 | });
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:8:303
+
+    Error: arc 0
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "zero has an arrow",
+    + ]
+
+       6 | test('ripple review P2: signed angles keep geometry, direction and source zero consistent',async({page},info)=>{
+       7 |   await page.locator('[data-rk-symbol="theta"]').click();const results=[];
+    >  8 |   for(const angle of angles){await setReviewSettings(page,{angle});const v=await measureRotation(page,angle);results.push(v);expect.soft(v.sourcePass,`source zero ${angle}`).toBe(true);expect.soft(v.geometryFailures,`arc ${angle}`).toEqual([]);expect.soft(v.explanationFailures,`description ${angle}`).toEqual([]);expect.soft(v.labelVisible).toBe(true);}
+         |                                                                                                                                                                                                                                         ^
+       9 |   await info.attach('rotation-observations',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      10 | });
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:8:233
+
+    Error: description 0
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "label contradicts angle",
+    +   "Japanese explanation contradicts angle",
+    + ]
+
+       6 | test('ripple review P2: signed angles keep geometry, direction and source zero consistent',async({page},info)=>{
+       7 |   await page.locator('[data-rk-symbol="theta"]').click();const results=[];
+    >  8 |   for(const angle of angles){await setReviewSettings(page,{angle});const v=await measureRotation(page,angle);results.push(v);expect.soft(v.sourcePass,`source zero ${angle}`).toBe(true);expect.soft(v.geometryFailures,`arc ${angle}`).toEqual([]);expect.soft(v.explanationFailures,`description ${angle}`).toEqual([]);expect.soft(v.labelVisible).toBe(true);}
+         |                                                                                                                                                                                                                                                                                                               ^
+       9 |   await info.attach('rotation-observations',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      10 | });
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:8:303
+
+    Error: description -180
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "label contradicts angle",
+    +   "Japanese explanation contradicts angle",
+    + ]
+
+       6 | test('ripple review P2: signed angles keep geometry, direction and source zero consistent',async({page},info)=>{
+       7 |   await page.locator('[data-rk-symbol="theta"]').click();const results=[];
+    >  8 |   for(const angle of angles){await setReviewSettings(page,{angle});const v=await measureRotation(page,angle);results.push(v);expect.soft(v.sourcePass,`source zero ${angle}`).toBe(true);expect.soft(v.geometryFailures,`arc ${angle}`).toEqual([]);expect.soft(v.explanationFailures,`description ${angle}`).toEqual([]);expect.soft(v.labelVisible).toBe(true);}
+         |                                                                                                                                                                                                                                                                                                               ^
+       9 |   await info.attach('rotation-observations',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      10 | });
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:8:303
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\ripple-review-ripple-revie-580fa--and-source-zero-consistent-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\ripple-review-ripple-revie-580fa--and-source-zero-consistent-webkit\error-context.md
+
+
+
+[1A[2K(node:34636) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K(node:34636) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[4/4] [webkit] › e2e\ripple-review-checks.ts:36:1 › ripple review P3: composited legend pixels match independent colors in all nine combinations
+[1A[2K  4) [webkit] › e2e\ripple-review-checks.ts:36:1 › ripple review P3: composited legend pixels match independent colors in all nine combinations
+
+    Error: displacement/aurora
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 4
+    Received:    14
+
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+      12 |   const results=[];
+    > 13 |   for(const mode of modes)for(const palette of palettes){await setReviewDisplay(page,mode,palette);const {png,...v}=await measureLegend(page,mode,palette);results.push(v);expect.soft(v.maxError,`${mode}/${palette}`).toBeLessThanOrEqual(COLOR_TOLERANCE);expect.soft(v.samples.every(p=>p.rgba[3]===255)).toBe(true);}
+         |                                                                                                                                                                                                                         ^
+      14 |   await info.attach('legend-pixels',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      15 | });
+      16 |
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:13:217
+
+    Error: displacement/iris
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 4
+    Received:    14
+
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+      12 |   const results=[];
+    > 13 |   for(const mode of modes)for(const palette of palettes){await setReviewDisplay(page,mode,palette);const {png,...v}=await measureLegend(page,mode,palette);results.push(v);expect.soft(v.maxError,`${mode}/${palette}`).toBeLessThanOrEqual(COLOR_TOLERANCE);expect.soft(v.samples.every(p=>p.rgba[3]===255)).toBe(true);}
+         |                                                                                                                                                                                                                         ^
+      14 |   await info.attach('legend-pixels',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      15 | });
+      16 |
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:13:217
+
+    Error: displacement/gold
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 4
+    Received:    14
+
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+      12 |   const results=[];
+    > 13 |   for(const mode of modes)for(const palette of palettes){await setReviewDisplay(page,mode,palette);const {png,...v}=await measureLegend(page,mode,palette);results.push(v);expect.soft(v.maxError,`${mode}/${palette}`).toBeLessThanOrEqual(COLOR_TOLERANCE);expect.soft(v.samples.every(p=>p.rgba[3]===255)).toBe(true);}
+         |                                                                                                                                                                                                                         ^
+      14 |   await info.attach('legend-pixels',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      15 | });
+      16 |
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:13:217
+
+    Error: envelope/aurora
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 4
+    Received:    13
+
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+      12 |   const results=[];
+    > 13 |   for(const mode of modes)for(const palette of palettes){await setReviewDisplay(page,mode,palette);const {png,...v}=await measureLegend(page,mode,palette);results.push(v);expect.soft(v.maxError,`${mode}/${palette}`).toBeLessThanOrEqual(COLOR_TOLERANCE);expect.soft(v.samples.every(p=>p.rgba[3]===255)).toBe(true);}
+         |                                                                                                                                                                                                                         ^
+      14 |   await info.attach('legend-pixels',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      15 | });
+      16 |
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:13:217
+
+    Error: envelope/iris
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 4
+    Received:    13
+
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+      12 |   const results=[];
+    > 13 |   for(const mode of modes)for(const palette of palettes){await setReviewDisplay(page,mode,palette);const {png,...v}=await measureLegend(page,mode,palette);results.push(v);expect.soft(v.maxError,`${mode}/${palette}`).toBeLessThanOrEqual(COLOR_TOLERANCE);expect.soft(v.samples.every(p=>p.rgba[3]===255)).toBe(true);}
+         |                                                                                                                                                                                                                         ^
+      14 |   await info.attach('legend-pixels',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      15 | });
+      16 |
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:13:217
+
+    Error: envelope/gold
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 4
+    Received:    13
+
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+      12 |   const results=[];
+    > 13 |   for(const mode of modes)for(const palette of palettes){await setReviewDisplay(page,mode,palette);const {png,...v}=await measureLegend(page,mode,palette);results.push(v);expect.soft(v.maxError,`${mode}/${palette}`).toBeLessThanOrEqual(COLOR_TOLERANCE);expect.soft(v.samples.every(p=>p.rgba[3]===255)).toBe(true);}
+         |                                                                                                                                                                                                                         ^
+      14 |   await info.attach('legend-pixels',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      15 | });
+      16 |
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:13:217
+
+    Error: intensity/aurora
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 4
+    Received:    47
+
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+      12 |   const results=[];
+    > 13 |   for(const mode of modes)for(const palette of palettes){await setReviewDisplay(page,mode,palette);const {png,...v}=await measureLegend(page,mode,palette);results.push(v);expect.soft(v.maxError,`${mode}/${palette}`).toBeLessThanOrEqual(COLOR_TOLERANCE);expect.soft(v.samples.every(p=>p.rgba[3]===255)).toBe(true);}
+         |                                                                                                                                                                                                                         ^
+      14 |   await info.attach('legend-pixels',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      15 | });
+      16 |
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:13:217
+
+    Error: intensity/iris
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 4
+    Received:    36
+
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+      12 |   const results=[];
+    > 13 |   for(const mode of modes)for(const palette of palettes){await setReviewDisplay(page,mode,palette);const {png,...v}=await measureLegend(page,mode,palette);results.push(v);expect.soft(v.maxError,`${mode}/${palette}`).toBeLessThanOrEqual(COLOR_TOLERANCE);expect.soft(v.samples.every(p=>p.rgba[3]===255)).toBe(true);}
+         |                                                                                                                                                                                                                         ^
+      14 |   await info.attach('legend-pixels',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      15 | });
+      16 |
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:13:217
+
+    Error: intensity/gold
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 4
+    Received:    38
+
+      11 | test('ripple review P3: composited legend pixels match independent colors in all nine combinations',async({page},info)=>{
+      12 |   const results=[];
+    > 13 |   for(const mode of modes)for(const palette of palettes){await setReviewDisplay(page,mode,palette);const {png,...v}=await measureLegend(page,mode,palette);results.push(v);expect.soft(v.maxError,`${mode}/${palette}`).toBeLessThanOrEqual(COLOR_TOLERANCE);expect.soft(v.samples.every(p=>p.rgba[3]===255)).toBe(true);}
+         |                                                                                                                                                                                                                         ^
+      14 |   await info.attach('legend-pixels',{body:JSON.stringify(results,null,2),contentType:'application/json'});
+      15 | });
+      16 |
+        at C:\Users\tetsu\.codex\worktrees\bbc9\Math-Art-Lab\e2e\ripple-review-checks.ts:13:217
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\ripple-review-ripple-revie-54345-rs-in-all-nine-combinations-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\ripple-review-ripple-revie-54345-rs-in-all-nine-combinations-webkit\error-context.md
+
+
+[1A[2K  4 failed
+    [chromium] › e2e\ripple-review-checks.ts:15:1 › ripple review P2: signed angles keep geometry, direction and source zero consistent
+    [chromium] › e2e\ripple-review-checks.ts:36:1 › ripple review P3: composited legend pixels match independent colors in all nine combinations
+    [webkit] › e2e\ripple-review-checks.ts:15:1 › ripple review P2: signed angles keep geometry, direction and source zero consistent
+    [webkit] › e2e\ripple-review-checks.ts:36:1 › ripple review P3: composited legend pixels match independent colors in all nine combinations

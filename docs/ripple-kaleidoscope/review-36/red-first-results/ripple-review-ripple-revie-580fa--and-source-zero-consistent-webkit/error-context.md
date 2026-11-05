@@ -1,0 +1,197 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - navigation "作品の選択" [ref=e3]:
+    - generic [ref=e4]:
+      - text: 作品
+      - combobox "作品" [ref=e5]:
+        - option "002 · 光のハーモノグラフ"
+        - option "001 · Fractal × Wave"
+        - option "003 · 光の花園"
+        - option "004 · 光の結び目"
+        - option "005 · カオスの蝶"
+        - option "006 · フラクタルの双子"
+        - option "007 · 波紋の対話"
+        - option "008 · 風の軌跡"
+        - option "009 · チューリングの庭"
+        - option "010 · フーリエの万華鏡"
+        - option "011 · 距離の結晶"
+        - option "012 · 振動の砂絵"
+        - option "013 · 波紋の万華鏡" [selected]
+  - main [ref=e7]:
+    - generic [ref=e8]:
+      - text: MATH ART LAB / EXPERIMENT 013
+      - heading "波紋の万華鏡" [level=1] [ref=e9]
+      - paragraph [ref=e10]:
+        - text: 複数の波が生む干渉と対称性を、光の花として観察する。
+        - text: Ripple Kaleidoscope
+    - generic [ref=e11]:
+      - generic [ref=e12]:
+        - generic [ref=e13]:
+          - generic [ref=e14]: INTERFERENCE / SYMMETRY
+          - generic [ref=e15]: 6波源 · 基本対称モード
+        - group "干渉模様。クリック・タップで観察点Pを選択。矢印キーでPを移動" [ref=e16]:
+          - generic "複数の円形波の計算画像"
+          - img:
+            - generic:
+              - generic: O
+            - generic:
+              - generic:
+                - generic: "0"
+              - generic:
+                - generic: "1"
+              - generic:
+                - generic: "2"
+              - generic:
+                - generic: "3"
+              - generic:
+                - generic: "4"
+              - generic:
+                - generic: "5"
+            - generic:
+              - generic: P
+            - generic:
+              - generic: θ=-180° ↺
+        - paragraph [ref=e17]: 座標 x,y：−5〜5、上がyの正。図をクリック・タップ、または図にTabで移動して矢印キーでPを選択（0.1単位）。図の上でも縦スクロールできます。円形の窓の外のPは数値だけで確認します。
+        - generic [ref=e18]:
+          - paragraph [ref=e20]: 強度相当量 I=C²：0〜144、q=I/(4N²)、色変換 q^0.4。左の暗色0 → 右の明色が上限。Aを変えても尺度は固定です。
+          - paragraph [ref=e21]: 色は数値の可視化です。物理的な波長そのものの色ではありません。光彩ONでは色を重ねます。定量比較は光彩OFFで。
+        - generic [ref=e22]:
+          - button "再生" [ref=e23] [cursor=pointer]
+          - button "1ステップ" [ref=e24] [cursor=pointer]
+          - button "時刻を初期化" [ref=e25] [cursor=pointer]
+        - status [ref=e26]: t ≈ 0 · 停止中
+        - paragraph [ref=e27]: 周期T=6、1ステップ=0.05。包絡振幅と強度は再生しても静止します。非表示・動きを減らす設定の有効化で停止し、再開は手動です。
+        - generic [ref=e28]:
+          - heading "観察点 P と波の足し算" [level=2] [ref=e29]
+          - status [ref=e30]: P=(0.7, 0.4) · u≈0.72718 · C≈4.1364 · I=C²≈17.11 · I/(4N²)≈0.11882
+          - group [ref=e31]:
+            - generic "各波源の距離・位相・瞬間変位" [ref=e32] [cursor=pointer]
+        - button "4段階の教材を開く" [ref=e33] [cursor=pointer]
+      - complementary [ref=e34]:
+        - heading "光の条件" [level=2] [ref=e35]
+        - generic [ref=e36]:
+          - text: 模様のプリセット
+          - combobox "模様のプリセット" [ref=e37]:
+            - option "カスタム設定" [disabled] [selected]
+            - option "六花"
+            - option "星環"
+            - option "光の花弁"
+            - option "静かな結晶"
+        - paragraph [ref=e38]: 名称は印象です。花弁の本数や数学的な形を保証しません。
+        - generic [ref=e39]:
+          - text: 表示モード
+          - combobox "表示モード" [ref=e40]:
+            - option "瞬間変位 u"
+            - option "包絡振幅 C"
+            - option "干渉の強度 I = C²" [selected]
+        - generic [ref=e41]:
+          - text: 色彩
+          - combobox "色彩" [ref=e42]:
+            - option "青とシアンの極光" [selected]
+            - option "紫とピンクの虹彩"
+            - option "藍と金の星明かり"
+        - generic [ref=e43]:
+          - checkbox "波源・対称性ガイド" [ref=e44]
+          - text: 波源・対称性ガイド
+        - generic [ref=e45]:
+          - checkbox "光彩（表示上の演出）" [checked] [ref=e46]
+          - text: 光彩（表示上の演出）
+        - generic [ref=e47]:
+          - generic [ref=e48]:
+            - text: 波源数 N
+            - combobox "波源数 N" [ref=e49]:
+              - option "1個"
+              - option "2個"
+              - option "3個"
+              - option "4個"
+              - option "5個"
+              - option "6個" [selected]
+              - option "7個"
+              - option "8個"
+          - generic [ref=e50]:
+            - text: 波長 λ（0.5〜4）
+            - spinbutton "波長 λ（0.5〜4）" [ref=e51]: "1.25"
+          - generic [ref=e52]:
+            - text: 配置半径 R（0.25〜3）
+            - spinbutton "配置半径 R（0.25〜3）" [ref=e53]: "2.2"
+          - generic [ref=e54]:
+            - text: 共通振幅 A（0〜2）
+            - spinbutton "共通振幅 A（0〜2）" [ref=e55]: "1.8"
+          - generic [ref=e56]:
+            - text: 配置角 θ（度）（-180〜180）
+            - spinbutton "配置角 θ（度）（-180〜180）" [ref=e57]: "-180"
+          - generic [ref=e58]:
+            - text: 発展：波源0の位相 φ₀（度）（-180〜180）
+            - spinbutton "発展：波源0の位相 φ₀（度）（-180〜180）" [ref=e59]: "0"
+          - button "設定を適用" [ref=e60] [cursor=pointer]
+          - status
+        - paragraph [ref=e61]: 入力は候補です。適用すると時刻0で停止します。φ₀=0が基本対称モード。φ₀≠0は位相を崩す発展モードです。操作範囲は画質と計算量のための制限です。
+        - button "設定を初期化" [ref=e62] [cursor=pointer]
+        - generic [ref=e63]:
+          - text: 距離・振幅を調べる波源 j
+          - combobox "距離・振幅を調べる波源 j" [ref=e64]:
+            - option "波源 0" [selected]
+            - option "波源 1"
+            - option "波源 2"
+            - option "波源 3"
+            - option "波源 4"
+            - option "波源 5"
+        - generic [ref=e65]:
+          - generic [ref=e66]:
+            - generic [ref=e67]:
+              - text: Pのx
+              - spinbutton "Pのx" [ref=e68]: "0.7"
+            - generic [ref=e69]:
+              - text: Pのy
+              - spinbutton "Pのy" [ref=e70]: "0.4"
+          - button "Pを適用" [ref=e71] [cursor=pointer]
+          - status
+    - generic [ref=e72]:
+      - heading "数式を選んで、図とつなぐ" [level=2] [ref=e73]
+      - paragraph [ref=e74]: 記号ボタンはクリック・タップ・Tabで選べます。図での強調と日本語の読み方が連動します。Enter／Spaceでも選択できます。
+      - generic [ref=e75]:
+        - paragraph [ref=e76]:
+          - button "r_j：アール・ジェー" [ref=e77] [cursor=pointer]: r_j
+          - text: = √((x−x_j)²+(y−y_j)²)
+        - paragraph [ref=e78]:
+          - text: x_j =
+          - button "R：アール" [ref=e79] [cursor=pointer]: R
+          - text: cos(2πj/
+          - button "N：エヌ" [ref=e80] [cursor=pointer]: "N"
+          - text: +
+          - button "θ：シータ" [pressed] [ref=e81] [cursor=pointer]: θ
+          - text: )、 y_j = R sin(2πj/N + θ)
+        - paragraph [ref=e82]:
+          - text: u_j =
+          - button "A_j：エー・ジェー" [ref=e83] [cursor=pointer]: A_j
+          - text: cos(
+          - button "k：ケー" [ref=e84] [cursor=pointer]: k
+          - text: r_j −
+          - button "ω：オメガ" [ref=e85] [cursor=pointer]: ω
+          - button "t：ティー" [ref=e86] [cursor=pointer]: t
+          - text: +
+          - button "φ_j：ファイ・ジェー" [ref=e87] [cursor=pointer]: φ_j
+          - text: )
+        - paragraph [ref=e88]:
+          - button "u：ユー" [ref=e89] [cursor=pointer]: u
+          - text: =
+          - button "Σ：シグマ" [ref=e90] [cursor=pointer]: Σ
+          - text: "[j=0..N−1] u_j、 k = 2π/"
+          - button "λ：ラムダ" [ref=e91] [cursor=pointer]: λ
+        - paragraph [ref=e92]:
+          - button "C：シー" [ref=e93] [cursor=pointer]: C
+          - text: = |Σ[j=0..N−1] A_j exp(i(kr_j+φ_j))|、
+          - button "I：アイ" [ref=e94] [cursor=pointer]: I
+          - text: = C²
+      - region "複素振幅の実部と虚部による計算式" [ref=e95]:
+        - math [ref=e96]:
+          - generic [ref=e97]: X = Σ A_j cos(kr_j+φ_j), Y = Σ A_j sin(kr_j+φ_j), C = √(X²+Y²)
+      - status [ref=e98]: θ：シータ。配置の回転角θ。右向きを0°として反時計回り。中心の弧と矢印は0°から現在の配置角までを示します。
+      - button "強調を解除" [ref=e99] [cursor=pointer]
+      - button "図形を確認" [ref=e100] [cursor=pointer]
+      - status [ref=e101]: 適用値 N=6, λ=1.25, R=2.2, A=1.8, θ=-180°, φ₀=0°。 k≈5.0265, ω≈1.0472。 X≈0.72718, Y≈4.072。
+      - paragraph [ref=e102]: exp(iα)=cosα+i sinα。iは虚数単位、| |は複素数の大きさ。X=ΣA_j cos(kr_j+φ_j)、Y=ΣA_j sin(kr_j+φ_j)と置くと、u=X cos(ωt)+Y sin(ωt)、C=√(X²+Y²)です。
+    - generic [ref=e103]: 理想化モデル：同じ振動数の円形波を、距離による振幅減衰なしで重ねます。反射・到達前線・実際の光学系の照度や水面波のエネルギーは再現しません。表示は円形の窓で切り取った画素中心の近似です。等位相ではN回回転対称ですが、見える花弁はλ・R・表示範囲・色変換にも依存します。
+```

@@ -2,6 +2,8 @@
 
 初期仕様：[Issue #35](https://github.com/tetsujisugimori-coder/Math-Art-Lab/issues/35)。[依頼全文](request.md)はIssue登録後に読戻し、改行・末尾改行を正規化して一致を確認した。以後、初期Issue本文は変更しない。
 
+PR #36の独立指摘P2/P3への修正は[追補記録](review-36/README.md)を参照。以下は初回実装の記録で、修正前のCSS凡例・性能値と後の修正を区別して保持する。
+
 ## 基準と既存作品との差分
 
 2026-11-05 JST、最新main `c8c5381` をfetchして専用ブランチ `feat/013-ripple-kaleidoscope` を作成。ユーザー指定と `C:/Users/tetsu/.codex/AGENTS.md` の「回答の最後に日時」を適用。リポジトリ内に追加のAGENTS.mdはなかった。README、LOG、第7作のモデル・描画・教材、第12作の操作と記号連携、MathML renderer、開発／本番Playwright、Pages workflowを確認した。

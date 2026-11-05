@@ -1,5 +1,5 @@
 import {buildField,defaults,evaluate,EXTENT,OMEGA,parseNumber,PERIOD,presets,radians,RESOLUTION,screenPoint,sources,STEP,valid,validPoint,waveNumber,type Mode,type Palette,type Point,type Settings} from './ripple';
-import {color,GLOW_RESOLUTION,paintPixels,paletteNames} from './ripple-render';
+import {GLOW_RESOLUTION,legendPixels,paintPixels,paletteNames} from './ripple-render';
 import {renderMath} from './inspector';
 import './ripple.css';
 
@@ -7,7 +7,7 @@ const symbols={
   N:['エヌ','波源の個数。j=0からN−1までのN個を、重複なく円周上に置きます。すべての波源を丸で強調します。'],
   R:['アール','中心Oから波源までの配置半径。放射状の実線が各波源までのRです。'],
   lambda:['ラムダ','波長λ。波の山から次の山までの距離。波源0を中心とする二つの円の半径差と、線分の長さがλです。'],
-  theta:['シータ','配置の回転角θ。右向きを0°として反時計回り。中心の弧と矢印は0°から現在の配置角までを示します。'],
+  theta:['シータ','配置の回転角θ。右向きが0°です。中心の図は0°から現在の配置角までを示します。'],
   r:['アール・ジェー','観察点Pから選んだ波源jまでの距離r_j。破線で結びます。'],
   A:['エー・ジェー','各波源の振幅A_j。本作は共通のA。波源jのそばの縦線が振幅に比例する長さです。距離による減衰は省略します。'],
   phi:['ファイ・ジェー','初期位相φ_jは波の開始位置のずれ。発展操作では波源0だけをずらします。図の点線円はt=0での基準の山、実線円は位相をずらした山です。'],
@@ -42,7 +42,7 @@ export function mountRipple(root:HTMLElement):()=>void {
   <div class="rk-layout"><div class="rk-art"><div class="rk-plaque"><span>INTERFERENCE / SYMMETRY</span><span id="rk-symmetry"></span></div>
   <div id="rk-stage" tabindex="0" role="group" aria-label="干渉模様。クリック・タップで観察点Pを選択。矢印キーでPを移動" aria-describedby="rk-hint"><canvas id="rk-canvas" width="${RESOLUTION}" height="${RESOLUTION}" aria-label="複数の円形波の計算画像"></canvas><canvas id="rk-glow" width="${GLOW_RESOLUTION}" height="${GLOW_RESOLUTION}" aria-hidden="true"></canvas><svg id="rk-guides" viewBox="0 0 400 400" aria-hidden="true"></svg></div>
   <p id="rk-hint">座標 x,y：−5〜5、上がyの正。図をクリック・タップ、または図にTabで移動して矢印キーでPを選択（0.1単位）。図の上でも縦スクロールできます。円形の窓の外のPは数値だけで確認します。</p><p id="rk-guide-key" hidden></p>
-  <div class="rk-legend"><div id="rk-scale" aria-hidden="true"></div><p id="rk-legend"></p><p>色は数値の可視化です。物理的な波長そのものの色ではありません。光彩ONでは色を重ねます。定量比較は光彩OFFで。</p></div>
+  <div class="rk-legend"><canvas id="rk-scale" width="3" height="1" aria-hidden="true"></canvas><p id="rk-legend"></p><p>色は数値の可視化です。物理的な波長そのものの色ではありません。光彩ONでは色を重ねます。定量比較は光彩OFFで。</p></div>
   <div class="rk-actions"><button id="rk-play">再生</button><button id="rk-step">1ステップ</button><button id="rk-time-reset">時刻を初期化</button></div><output id="rk-clock" aria-live="off"></output><p>周期T=6、1ステップ=0.05。包絡振幅と強度は再生しても静止します。非表示・動きを減らす設定の有効化で停止し、再開は手動です。</p>
   <div class="rk-observation"><h2>観察点 P と波の足し算</h2><output id="rk-observation" aria-live="off"></output><details><summary>各波源の距離・位相・瞬間変位</summary><div id="rk-terms"></div></details></div>
   <div id="rk-fallback" role="status" hidden></div>
@@ -65,6 +65,15 @@ export function mountRipple(root:HTMLElement):()=>void {
   const $=<T extends HTMLElement=HTMLElement>(q:string)=>root.querySelector<T>(q)!;
   const canvas=$<HTMLCanvasElement>('#rk-canvas'),glow=$<HTMLCanvasElement>('#rk-glow'),stage=$('#rk-stage'),form=$<HTMLFormElement>('#rk-settings'),pointForm=$<HTMLFormElement>('#rk-point-form');
   const context=canvas.getContext('2d',{alpha:false}),glowContext=glow.getContext('2d');
+  const legend=$<HTMLCanvasElement>('#rk-scale');let legendKey='',legendDraws=0;
+  function drawLegend() {
+    const cssWidth=legend.getBoundingClientRect().width;if(cssWidth<=0)return;
+    const width=Math.max(3,Math.min(4097,Math.round(cssWidth*(devicePixelRatio||1)))),key=`${width}/${state.mode}/${state.palette}`;
+    if(key===legendKey)return;
+    const ctx=legend.getContext('2d',{alpha:false});if(!ctx||ctx.isContextLost?.())return;
+    legend.width=width;const row=ctx.createImageData(width,1);row.data.set(legendPixels(width,state.mode,state.palette));ctx.putImageData(row,0,0);
+    legendKey=key;legend.dataset.draws=String(++legendDraws);
+  }
   const image=context?.createImageData(RESOLUTION,RESOLUTION);
   const inputs=()=>Array.from(root.querySelectorAll<HTMLInputElement|HTMLSelectElement>('#rk-settings input,#rk-settings select,#rk-point-form input'));
   const input=(f:HTMLFormElement,key:string)=>f.elements.namedItem(key) as HTMLInputElement;
@@ -110,7 +119,8 @@ export function mountRipple(root:HTMLElement):()=>void {
       }
       if(id==='theta') {
         const a=radians(s.angle),points=Array.from({length:33},(_,j)=>`${200+36*Math.cos(a*j/32)},${200-36*Math.sin(a*j/32)}`).join(' ');
-        markup+=`<g class="rk-hot" data-guide="angle"><path d="M200 200h45" stroke-dasharray="3 3"/><polyline points="${points}" marker-end="url(#rk-arrow)"/><text x="212" y="250">θ=${fmt(s.angle)}° ↺</text></g>`;
+        const direction=s.angle>0?'↺':s.angle<0?'↻':'回転なし';
+        markup+=`<g class="rk-hot" data-guide="angle"><path d="M200 200h45" stroke-dasharray="3 3"/>${s.angle===0?'':`<polyline points="${points}" marker-end="url(#rk-arrow)"/>`}<text x="200" y="258" text-anchor="middle">θ=${s.angle>0?'+':''}${s.angle}° ${direction}</text></g>`;
       }
       if(id==='C'||id==='I'||id==='u'||id==='t'||id==='omega')markup+=`<g class="rk-hot" data-guide="envelope"><circle cx="${X(state.point.x)}" cy="${Y(state.point.y)}" r="${16*v.C/(2*s.count)}"/><text x="${Math.min(300,X(state.point.x)+12)}" y="${Math.max(20,Y(state.point.y)-14)}">C≈${fmt(v.C)}</text></g>`;
     }
@@ -135,9 +145,10 @@ export function mountRipple(root:HTMLElement):()=>void {
     const target=$<HTMLSelectElement>('#rk-target');if(target.options.length!==s.count)target.innerHTML=sources(s).map(p=>`<option value="${p.index}">波源 ${p.index}</option>`).join('');target.value=String(state.target);
     $('#rk-current').textContent=`適用値 N=${s.count}, λ=${s.wavelength}, R=${s.radius}, A=${s.amplitude}, θ=${s.angle}°, φ₀=${s.phase}°。 k≈${fmt(waveNumber(s.wavelength))}, ω≈${fmt(OMEGA)}。 X≈${fmt(v.real)}, Y≈${fmt(v.imag)}。`;
     $('#rk-legend').textContent=state.mode==='displacement'?`瞬間変位 u：青 −${bound} ／ 暗 0 ／ 金 +${bound}。明るさは|u/(2N)|^0.65。符号はPの数値でも確認できます。`:`${state.mode==='envelope'?`包絡振幅 C：0〜${bound}、q=C/(2N)、色変換 q^0.7`:`強度相当量 I=C²：0〜${bound*bound}、q=I/(4N²)、色変換 q^0.4`}。左の暗色0 → 右の明色が上限。Aを変えても尺度は固定です。`;
-    const stops=Array.from({length:9},(_,i)=>{const q=state.mode==='displacement'?i/4-1:i/8,value=q*(state.mode==='intensity'?bound*bound:bound);return `rgb(${color(value,state.mode,state.palette,s.count).join(',')}) ${i/8*100}%`;});$('#rk-scale').style.background=`linear-gradient(to right,${stops.join(',')})`;
+    drawLegend();
     const symbolLabel:Partial<Record<SymbolId,string>>={lambda:'λ',theta:'θ',r:'r_j',A:'A_j',phi:'φ_j',sigma:'Σ',omega:'ω'};
-    $('#rk-symbol-copy').textContent=state.symbol?`${symbolLabel[state.symbol]??state.symbol}：${symbols[state.symbol][0]}。${symbols[state.symbol][1]}`:'記号を選ぶと読み方と意味を表示します。';
+    const rotationCopy=s.angle===0?'現在のθ=0°は回転なしです。':`現在のθ=${s.angle>0?'+':''}${s.angle}°は、${s.angle>0?'反時計回り':'時計回り'}に${Math.abs(s.angle)}°回転した配置です。`;
+    $('#rk-symbol-copy').textContent=state.symbol?`${symbolLabel[state.symbol]??state.symbol}：${symbols[state.symbol][0]}。${symbols[state.symbol][1]}${state.symbol==='theta'?rotationCopy:''}`:'記号を選ぶと読み方と意味を表示します。';
     root.querySelectorAll<HTMLButtonElement>('[data-rk-symbol]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.rkSymbol===state.symbol)));
     $('#rk-guide-key').hidden=!state.guides;$('#rk-guide-key').textContent=`丸と番号＝波源、実線＝配置半径、十字P＝観察点、O＝中心。${s.phase===0?'破線＝基本配置の対称軸（鏡映軸）。':'破線＝配置の軸。発展モードの干渉模様の対称性を保証する線ではありません。'}`;overlay();
   }
@@ -177,8 +188,9 @@ export function mountRipple(root:HTMLElement):()=>void {
   function safetyStop() {state.playing=false;if(saved)saved.state.playing=false;previous=null;if(raf!==null)cancelAnimationFrame(raf);raf=null;sync();}
   document.addEventListener('visibilitychange',()=>{if(document.hidden)safetyStop();else schedule();},{signal:life.signal});
   motion.addEventListener('change',e=>{if(e.matches){safetyStop();schedule();}},{signal:life.signal});
-  const observer=new ResizeObserver(()=>{dirty=true;schedule();});observer.observe(stage);
+  const observer=new ResizeObserver(()=>{drawLegend();dirty=true;schedule();});observer.observe(stage);
+  window.addEventListener('resize',drawLegend,{signal:life.signal});
   $('#rk-terms').parentElement!.addEventListener('toggle',()=>sync(),{signal:life.signal});
   fill();refresh();
-  return()=>{disposed=true;if(raf!==null)cancelAnimationFrame(raf);life.abort();observer.disconnect();saved=null;canvas.width=glow.width=0;document.body.classList.remove('ripple-active');root.replaceChildren();};
+  return()=>{disposed=true;if(raf!==null)cancelAnimationFrame(raf);life.abort();observer.disconnect();saved=null;canvas.width=glow.width=legend.width=0;document.body.classList.remove('ripple-active');root.replaceChildren();};
 }

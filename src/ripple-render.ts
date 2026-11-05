@@ -30,6 +30,20 @@ function table(mode:Mode,palette:Palette) {
   if(!lut) {lut=new Uint8ClampedArray(2049*3);for(let i=0;i<=2048;i++)lut.set(color(mode==='displacement'?(i/1024-1)*2:i/2048*(mode==='intensity'?4:2),mode,palette,1),i*3);tables.set(key,lut);}
   return lut;
 }
+/** Legend samples the exact same LUT as paintPixels, at the displayed pixel width.
+ * The central one/two signed pixels are zero, so neither sign displaces zero.
+ * No amplitude or source count enters the normalized color scale. */
+export function legendPixels(width:number,mode:Mode,palette:Palette) {
+  if(!Number.isInteger(width)||width<3||width>4097)throw new RangeError('Invalid legend width');
+  const out=new Uint8ClampedArray(width*4),lut=table(mode,palette);
+  const leftZero=Math.floor((width-1)/2),rightZero=Math.ceil((width-1)/2);
+  for(let x=0;x<width;x++) {
+    const q=mode==='displacement'?(x<=leftZero?x/leftZero-1:(x-rightZero)/(width-1-rightZero)):x/(width-1);
+    const index=Math.round(Math.max(0,Math.min(2048,mode==='displacement'?(q+1)*1024:q*2048)))*3;
+    out[x*4]=lut[index];out[x*4+1]=lut[index+1];out[x*4+2]=lut[index+2];out[x*4+3]=255;
+  }
+  return out;
+}
 /** Math raster only. The circular aperture crops the field; it adds no wave term. */
 export function paintPixels(f:Field,mode:Mode,palette:Palette,t:number,out=new Uint8ClampedArray(f.size*f.size*4)) {
   const lut=table(mode,palette),bound=MAX_AMPLITUDE*f.count,c=Math.cos(OMEGA*(t%PERIOD)),s=Math.sin(OMEGA*(t%PERIOD));
