@@ -117,3 +117,9 @@ Canvas方式を選び、`legendPixels`が実描画と**同じ2049段の色LUT**�
 [開発最終ログ](development-final.txt)・[測定JSON](development-final-observations.json)、[本番最終ログ](production-final.txt)・[測定JSON](production-final-observations.json)。両環境とも必須アンカー最大差1、中央行全画素最大差3（故意の赤凡例の負対照を除外）。4幅×両テーマ×文字100/200%×全9組合せ・DPR2、DPR3タッチ、5角度、弧反転／波源移動／色改ざんの負対照、キー・マウス操作、θ選択と教材全状態復元、A非依存尺度、再生中の凡例再利用、PNG取得方式の中央行完全一致を含む。
 
 ここで追加するcommitは記録のみ。製品コードはb0c37c7から不変。途中のCI run 41966546367は単体・型・buildを通過したが、証拠を含む最終HEADへ更新するためsupersededとして停止し、その未完了結果を全件PASSへ数えない。最終HEADの標準CI全回帰の結果・件数・HEAD照合はPR #36へ確定記録する。
+
+## CI初回失敗と証拠の整合性訂正
+
+最終Windows記録時点33596a4のCI [run41967525653 attempt1](https://github.com/tetsujisugimori-coder/Math-Art-Lab/actions/runs/41967525653/attempts/1) は、単体281成功・型/build成功、開発458成功＋既存2skip、本番339成功＋既存第7作1失敗（[全ログ](ci-attempt-1.txt)）。失敗はWebKitの`review: hidden while playing pauses until explicit resume`、wave-review-checks.ts:44で、教材終了後に期待「一時停止」に対し「再生」。今回追加した20件は両環境とも成功。第7作のソース・試験は変更していない。visibilitychange/reduced-motionも停止条件だが失敗時のイベント記録はなく、原因はUNKNOWN。製品・期待値・上限を変えず両browser各5回のローカル反復は10/10成功（[ログ](wave-control.txt)）。初回失敗を消さず、同じHEADのCI attempt2と、証拠訂正を含む最終HEADのCI結果をPRへ別々に記録する。
+
+証拠の最終照合で、保存後のテキスト整形が補助error-context.md 8個の末尾へ改行を1文字追加し、manifestの元SHAと不一致にしていた。これは記録処理の誤り。追加された1byteを除いたバイト列が元のサイズ・SHAと完全一致することを確認し、その原バイト列へ復元した。両manifestの全58ファイルはサイズ・SHAすべて一致。PNG・数値JSON・製品コード・試験条件の変更はない。訂正前の記録もGit履歴に残る。CIの初回失敗ログ・ローカル反復結果とともに記録commitへ保存する。
