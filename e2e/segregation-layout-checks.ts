@@ -16,9 +16,9 @@ export async function verifyMosaicLayout(page:Page,info:TestInfo,width:number,th
     const dimensions=await region.evaluate(el=>({client:el.clientWidth,scroll:el.scrollWidth}));
     if(dimensions.scroll>dimensions.client){
       await region.press('ArrowRight');await expect.poll(()=>region.evaluate(el=>el.scrollLeft)).toBeGreaterThan(0);
-      for(let i=0;i<16;i++)await region.press('ArrowRight');
+      for(let i=0;i<16&&await region.evaluate(el=>el.scrollLeft<el.scrollWidth-el.clientWidth-1);i++)await region.press('ArrowRight');
       await expect.poll(()=>region.evaluate(el=>Math.abs(el.scrollWidth-el.clientWidth-el.scrollLeft))).toBeLessThanOrEqual(1);
-      for(let i=0;i<17;i++)await region.press('ArrowLeft');
+      for(let i=0;i<17&&await region.evaluate(el=>el.scrollLeft>0);i++)await region.press('ArrowLeft');
       await expect.poll(()=>region.evaluate(el=>el.scrollLeft)).toBe(0);
     }
     return {...dimensions,keyboardChecked:dimensions.scroll>dimensions.client};
@@ -56,6 +56,5 @@ export async function verifyMosaicLayout(page:Page,info:TestInfo,width:number,th
   finally{
     const source=['src/segregation.css','src/segregation-view.ts','src/segregation-render.ts'].map(path=>({path,sha256Lf:createHash('sha256').update(readFileSync(path,'utf8').replace(/\r\n/g,'\n')).digest('hex')}));
     writeFileSync(`${dir}/${name}.json`,JSON.stringify({at:new Date().toISOString(),browser:info.project.name,browserVersion:page.context().browser()?.version(),os:{platform:os.platform(),release:os.release()},width,theme,step:20,baseURL:info.project.use.baseURL,source,states},null,2));
-    await page.evaluate(()=>document.documentElement.style.fontSize='');
   }
 }

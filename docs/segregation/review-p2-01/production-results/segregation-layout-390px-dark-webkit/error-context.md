@@ -1,0 +1,66 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - navigation "作品の選択" [ref=e3]:
+    - generic [ref=e4]:
+      - text: 作品
+      - combobox "作品" [ref=e5]:
+        - option "002 · 光のハーモノグラフ" [selected]
+        - option "001 · Fractal × Wave"
+        - option "003 · 光の花園"
+        - option "004 · 光の結び目"
+        - option "005 · カオスの蝶"
+        - option "006 · フラクタルの双子"
+        - option "007 · 波紋の対話"
+        - option "008 · 風の軌跡"
+        - option "009 · チューリングの庭"
+        - option "010 · フーリエの万華鏡"
+        - option "011 · 距離の結晶"
+        - option "012 · 振動の砂絵"
+        - option "013 · 波紋の万華鏡"
+        - option "014 · 需要と供給の蜘蛛の巣"
+        - option "015 · 分断のモザイク"
+  - main [ref=e7]:
+    - generic [ref=e8]:
+      - text: MATH ART LAB / EXPERIMENT 002
+      - heading "光のハーモノグラフ" [level=1] [ref=e9]
+      - paragraph [ref=e10]: 光の糸で、空中に花を織っていく。
+    - generic [ref=e11]:
+      - generic [ref=e12]:
+        - region "光の軌跡。ドラッグで回転" [ref=e13]:
+          - generic: LIGHT / HARMONOGRAPH
+        - generic [ref=e15]:
+          - button "斜めから見る" [ref=e16] [cursor=pointer]
+          - button "視点を戻す" [ref=e17] [cursor=pointer]
+          - button "拡大" [ref=e18] [cursor=pointer]
+          - button "縮小" [ref=e19] [cursor=pointer]
+        - paragraph [ref=e20]: 図形の中をドラッグ・タッチで回転。ページのスクロールは図形の外で。
+      - complementary "光のハーモノグラフの操作" [ref=e21]:
+        - button "動きの仕組みを見る" [ref=e22] [cursor=pointer]
+        - generic [ref=e23]:
+          - generic [ref=e24]:
+            - text: 光のかたち
+            - combobox "光のかたち" [ref=e25]:
+              - option "四葉の光冠" [selected]
+              - option "光の繭"
+              - option "星編みの籠"
+          - paragraph [ref=e26]: 四つの花弁がゆっくりずれて、透ける光の冠を織ります。
+          - generic [ref=e27]:
+            - button "描画完了" [disabled] [pressed] [ref=e28]
+            - button "最初から描き直す" [ref=e29] [cursor=pointer]
+            - button "完成形を表示" [ref=e30] [cursor=pointer]
+          - progressbar "描画の進み具合" [ref=e31]
+          - status [ref=e32]: 100.0% · t=110.00 / 110 s
+          - status [ref=e33]: 完成形を表示しています。回して眺められます。
+          - generic [ref=e34]:
+            - text: 再生速度
+            - status [ref=e35]: "6"
+            - slider "再生速度" [ref=e36] [cursor=pointer]: "6"
+          - paragraph [ref=e37]: 作品内の秒 / 実時間の秒。線を描く速さだけが変わります。
+          - group [ref=e38]:
+            - generic "かたちを調整" [ref=e39] [cursor=pointer]
+          - group [ref=e40]:
+            - generic "数式と図の対応" [ref=e41] [cursor=pointer]
+    - generic [ref=e42]: 6つの減衰する正弦波から生まれる、有限の光の軌跡。
+```

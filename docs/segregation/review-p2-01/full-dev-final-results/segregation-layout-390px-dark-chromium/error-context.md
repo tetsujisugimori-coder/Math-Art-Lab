@@ -1,0 +1,272 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - navigation "作品の選択" [ref=e3]:
+    - generic [ref=e4]:
+      - text: 作品
+      - combobox "作品" [ref=e5]:
+        - option "002 · 光のハーモノグラフ"
+        - option "001 · Fractal × Wave"
+        - option "003 · 光の花園"
+        - option "004 · 光の結び目"
+        - option "005 · カオスの蝶"
+        - option "006 · フラクタルの双子"
+        - option "007 · 波紋の対話"
+        - option "008 · 風の軌跡"
+        - option "009 · チューリングの庭"
+        - option "010 · フーリエの万華鏡"
+        - option "011 · 距離の結晶"
+        - option "012 · 振動の砂絵"
+        - option "013 · 波紋の万華鏡"
+        - option "014 · 需要と供給の蜘蛛の巣"
+        - option "015 · 分断のモザイク" [selected]
+  - main [ref=e7]:
+    - generic [ref=e8]:
+      - text: MATH ART LAB / EXPERIMENT 015
+      - heading "分断のモザイク" [level=1] [ref=e9]
+      - paragraph [ref=e10]: SCHELLING’S SEGREGATION MODEL
+      - paragraph [ref=e11]:
+        - text: 隣り合う、という小さな選択。
+        - text: 街を遠くから見ると、何が見えるだろう。
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e15]:
+          - heading "現在の街 / 0 判断" [level=2] [ref=e16]
+          - img "赤と青のモザイク都市。矢印キーでセルを選択。行・列の入力でも観察できます。" [ref=e18]
+        - generic [ref=e19]:
+          - generic [ref=e20]:
+            - generic [ref=e21]: ●
+            - text: 赤住民
+          - generic [ref=e22]:
+            - generic [ref=e23]: ╱
+            - text: 青住民
+          - generic [ref=e24]: 空き家
+          - generic [ref=e26]: 白枠：選択と近隣
+          - generic [ref=e27]: 金枠：直近の移動
+        - generic [ref=e28]:
+          - button "再生" [ref=e29] [cursor=pointer]
+          - button "1ステップ" [ref=e30] [cursor=pointer]
+          - button "初期状態へリセット" [ref=e31] [cursor=pointer]
+        - status [ref=e32]: 一時停止 · 再配置・探索を継続できる状態。移動不能の確認 0/142人。
+        - paragraph [ref=e33]: 1ステップ＝不満足な1人の移動判断。移動しない場合も1ステップ。選ぶ順はシード付き無作為、判断ごとに即時更新します。
+        - generic [ref=e34]:
+          - generic [ref=e35]:
+            - term [ref=e36]: 満足率
+            - definition [ref=e37]: 81.4%
+          - generic [ref=e38]:
+            - term [ref=e39]: 不満足な住民
+            - definition [ref=e40]: 142 人
+          - generic [ref=e41]:
+            - term [ref=e42]: 同類隣接比率
+            - definition [ref=e43]: 49.9%
+          - generic [ref=e44]:
+            - term [ref=e45]: 累積引っ越し
+            - definition [ref=e46]: 0 回
+          - generic [ref=e47]:
+            - term [ref=e48]: 進行ステップ
+            - definition [ref=e49]: "0"
+          - generic [ref=e50]:
+            - term [ref=e51]: 最大同色領域 · 8近傍
+            - definition [ref=e52]: 363 人
+        - paragraph [ref=e53]: 実数：赤 383人 ／ 青 382人 ／ 空き家 135軒。隣接ペア：同色 1235組 / 居住中 2477組。
+        - region "社会実験室" [ref=e54]:
+          - heading "社会実験室 LOCAL → GLOBAL" [level=2] [ref=e55]
+          - paragraph [ref=e56]: 満足率は個人の条件の達成率。同類隣接比率は街の同色の隣り合いやすさです。満足していても混在することもあり、2つは同じ指標ではありません。
+          - generic [ref=e57]:
+            - button "初期・現在を並べる" [ref=e58] [cursor=pointer]
+            - button "現在結果を比較に固定" [ref=e59] [cursor=pointer]
+          - generic [ref=e60]:
+            - text: 比較する状態
+            - combobox "比較する状態" [ref=e61]:
+              - option "この実験の初期状態" [selected]
+              - option "固定した実験結果" [disabled]
+          - paragraph [ref=e62]: 初期配置：seed 15015。満足は今回のθ=30%で評価。
+          - region "初期状態と現在の比較表。左右キーでスクロール" [ref=e63]:
+            - table "比較する状態と現在の指標" [ref=e64]:
+              - caption [ref=e65]: 比較する状態と現在の指標
+              - rowgroup [ref=e66]:
+                - row "指標 比較する状態 現在" [ref=e67]:
+                  - columnheader "指標" [ref=e68]
+                  - columnheader "比較する状態" [ref=e69]
+                  - columnheader "現在" [ref=e70]
+              - rowgroup [ref=e71]:
+                - row "満足率 81.4% 81.4%" [ref=e72]:
+                  - rowheader "満足率" [ref=e73]
+                  - cell "81.4%" [ref=e74]
+                  - cell "81.4%" [ref=e75]
+                - row "同類隣接比率 49.9% 49.9%" [ref=e76]:
+                  - rowheader "同類隣接比率" [ref=e77]
+                  - cell "49.9%" [ref=e78]
+                  - cell "49.9%" [ref=e79]
+                - row "不満足者 142人 142人" [ref=e80]:
+                  - rowheader "不満足者" [ref=e81]
+                  - cell "142人" [ref=e82]
+                  - cell "142人" [ref=e83]
+                - row "引っ越し 0回 0回" [ref=e84]:
+                  - rowheader "引っ越し" [ref=e85]
+                  - cell "0回" [ref=e86]
+                  - cell "0回" [ref=e87]
+                - row "ステップ 0 0" [ref=e88]:
+                  - rowheader "ステップ" [ref=e89]
+                  - cell "0" [ref=e90]
+                  - cell "0" [ref=e91]
+        - region "時系列グラフ" [ref=e92]:
+          - heading "街の変化を読む" [level=2] [ref=e93]
+          - generic [ref=e94]:
+            - generic [ref=e95]:
+              - checkbox "実線 · 満足率" [checked] [ref=e96]
+              - text: 実線 · 満足率
+              - status [ref=e97]: 81.4%
+            - generic [ref=e98]:
+              - checkbox "破線 · 同類隣接比率" [checked] [ref=e99]
+              - text: 破線 · 同類隣接比率
+              - status [ref=e100]: 49.9%
+          - img "満足率と同類隣接比率の時系列。横軸はステップ、縦軸はパーセント" [ref=e101]:
+            - generic [ref=e102]: "0"
+            - generic [ref=e103]: "50"
+            - generic [ref=e104]: "100"
+            - generic [ref=e105]: "%"
+            - generic [ref=e106]: "0"
+            - generic [ref=e107]: "0"
+            - generic [ref=e108]: 進行ステップ
+          - paragraph [ref=e109]: 直近最大601点を1判断ごとに保存。現在の表示範囲：0〜0ステップ。初期状態の比較は別に保持します。
+          - paragraph [ref=e110]: 値は上下することがあり、単調に収束する保証はありません。データなしの区間は線をつなぎません。
+        - region "住民の観察" [ref=e111]:
+          - heading "一人のまわりから" [level=2] [ref=e112]
+          - generic [ref=e113]:
+            - generic [ref=e114]:
+              - text: 行（1〜
+              - generic [ref=e115]: "30"
+              - text: ）
+              - spinbutton "行（1〜 30 ）" [ref=e116]: "1"
+            - generic [ref=e117]:
+              - text: 列（1〜
+              - generic [ref=e118]: "30"
+              - text: ）
+              - spinbutton "列（1〜 30 ）" [ref=e119]: "1"
+            - button "セルを観察" [ref=e120] [cursor=pointer]
+          - paragraph [ref=e121]: 住民ID 748 · 青 ╱ · 行1 列1 · 満足（引っ越し後もIDで追跡）
+          - generic [ref=e122]:
+            - generic "選択住民と近隣の3行3列" [ref=e123]:
+              - generic "街の外" [ref=e124]: ×
+              - generic "街の外" [ref=e125]: ×
+              - generic "街の外" [ref=e126]: ×
+              - generic "街の外" [ref=e127]: ×
+              - generic "青 ID 748" [ref=e128]: ╱
+              - generic "青 ID 418" [ref=e129]: ╱
+              - generic "街の外" [ref=e130]: ×
+              - generic "赤 ID 289" [ref=e131]: ●
+              - generic "青 ID 741" [ref=e132]: ╱
+            - generic [ref=e133]:
+              - paragraph [ref=e134]: sᵢ = 2 / 3 = 66.7% ≥ θ=30% → 満足
+              - paragraph [ref=e135]: 同類2人 · 異類1人 · 空き家0軒 · 居住者3人（街の外は除外）
+              - button "選択住民の判断を試す" [disabled] [ref=e136]
+          - paragraph [ref=e137]: まだ引っ越しはありません。
+      - complementary "街の設定" [ref=e138]:
+        - heading "実験の条件" [level=2] [ref=e139]
+        - paragraph [ref=e140]: 入力は候補です。ボタンで適用するまで街も計算条件も変わりません。
+        - generic [ref=e141]:
+          - text: 観察プリセット
+          - combobox "観察プリセット" [ref=e142]:
+            - option "カスタム"
+            - option "ほぼ選好なし"
+            - option "弱い同類選好" [selected]
+            - option "中程度の同類選好"
+            - option "強い同類選好"
+            - option "空き家が少ない街"
+            - option "人口比が偏った街"
+        - paragraph [ref=e143]: θ=30%。多数派を求めなくても、局所的な移動が同色の塊を育てる場合を比較。 格子・シードは入力候補を維持します。選択だけでは未適用です。
+        - generic [ref=e144]:
+          - generic [ref=e145]:
+            - text: 同類への選好度 θ
+            - status "同類への選好度 θ 30" [ref=e146]: 30%
+            - slider [ref=e147] [cursor=pointer]: "30"
+          - paragraph [ref=e148]: 0〜100%、初期値30%。個人が近隣に求める同類の最低割合。街全体の目標割合ではありません。
+          - generic [ref=e149]:
+            - text: 人口比 · 赤の割合
+            - status "人口比 · 赤の割合 50" [ref=e150]: 50%
+            - slider [ref=e151] [cursor=pointer]: "50"
+          - paragraph [ref=e152]: 居住者中の赤0〜100%、初期値50%。残りが青。変更は新規生成が必要。
+          - generic [ref=e153]:
+            - text: 空き家率
+            - status "空き家率 15" [ref=e154]: 15%
+            - slider [ref=e155] [cursor=pointer]: "15"
+          - paragraph [ref=e156]: 全セル中0〜100%、初期値15%。空き家を四捨五入し、残る居住者中の赤を四捨五入。変更は新規生成が必要。
+          - generic [ref=e157]:
+            - text: 移動規則
+            - combobox "移動規則" [ref=e158]:
+              - option "A · 無作為移動" [selected]
+              - option "B · 満足できる空き家"
+              - option "C · 同類比率を最大化"
+          - paragraph [ref=e159]: 初期値A：無作為。B：移動後に満足。C：同類比率が最大で現在より改善。B・Cは本作品の比較用バリエーションです。
+          - generic [ref=e160]:
+            - text: 格子サイズ
+            - combobox "格子サイズ" [ref=e161]:
+              - option "16 × 16"
+              - option "30 × 30（初期値）" [selected]
+              - option "40 × 40"
+          - generic [ref=e162]:
+            - text: 乱数シード（0〜4294967295）
+            - spinbutton "乱数シード（0〜4294967295）" [ref=e163]: "15015"
+          - paragraph [ref=e164]: サイズ・シードの変更は新規生成が必要。初期シード15015。同じ適用条件で同じ判断列を再現します。
+          - button "入力した設定から街を生成" [ref=e165] [cursor=pointer]
+          - button "同じ街で再実験（θ・規則のみ適用）" [ref=e166] [cursor=pointer]
+          - button "別シードで街を生成" [ref=e167] [cursor=pointer]
+          - status
+        - paragraph [ref=e168]: 適用中：θ=30%、赤50%、空き家15%、A · 無作為移動、30×30、seed 15015。
+        - group [ref=e169]:
+          - generic "表示と再生" [ref=e170] [cursor=pointer]
+          - generic [ref=e171]:
+            - text: 再生速度
+            - status "再生速度 10" [ref=e172]: 10 判断/秒
+            - slider [ref=e173] [cursor=pointer]: "10"
+          - paragraph [ref=e174]: 1〜30判断/秒、初期値10。初期化不要。1判断ごとの結果は速度・描画回数に依存しません。
+          - generic [ref=e175]:
+            - checkbox "点と斜線で色を補助" [checked] [ref=e176]
+            - text: 点と斜線で色を補助
+          - generic [ref=e177]:
+            - checkbox "移動元・移動先の金枠" [checked] [ref=e178]
+            - text: 移動元・移動先の金枠
+          - generic [ref=e179]:
+            - text: 街の表示倍率
+            - combobox "街の表示倍率" [ref=e180]:
+              - option "1倍" [selected]
+              - option "2倍（スクロールで観察）"
+          - paragraph [ref=e181]: 表示だけの変更。端末の拡大操作も利用できます。非表示時・reduced-motion有効化時は一時停止。動きを減らす場合は金枠を省略します。
+        - button "4段階の教材を開く" [ref=e182] [cursor=pointer]
+    - region "モデルの読み方" [ref=e183]:
+      - heading "局所の条件、全体の模様" [level=2] [ref=e184]
+      - generic [ref=e185]:
+        - region "同類比率と満足条件の数式。左右キーでスクロール" [ref=e186]:
+          - math "エス・アイはエヌ・セイムをエヌ・オキュパイドで割ったもの" [ref=e187]:
+            - generic [ref=e188]:
+              - generic [ref=e189]: s
+              - generic [ref=e190]: i
+            - generic [ref=e191]: =
+            - generic [ref=e192]:
+              - generic [ref=e193]:
+                - generic [ref=e194]: "n"
+                - generic [ref=e195]: same
+              - generic [ref=e196]:
+                - generic [ref=e197]: "n"
+                - generic [ref=e198]: occupied
+            - generic [ref=e199]: ≥
+            - generic [ref=e200]: θ
+        - paragraph [ref=e201]: 式が収まらないときは左右にスクロールできます。Tabで選び、左右キーでも確認できます。
+        - paragraph [ref=e202]: sᵢ（エス・アイ）：住民iの同類比率。n_same（エヌ・セイム）：近隣の同類数。n_occupied（エヌ・オキュパイド）：近隣の居住者数。θ（シータ）：個人が近隣に求める最低割合。≥（以上）なら満足です。
+      - paragraph [ref=e203]: 空き家は分母に含めません。近隣の居住者が0人なら比率は未定義ですが、満足と扱います。満足率の分母は全住民、住民0人ならデータなし。同類隣接比率は、両端が居住中の8近傍の隣接ペアを重複なく数えたうち、同色の割合。ペア0ならデータなしです。最大同色領域も8近傍の連結で数えます。
+      - paragraph [ref=e204]: B・Cは全空き家を探索します。Cは未定義の比率を順位付けせず、孤立する候補を除きます。Bは孤立先も満足として許容。移動不能者は街が変わるまで再試行せず、移動が起きたら全員を再評価します。全不満足者の移動不能が確認されたときだけ停滞と表示。10,000判断で安全停止し、収束とは呼びません。
+      - paragraph [ref=e205]: 個々人が全体の分離を目標としているとは限らず、異なる集団をすべて拒絶する必要もありません。局所的な満足と街全体の混在は別の問題です。結果は閾値、人口比、空き家率、規則、初期配置、更新順序に依存します。
+      - paragraph [ref=e206]:
+        - text: 現実の居住分離には住宅価格、所得、制度、差別、交通、歴史など多くの要因があります。この単純な模型だけで原因を断定できません。
+        - strong [ref=e207]: 赤と青は抽象的な二集団で、特定の民族や社会集団を直接表しません。
+      - paragraph [ref=e208]:
+        - text: 出発点：
+        - link "Thomas C. Schelling, Dynamic Models of Segregation (1971)" [ref=e209] [cursor=pointer]:
+          - /url: https://doi.org/10.1080/0022250X.1971.9989794
+        - text: 。教材の参考：
+        - link "Stanford Nifty" [ref=e210] [cursor=pointer]:
+          - /url: https://nifty.stanford.edu/2014/mccown-schelling-model-segregation/
+        - text: 。本作品は非周期境界・孤立者満足・逐次1人更新の実装であり、原著そのものやNiftyのラウンド更新と完全に同じ手続きではありません。
+```
