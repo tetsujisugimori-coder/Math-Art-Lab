@@ -1,0 +1,45 @@
+name: Segregation layout diagnostics
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/segregation*'
+      - 'e2e/segregation*'
+      - '.github/workflows/segregation-layout.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    if: github.head_ref == 'feat/015-segregation-mosaic'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Install diagnostic browsers
+        run: |
+          if [ -f /etc/apt/apt-mirrors.txt ]; then
+            sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu|https://archive.ubuntu.com/ubuntu|g' /etc/apt/apt-mirrors.txt
+          fi
+          npx playwright install --with-deps chromium webkit
+      - name: Measure original layout assertions
+        env:
+          SM_P2_EVIDENCE: layout-diagnostics
+        run: npx playwright test e2e/segregation-p2-diagnostics.spec.ts --reporter=line --output layout-diagnostics/results
+      - name: Preserve measurements and screenshots
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: segregation-layout-${{ github.event.pull_request.head.sha }}
+          path: layout-diagnostics/
+          if-no-files-found: error
+          retention-days: 14
