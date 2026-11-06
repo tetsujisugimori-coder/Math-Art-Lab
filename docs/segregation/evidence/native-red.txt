@@ -1,0 +1,88 @@
+[1A[2K[WebServer] (node:16868) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 4 tests using 1 worker
+
+
+
+[1A[2K(node:2432) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:2432) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1A[2K[1/4] [chromium] › e2e\segregation-regression-checks.ts:28:40 › regression: native select raster contrast light
+[1A[2K[2/4] [chromium] › e2e\segregation-regression-checks.ts:28:40 › regression: native select raster contrast dark
+
+
+[1A[2K(node:33856) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K(node:33856) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K[3/4] [webkit] › e2e\segregation-regression-checks.ts:28:40 › regression: native select raster contrast light
+[1A[2K  1) [webkit] › e2e\segregation-regression-checks.ts:28:40 › regression: native select raster contrast light 
+
+    Error: light #experiment: foreground 229,239,255, raster background 244,244,244
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m1.0535817853811111[39m
+
+      16 |     const background=await page.evaluate(async encoded=>{const img=new Image();img.src='data:image/png;base64,'+encoded;await img.decode();const c=document.createElement('canvas');c.width=img.naturalWidth;c.height=img.naturalHeight;const ctx=c.getContext('2d')!;ctx.drawImage(img,0,0);return Array.from(ctx.getImageData(12,8,1,1).data).slice(0,3);},png.toString('base64'));
+      17 |     const luminance=(rgb:number[])=>rgb.map(v=>v/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4).reduce((sum,v,i)=>sum+v*[.2126,.7152,.0722][i],0);
+    > 18 |     const a=luminance(foreground),b=luminance(background);expect((Math.max(a,b)+.05)/(Math.min(a,b)+.05),`${theme} ${selector}: foreground ${foreground}, raster background ${background}`).toBeGreaterThanOrEqual(4.5);
+         |                                                                                                                                                                                             ^
+      19 |   }
+      20 | });
+      21 |
+        at C:\Users\tetsu\.codex\worktrees\fd4f\Math-Art-Lab\e2e\segregation-regression-checks.ts:18:189
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    docs\segregation\evidence\native-red-results\segregation-regression-native-select-raster-contrast-light-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: docs\segregation\evidence\native-red-results\segregation-regression-native-select-raster-contrast-light-webkit\error-context.md
+
+
+[1A[2K(node:18916) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+
+[1A[2K(node:18916) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1A[2K[4/4] [webkit] › e2e\segregation-regression-checks.ts:28:40 › regression: native select raster contrast dark
+[1A[2K  2) [webkit] › e2e\segregation-regression-checks.ts:28:40 › regression: native select raster contrast dark 
+
+    Error: dark #experiment: foreground 229,239,255, raster background 244,244,244
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m1.0535817853811111[39m
+
+      16 |     const background=await page.evaluate(async encoded=>{const img=new Image();img.src='data:image/png;base64,'+encoded;await img.decode();const c=document.createElement('canvas');c.width=img.naturalWidth;c.height=img.naturalHeight;const ctx=c.getContext('2d')!;ctx.drawImage(img,0,0);return Array.from(ctx.getImageData(12,8,1,1).data).slice(0,3);},png.toString('base64'));
+      17 |     const luminance=(rgb:number[])=>rgb.map(v=>v/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4).reduce((sum,v,i)=>sum+v*[.2126,.7152,.0722][i],0);
+    > 18 |     const a=luminance(foreground),b=luminance(background);expect((Math.max(a,b)+.05)/(Math.min(a,b)+.05),`${theme} ${selector}: foreground ${foreground}, raster background ${background}`).toBeGreaterThanOrEqual(4.5);
+         |                                                                                                                                                                                             ^
+      19 |   }
+      20 | });
+      21 |
+        at C:\Users\tetsu\.codex\worktrees\fd4f\Math-Art-Lab\e2e\segregation-regression-checks.ts:18:189
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    docs\segregation\evidence\native-red-results\segregation-regression-native-select-raster-contrast-dark-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: docs\segregation\evidence\native-red-results\segregation-regression-native-select-raster-contrast-dark-webkit\error-context.md
+
+
+[1A[2K  2 failed
+    [webkit] › e2e\segregation-regression-checks.ts:28:40 › regression: native select raster contrast light 
+    [webkit] › e2e\segregation-regression-checks.ts:28:40 › regression: native select raster contrast dark 
+  2 passed (13.7s)

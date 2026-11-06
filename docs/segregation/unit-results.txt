@@ -1,0 +1,330 @@
+
+> math-art-lab@0.1.0 test
+> vitest run src --reporter=verbose
+
+
+ RUN  v3.2.7 C:/Users/tetsu/.codex/worktrees/fd4f/Math-Art-Lab
+
+ ✓ src/fractal.test.ts > Fractal × Wave > generates exactly 2^depth - 1 branches 4ms
+ ✓ src/fractal.test.ts > Fractal × Wave > preserves shared vertices 2ms
+ ✓ src/fractal.test.ts > Fractal × Wave > is identity at zero amplitude and returns finite points 1ms
+ ✓ src/voronoi-observation.test.ts > boundary: mathematical owners and display candidates have separate meanings 2ms
+ ✓ src/voronoi-observation.test.ts > right inside display tolerance: mathematical owners and display candidates have separate meanings 0ms
+ ✓ src/voronoi-observation.test.ts > left inside display tolerance: mathematical owners and display candidates have separate meanings 0ms
+ ✓ src/voronoi-observation.test.ts > right outside display tolerance: mathematical owners and display candidates have separate meanings 0ms
+ ✓ src/voronoi-observation.test.ts > just inside display grouping threshold: mathematical owners and display candidates have separate meanings 0ms
+ ✓ src/voronoi-observation.test.ts > just outside display grouping threshold: mathematical owners and display candidates have separate meanings 0ms
+ ✓ src/voronoi-observation.test.ts > ordinary left: mathematical owners and display candidates have separate meanings 0ms
+ ✓ src/voronoi-observation.test.ts > three exact equidistant sites and a four-cell vertex include every mathematical owner 1ms
+ ✓ src/voronoi-observation.test.ts > coordinate-range edges and negative zero retain their exact geometric meaning 0ms
+ ✓ src/voronoi-observation.test.ts > nearby sites: rounded hypot equality does not prove a mathematical tie 0ms
+ ✓ src/voronoi-observation.test.ts > subnormal differences do not underflow in mathematical comparison 0ms
+ ✓ src/voronoi-observation.test.ts > the contract refers to stored coordinates, not unrecoverable decimal intent 0ms
+ ✓ src/voronoi-observation.test.ts > IDs affect only presentation priority, not which position is mathematically closest 0ms
+ ✓ src/reaction-diffusion.test.ts > Gray–Scott independent small grid references > five point and self-neighbor boundary on 3x3 2ms
+ ✓ src/reaction-diffusion.test.ts > Gray–Scott independent small grid references > uniform equilibrium 2ms
+ ✓ src/reaction-diffusion.test.ts > Gray–Scott independent small grid references > hand calculated center impulse diffusion, mass conservation and no in-place update 0ms
+ ✓ src/reaction-diffusion.test.ts > Gray–Scott independent small grid references > corner diffusion has two self neighbors 0ms
+ ✓ src/reaction-diffusion.test.ts > Gray–Scott independent small grid references > hand calculated full step and signed contributions 0ms
+ ✓ src/reaction-diffusion.test.ts > Gray–Scott independent small grid references > reaction only independent value 0ms
+ ✓ src/reaction-diffusion.test.ts > Gray–Scott independent small grid references > chunking cannot change values 12ms
+ ✓ src/reaction-diffusion.test.ts > Gray–Scott independent small grid references > seed disk overwrites and clips only its geometry 1ms
+ ✓ src/reaction-diffusion.test.ts > Gray–Scott independent small grid references > reject candidate "" 0ms
+ ✓ src/reaction-diffusion.test.ts > Gray–Scott independent small grid references > reject candidate " " 0ms
+ ✓ src/reaction-diffusion.test.ts > Gray–Scott independent small grid references > reject candidate "NaN" 0ms
+ ✓ src/reaction-diffusion.test.ts > Gray–Scott independent small grid references > reject candidate "Infinity" 0ms
+ ✓ src/reaction-diffusion.test.ts > Gray–Scott independent small grid references > reject candidate "1e-999" 0ms
+ ✓ src/reaction-diffusion.test.ts > Gray–Scott independent small grid references > reject candidate "0.001" 0ms
+ ✓ src/reaction-diffusion.test.ts > Gray–Scott independent small grid references > reject candidate "0.09" 0ms
+ ✓ src/reaction-diffusion.test.ts > Gray–Scott independent small grid references > presets accepted, k bounds checked 0ms
+ ✓ src/reaction-diffusion.test.ts > Gray–Scott independent small grid references > abnormal input/output stop without repairing or writing source 0ms
+ ✓ src/reaction-diffusion.test.ts > Gray–Scott independent small grid references > bounded processing 0ms
+ ✓ src/reaction-diffusion.test.ts > Gray–Scott independent small grid references > stale generation rejected 0ms
+ ✓ src/wave.test.ts > two ideal circular waves > matches hand calculations at the origin and distinguishes instantaneous zero from the envelope 2ms
+ ✓ src/wave.test.ts > two ideal circular waves > matches independent Python math.dist and trigonometry fixture 0ms
+ ✓ src/wave.test.ts > two ideal circular waves > handles coincident sources and the perpendicular bisector in both phases 2ms
+ ✓ src/wave.test.ts > two ideal circular waves > preserves period, phase periodicity, bounds, and correct phase sign 17ms
+ ✓ src/wave.test.ts > two ideal circular waves > uses pixel centers with y up and fixed color scales 29ms
+ ✓ src/garden-lesson.test.ts > independent garden lesson progress > restores full drawing progress without advancing the inactive slot 3ms
+ ✓ src/garden-lesson.test.ts > independent garden lesson progress > restores full paused progress without advancing the inactive slot 0ms
+ ✓ src/garden-lesson.test.ts > independent garden lesson progress > restores full complete progress without advancing the inactive slot 0ms
+ ✓ src/garden-lesson.test.ts > independent garden lesson progress > keeps both scopes bounded and operable at total 1 1ms
+ ✓ src/garden-lesson.test.ts > independent garden lesson progress > keeps both scopes bounded and operable at total 6 0ms
+ ✓ src/garden-lesson.test.ts > independent garden lesson progress > keeps both scopes bounded and operable at total 12 0ms
+ ✓ src/garden-lesson.test.ts > independent garden lesson progress > keeps both scopes bounded and operable at total 1200 0ms
+ ✓ src/garden-lesson.test.ts > independent garden lesson progress > seeds step four only once and never propagates a small complete-form request 0ms
+ ✓ src/garden-lesson.test.ts > independent garden lesson progress > resizes saved scopes consistently and keeps explicit completion separate from reaching a cap 0ms
+ ✓ src/garden-lesson.test.ts > independent garden lesson progress > pauses active and saved playback when reduced motion becomes enabled 0ms
+ ✓ src/twins-observation.test.ts > point observation > starts Mandelbrot at zero and follows the hand-computed period-two example 3ms
+ ✓ src/twins-observation.test.ts > point observation > keeps Julia c fixed and computes exact binary fractions 1ms
+ ✓ src/twins-observation.test.ts > point observation > observes c=1 escape only at n=3 and does not step beyond it 0ms
+ ✓ src/twins-observation.test.ts > point observation > uses the sufficient Julia radius, including an outside-radius-two fixed point 0ms
+ ✓ src/twins-observation.test.ts > point observation > stops at the exact configured maximum and bounds retained points 1ms
+ ✓ src/twins-observation.test.ts > point observation > matches background escape counts for independent reference fixtures 1ms
+ ✓ src/twins-observation.test.ts > point observation > rejects invalid parameters rather than changing them 2ms
+ ✓ src/twins-observation.test.ts > point observation > reports numerical underflow separately and keeps the last nonzero point 0ms
+ ✓ src/twins-observation.test.ts > point observation > reports a nonfinite computation as an error, never ordinary escape 0ms
+ ✓ src/twins-observation.test.ts > bounded plot geometry > distinguishes an off-screen point from a mathematical escape 0ms
+ ✓ src/twins-observation.test.ts > bounded plot geometry > clips crossing segments and never clamps an outside point to an edge 0ms
+ ✓ src/twins-observation.test.ts > bounded plot geometry > rejects unusable geometry and keeps degenerate segments finite 0ms
+ ✓ src/twins-observation.test.ts > observation playback > starts only once and stops without a delayed update 3ms
+ ✓ src/twins-observation.test.ts > observation playback > rejects an already queued stale callback after replacement and stops at terminal state 0ms
+ ✓ src/lorenz.test.ts > Lorenz numerical approximation > evaluates all three derivatives and equilibrium 2ms
+ ✓ src/lorenz.test.ts > Lorenz numerical approximation > matches an independently calculated rational RK4 reference at h=.005 0ms
+ ✓ src/lorenz.test.ts > Lorenz numerical approximation > converges at fourth order against the analytic invariant-axis solution 3ms
+ ✓ src/lorenz.test.ts > Lorenz numerical approximation > repeats identical conditions and compares only perturbed initial x 44ms
+ ✓ src/lorenz.test.ts > Lorenz numerical approximation > uses identical samples for different render-frame partitions 2ms
+ ✓ src/lorenz.test.ts > Lorenz numerical approximation > rejects invalid/extreme settings and stops nonfinite/oversized RK4 stages 8ms
+ ✓ src/lorenz.test.ts > Lorenz numerical approximation > keeps all preset/range corner trajectories finite within the bounded work budget 32ms
+ ✓ src/lorenz.test.ts > Lorenz numerical approximation > pauses, resumes, ends and reshapes without mixing old progress 1ms
+ ✓ src/segregation.test.ts > finite Moore model > counts corner, edge and center without wrapping 3ms
+ ✓ src/segregation.test.ts > finite Moore model > excludes vacancies, counts unlike and same, accepts equality 1ms
+ ✓ src/segregation.test.ts > finite Moore model > undefined isolated ratio is satisfied even at 100% 1ms
+ ✓ src/segregation.test.ts > finite Moore model > threshold endpoints 0ms
+ ✓ src/segregation.test.ts > finite Moore model > rounds vacancies first then red, blue is remainder 0ms
+ ✓ src/segregation.test.ts > finite Moore model > preserves rounded population at vacancy 0 1ms
+ ✓ src/segregation.test.ts > finite Moore model > preserves rounded population at vacancy 1 0ms
+ ✓ src/segregation.test.ts > finite Moore model > preserves rounded population at vacancy 50 0ms
+ ✓ src/segregation.test.ts > finite Moore model > preserves rounded population at vacancy 99 0ms
+ ✓ src/segregation.test.ts > finite Moore model > preserves rounded population at vacancy 100 0ms
+ ✓ src/segregation.test.ts > finite Moore model > handles empty, full and single population cities 5ms
+ ✓ src/segregation.test.ts > finite Moore model > validates finite settings and includes seed zero 1ms
+ ✓ src/segregation.test.ts > finite Moore model > evaluates the destination with the source removed 1ms
+ ✓ src/segregation.test.ts > finite Moore model > A accepts any vacancy, B only satisfaction, C only strict maximal improvement 0ms
+ ✓ src/segregation.test.ts > finite Moore model > B accepts isolated destination; C does not rank undefined ratios 0ms
+ ✓ src/segregation.test.ts > finite Moore model > rejects ties with current ratio in C 0ms
+ ✓ src/segregation.test.ts > finite Moore model > preserves IDs, colors and vacancies through random updates 27ms
+ ✓ src/segregation.test.ts > finite Moore model > preserves IDs, colors and vacancies through satisfying updates 15ms
+ ✓ src/segregation.test.ts > finite Moore model > preserves IDs, colors and vacancies through best updates 11ms
+ ✓ src/segregation.test.ts > finite Moore model > reproduces RNG, initial layout, decisions and histories 3ms
+ ✓ src/segregation.test.ts > finite Moore model > batching, rendering and statistics do not consume RNG 20ms
+ ✓ src/segregation.test.ts > finite Moore model > certifies jam only after all currently unhappy residents cannot move 1ms
+ ✓ src/segregation.test.ts > finite Moore model > does not call random fluctuation convergence at the step limit 1ms
+ ✓ src/segregation.test.ts > finite Moore model > bounds exact recent history and retains actual step numbers 52ms
+ ✓ src/visual-model.test.ts > visual explanations > covers exactly the eleven existing formula IDs 2ms
+ ✓ src/visual-model.test.ts > visual explanations > preserves baseline coordinates and samples depth=8 30ms
+ ✓ src/visual-model.test.ts > visual explanations > preserves baseline coordinates and samples depth=2 2ms
+ ✓ src/visual-model.test.ts > visual explanations > preserves baseline coordinates and samples depth=10 67ms
+ ✓ src/twins.test.ts > quadratic complex dynamics > rejects underflow input instead of silently applying zero 3ms
+ ✓ src/twins.test.ts > quadratic complex dynamics > matches hand calculations for addition, multiplication, modulus and one iteration 1ms
+ ✓ src/twins.test.ts > quadratic complex dynamics > checks fixed/periodic Mandelbrot references without claiming general finite membership 1ms
+ ✓ src/twins.test.ts > quadratic complex dynamics > detects c=1 at n=3 (0,1,2,5), including the maximum-budget endpoint 0ms
+ ✓ src/twins.test.ts > quadratic complex dynamics > checks Julia c=0 inside, on, and outside the analytically known unit circle 1ms
+ ✓ src/twins.test.ts > quadratic complex dynamics > checks the exact period-two Julia orbit at c=-1 0ms
+ ✓ src/twins.test.ts > quadratic complex dynamics > uses a sufficient Julia radius for c outside the radius-two parameter disk 0ms
+ ✓ src/twins.test.ts > quadratic complex dynamics > matches independent Python complex-arithmetic escape fixtures 0ms
+ ✓ src/twins.test.ts > quadratic complex dynamics > rejects nonfinite inputs, invalid iteration limits and invalid settings 2ms
+ ✓ src/twins.test.ts > complex plane coordinates and bounded display precision > maps corners and the selected point using independent CSS-normalized coordinates 1ms
+ ✓ src/twins.test.ts > complex plane coordinates and bounded display precision > preserves the pointer anchor through zoom and reverses pan/zoom 0ms
+ ✓ src/twins.test.ts > complex plane coordinates and bounded display precision > bounds zoom and keeps neighboring pixels distinguishable at the largest zoom 0ms
+ ✓ src/twins.test.ts > complex plane coordinates and bounded display precision > caps buffer memory and DPR without changing the CSS complex-plane aspect 1ms
+ ✓ src/twins.test.ts > complex plane coordinates and bounded display precision > formats tiny signed values without zero confusion and labels complex values 0ms
+ ✓ src/twins.test.ts > latest-job commitment and cancelable worker slices > never commits stale, canceled, duplicate or disposed results 0ms
+ ✓ src/twins.test.ts > latest-job commitment and cancelable worker slices > replaces pending jobs without queuing an unbounded number of callbacks 1ms
+ ✓ src/twins.test.ts > latest-job commitment and cancelable worker slices > cancels a partly calculated job and rejects invalid allocations 1ms
+ ✓ src/sand-presentation.test.ts > sand display/highlight teaching contract > does not mutate particles, rng, progress or phase when resolving presentation 124ms
+ ✓ src/voronoi-state.test.ts > edits are atomic and reject duplicates, bounds, maximum and final-point removal 5ms
+ ✓ src/voronoi-state.test.ts > edit establishes a new initial configuration; reset restores it after relaxation 2ms
+ ✓ src/voronoi-state.test.ts > deletion keeps surviving IDs stable and selects a valid point 0ms
+ ✓ src/voronoi-state.test.ts > lesson restoration is a deep copy including all display and selection state 1ms
+ ✓ src/voronoi-state.test.ts > safety stops suppress automatic restoration of playback 1ms
+ ✓ src/voronoi-state.test.ts > drawing and input mappings share axes and round-trip at all sizes 1ms
+ ✓ src/voronoi-state.test.ts > a boundary site keeps its entire point label inside a narrow Canvas 2ms
+ ✓ src/structures.test.ts > 数式定義と計算実装の対応 > 記号式と代入式を区別し、未指定の距離・時刻・世代を保持する 3ms
+ ✓ src/structures.test.ts > 数式定義と計算実装の対応 > 全パラメータに記号と対応構造があり、初期値を定義側で複製しない 0ms
+ ✓ src/structures.test.ts > 数式定義と計算実装の対応 > 長さ・方向・累積距離・枝数が表示式と一致する 122ms
+ ✓ src/sand.test.ts > Neumann square: independent identities and known points > a=0: known cos(pi/3)*cos(pi/4) = sqrt(2)/4 1ms
+ ✓ src/sand.test.ts > Neumann square: independent identities and known points > a=1: antisymmetry, diagonal cancellation for all supported pairs 5ms
+ ✓ src/sand.test.ts > Neumann square: independent identities and known points > orthogonality gives integral F² = (1+a²)/4 (independent midpoint quadrature) 9ms
+ ✓ src/sand.test.ts > Neumann square: independent identities and known points > Neumann normal derivative vanishes on each boundary 1ms
+ ✓ src/sand.test.ts > Neumann square: independent identities and known points > stationary nodes differ from instantaneous zeros 0ms
+ ✓ src/sand.test.ts > Neumann square: independent identities and known points > rejects degeneracy, non-finite and invalid values 2ms
+ ✓ src/sand.test.ts > Neumann square: independent identities and known points > a=1, m=1,n=3: center axes and both diagonals (triple angle identity) 0ms
+ ✓ src/sand.test.ts > deterministic artificial sand > fixed seed + settings + step count reproduce bitwise positions and rng 8ms
+ ✓ src/sand.test.ts > deterministic artificial sand > bounded reflected candidates stay in square; F² never increases 187ms
+ ✓ src/fourier.test.ts > DFT independent analytic expectations > constant is DC only, with 1/N normalization 4ms
+ ✓ src/fourier.test.ts > DFT independent analytic expectations > single circle f=1, radius and phase 8ms
+ ✓ src/fourier.test.ts > DFT independent analytic expectations > single circle f=-1, radius and phase 1ms
+ ✓ src/fourier.test.ts > DFT independent analytic expectations > single circle f=7, radius and phase 2ms
+ ✓ src/fourier.test.ts > DFT independent analytic expectations > single circle f=-9, radius and phase 2ms
+ ✓ src/fourier.test.ts > DFT independent analytic expectations > single circle f=-64, radius and phase 1ms
+ ✓ src/fourier.test.ts > DFT independent analytic expectations > known two-term sum and signed rotation 4ms
+ ✓ src/fourier.test.ts > DFT independent analytic expectations > Nyquist is -64 and odd-N mapping is symmetric 1ms
+ ✓ src/fourier.test.ts > closed contour and ranking contracts > includes closing edge, ignores zero edges, no duplicate endpoint 1ms
+ ✓ src/fourier.test.ts > closed contour and ranking contracts > centers and scales only samples without mutating originals 1ms
+ ✓ src/fourier.test.ts > closed contour and ranking contracts > sorts amplitude then quantized ties by |f|, f and index 0ms
+ ✓ src/fourier.test.ts > closed contour and ranking contracts > rejects invalid geometry, K, time and clocks 5ms
+ ✓ src/fourier.test.ts > closed contour and ranking contracts > circle: 128-sample recovery, K bounds, fixed scale and nonincreasing RMSE 75ms
+ ✓ src/harmonograph-lesson.test.ts > motion lesson mathematics and clock > evaluates active axes at exactly the same t with the artwork evaluator 3ms
+ ✓ src/harmonograph-lesson.test.ts > motion lesson mathematics and clock > bounds the undamped coordinates and closes the default example after 2π 215ms
+ ✓ src/visual-model.test.ts > visual explanations > tracks parent, generations, lengths and path distances from actual data 19ms
+ ✓ src/visual-model.test.ts > visual explanations > shows alpha arcs from the parent extension and a 2alpha child opening 2ms
+ ✓ src/visual-model.test.ts > visual explanations > uses the same representative branch, correct components and endpoint displacement 1ms
+ ✓ src/structures.test.ts > 数式定義と計算実装の対応 > 同世代の左右の子枝も別々の方向角を持ち、親方向から±αとなる 0ms
+ ✓ src/structures.test.ts > 数式定義と計算実装の対応 > 位相・包絡・三座標の変形が表示式と一致する 2ms
+ ✓ src/structures.test.ts > 数式定義と計算実装の対応 > 式の生成で状態や描画計算結果を変更しない 9ms
+ ✓ src/segregation.test.ts > finite Moore model > counts each undirected pair once and 8-connected components 0ms
+ ✓ src/segregation.test.ts > finite Moore model > matches a separate direct all-pairs oracle 4ms
+ ✓ src/segregation.test.ts > finite Moore model > matches rebuilt destination grids for every rule across 144 seeded conditions 38ms
+ ✓ src/ripple-legend.test.ts > ripple legend: shared raster color scale > matches the actual wave raster and color function exactly at all required LUT anchors 21ms
+ ✓ src/ripple-legend.test.ts > ripple legend: shared raster color scale > pins endpoints and signed zero to opaque colors for odd and even display widths 9ms
+ ✓ src/ripple-legend.test.ts > ripple legend: shared raster color scale > keeps every supported profile sample within the fixed four-channel-unit accuracy budget 42ms
+ ✓ src/ripple-legend.test.ts > ripple legend: shared raster color scale > rejects non-finite, fractional and out-of-budget widths before allocating 1ms
+ ✓ src/ripple-legend.test.ts > ripple legend: shared raster color scale > does not mutate numerical fields or the base raster when generating legend variants 16ms
+ ✓ src/ripple-legend.test.ts > ripple legend: shared raster color scale > returns a private image buffer without exposing or corrupting the shared LUT 4ms
+ ✓ src/harmonograph-lesson.test.ts > motion lesson mathematics and clock > pauses, steps exactly, resumes and caps at twenty seconds 2ms
+ ✓ src/harmonograph-lesson.test.ts > motion lesson mathematics and clock > preserves comparison time on parameter changes and rebuilds every sample 2ms
+ ✓ src/harmonograph-lesson.test.ts > motion lesson mathematics and clock > rejects invalid settings and times 1ms
+ ✓ src/sand.test.ts > deterministic artificial sand > non-nodal stationary corner can escape with stochastic candidate 1ms
+ ✓ src/sand.test.ts > deterministic artificial sand > 交差のひろがり, seed 1: aggregate trend over 320 steps 17ms
+ ✓ src/sand.test.ts > deterministic artificial sand > 交差のひろがり, seed 42: aggregate trend over 320 steps 9ms
+ ✓ src/sand.test.ts > deterministic artificial sand > 交差のひろがり, seed 12012: aggregate trend over 320 steps 8ms
+ ✓ src/sand.test.ts > deterministic artificial sand > 交差のひろがり, seed 987654321: aggregate trend over 320 steps 8ms
+ ✓ src/sand.test.ts > deterministic artificial sand > 丸みの区画, seed 1: aggregate trend over 320 steps 9ms
+ ✓ src/sand.test.ts > deterministic artificial sand > 丸みの区画, seed 42: aggregate trend over 320 steps 9ms
+ ✓ src/sand.test.ts > deterministic artificial sand > 丸みの区画, seed 12012: aggregate trend over 320 steps 9ms
+ ✓ src/sand.test.ts > deterministic artificial sand > 丸みの区画, seed 987654321: aggregate trend over 320 steps 10ms
+ ✓ src/sand.test.ts > deterministic artificial sand > 細かな織り, seed 1: aggregate trend over 320 steps 16ms
+ ✓ src/sand.test.ts > deterministic artificial sand > 細かな織り, seed 42: aggregate trend over 320 steps 9ms
+ ✓ src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > reported (1/4,0): C1=0, C2=-sqrt(2)/2, F=+sqrt(2)/2; F highlight must exclude it 144ms
+ ✓ src/ripple.test.ts > ripple: independent scalar reference and symmetry > matches Python direct sums / cmath fixture 0 2ms
+ ✓ src/ripple.test.ts > ripple: independent scalar reference and symmetry > matches Python direct sums / cmath fixture 1 0ms
+ ✓ src/ripple.test.ts > ripple: independent scalar reference and symmetry > matches Python direct sums / cmath fixture 2 0ms
+ ✓ src/ripple.test.ts > ripple: independent scalar reference and symmetry > matches Python direct sums / cmath fixture 3 1ms
+ ✓ src/ripple.test.ts > ripple: independent scalar reference and symmetry > matches Python direct sums / cmath fixture 4 0ms
+ ✓ src/ripple.test.ts > ripple: independent scalar reference and symmetry > matches Python direct sums / cmath fixture 5 0ms
+ ✓ src/ripple.test.ts > ripple: independent scalar reference and symmetry > matches Python direct sums / cmath fixture 6 0ms
+ ✓ src/ripple.test.ts > ripple: independent scalar reference and symmetry > generates exactly N distinct, equally spaced sources with j=0 at theta 21ms
+ ✓ src/ripple.test.ts > ripple: independent scalar reference and symmetry > preserves N-fold rotational symmetry for u,C,I without equating it to petals 2ms
+ ✓ src/ripple.test.ts > ripple: independent scalar reference and symmetry > rotates source coordinates and scalar field together; single phase offset can break symmetry 1ms
+ ✓ src/ripple.test.ts > ripple: independent scalar reference and symmetry > time changes only displacement, and amplitude rescales C and I without normalization hiding it 1ms
+ ✓ src/ripple.test.ts > ripple: input boundaries and raster correspondence > accepts finite boundary settings and rejects invalid or non-finite values at the model boundary 5ms
+ ✓ src/ripple.test.ts > ripple: input boundaries and raster correspondence > cached phasors and raster sample values agree with separate direct scalar sums 4ms
+ ✓ src/ripple.test.ts > ripple: input boundaries and raster correspondence > raster uses stated fixed color mapping for every mode and all palettes, not decoration 60ms
+ ✓ src/ripple.test.ts > ripple: input boundaries and raster correspondence > zero amplitude stays dark; bounded full-resolution worst case stays finite 98ms
+ ✓ src/sand-presentation.test.ts > sand display/highlight teaching contract > distinguishes the ordinary C2 zeros from an F/a overlay and its cache identity 96ms
+ ✓ src/sand-presentation.test.ts > sand display/highlight teaching contract > limits modes and symbols in lessons 1/2 without exposing full-F overlays 1ms
+ ✓ src/sand-presentation.test.ts > sand display/highlight teaching contract > maps swapped component axes and identifies the combined-u ring separately 91ms
+ ✓ src/fourier.test.ts > closed contour and ranking contracts > star: 128-sample recovery, K bounds, fixed scale and nonincreasing RMSE 65ms
+ ✓ src/fourier.test.ts > closed contour and ranking contracts > fish: 128-sample recovery, K bounds, fixed scale and nonincreasing RMSE 65ms
+ ✓ src/fourier.test.ts > closed contour and ranking contracts > full and progressive use the identical 513-point phase grid and close exactly within precision 14ms
+ ✓ src/fourier.test.ts > bounded playback and formatting > 60Hz and 120Hz produce the same grid prefix after equal elapsed time 0ms
+ ✓ src/fourier.test.ts > bounded playback and formatting > caps delayed work and total points, never wraps after a completed loop 0ms
+ ✓ src/fourier.test.ts > bounded playback and formatting > prints tiny values and negative zero readably 0ms
+ ✓ src/fourier.test.ts > renderer commands use radius and upward mathematical y; selected arm carries number and width 3ms
+ ✓ src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > sand, F: overlay is F, independent of background and nodes checkbox 133ms
+ ✓ src/sand.test.ts > deterministic artificial sand > 細かな織り, seed 12012: aggregate trend over 320 steps 9ms
+ ✓ src/sand.test.ts > deterministic artificial sand > 細かな織り, seed 987654321: aggregate trend over 320 steps 9ms
+ ✓ src/sand.test.ts > deterministic artificial sand > ゆらぐ格子, seed 1: aggregate trend over 320 steps 9ms
+ ✓ src/sand.test.ts > deterministic artificial sand > ゆらぐ格子, seed 42: aggregate trend over 320 steps 9ms
+ ✓ src/sand.test.ts > deterministic artificial sand > ゆらぐ格子, seed 12012: aggregate trend over 320 steps 9ms
+ ✓ src/sand.test.ts > deterministic artificial sand > ゆらぐ格子, seed 987654321: aggregate trend over 320 steps 9ms
+ ✓ src/sand.test.ts > deterministic artificial sand > automatic tick and manual steps use same update 103ms
+ ✓ src/flow-field.test.ts > flow field > matches independent analytic solutions at t=1 3ms
+ ✓ src/flow-field.test.ts > flow field > validates inputs including underflow 1ms
+ ✓ src/flow-field.test.ts > flow field > maps coordinates and produces deterministic seeds 2ms
+ ✓ src/flow-field.test.ts > flow field > stops outside and on numerical failure 0ms
+ ✓ src/voronoi-paint.test.ts > does not touch the bitmap for an undrawable 0×100 surface 3ms
+ ✓ src/voronoi-paint.test.ts > does not touch the bitmap for an undrawable 100×0 surface 0ms
+ ✓ src/voronoi-paint.test.ts > does not touch the bitmap for an undrawable NaN×100 surface 0ms
+ ✓ src/voronoi-paint.test.ts > does not touch the bitmap for an undrawable 100×Infinity surface 0ms
+ ✓ src/voronoi-paint.test.ts > does not issue commands without a context 0ms
+ ✓ src/voronoi-paint.test.ts > does not claim submission for a lost context 0ms
+ ✓ src/voronoi-paint.test.ts > a loss during submission is not a completed frame 0ms
+ ✓ src/voronoi-paint.test.ts > a thrown drawing command is a failed attempt 0ms
+ ✓ src/voronoi-paint.test.ts > successful command submission uses current dimensions and the requested DPR 2ms
+ ✓ src/voronoi-paint.test.ts > invalid DPR cannot be recorded as a successful submission 0ms
+ ✓ src/twins-gesture.test.ts > accepts both components at ±4, rejecting immediately adjacent out-of-range values 3ms
+ ✓ src/twins-gesture.test.ts > distinguishes tap, drag, canceled tap and an up with no preceding move 1ms
+ ✓ src/twins-gesture.test.ts > rebases survivor after removing ID 1, allowTap=true 1ms
+ ✓ src/twins-gesture.test.ts > rebases survivor after removing ID 1, allowTap=false 0ms
+ ✓ src/twins-gesture.test.ts > rebases survivor after removing ID 2, allowTap=true 0ms
+ ✓ src/twins-gesture.test.ts > rebases survivor after removing ID 2, allowTap=false 0ms
+ ✓ src/twins-gesture.test.ts > uses the accepted view after a rejected pinch, resets and ignores unknown IDs 0ms
+ ✓ src/twins-gesture.test.ts > rebases the remaining pair when a third pointer leaves 0ms
+ ✓ src/garden.test.ts > phyllotaxis coordinates > starts at the origin and uses the exact golden-angle expression 3ms
+ ✓ src/garden.test.ts > phyllotaxis coordinates > places 90° on four directions and 120° on three 1ms
+ ✓ src/garden.test.ts > phyllotaxis coordinates > has equal increments of squared radius, not equal neighbor distances 2ms
+ ✓ src/garden.test.ts > phyllotaxis coordinates > is deterministic, finite and bounded at all input limits 567ms
+ ✓ src/garden.test.ts > phyllotaxis coordinates > rejects nonfinite, fractional and excessive inputs 3ms
+ ✓ src/garden.test.ts > garden playback and lesson limits > uses elapsed seconds and fractional progress independently of frame count 1ms
+ ✓ src/garden.test.ts > garden playback and lesson limits > steps one whole point, restarts, completes and resizes consistently 1ms
+ ✓ src/garden.test.ts > garden playback and lesson limits > caps early teaching steps at twelve and restores the artwork limits in step four 0ms
+ ✓ src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > sand, a: overlay is F, independent of background and nodes checkbox 145ms
+ ✓ src/sand.test.ts > deterministic artificial sand > setting transaction rejects invalid state without mutation 129ms
+ ✓ src/harmonograph.test.ts > harmonograph model > flower: deterministic, finite, bounded and samples both endpoints 175ms
+ ✓ src/segregation-render.test.ts > uses step coordinates, percent scale and gaps for missing values 1ms
+ ✓ src/lorenz-format.test.ts > Lorenz approximate display values > preserves tiny nonzero values, including both sides of the old zero-rounding boundary 4ms
+ ✓ src/lorenz-format.test.ts > Lorenz approximate display values > keeps the standard delta and ordinary values in familiar decimal form 0ms
+ ✓ src/lorenz-format.test.ts > Lorenz approximate display values > distinguishes true zero from a tiny signed value without negative zero 0ms
+ ✓ src/cobweb.test.ts > one-period cobweb market > clears demand at the next price, after supply was set at the old price 2ms
+ ✓ src/cobweb.test.ts > one-period cobweb market > stable follows the signed error multiplier −d/b 1ms
+ ✓ src/cobweb.test.ts > one-period cobweb market > cycle follows the signed error multiplier −d/b 0ms
+ ✓ src/cobweb.test.ts > one-period cobweb market > unstable follows the signed error multiplier −d/b 0ms
+ ✓ src/cobweb.test.ts > one-period cobweb market > converges and keeps the exact equilibrium fixed 0ms
+ ✓ src/cobweb.test.ts > one-period cobweb market > has an exact two-cycle at d=b; the equilibrium is the fixed-point exception 0ms
+ ✓ src/cobweb.test.ts > one-period cobweb market > diverges until a negative next price is reported, without changing the last valid point 0ms
+ ✓ src/cobweb.test.ts > one-period cobweb market > validates finite parameters and the initial demand point including boundary values 1ms
+ ✓ src/voronoi.test.ts > Voronoi geometry: hand-calculated references > one point owns the unit square, regardless of its position 3ms
+ ✓ src/voronoi.test.ts > Voronoi geometry: hand-calculated references > two horizontal sites split at x=.5 with known areas and centroids 1ms
+ ✓ src/voronoi.test.ts > Voronoi geometry: hand-calculated references > diagonal bisector x+y=1 gives two triangles with centroids 1/3 and 2/3 0ms
+ ✓ src/voronoi.test.ts > Voronoi geometry: hand-calculated references > three collinear sites give widths 3/8,1/4,3/8 0ms
+ ✓ src/voronoi.test.ts > Voronoi geometry: hand-calculated references > four corner sites have square quadrants and exact centers 0ms
+ ✓ src/voronoi.test.ts > Voronoi geometry: hand-calculated references > a boundary belongs to both nearest cells; display tie uses smallest ID 1ms
+ ✓ src/voronoi.test.ts > Voronoi geometry: hand-calculated references > four-way equidistance and display-only numerical tolerance are explicit 0ms
+ ✓ src/voronoi.test.ts > Voronoi geometry: hand-calculated references > half-plane clipping retains only the rectangle interior and exact intersections 0ms
+ ✓ src/voronoi.test.ts > Voronoi geometry: hand-calculated references > trapezoid centroid is area weighted, not the average of vertices 0ms
+ ✓ src/voronoi.test.ts > Voronoi geometry: hand-calculated references > tiny translated triangles retain a finite centroid 0ms
+ ✓ src/voronoi.test.ts > Voronoi geometry: hand-calculated references > degenerate polygons and nonfinite vertices are rejected 1ms
+ ✓ src/voronoi.test.ts > numerical validation and independent distance oracle > rejects exact duplicates, too-close sites, duplicate IDs and invalid coordinates 1ms
+ ✓ src/voronoi.test.ts > numerical validation and independent distance oracle > very near sites and tiny corner cells remain finite with total area 1 1ms
+ ✓ src/voronoi.test.ts > numerical validation and independent distance oracle > all computed vertices satisfy all independent squared-distance inequalities 655ms
+ ✓ src/harmonograph.test.ts > harmonograph model > cocoon: deterministic, finite, bounded and samples both endpoints 102ms
+ ✓ src/sand.test.ts > deterministic artificial sand > restores all state and rng, with safety stop overriding playing flags 85ms
+ ✓ src/voronoi.test.ts > numerical validation and independent distance oracle > an independent raster integration approximates areas and centroids 6ms
+ ✓ src/voronoi.test.ts > numerical validation and independent distance oracle > 64 boundary and interior sites partition the square deterministically 4ms
+ ✓ src/voronoi.test.ts > Lloyd simultaneous updates > known asymmetric two-site update uses original cells for both sites 0ms
+ ✓ src/voronoi.test.ts > Lloyd simultaneous updates > permuting input order preserves results by stable ID 1ms
+ ✓ src/voronoi.test.ts > Lloyd simultaneous updates > a regular grid is stationary to roundoff 1ms
+ ✓ src/voronoi.test.ts > Lloyd simultaneous updates > 100 finite updates preserve IDs, positive areas, bounds and area sum 22ms
+ ✓ src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > F, F: overlay is F, independent of background and nodes checkbox 120ms
+ ✓ src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > F, a: overlay is F, independent of background and nodes checkbox 83ms
+ ✓ src/harmonograph.test.ts > harmonograph model > basket: deterministic, finite, bounded and samples both endpoints 126ms
+ ✓ src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > u, F: overlay is F, independent of background and nodes checkbox 74ms
+ ✓ src/harmonograph.test.ts > harmonograph model > has the documented initial coordinates and sums actual damped terms 4ms
+ ✓ src/harmonograph.test.ts > harmonograph model > covers every boundary and rejects nonfinite or excessive shape inputs 70ms
+ ✓ src/harmonograph.test.ts > harmonograph model > maps each control to the stated coefficients, keeping unrelated axes unchanged 1ms
+ ✓ src/harmonograph.test.ts > harmonograph model > derives displayed numeric expressions from the resolved sampling terms 1ms
+ ✓ src/harmonograph.test.ts > harmonograph model > projects onto the selected coordinate without changing that coordinate 0ms
+ ✓ src/harmonograph.test.ts > harmonograph playback > advances by elapsed time, independent of frame count or path generation 74ms
+ ✓ src/harmonograph.test.ts > harmonograph playback > preserves pause and completion, resets consistently, and ends exactly 4ms
+ ✓ src/harmonograph.test.ts > harmonograph playback > rejects invalid playback inputs 0ms
+ ✓ src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > u, a: overlay is F, independent of background and nodes checkbox 124ms
+ ✓ src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > first, F: overlay is F, independent of background and nodes checkbox 88ms
+ ✓ src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > first, a: overlay is F, independent of background and nodes checkbox 75ms
+ ✓ src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > second, F: overlay is F, independent of background and nodes checkbox 76ms
+ ✓ src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > second, a: overlay is F, independent of background and nodes checkbox 76ms
+ ✓ src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > factorX, F: overlay is F, independent of background and nodes checkbox 75ms
+ ✓ src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > factorX, a: overlay is F, independent of background and nodes checkbox 64ms
+ ✓ src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > factorY, F: overlay is F, independent of background and nodes checkbox 66ms
+ ✓ src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > factorY, a: overlay is F, independent of background and nodes checkbox 66ms
+ ✓ src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > first: ordinary auxiliary lines retain their own zero set after clearing F 63ms
+ ✓ src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > second: ordinary auxiliary lines retain their own zero set after clearing F 60ms
+ ✓ src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > factorX: ordinary auxiliary lines retain their own zero set after clearing F 54ms
+ ✓ src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > factorY: ordinary auxiliary lines retain their own zero set after clearing F 54ms
+ ✓ src/sand-render.test.ts > sand P2-01: independently known zero sets reach Canvas commands > early lessons ignore forbidden full-F highlight rather than switching the background 72ms
+ ✓ src/knot.test.ts > torus knot mathematics > rejects radii too close for a legible finite-precision tube, without rounding valid boundary input 2ms
+ ✓ src/knot.test.ts > torus knot mathematics > matches the requested formula, endpoints and three precise presets 2ms
+ ✓ src/knot.test.ts > torus knot mathematics > validates coprimality without correcting integers or nonfinite inputs 3ms
+ ✓ src/knot.test.ts > torus knot mathematics > is deterministic, finite and stays on its defining torus at all supported integer pairs 1663ms
+ ✓ src/knot.test.ts > torus knot mathematics > has bounded chord error and identical samples at shared parameter positions 56ms
+ ✓ src/knot.test.ts > torus knot mathematics > places C, P, R and r in the correct planes and derives an actual tangent 0ms
+ ✓ src/knot.test.ts > torus knot mathematics > centers the visible tube on evaluated samples and closes its mesh seam exactly 7ms
+ ✓ src/knot.test.ts > knot playback, independently of geometry sampling > pauses, resumes and completes using elapsed time independent of frame partition 1ms
+ ✓ src/knot.test.ts > knot playback, independently of geometry sampling > restarts and regenerates consistently with pause, complete and reduced motion 0ms
+
+ Test Files  29 passed (29)
+      Tests  317 passed (317)
+   Start at  20:33:49
+   Duration  2.95s (transform 2.44s, setup 0ms, collect 5.33s, tests 7.79s, environment 6ms, prepare 4.76s)
+
