@@ -3,7 +3,7 @@ export const tileColors=['#162333','#ed897b','#75bed7'];
 export type PaintOptions={patterns:boolean;marks:boolean;selected:number|null;cursor:number;scale:number};
 /** Pure projection of state: no model updates, RNG, or wall clock. */
 export function drawCity(canvas:HTMLCanvasElement,city:City,cells:readonly number[],options:PaintOptions):boolean{
-  const box=canvas.parentElement!.getBoundingClientRect(),width=box.width*options.scale;
+  const width=canvas.parentElement!.clientWidth*options.scale;
   if(width<=0)return false;
   const dpr=Math.min(devicePixelRatio||1,2),pixels=Math.round(width*dpr);
   canvas.style.width=`${width}px`;canvas.style.height=`${width}px`;

@@ -14,3 +14,5 @@
 /* WebKit's native select surface may ignore the dark background. Keep native
    semantics and keyboard handling while painting a readable field and arrow. */
 .mosaic select[id],#app:has(.mosaic) .experiment-picker select{-webkit-appearance:none;appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--sm-muted,#afc0d2) 50%),linear-gradient(135deg,var(--sm-muted,#afc0d2) 50%,transparent 50%);background-position:calc(100% - 17px) center,calc(100% - 12px) center;background-size:5px 5px;background-repeat:no-repeat;padding-right:30px}
+.sm-math-scroll{max-width:100%;overflow-x:auto;padding:4px 0}
+.sm-math-scroll:focus-visible,.sm-table-wrap:focus-visible{outline:3px solid var(--sm-accent);outline-offset:2px}

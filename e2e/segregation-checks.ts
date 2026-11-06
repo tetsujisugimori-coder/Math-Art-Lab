@@ -1,5 +1,6 @@
 import {test,expect,type Page} from '@playwright/test';
 import {mkdirSync,writeFileSync} from 'node:fs';
+import {verifyMosaicLayout} from './segregation-layout-checks';
 
 async function open(page:Page){await page.goto('./');await page.locator('#experiment').selectOption('segregation');await expect(page.locator('#sm-step-count')).toHaveText('0');}
 async function range(page:Page,id:string,value:number){await page.locator(id).fill(String(value));await page.locator(id).dispatchEvent('input');}
@@ -65,10 +66,7 @@ test('keyboard, zoom, reduced motion and rendering options preserve calculations
 });
 
 for(const width of [375,390,765,1280])for(const theme of ['light','dark'] as const)test(`layout ${width}px ${theme}`,async({page},info)=>{
-  await page.setViewportSize({width,height:1000});await page.emulateMedia({colorScheme:theme,reducedMotion:'reduce'});await open(page);const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await step(page,20);await page.locator('#sm-compare').click();await expect(page.locator('#sm-baseline')).toBeVisible();expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
-  await page.evaluate(()=>document.documentElement.style.fontSize='200%');expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await page.locator('#sm-city').focus();await expect(page.locator('#sm-city')).toBeFocused();await page.evaluate(()=>document.documentElement.style.fontSize='');
-  if(process.env.SM_CAPTURE){const dir=`docs/segregation/screenshots/${process.env.SM_PHASE??'development'}`;mkdirSync(dir,{recursive:true});await page.screenshot({path:`${dir}/${info.project.name}-${width}-${theme}.png`,fullPage:true});}
-  expect(errors).toEqual([]);
+  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await verifyMosaicLayout(page,info,width,theme);expect(errors).toEqual([]);
 });
 
 test('maximum grid and speed timing sample',async({page},info)=>{
