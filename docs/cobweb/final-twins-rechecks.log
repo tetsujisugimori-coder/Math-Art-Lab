@@ -1,0 +1,32 @@
+
+> math-art-lab@0.1.0 test:e2e
+> playwright test --project=webkit --grep review UI 320px dark|twins mathematics, gestures and lessons 320px light|twins mathematics, gestures and lessons 390px dark --repeat-each=3 --reporter=list --output=test-results/final-twins-rechecks
+
+[WebServer] (node:3864) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 9 tests using 1 worker
+
+(node:38804) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:38804) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [webkit] › e2e\twins-review.spec.ts:9:90 › review UI 320px dark (9.0s)
+  ✓  2 [webkit] › e2e\twins.spec.ts:4:90 › twins mathematics, gestures and lessons 320px light (13.6s)
+  ✓  3 [webkit] › e2e\twins.spec.ts:4:90 › twins mathematics, gestures and lessons 390px dark (15.5s)
+(node:45880) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:45880) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 [webkit] › e2e\twins-review.spec.ts:9:90 › review UI 320px dark (9.2s)
+  ✓  5 [webkit] › e2e\twins.spec.ts:4:90 › twins mathematics, gestures and lessons 320px light (10.9s)
+  ✓  6 [webkit] › e2e\twins.spec.ts:4:90 › twins mathematics, gestures and lessons 390px dark (27.0s)
+(node:37808) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:37808) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  7 [webkit] › e2e\twins-review.spec.ts:9:90 › review UI 320px dark (9.2s)
+  ✓  8 [webkit] › e2e\twins.spec.ts:4:90 › twins mathematics, gestures and lessons 320px light (34.8s)
+  ✓  9 [webkit] › e2e\twins.spec.ts:4:90 › twins mathematics, gestures and lessons 390px dark (15.1s)
+
+  9 passed (2.5m)

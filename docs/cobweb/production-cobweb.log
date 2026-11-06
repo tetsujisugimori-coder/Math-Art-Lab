@@ -1,0 +1,37 @@
+
+> math-art-lab@0.1.0 test:e2e:production
+> playwright test --config playwright.production.config.ts e2e-production/cobweb.spec.ts --reporter=list --output=test-results/cobweb-production-final
+
+[WebServer] (node:36664) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 18 tests using 1 worker
+
+(node:16412) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:16412) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › e2e\cobweb-checks.ts:40:1 › one period follows supply at old price then demand at new price, with exact SVG corners (1.0s)
+  ✓   2 [chromium] › e2e\cobweb-checks.ts:67:1 › presets shrink, repeat or grow around their analytical equilibrium; divergence stops without clamping (2.2s)
+  ✓   3 [chromium] › e2e\cobweb-checks.ts:93:1 › parameter validation is atomic; apply/reset clears history and changes the actual dynamics (2.9s)
+  ✓   4 [chromium] › e2e\cobweb-checks.ts:122:1 › four-stage lesson restores market, history, mode and unapplied input; keyboard highlight links formulas and curves (2.7s)
+  ✓   5 [chromium] › e2e\cobweb-checks.ts:152:1 › playback traverses both phases; pause, visibility and reduced motion preserve safety through a lesson (4.5s)
+  ✓   6 [chromium] › e2e\cobweb-checks.ts:192:1 › history is bounded and switching existing works disposes the animated work (3.4s)
+  ✓   7 [chromium] › e2e\cobweb-checks.ts:215:3 › responsive real SVG and screenshot 1280 dark (5.6s)
+  ✓   8 [chromium] › e2e\cobweb-checks.ts:215:3 › responsive real SVG and screenshot 375 light (4.2s)
+  ✓   9 [chromium] › e2e\cobweb-checks.ts:215:3 › responsive real SVG and screenshot 320 dark (3.9s)
+(node:43724) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:43724) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  10 [webkit] › e2e\cobweb-checks.ts:40:1 › one period follows supply at old price then demand at new price, with exact SVG corners (865ms)
+  ✓  11 [webkit] › e2e\cobweb-checks.ts:67:1 › presets shrink, repeat or grow around their analytical equilibrium; divergence stops without clamping (6.3s)
+  ✓  12 [webkit] › e2e\cobweb-checks.ts:93:1 › parameter validation is atomic; apply/reset clears history and changes the actual dynamics (5.0s)
+  ✓  13 [webkit] › e2e\cobweb-checks.ts:122:1 › four-stage lesson restores market, history, mode and unapplied input; keyboard highlight links formulas and curves (3.6s)
+  ✓  14 [webkit] › e2e\cobweb-checks.ts:152:1 › playback traverses both phases; pause, visibility and reduced motion preserve safety through a lesson (6.0s)
+  ✓  15 [webkit] › e2e\cobweb-checks.ts:192:1 › history is bounded and switching existing works disposes the animated work (4.5s)
+  ✓  16 [webkit] › e2e\cobweb-checks.ts:215:3 › responsive real SVG and screenshot 1280 dark (7.1s)
+  ✓  17 [webkit] › e2e\cobweb-checks.ts:215:3 › responsive real SVG and screenshot 375 light (4.6s)
+  ✓  18 [webkit] › e2e\cobweb-checks.ts:215:3 › responsive real SVG and screenshot 320 dark (4.7s)
+
+  18 passed (1.3m)
