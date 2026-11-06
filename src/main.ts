@@ -1,3 +1,4 @@
+import {mountSegregation} from './segregation-view';
 import {mountCobweb} from './cobweb-view';
 import {mountRipple} from './ripple-view';
 import {mountSand} from './sand-view';
@@ -22,6 +23,7 @@ select.add(new Option('011 · 距離の結晶','voronoi'));
 select.add(new Option('012 · 振動の砂絵','sand'));
 select.add(new Option('013 · 波紋の万華鏡','ripple'));
 select.add(new Option('014 · 需要と供給の蜘蛛の巣','cobweb'));
-const mounts={fractal:mountFractal,harmonograph:mountHarmonograph,garden:mountGarden,knot:mountKnot,lorenz:mountLorenz,twins:mountTwins,wave:mountWave,flow:mountFlowField,reaction:mountReactionDiffusion,fourier:mountFourier,voronoi:mountVoronoi,sand:mountSand,ripple:mountRipple,cobweb:mountCobweb};
+select.add(new Option('015 · 分断のモザイク','segregation'));
+const mounts={fractal:mountFractal,harmonograph:mountHarmonograph,garden:mountGarden,knot:mountKnot,lorenz:mountLorenz,twins:mountTwins,wave:mountWave,flow:mountFlowField,reaction:mountReactionDiffusion,fourier:mountFourier,voronoi:mountVoronoi,sand:mountSand,ripple:mountRipple,cobweb:mountCobweb,segregation:mountSegregation};
 select.onchange=()=>{dispose();dispose=(mounts[select.value as keyof typeof mounts]??mountHarmonograph)(host);};
 window.addEventListener('pagehide',event=>{if(!event.persisted)dispose();});
