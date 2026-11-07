@@ -2,6 +2,7 @@ import {describe,it,expect} from 'vitest';
 import {advance,classification,compareWorld,createWorld,defaults,fermi,HISTORY_LIMIT,measure,neighbors,payoff,presets,scores,validate,type Config,type Strategy} from './cooperation';
 
 describe('cooperation payoff and topology',()=>{
+  it.each(['sum','mean'] as const)('equal composition has identical decimal scores regardless of neighbor ordering (%s)',scoring=>{const c={...defaults,size:4,R:3.1,S:.1,scoring},a=Array<Strategy>(16).fill(0),b=Array<Strategy>(16).fill(0),ns=neighbors(c,5);a[5]=b[5]=1;ns.slice(0,3).forEach(i=>a[i]=1);ns.slice(-3).forEach(i=>b[i]=1);expect(scores(c,a)[5]).toBe(scores(c,b)[5]);expect(scores(c,a)[5]).toBe((3*c.R+5*c.S)/(scoring==='mean'?8:1));});
   it.each([[1,1,3],[1,0,0],[0,1,5],[0,0,1]])('payoff %i versus %i = %i',(a,b,v)=>expect(payoff(a as Strategy,b as Strategy,defaults)).toBe(v));
   it.each([4,8] as const)('periodic %i neighbors are unique and exclude self',n=>{const c={...defaults,size:4,neighbors:n};for(let i=0;i<16;i++){const ns=neighbors(c,i);expect(ns).toHaveLength(n);expect(new Set(ns).size).toBe(n);expect(ns).not.toContain(i);expect(ns.every(j=>j>=0&&j<16)).toBe(true);}});
   it.each([[4,2,3,4],[8,3,5,8]])('fixed %i corner/edge/interior',(n,corner,edge,center)=>{const c={...defaults,size:4,neighbors:n as 4|8,boundary:'fixed' as const};expect(neighbors(c,0)).toHaveLength(corner);expect(neighbors(c,1)).toHaveLength(edge);expect(neighbors(c,5)).toHaveLength(center);});

@@ -26,7 +26,7 @@ export function neighbors(c:Config,i:number):number[]{
   }return result;
 }
 export function payoff(me:Strategy,other:Strategy,c:Config):number{return me?(other?c.R:c.S):(other?c.T:c.P);}
-export function scores(c:Config,cells:readonly Strategy[]):number[]{return cells.map((s,i)=>{const ns=neighbors(c,i),sum=ns.reduce((v,j)=>v+payoff(s,cells[j],c),0);return c.scoring==='mean'?sum/ns.length:sum;});}
+export function scores(c:Config,cells:readonly Strategy[]):number[]{return cells.map((s,i)=>{const ns=neighbors(c,i),nc=ns.reduce((v,j)=>v+cells[j],0);/* Canonical grouping keeps equal decimal compositions exactly tied. */const sum=nc*payoff(s,1,c)+(ns.length-nc)*payoff(s,0,c);return c.scoring==='mean'?sum/ns.length:sum;});}
 export function fermi(own:number,other:number,K:number):number{
   if(!Number.isFinite(own)||!Number.isFinite(other)||!Number.isFinite(K)||K<=0)throw new Error('Invalid Fermi arguments');
   const z=(other-own)/K;if(z>=0)return 1/(1+Math.exp(-z));const e=Math.exp(z);return e/(1+e);

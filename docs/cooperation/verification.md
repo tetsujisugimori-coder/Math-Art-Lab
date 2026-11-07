@@ -18,11 +18,15 @@ Pagesの公開条件・deploy依存関係は保持。CIに開発／本番E2Eの�
 | 近傍値修正後の追加開発E2E | Chromium/WebKit計30/30成功（1.4分）、retry/新規skipなし | evidence/e2e-development-r2.log、screenshots/ |
 | 最終版全単体・型・ビルド | 383/383成功、型成功、build成功 | evidence/unit-final.log、typecheck-final.log、build-final.log |
 | 最終版追加開発E2E（34件へ拡充） | Chromium/WebKit計34/34成功（2.3分）、retry/skipなし | evidence/e2e-development-final.log、screenshots-final/ |
-| CI：既存を含む開発全回帰 | 556成功＋既存の手動撮影用2skip（18.9分） | evidence/ci-code-42382186369.log |
-| CI：既存を含む本番全回帰 | 434/434成功（10.9分） | 同上 |
-| GitHub CI：製品コードHEAD b9b7e77 | Validate成功。単体383・型・buildも成功。PRのDeployは条件どおり非実行 | evidence/ci-code-42382186369.json |
+| 小数修正前CI：既存を含む開発全回帰 | 556成功＋既存の手動撮影用2skip（18.9分） | evidence/ci-code-42382186369.log |
+| 小数修正前CI：既存を含む本番全回帰 | 434/434成功（10.9分） | 同上 |
+| 小数修正前CI：製品コードHEAD b9b7e77 | Validate成功。単体383・型・buildも成功。PRのDeployは条件どおり非実行 | evidence/ci-code-42382186369.json |
 | Windows補助全回帰 | 444/558件目付近で明示中断。CI全件成功を確認したため、重複実行を終了。完走成功には数えない。ローカル全件本番は未開始 | evidence/full-development.log、full-regression-exits.json |
 | Windows追加本番E2E | Chromium/WebKit計34/34成功（1.9分）、retry/skipなし | evidence/e2e-production-final.log、production-additional-exit.json |
+| 小数利得の順序依存の再現 | 新規2件失敗・既存66件成功。9.799999999999999と9.8、平均でも丸め差を再現 | evidence/decimal-score-red.log |
+| 小数利得修正後：全単体・型・build | 385/385成功（本作68件）、型・build成功 | evidence/unit-decimal-fixed.log、typecheck-decimal-fixed.log、build-decimal-fixed.log |
+| 小数利得修正後：Windows追加開発／本番E2E | 開発34/34（2.4分）、本番34/34（1.9分）、両browser・retry/skipなし | evidence/e2e-development-decimal-fixed.log、e2e-production-decimal-fixed.log、decimal-fixed-exits.json |
+| 資料HEAD 3767680のCI | 小数利得修正で対象HEADが古くなったため明示取消。成功・テスト失敗のいずれにも数えない | run 42385022923 |
 
 初回E2Eの原因はモデルではなく、フォームから近傍を読んだ際に数値変換対象へ含めなかったこと。
 通常の設定適用と比較開始の両方を修正。既存期待値やtimeoutを緩和せず、同じテストで再確認。
@@ -38,6 +42,16 @@ artifactのID・サイズ・SHA256は evidence/ci-code-artifacts.json、検証�
 Windows再撮影PNGのうち既存最終PNGと完全一致するものはSHA256を照合し、
 full-development-screenshots/index.json、production-screenshots/index.jsonから同じ画像を参照。
 異なるPNGは再撮影フォルダ内に保持。各索引には実際の撮影時刻・SHA256・参照先を保存。
+
+## 小数利得と同点の追加修正
+
+最終点検で、R=3.1、S=.1、近隣C=3/D=5の同じ構成でも、隣人を列挙する順で
+単純加算が9.799999999999999または9.8になるケースを確認。同点の模倣判断に影響しうるため修正した。
+合計を `C人数×対C利得＋D人数×対D利得` の固定した式で計算し、平均はその結果を近隣人数で割る。
+同じ戦略と構成の得点は列挙順に依存しない。任意の誤差許容や入力の丸めは導入しない。
+修正前の失敗2件と修正後の全385件を別ログで保持。修正後もWindows開発／本番各34件を完走。
+新しいHEADの全回帰CI確定結果はPR #42の検証コメントへ記録する。
+修正後の再撮影PNGもdecimal-fixed-development-screenshots/index.json、decimal-fixed-production-screenshots/index.jsonに撮影時刻とSHA256を記録し、完全一致時のみ既存PNGを参照する。
 
 ## 単体・ブラウザ検証内容
 
@@ -55,10 +69,11 @@ DPR2・タップ・reduced-motion変更時停止を別ケースで確認。
 ## 長期実行・コスト
 
 `node --expose-gc tools/cooperation-audit.mjs`：30×30・Fermi・μ=.01で11,000世代。
-人数900を保存、history600、initial900、decisions900。GC後heapは1000世代時16,059,392B→11000世代時16,005,432B。
-追加10,000世代約1659ms、最大80×80の100世代約118ms（当該Windows/Node 24.20.0の単発測定）。
+小数利得修正後も人数900を保存、history600、initial900、decisions900。GC後heapは1000世代時16,068,776B→11000世代時16,015,096B。
+追加10,000世代約1613ms、最大80×80の100世代約112ms（当該Windows/Node 24.20.0の単発測定）。
 これはモデルのみの測定で、ブラウザheap・実機スマートフォン・バッテリー・描画性能の証明ではない。
 再現可能なJSONを evidence/model-stress.json に保存。
+小数修正前のJSONは evidence/model-stress-before-decimal.json に保持。
 
 ## 残る限界とレビュー
 
