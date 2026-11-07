@@ -1,0 +1,207 @@
+
+[1A[2K[WebServer] (node:17660) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 42 tests using 1 worker
+
+
+
+[1A[2K(node:34168) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:34168) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1A[2K[1/42] [chromium] › e2e\segregation-checks.ts:76:1 › play, pause, exact step, reset, seed and speed invariance
+[1A[2K[2/42] [chromium] › e2e\segregation-checks.ts:102:1 › drafts, all presets, explicit apply, same-city experiments and frozen result
+[1A[2K[3/42] [chromium] › e2e\segregation-checks.ts:142:1 › raster city, displayed statistics and chart endpoints agree
+[1A[2K[4/42] [chromium] › e2e\segregation-checks.ts:168:1 › resident ID follows one selected move and local counts exclude the source
+[1A[2K[5/42] [chromium] › e2e\segregation-checks.ts:185:1 › four lesson stages gate controls, synchronize math, quiz and restore drafts/state
+[1A[2K[6/42] [chromium] › e2e\segregation-checks.ts:212:1 › boundaries, empty/full populations, rules and repeated work switching
+[1A[2K[7/42] [chromium] › e2e\segregation-checks.ts:240:1 › keyboard, zoom, reduced motion and rendering options preserve calculations
+[1A[2K[8/42] [chromium] › e2e\segregation-checks.ts:267:83 › layout 375px light
+[1A[2K[9/42] [chromium] › e2e\segregation-checks.ts:267:83 › layout 375px dark
+[1A[2K[10/42] [chromium] › e2e\segregation-checks.ts:267:83 › layout 390px light
+[1A[2K[11/42] [chromium] › e2e\segregation-checks.ts:267:83 › layout 390px dark
+[1A[2K  1) [chromium] › e2e\segregation-checks.ts:267:83 › layout 390px dark ─────────────────────────────
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('#sm-step')[22m
+    [2m    - locator resolved to <button id="sm-step">1ステップ</button>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - performing click action[22m
+
+
+       at segregation-layout-checks.ts:12
+
+      10 |   await page.setViewportSize({width,height:1000});await page.emulateMedia({colorScheme:theme,reducedMotion:'reduce'});
+      11 |   await page.goto('./');await page.locator('#experiment').selectOption('segregation');
+    > 12 |   for(let i=0;i<20;i++)await page.locator('#sm-step').click();
+         |                                                       ^
+      13 |   const initialValues=await page.locator('.sm-metrics').textContent();
+      14 |   async function scrollWithKeyboard(selector:string){
+      15 |     const region=page.locator(selector);await region.focus();await expect(region).toBeFocused();
+        at verifyMosaicLayout (C:\Users\tetsu\.codex\worktrees\fd4f\Math-Art-Lab\e2e\segregation-layout-checks.ts:12:55)
+        at C:\Users\tetsu\.codex\worktrees\fd4f\Math-Art-Lab\e2e\segregation-checks.ts:69:75
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    docs\segregation\review-p2-01\full-dev-final-results\segregation-layout-390px-dark-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: docs\segregation\review-p2-01\full-dev-final-results\segregation-layout-390px-dark-chromium\error-context.md
+
+
+
+
+[1A[2K(node:35784) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:35784) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1A[2K[12/42] [chromium] › e2e\segregation-checks.ts:267:83 › layout 765px light
+[1A[2K  2) [chromium] › e2e\segregation-checks.ts:267:83 › layout 765px light ────────────────────────────
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://127.0.0.1:4173/", waiting until "load"[22m
+
+
+       at segregation-layout-checks.ts:11
+
+       9 |   const settle=async()=>{await page.evaluate(()=>document.fonts.ready);await page.evaluate(()=>new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve()))));};
+      10 |   await page.setViewportSize({width,height:1000});await page.emulateMedia({colorScheme:theme,reducedMotion:'reduce'});
+    > 11 |   await page.goto('./');await page.locator('#experiment').selectOption('segregation');
+         |              ^
+      12 |   for(let i=0;i<20;i++)await page.locator('#sm-step').click();
+      13 |   const initialValues=await page.locator('.sm-metrics').textContent();
+      14 |   async function scrollWithKeyboard(selector:string){
+        at verifyMosaicLayout (C:\Users\tetsu\.codex\worktrees\fd4f\Math-Art-Lab\e2e\segregation-layout-checks.ts:11:14)
+        at C:\Users\tetsu\.codex\worktrees\fd4f\Math-Art-Lab\e2e\segregation-checks.ts:69:75
+
+
+
+
+[1A[2K(node:36684) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:36684) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1A[2K[13/42] [chromium] › e2e\segregation-checks.ts:267:83 › layout 765px dark
+[1A[2K[14/42] [chromium] › e2e\segregation-checks.ts:267:83 › layout 1280px light
+[1A[2K[15/42] [chromium] › e2e\segregation-checks.ts:267:83 › layout 1280px dark
+[1A[2K[16/42] [chromium] › e2e\segregation-checks.ts:275:1 › maximum grid and speed timing sample
+[1A[2K[17/42] [chromium] › e2e\segregation-checks.ts:328:1 › weak preference reaches a distinct mosaic on the reproducible example
+[1A[2K[18/42] [chromium] › e2e\segregation-regression-checks.ts:2:1 › regression: displayed default resident can make a selected judgement
+[1A[2K[19/42] [chromium] › e2e\segregation-regression-checks.ts:15:1 › regression: lesson restores each series visibility
+[1A[2K[20/42] [chromium] › e2e\segregation-regression-checks.ts:28:40 › regression: native select raster contrast light
+[1A[2K[21/42] [chromium] › e2e\segregation-regression-checks.ts:28:40 › regression: native select raster contrast dark
+
+[1A[2K(node:3540) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:3540) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K[22/42] [webkit] › e2e\segregation-checks.ts:76:1 › play, pause, exact step, reset, seed and speed invariance
+[1A[2K[23/42] [webkit] › e2e\segregation-checks.ts:102:1 › drafts, all presets, explicit apply, same-city experiments and frozen result
+[1A[2K[24/42] [webkit] › e2e\segregation-checks.ts:142:1 › raster city, displayed statistics and chart endpoints agree
+[1A[2K[25/42] [webkit] › e2e\segregation-checks.ts:168:1 › resident ID follows one selected move and local counts exclude the source
+[1A[2K[26/42] [webkit] › e2e\segregation-checks.ts:185:1 › four lesson stages gate controls, synchronize math, quiz and restore drafts/state
+[1A[2K[27/42] [webkit] › e2e\segregation-checks.ts:212:1 › boundaries, empty/full populations, rules and repeated work switching
+[1A[2K[28/42] [webkit] › e2e\segregation-checks.ts:240:1 › keyboard, zoom, reduced motion and rendering options preserve calculations
+[1A[2K[29/42] [webkit] › e2e\segregation-checks.ts:267:83 › layout 375px light
+[1A[2K[30/42] [webkit] › e2e\segregation-checks.ts:267:83 › layout 375px dark
+[1A[2K[31/42] [webkit] › e2e\segregation-checks.ts:267:83 › layout 390px light
+[1A[2K  3) [webkit] › e2e\segregation-checks.ts:267:83 › layout 390px light ──────────────────────────────
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://127.0.0.1:4173/", waiting until "load"[22m
+
+
+       at segregation-layout-checks.ts:11
+
+       9 |   const settle=async()=>{await page.evaluate(()=>document.fonts.ready);await page.evaluate(()=>new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve()))));};
+      10 |   await page.setViewportSize({width,height:1000});await page.emulateMedia({colorScheme:theme,reducedMotion:'reduce'});
+    > 11 |   await page.goto('./');await page.locator('#experiment').selectOption('segregation');
+         |              ^
+      12 |   for(let i=0;i<20;i++)await page.locator('#sm-step').click();
+      13 |   const initialValues=await page.locator('.sm-metrics').textContent();
+      14 |   async function scrollWithKeyboard(selector:string){
+        at verifyMosaicLayout (C:\Users\tetsu\.codex\worktrees\fd4f\Math-Art-Lab\e2e\segregation-layout-checks.ts:11:14)
+        at C:\Users\tetsu\.codex\worktrees\fd4f\Math-Art-Lab\e2e\segregation-checks.ts:69:75
+
+
+
+[1A[2K(node:26052) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K(node:26052) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[32/42] [webkit] › e2e\segregation-checks.ts:267:83 › layout 390px dark
+[1A[2K  4) [webkit] › e2e\segregation-checks.ts:267:83 › layout 390px dark ───────────────────────────────
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.selectOption: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('#experiment')[22m
+
+
+       at segregation-layout-checks.ts:11
+
+       9 |   const settle=async()=>{await page.evaluate(()=>document.fonts.ready);await page.evaluate(()=>new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve()))));};
+      10 |   await page.setViewportSize({width,height:1000});await page.emulateMedia({colorScheme:theme,reducedMotion:'reduce'});
+    > 11 |   await page.goto('./');await page.locator('#experiment').selectOption('segregation');
+         |                                                           ^
+      12 |   for(let i=0;i<20;i++)await page.locator('#sm-step').click();
+      13 |   const initialValues=await page.locator('.sm-metrics').textContent();
+      14 |   async function scrollWithKeyboard(selector:string){
+        at verifyMosaicLayout (C:\Users\tetsu\.codex\worktrees\fd4f\Math-Art-Lab\e2e\segregation-layout-checks.ts:11:59)
+        at C:\Users\tetsu\.codex\worktrees\fd4f\Math-Art-Lab\e2e\segregation-checks.ts:69:75
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    docs\segregation\review-p2-01\full-dev-final-results\segregation-layout-390px-dark-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+[1A[2K(node:9828) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:9828) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1A[2K[33/42] [webkit] › e2e\segregation-checks.ts:267:83 › layout 765px light
+[1A[2K[34/42] [webkit] › e2e\segregation-checks.ts:267:83 › layout 765px dark
+[1A[2K[35/42] [webkit] › e2e\segregation-checks.ts:267:83 › layout 1280px light
+[1A[2K[36/42] [webkit] › e2e\segregation-checks.ts:267:83 › layout 1280px dark
+[1A[2K[37/42] [webkit] › e2e\segregation-checks.ts:275:1 › maximum grid and speed timing sample
+[1A[2K[38/42] [webkit] › e2e\segregation-checks.ts:328:1 › weak preference reaches a distinct mosaic on the reproducible example
+[1A[2K[39/42] [webkit] › e2e\segregation-regression-checks.ts:2:1 › regression: displayed default resident can make a selected judgement
+[1A[2K[40/42] [webkit] › e2e\segregation-regression-checks.ts:15:1 › regression: lesson restores each series visibility
+[1A[2K[41/42] [webkit] › e2e\segregation-regression-checks.ts:28:40 › regression: native select raster contrast light
+[1A[2K[42/42] [webkit] › e2e\segregation-regression-checks.ts:28:40 › regression: native select raster contrast dark
+[1A[2K  4 failed
+    [chromium] › e2e\segregation-checks.ts:267:83 › layout 390px dark ──────────────────────────────
+    [chromium] › e2e\segregation-checks.ts:267:83 › layout 765px light ─────────────────────────────
+    [webkit] › e2e\segregation-checks.ts:267:83 › layout 390px light ───────────────────────────────
+    [webkit] › e2e\segregation-checks.ts:267:83 › layout 390px dark ────────────────────────────────
+  38 passed (7.9m)

@@ -1,0 +1,173 @@
+
+[1A[2K[WebServer] (node:3040) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+
+
+[1A[2K(node:26068) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:26068) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1A[2K[1/4] [chromium] › e2e\segregation-regression-checks.ts:2:1 › regression: displayed default resident can make a selected judgement
+[1A[2K  1) [chromium] › e2e\segregation-regression-checks.ts:2:1 › regression: displayed default resident can make a selected judgement 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('#sm-step-count')
+    Expected: [32m"1"[39m
+    Received: [31m"0"[39m
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "toHaveText" with timeout 5000ms[22m
+    [2m  - waiting for locator('#sm-step-count')[22m
+    [2m    9 × locator resolved to <dd id="sm-step-count">0</dd>[22m
+    [2m      - unexpected value "0"[22m
+
+
+      2 | test('regression: displayed default resident can make a selected judgement',async({page})=>{
+      3 |   await page.goto('./');await page.locator('#experiment').selectOption('segregation');await page.locator('#sm-seed').fill('1');await page.locator('#sm-threshold').fill('100');await page.locator('#sm-settings button[type=submit]').click();
+    > 4 |   await expect(page.locator('#sm-selection')).toContainText('住民ID');await expect(page.locator('#sm-selected-step')).toBeEnabled();await page.locator('#sm-selected-step').click();await expect(page.locator('#sm-step-count')).toHaveText('1');
+        |                                                                                                                                                                                                                                ^
+      5 | });
+      6 | test('regression: lesson restores each series visibility',async({page})=>{
+      7 |   await page.goto('./');await page.locator('#experiment').selectOption('segregation');await page.locator('#sm-show-satisfaction').uncheck();await page.locator('#sm-lesson-toggle').click();await page.locator('[data-sm-lesson="3"]').click();await page.locator('#sm-show-satisfaction').check();await page.keyboard.press('Escape');
+        at C:\Users\tetsu\.codex\worktrees\fd4f\Math-Art-Lab\e2e\segregation-regression-checks.ts:4:224
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    docs\segregation\evidence\red-results\segregation-regression-dis-08605-n-make-a-selected-judgement-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: docs\segregation\evidence\red-results\segregation-regression-dis-08605-n-make-a-selected-judgement-chromium\error-context.md
+
+
+
+[1A[2K(node:21952) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:21952) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K[2/4] [chromium] › e2e\segregation-regression-checks.ts:15:1 › regression: lesson restores each series visibility
+[1A[2K  2) [chromium] › e2e\segregation-regression-checks.ts:15:1 › regression: lesson restores each series visibility 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).not.[22mtoBeChecked[2m([22m[2m)[22m failed
+
+    Locator:  locator('#sm-show-satisfaction')
+    Expected: not checked
+    Received: checked
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "not toBeChecked" with timeout 5000ms[22m
+    [2m  - waiting for locator('#sm-show-satisfaction')[22m
+    [2m    9 × locator resolved to <input checked type="checkbox" id="sm-show-satisfaction"/>[22m
+    [2m      - unexpected value "checked"[22m
+
+
+       6 | test('regression: lesson restores each series visibility',async({page})=>{
+       7 |   await page.goto('./');await page.locator('#experiment').selectOption('segregation');await page.locator('#sm-show-satisfaction').uncheck();await page.locator('#sm-lesson-toggle').click();await page.locator('[data-sm-lesson="3"]').click();await page.locator('#sm-show-satisfaction').check();await page.keyboard.press('Escape');
+    >  8 |   await expect(page.locator('#sm-show-satisfaction')).not.toBeChecked();await expect(page.locator('#sm-line-satisfaction')).toBeHidden();
+         |                                                           ^
+       9 | });
+      10 |
+        at C:\Users\tetsu\.codex\worktrees\fd4f\Math-Art-Lab\e2e\segregation-regression-checks.ts:8:59
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    docs\segregation\evidence\red-results\segregation-regression-les-8b7e5-ores-each-series-visibility-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: docs\segregation\evidence\red-results\segregation-regression-les-8b7e5-ores-each-series-visibility-chromium\error-context.md
+
+
+
+
+[1A[2K(node:24272) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:24272) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1A[2K[3/4] [webkit] › e2e\segregation-regression-checks.ts:2:1 › regression: displayed default resident can make a selected judgement
+[1A[2K  3) [webkit] › e2e\segregation-regression-checks.ts:2:1 › regression: displayed default resident can make a selected judgement 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('#sm-step-count')
+    Expected: [32m"1"[39m
+    Received: [31m"0"[39m
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "toHaveText" with timeout 5000ms[22m
+    [2m  - waiting for locator('#sm-step-count')[22m
+    [2m    9 × locator resolved to <dd id="sm-step-count">0</dd>[22m
+    [2m      - unexpected value "0"[22m
+
+
+      2 | test('regression: displayed default resident can make a selected judgement',async({page})=>{
+      3 |   await page.goto('./');await page.locator('#experiment').selectOption('segregation');await page.locator('#sm-seed').fill('1');await page.locator('#sm-threshold').fill('100');await page.locator('#sm-settings button[type=submit]').click();
+    > 4 |   await expect(page.locator('#sm-selection')).toContainText('住民ID');await expect(page.locator('#sm-selected-step')).toBeEnabled();await page.locator('#sm-selected-step').click();await expect(page.locator('#sm-step-count')).toHaveText('1');
+        |                                                                                                                                                                                                                                ^
+      5 | });
+      6 | test('regression: lesson restores each series visibility',async({page})=>{
+      7 |   await page.goto('./');await page.locator('#experiment').selectOption('segregation');await page.locator('#sm-show-satisfaction').uncheck();await page.locator('#sm-lesson-toggle').click();await page.locator('[data-sm-lesson="3"]').click();await page.locator('#sm-show-satisfaction').check();await page.keyboard.press('Escape');
+        at C:\Users\tetsu\.codex\worktrees\fd4f\Math-Art-Lab\e2e\segregation-regression-checks.ts:4:224
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    docs\segregation\evidence\red-results\segregation-regression-dis-08605-n-make-a-selected-judgement-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: docs\segregation\evidence\red-results\segregation-regression-dis-08605-n-make-a-selected-judgement-webkit\error-context.md
+
+
+
+[1A[2K(node:10244) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K(node:10244) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K[4/4] [webkit] › e2e\segregation-regression-checks.ts:15:1 › regression: lesson restores each series visibility
+[1A[2K  4) [webkit] › e2e\segregation-regression-checks.ts:15:1 › regression: lesson restores each series visibility 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).not.[22mtoBeChecked[2m([22m[2m)[22m failed
+
+    Locator:  locator('#sm-show-satisfaction')
+    Expected: not checked
+    Received: checked
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "not toBeChecked" with timeout 5000ms[22m
+    [2m  - waiting for locator('#sm-show-satisfaction')[22m
+    [2m    9 × locator resolved to <input checked type="checkbox" id="sm-show-satisfaction"/>[22m
+    [2m      - unexpected value "checked"[22m
+
+
+       6 | test('regression: lesson restores each series visibility',async({page})=>{
+       7 |   await page.goto('./');await page.locator('#experiment').selectOption('segregation');await page.locator('#sm-show-satisfaction').uncheck();await page.locator('#sm-lesson-toggle').click();await page.locator('[data-sm-lesson="3"]').click();await page.locator('#sm-show-satisfaction').check();await page.keyboard.press('Escape');
+    >  8 |   await expect(page.locator('#sm-show-satisfaction')).not.toBeChecked();await expect(page.locator('#sm-line-satisfaction')).toBeHidden();
+         |                                                           ^
+       9 | });
+      10 |
+        at C:\Users\tetsu\.codex\worktrees\fd4f\Math-Art-Lab\e2e\segregation-regression-checks.ts:8:59
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    docs\segregation\evidence\red-results\segregation-regression-les-8b7e5-ores-each-series-visibility-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: docs\segregation\evidence\red-results\segregation-regression-les-8b7e5-ores-each-series-visibility-webkit\error-context.md
+
+
+[1A[2K  4 failed
+    [chromium] › e2e\segregation-regression-checks.ts:2:1 › regression: displayed default resident can make a selected judgement 
+    [chromium] › e2e\segregation-regression-checks.ts:15:1 › regression: lesson restores each series visibility 
+    [webkit] › e2e\segregation-regression-checks.ts:2:1 › regression: displayed default resident can make a selected judgement 
+    [webkit] › e2e\segregation-regression-checks.ts:15:1 › regression: lesson restores each series visibility 
