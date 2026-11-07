@@ -18,12 +18,26 @@ Pagesの公開条件・deploy依存関係は保持。CIに開発／本番E2Eの�
 | 近傍値修正後の追加開発E2E | Chromium/WebKit計30/30成功（1.4分）、retry/新規skipなし | evidence/e2e-development-r2.log、screenshots/ |
 | 最終版全単体・型・ビルド | 383/383成功、型成功、build成功 | evidence/unit-final.log、typecheck-final.log、build-final.log |
 | 最終版追加開発E2E（34件へ拡充） | Chromium/WebKit計34/34成功（2.3分）、retry/skipなし | evidence/e2e-development-final.log、screenshots-final/ |
-| 既存を含む開発／本番全回帰 | 未完了。実行結果を追記 | — |
-| GitHub CI | Draft PR提出後に確認 | — |
+| CI：既存を含む開発全回帰 | 556成功＋既存の手動撮影用2skip（18.9分） | evidence/ci-code-42382186369.log |
+| CI：既存を含む本番全回帰 | 434/434成功（10.9分） | 同上 |
+| GitHub CI：製品コードHEAD b9b7e77 | Validate成功。単体383・型・buildも成功。PRのDeployは条件どおり非実行 | evidence/ci-code-42382186369.json |
+| Windows補助全回帰 | 444/558件目付近で明示中断。CI全件成功を確認したため、重複実行を終了。完走成功には数えない。ローカル全件本番は未開始 | evidence/full-development.log、full-regression-exits.json |
+| Windows追加本番E2E | Chromium/WebKit計34/34成功（1.9分）、retry/skipなし | evidence/e2e-production-final.log、production-additional-exit.json |
 
 初回E2Eの原因はモデルではなく、フォームから近傍を読んだ際に数値変換対象へ含めなかったこと。
 通常の設定適用と比較開始の両方を修正。既存期待値やtimeoutを緩和せず、同じテストで再確認。
 その後、平均利得の独立再計算・DPR2タッチ・全比較パラメータ操作を追加。
+
+[製品コードCI run 42382186369](https://github.com/tetsujisugimori-coder/Math-Art-Lab/actions/runs/42382186369) は2026-11-08 00:05 JSTに全必須工程を完了。
+既存skipは `e2e/wave-capture.spec.ts` の `WAVE_CAPTURE` を要求する手動撮影ケースの両browser分。
+本作のskip・retryは追加していない。全件開発／本番の実検証はUbuntu 24.04のChromium／WebKit。
+Windowsの追加34件（開発／本番）は別実行として扱い、Windows全件完走を主張しない。
+CIのPNG等は [同runのartifact](https://github.com/tetsujisugimori-coder/Math-Art-Lab/actions/runs/42382186369/artifacts/13578164158)（14日保存）にも保存。
+artifactのID・サイズ・SHA256は evidence/ci-code-artifacts.json、検証ソースのSHA256は evidence/test-inputs.json に記録。
+検証結果だけを追記した最終HEADのCI確定結果は、[Draft PR #42](https://github.com/tetsujisugimori-coder/Math-Art-Lab/pull/42) の検証コメントを参照。
+Windows再撮影PNGのうち既存最終PNGと完全一致するものはSHA256を照合し、
+full-development-screenshots/index.json、production-screenshots/index.jsonから同じ画像を参照。
+異なるPNGは再撮影フォルダ内に保持。各索引には実際の撮影時刻・SHA256・参照先を保存。
 
 ## 単体・ブラウザ検証内容
 
