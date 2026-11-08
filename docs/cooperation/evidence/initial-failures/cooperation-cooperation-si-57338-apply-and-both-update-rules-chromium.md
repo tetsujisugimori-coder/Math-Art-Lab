@@ -1,0 +1,321 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - navigation "作品の選択" [ref=e3]:
+    - generic [ref=e4]:
+      - text: 作品
+      - combobox "作品" [ref=e5]:
+        - option "002 · 光のハーモノグラフ"
+        - option "001 · Fractal × Wave"
+        - option "003 · 光の花園"
+        - option "004 · 光の結び目"
+        - option "005 · カオスの蝶"
+        - option "006 · フラクタルの双子"
+        - option "007 · 波紋の対話"
+        - option "008 · 風の軌跡"
+        - option "009 · チューリングの庭"
+        - option "010 · フーリエの万華鏡"
+        - option "011 · 距離の結晶"
+        - option "012 · 振動の砂絵"
+        - option "013 · 波紋の万華鏡"
+        - option "014 · 需要と供給の蜘蛛の巣"
+        - option "015 · 分断のモザイク"
+        - option "016 · 協力の格子" [selected]
+  - main [ref=e7]:
+    - generic [ref=e8]:
+      - text: MATH ART LAB / EXPERIMENT 016
+      - heading "協力の格子" [level=1] [ref=e9]
+      - paragraph [ref=e10]: THE LATTICE OF COOPERATION
+      - paragraph [ref=e11]:
+        - text: 自分にとっての得と、みんなにとっての協力。
+        - text: 隣人の選択が、社会の模様を変えていく。
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e15]:
+          - heading "A · 現在の格子 / 2世代" [level=2] [ref=e16]
+          - img "Aの格子。青斜線Cは協力、赤点Dは裏切り。矢印キーで住民を選択" [ref=e18]
+        - paragraph [ref=e19]:
+          - generic [ref=e20]: ╱ 青＝C 協力
+          - generic [ref=e21]: ● 赤＝D 裏切り
+          - generic [ref=e22]: 白枠＝選択、暗い枠＝近隣
+        - generic [ref=e23]:
+          - button "開始" [ref=e24] [cursor=pointer]
+          - button "1世代進行" [ref=e25] [cursor=pointer]
+          - button "初期化" [ref=e26] [cursor=pointer]
+        - status [ref=e27]: 停止中 · 両条件は確定世代で描画・集計します。
+        - paragraph [ref=e28]: A：協力者 0人 / 裏切り者 900人、協力率 0.0%、変更 0人。
+        - paragraph [ref=e29]: A：厳密な囚人のジレンマ。追加条件 2R>T+S：成立（6 > 5）。
+        - generic [ref=e30]:
+          - heading "協力率の軌跡" [level=2] [ref=e31]
+          - paragraph [ref=e32]: 2世代：実線 A 0.0%
+          - img "協力率時系列。実線A、破線B。縦軸0〜100%、横軸は世代" [ref=e33]:
+            - generic [ref=e35]: 100%
+            - generic [ref=e36]: 0%
+            - generic [ref=e37]: "0"
+            - generic [ref=e38]: 2 世代
+          - paragraph [ref=e40]: 直近 3点（最大600世代分）。初期統計と初期配置は別に保持。平滑化なし。
+          - paragraph [ref=e41]: 協力率と集団構造は別の指標です。塊の大きさから協力の原因を断定しません。
+        - generic [ref=e42]:
+          - heading "同じ世代を、数字で見る" [level=2] [ref=e43]
+          - paragraph [ref=e44]: 比較なし。初期Aと現在Aを比べられます。
+          - region "初期・A・Bの統計比較表" [ref=e45]:
+            - table "確定世代の統計（初期はAの0世代）" [ref=e46]:
+              - caption [ref=e47]: 確定世代の統計（初期はAの0世代）
+              - rowgroup [ref=e48]:
+                - row "指標 初期A 現在A 現在B" [ref=e49]:
+                  - columnheader "指標" [ref=e50]
+                  - columnheader "初期A" [ref=e51]
+                  - columnheader "現在A" [ref=e52]
+                  - columnheader "現在B" [ref=e53]
+              - rowgroup [ref=e54]:
+                - row "世代 0 2 —" [ref=e55]:
+                  - rowheader "世代" [ref=e56]
+                  - cell "0" [ref=e57]
+                  - cell "2" [ref=e58]
+                  - cell "—" [ref=e59]
+                - row "協力者数 450 0 —" [ref=e60]:
+                  - rowheader "協力者数" [ref=e61]
+                  - cell "450" [ref=e62]
+                  - cell "0" [ref=e63]
+                  - cell "—" [ref=e64]
+                - row "裏切り者数 450 900 —" [ref=e65]:
+                  - rowheader "裏切り者数" [ref=e66]
+                  - cell "450" [ref=e67]
+                  - cell "900" [ref=e68]
+                  - cell "—" [ref=e69]
+                - row "協力率 50.0% 0.0% —" [ref=e70]:
+                  - rowheader "協力率" [ref=e71]
+                  - cell "50.0%" [ref=e72]
+                  - cell "0.0%" [ref=e73]
+                  - cell "—" [ref=e74]
+                - row "Cの平均利得 11.867 該当者なし —" [ref=e75]:
+                  - rowheader "Cの平均利得" [ref=e76]
+                  - cell "11.867" [ref=e77]
+                  - cell "該当者なし" [ref=e78]
+                  - cell "—" [ref=e79]
+                - row "Dの平均利得 24.178 8.000 —" [ref=e80]:
+                  - rowheader "Dの平均利得" [ref=e81]
+                  - cell "24.178" [ref=e82]
+                  - cell "8.000" [ref=e83]
+                  - cell "—" [ref=e84]
+                - row "戦略変更数 0 0 —" [ref=e85]:
+                  - rowheader "戦略変更数" [ref=e86]
+                  - cell "0" [ref=e87]
+                  - cell "0" [ref=e88]
+                  - cell "—" [ref=e89]
+                - row "突然変異数 0 0 —" [ref=e90]:
+                  - rowheader "突然変異数" [ref=e91]
+                  - cell "0" [ref=e92]
+                  - cell "0" [ref=e93]
+                  - cell "—" [ref=e94]
+                - row "最大C集団 449 0 —" [ref=e95]:
+                  - rowheader "最大C集団" [ref=e96]
+                  - cell "449" [ref=e97]
+                  - cell "0" [ref=e98]
+                  - cell "—" [ref=e99]
+                - row "C–D境界ペア 1820 0 —" [ref=e100]:
+                  - rowheader "C–D境界ペア" [ref=e101]
+                  - cell "1820" [ref=e102]
+                  - cell "0" [ref=e103]
+                  - cell "—" [ref=e104]
+          - paragraph [ref=e105]: 最大C集団は適用した近傍・境界による連結成分。C–D境界は異戦略の隣接ペアを重複なく数えます。近傍を変えると空間指標の定義も変わります。
+          - group [ref=e106]:
+            - generic "初期配置を見る" [ref=e107] [cursor=pointer]
+        - generic [ref=e108]:
+          - heading "一人のまわりから" [level=2] [ref=e109]
+          - generic [ref=e110]:
+            - generic [ref=e111]:
+              - text: 行
+              - spinbutton "行" [ref=e112]: "1"
+            - generic [ref=e113]:
+              - text: 列
+              - spinbutton "列" [ref=e114]: "1"
+            - button "住民を選択" [ref=e115] [cursor=pointer]
+          - paragraph [ref=e116]: 座標（行 1, 列 1） A：D（裏切り）、局所得点 8.000。近隣 C 0人 / D 8人。
+          - paragraph [ref=e117]: A · πᵢ = 0 × T(5) + 8 × P(1) = 8.000。現在 2世代の得点。
+          - paragraph [ref=e118]: A · 直前 1→2世代：旧D（裏切り）、旧得点 8.000。候補（1, 1）旧得点 8.000。最高点を比較、採用→D（裏切り）。突然変異：なし。確定 D（裏切り）。
+          - paragraph
+      - complementary "実験の条件" [ref=e119]:
+        - heading "実験の条件" [level=2] [ref=e120]
+        - paragraph [ref=e121]: 入力は候補です。「設定を適用」で停止し、0世代から再生成します。未適用の入力は現在の状態を変えません。初期化は適用済み条件と初期配置を再現し、候補入力を保持します。
+        - generic [ref=e122]:
+          - text: 観察プリセット
+          - combobox "観察プリセット" [ref=e123]:
+            - option "カスタム"
+            - option "ランダム混在"
+            - option "協力者の島" [selected]
+            - option "裏切り者の侵入"
+            - option "近傍4／8比較"
+            - option "突然変異のある社会"
+            - option "模倣規則の比較"
+        - paragraph [ref=e124]: 未適用。seed 16017。仮説：まとまった協力者が境界を守れるか。存続を保証しません。 必ず起きるとは限りません。
+        - generic [ref=e125]:
+          - generic [ref=e126]:
+            - text: 格子サイズ
+            - spinbutton "格子サイズ" [ref=e127]: "30"
+          - generic [ref=e128]:
+            - text: 初期協力者割合（0〜1）
+            - spinbutton "初期協力者割合（0〜1）" [ref=e129]: "0.5"
+          - generic [ref=e130]:
+            - text: T · 誘惑
+            - spinbutton "T · 誘惑" [ref=e131]: "3.5"
+          - generic [ref=e132]:
+            - text: R · 報酬
+            - spinbutton "R · 報酬" [ref=e133]: "3"
+          - generic [ref=e134]:
+            - text: P · 罰
+            - spinbutton "P · 罰" [ref=e135]: "0"
+          - generic [ref=e136]:
+            - text: S · 損失
+            - spinbutton "S · 損失" [ref=e137]: "0"
+          - generic [ref=e138]:
+            - text: 近傍
+            - combobox "近傍" [ref=e139]:
+              - option "上下左右4近傍"
+              - option "斜めを含む8近傍" [selected]
+          - generic [ref=e140]:
+            - text: 境界
+            - combobox "境界" [ref=e141]:
+              - option "固定端（外を除外）"
+              - option "周期境界" [selected]
+          - generic [ref=e142]:
+            - text: 戦略更新規則
+            - combobox "戦略更新規則" [ref=e143]:
+              - option "最良戦略模倣" [selected]
+              - option "Fermi更新"
+          - generic [ref=e144]:
+            - text: Fermi温度 K
+            - spinbutton "Fermi温度 K" [ref=e145]: "1"
+          - generic [ref=e146]:
+            - text: 突然変異率（0〜1）
+            - spinbutton "突然変異率（0〜1）" [ref=e147]: "0"
+          - generic [ref=e148]:
+            - text: 乱数seed
+            - spinbutton "乱数seed" [ref=e149]: "16017"
+          - generic [ref=e150]:
+            - text: 初期配置
+            - combobox "初期配置" [ref=e151]:
+              - option "ランダム混在"
+              - option "中央に協力者の島" [selected]
+              - option "協力社会に裏切り1人"
+          - generic [ref=e152]:
+            - text: 得点の扱い
+            - combobox "得点の扱い" [ref=e153]:
+              - option "近隣利得の合計" [selected]
+              - option "近隣利得の平均"
+          - paragraph [ref=e154]: 島：中央の約1/4がC。侵入：中央1人だけD。この2配置では初期協力者割合を使用せず、実数を表示します。ランダムはC数を四捨五入し、seed付きで並べ替えます。
+          - button "設定を適用" [active] [ref=e155] [cursor=pointer]
+          - status [ref=e156]: 数値・選択肢が範囲外です。未適用のまま保持しました。
+        - paragraph [ref=e157]: 適用中A：格子サイズ=30、初期協力者割合（0〜1）=0.5、T · 誘惑=5、R · 報酬=3、P · 罰=1、S · 損失=0、近傍=8、境界=periodic、戦略更新規則=best、Fermi温度 K=1、突然変異率（0〜1）=0、乱数seed=16016、初期配置=random、得点の扱い=sum。
+        - generic [ref=e158]:
+          - text: 速度（世代/秒）
+          - slider "速度（世代/秒）" [ref=e159] [cursor=pointer]: "5"
+          - status [ref=e160]: "5"
+        - paragraph [ref=e161]: 速度だけは即時反映。非表示時・動きを減らす設定への変更時は停止します。動きを減らす設定中も明示的に開始でき、1世代操作で観察できます。
+        - generic [ref=e162]:
+          - heading "一条件だけ変える" [level=2] [ref=e163]
+          - paragraph [ref=e164]: Aの適用済み設定から作成します。開始時に両方を同じ初期配置・seedの0世代へ戻します。
+          - generic [ref=e165]:
+            - text: 変更する条件
+            - combobox "変更する条件" [ref=e166]:
+              - option "近傍" [selected]
+              - option "戦略更新規則"
+              - option "T · 誘惑"
+              - option "Fermi温度 K"
+              - option "突然変異率（0〜1）"
+              - option "境界"
+              - option "得点の扱い"
+          - generic [ref=e167]:
+            - text: Bの値
+            - combobox "Bの値" [ref=e169]:
+              - option "上下左右4近傍" [selected]
+              - option "斜めを含む8近傍"
+          - button "同じ配置で比較開始" [ref=e170] [cursor=pointer]
+          - button "比較を終了（Aを保持）" [ref=e171] [cursor=pointer]
+        - button "4段階の教材を開く" [ref=e172] [cursor=pointer]
+    - generic [ref=e173]:
+      - heading "利得を読む、模様を読む" [level=2] [ref=e174]
+      - region "利得行列" [ref=e175]:
+        - table "1対戦あたりの自分の利得（記号を選ぶと説明）" [ref=e176]:
+          - caption [ref=e177]: 1対戦あたりの自分の利得（記号を選ぶと説明）
+          - rowgroup [ref=e178]:
+            - row "自分＼相手 C 協力 D 裏切り" [ref=e179]:
+              - columnheader "自分＼相手" [ref=e180]
+              - columnheader "C 協力" [ref=e181]
+              - columnheader "D 裏切り" [ref=e182]
+          - rowgroup [ref=e183]:
+            - row "C 協力 R = 3 S = 0" [ref=e184]:
+              - rowheader "C 協力" [ref=e185]
+              - cell "R = 3" [ref=e186]:
+                - button "R = 3" [ref=e187] [cursor=pointer]
+              - cell "S = 0" [ref=e188]:
+                - button "S = 0" [ref=e189] [cursor=pointer]
+            - row "D 裏切り T = 5 P = 1" [ref=e190]:
+              - rowheader "D 裏切り" [ref=e191]
+              - cell "T = 5" [ref=e192]:
+                - button "T = 5" [ref=e193] [cursor=pointer]
+              - cell "P = 1" [ref=e194]:
+                - button "P = 1" [ref=e195] [cursor=pointer]
+      - paragraph [ref=e196]: R（アール）＝互いに協力した報酬。
+      - region "利得合計とFermi模倣確率の数式" [ref=e197]:
+        - math "パイ・アイは近隣との利得の合計" [ref=e198]:
+          - generic [ref=e199]:
+            - generic [ref=e200]: π
+            - generic [ref=e201]: i
+          - generic [ref=e202]: =
+          - generic [ref=e203]:
+            - generic [ref=e204]: Σ
+            - generic [ref=e205]:
+              - generic [ref=e206]: j
+              - generic [ref=e207]: ∈
+              - generic [ref=e208]:
+                - generic [ref=e209]: "N"
+                - generic [ref=e210]: i
+          - generic [ref=e211]: a
+          - generic [ref=e212]: (
+          - generic [ref=e213]:
+            - generic [ref=e214]: s
+            - generic [ref=e215]: i
+          - generic [ref=e216]: ","
+          - generic [ref=e217]:
+            - generic [ref=e218]: s
+            - generic [ref=e219]: j
+          - generic [ref=e220]: )
+        - math "ダブリューは1を1足す指数関数で割る。指数は自分の得点ひく相手の得点をケーで割る" [ref=e221]:
+          - generic [ref=e222]: W
+          - generic [ref=e223]: =
+          - generic [ref=e224]:
+            - generic [ref=e225]: "1"
+            - generic [ref=e226]:
+              - generic [ref=e227]: "1"
+              - generic [ref=e228]: +
+              - generic [ref=e229]: exp
+              - generic [ref=e230]: (
+              - generic [ref=e231]:
+                - generic [ref=e232]:
+                  - generic [ref=e233]:
+                    - generic [ref=e234]: π
+                    - generic [ref=e235]: i
+                  - generic [ref=e236]: −
+                  - generic [ref=e237]:
+                    - generic [ref=e238]: π
+                    - generic [ref=e239]: j
+                - generic [ref=e240]: K
+              - generic [ref=e241]: )
+      - paragraph [ref=e242]: πᵢ（パイ・アイ）は住民iの得点、Nᵢ（エヌ・アイ）は近隣、s（エス）は戦略、a（エー）は利得行列の値。平均得点では合計を近隣人数で割ります。固定端は外の住民を除外し、周期境界は反対側につながります。自己対戦は含みません。
+      - paragraph [ref=e243]: Fermi（フェルミ）は近隣から1人を一様に選び、W（ダブリュー）の確率でその旧戦略を採用します。K（ケー）は温度、正数です。小さいほど高得点への選好が強く、大きいほど得点差の影響が弱くなります。同点なら1/2。悪い得点の戦略も採用する可能性があります。最良模倣は自分と近隣を候補にし、自分が最高点なら維持、それ以外の同点は行・列順です。
+      - paragraph [ref=e244]: 厳密な囚人のジレンマはT>R>P>S。弱い場合P=Sを区別します。2R>T+Sは交互に搾取する2回の合計より相互協力2回の合計が大きいという追加条件です。順序条件とは独立に判定します。条件外でも入力値を補正せず、一般ゲームとして計算します。
+      - paragraph [ref=e245]: 住民は移動せず、戦略だけが変わります。突然変異は模倣決定後、各セル独立に確率μ（ミュー）で反転させます。変更数は旧状態と最終状態の差、突然変異数は反転処理数です。二度の変化が打ち消す場合もあります。
+      - paragraph [ref=e246]:
+        - strong [ref=e247]: これは抽象的な数理モデルです。現実の人間社会を二戦略だけで説明し尽くすことはできません。
+        - text: 意図、記憶、制度、関係の選択などを省略しています。
+      - paragraph [ref=e248]:
+        - text: 参考：
+        - link "Nowak & May (1992)" [ref=e249] [cursor=pointer]:
+          - /url: https://www.nature.com/articles/359826a0
+        - text: 、
+        - link "Szabó & Tőke (1998)" [ref=e250] [cursor=pointer]:
+          - /url: https://arxiv.org/abs/cond-mat/9710096
+        - text: 。本作品のFermiは同期更新であり、原著の無作為逐次更新と同一ではありません。
+```

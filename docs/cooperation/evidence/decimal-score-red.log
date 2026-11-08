@@ -1,0 +1,111 @@
+
+ RUN  v3.2.7 C:/Users/tetsu/.codex/worktrees/2738/Math-Art-Lab
+
+ ❯ src/cooperation.test.ts (68 tests | 2 failed) 84ms
+   × cooperation payoff and topology > equal composition has identical decimal scores regardless of neighbor ordering (sum) 5ms
+     → expected 9.799999999999999 to be 9.8 // Object.is equality
+   × cooperation payoff and topology > equal composition has identical decimal scores regardless of neighbor ordering (mean) 0ms
+     → expected 1.2249999999999999 to be 1.225 // Object.is equality
+   ✓ cooperation payoff and topology > payoff 1 versus 1 = 3 0ms
+   ✓ cooperation payoff and topology > payoff 1 versus 0 = 0 0ms
+   ✓ cooperation payoff and topology > payoff 0 versus 1 = 5 0ms
+   ✓ cooperation payoff and topology > payoff 0 versus 0 = 1 0ms
+   ✓ cooperation payoff and topology > periodic 4 neighbors are unique and exclude self 2ms
+   ✓ cooperation payoff and topology > periodic 8 neighbors are unique and exclude self 1ms
+   ✓ cooperation payoff and topology > fixed 4 corner/edge/interior 0ms
+   ✓ cooperation payoff and topology > fixed 8 corner/edge/interior 0ms
+   ✓ cooperation payoff and topology > computes exact local sum and mean without self games 0ms
+   ✓ cooperation payoff and topology > classifies T=5 R=3 P=1 S=0 0ms
+   ✓ cooperation payoff and topology > classifies T=5 R=3 P=0 S=0 0ms
+   ✓ cooperation payoff and topology > classifies T=2 R=3 P=1 S=0 0ms
+   ✓ cooperation payoff and topology > classifies T=5 R=3 P=1 S=2 0ms
+   ✓ synchronous decisions and randomness > is traversal-independent with old scores (best) 23ms
+   ✓ synchronous decisions and randomness > is traversal-independent with old scores (fermi) 15ms
+   ✓ synchronous decisions and randomness > matches a separately hand-computed synchronous best update 0ms
+   ✓ synchronous decisions and randomness > preserves self on maximum tie 0ms
+   ✓ synchronous decisions and randomness > chooses lowest row-major maximum when own score is lower 0ms
+   ✓ synchronous decisions and randomness > stable Fermi 0 0 1 0ms
+   ✓ synchronous decisions and randomness > stable Fermi 0 1000 0.001 0ms
+   ✓ synchronous decisions and randomness > stable Fermi 1000 0 0.001 0ms
+   ✓ synchronous decisions and randomness > stable Fermi -1e+308 1e+308 0.001 0ms
+   ✓ synchronous decisions and randomness > stable Fermi 1e+308 -1e+308 0.001 0ms
+   ✓ synchronous decisions and randomness > warmer decisions approach half and probability is symmetric 0ms
+   ✓ synchronous decisions and randomness > rejects invalid temperature 0 0ms
+   ✓ synchronous decisions and randomness > rejects invalid temperature -1 0ms
+   ✓ synchronous decisions and randomness > rejects invalid temperature NaN 0ms
+   ✓ synchronous decisions and randomness > rejects invalid temperature Infinity 0ms
+   ✓ synchronous decisions and randomness > reproduces seed 0 for both rules 6ms
+   ✓ synchronous decisions and randomness > reproduces seed 1 for both rules 4ms
+   ✓ synchronous decisions and randomness > reproduces seed 4294967295 for both rules 3ms
+   ✓ synchronous decisions and randomness > different seeds change initial arrangement with the same exact count 1ms
+   ✓ synchronous decisions and randomness > separates mutation 0 and 1 from imitation (best) 0ms
+   ✓ synchronous decisions and randomness > separates mutation 0 and 1 from imitation (fermi) 0ms
+   ✓ statistics, initialization and comparisons > conserves population and matches all cells, ratio 0 2ms
+   ✓ statistics, initialization and comparisons > conserves population and matches all cells, ratio 0.5 2ms
+   ✓ statistics, initialization and comparisons > conserves population and matches all cells, ratio 1 2ms
+   ✓ statistics, initialization and comparisons > measures connected components, boundary pairs and missing averages 0ms
+   ✓ statistics, initialization and comparisons > defines reproducible preset 'ランダム混在' 1ms
+   ✓ statistics, initialization and comparisons > defines reproducible preset '協力者の島' 1ms
+   ✓ statistics, initialization and comparisons > defines reproducible preset '裏切り者の侵入' 1ms
+   ✓ statistics, initialization and comparisons > defines reproducible preset '近傍4／8比較' 1ms
+   ✓ statistics, initialization and comparisons > defines reproducible preset '突然変異のある社会' 1ms
+   ✓ statistics, initialization and comparisons > defines reproducible preset '模倣規則の比較' 2ms
+   ✓ statistics, initialization and comparisons > comparison restarts identical initial arrays, preserving one configuration difference 2ms
+   ✓ statistics, initialization and comparisons > keeps only bounded history and one initial snapshot 5ms
+   ✓ statistics, initialization and comparisons > rejects invalid config { size: NaN } 0ms
+   ✓ statistics, initialization and comparisons > rejects invalid config { size: 3 } 0ms
+   ✓ statistics, initialization and comparisons > rejects invalid config { size: 81 } 0ms
+   ✓ statistics, initialization and comparisons > rejects invalid config { size: 4.5 } 0ms
+   ✓ statistics, initialization and comparisons > rejects invalid config { cooperation: 1.1 } 0ms
+   ✓ statistics, initialization and comparisons > rejects invalid config { mutation: -1 } 0ms
+   ✓ statistics, initialization and comparisons > rejects invalid config { temperature: +0 } 0ms
+   ✓ statistics, initialization and comparisons > rejects invalid config { T: Infinity } 0ms
+   ✓ statistics, initialization and comparisons > rejects invalid config { R: -1001 } 0ms
+   ✓ statistics, initialization and comparisons > rejects invalid config { P: NaN } 0ms
+   ✓ statistics, initialization and comparisons > rejects invalid config { S: 1001 } 0ms
+   ✓ statistics, initialization and comparisons > rejects invalid config { seed: -1 } 0ms
+   ✓ statistics, initialization and comparisons > rejects invalid config { seed: 1.1 } 0ms
+   ✓ statistics, initialization and comparisons > rejects invalid config { seed: 4294967296 } 0ms
+   ✓ statistics, initialization and comparisons > rejects invalid config { neighbors: 6 } 0ms
+   ✓ statistics, initialization and comparisons > rejects invalid config { rule: 'invalid' } 0ms
+   ✓ statistics, initialization and comparisons > rejects invalid config { boundary: 'invalid' } 0ms
+   ✓ statistics, initialization and comparisons > rejects invalid config { scoring: 'invalid' } 0ms
+   ✓ statistics, initialization and comparisons > rejects invalid config { layout: 'invalid' } 0ms
+   ✓ statistics, initialization and comparisons > rejects invalid initial dimensions and strategy values 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/cooperation.test.ts > cooperation payoff and topology > equal composition has identical decimal scores regardless of neighbor ordering (sum)
+AssertionError: expected 9.799999999999999 to be 9.8 // Object.is equality
+
+- Expected
++ Received
+
+- 9.8
++ 9.799999999999999
+
+ ❯ src/cooperation.test.ts:5:358
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/cooperation.test.ts > cooperation payoff and topology > equal composition has identical decimal scores regardless of neighbor ordering (mean)
+AssertionError: expected 1.2249999999999999 to be 1.225 // Object.is equality
+
+- Expected
++ Received
+
+- 1.225
++ 1.2249999999999999
+
+ ❯ src/cooperation.test.ts:5:358
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 66 passed (68)
+   Start at  00:21:56
+   Duration  447ms (transform 51ms, setup 0ms, collect 45ms, tests 84ms, environment 0ms, prepare 97ms)
+

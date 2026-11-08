@@ -1,0 +1,1731 @@
+
+[1A[2K[WebServer] (node:36884) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 30 tests using 1 worker
+
+
+[1A[2K(node:37544) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K(node:37544) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K[1/30] [chromium] › e2e\cooperation-checks.ts:35:1 › cooperation: play pause exact step reset and reproducibility
+[1A[2K[2/30] [chromium] › e2e\cooperation-checks.ts:56:1 › cooperation: six preset drafts apply and both update rules
+[1A[2K  1) [chromium] › e2e\cooperation-checks.ts:56:1 › cooperation: six preset drafts apply and both update rules 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveAttribute[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('main.cooperation')
+    Expected: [32m"0"[39m
+    Received: [31m"2"[39m
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "toHaveAttribute" with timeout 5000ms[22m
+    [2m  - waiting for locator('main.cooperation')[22m
+    [2m    8 × locator resolved to <main class="cooperation" data-generation="2" data-playing="false">…</main>[22m
+    [2m      - unexpected value "2"[22m
+
+
+      14 |   await open(page);const initial=await raster(page);
+      15 |   for(let i=0;i<6;i++){await page.locator('#cl-preset').selectOption(String(i));expect(await raster(page)).toEqual(initial);await expect(page.locator('#cl-preset-note')).toContainText('未適用');}
+    > 16 |   for(let i=0;i<6;i++){await page.locator('#cl-preset').selectOption(String(i));await page.locator('#cl-settings button').click();await expect(page.locator('main.cooperation')).toHaveAttribute('data-generation','0');await expect(page.locator('#cl-applied')).toContainText(`seed=160${16+i}`);await step(page,2);if(i===3||i===5){await expect(page.locator('#cl-right')).toBeVisible();await expect(page.locator('#cl-right')).toHaveAttribute('data-painted-generation','2');}else await expect(page.locator('#cl-right')).toBeHidden();}
+         |                                                                                                                                                                                  ^
+      17 |   await page.locator('#cl-rule').selectOption('fermi');await page.locator('#cl-settings button').click();await step(page);await expect(page.locator('#cl-reason')).toContainText('模倣確率 W=');await shot(page,'fermi');
+      18 | });
+      19 | test('cooperation: lattice pixels, statistics, equation and chart agree',async({page})=>{
+        at C:\Users\tetsu\.codex\worktrees\2738\Math-Art-Lab\e2e\cooperation-checks.ts:16:178
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results-cooperation\cooperation-cooperation-si-57338-apply-and-both-update-rules-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results-cooperation\cooperation-cooperation-si-57338-apply-and-both-update-rules-chromium\error-context.md
+
+
+
+[1A[2K(node:27596) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:27596) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K[3/30] [chromium] › e2e\cooperation-checks.ts:83:1 › cooperation: lattice pixels, statistics, equation and chart agree
+[1A[2K[4/30] [chromium] › e2e\cooperation-checks.ts:120:1 › cooperation: paired same initial seed, one difference, synchronized generations
+[1A[2K  2) [chromium] › e2e\cooperation-checks.ts:120:1 › cooperation: paired same initial seed, one difference, synchronized generations 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 450[39m
+    [31m+ Received  + 450[39m
+
+    [2m  Array [[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [32m-   1,[39m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [2m    0,[22m
+    [32m-   1,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [31m+   0,[39m
+    [2m    0,[22m
+    [2m  ][22m
+
+      27 | });
+      28 | test('cooperation: paired same initial seed, one difference, synchronized generations',async({page})=>{
+    > 29 |   await open(page);const initial=await raster(page);await step(page,3);await page.locator('#cl-compare').click();expect(await raster(page)).toEqual(initial);expect(await raster(page,'#cl-right')).toEqual(initial);await expect(page.locator('#cl-difference')).toContainText('差分1項目：近傍 A=8 → B=4');await step(page,5);await expect(page.locator('#cl-left')).toHaveAttribute('data-painted-generation','5');await expect(page.locator('#cl-right')).toHaveAttribute('data-painted-generation','5');await expect(page.locator('#cl-statistics tr').first()).toContainText('055');
+         |                                                                                                                                             ^
+      30 |   await page.locator('#cl-seed').fill('42');await expect(page.locator('#cl-difference')).toContainText('seed 16016');await page.locator('#cl-reset').click();expect(await raster(page,'#cl-right')).toEqual(initial);await expect(page.locator('#cl-seed')).toHaveValue('42');await page.locator('#cl-single').click();await expect(page.locator('#cl-right')).toBeHidden();await shot(page,'comparison-ended');
+      31 | });
+      32 | test('cooperation: invalid input preserves current state and changed game is honest',async({page})=>{
+        at C:\Users\tetsu\.codex\worktrees\2738\Math-Art-Lab\e2e\cooperation-checks.ts:29:141
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results-cooperation\cooperation-cooperation-pa-b50ae-ce-synchronized-generations-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results-cooperation\cooperation-cooperation-pa-b50ae-ce-synchronized-generations-chromium\error-context.md
+
+
+[1A[2K(node:6080) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+
+[1A[2K(node:6080) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1A[2K[5/30] [chromium] › e2e\cooperation-checks.ts:143:1 › cooperation: invalid input preserves current state and changed game is honest
+[1A[2K  3) [chromium] › e2e\cooperation-checks.ts:143:1 › cooperation: invalid input preserves current state and changed game is honest 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('#cl-classification')
+    Expected substring: [32m"弱い"[39m
+    Received string:    [31m"A：厳密な囚人のジレンマ。追加条件 2R>T+S：成立（6 > 5）。"[39m
+    Timeout: 5000ms
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 5000ms[22m
+    [2m  - waiting for locator('#cl-classification')[22m
+    [2m    8 × locator resolved to <p id="cl-classification">A：厳密な囚人のジレンマ。追加条件 2R>T+S：成立（6 > 5）。</p>[22m
+    [2m      - unexpected value "A：厳密な囚人のジレンマ。追加条件 2R>T+S：成立（6 > 5）。"[22m
+
+
+      32 | test('cooperation: invalid input preserves current state and changed game is honest',async({page})=>{
+      33 |   await open(page);await step(page,3);const before=await raster(page);for(const [id,value] of [['seed',''],['size','81'],['temperature','0']]){const old=await page.locator(`#cl-${id}`).inputValue();await page.locator(`#cl-${id}`).fill(value);await page.locator('#cl-settings button').click();await expect(page.locator('#cl-error')).toContainText('未適用');expect(await raster(page)).toEqual(before);await expect(page.locator('main.cooperation')).toHaveAttribute('data-generation','3');await page.locator(`#cl-${id}`).fill(old);}
+    > 34 |   await page.locator('#cl-P').fill('0');await page.locator('#cl-settings button').click();await expect(page.locator('#cl-classification')).toContainText('弱い');await page.locator('#cl-T').fill('2');await page.locator('#cl-settings button').click();await expect(page.locator('#cl-classification')).toContainText('一般');
+         |                                                                                                                                            ^
+      35 | });
+      36 | test('cooperation: four lessons, symbols and Escape preserve drafts/state',async({page})=>{
+      37 |   await open(page);await step(page,2);await page.locator('#cl-T').fill('6');const cells=await raster(page);await page.locator('#cl-lesson-toggle').click();for(let i=0;i<4;i++){await page.locator(`[data-cl-lesson="${i}"]`).click();await expect(page.locator('#cl-lesson-title')).toContainText(`${i+1}.`);await expect(page.locator('#cl-lesson-live')).toContainText('2世代');}await page.keyboard.press('Escape');await expect(page.locator('#cl-lesson')).toBeHidden();await expect(page.locator('#cl-lesson-toggle')).toBeFocused();expect(await raster(page)).toEqual(cells);await expect(page.locator('#cl-T')).toHaveValue('6');await page.locator('[data-symbol=T]').click();await expect(page.locator('#cl-symbol')).toContainText('ティー');await expect(page.locator('#cl-symbol')).toContainText('適用値 5');
+        at C:\Users\tetsu\.codex\worktrees\2738\Math-Art-Lab\e2e\cooperation-checks.ts:34:140
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results-cooperation\cooperation-cooperation-in-c6f25--and-changed-game-is-honest-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results-cooperation\cooperation-cooperation-in-c6f25--and-changed-game-is-honest-chromium\error-context.md
+
+
+
+[1A[2K(node:35012) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:35012) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K[6/30] [chromium] › e2e\cooperation-checks.ts:165:1 › cooperation: four lessons, symbols and Escape preserve drafts/state
+[1A[2K[7/30] [chromium] › e2e\cooperation-checks.ts:187:83 › cooperation: layout 375 light, DPR, keyboard and comparison
+[1A[2K  4) [chromium] › e2e\cooperation-checks.ts:187:83 › cooperation: layout 375 light, DPR, keyboard and comparison 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveAttribute[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('#cl-right')
+    Expected: [32m"2"[39m
+    Received: [31m""[39m
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "toHaveAttribute" with timeout 5000ms[22m
+    [2m  - waiting for locator('#cl-right')[22m
+    [2m    9 × locator resolved to <canvas role="img" tabindex="0" id="cl-right" aria-label="Bの比較格子。矢印キーで同じ座標を選択" aria-describedby="cl-selection cl-difference"></canvas>[22m
+    [2m      - unexpected value "null"[22m
+
+
+      39 | for(const width of [375,390,768,1280])for(const theme of ['light','dark'] as const)test(`cooperation: layout ${width} ${theme}, DPR, keyboard and comparison`,async({page})=>{
+      40 |   await page.setViewportSize({width,height:900});await page.emulateMedia({colorScheme:theme,reducedMotion:'reduce'});await open(page);await page.locator('#cl-preset').selectOption('3');await page.locator('#cl-settings button').click();await step(page,2);await page.locator('#cl-lesson-toggle').click();await page.locator('[data-cl-lesson="3"]').click();
+    > 41 |   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await expect(page.locator('#cl-right')).toHaveAttribute('data-painted-generation','2');
+         |                                                                                                                                        ^
+      42 |   const before=await raster(page);await page.setViewportSize({width:width+13,height:850});expect(await raster(page)).toEqual(before);await page.locator('.cl-scroll').first().focus();await page.keyboard.press('ArrowRight');await page.keyboard.press('Tab');await page.locator('#cl-left').focus();await page.keyboard.press('ArrowDown');await expect(page.locator('#cl-selection')).toContainText('行 2');await shot(page,`${width}-${theme}`);
+      43 | });
+      44 | test('cooperation: repeated navigation disposes timers and starts stopped',async({page})=>{
+        at C:\Users\tetsu\.codex\worktrees\2738\Math-Art-Lab\e2e\cooperation-checks.ts:41:136
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results-cooperation\cooperation-cooperation-la-1fbef-DPR-keyboard-and-comparison-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results-cooperation\cooperation-cooperation-la-1fbef-DPR-keyboard-and-comparison-chromium\error-context.md
+
+
+
+[1A[2K(node:36280) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K(node:36280) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[8/30] [chromium] › e2e\cooperation-checks.ts:187:83 › cooperation: layout 375 dark, DPR, keyboard and comparison
+[1A[2K  5) [chromium] › e2e\cooperation-checks.ts:187:83 › cooperation: layout 375 dark, DPR, keyboard and comparison 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveAttribute[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('#cl-right')
+    Expected: [32m"2"[39m
+    Received: [31m""[39m
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "toHaveAttribute" with timeout 5000ms[22m
+    [2m  - waiting for locator('#cl-right')[22m
+    [2m    9 × locator resolved to <canvas role="img" tabindex="0" id="cl-right" aria-label="Bの比較格子。矢印キーで同じ座標を選択" aria-describedby="cl-selection cl-difference"></canvas>[22m
+    [2m      - unexpected value "null"[22m
+
+
+      39 | for(const width of [375,390,768,1280])for(const theme of ['light','dark'] as const)test(`cooperation: layout ${width} ${theme}, DPR, keyboard and comparison`,async({page})=>{
+      40 |   await page.setViewportSize({width,height:900});await page.emulateMedia({colorScheme:theme,reducedMotion:'reduce'});await open(page);await page.locator('#cl-preset').selectOption('3');await page.locator('#cl-settings button').click();await step(page,2);await page.locator('#cl-lesson-toggle').click();await page.locator('[data-cl-lesson="3"]').click();
+    > 41 |   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await expect(page.locator('#cl-right')).toHaveAttribute('data-painted-generation','2');
+         |                                                                                                                                        ^
+      42 |   const before=await raster(page);await page.setViewportSize({width:width+13,height:850});expect(await raster(page)).toEqual(before);await page.locator('.cl-scroll').first().focus();await page.keyboard.press('ArrowRight');await page.keyboard.press('Tab');await page.locator('#cl-left').focus();await page.keyboard.press('ArrowDown');await expect(page.locator('#cl-selection')).toContainText('行 2');await shot(page,`${width}-${theme}`);
+      43 | });
+      44 | test('cooperation: repeated navigation disposes timers and starts stopped',async({page})=>{
+        at C:\Users\tetsu\.codex\worktrees\2738\Math-Art-Lab\e2e\cooperation-checks.ts:41:136
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results-cooperation\cooperation-cooperation-la-8b48c-DPR-keyboard-and-comparison-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results-cooperation\cooperation-cooperation-la-8b48c-DPR-keyboard-and-comparison-chromium\error-context.md
+
+
+[1A[2K(node:26032) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K(node:26032) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[9/30] [chromium] › e2e\cooperation-checks.ts:187:83 › cooperation: layout 390 light, DPR, keyboard and comparison
+[1A[2K  6) [chromium] › e2e\cooperation-checks.ts:187:83 › cooperation: layout 390 light, DPR, keyboard and comparison 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveAttribute[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('#cl-right')
+    Expected: [32m"2"[39m
+    Received: [31m""[39m
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "toHaveAttribute" with timeout 5000ms[22m
+    [2m  - waiting for locator('#cl-right')[22m
+    [2m    9 × locator resolved to <canvas role="img" tabindex="0" id="cl-right" aria-label="Bの比較格子。矢印キーで同じ座標を選択" aria-describedby="cl-selection cl-difference"></canvas>[22m
+    [2m      - unexpected value "null"[22m
+
+
+      39 | for(const width of [375,390,768,1280])for(const theme of ['light','dark'] as const)test(`cooperation: layout ${width} ${theme}, DPR, keyboard and comparison`,async({page})=>{
+      40 |   await page.setViewportSize({width,height:900});await page.emulateMedia({colorScheme:theme,reducedMotion:'reduce'});await open(page);await page.locator('#cl-preset').selectOption('3');await page.locator('#cl-settings button').click();await step(page,2);await page.locator('#cl-lesson-toggle').click();await page.locator('[data-cl-lesson="3"]').click();
+    > 41 |   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await expect(page.locator('#cl-right')).toHaveAttribute('data-painted-generation','2');
+         |                                                                                                                                        ^
+      42 |   const before=await raster(page);await page.setViewportSize({width:width+13,height:850});expect(await raster(page)).toEqual(before);await page.locator('.cl-scroll').first().focus();await page.keyboard.press('ArrowRight');await page.keyboard.press('Tab');await page.locator('#cl-left').focus();await page.keyboard.press('ArrowDown');await expect(page.locator('#cl-selection')).toContainText('行 2');await shot(page,`${width}-${theme}`);
+      43 | });
+      44 | test('cooperation: repeated navigation disposes timers and starts stopped',async({page})=>{
+        at C:\Users\tetsu\.codex\worktrees\2738\Math-Art-Lab\e2e\cooperation-checks.ts:41:136
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results-cooperation\cooperation-cooperation-la-c4233-DPR-keyboard-and-comparison-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results-cooperation\cooperation-cooperation-la-c4233-DPR-keyboard-and-comparison-chromium\error-context.md
+
+
+[1A[2K(node:27456) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:27456) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[10/30] [chromium] › e2e\cooperation-checks.ts:187:83 › cooperation: layout 390 dark, DPR, keyboard and comparison
+[1A[2K  7) [chromium] › e2e\cooperation-checks.ts:187:83 › cooperation: layout 390 dark, DPR, keyboard and comparison 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveAttribute[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('#cl-right')
+    Expected: [32m"2"[39m
+    Received: [31m""[39m
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "toHaveAttribute" with timeout 5000ms[22m
+    [2m  - waiting for locator('#cl-right')[22m
+    [2m    9 × locator resolved to <canvas role="img" tabindex="0" id="cl-right" aria-label="Bの比較格子。矢印キーで同じ座標を選択" aria-describedby="cl-selection cl-difference"></canvas>[22m
+    [2m      - unexpected value "null"[22m
+
+
+      39 | for(const width of [375,390,768,1280])for(const theme of ['light','dark'] as const)test(`cooperation: layout ${width} ${theme}, DPR, keyboard and comparison`,async({page})=>{
+      40 |   await page.setViewportSize({width,height:900});await page.emulateMedia({colorScheme:theme,reducedMotion:'reduce'});await open(page);await page.locator('#cl-preset').selectOption('3');await page.locator('#cl-settings button').click();await step(page,2);await page.locator('#cl-lesson-toggle').click();await page.locator('[data-cl-lesson="3"]').click();
+    > 41 |   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await expect(page.locator('#cl-right')).toHaveAttribute('data-painted-generation','2');
+         |                                                                                                                                        ^
+      42 |   const before=await raster(page);await page.setViewportSize({width:width+13,height:850});expect(await raster(page)).toEqual(before);await page.locator('.cl-scroll').first().focus();await page.keyboard.press('ArrowRight');await page.keyboard.press('Tab');await page.locator('#cl-left').focus();await page.keyboard.press('ArrowDown');await expect(page.locator('#cl-selection')).toContainText('行 2');await shot(page,`${width}-${theme}`);
+      43 | });
+      44 | test('cooperation: repeated navigation disposes timers and starts stopped',async({page})=>{
+        at C:\Users\tetsu\.codex\worktrees\2738\Math-Art-Lab\e2e\cooperation-checks.ts:41:136
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results-cooperation\cooperation-cooperation-la-9f1f7-DPR-keyboard-and-comparison-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results-cooperation\cooperation-cooperation-la-9f1f7-DPR-keyboard-and-comparison-chromium\error-context.md
+
+
+
+
+[1A[2K(node:28016) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:28016) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1A[2K[11/30] [chromium] › e2e\cooperation-checks.ts:187:83 › cooperation: layout 768 light, DPR, keyboard and comparison
+[1A[2K  8) [chromium] › e2e\cooperation-checks.ts:187:83 › cooperation: layout 768 light, DPR, keyboard and comparison 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveAttribute[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('#cl-right')
+    Expected: [32m"2"[39m
+    Received: [31m""[39m
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "toHaveAttribute" with timeout 5000ms[22m
+    [2m  - waiting for locator('#cl-right')[22m
+    [2m    9 × locator resolved to <canvas role="img" tabindex="0" id="cl-right" aria-label="Bの比較格子。矢印キーで同じ座標を選択" aria-describedby="cl-selection cl-difference"></canvas>[22m
+    [2m      - unexpected value "null"[22m
+
+
+      39 | for(const width of [375,390,768,1280])for(const theme of ['light','dark'] as const)test(`cooperation: layout ${width} ${theme}, DPR, keyboard and comparison`,async({page})=>{
+      40 |   await page.setViewportSize({width,height:900});await page.emulateMedia({colorScheme:theme,reducedMotion:'reduce'});await open(page);await page.locator('#cl-preset').selectOption('3');await page.locator('#cl-settings button').click();await step(page,2);await page.locator('#cl-lesson-toggle').click();await page.locator('[data-cl-lesson="3"]').click();
+    > 41 |   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await expect(page.locator('#cl-right')).toHaveAttribute('data-painted-generation','2');
+         |                                                                                                                                        ^
+      42 |   const before=await raster(page);await page.setViewportSize({width:width+13,height:850});expect(await raster(page)).toEqual(before);await page.locator('.cl-scroll').first().focus();await page.keyboard.press('ArrowRight');await page.keyboard.press('Tab');await page.locator('#cl-left').focus();await page.keyboard.press('ArrowDown');await expect(page.locator('#cl-selection')).toContainText('行 2');await shot(page,`${width}-${theme}`);
+      43 | });
+      44 | test('cooperation: repeated navigation disposes timers and starts stopped',async({page})=>{
+        at C:\Users\tetsu\.codex\worktrees\2738\Math-Art-Lab\e2e\cooperation-checks.ts:41:136
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results-cooperation\cooperation-cooperation-la-b7ef4-DPR-keyboard-and-comparison-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results-cooperation\cooperation-cooperation-la-b7ef4-DPR-keyboard-and-comparison-chromium\error-context.md
+
+
+[1A[2K(node:26856) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:26856) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K[12/30] [chromium] › e2e\cooperation-checks.ts:187:83 › cooperation: layout 768 dark, DPR, keyboard and comparison
+[1A[2K  9) [chromium] › e2e\cooperation-checks.ts:187:83 › cooperation: layout 768 dark, DPR, keyboard and comparison 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveAttribute[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('#cl-right')
+    Expected: [32m"2"[39m
+    Received: [31m""[39m
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "toHaveAttribute" with timeout 5000ms[22m
+    [2m  - waiting for locator('#cl-right')[22m
+    [2m    9 × locator resolved to <canvas role="img" tabindex="0" id="cl-right" aria-label="Bの比較格子。矢印キーで同じ座標を選択" aria-describedby="cl-selection cl-difference"></canvas>[22m
+    [2m      - unexpected value "null"[22m
+
+
+      39 | for(const width of [375,390,768,1280])for(const theme of ['light','dark'] as const)test(`cooperation: layout ${width} ${theme}, DPR, keyboard and comparison`,async({page})=>{
+      40 |   await page.setViewportSize({width,height:900});await page.emulateMedia({colorScheme:theme,reducedMotion:'reduce'});await open(page);await page.locator('#cl-preset').selectOption('3');await page.locator('#cl-settings button').click();await step(page,2);await page.locator('#cl-lesson-toggle').click();await page.locator('[data-cl-lesson="3"]').click();
+    > 41 |   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await expect(page.locator('#cl-right')).toHaveAttribute('data-painted-generation','2');
+         |                                                                                                                                        ^
+      42 |   const before=await raster(page);await page.setViewportSize({width:width+13,height:850});expect(await raster(page)).toEqual(before);await page.locator('.cl-scroll').first().focus();await page.keyboard.press('ArrowRight');await page.keyboard.press('Tab');await page.locator('#cl-left').focus();await page.keyboard.press('ArrowDown');await expect(page.locator('#cl-selection')).toContainText('行 2');await shot(page,`${width}-${theme}`);
+      43 | });
+      44 | test('cooperation: repeated navigation disposes timers and starts stopped',async({page})=>{
+        at C:\Users\tetsu\.codex\worktrees\2738\Math-Art-Lab\e2e\cooperation-checks.ts:41:136
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results-cooperation\cooperation-cooperation-la-878a3-DPR-keyboard-and-comparison-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results-cooperation\cooperation-cooperation-la-878a3-DPR-keyboard-and-comparison-chromium\error-context.md
+
+
+
+[1A[2K(node:18352) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+[1A[2K(node:18352) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1A[2K[13/30] [chromium] › e2e\cooperation-checks.ts:187:83 › cooperation: layout 1280 light, DPR, keyboard and comparison
