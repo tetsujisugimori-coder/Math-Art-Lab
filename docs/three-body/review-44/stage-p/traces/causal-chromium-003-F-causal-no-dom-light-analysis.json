@@ -1,0 +1,5424 @@
+{
+  "anchors": [
+    {
+      "name": "causal-chromium-003-F-causal-no-dom-light-clock-0",
+      "before": 3764.60000000149,
+      "after": 3764.900000002235,
+      "pid": 16648,
+      "tid": 31968,
+      "traceMs": 31366242.564,
+      "low": 31362477.663999997,
+      "high": 31362477.963999998
+    },
+    {
+      "name": "causal-chromium-003-F-causal-no-dom-light-clock-1",
+      "before": 63945.800000000745,
+      "after": 63945.800000000745,
+      "pid": 16648,
+      "tid": 31968,
+      "traceMs": 31426423.729,
+      "low": 31362477.928999998,
+      "high": 31362477.928999998
+    }
+  ],
+  "window": {
+    "beginMs": 31366242.529,
+    "endMs": 31426423.729,
+    "note": "Boundary events are clipped in window distributions; full durations and full raw trace are preserved."
+  },
+  "clock": {
+    "status": "ALIGNED",
+    "completeMarkerSet": true,
+    "expectedMarks": 2,
+    "foundMarks": 2,
+    "offsetMs": 31362477.928999998,
+    "markBracketMs": 0,
+    "minObservedPositiveDeltaMs": 0.09999999776482582,
+    "accuracyGuaranteed": false,
+    "mainPid": 16648,
+    "mainTid": 31968,
+    "anchorOffsetSpreadMs": 0.30000000074505806
+  },
+  "events": 862416,
+  "names": [
+    [
+      "Graphics.Pipeline",
+      58164
+    ],
+    [
+      "RunTask",
+      56204
+    ],
+    [
+      "ThreadControllerImpl::RunTask",
+      56204
+    ],
+    [
+      "SequenceManager::DoIdleWork",
+      48504
+    ],
+    [
+      "IOHandler::OnIOCompleted",
+      32935
+    ],
+    [
+      "cc::TaskGraphWorkQueue::ScheduleTasks",
+      23527
+    ],
+    [
+      "CommandBuffer::OrderingBarrier",
+      20158
+    ],
+    [
+      "Scheduler::RunTask",
+      16128
+    ],
+    [
+      "Scheduler::ScheduleTask",
+      16125
+    ],
+    [
+      "SimpleWatcher::OnHandleReady",
+      15939
+    ],
+    [
+      "Receive mojo message",
+      14989
+    ],
+    [
+      "auto cc::(anonymous namespace)::InsertNodeForTask(TaskGraph *, TileTask *, uint16_t, uint16_t, size_t, bool)::(anonymous class)::operator()()::(anonymous class)::operator()(uint32_t) const",
+      12698
+    ],
+    [
+      "CommandBuffer::Flush",
+      9552
+    ],
+    [
+      "GpuChannel::Flush",
+      9549
+    ],
+    [
+      "TaskGraphRunner::RunTask",
+      9513
+    ],
+    [
+      "BlinkScheduler_OnTaskCompleted",
+      9022
+    ],
+    [
+      "BlinkScheduler_PerformMicrotaskCheckpoint",
+      9022
+    ],
+    [
+      "DisplayScheduler::ScheduleBeginFrameDeadline",
+      8413
+    ],
+    [
+      "PipelineReporter",
+      7614
+    ],
+    [
+      "BeginImplFrameToSendBeginMainFrame",
+      7614
+    ],
+    [
+      "DisplayDamageTracker::HasPendingSurfaces",
+      7106
+    ],
+    [
+      "ScheduledTasksState",
+      6310
+    ],
+    [
+      "Scheduler::Running",
+      5468
+    ],
+    [
+      "No damage yet",
+      5439
+    ],
+    [
+      "Scheduler::FinishTask",
+      5375
+    ],
+    [
+      "AnimationHost::TickAnimations",
+      5334
+    ],
+    [
+      "UpdateCounters",
+      5145
+    ],
+    [
+      "v8.callFunction",
+      5082
+    ],
+    [
+      "FunctionCall",
+      5080
+    ],
+    [
+      "TileTaskManagerImpl::CheckForCompletedTasks",
+      4609
+    ],
+    [
+      "TileManager::CheckPendingGpuWorkAndIssueSignals",
+      4607
+    ],
+    [
+      "LayerTreeHostImpl::NotifyTileStateChanged",
+      4285
+    ],
+    [
+      "auto cc::SchedulerStateMachine::ShouldThrottleSendBeginMainFrame()::(anonymous class)::operator()(uint32_t) const",
+      4276
+    ],
+    [
+      "AnimationFrame",
+      4256
+    ],
+    [
+      "EndActivateToSubmitCompositorFrame",
+      4238
+    ],
+    [
+      "SubmitCompositorFrameToPresentationCompositorFrame",
+      4238
+    ],
+    [
+      "SubmitToReceiveCompositorFrame",
+      4238
+    ],
+    [
+      "ReceiveCompositorFrameToStartDraw",
+      4238
+    ],
+    [
+      "StartDrawToSwapStart",
+      4238
+    ],
+    [
+      "SchedulePostMessage",
+      4234
+    ],
+    [
+      "TaskSetFinishedTaskImpl::RunOnWorkerThread",
+      4207
+    ],
+    [
+      "Scheduler::ScheduleBeginImplFrameDeadline",
+      4136
+    ],
+    [
+      "ScheduledTasks",
+      3986
+    ],
+    [
+      "auto cc::Scheduler::SendDidNotProduceFrame(const viz::BeginFrameArgs &, FrameSkippedReason)::(anonymous class)::operator()()::(anonymous class)::operator()(uint32_t) const",
+      3688
+    ],
+    [
+      "SendBeginFrameDecision",
+      3579
+    ],
+    [
+      "Using existing deadline",
+      3579
+    ],
+    [
+      "DelayBasedBeginFrameSource::OnTimerTick",
+      3555
+    ],
+    [
+      "TileManager::CheckForCompletedTasksAndIssueSignals",
+      3545
+    ],
+    [
+      "Scheduler::BeginFrame",
+      3539
+    ],
+    [
+      "ExternalBeginFrameSource::OnBeginFrame",
+      3509
+    ],
+    [
+      "DisplayScheduler::BeginFrame",
+      3496
+    ],
+    [
+      "ThreadPool_RunTask",
+      3262
+    ],
+    [
+      "GpuChannel::ExecuteDeferredRequest",
+      3234
+    ],
+    [
+      "GPUTask",
+      3216
+    ],
+    [
+      "Scheduler::BeginImplFrame",
+      3214
+    ],
+    [
+      "Scheduler::OnBeginImplFrameDeadline",
+      3208
+    ],
+    [
+      "auto cc::Scheduler::FinishImplFrame()::(anonymous class)::operator()()::(anonymous class)::operator()(uint32_t) const",
+      3208
+    ],
+    [
+      "RendererRasterWorker",
+      3196
+    ],
+    [
+      "SendBeginMainFrame",
+      3192
+    ],
+    [
+      "ProxyMain::BeginMainFrame",
+      3192
+    ],
+    [
+      "Commit",
+      3188
+    ],
+    [
+      "LayerTreeHostImpl::CommitComplete",
+      3186
+    ],
+    [
+      "CommandBufferStub::OnAsyncFlush",
+      3184
+    ],
+    [
+      "CommandBufferService:PutChanged",
+      3184
+    ],
+    [
+      "LayerTreeHostImpl::ActivateSyncTree",
+      3184
+    ],
+    [
+      "CommandBuffer::FlushComplete",
+      3183
+    ],
+    [
+      "ProxyMain::BeginMainFrame::commit",
+      3180
+    ],
+    [
+      "ProxyImpl::ReadyToCommit",
+      3180
+    ],
+    [
+      "ProxyImpl::Commit",
+      3180
+    ],
+    [
+      "ProxyImpl::ReadyToActivate",
+      3180
+    ],
+    [
+      "Swap",
+      3179
+    ],
+    [
+      "GpuChannelMessageFilter::FlushDeferredRequests",
+      3165
+    ],
+    [
+      "Using new deadline",
+      3142
+    ],
+    [
+      "DisplayScheduler::OnBeginFrameDeadline",
+      2788
+    ],
+    [
+      "SyncToken::Wait",
+      2652
+    ],
+    [
+      "Scheduler::SequenceUnblocked",
+      2652
+    ],
+    [
+      "LayerTreeHostImpl::DidNotProduceFrame",
+      2513
+    ],
+    [
+      "TimerFire",
+      2506
+    ],
+    [
+      "CommandBufferProxyImpl::OrderingBarrier",
+      2149
+    ],
+    [
+      "DidNotSubmitInLastFrame",
+      2146
+    ],
+    [
+      "RasterSource::PerformSolidColorAnalysis",
+      2144
+    ],
+    [
+      "RasterDecoderImpl::DoRasterCHROMIUM",
+      2139
+    ],
+    [
+      "RasterDecoderImpl::DoRasterCHROMIUM::Deserializing",
+      2139
+    ],
+    [
+      "RasterizerTaskImpl::RunOnWorkerThread",
+      2138
+    ],
+    [
+      "RasterTask",
+      2138
+    ],
+    [
+      "GpuRasterBuffer::Playback",
+      2138
+    ],
+    [
+      "RasterImplementation::RasterCHROMIUM",
+      2138
+    ],
+    [
+      "RasterDecoderImpl::DoBeginRasterCHROMIUM",
+      2138
+    ],
+    [
+      "RasterDecoderImpl::DoEndRasterCHROMIUM",
+      2138
+    ],
+    [
+      "RasterDecoderImpl::DoEndRasterCHROMIUM::Flush",
+      2138
+    ],
+    [
+      "SendBeginMainFrameToCommit",
+      2130
+    ],
+    [
+      "AnimationFrame::Render",
+      2128
+    ],
+    [
+      "AnimationFrame::StyleAndLayout",
+      2128
+    ],
+    [
+      "Scheduler:pending_submit_frames",
+      2124
+    ],
+    [
+      "Graphics.Pipeline.DrawAndSwap",
+      2124
+    ],
+    [
+      "DisplayScheduler:pending_swaps",
+      2123
+    ],
+    [
+      "ProxyImpl::OnCanDrawStateChanged",
+      2122
+    ],
+    [
+      "SkiaOutputSurfaceImpl::FlushGpuTasks",
+      2122
+    ],
+    [
+      "EndCommitToActivation",
+      2122
+    ],
+    [
+      "Activation",
+      2122
+    ],
+    [
+      "Graphics.Pipeline.Draw",
+      2122
+    ],
+    [
+      "auto viz::ClientResourceProvider::ReceiveReturnsFromParent(std::vector<ReturnedResource>)::(anonymous class)::operator()()::(anonymous class)::operator()(uint32_t) const",
+      2121
+    ],
+    [
+      "PendingTree:waiting",
+      2120
+    ],
+    [
+      "Paint",
+      2114
+    ],
+    [
+      "ImageUploadTaskImpl::RunOnWorkerThread",
+      2110
+    ],
+    [
+      "ImageUploadTask",
+      2110
+    ],
+    [
+      "GpuImageDecodeCache::UploadImage",
+      2110
+    ],
+    [
+      "GpuImageDecodeTaskImpl::RunOnWorkerThread",
+      2108
+    ],
+    [
+      "ImageDecodeTask",
+      2108
+    ],
+    [
+      "GpuImageDecodeCache::DecodeImage",
+      2108
+    ],
+    [
+      "CommandBufferHelper::Flush",
+      2107
+    ],
+    [
+      "SchedulerStateMachine::SetNeedsPrepareTiles",
+      2106
+    ],
+    [
+      "TileManager::PrepareTiles",
+      2105
+    ],
+    [
+      "TileManager::AssignGpuMemoryToTiles",
+      2105
+    ],
+    [
+      "TileManager::ScheduleTasks",
+      2105
+    ],
+    [
+      "TileTaskManagerImpl::ScheduleTasks",
+      2105
+    ],
+    [
+      "DidPrepareTiles",
+      2105
+    ],
+    [
+      "CommandBufferProxyImpl::Flush",
+      2103
+    ],
+    [
+      "TileManager::DidFinishRunningTileTasksRequiredForDraw",
+      2103
+    ],
+    [
+      "TileManager::DidFinishRunningTileTasksRequiredForActivation",
+      2102
+    ],
+    [
+      "DidFinishRunningAllTilesTask::RunOnWorkerThread",
+      2079
+    ],
+    [
+      "TileManager::DidFinishRunningAllTileTasks",
+      1993
+    ],
+    [
+      "CommandBufferService::Paused",
+      1768
+    ],
+    [
+      "Waiting for next BeginFrame",
+      1692
+    ],
+    [
+      "HandlePostMessage",
+      1686
+    ],
+    [
+      "Major concurrent marking rescheduled",
+      1349
+    ],
+    [
+      "Receive mojo reply",
+      1208
+    ],
+    [
+      "V8.GC_MC_INCREMENTAL",
+      1080
+    ],
+    [
+      "auto cc::SchedulerStateMachine::SetNeedsBeginMainFrame(bool)::(anonymous class)::operator()()::(anonymous class)::operator()(uint32_t) const",
+      1066
+    ],
+    [
+      "LayerTreeHost::ApplyCompositorChanges",
+      1066
+    ],
+    [
+      "Scheduler::NotifyBeginMainFrameStarted",
+      1066
+    ],
+    [
+      "LayerTreeHost::WaitForCommitCompletion",
+      1066
+    ],
+    [
+      "LayerTreeImpl::UpdateDrawProperties",
+      1065
+    ],
+    [
+      "LayerTreeImpl::UpdateDrawProperties::CalculateDrawProperties",
+      1065
+    ],
+    [
+      "draw_property_utils::FindLayersThatNeedUpdates",
+      1065
+    ],
+    [
+      "draw_property_utils::ComputeDrawPropertiesOfVisibleLayers",
+      1065
+    ],
+    [
+      "CalculateRenderSurfaceLayerList",
+      1065
+    ],
+    [
+      "LayerTreeImpl::UpdateDrawProperties::Occlusion",
+      1065
+    ],
+    [
+      "LayerTreeImpl::UpdateTiles",
+      1065
+    ],
+    [
+      "ProxyImpl::SetNeedsCommitOnImplThread",
+      1064
+    ],
+    [
+      "ProxyImpl::ScheduledActionSendBeginMainFrame",
+      1064
+    ],
+    [
+      "ScrollTree::CollectScrollDeltas",
+      1064
+    ],
+    [
+      "WidgetBase::WillBeginMainFrame",
+      1064
+    ],
+    [
+      "SetLayerTreeId",
+      1064
+    ],
+    [
+      "PrePaint",
+      1064
+    ],
+    [
+      "Layerize",
+      1064
+    ],
+    [
+      "BeginCommitCompositorFrame",
+      1064
+    ],
+    [
+      "TileManager::IsReadyToDraw",
+      1064
+    ],
+    [
+      "AnimationFrame::Presentation",
+      1063
+    ],
+    [
+      "LayerTreeHost::DoUpdateLayers",
+      1062
+    ],
+    [
+      "Scheduler::NotifyReadyToCommit",
+      1062
+    ],
+    [
+      "LayerTreeHostImpl::BeginCommit",
+      1062
+    ],
+    [
+      "LayerTreeHostImpl::FinishCommit",
+      1062
+    ],
+    [
+      "LayerTreeImpl::PullProperties",
+      1062
+    ],
+    [
+      "TreeSynchronizer::PushLayerPropertiesTo.Main",
+      1062
+    ],
+    [
+      "LayerTreeHost::AnimationHost::PushProperties",
+      1062
+    ],
+    [
+      "ImageAnimationController::AnimateImagesForSyncTree",
+      1062
+    ],
+    [
+      "LayerTreeImpl::InvalidateRegionForImages",
+      1062
+    ],
+    [
+      "ProcessUIResourceRequestQueue",
+      1062
+    ],
+    [
+      "ImageAnimationController::WillActivate",
+      1062
+    ],
+    [
+      "LayerTreeHostImpl::PrepareToDraw",
+      1062
+    ],
+    [
+      "TileManager::PrepareToDraw",
+      1062
+    ],
+    [
+      "TileManager::PrepareToDrawFinished",
+      1062
+    ],
+    [
+      "LayerTreeHostImpl::CalculateRenderPasses",
+      1062
+    ],
+    [
+      "Scroll Delta This Frame",
+      1062
+    ],
+    [
+      "DrawLayers.FrameViewerTracing",
+      1062
+    ],
+    [
+      "LayerTreeHostImpl::BuildHitTestData",
+      1062
+    ],
+    [
+      "Surface::CommitFrame",
+      1062
+    ],
+    [
+      "Surface::ActivateFrame",
+      1062
+    ],
+    [
+      "DisplayScheduler::DrawAndSwap",
+      1062
+    ],
+    [
+      "Display::DrawAndSwap",
+      1062
+    ],
+    [
+      "DirectRenderer::DrawRenderPass",
+      1062
+    ],
+    [
+      "SurfaceManager::GarbageCollectSurfaces",
+      1062
+    ],
+    [
+      "SkiaOutputSurfaceImplOnGpu::BeginAccessImages",
+      1062
+    ],
+    [
+      "ProxyMain::SetNeedsAnimate",
+      1061
+    ],
+    [
+      "TimerInstall",
+      1061
+    ],
+    [
+      "DirectRenderer::DrawFrame",
+      1061
+    ],
+    [
+      "SkiaRenderer::BeginDrawingFrame",
+      1061
+    ],
+    [
+      "SkiaRenderer::FinishDrawingFrame",
+      1061
+    ],
+    [
+      "SkiaRenderer::SwapBuffers",
+      1061
+    ],
+    [
+      "SkiaOutputSurfaceImplOnGpu::FinishPaintCurrentFrame",
+      1061
+    ],
+    [
+      "SkiaOutputSurfaceImplOnGpu::SwapBuffers",
+      1061
+    ],
+    [
+      "SkiaOutputSurfaceImplOnGpu::EndAccessImages",
+      1061
+    ],
+    [
+      "Display::FrameDisplayed",
+      1061
+    ],
+    [
+      "Graphics.Pipeline.WaitForSwap",
+      1061
+    ],
+    [
+      "WaitForPresentation",
+      1061
+    ],
+    [
+      "LocalFrameView::ScheduleAnimation",
+      1060
+    ],
+    [
+      "UpdateLayer",
+      1060
+    ],
+    [
+      "NeedsTickAnimations",
+      1060
+    ],
+    [
+      "TileManager::IsReadyToActivate",
+      1060
+    ],
+    [
+      "LayerTreeImpl::PushPropertyTreesTo",
+      1060
+    ],
+    [
+      "TreeSynchronizer::PushLayerPropertiesTo.Impl",
+      1060
+    ],
+    [
+      "LayerTreeImpl::PushPropertiesTo",
+      1060
+    ],
+    [
+      "ProxyImpl::DidActivateSyncTreeOnImplThread",
+      1060
+    ],
+    [
+      "InputHandler::ClearCurrentlyScrollingNode",
+      1060
+    ],
+    [
+      "ProxyImpl::ScheduledActionDraw",
+      1060
+    ],
+    [
+      "MainFrame.Draw",
+      1060
+    ],
+    [
+      "ProxyImpl::DidReceiveCompositorFrameAckOnImplThread",
+      1060
+    ],
+    [
+      "WidgetBase::DidCommitAndDrawCompositorFrame",
+      1060
+    ],
+    [
+      "All active surfaces ready",
+      1059
+    ],
+    [
+      "RequestAnimationFrame",
+      1058
+    ],
+    [
+      "FireAnimationFrame",
+      1058
+    ],
+    [
+      "RecordingSource::FinishDisplayItemListUpdate",
+      1056
+    ],
+    [
+      "DiscardableImageMap::Generate",
+      1056
+    ],
+    [
+      "DOMStats",
+      1054
+    ],
+    [
+      "ProxyImpl::ScheduledActionPrepareTiles",
+      1043
+    ],
+    [
+      "GpuChannelHost::VerifyFlush",
+      945
+    ],
+    [
+      "SyncToken::Release",
+      884
+    ],
+    [
+      "Frame ",
+      714
+    ],
+    [
+      "Frame   ",
+      686
+    ],
+    [
+      "Frame",
+      672
+    ],
+    [
+      "NeedsBeginFrames",
+      458
+    ],
+    [
+      "Sweeper::ConcurrentMajorSweeper Finished",
+      375
+    ],
+    [
+      "RememberedSetUpdatingItem::Process",
+      372
+    ],
+    [
+      "Parallel scavenge started",
+      361
+    ],
+    [
+      "V8.GCIncrementalMarking",
+      360
+    ],
+    [
+      "V8.GC_MC_INCREMENTAL_EMBEDDER_TRACING",
+      360
+    ],
+    [
+      "Scheduler::BeginFrameDropped",
+      325
+    ],
+    [
+      "Evacuator::EvacuatePage",
+      324
+    ],
+    [
+      "FullEvacuator::RawEvacuatePage",
+      324
+    ],
+    [
+      "LiveObjectVisitor::VisitMarkedObjectsNoFail",
+      291
+    ],
+    [
+      "V8.GC_MC_BACKGROUND_SWEEPING",
+      222
+    ],
+    [
+      "Swap throttled",
+      220
+    ],
+    [
+      "PageEvacuationJob started",
+      190
+    ],
+    [
+      "V8.GC_MC_BACKGROUND_MARKING",
+      185
+    ],
+    [
+      "ConcurrentMarking::RunMajor Finished",
+      185
+    ],
+    [
+      "DelayBasedTimeSource::SetActive",
+      167
+    ],
+    [
+      "V8.GC_MC_SWEEP_START_JOBS",
+      165
+    ],
+    [
+      "Major concurrent marking started",
+      155
+    ],
+    [
+      "ShortIdlePeriod",
+      145
+    ],
+    [
+      "MainThreadSchedulerIdlePeriod",
+      141
+    ],
+    [
+      "V8.GC_MC_SWEEP",
+      139
+    ],
+    [
+      "V8.GC_SCAVENGER_BACKGROUND_SCAVENGE_PARALLEL",
+      121
+    ],
+    [
+      "HitTest",
+      112
+    ],
+    [
+      "AnimationFrame::Script::Execute",
+      102
+    ],
+    [
+      "ObservablePause",
+      100
+    ],
+    [
+      "Marking",
+      100
+    ],
+    [
+      "Atomic",
+      100
+    ],
+    [
+      "Sweeping",
+      99
+    ],
+    [
+      "ComputeWeaknessProcessor start",
+      97
+    ],
+    [
+      "ClearWeaknessProcessor start",
+      97
+    ],
+    [
+      "V8.GC_MC_FINISH_SWEEP_ARRAY_BUFFERS",
+      73
+    ],
+    [
+      "Scavenge",
+      70
+    ],
+    [
+      "V8.GC_TIME_TO_SAFEPOINT",
+      65
+    ],
+    [
+      "V8.GC_MC_MARK_EMBEDDER_TRACING",
+      51
+    ],
+    [
+      "V8.GC_MC_MARK_WEAK_CLOSURE_EPHEMERON_MARKING",
+      51
+    ],
+    [
+      "V8.GC_HEAP_EXTERNAL_PROLOGUE",
+      50
+    ],
+    [
+      "V8.GC_HEAP_PROLOGUE",
+      50
+    ],
+    [
+      "V8.GC_HEAP_PROLOGUE_SAFEPOINT",
+      50
+    ],
+    [
+      "V8.GC_HEAP_EPILOGUE_SAFEPOINT",
+      50
+    ],
+    [
+      "V8.GC_HEAP_EPILOGUE",
+      50
+    ],
+    [
+      "V8.GCTraceGCNVP",
+      50
+    ],
+    [
+      "V8.GC_HEAP_DUMP_STATISTICS",
+      50
+    ],
+    [
+      "V8.GC_Heap_Stats",
+      50
+    ],
+    [
+      "V8.GC_HEAP_EXTERNAL_EPILOGUE",
+      50
+    ],
+    [
+      "V8.GC_MC_BACKGROUND_EVACUATE_COPY",
+      47
+    ],
+    [
+      "FrameSequenceTrackerV3",
+      47
+    ],
+    [
+      "V8.GC_MC_INCREMENTAL_START",
+      45
+    ],
+    [
+      "V8.GC_MC_MARK_ROOTS",
+      45
+    ],
+    [
+      "ClearStringTableJob started",
+      45
+    ],
+    [
+      "ClearTrivialWeakRefJob started",
+      45
+    ],
+    [
+      "FilterNonTrivialWeakRefJob started",
+      45
+    ],
+    [
+      "Closed mojo endpoint",
+      44
+    ],
+    [
+      "V8.GC_MC_COMPLETE_SWEEPING",
+      43
+    ],
+    [
+      "PointersUpdatingJob started",
+      43
+    ],
+    [
+      "V8.GC_SCAVENGER_SCAVENGE_PARALLEL",
+      42
+    ],
+    [
+      "very_high",
+      40
+    ],
+    [
+      "rendering_starved",
+      40
+    ],
+    [
+      "none",
+      39
+    ],
+    [
+      "normal",
+      39
+    ],
+    [
+      "thread_name",
+      38
+    ],
+    [
+      "MinorGC",
+      35
+    ],
+    [
+      "V8.GCScavenger",
+      35
+    ],
+    [
+      "V8.GC_SCAVENGER",
+      35
+    ],
+    [
+      "V8.GC_SCAVENGER_SCAVENGE",
+      35
+    ],
+    [
+      "V8.GC_SCAVENGER_SCAVENGE_WEAK_GLOBAL_HANDLES_IDENTIFY",
+      35
+    ],
+    [
+      "V8.GC_SCAVENGER_SCAVENGE_ROOTS",
+      35
+    ],
+    [
+      "V8.GC_SCAVENGER_SCAVENGE_PARALLEL_PHASE",
+      35
+    ],
+    [
+      "V8.GC_SCAVENGER_SCAVENGE_WEAK_GLOBAL_HANDLES_PROCESS",
+      35
+    ],
+    [
+      "V8.GC_SCAVENGER_SCAVENGE_FINALIZE",
+      35
+    ],
+    [
+      "V8.GC_SCAVENGER_SCAVENGE_RESTORE_AND_QUARANTINE_PINNED",
+      35
+    ],
+    [
+      "V8.GC_SCAVENGER_FREE_REMEMBERED_SET",
+      35
+    ],
+    [
+      "V8.GC_SCAVENGER_RESIZE_NEW_SPACE",
+      35
+    ],
+    [
+      "allocation failure",
+      35
+    ],
+    [
+      "LiveObjectVisitor::VisitMarkedObjects",
+      33
+    ],
+    [
+      "V8.GC_HEAP_ENSURE_SWEEPING_COMPLETED",
+      31
+    ],
+    [
+      "V8.GC_SCAVENGER_TRACED_HANDLES_COMPUTE_WEAKNESS_PARALLEL",
+      31
+    ],
+    [
+      "V8.GC_SCAVENGER_TRACED_HANDLES_RESET_PARALLEL",
+      31
+    ],
+    [
+      "V8.GC_MC_MARK_EMBEDDER_PROLOGUE",
+      30
+    ],
+    [
+      "V8.GC_MC_EVACUATE",
+      30
+    ],
+    [
+      "IncrementalMarking",
+      30
+    ],
+    [
+      "Incremental Mark-Compact",
+      29
+    ],
+    [
+      "V8.GC_MC_BACKGROUND_EVACUATE_UPDATE_POINTERS",
+      27
+    ],
+    [
+      "SequenceManagerImpl::MaybeReclaimMemory",
+      24
+    ],
+    [
+      "SharedImageStub::OnCreateSharedImage",
+      23
+    ],
+    [
+      "v8.newInstance",
+      22
+    ],
+    [
+      "DisplayDamageTracker::SetRootFrameMissing",
+      18
+    ],
+    [
+      "CommandBufferStub::OnRegisterTransferBuffer",
+      17
+    ],
+    [
+      "V8.GCUpdateAllocationLimits",
+      16
+    ],
+    [
+      "V8.GC_MC_COMPLETE_SWEEP_ARRAY_BUFFERS",
+      15
+    ],
+    [
+      "V8.GCIncrementalMarkingStart",
+      15
+    ],
+    [
+      "V8.GC_MC_INCREMENTAL_EXTERNAL_PROLOGUE",
+      15
+    ],
+    [
+      "V8.GC_MC_INCREMENTAL_EXTERNAL_EPILOGUE",
+      15
+    ],
+    [
+      "MajorGC",
+      15
+    ],
+    [
+      "V8.GCFinalizeMC",
+      15
+    ],
+    [
+      "V8.GC_MARK_COMPACTOR",
+      15
+    ],
+    [
+      "V8.GC_MC_PROLOGUE",
+      15
+    ],
+    [
+      "V8.GC_MC_MARK",
+      15
+    ],
+    [
+      "V8.GC_MC_MARK_FINISH_INCREMENTAL",
+      15
+    ],
+    [
+      "V8.GC_MC_MARK_CLIENT_HEAPS",
+      15
+    ],
+    [
+      "V8.GC_MC_MARK_RETAIN_MAPS",
+      15
+    ],
+    [
+      "V8.GC_MC_MARK_FULL_CLOSURE_PARALLEL",
+      15
+    ],
+    [
+      "V8.GC_MC_MARK_FULL_CLOSURE_PARALLEL_JOIN",
+      15
+    ],
+    [
+      "V8.GC_CONSERVATIVE_STACK_SCANNING",
+      15
+    ],
+    [
+      "V8.GC_MC_MARK_FULL_CLOSURE_SERIAL",
+      15
+    ],
+    [
+      "V8.GC_MC_CLEAR",
+      15
+    ],
+    [
+      "V8.GC_MC_CLEAR_STRING_FORWARDING_TABLE",
+      15
+    ],
+    [
+      "V8.GC_MC_CLEAR_EXTERNAL_STRING_TABLE",
+      15
+    ],
+    [
+      "V8.GC_MC_CLEAR_WEAK_GLOBAL_HANDLES",
+      15
+    ],
+    [
+      "V8.GC_MC_CLEAR_FLUSHABLE_BYTECODE",
+      15
+    ],
+    [
+      "V8.GC_MC_SWEEP_JS_DISPATCH_TABLE",
+      15
+    ],
+    [
+      "V8.GC_MC_CLEAR_FLUSHED_JS_FUNCTIONS",
+      15
+    ],
+    [
+      "V8.GC_MC_CLEAR_WEAK_LISTS",
+      15
+    ],
+    [
+      "V8.GC_MC_CLEAR_MAPS",
+      15
+    ],
+    [
+      "V8.GC_MC_SWEEP_EXTERNAL_POINTER_TABLE",
+      15
+    ],
+    [
+      "V8.GC_MC_CLEAR_STRING_TABLE",
+      15
+    ],
+    [
+      "V8.GC_MC_CLEAR_WEAK_REFERENCES_TRIVIAL",
+      15
+    ],
+    [
+      "V8.GC_MC_SWEEP_TRUSTED_POINTER_TABLE",
+      15
+    ],
+    [
+      "V8.GC_MC_SWEEP_CODE_POINTER_TABLE",
+      15
+    ],
+    [
+      "V8.GC_MC_SWEEP_WASM_CODE_POINTER_TABLE",
+      15
+    ],
+    [
+      "V8.GC_MC_CLEAR_WEAK_REFERENCES_JOIN_FILTER_JOB",
+      15
+    ],
+    [
+      "V8.GC_MC_CLEAR_WEAK_REFERENCES_FILTER_NON_TRIVIAL",
+      15
+    ],
+    [
+      "V8.GC_MC_WEAKNESS_HANDLING",
+      15
+    ],
+    [
+      "V8.GC_MC_CLEAR_WEAK_REFERENCES_NON_TRIVIAL",
+      15
+    ],
+    [
+      "V8.GC_MC_CLEAR_WEAK_COLLECTIONS",
+      15
+    ],
+    [
+      "V8.GC_MC_CLEAR_JS_WEAK_REFERENCES",
+      15
+    ],
+    [
+      "V8.GC_MC_CLEAR_JOIN_JOB",
+      15
+    ],
+    [
+      "V8.GC_MC_EVACUATE_PROLOGUE",
+      15
+    ],
+    [
+      "V8.GC_MC_EVACUATE_COPY",
+      15
+    ],
+    [
+      "V8.GC_MC_EVACUATE_UPDATE_POINTERS",
+      15
+    ],
+    [
+      "V8.GC_MC_EVACUATE_UPDATE_POINTERS_TO_NEW_ROOTS",
+      15
+    ],
+    [
+      "V8.GC_MC_EVACUATE_UPDATE_POINTERS_CLIENT_HEAPS",
+      15
+    ],
+    [
+      "V8.GC_MC_EVACUATE_UPDATE_POINTERS_SLOTS_MAIN",
+      15
+    ],
+    [
+      "V8.GC_MC_EVACUATE_UPDATE_POINTERS_WEAK",
+      15
+    ],
+    [
+      "V8.GC_MC_EVACUATE_UPDATE_POINTERS_POINTER_TABLES",
+      15
+    ],
+    [
+      "V8.GC_MC_EVACUATE_CLEAN_UP",
+      15
+    ],
+    [
+      "V8.GC_MC_EVACUATE_EPILOGUE",
+      15
+    ],
+    [
+      "V8.GC_MC_SWEEP_NEW_LO",
+      15
+    ],
+    [
+      "V8.GC_MC_EVACUATE_REBALANCE",
+      15
+    ],
+    [
+      "V8.GC_MC_FINISH",
+      15
+    ],
+    [
+      "V8.GC_MC_EPILOGUE",
+      15
+    ],
+    [
+      "V8.GC_BACKGROUND_FULL_ARRAY_BUFFER_SWEEP",
+      15
+    ],
+    [
+      "V8.GC_HEAP_EMBEDDER_TRACING_EPILOGUE",
+      15
+    ],
+    [
+      "ArrayBufferSweeper Finished",
+      15
+    ],
+    [
+      "V8.GCMarkCompactorSummary",
+      15
+    ],
+    [
+      "V8.GCMarkCompactorMarkingSummary",
+      15
+    ],
+    [
+      "V8.GCSpeedSummary",
+      15
+    ],
+    [
+      "SharedImageStub::OnDestroySharedImage",
+      15
+    ],
+    [
+      "task",
+      15
+    ],
+    [
+      "finalize incremental marking via task",
+      15
+    ],
+    [
+      "LayerTreeHostSize",
+      15
+    ],
+    [
+      "MarkCompactCollector::EvacuatePagesInParallel",
+      14
+    ],
+    [
+      "V8.GC_MC_EVACUATE_COPY_PARALLEL",
+      14
+    ],
+    [
+      "V8.GC_MC_EVACUATE_UPDATE_POINTERS_PARALLEL",
+      14
+    ],
+    [
+      "V8.GC_HEAP_EXTERNAL_WEAK_GLOBAL_HANDLES",
+      14
+    ],
+    [
+      "V8.GCPhantomHandleProcessingCallback",
+      14
+    ],
+    [
+      "V8.GC_HEAP_EXTERNAL_SECOND_PASS_CALLBACKS",
+      14
+    ],
+    [
+      "CommandBufferStub::OnDestroyTransferBuffer",
+      12
+    ],
+    [
+      "TransferBuffer::Free",
+      10
+    ],
+    [
+      "ScheduleStyleRecalculation",
+      9
+    ],
+    [
+      "UpdateLayoutTree",
+      9
+    ],
+    [
+      "SequenceManagerImpl::UnregisterTaskQueue",
+      9
+    ],
+    [
+      "DelegatedFrameHost::EmbedSurface",
+      8
+    ],
+    [
+      "ScrollTree::SetScrollOffset",
+      6
+    ],
+    [
+      "Scheduler::MissedBeginFrameDropped",
+      4
+    ],
+    [
+      "EarlyOut_NoUpdates",
+      4
+    ],
+    [
+      "MainFrameAborted",
+      4
+    ],
+    [
+      "ProxyImpl::BeginMainFrameAbortedOnImplThread",
+      4
+    ],
+    [
+      "Scheduler::BeginMainFrameAborted",
+      4
+    ],
+    [
+      "SingleThreadProxy::NotifyReadyToActivate",
+      4
+    ],
+    [
+      "SingleThreadProxy::NotifyReadyToDraw",
+      4
+    ],
+    [
+      "SingleThreadTaskGraphRunner::CollectCompletedTasks",
+      4
+    ],
+    [
+      "TileManager::AssignGpuMemory tile violates memory policy",
+      4
+    ],
+    [
+      "UserBlocking",
+      4
+    ],
+    [
+      "RunningIdleTask",
+      4
+    ],
+    [
+      "process_name",
+      3
+    ],
+    [
+      "process_uptime_seconds",
+      3
+    ],
+    [
+      "FrameSchedulerImpl::UpdateQueuePolicy_QueueEnabled",
+      3
+    ],
+    [
+      "CommandBufferStub::SetGetBuffer",
+      3
+    ],
+    [
+      "V8.GCDeoptMarkedAllocationSites",
+      3
+    ],
+    [
+      "ConcurrentMarking::RunMajor Preempted",
+      3
+    ],
+    [
+      "More damage expected soon",
+      3
+    ],
+    [
+      "ProxyMain::SetNeedsCommit",
+      3
+    ],
+    [
+      "UpdateStateFromAnimationDrivers",
+      3
+    ],
+    [
+      "Scheduler::ContinueTask",
+      3
+    ],
+    [
+      "CopyOutputRequest",
+      3
+    ],
+    [
+      "EvaluateScript",
+      2
+    ],
+    [
+      "SingleThreadIdleTaskRunner::RunTask",
+      2
+    ],
+    [
+      "EventDispatch",
+      2
+    ],
+    [
+      "RasterImplementation::SetAggressivelyFreeResources",
+      2
+    ],
+    [
+      "SingleThreadProxy::ScheduledActionSendBeginMainFrame",
+      2
+    ],
+    [
+      "PropertyTreeLayerTreeDelegate::UpdatePropertyTreesIfNeeded",
+      2
+    ],
+    [
+      "SingleThreadProxy::DoCommit",
+      2
+    ],
+    [
+      "SurfaceLayer::PushPropertiesTo",
+      2
+    ],
+    [
+      "SingleThreadProxy::DoPostCommit",
+      2
+    ],
+    [
+      "SingleThreadProxy::SetNeedsPrepareTilesOnImplThread",
+      2
+    ],
+    [
+      "SingleThreadProxy::OnCanDrawStateChanged",
+      2
+    ],
+    [
+      "SingleThreadProxy::DoComposite",
+      2
+    ],
+    [
+      "SingleThreadProxy::ScheduledActionPrepareTiles",
+      2
+    ],
+    [
+      "SingleThreadTaskGraphRunner::ScheduleTasks",
+      2
+    ],
+    [
+      "SingleThreadProxy::DidReceiveCompositorFrameAckOnImplThread",
+      2
+    ],
+    [
+      "FramePresented",
+      2
+    ],
+    [
+      "WorkerSchedulerIdlePeriod",
+      2
+    ],
+    [
+      "LongIdlePeriodPaused",
+      2
+    ],
+    [
+      "JankV3",
+      2
+    ],
+    [
+      "DeadlineOverrun",
+      2
+    ],
+    [
+      "SurfaceQueuedPending",
+      2
+    ],
+    [
+      "TracingStartedInBrowser",
+      1
+    ],
+    [
+      "V8PerIsolateData::Initialize",
+      1
+    ],
+    [
+      "V8.DeserializeIsolate",
+      1
+    ],
+    [
+      "TracingSessionIdForWorker",
+      1
+    ],
+    [
+      "V8.DeserializeContext",
+      1
+    ],
+    [
+      "ResourceReceiveResponse",
+      1
+    ],
+    [
+      "ResourceReceivedData",
+      1
+    ],
+    [
+      "v8.compile",
+      1
+    ],
+    [
+      "v8.run",
+      1
+    ],
+    [
+      "v8.produceCache",
+      1
+    ],
+    [
+      "ResourceFinish",
+      1
+    ],
+    [
+      "causal-chromium-003-F-causal-no-dom-light-clock-0",
+      1
+    ],
+    [
+      "V8.DeoptimizeCode",
+      1
+    ],
+    [
+      "TimerRemove",
+      1
+    ],
+    [
+      "causal-chromium-003-F-causal-no-dom-light-clock-1",
+      1
+    ],
+    [
+      "V8.GC_BACKGROUND_SAFEPOINT",
+      1
+    ],
+    [
+      "FrameSinkManagerImpl::RequestCopyOfOutput",
+      1
+    ],
+    [
+      "Draw skipped.",
+      1
+    ],
+    [
+      "Swap skipped.",
+      1
+    ],
+    [
+      "Surface deadline passed",
+      1
+    ],
+    [
+      "SurfaceSynchronizationEvent",
+      1
+    ],
+    [
+      "Surface::RequestCopyOfOutput",
+      1
+    ],
+    [
+      "Surface::RequestCopyOfOutputOnRootRenderPass",
+      1
+    ],
+    [
+      "SkiaOutputSurfaceImplOnGpu::FinishPaintRenderPass",
+      1
+    ],
+    [
+      "SkiaOutputSurfaceImplOnGpu::CopyOutput",
+      1
+    ],
+    [
+      "GrShaderCache::load",
+      1
+    ],
+    [
+      "ANGLEPlatformImpl::RunWorkerTask",
+      1
+    ],
+    [
+      "GrShaderCache::store",
+      1
+    ],
+    [
+      "viz::mojom::CopyOutputResultSender::SendResult",
+      1
+    ],
+    [
+      "CopyOutputResultSenderImpl::SendResult",
+      1
+    ],
+    [
+      "Damage not visible.",
+      1
+    ],
+    [
+      "no",
+      1
+    ]
+  ],
+  "processes": [
+    {
+      "args": {
+        "name": "swapper"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 0,
+      "tid": 0,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "CrBrowserMain"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 17532,
+      "tid": 23972,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "Compositor"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 24332,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "PerfettoTrace"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 17532,
+      "tid": 30380,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "Chrome_IOThread"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 17532,
+      "tid": 33704,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "PerfettoTrace"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 29980,
+      "tid": 6844,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "Chrome_ChildIOThread"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 29980,
+      "tid": 33088,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "CrRendererMain"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 31968,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "Chrome_ChildIOThread"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 9060,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "PerfettoTrace"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 18540,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "DevToolsPipeHandlerWriteThread"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 17532,
+      "tid": 26812,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 33564,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "DedicatedWorker thread"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 27912,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "VizCompositorThread"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 29980,
+      "tid": 572,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "CrGpuMain"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 29980,
+      "tid": 28804,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 32772,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 22700,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 9944,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolServiceThread"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 17532,
+      "tid": 29152,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 17532,
+      "tid": 25472,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 25456,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 30064,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 4724,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 30276,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 3948,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 33412,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 32044,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 16816,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 17672,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 31108,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 2392,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 22544,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 25188,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 32428,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolServiceThread"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 10016,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolBackgroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 3492,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolBackgroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 17532,
+      "tid": 6744,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 29980,
+      "tid": 25468,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "Browser"
+      },
+      "cat": "__metadata",
+      "name": "process_name",
+      "ph": "M",
+      "pid": 17532,
+      "tid": 0,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "Renderer"
+      },
+      "cat": "__metadata",
+      "name": "process_name",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 0,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "GPU Process"
+      },
+      "cat": "__metadata",
+      "name": "process_name",
+      "ph": "M",
+      "pid": 29980,
+      "tid": 0,
+      "ts": 0
+    },
+    {
+      "args": {
+        "uptime": "76"
+      },
+      "cat": "__metadata",
+      "name": "process_uptime_seconds",
+      "ph": "M",
+      "pid": 17532,
+      "tid": 0,
+      "ts": 0
+    },
+    {
+      "args": {
+        "uptime": "76"
+      },
+      "cat": "__metadata",
+      "name": "process_uptime_seconds",
+      "ph": "M",
+      "pid": 16648,
+      "tid": 0,
+      "ts": 0
+    },
+    {
+      "args": {
+        "uptime": "76"
+      },
+      "cat": "__metadata",
+      "name": "process_uptime_seconds",
+      "ph": "M",
+      "pid": 29980,
+      "tid": 0,
+      "ts": 0
+    }
+  ],
+  "long": [
+    {
+      "id": 291,
+      "name": "calculate",
+      "begin": 6122,
+      "end": 6200.10000000149,
+      "before": {
+        "step": 34557,
+        "bStep": 34557,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": false,
+        "raf": false,
+        "observed": "34557",
+        "a": "34557",
+        "b": "34557",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 34621,
+        "bStep": 34621,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": false,
+        "raf": false,
+        "observed": "34557",
+        "a": "34557",
+        "b": "34557",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 78.10000000149012,
+      "traceBeginMs": 31368599.928999998,
+      "traceEndMs": 31368678.029,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 78.10000000149012,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 194.923,
+        "threadCpuMs": 4.019
+      }
+    },
+    {
+      "id": 1153,
+      "name": "paint",
+      "begin": 13252.300000000745,
+      "end": 13552.10000000149,
+      "before": {
+        "step": 60233,
+        "bStep": 60233,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "60047",
+        "a": "60047",
+        "b": "60047",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 60233,
+        "bStep": 60233,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "60047",
+        "a": "60233",
+        "b": "60233",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 299.80000000074506,
+      "traceBeginMs": 31375730.229,
+      "traceEndMs": 31376030.029,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 299.80000000074506,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 435.679,
+        "threadCpuMs": 27.098
+      }
+    },
+    {
+      "id": 1442,
+      "name": "paint",
+      "begin": 15736.20000000298,
+      "end": 15895.400000002235,
+      "before": {
+        "step": 68764,
+        "bStep": 68764,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "68541",
+        "a": "68541",
+        "b": "68541",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 68764,
+        "bStep": 68764,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "68541",
+        "a": "68764",
+        "b": "68764",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 159.19999999925494,
+      "traceBeginMs": 31378214.129,
+      "traceEndMs": 31378373.329,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 159.19999999925494,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 410.742,
+        "threadCpuMs": 29.944
+      }
+    },
+    {
+      "id": 2020,
+      "name": "paint",
+      "begin": 20737.300000000745,
+      "end": 21080.60000000149,
+      "before": {
+        "step": 85844,
+        "bStep": 85844,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "85652",
+        "a": "85652",
+        "b": "85652",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 85844,
+        "bStep": 85844,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "85652",
+        "a": "85844",
+        "b": "85844",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 343.30000000074506,
+      "traceBeginMs": 31383215.229,
+      "traceEndMs": 31383558.529,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 343.30000000074506,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 373.602,
+        "threadCpuMs": 28.13
+      }
+    },
+    {
+      "id": 2303,
+      "name": "calculate",
+      "begin": 23135.800000000745,
+      "end": 23248.20000000298,
+      "before": {
+        "step": 94248,
+        "bStep": 94248,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": false,
+        "raf": false,
+        "observed": "94184",
+        "a": "94184",
+        "b": "94184",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 94312,
+        "bStep": 94312,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": false,
+        "raf": false,
+        "observed": "94184",
+        "a": "94184",
+        "b": "94184",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 112.40000000223517,
+      "traceBeginMs": 31385613.729,
+      "traceEndMs": 31385726.129,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 112.40000000223517,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 258.954,
+        "threadCpuMs": 4.367
+      }
+    },
+    {
+      "id": 2586,
+      "name": "calculate",
+      "begin": 25547.800000000745,
+      "end": 25620.60000000149,
+      "before": {
+        "step": 102691,
+        "bStep": 102691,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": false,
+        "raf": false,
+        "observed": "102563",
+        "a": "102563",
+        "b": "102563",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 102755,
+        "bStep": 102755,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": false,
+        "raf": false,
+        "observed": "102563",
+        "a": "102563",
+        "b": "102563",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 72.80000000074506,
+      "traceBeginMs": 31388025.729,
+      "traceEndMs": 31388098.529,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 72.80000000074506,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 153.124,
+        "threadCpuMs": 3.674
+      }
+    },
+    {
+      "id": 2588,
+      "name": "paint",
+      "begin": 25803.5,
+      "end": 25950.900000002235,
+      "before": {
+        "step": 102755,
+        "bStep": 102755,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "102563",
+        "a": "102563",
+        "b": "102563",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 102755,
+        "bStep": 102755,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "102563",
+        "a": "102755",
+        "b": "102755",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 147.40000000223517,
+      "traceBeginMs": 31388281.428999998,
+      "traceEndMs": 31388428.829,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 147.40000000223517,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 269.744,
+        "threadCpuMs": 26.12
+      }
+    },
+    {
+      "id": 2870,
+      "name": "calculate",
+      "begin": 28069,
+      "end": 28127.400000002235,
+      "before": {
+        "step": 111076,
+        "bStep": 111076,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": false,
+        "raf": false,
+        "observed": "111076",
+        "a": "111076",
+        "b": "111076",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 111140,
+        "bStep": 111140,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": false,
+        "raf": false,
+        "observed": "111076",
+        "a": "111076",
+        "b": "111076",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 58.400000002235174,
+      "traceBeginMs": 31390546.928999998,
+      "traceEndMs": 31390605.329,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 58.400000002235174,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 189.351,
+        "threadCpuMs": 5.098
+      }
+    },
+    {
+      "id": 3163,
+      "name": "paint",
+      "begin": 30555.800000000745,
+      "end": 30837.10000000149,
+      "before": {
+        "step": 120069,
+        "bStep": 120069,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "119694",
+        "a": "119694",
+        "b": "119694",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 120069,
+        "bStep": 120069,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "119694",
+        "a": "120069",
+        "b": "120069",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 281.30000000074506,
+      "traceBeginMs": 31393033.729,
+      "traceEndMs": 31393315.029,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 281.30000000074506,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 357.702,
+        "threadCpuMs": 27.826
+      }
+    },
+    {
+      "id": 3443,
+      "name": "paint",
+      "begin": 32836.300000000745,
+      "end": 33247.70000000298,
+      "before": {
+        "step": 128373,
+        "bStep": 128373,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "128172",
+        "a": "128172",
+        "b": "128172",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 128373,
+        "bStep": 128373,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "128172",
+        "a": "128373",
+        "b": "128373",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 411.4000000022352,
+      "traceBeginMs": 31395314.229,
+      "traceEndMs": 31395725.629,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 411.4000000022352,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 430.185,
+        "threadCpuMs": 29.318
+      }
+    },
+    {
+      "id": 3724,
+      "name": "paint",
+      "begin": 35269,
+      "end": 35654.10000000149,
+      "before": {
+        "step": 136732,
+        "bStep": 136732,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "136549",
+        "a": "136549",
+        "b": "136549",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 136732,
+        "bStep": 136732,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "136549",
+        "a": "136732",
+        "b": "136732",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 385.1000000014901,
+      "traceBeginMs": 31397746.928999998,
+      "traceEndMs": 31398132.029,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 385.1000000014901,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 403.794,
+        "threadCpuMs": 29.125
+      }
+    },
+    {
+      "id": 4008,
+      "name": "calculate",
+      "begin": 37936,
+      "end": 38131.800000000745,
+      "before": {
+        "step": 145152,
+        "bStep": 145152,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": false,
+        "raf": false,
+        "observed": "145152",
+        "a": "145152",
+        "b": "145152",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 145216,
+        "bStep": 145216,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": false,
+        "raf": false,
+        "observed": "145152",
+        "a": "145152",
+        "b": "145152",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 195.80000000074506,
+      "traceBeginMs": 31400413.928999998,
+      "traceEndMs": 31400609.729,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 195.80000000074506,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 324.679,
+        "threadCpuMs": 4.501
+      }
+    },
+    {
+      "id": 4304,
+      "name": "paint",
+      "begin": 40208.800000000745,
+      "end": 40512.900000002235,
+      "before": {
+        "step": 153939,
+        "bStep": 153939,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "153764",
+        "a": "153764",
+        "b": "153764",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 153939,
+        "bStep": 153939,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "153764",
+        "a": "153939",
+        "b": "153939",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 304.1000000014901,
+      "traceBeginMs": 31402686.729,
+      "traceEndMs": 31402990.829,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 304.1000000014901,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 398.718,
+        "threadCpuMs": 29.257
+      }
+    },
+    {
+      "id": 4580,
+      "name": "calculate",
+      "begin": 42592.60000000149,
+      "end": 42837.300000000745,
+      "before": {
+        "step": 162079,
+        "bStep": 162079,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": false,
+        "raf": false,
+        "observed": "162079",
+        "a": "162079",
+        "b": "162079",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 162143,
+        "bStep": 162143,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": false,
+        "raf": false,
+        "observed": "162079",
+        "a": "162079",
+        "b": "162079",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 244.69999999925494,
+      "traceBeginMs": 31405070.529,
+      "traceEndMs": 31405315.229,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 244.69999999925494,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 396.9,
+        "threadCpuMs": 5.099
+      }
+    },
+    {
+      "id": 4875,
+      "name": "paint",
+      "begin": 45153,
+      "end": 45442,
+      "before": {
+        "step": 170965,
+        "bStep": 170965,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "170795",
+        "a": "170795",
+        "b": "170795",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 170965,
+        "bStep": 170965,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "170795",
+        "a": "170965",
+        "b": "170965",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 289,
+      "traceBeginMs": 31407630.928999998,
+      "traceEndMs": 31407919.928999998,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 289,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 307.723,
+        "threadCpuMs": 27.83
+      }
+    },
+    {
+      "id": 5152,
+      "name": "calculate",
+      "begin": 47438.300000000745,
+      "end": 47664.60000000149,
+      "before": {
+        "step": 179124,
+        "bStep": 179124,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": false,
+        "raf": false,
+        "observed": "179060",
+        "a": "179060",
+        "b": "179060",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 179188,
+        "bStep": 179188,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": false,
+        "raf": false,
+        "observed": "179060",
+        "a": "179060",
+        "b": "179060",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 226.30000000074506,
+      "traceBeginMs": 31409916.229,
+      "traceEndMs": 31410142.529,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 226.30000000074506,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 227.517,
+        "threadCpuMs": 3.944
+      }
+    },
+    {
+      "id": 5154,
+      "name": "calculate",
+      "begin": 47713.5,
+      "end": 47842.60000000149,
+      "before": {
+        "step": 179188,
+        "bStep": 179188,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": false,
+        "raf": true,
+        "observed": "179060",
+        "a": "179060",
+        "b": "179060",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 179252,
+        "bStep": 179252,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": false,
+        "raf": true,
+        "observed": "179060",
+        "a": "179060",
+        "b": "179060",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 129.10000000149012,
+      "traceBeginMs": 31410191.428999998,
+      "traceEndMs": 31410320.529,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 129.10000000149012,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 129.446,
+        "threadCpuMs": 1.795
+      }
+    },
+    {
+      "id": 5443,
+      "name": "paint",
+      "begin": 49868.10000000149,
+      "end": 50212.20000000298,
+      "before": {
+        "step": 187928,
+        "bStep": 187928,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "187736",
+        "a": "187736",
+        "b": "187736",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 187928,
+        "bStep": 187928,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "187736",
+        "a": "187928",
+        "b": "187928",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 344.1000000014901,
+      "traceBeginMs": 31412346.029,
+      "traceEndMs": 31412690.129,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 344.1000000014901,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 397.861,
+        "threadCpuMs": 30.088
+      }
+    },
+    {
+      "id": 5725,
+      "name": "calculate",
+      "begin": 52290.900000002235,
+      "end": 52389.10000000149,
+      "before": {
+        "step": 196243,
+        "bStep": 196243,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": false,
+        "raf": false,
+        "observed": "196179",
+        "a": "196179",
+        "b": "196179",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 196307,
+        "bStep": 196307,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": false,
+        "raf": false,
+        "observed": "196179",
+        "a": "196179",
+        "b": "196179",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 98.19999999925494,
+      "traceBeginMs": 31414768.829,
+      "traceEndMs": 31414867.029,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 98.19999999925494,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 155.616,
+        "threadCpuMs": 4.481
+      }
+    },
+    {
+      "id": 5727,
+      "name": "paint",
+      "begin": 52534.60000000149,
+      "end": 52674.800000000745,
+      "before": {
+        "step": 196307,
+        "bStep": 196307,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "196179",
+        "a": "196179",
+        "b": "196179",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 196307,
+        "bStep": 196307,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "196179",
+        "a": "196307",
+        "b": "196307",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 140.19999999925494,
+      "traceBeginMs": 31415012.529,
+      "traceEndMs": 31415152.729,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 140.19999999925494,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 169.119,
+        "threadCpuMs": 24.115
+      }
+    },
+    {
+      "id": 6007,
+      "name": "paint",
+      "begin": 54885.5,
+      "end": 55102.20000000298,
+      "before": {
+        "step": 204780,
+        "bStep": 204780,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "204652",
+        "a": "204652",
+        "b": "204652",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 204780,
+        "bStep": 204780,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "204652",
+        "a": "204780",
+        "b": "204780",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 216.70000000298023,
+      "traceBeginMs": 31417363.428999998,
+      "traceEndMs": 31417580.129,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 216.70000000298023,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 330.594,
+        "threadCpuMs": 26.541
+      }
+    },
+    {
+      "id": 6295,
+      "name": "calculate",
+      "begin": 57190,
+      "end": 57269.5,
+      "before": {
+        "step": 213294,
+        "bStep": 213294,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": false,
+        "raf": true,
+        "observed": "213095",
+        "a": "213095",
+        "b": "213095",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 213358,
+        "bStep": 213358,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": false,
+        "raf": true,
+        "observed": "213095",
+        "a": "213095",
+        "b": "213095",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 79.5,
+      "traceBeginMs": 31419667.928999998,
+      "traceEndMs": 31419747.428999998,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 79.5,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 127.086,
+        "threadCpuMs": 3.675
+      }
+    },
+    {
+      "id": 6297,
+      "name": "paint",
+      "begin": 57327,
+      "end": 57548.10000000149,
+      "before": {
+        "step": 213358,
+        "bStep": 213358,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "213095",
+        "a": "213095",
+        "b": "213095",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 213358,
+        "bStep": 213358,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "213095",
+        "a": "213358",
+        "b": "213358",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 221.10000000149012,
+      "traceBeginMs": 31419804.928999998,
+      "traceEndMs": 31420026.029,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 221.10000000149012,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 249.626,
+        "threadCpuMs": 26.335
+      }
+    },
+    {
+      "id": 6590,
+      "name": "refresh",
+      "begin": 59635.60000000149,
+      "end": 59693.300000000745,
+      "before": {
+        "step": 222182,
+        "bStep": 222182,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": false,
+        "raf": false,
+        "observed": "221981",
+        "a": "221981",
+        "b": "221981",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 222182,
+        "bStep": 222182,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": false,
+        "raf": true,
+        "observed": "221981",
+        "a": "221981",
+        "b": "221981",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 57.69999999925494,
+      "traceBeginMs": 31422113.529,
+      "traceEndMs": 31422171.229,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 57.69999999925494,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 138.212,
+        "threadCpuMs": 4.109
+      }
+    },
+    {
+      "id": 6591,
+      "name": "paint",
+      "begin": 59809.60000000149,
+      "end": 60036.400000002235,
+      "before": {
+        "step": 222182,
+        "bStep": 222182,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "221981",
+        "a": "221981",
+        "b": "221981",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 222182,
+        "bStep": 222182,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "221981",
+        "a": "222182",
+        "b": "222182",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 226.80000000074506,
+      "traceBeginMs": 31422287.529,
+      "traceEndMs": 31422514.329,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 226.80000000074506,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 264.911,
+        "threadCpuMs": 26.626
+      }
+    },
+    {
+      "id": 6874,
+      "name": "paint",
+      "begin": 62166.800000000745,
+      "end": 62421.900000002235,
+      "before": {
+        "step": 230490,
+        "bStep": 230490,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "230235",
+        "a": "230235",
+        "b": "230235",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 230490,
+        "bStep": 230490,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "230235",
+        "a": "230490",
+        "b": "230490",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "duration": 255.10000000149012,
+      "traceBeginMs": 31424644.729,
+      "traceEndMs": 31424899.829,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 255.10000000149012,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 281.712,
+        "threadCpuMs": 25.647
+      }
+    }
+  ],
+  "mainWaits": {
+    "n": 1055,
+    "median": 0.017000000923871994,
+    "p95": 0.02199999988079071,
+    "p99": 0.028999999165534973,
+    "max": 0.37700000032782555,
+    "over50": 0,
+    "percentileIsGuarantee": false
+  },
+  "gc": {
+    "n": 2656,
+    "median": 0.02800000086426735,
+    "p95": 1.1619999967515469,
+    "p99": 4.502999998629093,
+    "max": 8.013000000268221,
+    "over50": 0,
+    "percentileIsGuarantee": false
+  },
+  "tasks": {
+    "n": 8698,
+    "median": 0.08399999886751175,
+    "p95": 19.984999999403954,
+    "p99": 22.374000001698732,
+    "max": 435.6789999976754,
+    "over50": 39,
+    "percentileIsGuarantee": false
+  },
+  "fullTaskIntervals": {
+    "n": 8698,
+    "median": 0.084,
+    "p95": 19.985,
+    "p99": 22.374,
+    "max": 435.679,
+    "over50": 39,
+    "percentileIsGuarantee": false
+  },
+  "boundaryClippedTasks": [
+    {
+      "ts": 31366242294,
+      "dur": 2533,
+      "clippedMs": 2.2980000004172325
+    },
+    {
+      "ts": 31426423425,
+      "dur": 699,
+      "clippedMs": 0.30399999767541885
+    }
+  ],
+  "coverage": {
+    "task": "OBSERVED",
+    "javascript": "OBSERVED",
+    "timer": "OBSERVED",
+    "raf": "OBSERVED",
+    "canvas": "OBSERVED",
+    "styleLayout": "OBSERVED",
+    "paintComposite": "OBSERVED",
+    "gc": "OBSERVED",
+    "input": "OBSERVED",
+    "worker": "OBSERVED"
+  },
+  "limitations": [
+    "GPU presentation completion NOT_TESTED",
+    "OS context-switch/run-queue/swap NOT_TESTED",
+    "Elapsed task duration is not OS CPU time",
+    "Overlap is not proof of causality"
+  ],
+  "processDurations": [
+    {
+      "pid": 16648,
+      "tid": 27912,
+      "count": 9027,
+      "maxMs": 415.393
+    },
+    {
+      "pid": 16648,
+      "tid": 31968,
+      "count": 70149,
+      "maxMs": 435.679
+    },
+    {
+      "pid": 16648,
+      "tid": 24332,
+      "count": 222352,
+      "maxMs": 186.338
+    },
+    {
+      "pid": 16648,
+      "tid": 9060,
+      "count": 28382,
+      "maxMs": 138.98
+    },
+    {
+      "pid": 29980,
+      "tid": 33088,
+      "count": 43331,
+      "maxMs": 1.307
+    },
+    {
+      "pid": 29980,
+      "tid": 572,
+      "count": 93864,
+      "maxMs": 4.354
+    },
+    {
+      "pid": 29980,
+      "tid": 6844,
+      "count": 1234,
+      "maxMs": 0.618
+    },
+    {
+      "pid": 17532,
+      "tid": 33704,
+      "count": 1859,
+      "maxMs": 19.624
+    },
+    {
+      "pid": 16648,
+      "tid": 18540,
+      "count": 1229,
+      "maxMs": 345.417
+    },
+    {
+      "pid": 17532,
+      "tid": 23972,
+      "count": 1478,
+      "maxMs": 20.15
+    },
+    {
+      "pid": 17532,
+      "tid": 26812,
+      "count": 638,
+      "maxMs": 10.095
+    },
+    {
+      "pid": 16648,
+      "tid": 33564,
+      "count": 18864,
+      "maxMs": 405.491
+    },
+    {
+      "pid": 29980,
+      "tid": 28804,
+      "count": 64840,
+      "maxMs": 4.697
+    },
+    {
+      "pid": 16648,
+      "tid": 32772,
+      "count": 16333,
+      "maxMs": 408.095
+    },
+    {
+      "pid": 16648,
+      "tid": 22700,
+      "count": 8725,
+      "maxMs": 420.066
+    },
+    {
+      "pid": 16648,
+      "tid": 9944,
+      "count": 351,
+      "maxMs": 415.169
+    },
+    {
+      "pid": 17532,
+      "tid": 30380,
+      "count": 1583,
+      "maxMs": 327.22
+    },
+    {
+      "pid": 17532,
+      "tid": 29152,
+      "count": 345,
+      "maxMs": 214.69
+    },
+    {
+      "pid": 17532,
+      "tid": 25472,
+      "count": 60,
+      "maxMs": 115.433
+    },
+    {
+      "pid": 16648,
+      "tid": 25456,
+      "count": 295,
+      "maxMs": 384.994
+    },
+    {
+      "pid": 16648,
+      "tid": 30064,
+      "count": 205,
+      "maxMs": 178.327
+    },
+    {
+      "pid": 16648,
+      "tid": 4724,
+      "count": 48,
+      "maxMs": 10.775
+    },
+    {
+      "pid": 16648,
+      "tid": 30276,
+      "count": 88,
+      "maxMs": 13.113
+    },
+    {
+      "pid": 16648,
+      "tid": 3948,
+      "count": 86,
+      "maxMs": 14.762
+    },
+    {
+      "pid": 16648,
+      "tid": 33412,
+      "count": 27,
+      "maxMs": 11.545
+    },
+    {
+      "pid": 16648,
+      "tid": 32044,
+      "count": 29,
+      "maxMs": 10.9
+    },
+    {
+      "pid": 16648,
+      "tid": 16816,
+      "count": 17,
+      "maxMs": 10.115
+    },
+    {
+      "pid": 16648,
+      "tid": 17672,
+      "count": 17,
+      "maxMs": 7.99
+    },
+    {
+      "pid": 16648,
+      "tid": 31108,
+      "count": 1,
+      "maxMs": 0.047
+    },
+    {
+      "pid": 16648,
+      "tid": 22544,
+      "count": 3,
+      "maxMs": 0.572
+    },
+    {
+      "pid": 16648,
+      "tid": 25188,
+      "count": 3,
+      "maxMs": 0.352
+    },
+    {
+      "pid": 16648,
+      "tid": 10016,
+      "count": 12,
+      "maxMs": 0.123
+    },
+    {
+      "pid": 16648,
+      "tid": 3492,
+      "count": 5,
+      "maxMs": 0.072
+    },
+    {
+      "pid": 17532,
+      "tid": 6744,
+      "count": 1,
+      "maxMs": 0.238
+    }
+  ],
+  "inputWindows": [
+    {
+      "seq": 58,
+      "delay": 74.29999999888241,
+      "begin": 31368399.928999998,
+      "end": 31368474.229,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 38.327999997884035,
+        "styleLayout": 0,
+        "paint": 6.495000001043081,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 339,
+      "delay": 312.50000000186265,
+      "begin": 31380780.629,
+      "end": 31381093.129,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 0.10099999979138374,
+        "styleLayout": 0,
+        "paint": 311.22100000083447,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 340,
+      "delay": 302.40000000037253,
+      "begin": 31380790.828999996,
+      "end": 31381093.229,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 0.14000000059604645,
+        "styleLayout": 0,
+        "paint": 301.0210000053048,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 341,
+      "delay": 260.59999999962747,
+      "begin": 31380832.729000002,
+      "end": 31381093.329,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 0.17100000008940697,
+        "styleLayout": 0,
+        "paint": 259.12099999934435,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 342,
+      "delay": 226.6999999973923,
+      "begin": 31380866.729000002,
+      "end": 31381093.428999998,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 0.2109999991953373,
+        "styleLayout": 0,
+        "paint": 225.12099999934435,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 343,
+      "delay": 195.99999999813735,
+      "begin": 31380897.529,
+      "end": 31381093.529,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 0.23900000005960464,
+        "styleLayout": 0,
+        "paint": 194.32100000232458,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 344,
+      "delay": 150.50000000186265,
+      "begin": 31380943.129,
+      "end": 31381093.629,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 0.2710000015795231,
+        "styleLayout": 0,
+        "paint": 148.72100000083447,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 345,
+      "delay": 120.00000000186265,
+      "begin": 31380973.629,
+      "end": 31381093.629,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 0.2710000015795231,
+        "styleLayout": 0,
+        "paint": 118.22100000083447,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 346,
+      "delay": 73.6999999973923,
+      "begin": 31381020.029,
+      "end": 31381093.729,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 0.2970000021159649,
+        "styleLayout": 0,
+        "paint": 71.82100000232458,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 404,
+      "delay": 147.40000000037253,
+      "begin": 31383435.729000002,
+      "end": 31383583.129,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 127.77799999713898,
+        "styleLayout": 0,
+        "paint": 18.06700000166893,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 2020,
+          "name": "paint",
+          "begin": 20737.300000000745,
+          "end": 21080.60000000149
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 405,
+      "delay": 130.99999999813735,
+      "begin": 31383452.229000002,
+      "end": 31383583.229,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 111.31399999931455,
+        "styleLayout": 0,
+        "paint": 18.06700000166893,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 2020,
+          "name": "paint",
+          "begin": 20737.300000000745,
+          "end": 21080.60000000149
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 406,
+      "delay": 84.59999999962747,
+      "begin": 31383498.729000002,
+      "end": 31383583.329,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 64.84099999815226,
+        "styleLayout": 0,
+        "paint": 18.06700000166893,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 2020,
+          "name": "paint",
+          "begin": 20737.300000000745,
+          "end": 21080.60000000149
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 407,
+      "delay": 53.90000000037253,
+      "begin": 31383529.629,
+      "end": 31383583.529,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 33.97699999809265,
+        "styleLayout": 0,
+        "paint": 18.06700000166893,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 2020,
+          "name": "paint",
+          "begin": 20737.300000000745,
+          "end": 21080.60000000149
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 464,
+      "delay": 152.7999999988824,
+      "begin": 31385757.629,
+      "end": 31385910.428999998,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 0.08299999684095383,
+        "styleLayout": 0,
+        "paint": 0,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 465,
+      "delay": 218.09999999962747,
+      "begin": 31385787.629,
+      "end": 31386005.729,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 47.510999999940395,
+        "styleLayout": 0,
+        "paint": 0,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 466,
+      "delay": 189.99999999813735,
+      "begin": 31385818.928999998,
+      "end": 31386008.928999998,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 47.61600000038743,
+        "styleLayout": 0,
+        "paint": 0,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 467,
+      "delay": 165.09999999962747,
+      "begin": 31385866.428999998,
+      "end": 31386031.529,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 51.283999998122454,
+        "styleLayout": 0,
+        "paint": 17.50399999693036,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 468,
+      "delay": 138.7999999988824,
+      "begin": 31385897.029,
+      "end": 31386035.829,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 55.176000002771616,
+        "styleLayout": 0,
+        "paint": 17.50399999693036,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 469,
+      "delay": 107.59999999962747,
+      "begin": 31385928.328999996,
+      "end": 31386035.928999998,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 55.024000000208616,
+        "styleLayout": 0,
+        "paint": 17.50399999693036,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 470,
+      "delay": 61.70000000111759,
+      "begin": 31385974.428999998,
+      "end": 31386036.129,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 39.042000003159046,
+        "styleLayout": 0,
+        "paint": 17.50399999693036,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 581,
+      "delay": 125.99999999813735,
+      "begin": 31390654.928999998,
+      "end": 31390780.928999998,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 59.377000000327826,
+        "styleLayout": 0,
+        "paint": 0,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 582,
+      "delay": 111.40000000037253,
+      "begin": 31390669.928999998,
+      "end": 31390781.329,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 44.54400000348687,
+        "styleLayout": 0,
+        "paint": 0,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 583,
+      "delay": 196.2999999988824,
+      "begin": 31390716.229000002,
+      "end": 31390912.529,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 44.37199999764562,
+        "styleLayout": 0,
+        "paint": 17.014999996870756,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 584,
+      "delay": 165.59999999962747,
+      "begin": 31390747.029,
+      "end": 31390912.629,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 44.38899999856949,
+        "styleLayout": 0,
+        "paint": 17.014999996870756,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 585,
+      "delay": 125.79999999888241,
+      "begin": 31390786.928999998,
+      "end": 31390912.729,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 15.184999998658895,
+        "styleLayout": 0,
+        "paint": 17.014999996870756,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 586,
+      "delay": 95.1999999973923,
+      "begin": 31390817.729000002,
+      "end": 31390912.928999998,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 12.590999998152256,
+        "styleLayout": 0,
+        "paint": 17.014999996870756,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 587,
+      "delay": 61.499999998137355,
+      "begin": 31390851.529,
+      "end": 31390913.029,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 9.942999999970198,
+        "styleLayout": 0,
+        "paint": 17.014999996870756,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 697,
+      "delay": 412.59999999962747,
+      "begin": 31395332.229000002,
+      "end": 31395744.829,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 393.9699999988079,
+        "styleLayout": 0,
+        "paint": 17.317999996244907,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 3443,
+          "name": "paint",
+          "begin": 32836.300000000745,
+          "end": 33247.70000000298
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 698,
+      "delay": 260.50000000186265,
+      "begin": 31395484.828999996,
+      "end": 31395745.329,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 241.64500000700355,
+        "styleLayout": 0,
+        "paint": 17.317999996244907,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 3443,
+          "name": "paint",
+          "begin": 32836.300000000745,
+          "end": 33247.70000000298
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 699,
+      "delay": 231.6999999973923,
+      "begin": 31395513.729000002,
+      "end": 31395745.428999998,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 212.7769999988377,
+        "styleLayout": 0,
+        "paint": 17.317999996244907,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 3443,
+          "name": "paint",
+          "begin": 32836.300000000745,
+          "end": 33247.70000000298
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 700,
+      "delay": 188.09999999962747,
+      "begin": 31395557.328999996,
+      "end": 31395745.428999998,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 169.17700000479817,
+        "styleLayout": 0,
+        "paint": 17.317999996244907,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 3443,
+          "name": "paint",
+          "begin": 32836.300000000745,
+          "end": 33247.70000000298
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 701,
+      "delay": 153.59999999962747,
+      "begin": 31395592.029,
+      "end": 31395745.629,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 134.5380000025034,
+        "styleLayout": 0,
+        "paint": 17.317999996244907,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 3443,
+          "name": "paint",
+          "begin": 32836.300000000745,
+          "end": 33247.70000000298
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 702,
+      "delay": 122.59999999962747,
+      "begin": 31395623.029,
+      "end": 31395745.629,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 103.5380000025034,
+        "styleLayout": 0,
+        "paint": 17.317999996244907,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 3443,
+          "name": "paint",
+          "begin": 32836.300000000745,
+          "end": 33247.70000000298
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 703,
+      "delay": 76.29999999888241,
+      "begin": 31395669.428999998,
+      "end": 31395745.729,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 57.16900000348687,
+        "styleLayout": 0,
+        "paint": 17.317999996244907,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 3443,
+          "name": "paint",
+          "begin": 32836.300000000745,
+          "end": 33247.70000000298
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 759,
+      "delay": 404.59999999962747,
+      "begin": 31397746.629,
+      "end": 31398151.229,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 385.79999999701977,
+        "styleLayout": 0,
+        "paint": 17.260000001639128,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 3723,
+          "name": "refresh",
+          "begin": 35259.5,
+          "end": 35268.800000000745
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 760,
+      "delay": 261.90000000037253,
+      "begin": 31397889.428999998,
+      "end": 31398151.329,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 243.21900000050664,
+        "styleLayout": 0,
+        "paint": 17.260000001639128,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 3724,
+          "name": "paint",
+          "begin": 35269,
+          "end": 35654.10000000149
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 761,
+      "delay": 226.99999999813735,
+      "begin": 31397924.529,
+      "end": 31398151.529,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 208.18000000342727,
+        "styleLayout": 0,
+        "paint": 17.260000001639128,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 3724,
+          "name": "paint",
+          "begin": 35269,
+          "end": 35654.10000000149
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 762,
+      "delay": 196.2999999988824,
+      "begin": 31397955.529,
+      "end": 31398151.829,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 177.32700000330806,
+        "styleLayout": 0,
+        "paint": 17.260000001639128,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 3724,
+          "name": "paint",
+          "begin": 35269,
+          "end": 35654.10000000149
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 763,
+      "delay": 156.7999999988824,
+      "begin": 31397995.129,
+      "end": 31398151.928999998,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 137.7660000026226,
+        "styleLayout": 0,
+        "paint": 17.260000001639128,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 3724,
+          "name": "paint",
+          "begin": 35269,
+          "end": 35654.10000000149
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 764,
+      "delay": 109.70000000111759,
+      "begin": 31398042.328999996,
+      "end": 31398152.029,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 90.58600000664592,
+        "styleLayout": 0,
+        "paint": 17.260000001639128,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 3724,
+          "name": "paint",
+          "begin": 35269,
+          "end": 35654.10000000149
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 765,
+      "delay": 74.3000000026077,
+      "begin": 31398077.828999996,
+      "end": 31398152.129,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 55.11500000953674,
+        "styleLayout": 0,
+        "paint": 17.260000001639128,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 3724,
+          "name": "paint",
+          "begin": 35269,
+          "end": 35654.10000000149
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 823,
+      "delay": 286.2999999988824,
+      "begin": 31400324.029,
+      "end": 31400610.329,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 285.9129999987781,
+        "styleLayout": 0,
+        "paint": 0,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 824,
+      "delay": 229.89999999664724,
+      "begin": 31400380.529,
+      "end": 31400610.428999998,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 229.4509999975562,
+        "styleLayout": 0,
+        "paint": 0,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 825,
+      "delay": 214.40000000037253,
+      "begin": 31400396.129,
+      "end": 31400610.529,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 213.88199999555945,
+        "styleLayout": 0,
+        "paint": 0,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 826,
+      "delay": 167.00000000186265,
+      "begin": 31400443.828999996,
+      "end": 31400610.829,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 166.41099999845028,
+        "styleLayout": 0,
+        "paint": 0,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 4008,
+          "name": "calculate",
+          "begin": 37936,
+          "end": 38131.800000000745
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 827,
+      "delay": 157.59999999962747,
+      "begin": 31400475.629,
+      "end": 31400633.229,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 137.9919999949634,
+        "styleLayout": 0,
+        "paint": 17.591999996453524,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 4008,
+          "name": "calculate",
+          "begin": 37936,
+          "end": 38131.800000000745
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 828,
+      "delay": 125.89999999664724,
+      "begin": 31400507.529,
+      "end": 31400633.428999998,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 106.17099999636412,
+        "styleLayout": 0,
+        "paint": 17.591999996453524,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 4008,
+          "name": "calculate",
+          "begin": 37936,
+          "end": 38131.800000000745
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 829,
+      "delay": 77.70000000111759,
+      "begin": 31400555.828999996,
+      "end": 31400633.529,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 57.90199999883771,
+        "styleLayout": 0,
+        "paint": 17.591999996453524,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 4008,
+          "name": "calculate",
+          "begin": 37936,
+          "end": 38131.800000000745
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 886,
+      "delay": 320.49999999813735,
+      "begin": 31402745.529,
+      "end": 31403066.029,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 246.00400000065565,
+        "styleLayout": 0,
+        "paint": 73.29500000178814,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 4304,
+          "name": "paint",
+          "begin": 40208.800000000745,
+          "end": 40512.900000002235
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 999,
+      "delay": 261.90000000037253,
+      "begin": 31407680.328999996,
+      "end": 31407942.229,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 243.15400000289083,
+        "styleLayout": 0,
+        "paint": 17.247000001370907,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 4875,
+          "name": "paint",
+          "begin": 45153,
+          "end": 45442
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 1000,
+      "delay": 261.89999999664724,
+      "begin": 31407680.529,
+      "end": 31407942.428999998,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 243.07000000029802,
+        "styleLayout": 0,
+        "paint": 17.247000001370907,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 4875,
+          "name": "paint",
+          "begin": 45153,
+          "end": 45442
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 1055,
+      "delay": 69.79999999888241,
+      "begin": 31410121.129,
+      "end": 31410190.928999998,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 21.712999999523163,
+        "styleLayout": 0,
+        "paint": 0,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 5152,
+          "name": "calculate",
+          "begin": 47438.300000000745,
+          "end": 47664.60000000149
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 1056,
+      "delay": 56.90000000037253,
+      "begin": 31410134.328999996,
+      "end": 31410191.229,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 8.68800000473857,
+        "styleLayout": 0,
+        "paint": 0,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 5152,
+          "name": "calculate",
+          "begin": 47438.300000000745,
+          "end": 47664.60000000149
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 1057,
+      "delay": 177.2000000011176,
+      "begin": 31410166.428999998,
+      "end": 31410343.629,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 133.59700000286102,
+        "styleLayout": 0,
+        "paint": 17.445000004023314,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 1058,
+      "delay": 129.40000000037253,
+      "begin": 31410214.428999998,
+      "end": 31410343.829,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 110.28400000184774,
+        "styleLayout": 0,
+        "paint": 17.445000004023314,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 5154,
+          "name": "calculate",
+          "begin": 47713.5,
+          "end": 47842.60000000149
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 1059,
+      "delay": 97.59999999962747,
+      "begin": 31410246.328999996,
+      "end": 31410343.928999998,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 78.41600000113249,
+        "styleLayout": 0,
+        "paint": 17.445000004023314,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 5154,
+          "name": "calculate",
+          "begin": 47713.5,
+          "end": 47842.60000000149
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 1060,
+      "delay": 66.00000000186265,
+      "begin": 31410278.328999996,
+      "end": 31410344.329,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 46.48699999973178,
+        "styleLayout": 0,
+        "paint": 17.445000004023314,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 5154,
+          "name": "calculate",
+          "begin": 47713.5,
+          "end": 47842.60000000149
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 1115,
+      "delay": 322.39999999664724,
+      "begin": 31412425.529,
+      "end": 31412747.928999998,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 288.9130000025034,
+        "styleLayout": 0,
+        "paint": 31.716999996453524,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 5443,
+          "name": "paint",
+          "begin": 49868.10000000149,
+          "end": 50212.20000000298
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 1341,
+      "delay": 178.40000000037253,
+      "begin": 31422357.828999996,
+      "end": 31422536.229,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 159.9180000051856,
+        "styleLayout": 0,
+        "paint": 16.911999996751547,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 6591,
+          "name": "paint",
+          "begin": 59809.60000000149,
+          "end": 60036.400000002235
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 1342,
+      "delay": 178.2999999988824,
+      "begin": 31422358.029,
+      "end": 31422536.329,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 159.74500000104308,
+        "styleLayout": 0,
+        "paint": 16.911999996751547,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 6591,
+          "name": "paint",
+          "begin": 59809.60000000149,
+          "end": 60036.400000002235
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 1343,
+      "delay": 158.09999999962747,
+      "begin": 31422378.328999996,
+      "end": 31422536.428999998,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 139.45300000533462,
+        "styleLayout": 0,
+        "paint": 16.911999996751547,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 6591,
+          "name": "paint",
+          "begin": 59809.60000000149,
+          "end": 60036.400000002235
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 1344,
+      "delay": 119.50000000186265,
+      "begin": 31422417.129,
+      "end": 31422536.629,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 100.72600000351667,
+        "styleLayout": 0,
+        "paint": 16.911999996751547,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 6591,
+          "name": "paint",
+          "begin": 59809.60000000149,
+          "end": 60036.400000002235
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 1345,
+      "delay": 86.90000000037253,
+      "begin": 31422449.729000002,
+      "end": 31422536.629,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 68.12600000202656,
+        "styleLayout": 0,
+        "paint": 16.911999996751547,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 6591,
+          "name": "paint",
+          "begin": 59809.60000000149,
+          "end": 60036.400000002235
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 1401,
+      "delay": 184.99999999813735,
+      "begin": 31424733.529,
+      "end": 31424918.529,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 166.99500000104308,
+        "styleLayout": 0,
+        "paint": 16.37000000104308,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 6874,
+          "name": "paint",
+          "begin": 62166.800000000745,
+          "end": 62421.900000002235
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 1402,
+      "delay": 168.40000000037253,
+      "begin": 31424750.328999996,
+      "end": 31424918.729,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 150.2630000077188,
+        "styleLayout": 0,
+        "paint": 16.37000000104308,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 6874,
+          "name": "paint",
+          "begin": 62166.800000000745,
+          "end": 62421.900000002235
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 1403,
+      "delay": 137.59999999962747,
+      "begin": 31424781.129,
+      "end": 31424918.729,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 119.46300000324845,
+        "styleLayout": 0,
+        "paint": 16.37000000104308,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 6874,
+          "name": "paint",
+          "begin": 62166.800000000745,
+          "end": 62421.900000002235
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 1404,
+      "delay": 96.29999999888241,
+      "begin": 31424822.529,
+      "end": 31424918.829,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 78.09000000730157,
+        "styleLayout": 0,
+        "paint": 16.37000000104308,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 6874,
+          "name": "paint",
+          "begin": 62166.800000000745,
+          "end": 62421.900000002235
+        }
+      ],
+      "enclosingEvents": []
+    },
+    {
+      "seq": 1405,
+      "delay": 54.09999999962747,
+      "begin": 31424864.928999998,
+      "end": 31424919.029,
+      "uncertainty": 0.09999999962747097,
+      "overlap": {
+        "gc": 0,
+        "js": 35.7900000102818,
+        "styleLayout": 0,
+        "paint": 16.37000000104308,
+        "mainCommitWait": 0,
+        "mainGpuSync": 0
+      },
+      "activePhasesAtT0": [
+        {
+          "id": 6874,
+          "name": "paint",
+          "begin": 62166.800000000745,
+          "end": 62421.900000002235
+        }
+      ],
+      "enclosingEvents": []
+    }
+  ]
+}

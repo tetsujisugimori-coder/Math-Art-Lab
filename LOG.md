@@ -1,5 +1,17 @@
 # Math-Art-Lab 開発・研究記録
 
+## 2026-11-10 JST — PR #44 Stage P：長時間区間の原因調査
+
+基準`b1d24d8098abcbcb8530f7a459387e38265ef2b7`、再レビュー5830894813、Issue #43／既存Draft PR #44を確認。HEAD一致・clean・旧最終CI成功・auto-mergeなしを確認し、Issueへ計画を追記。製品source・数理核・固定刻み・初期値・保存量・履歴上限・教材・公開条件を変更せず、診断専用bundle／CDP trace／独立Worker要求／時計対応と欠測の検証を追加した。
+
+計画215runを保持し212でデータ回収、エラーなし210。初期診断bundle生成3失敗、Escape誤配送1失敗、終了後trace回収1失敗を保存し、原因を修正した別runと分離。全表示60秒×3では入力最大454.15〜479.9ms。明示SwiftShader起動flagを除く／disable-gpu対照では34.05〜39.75ms、旧context負対照では2227.9〜2571ms。同じdeviceStringでもcompositing／rasterizationの有効状態が異なる。無改変module・phase／定期CDP／DOM heartbeatなしでも459.0〜463.4msが残り、追加計測だけが原因という説明は反証。public5分は6575要求、p95 268.2ms、p99 422.5ms、最大462.9ms。相互に異なる試験や旧1249msを同じ原因とは断定しない。
+
+466.1ms paintの包含TaskはCPU32.363ms、411.2ms calculateの包含TaskはCPU1.867msでmain GC重なり0。別区間にはGC重なりがあるが全スパイクの説明にはならない。取得したcommit／GPU sync markerも最大例を説明しない。描画処理経路への依存はSUPPORTED、具体的なnative待機／プロセス間同期／OS実行待ちと元1249msの原因はUNKNOWN。製品修正・Worker化・OffscreenCanvasは未採用。次は最小再現とOS context-switchの同期計測を優先する。
+
+全Float64／履歴の基準前後bit一致6条件、5プリセット・独立RK4・三角形解析・約20周期・二次収束を再検証。同一engine照合はphase206／履歴194で不一致0、公開UI6runはA位置のみ。全表示26466commitのstep不一致0、描画引数の最終phase照合130run不一致0。停止pause本体T2→T3最大約1msだが、要求受信T1→T3最大208.1msの例も残す。GPU提示／独立OS入力／最悪応答の保証とはしない。
+
+単体434/434（追加10）、型・build成功、第17作GUI開発48／本番48成功。最終診断smoke2＋停止9の契約チェック成功。全16既存作とLinux WebKit DPR2を含む最終HEAD CI・件数はPR #44のStage P提出記録へ固定。資料は`docs/three-body/review-44/stage-p/`。可逆圧縮hash・容量・既知credential pattern監査・実行版hashを保持。実機Safari・支援技術・低性能実機・実OS非表示／BFCache・数時間連続は未検証。総合PARTIAL、PR全体の限定マージ推奨NO。Draft・未merge・auto-mergeなしで独立再レビューを待つ。
+
 ## 2026-11-08 JST — 第17作「三体の舞踏」
 
 最新origin/main `9167e979b3c954e355d67c2b80e01dc4e733d8cc`とAGENTS・README・LOG・既存16作・全試験定義・Pages公開条件を確認。Issue/PR重複なしを調べ、依頼全文をIssue #43へ保存し、改行正規化後の一致を検証。`feat/017-three-body-dance`をmainから作成。ローカルmain更新・公開条件変更・マージ・auto-mergeは行わない。

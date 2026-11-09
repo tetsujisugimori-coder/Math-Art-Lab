@@ -1,5 +1,7 @@
 # 第17作 検証記録
 
+最新の調査は[Stage P](review-44/stage-p/investigation.md)。基準`b1d24d8`以降は診断コード・測定・検証資料だけを追加し、製品の数理・描画・状態管理ソースは変更していない。総合PARTIAL／原因SUPPORTED（観測した描画経路への依存）であり、元の1249msと全スパイクの内部原因はUNKNOWN。最終HEADのCI・件数・Draft状態はPR #44のStage P提出記録を正本とする。過去のPASSやfinalというファイル名を今回の性能保証へ読み替えない。
+
 2026-11-08 JST。自己検証の結果であり、独立レビューではありません。実機iPhone Safari、VoiceOver/NVDAの読み上げ、OS拡大、低性能実機は未検証です。Windows上のPlaywright WebKitを実機Safariと呼びません。
 
 ## 基盤・実施範囲

@@ -1,0 +1,20 @@
+
+> math-art-lab@0.1.0 build
+> tsc && vite build
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 84 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                      0.38 kB │ gzip:   0.27 kB
+dist/assets/reaction-diffusion-worker-DvgLOm96.js    1.48 kB
+dist/assets/twins-worker-DUDV5IT-.js                 2.75 kB
+dist/assets/index-DK-3ZrZ8.css                      68.18 kB │ gzip:  13.37 kB
+dist/assets/index-PpE9IvMb.js                      930.38 kB │ gzip: 281.47 kB
+✓ built in 977ms
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
