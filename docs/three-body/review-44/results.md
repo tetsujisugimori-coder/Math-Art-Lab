@@ -70,3 +70,9 @@ fbb8a91の重点診断はDPR1とwaveが計6成功、DPR2が3失敗。DPR2でも�
 31a19beのLinux診断でもDPR2は3失敗、DPR1/waveは6成功。独立パスのnumeric transform/identity/反復/reset/Path2D/arcも全て期待範囲20..39で描画。基本座標/パス変換だけではアプリの二重位置を説明できず、実アプリで使うshadowBlur=15の有無・identity・fill+strokeを独立Canvas対照へ追加した。未確認のブラウザー内部原因を断定しない。
 
 035164bの重点診断もDPR2が3失敗、DPR1/waveが6成功。小CanvasのshadowBlur有無・identity・fill+strokeは正しい位置だった。単純な発光原因説は未確定のままとし、実アプリ寸法の7対照（通常、発光OFF、遅延rAFなし、willReadFrequently、buffer再初期化、初期readback、alpha:false）を各3回測る追加ツールを実装。Viteの実indexを使い、各対照の物理位置一致も確認する。Windowsで通常/発光OFF各1回の取得は成功した。
+
+## 2026-11-10 JST — 実寸法の描画経路対照と局所修正
+
+e162a90の実アプリ21条件は全て同じモデル位置。通常、発光OFF、遅延rAFなし、buffer再初期化、alpha:falseは各3/3で参照画素不一致。一方willReadFrequently:trueと初期readbackは各3/3で一致した。小さな独立Canvasでは再現しなかったため、発光や一般的パス変換を原因とする仮説を採用しない。Linux WebKitの実寸法Canvasで描画経路選択が結果へ関与することを確認し、描画側getContextのwillReadFrequently:trueだけを採用した。これは実装ヒントであり、GPU/CPU内部機構や元の1249msの根本原因を断定しない。
+
+しきい値150、DPR2バッファー寸法、描画座標、光跡/発光/ベクトル、物理モデルは維持。default経路の再現用renderをattempt-default-context-render.txtへ保存。before/afterの同条件測定はTB_RENDER_FILEで旧renderだけを切り替えられる。追加のforce-defaultは意図的に旧経路を選ぶ負対照で、製品の通常動作ではない。新しい描画経路で数理・全マトリクス・停止・GUIを再検証する。

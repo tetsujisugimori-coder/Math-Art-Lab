@@ -9,7 +9,7 @@ import {cpus,platform,release,freemem,totalmem} from 'node:os';
 import {chromium,webkit} from '@playwright/test';
 const revision=process.env.TB_REVISION||'',label=process.env.TB_LABEL||'before';
 const out=`docs/three-body/review-44/${label}`;mkdirSync(out,{recursive:true});
-const source=path=>revision?execFileSync('git',['show',`${revision}:${path}`],{encoding:'utf8',maxBuffer:8e6}):readFileSync(path==='src/three-body-view.ts'&&process.env.TB_VIEW_FILE?process.env.TB_VIEW_FILE:path,'utf8');
+const source=path=>revision?execFileSync('git',['show',`${revision}:${path}`],{encoding:'utf8',maxBuffer:8e6}):readFileSync(path==='src/three-body-view.ts'&&process.env.TB_VIEW_FILE?process.env.TB_VIEW_FILE:path==='src/three-body-render.ts'&&process.env.TB_RENDER_FILE?process.env.TB_RENDER_FILE:path,'utf8');
 const shim=`globalThis.__tbDiag={flags:{dom:true,canvas:true},metrics:{},stops:[],events:[],longTasks:[],frameRequests:[],draws:[],addedNodes:0,scope:'other',
  measure(k,f){const s=performance.now(),prior=this.scope;if(['invariants','errors','contribution'].includes(k))k+=':'+prior;if(['calculate','observe','paint'].includes(k))this.scope=k;try{return f()}finally{this.scope=prior;const dt=performance.now()-s,v=this.metrics[k]??={count:0,total:0,max:0,samples:[]};v.count++;v.total+=dt;v.max=Math.max(v.max,dt);if(['calculate','observe','paint','refresh'].includes(k)||v.count%32===1)v.samples.push(dt)}},
  reset(){this.metrics={};this.stops=[];this.events=[];this.longTasks=[];this.frameRequests=[];this.draws=[];this.addedNodes=0;this.start=performance.now()},

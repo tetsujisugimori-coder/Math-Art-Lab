@@ -5,7 +5,7 @@ import {mkdirSync,writeFileSync,readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {platform,release} from 'node:os';
 const out='test-results/native-raster-controls';mkdirSync(out,{recursive:true});
-const variants=(process.env.TB_RASTER_VARIANTS||'regular,no-glow,no-slow,will-read,reset-buffer,warm-read,opaque').split(','),repeats=Number(process.env.TB_RASTER_REPEATS||3);
+const variants=(process.env.TB_RASTER_VARIANTS||'regular,no-glow,no-slow,will-read,reset-buffer,warm-read,opaque,force-default').split(','),repeats=Number(process.env.TB_RASTER_REPEATS||3);
 const server=await createServer({server:{host:'127.0.0.1',port:0}});await server.listen();
 const url=`http://127.0.0.1:${server.httpServer.address().port}${server.config.base}`;
 const report={date:new Date().toISOString(),os:platform(),release:release(),node:process.version,revision:process.env.GITHUB_SHA??'working-tree',sources:Object.fromEntries(['src/three-body.ts','src/three-body-render.ts','src/three-body-view.ts'].map(p=>[p,createHash('sha256').update(readFileSync(p,'utf8').replaceAll('\r\n','\n')).digest('hex')])),runs:[]};
@@ -14,9 +14,9 @@ try{for(const variant of variants)for(let repeat=0;repeat<repeats;repeat++){
   const browser=await webkit.launch({headless:true}),page=await browser.newPage({viewport:{width:1280,height:900},deviceScaleFactor:2,reducedMotion:'no-preference'}),run={variant,repeat,version:browser.version()};report.runs.push(run);
   try{
     await page.addInitScript(variant=>{
-      if(variant==='will-read'||variant==='opaque'){
+      if(variant==='will-read'||variant==='opaque'||variant==='force-default'){
         const original=HTMLCanvasElement.prototype.getContext;
-        HTMLCanvasElement.prototype.getContext=function(kind,options){return original.call(this,kind,kind==='2d'&&this.id==='tb-a'?{...options,...(variant==='will-read'?{willReadFrequently:true}:{alpha:false})}:options);};
+        HTMLCanvasElement.prototype.getContext=function(kind,options){return original.call(this,kind,kind==='2d'&&this.id==='tb-a'?{...options,...(variant==='will-read'?{willReadFrequently:true}:variant==='force-default'?{willReadFrequently:false}:{alpha:false})}:options);};
       }
       if(variant==='reset-buffer'){
         const original=CanvasRenderingContext2D.prototype.setTransform;

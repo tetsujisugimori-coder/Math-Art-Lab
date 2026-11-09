@@ -15,7 +15,9 @@ export function worldPoint(x:number,y:number,center:Vec,span:number,w:number,h:n
 export function drawOrbit(canvas:HTMLCanvasElement,p:Phase,c:Config,trail:History,camera:Camera,layers:Layers,selected:number,symbol:string,other?:History,centerOverride?:Vec):void{
   const rect=canvas.getBoundingClientRect(),w=rect.width,h=rect.height;if(w<=0||h<=0)return;
   const ratio=Math.min(devicePixelRatio||1,2),cw=Math.round(w*ratio),ch=Math.round(h*ratio);if(canvas.width!==cw||canvas.height!==ch){canvas.width=cw;canvas.height=ch;}
-  const context=canvas.getContext('2d');if(!context)return;const ctx:CanvasRenderingContext2D=context;ctx.setTransform(ratio,0,0,ratio,0,0);ctx.setLineDash([]);ctx.globalAlpha=1;ctx.shadowBlur=0;ctx.clearRect(0,0,w,h);ctx.fillStyle='#070c19';ctx.fillRect(0,0,w,h);
+  // Linux WebKit DPR2 default context misrasterized coordinates in repeated
+  // app controls; the readback-oriented path matched committed positions.
+  const context=canvas.getContext('2d',{willReadFrequently:true});if(!context)return;const ctx:CanvasRenderingContext2D=context;ctx.setTransform(ratio,0,0,ratio,0,0);ctx.setLineDash([]);ctx.globalAlpha=1;ctx.shadowBlur=0;ctx.clearRect(0,0,w,h);ctx.fillStyle='#070c19';ctx.fillRect(0,0,w,h);
   const center=centerOverride??viewCenter(p,c,camera),point=(v:Vec)=>screenPoint(v,center,camera.span,w,h),scale=Math.min(w,h)/camera.span;
   if(layers.axes){
     const raw=camera.span/5,power=10**Math.floor(Math.log10(raw)),tick=[1,2,5,10].find(n=>n*power>=raw)!*power;
