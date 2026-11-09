@@ -66,3 +66,5 @@ ci-127bbfe/にCIログ・job/artifact状態・失敗画面・内部状態を保�
 508b6e3のLinux重点診断は新作DPR2が3/3失敗、waveは3/3成功。新作のDPR/寸法/公開変換行列はWindowsと同じだが参照画素は背景色。Windowsの同じ取得では天体色を確認。アプリに渡したarc/変換の実引数と、独立した200×200 Canvasでの4方式（numeric transform/scale/DOMMatrix/identity）の矩形ピクセル範囲を追加取得する。Windowsは全方式で期待する20..39を確認。しきい値・物理計算は変更せず、Linuxの結果と比較する。重点ジョブはDPR1を対照に加え各3反復の9件へ拡張した。
 
 fbb8a91の重点診断はDPR1とwaveが計6成功、DPR2が3失敗。DPR2でもアプリのarc引数はCSS座標(311.6886,241.5160)、matrix倍率2で正しい。独立CanvasのfillRect変換4方式は全て20..39の期待範囲を満たした。基本fillRectは正しく、アプリのパス描画だけが二重化する可能性を切り分けるため、path/identity/反復/transform reset/Path2D/arcの独立対照を追加する。製品コード・画素しきい値はまだ変更しない。
+
+31a19beのLinux診断でもDPR2は3失敗、DPR1/waveは6成功。独立パスのnumeric transform/identity/反復/reset/Path2D/arcも全て期待範囲20..39で描画。基本座標/パス変換だけではアプリの二重位置を説明できず、実アプリで使うshadowBlur=15の有無・identity・fill+strokeを独立Canvas対照へ追加した。未確認のブラウザー内部原因を断定しない。
