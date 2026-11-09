@@ -1,0 +1,45 @@
+
+> math-art-lab@0.1.0 test:e2e
+> playwright test e2e/three-body-review.spec.ts --grep DPR1 saturated --project=chromium --trace on --reporter=list --output=test-results/three-body-review-failure-trace
+
+[WebServer] (node:30696) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:10984) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:10984) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › e2e\three-body-review-checks.ts:162:27 › three-body review: DPR1 saturated A/B actual play stop and same display state (33.1s)
+
+
+  1) [chromium] › e2e\three-body-review-checks.ts:162:27 › three-body review: DPR1 saturated A/B actual play stop and same display state
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.
+
+      18 | for(const dpr of [1,2])test(`three-body review: DPR${dpr} saturated A/B actual play stop and same display state`,async({browser,baseURL})=>{
+      19 |   const context=await browser.newContext({baseURL,deviceScaleFactor:dpr,viewport:{width:1280,height:900}}),page=await context.newPage();
+    > 20 |   try{await open(page);await page.locator('#tb-length').fill('6000');await page.locator('[data-tb-layer="velocity"]').check();await page.locator('[data-tb-layer="acceleration"]').check();await page.locator('#tb-compare').click();await page.locator('#tb-speed').fill('4');await page.locator('#tb-play').click();await page.waitForFunction(()=>Number((document.querySelector('.three-body') as HTMLElement).dataset.computedStep)>=26000,null,{timeout:15000});await page.locator('#tb-play').click({timeout:5000});await expect(page.locator('.three-body')).toHaveAttribute('data-playing','false');await settled(page);const state=await coherent(page);await expect(page.locator('.three-body')).toHaveAttribute('data-history-length','6000');await expect(page.locator('.three-body')).toHaveAttribute('data-graph-length','1200');await page.waitForTimeout(150);expect((await coherent(page)).computed).toBe(state.computed);
+         |                                                                                                                                                                                                                                                                                                                                  ^
+      21 |     if(process.env.TB_REVIEW_EVIDENCE){mkdirSync(process.env.TB_REVIEW_EVIDENCE,{recursive:true});await page.locator('#tb-boards').screenshot({path:`${process.env.TB_REVIEW_EVIDENCE}/${test.info().project.name}-dpr${dpr}-saturated.png`});}
+      22 |   }catch(error){mkdirSync(test.info().outputDir,{recursive:true});writeFileSync(test.info().outputPath('state.json'),JSON.stringify(await page.locator('.three-body').evaluate(el=>({...((el as HTMLElement).dataset),status:document.querySelector('#tb-status')?.textContent,render:document.querySelector('#tb-render-status')?.textContent})),null,2));await page.screenshot({path:test.info().outputPath('state.png')});throw error;}finally{await context.close();}
+      23 | });
+        at C:\Users\tetsu\.codex\worktrees\da2c\Math-Art-Lab\e2e\three-body-review-checks.ts:20:322
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\three-body-review-failure-trace\three-body-review-three-bo-7ba09-stop-and-same-display-state-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\three-body-review-failure-trace\three-body-review-three-bo-7ba09-stop-and-same-display-state-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\three-body-review-failure-trace\three-body-review-three-bo-7ba09-stop-and-same-display-state-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [chromium] › e2e\three-body-review-checks.ts:162:27 › three-body review: DPR1 saturated A/B actual play stop and same display state

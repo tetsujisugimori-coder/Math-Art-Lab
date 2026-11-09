@@ -1,6 +1,6 @@
 ﻿import {describe,it,expect} from 'vitest';
 import {body,clone,presets,triangle,validate,acceleration,contribution,invariants,initialPhase,verlet,errors,difference,distance,type Config,type Phase} from './three-body';
-import {createExperiment,createComparison,advance,advanceComparison,samples,history,append} from './three-body-state';
+import {createExperiment,createComparison,advance,advanceComparison,samples,history,append,displayHistory,lastSample} from './three-body-state';
 import {reference} from '../tools/three-body-reference';
 import {graphPath,screenPoint,worldPoint,displaySamples} from './three-body-render';
 const run=(c:Config,n:number)=>{let p=initialPhase(c);for(let i=0;i<n;i++){const result=verlet(p,c);if(result.reason)throw Error(result.reason);p=result.phase;}return p;};
@@ -28,6 +28,8 @@ describe('three-body preset observations and safety',()=>{
   it.each(['G','dt','epsilon'] as const)('rejects nonfinite %s',key=>{const c=clone(presets[0].config);c[key]=NaN;expect(()=>validate(c)).toThrow();});
 });
 describe('three-body deterministic state and presentation boundary',()=>{
+  it('direct circular display selection equals the original selection before and after wrapping',()=>{for(const capacity of [3,6000]){const h=history(capacity);for(let i=0;i<capacity+50;i++)append(h,{t:i,positions:[],D:i});for(const length of [1,2,100,3000,6000]){const expected=displaySamples(samples(h).slice(-length));expect(displayHistory(h,length)).toEqual(expected);expect(displayHistory(h,length).every(s=>h.data.includes(s))).toBe(true);}expect(lastSample(h)).toEqual(samples(h).at(-1));}});
+  it('64-step task slices and 2000-step batches produce identical doubles and histories for A/B',()=>{const a=createComparison(presets[0].config,0,'x',1e-6),b=createComparison(presets[0].config,0,'x',1e-6);for(let i=0;i<4;i++)advanceComparison(a,2000);for(let n=0;n<8000;n+=64)advanceComparison(b,Math.min(64,8000-n));expect(b).toEqual(a);});
   it('display decimation retains actual samples and endpoints without changing model history',()=>{const points=Array.from({length:6000},(_,i)=>({t:i*.001,x:i*i,y:i})),copy=clone(points),shown=displaySamples(points);expect(shown).toHaveLength(1000);expect(shown[0]).toBe(points[0]);expect(shown.at(-1)).toBe(points.at(-1));expect(shown.every((p,i)=>points.includes(p)&&(i===0||p.t>shown[i-1].t))).toBe(true);expect(points).toEqual(copy);});
   it('same initial state and grouped steps are bitwise identical regardless of rendering schedule',()=>{const c=presets[0].config,a=createExperiment(c),b=createExperiment(c);advance(a,1000);for(let n=0;n<10;n++){advance(b,100);screenPoint(b.phase.bodies[0],{x:n,y:0},4,500,500);}expect(a).toEqual(b);});
   it('reset is an independent deep copy and retains applied initial values',()=>{const e=createExperiment(presets[0].config);advance(e,20);const reset=createExperiment(e.config);expect(reset.phase).toEqual(initialPhase(presets[0].config));e.phase.bodies[0].x=100;expect(reset.phase.bodies[0].x).not.toBe(100);});

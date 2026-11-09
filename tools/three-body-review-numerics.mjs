@@ -1,0 +1,14 @@
+import {build} from 'esbuild';import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';import {execFileSync} from 'node:child_process';import {createHash} from 'node:crypto';
+const base='cf80c3e8189f28b99beb96e80191446faf122d99',out='docs/three-body/review-44';mkdirSync(out,{recursive:true});
+const digest=value=>createHash('sha256').update(Buffer.isBuffer(value)||typeof value==='string'?value:JSON.stringify(value)).digest('hex');
+const bits=value=>{const values=[];const walk=v=>{if(typeof v==='number')values.push(v);else if(v&&typeof v==='object')for(const x of Object.values(v))walk(x)};walk(value);const buffer=Buffer.alloc(values.length*8);values.forEach((v,i)=>buffer.writeDoubleLE(v,i*8));return digest(buffer);};
+async function version(revision){const result=await build({stdin:{contents:"export * from './src/three-body.ts';export * from './src/three-body-state.ts';",resolveDir:process.cwd(),sourcefile:'review-entry.ts'},bundle:true,format:'esm',platform:'node',write:false,plugins:revision?[{name:'original',setup(b){b.onLoad({filter:/src[\\/].*\.ts$/},args=>({contents:execFileSync('git',['show',`${revision}:src/${args.path.split(/[\\/]/).at(-1)}`],{encoding:'utf8'}),loader:'ts'}))}}]:[]});return import(`data:text/javascript;base64,${Buffer.from(result.outputFiles[0].text).toString('base64')}`)}
+const original=await version(base),current=await version(),report={date:new Date().toISOString(),base,physicsSourceUnchanged:digest(readFileSync('src/three-body.ts','utf8').replaceAll('\r\n','\n'))===digest(execFileSync('git',['show',`${base}:src/three-body.ts`],{encoding:'utf8'}).replaceAll('\r\n','\n')),runs:[]};
+for(let i=0;i<5;i++)for(const comparison of [false,...(i===3?[true]:[])]){
+  const steps=Math.round([126.518,10,20,30,30][i]/original.presets[i].config.dt);
+  const a=comparison?original.createComparison(original.presets[i].config,0,'x',1e-6):original.createExperiment(original.presets[i].config),b=comparison?current.createComparison(current.presets[i].config,0,'x',1e-6):current.createExperiment(current.presets[i].config);
+  for(let n=0;n<steps;n+=2000)(comparison?original.advanceComparison:original.advance)(a,Math.min(2000,steps-n));
+  for(let n=0;n<steps;n+=64)(comparison?current.advanceComparison:current.advance)(b,Math.min(64,steps-n));
+  const beforeBits=bits(a),afterBits=bits(b),same=JSON.stringify(a)===JSON.stringify(b)&&beforeBits===afterBits;report.runs.push({preset:original.presets[i].name,comparison,steps,bitwiseSerializedEqual:same,beforeHash:digest(a),afterHash:digest(b),beforeFloat64Bits:beforeBits,afterFloat64Bits:afterBits,beforePhase:comparison?{a:a.a.phase,b:a.b.phase}:a.phase,afterPhase:comparison?{a:b.a.phase,b:b.b.phase}:b.phase});console.log(i,comparison,steps,same);if(!same)process.exitCode=1;
+}
+writeFileSync(`${out}/numerical-bitwise.json`,JSON.stringify(report,null,2));

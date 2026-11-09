@@ -4,6 +4,12 @@ export type Sample={t:number;positions:{x:number;y:number}[];D:number};
 export type History={data:Sample[];start:number;capacity:number};
 export const history=(capacity=6000):History=>({data:[],start:0,capacity});
 export function samples(h:History):Sample[]{return h.data.length<h.capacity?h.data.slice():h.data.slice(h.start).concat(h.data.slice(0,h.start));}
+/** Same selection as displaySamples(samples(h).slice(-length)), without full copies. */
+export function displayHistory(h:History,length:number,limit=1000):Sample[]{
+  const n=Math.min(h.data.length,length),count=Math.min(n,limit),base=h.data.length<h.capacity?0:h.start,offset=h.data.length-n;
+  return Array.from({length:count},(_,i)=>h.data[(base+offset+(count===1?0:Math.round(i*(n-1)/(count-1))))%h.capacity]);
+}
+export function lastSample(h:History):Sample|undefined{const base=h.data.length<h.capacity?0:h.start;return h.data.length?h.data[(base+h.data.length-1)%h.capacity]:undefined;}
 export function append(h:History,s:Sample){if(h.data.length<h.capacity)h.data.push(s);else{h.data[h.start]=s;h.start=(h.start+1)%h.capacity;}}
 export type Experiment={config:Config;phase:Phase;trail:History;graph:History;reason:string|null};
 export function record(e:Experiment,D=0){const s={t:time(e.phase,e.config),positions:e.phase.bodies.map(({x,y})=>({x,y})),D};append(e.trail,s);if(e.phase.steps%20===0)append(e.graph,s);}

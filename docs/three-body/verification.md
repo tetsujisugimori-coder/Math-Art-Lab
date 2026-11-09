@@ -66,7 +66,7 @@ RK4のA/B比較D=0.019440461、Bの基準刻み半減差8.28×10⁻⁸。製品�
 
 ## 性能・メモリ
 
-Windows 10.0.26300、Intel Core i7-14650HX、Node v24.20.0。単一観測の計算＋10ステップごとの統計CPU所要時間は、8の字126,518ステップ約79.94ms、接近1,200,000ステップ約3551.20ms、逃走300,000ステップ約740.20ms。JIT・並行処理の影響を受けます。ブラウザー・端末性能の保証ではありません。
+Windows 10.0.26300、Intel Core i7-14650HX、Node v24.20.0。単一観測の計算＋10ステップごとの統計の経過時間は、8の字126,518ステップ約79.94ms、接近1,200,000ステップ約3551.20ms、逃走300,000ステップ約740.20ms。JIT・並行処理の影響を受けます。OSの純CPU使用時間ではなく、ブラウザー・端末性能の保証ではありません。
 
 `node --experimental-strip-types --expose-gc tools/three-body-memory.mjs`：履歴6000点／グラフ1200点に達した26,000ステップでヒープ12,637,120byte、208,000ステップで12,653,912byte。保持点数は一定、差16,792byte。プロセス全ヒープの観測であり、UI・GPU・ブラウザーのリーク全否定ではありません。[生データ](memory-results.json)。
 
@@ -99,3 +99,23 @@ CanvasバッファーはA/B合計1,156,320byte。Chromiumの公開heap値は10MB
 A〜Gは上記自己検証で成立。Hは全回帰CI照合、Iは16条件を実施、Jは最終HEAD CIの実結果を提出時に明記。Kは実機未検証を明示、LはIssue・commit・push・Draft PRで提出。実機・読み上げ・独立レビュー未実施のため総合判定はPARTIALです。マージ・auto-mergeは行いません。
 
 重点レビュー：ソフトニングの別モデル扱い、Verletの符号・尺度・停止ガード、規格化誤差、時間反転8の字、正三角形の不安定性、Dと数値誤差の区別、A/B同期と通常状態復元、教材の安全停止優先、CanvasとDOMの同時刻性、既存16作品へのCSS・ライフサイクル回帰。
+
+## 2026-11-09 JST — PR #44 独立レビュー指摘修正
+
+対象は原版cf80c3e8189f28b99beb96e80191446faf122d99、レビュー5825552863。Issue #43/既存Draft PR #44を維持。総合PARTIAL、P2-01 PARTIAL、P3-01は実施範囲でPASS、P3-02 PARTIAL、マージ推奨NO。独立再レビュー待ちであり自己承認ではない。
+
+DOMの表・SVG・インスペクターを保持し、変更値だけ更新。循環履歴から従来と同じ実計算点を直接選ぶ。計算は固定刻みを保った64step単位・約4msの処理区間に分割し、古いtimerをepochで無効化。Canvas A/BとDOM観察を一つのrAFで同じ確定状態へ更新し、最新計算step・表示対象step・グラフ最終標本時刻を区別する。表示待ちを画面に示し、描画失敗は停止する。safetyEpoch復元保護を維持。
+
+広い診断v3は8条件×2 browser×2 DPR×新規/累積×3反復の192件/版。ただしdoctypeなしの診断HTMLであり、afterは後に不採用とした80ms表示間隔試行。DOM OFF初期化の交絡、保存量過多による中断、破棄後Document再利用の失敗も保存。通常HTMLのv4重点再測定で80ms案の操作応答改善を確認できず、最終コードから撤回した。最終候補の全192条件再試験は未実施。通常HTMLの重点12件/版・最終停止144件と、過去の診断文脈を分けて報告する。
+
+本番と同じHTML（CSS1Compat）、DPR2・飽和A/B・新規・3反復の独立Worker要求待ちは、Chromium中央値422.1→394.5ms、p95/最大531.3→807.2ms。paint区間最大782.4→387.5msでも操作応答は解決していない。WebKit最終候補は要求待ち中央値2ms/p95・最大29ms。元の1249ms paint標本は直接再現せず根本原因UNKNOWN。GC・GPU・OSのどれかを根拠なく断定しない。Canvas OFFの診断で待ちが小さくなることを、GPU原因の証明と呼ばない。
+
+最終通常HTMLの6停止操作×2 browser×2 DPR×新規/累積×3反復＝144/144で停止確認。pause最大1.0ms、受信後/100ms後の追加step0、A/B不一致0、計算timer残存なし、切替/破棄後rAFなし。host要求から表示確定の最大2824msは移送・actionability・rAF待ちを含む別指標。要求瞬間の正確な追加step数は未測定で、事前snapshotからの増分を上限として記録した。合成visibility/pagehideを実際のOS非表示試験とは呼ばない。
+
+物理核ソース不変。5プリセットと接近δ=10⁻⁶の6窓で原版2000step/候補64stepバッチの全状態・履歴JSONと内部Float64LE hashが一致。独立RK4・解析正三角形・8の字約20周期・二次収束・保存則を再実行。許容差・初期値は不変。単体31ファイル424/424、型/build成功。JS930.36KB/gzip281.45KB、CSS68.18KB/gzip13.37KB。500KB警告を残す。
+
+Windows最終GUIは開発46/48（4.7分）、本番46/48（4.4分）。失敗は各環境のChromium飽和DPR1/2、26000step/15秒未達で、skipや延長なし。16基本条件は両テーマ・文字100%/200%で成功。低FPS時刻整合・復元・要素保持も成功。Chromium飽和到達失敗後の低FPS/停止サブシナリオは未実行、WebKitは実行成功。追加撮影2件成功、モバイル4画面とDPR2飽和画面を目視確認。実機Safari、VoiceOver/NVDA、低性能実機、実OS拡大・非表示、数時間使用は未検証。
+
+[対応記録](review-44/results.md)、[比較表](review-44/performance.md)、[手順と表示契約](review-44/protocol.md)、[全桁同一性](review-44/numerical-bitwise.json)、[独立数値基準](review-44/numerical-reference.json)、[最終停止](review-44/final-stops/summary.json)、[ソース照合](review-44/final-source-integrity.json)、[最終GUI失敗](review-44/failures/reviewed-index.json)。途中の失敗を上書きせず、資料名のfinal/afterと最終採用候補reviewed/final-standardsを区別する。
+
+全作品の最終HEAD CIはこの資料commit/push後に確認し、[PR #44の検証コメントとchecks](https://github.com/tetsujisugimori-coder/Math-Art-Lab/pull/44/checks)へ対象SHA・run URL・成功/失敗/skipを固定する。機械出力のローカル控えはtest-results/three-body-review-final-ci/。CI成功をWindows性能未達のPASSへ置き換えない。Draft・未マージ・auto-mergeなしを維持する。

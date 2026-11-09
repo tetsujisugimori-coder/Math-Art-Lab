@@ -1,5 +1,5 @@
 import {acceleration,invariants,type Phase,type Config,type Vec} from './three-body';
-import {samples,type History} from './three-body-state';
+import {displayHistory,lastSample,type History} from './three-body-state';
 export type Camera={x:number;y:number;span:number;follow:boolean};
 export type Layers={trails:boolean;center:boolean;velocity:boolean;acceleration:boolean;axes:boolean;bodies:boolean;glow:boolean;length:number;opacity:number};
 export const colors=['#75ddf5','#ffbf79','#c8a5ff'];
@@ -25,7 +25,7 @@ export function drawOrbit(canvas:HTMLCanvasElement,p:Phase,c:Config,trail:Histor
     for(let y=Math.ceil(bottom/tick)*tick;y<=top;y+=tick){const q=point({x:0,y});ctx.beginPath();ctx.moveTo(0,q.y);ctx.lineTo(w,q.y);ctx.stroke();ctx.fillText(Number(y.toPrecision(4)).toString(),4,Math.max(12,Math.min(h-24,q.y-3)));}
     ctx.fillText('x → / y ↑',w-75,16);
   }
-  function path(history:History,dashed:boolean){const points=displaySamples(samples(history).slice(-layers.length));ctx.globalAlpha=layers.opacity;ctx.lineWidth=dashed?1.1:1.7;ctx.setLineDash(dashed?[5,5]:[]);
+  function path(history:History,dashed:boolean){const points=displayHistory(history,layers.length);ctx.globalAlpha=layers.opacity;ctx.lineWidth=dashed?1.1:1.7;ctx.setLineDash(dashed?[5,5]:[]);
     for(let i=0;i<3;i++){ctx.strokeStyle=colors[i];ctx.beginPath();points.forEach((s,j)=>{const q=point(s.positions[i]);if(j===0)ctx.moveTo(q.x,q.y);else ctx.lineTo(q.x,q.y);});ctx.stroke();}ctx.setLineDash([]);ctx.globalAlpha=1;
   }
   if(layers.trails){path(trail,false);if(other)path(other,true);}
@@ -35,7 +35,7 @@ export function drawOrbit(canvas:HTMLCanvasElement,p:Phase,c:Config,trail:Histor
     const q=point(b);if(layers.velocity||symbol==='v')arrow(b,{x:b.vx,y:b.vy},'#8ae7c1',.25);if(layers.acceleration||symbol==='a'||symbol==='Σ'||symbol==='G')arrow(b,a[i],'#ff8f9d',.15);
     if(layers.bodies){ctx.fillStyle=colors[i];ctx.strokeStyle=i===selected?'#ffffff':colors[i];ctx.lineWidth=i===selected?3:1;ctx.shadowColor=colors[i];ctx.shadowBlur=layers.glow?15:0;ctx.beginPath();if(i===0)ctx.arc(q.x,q.y,7,0,Math.PI*2);if(i===1)ctx.rect(q.x-6,q.y-6,12,12);if(i===2){ctx.moveTo(q.x,q.y-8);ctx.lineTo(q.x+8,q.y+6);ctx.lineTo(q.x-8,q.y+6);ctx.closePath();}ctx.fill();ctx.stroke();ctx.shadowBlur=0;ctx.fillStyle='#fff';ctx.font='bold 13px system-ui';ctx.textAlign='left';ctx.fillText(String(i+1),Math.max(3,Math.min(w-15,q.x+12)),Math.max(16,Math.min(h-12,q.y-10)));}
   });
-  if(other&&layers.bodies){const last=samples(other).at(-1);last?.positions.forEach((b,i)=>{const q=point(b);ctx.strokeStyle=colors[i];ctx.fillStyle=colors[i];ctx.setLineDash([3,3]);ctx.lineWidth=2;ctx.beginPath();if(i===0)ctx.arc(q.x,q.y,10,0,Math.PI*2);if(i===1)ctx.rect(q.x-9,q.y-9,18,18);if(i===2){ctx.moveTo(q.x,q.y-11);ctx.lineTo(q.x+11,q.y+9);ctx.lineTo(q.x-11,q.y+9);ctx.closePath();}ctx.stroke();ctx.setLineDash([]);ctx.font='11px system-ui';ctx.fillText(`${i+1}B`,Math.max(3,Math.min(w-24,q.x+12)),Math.max(16,Math.min(h-12,q.y+16)));});}
+  if(other&&layers.bodies){const last=lastSample(other);last?.positions.forEach((b,i)=>{const q=point(b);ctx.strokeStyle=colors[i];ctx.fillStyle=colors[i];ctx.setLineDash([3,3]);ctx.lineWidth=2;ctx.beginPath();if(i===0)ctx.arc(q.x,q.y,10,0,Math.PI*2);if(i===1)ctx.rect(q.x-9,q.y-9,18,18);if(i===2){ctx.moveTo(q.x,q.y-11);ctx.lineTo(q.x+11,q.y+9);ctx.lineTo(q.x-11,q.y+9);ctx.closePath();}ctx.stroke();ctx.setLineDash([]);ctx.font='11px system-ui';ctx.fillText(`${i+1}B`,Math.max(3,Math.min(w-24,q.x+12)),Math.max(16,Math.min(h-12,q.y+16)));});}
   if(layers.center){const q=point(invariants(p.bodies,c).R);ctx.strokeStyle='#fff';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(q.x-7,q.y);ctx.lineTo(q.x+7,q.y);ctx.moveTo(q.x,q.y-7);ctx.lineTo(q.x,q.y+7);ctx.stroke();ctx.fillStyle='#fff';ctx.font='12px system-ui';ctx.fillText('R',q.x+8,q.y+15);}
   canvas.dataset.paintedStep=String(p.steps);canvas.dataset.positions=JSON.stringify(p.bodies.map(({x,y})=>({x,y})));canvas.dataset.span=String(camera.span);
 }
