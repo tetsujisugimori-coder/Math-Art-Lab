@@ -19,7 +19,7 @@ SUPPORTEDは観測範囲の支持であり、元の1249msや全ての長時間�
 
 | 仮説 | 判定 | 支持する観測 | 反証・負対照 | 未確認／次の検証 |
 |---|---|---|---|---|
-| H1 Canvas命令量 | UNKNOWN | Canvasを含むD/E/Fに長い描画区間。deepのstroke等に長い経過区間 | Canvas除去後も入力397.3〜424.55ms。空guardにも158ms。命令量を変えず起動経路を変えると入力34.05〜39.75ms | 命令量の寄与を純CPUとして同定できない。最小描画fixtureでcompositing等を独立に変える |
+| H1 Canvas命令量 | UNKNOWN | Canvasを含むD/E/Fに長い描画区間。deepのstroke等に長い経過区間 | 新規Canvas命令停止でも入力397.3〜424.55ms。空guardにも158ms。命令量を変えず起動経路を変えると入力34.05〜39.75ms | Canvas要素／初期bitmapは残るので資源・compositingの寄与を除外できない。命令量の純CPU寄与と分けた最小対照が必要 |
 | H2 描画backend待機 | SUPPORTED（描画処理経路への依存） | 3反復で明示SwiftShader＋GPU compositing/rasterization enabledは入力454.15〜479.9ms、unforced／disable-gpuでは34.05〜39.75ms。旧contextは2227.9〜2571ms | 同じdeviceStringでもfeatureStatusは異なる。Canvas内部backend、待機先、GPU提示は未測定。main wait markerは最大例に重ならない | 具体的な待機機構はUNKNOWN。featureを一つずつ制御した最小再現とOS context-switch trace |
 | H3 GC停止 | UNKNOWN（一部の重なりのみ） | 79.7ms paintにGC74.047ms、292.3ms calculateにGC129.554msの重なり | 最大paint466.1ms／calculate411.2msのmain GCは0ms。GCだけで全長時間区間を説明する説は反証 | GC elapsedをCPU時間へ置換しない。allocation差替えの因果対照は未実施 |
 | H4 長いmain JavaScript | UNKNOWN（純JS CPU主因説は最大例で反証） | 同期Task／JS elapsedが入力配信をまたぐ。120ms人工占有の正対照で検出器は応答する | calculate411.2msの包含Task CPU1.867ms、paint466.1msの包含Task CPU32.363ms。純計算量では説明不可 | native同期・実行待ちをJS wall durationから分離できない。mainが入力を処理できない窓は観測したが内因は未確定 |

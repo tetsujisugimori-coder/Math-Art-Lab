@@ -12,6 +12,8 @@ AはVerlet kernelのみ（履歴なし）、Bは通常のadvanceと履歴、Cは
 
 改訂後は全表示で最初の2rAFを完了してbacking寸法を確定し、その後activateでOFF条件へ移る。componentsはA〜Fを飽和状態から3反復する。固定壁時計窓では達成step数の違いはthroughputの観測であり、同じstep数に丸めて比較しない。各最終stepで同一engineの無改変数理moduleと回収した全倍精度値・履歴を照合する。
 
+Canvas OFFはpaint内の新規命令投入を止める条件で、Canvas要素・buffer・初期画像を削除／非表示にしない。DOM OFFも観察値と主要DOM更新を止め、既存要素は残す。両方OFFでも画面を空白にするわけではない。この対照はCanvas資源の不存在やcompositor処理の停止を意味しないため、Canvas全体を原因から除外できない。初期bitmapを残す条件とCanvas資源自体を持たない条件の比較は今後の未実施対照である。
+
 60秒を複数回、可能なら300秒の連続窓を測る。短い因子比較と長時間窓を混ぜて平均しない。試験を同時実行しない。各実行にrun ID、ソースhash、ブラウザー・起動引数、時計、環境、エラーを付ける。
 
 ## 時計・時間の意味
@@ -45,7 +47,7 @@ quantileはnearest-rank、全標本のnを表示する。小標本p99は保証�
 
 時計の往復／mark呼出しの前後幅が0でも、時計の量子化誤差が0とは言わない。観測した最小の正の時刻差、開始／終了offsetの変化、mark bracketを別に保存する。区間統計では測定窓をまたぐtaskを窓の境界でclipし、元durationとclip件数も保存する。窓外の転送・画像保存でtask最大値を水増ししない。
 
-追加のdeep条件はgeometry読出し、Canvasのstroke/fill等、グラフ属性更新を包み、どのnative呼出しへ長い区間が重なるか調べる。lineTo等の全点呼出しは包まない。deep自身の追加負荷があるため、効果比較はlight条件で行う。固定438×330 fixtureのgeometry読出し差替え、GPU起動flag、DOM／Canvas除去の反復60秒対照を診断候補とする。製品へ採用しない。
+追加のdeep条件はgeometry読出し、Canvasのstroke/fill等、グラフ属性更新を包み、どのnative呼出しへ長い区間が重なるか調べる。lineTo等の全点呼出しは包まない。deep自身の追加負荷があるため、効果比較はlight条件で行う。固定438×330 fixtureのgeometry読出し差替え、GPU起動flag、DOM／Canvas更新停止の反復60秒対照を診断候補とする。製品へ採用しない。
 
 GPU情報／featureStatusはBrowser CDPの取得値であり、Canvasの実際の内部backendやGPU完了時間の証明ではない。Windows counter採取は独立したos-counters条件にし、採取所要時間も保存する。PageFaults/secをhard fault数と同一視しない。global PageReads/PagesInputと特定pidの待ちの因果は未確定とする。
 

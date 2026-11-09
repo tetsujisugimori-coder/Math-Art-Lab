@@ -9,7 +9,7 @@ Windows 10.0.26300／i7-14650HX、headless Chromium、1280×900、DPR2、両Canv
 | 条件 | paint最大の範囲 ms | Worker要求待ち最大の範囲 ms | 解釈 |
 |---|---:|---:|---|
 | 採用context／明示SwiftShader＋compositing有効 | 439.3〜466.1 | 454.15〜479.9 | 長い待ちが再現 |
-| Canvas OFF | 0.3〜158.0 | 397.3〜424.55 | 空guardのwall時間も含む。純描画CPUではない |
+| 新規Canvas命令 OFF | 0.3〜158.0 | 397.3〜424.55 | 要素・初期bitmapは残る。空guardのwall時間も含む |
 | DOM＋観察計算 OFF | 395.5〜411.4 | 412.6〜417.55 | DOMだけでは説明不可 |
 | 明示GPU起動flagなし | 13.2〜17.1 | 34.05〜39.75 | 描画処理経路への依存を支持 |
 | `--disable-gpu` | 14.8〜18.6 | 35.6〜37.65 | 別のsoftware経路でも短い |
@@ -18,7 +18,7 @@ Windows 10.0.26300／i7-14650HX、headless Chromium、1280×900、DPR2、両Canv
 
 SystemInfoのdeviceStringは3経路ともSwiftShader。明示flagありでは2d_canvas／gpu_compositing／rasterizationがenabled、unforced／disable-gpuではunavailable_software／disabled_softwareだった。実GPUへ切替えた証拠ではなく、Canvas内部backendの直接測定でもない。最初の60秒ではGPU processの平均core相当が基準2.75、unforced0.28、disable-gpu0.29。host総CPU使用は約24.6／12.7／13.9%。累積CPU差の近似であり、GPU描画時間・提示完了・瞬間CPU負荷ではない。
 
-別suiteの両表示OFF、同じwarm fixture、3×60秒では入力最大10.4／15.6／34.85ms。初回trace回収は10秒deadline失敗で、入力データは残るがtraceはNOT_TESTED。これを全表示の製品代替にはできない。
+別suiteのDOM／Canvas両更新停止、同じwarm fixture、3×60秒では入力最大10.4／15.6／34.85ms。要素と初期画像は保持し、Canvas資源を除く対照ではない。初回trace回収は10秒deadline失敗で、入力データは残るがtraceはNOT_TESTED。これを全表示の製品代替にはできない。
 
 ## tailと出現回数
 

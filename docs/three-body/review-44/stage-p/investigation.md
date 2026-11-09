@@ -35,6 +35,8 @@ neither条件の初回は、測定・停止・データ回収後のTracing終了
 
 総合PARTIAL、原因判定SUPPORTED（このWindows headless環境の描画処理経路への依存）。具体的な待機機構と元1249msの原因はUNKNOWN。製品の性能修正は採用していない。P2-01／P3-02を閉鎖せず、P3-01と数理の既存契約を維持した診断差分として独立再レビューへ提出する。
 
+提出前の資料照合で「Canvas除去」を「新規Canvas命令停止」へ訂正した。要素と初期bitmapを残す対照であり、compositingやCanvas資源自体を反証していない。数値・実験条件・判定は変更せず、資料だけの追加commitと最終HEAD CIで確認する。
+
 215計画runを保持し、212runでデータを回収した。エラーなしは210run、3runは初期診断bundle生成失敗による全欠測、1runは停止イベント誤配送、1runは終了後のtrace回収失敗。部分的に取れた値は表にも残す。成功した条件だけを選び直していない。45本の取得traceは全てclock mark 2/2、dataLoss=trueなし。ただし未取得のtraceとWebKitのCDP非対応を成功へ含めない。
 
 詳しい量的結果は[性能](performance-summary.md)、[入力](input-latency.md)、[trace](trace-analysis.md)、[仮説](hypotheses.md)、[改善候補](candidate-improvements.md)。raw recordはrun IDで結合し、Brotli変換前後・展開後のhashをarchive-indexに残す。
