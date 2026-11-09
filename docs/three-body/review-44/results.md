@@ -1,5 +1,7 @@
 # PR #44 独立レビュー対応記録
 
+最新の採用描画経路・全192条件の再測定は [readback-verification.md](readback-verification.md)。以下は失敗と修正を順に保存した履歴で、旧候補名「final」を最新結果と解釈しない。
+
 ## 判定の扱い
 
 P2-01の最悪応答は、短い単発ベンチマークと実再生で結果が大きく異なる。短いpaintが速いことだけでPASSにしない。原版の1249msという特定標本を再現していなくても、連続再生で同程度の停止要求待ちが出た事実を残す。最終集計とGUI結果はこの記録の後半へ追記する。
@@ -76,3 +78,19 @@ fbb8a91の重点診断はDPR1とwaveが計6成功、DPR2が3失敗。DPR2でも�
 e162a90の実アプリ21条件は全て同じモデル位置。通常、発光OFF、遅延rAFなし、buffer再初期化、alpha:falseは各3/3で参照画素不一致。一方willReadFrequently:trueと初期readbackは各3/3で一致した。小さな独立Canvasでは再現しなかったため、発光や一般的パス変換を原因とする仮説を採用しない。Linux WebKitの実寸法Canvasで描画経路選択が結果へ関与することを確認し、描画側getContextのwillReadFrequently:trueだけを採用した。これは実装ヒントであり、GPU/CPU内部機構や元の1249msの根本原因を断定しない。
 
 しきい値150、DPR2バッファー寸法、描画座標、光跡/発光/ベクトル、物理モデルは維持。default経路の再現用renderをattempt-default-context-render.txtへ保存。before/afterの同条件測定はTB_RENDER_FILEで旧renderだけを切り替えられる。追加のforce-defaultは意図的に旧経路を選ぶ負対照で、製品の通常動作ではない。新しい描画経路で数理・全マトリクス・停止・GUIを再検証する。
+
+## 採用描画経路の最終自己検証（2026-11-10 JST）
+
+Linux重点CI d2a7acd / #42644871408 は9/9成功。新作DPR1/2低FPS・既存waveを各3反復。通常アプリの対照も同じモデル位置で一致し、force-default（意図した旧経路）では不一致を検出する。ci-d2a7acd-focused/に結果を保存した。
+
+Windowsは数理6窓の内部Float64/全履歴が原版と一致、独立RK4/解析解/8の字約20周期/二次収束、単体424、型/build成功。JS930.38KB/gzip281.47KB、既存500KB警告は残る。通常HTMLの192条件取得エラー0、通常表示480フレームの即時/確定後時刻不一致0、実描画引数不一致0。停止144/144成功、追加step0、A/B不一致0、pause最大1ms、host→settled最大1138ms（移送/actionability/表示待ち込み）。
+
+旧renderだけを復元した同条件3反復で、Chromium要求待ち中央値368.6→20.3ms、p95/最大747→20.3ms、paint最大388→59.3ms。WebKitは中央値25→16ms、最大36→29ms。Windows GUIは開発48/48（3.5分）、本番48/48（3.3分）。以前失敗したChromium飽和DPR1/2も26000step/15秒の同じ基準で成功。代表モバイル4画面の撮影用2件も成功。
+
+一方、60秒連続再生でChromiumにpaint433.5ms/calculate432.5msの経過区間が残った。停止要求待ちは27.6ms（WebKit10ms）、停止後追加step0だが、長い同期区間が入力到着と重なる場合の上限保証はできない。元の1249ms標本の直接原因UNKNOWNを維持する。P2-01/P3-02はPARTIAL、P3-01は実施範囲で修正。総合PARTIAL、限定マージ推奨NO。新しい全回帰CIと独立再レビューで確認する。
+
+## 修正コード d2a7acd の全回帰CI（最終資料commit前）
+
+[Pages CI #42644870887](https://github.com/tetsujisugimori-coder/Math-Art-Lab/actions/runs/42644870887)はsuccess。単体31ファイル424成功、型/build成功、全作品の開発604成功・2skip（24.8分）、本番482成功・skip0（15.1分）。新作DPR2画素と既存waveの以前の失敗条件を含む。開発2skipは既存wave-captureの手動撮影用条件で、今回追加した除外ではない。PR条件によるvalidated build保存とDeployジョブのskipも維持。ログ・run/jobs/artifactsはci-d2a7acd-full/へ保存した。
+
+このrunは製品コードの検証であり、資料・試験整形を含む最終HEADのrunとは区別する。最終HEAD CIはPR #44の検証コメントに対象SHAとURLを固定する。途中の全回帰run 42637854289 / 42639340000 / 42640276953 / 42641137390 / 42643124190 は後続の診断で置き換えたためcancelledであり、成功件数には含めない。初回127bbfeの失敗はci-127bbfe/に保持する。

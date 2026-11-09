@@ -1,5 +1,7 @@
 # 性能・表示時刻の同条件比較
 
+最新の採用描画経路・全192条件の再測定は [readback-verification.md](readback-verification.md)。以下は描画経路変更前の比較記録であり、旧候補名「final」を最新結果と解釈しない。
+
 192条件と停止マトリクスはdoctypeなし診断HTML（v3）の結果で、afterは後に撤回した80ms試行。最終採用候補の全192条件は未再測定。本番standards modeの性能値へ外挿せず、実index.htmlのv4重点測定と最終停止マトリクスを下記で分ける。異なるHTML版間の改善率は計算しない。
 
 Windows / Intel Core i7-14650HX / Node24.20.0 / headless Chromium145.0.7632.6（SwiftShader）/ Playwright WebKit26.0。環境の詳細・空きメモリ・バージョンは各diagnostic.json。原版→修正版の順に、他のローカル試験と競合させず実行。OS負荷・JIT・内部GCを固定した実験ではない。改善率や実機性能の保証を推定しない。

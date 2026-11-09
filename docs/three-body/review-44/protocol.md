@@ -1,6 +1,8 @@
 # PR #44 レビュー修正：測定手順と表示契約
 
-???????80ms??????????????80ms??????????????????HTML??????????????????????before/after?before-standards/after-standards?after????????????final-standards?final-stops?*-reviewed.log????????????attempt-80ms-view.txt?
+最新の採用描画経路・全192条件の再測定は [readback-verification.md](readback-verification.md)。以下の旧候補名「final」は当時の記録であり、最新結果はreadback系の資料を参照する。
+
+80ms表示制御は試行後に撤回した。before/afterとbefore-standards/after-standardsのafterはこの試行、final-standards/final-stops/*-reviewed.logはその撤回後・描画経路変更前の記録。試行ソースはattempt-80ms-view.txtへ保存している。
 
 原版 `cf80c3e8189f28b99beb96e80191446faf122d99`。開始時PR/ローカルHEAD一致、clean、既存CI成功、Draft、auto-mergeなしを確認。原レビュー・PR・CIは `*-original.json`。依存、物理核、初期値、誤差尺度、履歴容量、Pages条件を維持。
 
@@ -85,3 +87,9 @@ v4は実際のindex.html（doctype/meta viewport込み）に計測コードと�
 計算時間の定義：製品data-compute-msは最後のcalculate呼出しの区間で、再生中は最大64step小区間。tick全体の合計ではない。既存browser-profileツールで修正前の大バッチ値とそのままCPU性能比を計算しない。診断器のcalculate件数・合計・最大・標本分布を使い、1呼出し占有の短縮と同じ総step数の計算コストを区別する。固定2000stepの測定は同じ作業量、連続再生の1呼出しは旧大バッチ対64stepで作業量が違う。paintは両Canvas命令投入区間、observeは別区間。どの値も純CPU時間ではない。
 
 公開資料はraw diagnostic.jsonを内容不変のcompact JSONとして保存し、summary.jsonを可読形式とした。WindowsのUTF-16/BOMログをUTF-8へ揃え、行末空白と末尾空行だけ正規化した。失敗メッセージ・数値・traceは保持する。
+
+## 2026-11-10 採用描画経路の再実行
+
+readback-beforeはTB_RENDER_FILE=docs/three-body/review-44/attempt-default-context-render.txt、TB_DIAG_LIVE_ONLY=1で旧renderだけ復元した12実行。同じview/state/physics/HTMLで、readback-afterは両変数を解除した通常v4の192条件＋24実再生＋144停止。描画処理以外の差分を持ち込まない。readback-longはTB_DIAG_LONG=1で飽和A/B・全表示・DPR2・各browser1回の60000ms連続再生。要求受理後100msの観察を含む実経過も保存する。実機や数時間使用の保証ではない。
+
+各再実行のTB_LABELは別名にして既存証拠を上書きしない。統計はtools/three-body-review-summary.mjs、最新比較資料はtools/three-body-readback-report.mjsで生成する。readback-integrity.jsonは計測した製品6ファイルのLF正規化hashを確認する。最終test/tool/workflow入力hashはverification-inputs.json。

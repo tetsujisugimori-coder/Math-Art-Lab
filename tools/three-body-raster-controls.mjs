@@ -41,4 +41,4 @@ try{for(const variant of variants)for(let repeat=0;repeat<repeats;repeat++){
     run.allCentersBright=run.receipt.samples.every(p=>Math.max(...p.rgba.slice(0,3))>150);
   }catch(error){run.error=String(error);}finally{await browser.close();save();}
   console.log(JSON.stringify({variant,repeat,bright:run.allCentersBright,samples:run.receipt?.samples,error:run.error}));
-}}finally{const positions=report.runs.map(r=>JSON.stringify(r.receipt?.positions));report.sameModelPositions=positions.every(p=>p===positions[0])&&report.runs.every(r=>!!r.receipt);report.finishedAt=new Date().toISOString();save();await server.close();}
+}}finally{const positions=report.runs.map(r=>JSON.stringify(r.receipt?.positions));report.sameModelPositions=positions.every(p=>p===positions[0])&&report.runs.every(r=>!!r.receipt);if(!report.sameModelPositions)process.exitCode=1;report.finishedAt=new Date().toISOString();save();await server.close();}

@@ -119,3 +119,11 @@ Windows最終GUIは開発46/48（4.7分）、本番46/48（4.4分）。失敗は
 [対応記録](review-44/results.md)、[比較表](review-44/performance.md)、[手順と表示契約](review-44/protocol.md)、[全桁同一性](review-44/numerical-bitwise.json)、[独立数値基準](review-44/numerical-reference.json)、[最終停止](review-44/final-stops/summary.json)、[ソース照合](review-44/final-source-integrity.json)、[最終GUI失敗](review-44/failures/reviewed-index.json)。途中の失敗を上書きせず、資料名のfinal/afterと最終採用候補reviewed/final-standardsを区別する。
 
 全作品の最終HEAD CIはこの資料commit/push後に確認し、[PR #44の検証コメントとchecks](https://github.com/tetsujisugimori-coder/Math-Art-Lab/pull/44/checks)へ対象SHA・run URL・成功/失敗/skipを固定する。機械出力のローカル控えはtest-results/three-body-review-final-ci/。CI成功をWindows性能未達のPASSへ置き換えない。Draft・未マージ・auto-mergeなしを維持する。
+
+## 2026-11-10 JST — 描画経路の切り分けと最終再検証
+
+最新記録は[readback-verification.md](review-44/readback-verification.md)。前日の候補名final/afterと区別する。Linux CIで判明したDPR2の実画素不一致を、モデル値・API引数・小Canvas・実寸法7対照×3反復で切り分けた。全対照でモデル位置は一致し、willReadFrequently:trueと初期readbackだけ正しく描画されたため、描画側getContextの設定ヒントだけを採用。内部GPU/CPU機構やGCの原因を断定せず、物理・解像度・発光・しきい値150を維持した。
+
+描画経路変更後も内部Float64/履歴6窓は原版と一致、独立RK4/解析解/約20周期/二次収束、単体424・型/build成功。通常HTMLの192条件取得エラー0、正常表示480フレームの時刻/描画引数不一致0、停止144/144、受信後追加step0、pause最大1ms。host要求→settled最大1138msは移送等を含む。Windows GUIは開発/本番とも48/48、同じ26000step/15秒基準のChromium飽和も通過。Linux重点CI #42644871408は9/9。追加撮影2件でモバイル4画面を保存。
+
+旧renderのみ復元した3反復のChromium要求待ちは中央値368.6→20.3ms、p95/最大747→20.3ms、paint最大388→59.3ms。一方60秒試験で433.5msのpaint・432.5msのcalculate区間が残った。Worker停止要求待ちは27.6ms/10ms、追加step0。全時点・実機・数時間の上限保証ではなく、元1249msの直接原因もUNKNOWN。総合PARTIAL、P2/P3-02は未解決範囲あり、マージ推奨NO。最終HEAD CI結果はPR #44の検証コメントへ固定する。

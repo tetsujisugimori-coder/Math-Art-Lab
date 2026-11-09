@@ -65,7 +65,9 @@ const save=()=>writeFileSync(`${out}/diagnostic.json`,JSON.stringify(report,null
 const only=process.env.TB_DIAG_CASE,engines=process.env.TB_DIAG_BROWSER?[process.env.TB_DIAG_BROWSER]:['chromium','webkit'];
 const smoke=process.env.TB_DIAG_SMOKE==='1';
 const repair=process.env.TB_DIAG_REPAIR==='1';
-const liveOnly=process.env.TB_DIAG_LIVE_ONLY==='1';
+const long=process.env.TB_DIAG_LONG==='1';
+const liveOnly=long||process.env.TB_DIAG_LIVE_ONLY==='1';
+report.liveDurationMs=long?60000:3000;
 const stopsOnly=process.env.TB_DIAG_STOPS_ONLY==='1';
 try{for(const name of engines){const engine={chromium,webkit}[name];let accumulated;const accumulatedPages=new Map();
   const launch=()=>engine.launch({headless:true,...(name==='chromium'?{args:['--use-angle=swiftshader','--enable-unsafe-swiftshader']}: {})});
@@ -87,11 +89,11 @@ try{for(const name of engines){const engine={chromium,webkit}[name];let accumula
     console.log(label,name,session,dpr,repeat,c.name,run.error||'done');
   }
   if(accumulated)await accumulated.close();
-  if(!smoke&&!repair&&!stopsOnly)for(let repeat=0;repeat<3;repeat++)for(const c of cases.filter(c=>(liveOnly?['full','no-canvas']:['full','no-dom','no-canvas','neither']).includes(c.name))){
+  if(!smoke&&!repair&&!stopsOnly)for(let repeat=0;repeat<(long?1:3);repeat++)for(const c of cases.filter(c=>(long?['full']:liveOnly?['full','no-canvas']:['full','no-dom','no-canvas','neither']).includes(c.name))){
     const browser=await launch(),page=await browser.newPage({viewport:{width:1280,height:900},deviceScaleFactor:2});const run={browser:name,repeat,condition:c.name,dpr:2,session:'fresh',freeMemory:freemem()};report.live.push(run);
     try{await page.goto(url);await page.locator('#experiment').selectOption('three-body');await page.evaluate(o=>__tbDiag.control.prime(o),c);await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
       if(!legacyHtml)run.layout=await page.evaluate(()=>({compatMode:document.compatMode,canvases:['tb-a','tb-b'].map(id=>{const c=document.getElementById(id),r=c.getBoundingClientRect();return {id,width:r.width,height:r.height,backingWidth:c.width,backingHeight:c.height}})}));
-      run.result=await page.evaluate(async o=>{__tbDiag.flags={dom:o.dom,canvas:o.canvas};document.querySelector('#tb-speed').value='4';__tbDiag.reset();const before=__tbDiag.control.state(),start=performance.now();return await new Promise(resolve=>{const worker=new Worker(URL.createObjectURL(new Blob([`setTimeout(()=>postMessage(performance.timeOrigin+performance.now()),3000)`],{type:'text/javascript'})));worker.onmessage=event=>{const receive=performance.timeOrigin+performance.now(),requested=event.data;__tbDiag.control.stop();const stopped=__tbDiag.control.state();worker.terminate();setTimeout(()=>resolve({before,stopped,later:__tbDiag.control.state(),elapsed:performance.now()-start,requested,receive,queueDelay:receive-requested,data:__tbDiag.result()}),100)};__tbDiag.control.play();});},c);
+      run.result=await page.evaluate(async o=>{__tbDiag.flags={dom:o.dom,canvas:o.canvas};document.querySelector('#tb-speed').value='4';__tbDiag.reset();const before=__tbDiag.control.state(),start=performance.now();return await new Promise(resolve=>{const worker=new Worker(URL.createObjectURL(new Blob([`setTimeout(()=>postMessage(performance.timeOrigin+performance.now()),${o.duration})`],{type:'text/javascript'})));worker.onmessage=event=>{const receive=performance.timeOrigin+performance.now(),requested=event.data;__tbDiag.control.stop();const stopped=__tbDiag.control.state();worker.terminate();setTimeout(()=>resolve({before,stopped,later:__tbDiag.control.state(),elapsed:performance.now()-start,requested,receive,queueDelay:receive-requested,data:__tbDiag.result()}),100)};__tbDiag.control.play();});},{...c,duration:long?60000:3000});
     }catch(error){run.error=String(error)}finally{await browser.close();save()}console.log(label,name,'live',repeat,c.name,run.error||'done');
   }
   // Independent real-play stop measurements. Clock transport is reported separately.
