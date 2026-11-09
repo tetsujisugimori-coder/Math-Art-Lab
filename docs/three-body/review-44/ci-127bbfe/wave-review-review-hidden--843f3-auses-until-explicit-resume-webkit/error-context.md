@@ -1,0 +1,138 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - navigation "作品の選択" [ref=e3]:
+    - generic [ref=e4]:
+      - text: 作品
+      - combobox "作品" [ref=e5]:
+        - option "002 · 光のハーモノグラフ"
+        - option "001 · Fractal × Wave"
+        - option "003 · 光の花園"
+        - option "004 · 光の結び目"
+        - option "005 · カオスの蝶"
+        - option "006 · フラクタルの双子"
+        - option "007 · 波紋の対話" [selected]
+        - option "008 · 風の軌跡"
+        - option "009 · チューリングの庭"
+        - option "010 · フーリエの万華鏡"
+        - option "011 · 距離の結晶"
+        - option "012 · 振動の砂絵"
+        - option "013 · 波紋の万華鏡"
+        - option "014 · 需要と供給の蜘蛛の巣"
+        - option "015 · 分断のモザイク"
+        - option "016 · 協力の格子"
+        - option "017 · 三体の舞踏"
+  - main [ref=e7]:
+    - generic [ref=e8]:
+      - text: MATH ART LAB / EXPERIMENT 007
+      - heading "波紋の対話" [level=1] [ref=e9]
+      - paragraph [ref=e10]:
+        - text: 二つの波が出会う場所。
+        - text: Wave Interference
+    - paragraph [ref=e11]: 距離によって位相が変わる、減衰のない理想的な二つの波です。波は領域全体に存在します。
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - generic "波の座標平面。クリックまたはタップで観察点を選択" [ref=e15]
+          - img:
+            - generic:
+              - generic: A
+            - generic:
+              - generic: B
+            - generic:
+              - generic: P
+        - paragraph [ref=e16]: 座標：x・yとも −6〜6（上がyの正）。図をクリック・タップしてPを選択できます。
+        - paragraph [ref=e17]: 変位：青 −2 ／ 暗 0 ／ 金 +2（A・Bも同じ尺度）
+        - status [ref=e18]: P=(0, 0) · t≈0.421 · r_A≈2 · r_B≈2 · u_A≈0.24565 · u_B≈0.24565 · u≈0.49129 · Δ≈0 rad · B≈2
+        - paragraph [ref=e19]: 画像は画素中心での近似、Pの数値は選んだ座標で直接計算した約値です。
+      - complementary [ref=e20]:
+        - generic [ref=e21]:
+          - text: 表示モード
+          - combobox "表示モード" [ref=e22]:
+            - option "波Aだけ" [selected]
+            - option "波Bだけ"
+            - option "重ね合わせ u"
+            - option "干渉の模様 B"
+        - paragraph [ref=e23]: 変位は固定範囲 −2〜2、包絡振幅は0〜2。Bは同じ設定なら時間によらない静止模様です。
+        - generic [ref=e24]:
+          - button "再生" [ref=e25] [cursor=pointer]
+          - button "1ステップ" [ref=e26] [cursor=pointer]
+          - button "t=0へ戻す" [ref=e27] [cursor=pointer]
+        - paragraph [ref=e28]: タブが非表示になると停止します。戻った後、再生ボタンで続きから再開できます。
+        - generic [ref=e29]:
+          - text: プリセット
+          - combobox "プリセット" [ref=e30]:
+            - option "カスタム設定" [disabled]
+            - option "同位相" [selected]
+            - option "逆位相"
+            - option "同じ場所で打ち消す"
+        - generic [ref=e31]:
+          - generic [ref=e32]:
+            - text: 波長 λ（1〜4）
+            - spinbutton "波長 λ（1〜4）" [ref=e33]: "2"
+          - generic [ref=e34]:
+            - text: 発生源間隔 d（0〜6）
+            - spinbutton "発生源間隔 d（0〜6）" [ref=e35]: "4"
+          - generic [ref=e36]:
+            - text: 位相差 φ（−180〜180°）
+            - spinbutton "位相差 φ（−180〜180°）" [ref=e37]: "0"
+          - generic [ref=e38]:
+            - text: 再生速度（0.25〜2倍）
+            - spinbutton "再生速度（0.25〜2倍）" [ref=e39]: "1"
+          - button "設定を適用" [ref=e40] [cursor=pointer]
+          - status
+        - paragraph [ref=e41]: 入力は候補です。適用するとt=0で停止します。範囲は操作上の制限です。A=1、T=2は固定です。
+        - button "設定を初期値へ" [ref=e42] [cursor=pointer]
+        - generic [ref=e43]:
+          - generic [ref=e44]:
+            - text: Pのx（−6〜6）
+            - spinbutton "Pのx（−6〜6）" [ref=e45]: "0"
+          - generic [ref=e46]:
+            - text: Pのy（−6〜6）
+            - spinbutton "Pのy（−6〜6）" [ref=e47]: "0"
+          - button "Pを適用" [ref=e48] [cursor=pointer]
+          - status
+        - button "4段階の教材を開く" [active] [ref=e49] [cursor=pointer]
+    - generic [ref=e50]:
+      - heading "数式と観察点" [level=2] [ref=e51]
+      - region "一般式 r_A=√((x+d/2)²+y²), r_B=√((x−d/2)²+y²)" [ref=e52]:
+        - math [ref=e53]:
+          - generic [ref=e54]: r_A=√((x+d/2)²+y²)
+        - text: 、
+        - math [ref=e55]:
+          - generic [ref=e56]: r_B=√((x−d/2)²+y²)
+      - region "一般式 u_A=A cos(kr_A−ωt), u_B=A cos(kr_B−ωt+φ), u=u_A+u_B" [ref=e57]:
+        - math [ref=e58]:
+          - generic [ref=e59]: u_A=A cos(kr_A−ωt)
+        - text: 、
+        - math [ref=e60]:
+          - generic [ref=e61]: u_B=A cos(kr_B−ωt+φ)
+        - text: 、
+        - math [ref=e62]:
+          - generic [ref=e63]: u=u_A+u_B
+      - region "一般式 k=2π/λ, ω=2π/T, Δ=k(r_B−r_A)+φ, B=2A|cos(Δ/2)|" [ref=e64]:
+        - math [ref=e65]:
+          - generic [ref=e66]: k=2π/λ
+        - text: 、
+        - math [ref=e67]:
+          - generic [ref=e68]: ω=2π/T
+        - text: 、
+        - math [ref=e69]:
+          - generic [ref=e70]: Δ=k(r_B−r_A)+φ
+        - text: 、
+        - math [ref=e71]:
+          - generic [ref=e72]: B=2A|cos(Δ/2)|
+      - generic [ref=e73]:
+        - button "λ" [ref=e74] [cursor=pointer]
+        - button "d" [ref=e75] [cursor=pointer]
+        - button "φ" [ref=e76] [cursor=pointer]
+        - button "t" [ref=e77] [cursor=pointer]
+        - button "u_A" [ref=e78] [cursor=pointer]
+        - button "u_B" [ref=e79] [cursor=pointer]
+        - button "u" [ref=e80] [cursor=pointer]
+      - paragraph [ref=e81]: 記号をホバー・タップ・Tabで選ぶと説明を表示します。
+      - button "強調を解除" [ref=e82] [cursor=pointer]
+      - generic [ref=e83]: 適用値：λ=2, d=4, φ=0° (≈0 rad), 速度=1倍。 k≈3.1416, ω≈3.1416。 u_A=cos(3.1416×2−π×0.421)≈0.24565、u_B=cos(3.1416×2−π×0.421+0)≈0.24565、u≈0.24565+0.24565≈0.49129。 Δ≈3.1416×(2−2)+0≈0、B≈2|cos(0/2)|≈2。
+      - paragraph [ref=e84]: u=0は瞬間の変位です。B=0はその地点で常に打ち消す条件です。流体の到達前線、反射や厳密な水面運動は扱いません。
+```

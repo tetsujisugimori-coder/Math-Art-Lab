@@ -6,7 +6,17 @@ const slowFrames=()=>{const request=window.requestAnimationFrame.bind(window),ca
 async function open(page:Page){await page.goto('./');await page.locator('#experiment').selectOption('three-body');await settled(page);}
 async function settled(page:Page){await expect(page.locator('.three-body')).toHaveAttribute('data-render-state','settled');await expect.poll(()=>page.locator('.three-body').evaluate(el=>el.getAttribute('data-step')===el.getAttribute('data-computed-step'))).toBe(true);}
 async function coherent(page:Page){const value=await page.locator('.three-body').evaluate(el=>{const d=(el as HTMLElement).dataset,a=(document.querySelector('#tb-a') as HTMLCanvasElement).dataset,b=(document.querySelector('#tb-b') as HTMLCanvasElement).dataset;return {display:d.step,observed:d.observedStep,a:a.paintedStep,b:b.paintedStep,bMode:b.renderMode,reportedB:d.paintedBStep,positions:a.positions,dom:d.domPositions,computed:Number(d.computedStep),graph:Number(d.graphTime),time:Number(d.time),pending:d.renderState==='pending'};});expect(value.observed).toBe(value.display);expect(value.a).toBe(value.display);expect(value.dom).toBe(value.positions);expect(value.computed).toBeGreaterThanOrEqual(Number(value.display));if(value.bMode==='side-by-side')expect(value.b).toBe(value.display);expect(value.graph).toBeLessThanOrEqual(value.time);return value;}
-async function pixelOracle(page:Page){const step=Number(await page.locator('.three-body').getAttribute('data-step')),bodies=reference(presets[0].config,step*.001,.0002);const colors=await page.locator('#tb-a').evaluate((cv:HTMLCanvasElement,bodies)=>{const scale=Math.min(cv.width,cv.height)/4;return bodies.map(p=>Array.from(cv.getContext('2d')!.getImageData(Math.floor(cv.width/2+p.x*scale),Math.floor(cv.height/2-p.y*scale),1,1).data));},bodies);expect(colors.every(c=>Math.max(...c.slice(0,3))>150)).toBe(true);}
+async function pixelOracle(page:Page){
+  const step=Number(await page.locator('.three-body').getAttribute('data-step')),bodies=reference(presets[0].config,step*.001,.0002);
+  const receipt=await page.locator('#tb-a').evaluate((cv:HTMLCanvasElement,bodies)=>{
+    const ctx=cv.getContext('2d')!,scale=Math.min(cv.width,cv.height)/4,m=ctx.getTransform(),rect=cv.getBoundingClientRect();
+    return {step:cv.dataset.paintedStep,positions:cv.dataset.positions,span:cv.dataset.span,dpr:devicePixelRatio,width:cv.width,height:cv.height,rect:{width:rect.width,height:rect.height,left:rect.left,top:rect.top},matrix:{a:m.a,b:m.b,c:m.c,d:m.d,e:m.e,f:m.f},samples:bodies.map(p=>{const x=Math.floor(cv.width/2+p.x*scale),y=Math.floor(cv.height/2-p.y*scale);return {x,y,rgba:Array.from(ctx.getImageData(x,y,1,1).data)}}),bitmap:cv.toDataURL('image/png')};
+  },bodies);
+  mkdirSync(test.info().outputDir,{recursive:true});
+  writeFileSync(test.info().outputPath('pixel-step-'+step+'.png'),Buffer.from(receipt.bitmap.split(',')[1],'base64'));
+  const {bitmap,...metadata}=receipt;writeFileSync(test.info().outputPath('pixel-step-'+step+'.json'),JSON.stringify({...metadata,reference:bodies},null,2));
+  expect(receipt.samples.every(p=>Math.max(...p.rgba.slice(0,3))>150)).toBe(true);
+}
 for(const dpr of [1,2])test(`three-body review: DPR${dpr} delayed rAF coherent step pause reset comparison lesson hide restore`,async({browser,baseURL})=>{
   const context=await browser.newContext({baseURL,deviceScaleFactor:dpr,viewport:{width:1280,height:900}}),page=await context.newPage();
   try{await page.addInitScript(slowFrames);

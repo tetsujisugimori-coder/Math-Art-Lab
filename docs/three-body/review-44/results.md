@@ -56,3 +56,9 @@ P2-01の最悪応答は、短い単発ベンチマークと実再生で結果が
 最終HEADのCIはcommit/push後、このPRの検証コメントに対象SHA・run URL・件数・skipを固定して保存する。CI自己参照のためだけに資料commitを繰り返さない。取得した機械データはtest-results/three-body-review-final-ci/にも保存する（既存の生成物除外内）。CI成功だけでWindows高負荷の未達をPASSへ変更しない。
 
 最終停止144/144成功、A/B不一致0、受信後および停止100ms後の追加step0、計算timer残存なし、作品切替/破棄後rAFハンドル残存なし。pause区間最大1.0ms。host要求→settled最大2824ms（通信・actionability・最終表示待ち込み）。独立Workerの807.2ms待ちとは別の指標である。要求前snapshotから停止までのstep増分は上限値であり、要求発生瞬間の正確な追加step数は未測定。安全停止後の自動再生復帰はGUIで認めなかった。最終停止計測時のindex/model/state/render/view/domのLF正規化hashは提出ソースと全件一致（final-source-integrity.json）。
+
+## 提出HEAD 127bbfe のCI失敗と追加診断
+
+CI #42631662251はfailure。単体424成功・型/build成功、開発602成功/2失敗/2手動撮影skip（21.8分）、本番は開発失敗により未実行。失敗はWebKitの新作DPR2低FPS画素照合と既存waveの非表示/教材復元。新作はstep1でDOM/Canvas受付は1、モデル位置も正しいが保存画像の配置と画素参照が一致しない。P3-01を全環境PASSとは扱わず、原因調査を追加する。waveも回帰なしとは断定しない。
+
+ci-127bbfe/にCIログ・job/artifact状態・失敗画面・内部状態を保持。新作画素照合のしきい値を変更せず、変換行列、Canvas/CSS寸法、DPR、参照位置の色、バッファー画像の診断を追加。元の全回帰CI/公開条件は維持したまま、失敗2条件を各3回実行する追加WebKit診断ジョブを作成した。製品/数理コードはこの診断追加では変更しない。

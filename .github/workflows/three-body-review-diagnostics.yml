@@ -1,0 +1,38 @@
+name: Three-body review diagnostics
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/three-body*'
+      - 'e2e/three-body*'
+      - '.github/workflows/three-body-review-diagnostics.yml'
+permissions:
+  contents: read
+jobs:
+  focused-webkit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Install WebKit
+        run: |
+          if [ -f /etc/apt/apt-mirrors.txt ]; then
+            sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu|https://archive.ubuntu.com/ubuntu|g' /etc/apt/apt-mirrors.txt
+          fi
+          npx playwright install --with-deps webkit
+      - name: Repeat the two observed failure cases
+        run: npm run test:e2e -- --project=webkit --grep 'DPR2 delayed rAF|hidden while playing pauses' --repeat-each=3 --output=test-results/review-focused
+      - name: Preserve diagnostics
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: three-body-review-focused-${{ github.sha }}
+          path: test-results/
+          retention-days: 14
