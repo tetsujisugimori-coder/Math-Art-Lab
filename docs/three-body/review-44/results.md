@@ -68,3 +68,5 @@ ci-127bbfe/にCIログ・job/artifact状態・失敗画面・内部状態を保�
 fbb8a91の重点診断はDPR1とwaveが計6成功、DPR2が3失敗。DPR2でもアプリのarc引数はCSS座標(311.6886,241.5160)、matrix倍率2で正しい。独立CanvasのfillRect変換4方式は全て20..39の期待範囲を満たした。基本fillRectは正しく、アプリのパス描画だけが二重化する可能性を切り分けるため、path/identity/反復/transform reset/Path2D/arcの独立対照を追加する。製品コード・画素しきい値はまだ変更しない。
 
 31a19beのLinux診断でもDPR2は3失敗、DPR1/waveは6成功。独立パスのnumeric transform/identity/反復/reset/Path2D/arcも全て期待範囲20..39で描画。基本座標/パス変換だけではアプリの二重位置を説明できず、実アプリで使うshadowBlur=15の有無・identity・fill+strokeを独立Canvas対照へ追加した。未確認のブラウザー内部原因を断定しない。
+
+035164bの重点診断もDPR2が3失敗、DPR1/waveが6成功。小CanvasのshadowBlur有無・identity・fill+strokeは正しい位置だった。単純な発光原因説は未確定のままとし、実アプリ寸法の7対照（通常、発光OFF、遅延rAFなし、willReadFrequently、buffer再初期化、初期readback、alpha:false）を各3回測る追加ツールを実装。Viteの実indexを使い、各対照の物理位置一致も確認する。Windowsで通常/発光OFF各1回の取得は成功した。
