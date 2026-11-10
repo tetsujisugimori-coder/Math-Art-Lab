@@ -7,3 +7,5 @@
 新CIは早期checkpointと最終rawをartifactへ保存し90日保持を要求する。実際のexpires_atとrun/artifact URL、zip SHA256は**最終HEADのPR検証コメント**を正本とする。リポジトリ上限等で短縮される可能性があり、設定値だけで90日保証とはしない。原証拠は取得後にhash照合してローカルにも保持する。期限切れ後の再実行は追試であって、消失した原標本の代替ではない。
 
 隔離した新規browser profile／localhostだけを測定。既知credential形式の検査は候補0。hardware型番、OS、プロセスID、ローカルpath、画面の作品表示は診断情報として含む。pattern検査は一般的DLP保証ではない。公開する要約・スクリーンショットを点検し、ユーザーの通常browser sessionは採取していない。
+
+提出後のGit blob照合でunitログ1件のCRLF→LF変換を検出した。原ログは非変更で、証拠directoryの`-text`属性を追加しただけでは既存indexが更新されなかったため、当該ログを`git add --renormalize`で再登録。58/58のcommit対象バイトとexport-index SHA一致を確認した。旧提出HEADのCIはsupersededとして取消し、最終HEADで再実行する。過去の成功へ差し替えない。
