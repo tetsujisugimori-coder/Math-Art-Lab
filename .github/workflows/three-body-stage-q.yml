@@ -1,0 +1,82 @@
+name: Three-body Stage Q validation and evidence
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tools/three-body-stage-q*'
+      - 'src/three-body-stage-q.test.js'
+      - 'docs/three-body/review-44/stage-q/**'
+      - '.github/workflows/three-body-stage-q.yml'
+permissions:
+  contents: read
+jobs:
+  bounded-diagnostics:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-2025
+            browser: chromium
+          - os: ubuntu-24.04
+            browser: chromium
+          - os: ubuntu-24.04
+            browser: webkit
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Install Linux browser
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          if [ -f /etc/apt/apt-mirrors.txt ]; then
+            sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu|https://archive.ubuntu.com/ubuntu|g' /etc/apt/apt-mirrors.txt
+          fi
+          npx playwright install --with-deps ${{ matrix.browser }}
+      - name: Install Windows browser
+        if: runner.os == 'Windows'
+        run: npx playwright install chromium
+      - name: Minimal screen and timing positive controls
+        shell: bash
+        run: |
+          node --expose-gc tools/three-body-stage-q.mjs --suite=ci --browser=${{ matrix.browser }} --output=test-results/stage-q
+          node --expose-gc tools/three-body-stage-q.mjs --suite=smoke --browser=${{ matrix.browser }} --output=test-results/stage-q
+          node --expose-gc tools/three-body-stage-q.mjs --suite=screen --browser=${{ matrix.browser }} --output=test-results/stage-q
+      - name: Preserve early evidence checkpoint
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: stage-q-screen-${{ matrix.os }}-${{ matrix.browser }}-${{ github.sha }}
+          path: test-results/stage-q/
+          retention-days: 90
+      - name: Bounded long run and independent-process stops
+        shell: bash
+        run: |
+          node --expose-gc tools/three-body-stage-q.mjs --suite=long --browser=${{ matrix.browser }} --output=test-results/stage-q
+          node --expose-gc tools/three-body-stage-q.mjs --suite=host --browser=${{ matrix.browser }} --output=test-results/stage-q
+          node --expose-gc tools/three-body-stage-q.mjs --suite=lifecycle --browser=${{ matrix.browser }} --output=test-results/stage-q
+          node --expose-gc tools/three-body-stage-q.mjs --suite=targets --browser=${{ matrix.browser }} --output=test-results/stage-q
+      - name: Read-only Windows thread snapshots
+        if: runner.os == 'Windows'
+        run: node --expose-gc tools/three-body-stage-q.mjs --suite=os --browser=chromium --output=test-results/stage-q
+      - name: Verify mathematical and display contracts
+        shell: bash
+        run: |
+          node --expose-gc tools/three-body-stage-q-report.mjs test-results/stage-q
+          node tools/three-body-stage-q-check.mjs test-results/stage-q --ci=${{ matrix.browser }}
+          node tools/three-body-stage-q-storage.mjs test-results/stage-q
+      - name: Preserve raw, hashes and source versions
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: stage-q-full-${{ matrix.os }}-${{ matrix.browser }}-${{ github.sha }}
+          path: test-results/stage-q/
+          retention-days: 90

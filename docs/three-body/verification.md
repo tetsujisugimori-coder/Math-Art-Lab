@@ -129,3 +129,9 @@ Windows最終GUIは開発46/48（4.7分）、本番46/48（4.4分）。失敗は
 描画経路変更後も内部Float64/履歴6窓は原版と一致、独立RK4/解析解/約20周期/二次収束、単体424・型/build成功。通常HTMLの192条件取得エラー0、正常表示480フレームの時刻/描画引数不一致0、停止144/144、受信後追加step0、pause最大1ms。host要求→settled最大1138msは移送等を含む。Windows GUIは開発/本番とも48/48、同じ26000step/15秒基準のChromium飽和も通過。Linux重点CI #42644871408は9/9。追加撮影2件でモバイル4画面を保存。
 
 旧renderのみ復元した3反復のChromium要求待ちは中央値368.6→20.3ms、p95/最大747→20.3ms、paint最大388→59.3ms。一方60秒試験で433.5msのpaint・432.5msのcalculate区間が残った。Worker停止要求待ちは27.6ms/10ms、追加step0。全時点・実機・数時間の上限保証ではなく、元1249msの直接原因もUNKNOWN。総合PARTIAL、P2/P3-02は未解決範囲あり、マージ推奨NO。最終HEAD CI結果はPR #44の検証コメントへ固定する。
+
+## 2026-11-10 JST — Stage Q 最小再現と入力時計の調査
+
+基準b07・レビュー5842434528へ対応。[Stage Q](review-44/stage-q/investigation.md)に事前計画・140run・旧trace再解析・原hashを保存。最小Canvas/DOM資源対照、60秒×3＋5分、旧public生成器の5分再試験でも歴史的400ms超は再現せず、根本原因UNKNOWN・総合PARTIAL。製品修正は採用せず、起動flag差を改善としない。停止後追加step0と同step表示を確認したが自然長区間への9試行はTARGET_MISS。作品除去の受付104msは事前100ms予算逸脱のまま残す。
+
+5プリセット＋A/BのFloat64 bitと全履歴hashはb07と一致、独立RK4・約20周期・解析三角形・二次収束を再検証。単体441、型／両build、Windows開発GUI48・本番48成功。既存Stage P約525MBは非変更、新rawはGit外／CI artifact、小さい要約と版別sourceのみGitへ保存。実機・kernel ETW・GPU提示・長区間HIT・原証拠の遠隔完全複製は未検証／未完了。Issue #43をOPEN、PRをDraftのまま残す。最終HEADの全CIとartifact URLはPR検証コメントへ固定。マージ推奨NO。

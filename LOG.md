@@ -998,3 +998,11 @@ P2-01/P3-01/P3-02を調査。表・SVG・インスペクターのDOM再生成と
 採用経路でLinux重点9件、Windows開発48/48・本番48/48、192条件取得・停止144件、単体424・型/build・独立数値基準を再確認。元の15秒基準のChromium飽和2件も成功。旧renderのみ復元した対照では要求待ち最大747→20.3ms、paint最大388→59.3ms。60秒試験ではChromium433.5msのpaint区間が残り、P2/P3-02はPARTIAL。原1249ms原因UNKNOWN、実機/長時間未検証、NoGoの理由を消さずに残す。
 
 ソース/検証入力hashとreadback資料を既存Draft PR #44へ提出し、最終HEADの全回帰CI結果はPRコメントへ固定する。Pagesの公開条件と数理核は維持。独立再レビュー前にmerge/auto-mergeしない。
+
+## 2026-11-10 JST — 第17作 Stage Q 最小再現・独立入力・証拠保存
+
+レビュー5842434528を受け、製品変更前に計画をIssue #43へ記録。物理計算から独立したCanvas/DOM固定命令ページ、資源保持と命令停止の対照、起動経路、予定時刻を持つWorker、別Node要求、非特権thread snapshotを追加。72screenと60秒×3＋5分等、ローカル140runを保存。旧public生成器をそのまま5分再実行した場合も今回は短い待ちとなり、過去の400ms超を再現できず根因UNKNOWN。旧traceではmainとWorker候補の低CPU長区間の重なりを確認したがOS/native機構は未確定。
+
+製品変更なし。数理Float64 bit／履歴hash6窓一致、RK4・約20周期・解析三角形・二次収束を再確認。単体441、型、開発／本番build、Windows開発GUI48／本番48成功。受信後追加step0と表示時刻整合を維持する一方、自然長区間への9試行は全MISS、作品除去受付104msの予算逸脱を保持。性能解決とは判定しない。
+
+独立したread-only差分・原証拠点検でCI途中失敗の伝播とmanifest完全性の穴を修正。旧Stage P約525MBは変更せず、新巨大rawはGit外／CI artifact、小さい要約・SHA・tool版のみ追加。原証拠の遠隔完全複製は未完了と明示。P2/P3-02/P3-03はPARTIAL、P3-01は実施範囲PASS。#43を閉じず、既存Draft PR #44へ提出し最終HEAD CIはPRコメントに記録。外部独立再レビュー待ち、merge／auto-mergeなし、推奨NO。
