@@ -1,0 +1,6 @@
+raw-results/** -text whitespace=cr-at-eol,-blank-at-eof
+# Preserve original stderr, including the test reporter's code-frame spaces.
+raw-results/*.log -whitespace
+manifests/** -text
+sources/** -text
+screenshots/** -text

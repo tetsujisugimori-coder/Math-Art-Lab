@@ -1006,3 +1006,11 @@ P2-01/P3-01/P3-02を調査。表・SVG・インスペクターのDOM再生成と
 製品変更なし。数理Float64 bit／履歴hash6窓一致、RK4・約20周期・解析三角形・二次収束を再確認。単体441、型、開発／本番build、Windows開発GUI48／本番48成功。受信後追加step0と表示時刻整合を維持する一方、自然長区間への9試行は全MISS、作品除去受付104msの予算逸脱を保持。性能解決とは判定しない。
 
 独立したread-only差分・原証拠点検でCI途中失敗の伝播とmanifest完全性の穴を修正。旧Stage P約525MBは変更せず、新巨大rawはGit外／CI artifact、小さい要約・SHA・tool版のみ追加。原証拠の遠隔完全複製は未完了と明示。P2/P3-02/P3-03はPARTIAL、P3-01は実施範囲PASS。#43を閉じず、既存Draft PR #44へ提出し最終HEAD CIはPRコメントに記録。外部独立再レビュー待ち、merge／auto-mergeなし、推奨NO。
+
+## 2026-11-11 JST — 第17作 Stage Q独立レビュー5852944140へ対応
+
+P3-04の撮影障害を最優先に36条件とCDP対照を実施。旧context撮影timeoutを再現し、現行contextのPW/CDP surfaceは同じDPR2画像でCanvas画素差0。初期probeのDPR交絡・source記録不足・APIエラーを保全。A〜G分類、suiteの独立子process実行、環境／証拠障害時BLOCKED、計画・完了・未実行数、manifest/raw/summary/validator/artifact hash照合を追加した。失敗を後続成功で消さず、部分artifactの完全性fieldを保存する。
+
+送信専用OS processを追加し、自然長区間HIT5とMISS4、停止後step0・A/B同期を確認。新たにpaint447.8ms、native geometry378.2msを再現し、包含Taskの経過408.467msとCPU35.089msを区別。kernel ETW未取得、native待機先と元1249ms機構はUNKNOWN、応答予算未達で製品修正0件。
+
+基準875とのFloat64 bit／履歴6条件一致、独立RK4・約20周期・解析三角形・二次収束を再確認。単体459、型／両build、Windows開発／本番GUI各48成功。sender起動引数・終了待ちと初期の試験timeoutを修正・保存。既存Stage P/Q証拠は非変更、新原証拠はGit外、小さい索引・要約をstage-rへ保存。原本の遠隔完全複製は未完了。最終HEAD CIはPR44対応コメントへ記録し、Issue43 OPEN／Draft／独立再レビュー待ち、マージ推奨NO。

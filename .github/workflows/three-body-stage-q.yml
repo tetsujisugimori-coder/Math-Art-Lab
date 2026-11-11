@@ -4,8 +4,9 @@ on:
     branches: [main]
     paths:
       - 'tools/three-body-stage-q*'
-      - 'src/three-body-stage-q.test.js'
+      - 'src/three-body-stage-q*'
       - 'docs/three-body/review-44/stage-q/**'
+      - 'docs/three-body/review-44/stage-r/**'
       - '.github/workflows/three-body-stage-q.yml'
 permissions:
   contents: read
@@ -23,6 +24,8 @@ jobs:
             browser: webkit
     runs-on: ${{ matrix.os }}
     timeout-minutes: 35
+    env:
+      EVIDENCE: test-results/stage-q
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
@@ -32,7 +35,10 @@ jobs:
         with:
           node-version: '24'
           cache: npm
+      - name: Save diagnostic plan before dependency preparation
+        run: node tools/three-body-stage-q-pipeline.mjs --init --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
       - run: npm ci
+        id: dependencies
       - name: Install Linux browser
         if: runner.os == 'Linux'
         shell: bash
@@ -44,39 +50,63 @@ jobs:
       - name: Install Windows browser
         if: runner.os == 'Windows'
         run: npx playwright install chromium
-      - name: Minimal screen and timing positive controls
-        shell: bash
-        run: |
-          node --expose-gc tools/three-body-stage-q.mjs --suite=ci --browser=${{ matrix.browser }} --output=test-results/stage-q
-          node --expose-gc tools/three-body-stage-q.mjs --suite=smoke --browser=${{ matrix.browser }} --output=test-results/stage-q
-          node --expose-gc tools/three-body-stage-q.mjs --suite=screen --browser=${{ matrix.browser }} --output=test-results/stage-q
-      - name: Preserve early evidence checkpoint
+      - name: Validate mandatory environment
+        id: preflight
+        run: node tools/three-body-stage-q-pipeline.mjs --preflight --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Initial diagnostic controls
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=ci --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Timing positive controls
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=smoke --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Capture order and instrumentation controls
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=capture --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Chromium capture API controls
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' && matrix.browser == 'chromium' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=capture-probe --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Canvas and DOM resource controls
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=screen --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Preserve checkpoint with planned and unexecuted entries
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
-          name: stage-q-screen-${{ matrix.os }}-${{ matrix.browser }}-${{ github.sha }}
+          name: stage-q-checkpoint-${{ matrix.os }}-${{ matrix.browser }}-${{ github.sha }}
           path: test-results/stage-q/
           retention-days: 90
-      - name: Bounded long run and independent-process stops
-        shell: bash
-        run: |
-          node --expose-gc tools/three-body-stage-q.mjs --suite=long --browser=${{ matrix.browser }} --output=test-results/stage-q
-          node --expose-gc tools/three-body-stage-q.mjs --suite=host --browser=${{ matrix.browser }} --output=test-results/stage-q
-          node --expose-gc tools/three-body-stage-q.mjs --suite=lifecycle --browser=${{ matrix.browser }} --output=test-results/stage-q
-          node --expose-gc tools/three-body-stage-q.mjs --suite=targets --browser=${{ matrix.browser }} --output=test-results/stage-q
-      - name: Read-only Windows thread snapshots
-        if: runner.os == 'Windows'
-        run: node --expose-gc tools/three-body-stage-q.mjs --suite=os --browser=chromium --output=test-results/stage-q
-      - name: Verify mathematical and display contracts
-        shell: bash
-        run: |
-          node --expose-gc tools/three-body-stage-q-report.mjs test-results/stage-q
-          node tools/three-body-stage-q-check.mjs test-results/stage-q --ci=${{ matrix.browser }}
-          node tools/three-body-stage-q-storage.mjs test-results/stage-q
-      - name: Preserve raw, hashes and source versions
+      - name: Sixty second repeats and five minute playback
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=long --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Harness Node stop delivery
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=host --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Dedicated send-only OS process
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=sender --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Lesson restoration and component disposal
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=lifecycle --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Natural phase targeting
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=targets --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Dedicated sender natural phase targeting
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=sender-targets --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Nonprivileged Windows thread sampling
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' && runner.os == 'Windows' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=os --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Independent numerical and display analysis
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --analyze --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Finalize suite counts and verify artifact index
+        if: always()
+        run: node tools/three-body-stage-q-pipeline.mjs --finalize --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Preserve evidence with explicit completeness
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
-          name: stage-q-full-${{ matrix.os }}-${{ matrix.browser }}-${{ github.sha }}
+          name: stage-q-evidence-${{ matrix.os }}-${{ matrix.browser }}-${{ github.sha }}
           path: test-results/stage-q/
+          if-no-files-found: error
           retention-days: 90

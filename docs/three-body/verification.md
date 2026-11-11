@@ -135,3 +135,9 @@ Windows最終GUIは開発46/48（4.7分）、本番46/48（4.4分）。失敗は
 基準b07・レビュー5842434528へ対応。[Stage Q](review-44/stage-q/investigation.md)に事前計画・140run・旧trace再解析・原hashを保存。最小Canvas/DOM資源対照、60秒×3＋5分、旧public生成器の5分再試験でも歴史的400ms超は再現せず、根本原因UNKNOWN・総合PARTIAL。製品修正は採用せず、起動flag差を改善としない。停止後追加step0と同step表示を確認したが自然長区間への9試行はTARGET_MISS。作品除去の受付104msは事前100ms予算逸脱のまま残す。
 
 5プリセット＋A/BのFloat64 bitと全履歴hashはb07と一致、独立RK4・約20周期・解析三角形・二次収束を再検証。単体441、型／両build、Windows開発GUI48・本番48成功。既存Stage P約525MBは非変更、新rawはGit外／CI artifact、小さい要約と版別sourceのみGitへ保存。実機・kernel ETW・GPU提示・長区間HIT・原証拠の遠隔完全複製は未検証／未完了。Issue #43をOPEN、PRをDraftのまま残す。最終HEADの全CIとartifact URLはPR検証コメントへ固定。マージ推奨NO。
+
+## 2026-11-11 JST — Stage Qレビュー5852944140への対応
+
+[対応記録](review-44/stage-r/results.md)を追加。撮影例外をE_SCREENSHOTへ分類し、suiteの独立実行と環境・証拠破損時BLOCKED、計画数と完了数、分析processの終了、全hashを集約。旧contextの撮影timeoutはtrace停止順・計測ON/OFFで再現。最終CDP対照の現行context画像は画素差0、旧contextの画像は未取得。部分artifactの完全性を明示し、失敗を保持する。
+
+新たにpaint447.8ms、geometry378.2ms／包含Task経過408.467ms・CPU35.089msを観測。専用senderの自然HIT5・MISS4、受信後追加step0とA/B同期を確認。機構の根因と元1249msとの同一原因はUNKNOWN、応答予算未達、製品修正0。基準875と6条件のbit/hash一致、独立基準、単体459、型／両build、開発48／本番48GUI成功。初期試験失敗も保存。最終HEADの全作品CIと各suite完了状況はPR対応コメントに固定し、独立再レビュー待ちでDraft停止する。
