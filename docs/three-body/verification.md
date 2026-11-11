@@ -161,3 +161,7 @@ See [Stage U protocol](review-44/stage-u/protocol.md), [local results](review-44
 ## Stage V fixed internal trace controls
 
 See [Stage V protocol](review-44/stage-v/protocol.md), [results](review-44/stage-v/results.md), [trace analysis](review-44/stage-v/trace-analysis.md) and [verification](review-44/stage-v/verification.md). Overall PARTIAL, product changes0, improvement NOT_TESTED, mechanism UNKNOWN. Final HEAD CI and verified archive receipts are posted on existing Issue43/PR44; all earlier failures and ledgers are preserved.
+
+## Stage W source-bound pre-draw trace controls
+
+See [fixed protocol](review-44/stage-w/protocol.md), [diagnostic corrections](review-44/stage-w/investigation.md), [trace analysis](review-44/stage-w/trace-analysis.md), [pixel evidence](review-44/stage-w/capture-analysis.md) and [regression](review-44/stage-w/regression.md). P2-02 and P3-06 have separate RED/negative controls; local fixed12 completes with6 capture failures. Overall PARTIAL, root mechanism UNKNOWN, product changes0, improvement NOT_TESTED, merge NO. Final HEAD CI/artifact/archive receipts follow on existing Issue43/PR44; old failures, original records and ledgers are immutable.

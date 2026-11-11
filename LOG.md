@@ -1052,3 +1052,12 @@ P3-04の撮影障害を最優先に36条件とCDP対照を実施。旧context撮
 - Source-matched browser dispatch/copy-result candidates and native readback command-completion scopes narrow the observed path; native/OS/GPU mechanism and original1249ms common cause remain UNKNOWN.
 - Added strict clock/PID/TID/missing-data/evidence negative controls and a harness-only send/late-reply observer. Initial local source version and data remain unchanged; no local replacement trials.
 - Details: docs/three-body/review-44/stage-v/. Final-head CI/artifact/archive receipts follow on existing Issue43/PR44. Overall PARTIAL, improvement NOT_TESTED, merge NO; Draft/OPEN maintained.
+
+## 2026-11-12 Stage W source-bound pre-draw trace controls (PR #44)
+
+- Baseline1e2e895, review5866092831. P2-02 T4 is now limited to a normal within-deadline protocol reply; late replies, cleanup rejection, wrapper/send and actual deadline observation are separate. Immutable TIMEOUT retained, legacy missing times not reconstructed.
+- P3-06 executes snapshot runner bytes and binds runtime HEAD/tree, source SHA/Git blob, raw references and manifest/index; newline logical equality is distinct from byte identity. Baseline12 counterexamples include8 RED; final V/W diagnostic64 assertions PASS. Independent Python source/raw/index/clock correspondence passes.
+- Fixed local12 complete: old6 capture timeout, current6 normal images;8 trace streams calibrated,4 early-start traces cover navigation/drawing.4 old late PNG payloads separately extracted without T4/PASS; cross-context decoded pixels differ. Specific backend/OS/GPU mechanism and1249ms/400ms common cause UNKNOWN.
+- Source-location delayed GPU task path has limited source-consistent support, not unique screenshot/callback ownership. No product/physics/display/dependency/deployment changes, improvement NOT_TESTED; no extra W trials.
+- Local bit/history6 match; independent numerical checks/type/build pass. Full unit565/567 retains2 existing long-duration failures; targeted dev44/48, production corrected invocation48/48; initial0-test command error preserved. Final-head formal/diagnostic CI and archive receipts follow on Issue43/PR44.
+- Details: docs/three-body/review-44/stage-w/. Overall PARTIAL, merge NO, Draft/OPEN maintained.

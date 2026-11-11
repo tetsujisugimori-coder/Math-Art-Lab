@@ -1,0 +1,1423 @@
+{
+  "head": "1e2e895826e69ab0ce8ad06e92d3e8c60a081313",
+  "ciRunId": null,
+  "createdUTC": "2026-11-11T22:53:56.169Z",
+  "scope": "Offline PNG decoding only, no extra browser/readback/API intervention. Late payloads have no within-deadline T4 or original Canvas check; no missing image pixels inferred. Bitmap comparison is not GPU presentation or product performance equivalence.",
+  "images": [
+    {
+      "id": "w-02-readback-early",
+      "plan": {
+        "id": "w-02-readback-early",
+        "kind": "capture",
+        "context": "readback",
+        "traceMode": "early",
+        "trace": true,
+        "readback": false,
+        "repeat": 1
+      },
+      "kind": "ORIGINAL_CAPTURE_FILE",
+      "requestStatus": "PASS",
+      "T0": 13318.6634,
+      "T4": 13518.8972,
+      "lateCallbackAt": null,
+      "rawSha256": "ab769ad564aa9d7305ff38596cbbd34d53512ff9975e085215e7a924acc5aaa2",
+      "pngFile": "w-02-readback-early.png",
+      "pngBytes": 187524,
+      "pngSha256": "2cb119d896d25f11ec827aa83d7f9936530fa3658baf594d8ac6acacc5c784e7",
+      "rgbaSha256": "25ebc206d4acb7f558660793330b655ec5775c2f78591c72defde7bdfcad7f96",
+      "width": 2560,
+      "height": 1800,
+      "before": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "after": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "context": {
+        "canvases": [
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": true
+            }
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": true
+            }
+          }
+        ],
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "dpr": 2
+      },
+      "tapeSha256": "3080cf71635e04f98f62d13927de156c142c7828a0674b548e2a65e512129291",
+      "ownCanvasPixelChecks": {
+        "imageWidth": 2560,
+        "imageHeight": 1800,
+        "expectedWidth": 2560,
+        "expectedHeight": 1800,
+        "dimensionsMatch": true,
+        "checks": [
+          {
+            "width": 876,
+            "height": 660,
+            "differentChannels": 0,
+            "maximumChannelError": 0
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "differentChannels": 0,
+            "maximumChannelError": 0
+          }
+        ],
+        "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+      }
+    },
+    {
+      "id": "w-03-default-late",
+      "plan": {
+        "id": "w-03-default-late",
+        "kind": "capture",
+        "context": "default",
+        "traceMode": "late",
+        "trace": true,
+        "readback": false,
+        "repeat": 1
+      },
+      "kind": "LATE_PROTOCOL_PAYLOAD_TIMEOUT_REMAINS_FAIL",
+      "requestStatus": "TIMEOUT",
+      "T0": 16977.237,
+      "T4": null,
+      "lateCallbackAt": 24160.5146,
+      "rawSha256": "b7759f11982ac39a46c2db18636bb64925478d083fb189e0bca8ce7cf69d7f70",
+      "pngFile": "w-03-default-late.png",
+      "pngBytes": 173114,
+      "pngSha256": "6022cc743161c313ca776f29adf1789135af91f9839013ec86d1743c6f6b764f",
+      "rgbaSha256": "5b89bacd6f9e38bc7089817f852b8207c04264e7e57d42d73eb9a650ef529318",
+      "width": 2560,
+      "height": 1800,
+      "before": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "after": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "context": {
+        "canvases": [
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": false
+            }
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": false
+            }
+          }
+        ],
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "dpr": 2
+      },
+      "tapeSha256": "3080cf71635e04f98f62d13927de156c142c7828a0674b548e2a65e512129291",
+      "ownCanvasPixelChecks": {
+        "status": "NOT_OBTAINED_FOR_LATE_PAYLOAD"
+      }
+    },
+    {
+      "id": "w-04-readback-off",
+      "plan": {
+        "id": "w-04-readback-off",
+        "kind": "capture",
+        "context": "readback",
+        "traceMode": "off",
+        "trace": false,
+        "readback": false,
+        "repeat": 1
+      },
+      "kind": "ORIGINAL_CAPTURE_FILE",
+      "requestStatus": "PASS",
+      "T0": 27147.5819,
+      "T4": 27345.6471,
+      "lateCallbackAt": null,
+      "rawSha256": "5896d73b00606aa48570d26efe8012e74fc413c9c82031cf1dde3ddac591ed74",
+      "pngFile": "w-04-readback-off.png",
+      "pngBytes": 187524,
+      "pngSha256": "2cb119d896d25f11ec827aa83d7f9936530fa3658baf594d8ac6acacc5c784e7",
+      "rgbaSha256": "25ebc206d4acb7f558660793330b655ec5775c2f78591c72defde7bdfcad7f96",
+      "width": 2560,
+      "height": 1800,
+      "before": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "after": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "context": {
+        "canvases": [
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": true
+            }
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": true
+            }
+          }
+        ],
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "dpr": 2
+      },
+      "tapeSha256": "3080cf71635e04f98f62d13927de156c142c7828a0674b548e2a65e512129291",
+      "ownCanvasPixelChecks": {
+        "imageWidth": 2560,
+        "imageHeight": 1800,
+        "expectedWidth": 2560,
+        "expectedHeight": 1800,
+        "dimensionsMatch": true,
+        "checks": [
+          {
+            "width": 876,
+            "height": 660,
+            "differentChannels": 0,
+            "maximumChannelError": 0
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "differentChannels": 0,
+            "maximumChannelError": 0
+          }
+        ],
+        "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+      }
+    },
+    {
+      "id": "w-05-default-early",
+      "plan": {
+        "id": "w-05-default-early",
+        "kind": "capture",
+        "context": "default",
+        "traceMode": "early",
+        "trace": true,
+        "readback": false,
+        "repeat": 1
+      },
+      "kind": "LATE_PROTOCOL_PAYLOAD_TIMEOUT_REMAINS_FAIL",
+      "requestStatus": "TIMEOUT",
+      "T0": 30247.2833,
+      "T4": null,
+      "lateCallbackAt": 37123.6443,
+      "rawSha256": "dbbbf1221536c83ea53294fb93930b86069969cff5180d915e3bb4550ebe2de1",
+      "pngFile": "w-05-default-early.png",
+      "pngBytes": 173114,
+      "pngSha256": "6022cc743161c313ca776f29adf1789135af91f9839013ec86d1743c6f6b764f",
+      "rgbaSha256": "5b89bacd6f9e38bc7089817f852b8207c04264e7e57d42d73eb9a650ef529318",
+      "width": 2560,
+      "height": 1800,
+      "before": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "after": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "context": {
+        "canvases": [
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": false
+            }
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": false
+            }
+          }
+        ],
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "dpr": 2
+      },
+      "tapeSha256": "3080cf71635e04f98f62d13927de156c142c7828a0674b548e2a65e512129291",
+      "ownCanvasPixelChecks": {
+        "status": "NOT_OBTAINED_FOR_LATE_PAYLOAD"
+      }
+    },
+    {
+      "id": "w-06-readback-late",
+      "plan": {
+        "id": "w-06-readback-late",
+        "kind": "capture",
+        "context": "readback",
+        "traceMode": "late",
+        "trace": true,
+        "readback": false,
+        "repeat": 1
+      },
+      "kind": "ORIGINAL_CAPTURE_FILE",
+      "requestStatus": "PASS",
+      "T0": 41122.9839,
+      "T4": 41314.8207,
+      "lateCallbackAt": null,
+      "rawSha256": "34e3f48cdd6c6c27ed90256c4a8e7849eebda9e92ace239e7de4f079efea1946",
+      "pngFile": "w-06-readback-late.png",
+      "pngBytes": 187524,
+      "pngSha256": "2cb119d896d25f11ec827aa83d7f9936530fa3658baf594d8ac6acacc5c784e7",
+      "rgbaSha256": "25ebc206d4acb7f558660793330b655ec5775c2f78591c72defde7bdfcad7f96",
+      "width": 2560,
+      "height": 1800,
+      "before": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "after": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "context": {
+        "canvases": [
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": true
+            }
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": true
+            }
+          }
+        ],
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "dpr": 2
+      },
+      "tapeSha256": "3080cf71635e04f98f62d13927de156c142c7828a0674b548e2a65e512129291",
+      "ownCanvasPixelChecks": {
+        "imageWidth": 2560,
+        "imageHeight": 1800,
+        "expectedWidth": 2560,
+        "expectedHeight": 1800,
+        "dimensionsMatch": true,
+        "checks": [
+          {
+            "width": 876,
+            "height": 660,
+            "differentChannels": 0,
+            "maximumChannelError": 0
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "differentChannels": 0,
+            "maximumChannelError": 0
+          }
+        ],
+        "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+      }
+    },
+    {
+      "id": "w-07-readback-late",
+      "plan": {
+        "id": "w-07-readback-late",
+        "kind": "capture",
+        "context": "readback",
+        "traceMode": "late",
+        "trace": true,
+        "readback": false,
+        "repeat": 2
+      },
+      "kind": "ORIGINAL_CAPTURE_FILE",
+      "requestStatus": "PASS",
+      "T0": 44179.1754,
+      "T4": 44382.4717,
+      "lateCallbackAt": null,
+      "rawSha256": "182ebd1f4349590ed168a3b945eea723f4780b4afaff26e21716f0db06d6c463",
+      "pngFile": "w-07-readback-late.png",
+      "pngBytes": 187524,
+      "pngSha256": "2cb119d896d25f11ec827aa83d7f9936530fa3658baf594d8ac6acacc5c784e7",
+      "rgbaSha256": "25ebc206d4acb7f558660793330b655ec5775c2f78591c72defde7bdfcad7f96",
+      "width": 2560,
+      "height": 1800,
+      "before": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "after": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "context": {
+        "canvases": [
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": true
+            }
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": true
+            }
+          }
+        ],
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "dpr": 2
+      },
+      "tapeSha256": "3080cf71635e04f98f62d13927de156c142c7828a0674b548e2a65e512129291",
+      "ownCanvasPixelChecks": {
+        "imageWidth": 2560,
+        "imageHeight": 1800,
+        "expectedWidth": 2560,
+        "expectedHeight": 1800,
+        "dimensionsMatch": true,
+        "checks": [
+          {
+            "width": 876,
+            "height": 660,
+            "differentChannels": 0,
+            "maximumChannelError": 0
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "differentChannels": 0,
+            "maximumChannelError": 0
+          }
+        ],
+        "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+      }
+    },
+    {
+      "id": "w-08-default-early",
+      "plan": {
+        "id": "w-08-default-early",
+        "kind": "capture",
+        "context": "default",
+        "traceMode": "early",
+        "trace": true,
+        "readback": false,
+        "repeat": 2
+      },
+      "kind": "LATE_PROTOCOL_PAYLOAD_TIMEOUT_REMAINS_FAIL",
+      "requestStatus": "TIMEOUT",
+      "T0": 47428.3866,
+      "T4": null,
+      "lateCallbackAt": 54658.3967,
+      "rawSha256": "16abf0daf671b5a2f6060502e1b768a30d63cf8cc20065a47d1437dd0e289c63",
+      "pngFile": "w-08-default-early.png",
+      "pngBytes": 173114,
+      "pngSha256": "6022cc743161c313ca776f29adf1789135af91f9839013ec86d1743c6f6b764f",
+      "rgbaSha256": "5b89bacd6f9e38bc7089817f852b8207c04264e7e57d42d73eb9a650ef529318",
+      "width": 2560,
+      "height": 1800,
+      "before": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "after": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "context": {
+        "canvases": [
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": false
+            }
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": false
+            }
+          }
+        ],
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "dpr": 2
+      },
+      "tapeSha256": "3080cf71635e04f98f62d13927de156c142c7828a0674b548e2a65e512129291",
+      "ownCanvasPixelChecks": {
+        "status": "NOT_OBTAINED_FOR_LATE_PAYLOAD"
+      }
+    },
+    {
+      "id": "w-09-readback-off",
+      "plan": {
+        "id": "w-09-readback-off",
+        "kind": "capture",
+        "context": "readback",
+        "traceMode": "off",
+        "trace": false,
+        "readback": false,
+        "repeat": 2
+      },
+      "kind": "ORIGINAL_CAPTURE_FILE",
+      "requestStatus": "PASS",
+      "T0": 58321.1645,
+      "T4": 58525.9683,
+      "lateCallbackAt": null,
+      "rawSha256": "d4c45b4474b010856f99631b63dae2c3dbb863494c1a41d30420c625fc956e67",
+      "pngFile": "w-09-readback-off.png",
+      "pngBytes": 187524,
+      "pngSha256": "2cb119d896d25f11ec827aa83d7f9936530fa3658baf594d8ac6acacc5c784e7",
+      "rgbaSha256": "25ebc206d4acb7f558660793330b655ec5775c2f78591c72defde7bdfcad7f96",
+      "width": 2560,
+      "height": 1800,
+      "before": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "after": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "context": {
+        "canvases": [
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": true
+            }
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": true
+            }
+          }
+        ],
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "dpr": 2
+      },
+      "tapeSha256": "3080cf71635e04f98f62d13927de156c142c7828a0674b548e2a65e512129291",
+      "ownCanvasPixelChecks": {
+        "imageWidth": 2560,
+        "imageHeight": 1800,
+        "expectedWidth": 2560,
+        "expectedHeight": 1800,
+        "dimensionsMatch": true,
+        "checks": [
+          {
+            "width": 876,
+            "height": 660,
+            "differentChannels": 0,
+            "maximumChannelError": 0
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "differentChannels": 0,
+            "maximumChannelError": 0
+          }
+        ],
+        "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+      }
+    },
+    {
+      "id": "w-10-default-late",
+      "plan": {
+        "id": "w-10-default-late",
+        "kind": "capture",
+        "context": "default",
+        "traceMode": "late",
+        "trace": true,
+        "readback": false,
+        "repeat": 2
+      },
+      "kind": "LATE_PROTOCOL_PAYLOAD_TIMEOUT_REMAINS_FAIL",
+      "requestStatus": "TIMEOUT",
+      "T0": 61187.0288,
+      "T4": null,
+      "lateCallbackAt": 68373.1284,
+      "rawSha256": "e900892d9a3027128b6e86e60d1dd249b5e52ddc0875a12823f8bc5eb9063a3c",
+      "pngFile": "w-10-default-late.png",
+      "pngBytes": 173114,
+      "pngSha256": "6022cc743161c313ca776f29adf1789135af91f9839013ec86d1743c6f6b764f",
+      "rgbaSha256": "5b89bacd6f9e38bc7089817f852b8207c04264e7e57d42d73eb9a650ef529318",
+      "width": 2560,
+      "height": 1800,
+      "before": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "after": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "context": {
+        "canvases": [
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": false
+            }
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": false
+            }
+          }
+        ],
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "dpr": 2
+      },
+      "tapeSha256": "3080cf71635e04f98f62d13927de156c142c7828a0674b548e2a65e512129291",
+      "ownCanvasPixelChecks": {
+        "status": "NOT_OBTAINED_FOR_LATE_PAYLOAD"
+      }
+    },
+    {
+      "id": "w-11-readback-early",
+      "plan": {
+        "id": "w-11-readback-early",
+        "kind": "capture",
+        "context": "readback",
+        "traceMode": "early",
+        "trace": true,
+        "readback": false,
+        "repeat": 2
+      },
+      "kind": "ORIGINAL_CAPTURE_FILE",
+      "requestStatus": "PASS",
+      "T0": 71159.5855,
+      "T4": 71347.8181,
+      "lateCallbackAt": null,
+      "rawSha256": "5c5a1cb0e3a2fd7e1edf5b2926b19eae7d36330108ff48364ab56e9cac86c43f",
+      "pngFile": "w-11-readback-early.png",
+      "pngBytes": 187524,
+      "pngSha256": "2cb119d896d25f11ec827aa83d7f9936530fa3658baf594d8ac6acacc5c784e7",
+      "rgbaSha256": "25ebc206d4acb7f558660793330b655ec5775c2f78591c72defde7bdfcad7f96",
+      "width": 2560,
+      "height": 1800,
+      "before": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "after": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "context": {
+        "canvases": [
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": true
+            }
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": true
+            }
+          }
+        ],
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "dpr": 2
+      },
+      "tapeSha256": "3080cf71635e04f98f62d13927de156c142c7828a0674b548e2a65e512129291",
+      "ownCanvasPixelChecks": {
+        "imageWidth": 2560,
+        "imageHeight": 1800,
+        "expectedWidth": 2560,
+        "expectedHeight": 1800,
+        "dimensionsMatch": true,
+        "checks": [
+          {
+            "width": 876,
+            "height": 660,
+            "differentChannels": 0,
+            "maximumChannelError": 0
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "differentChannels": 0,
+            "maximumChannelError": 0
+          }
+        ],
+        "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+      }
+    }
+  ],
+  "missing": [
+    {
+      "id": "w-01-default-off",
+      "requestStatus": "TIMEOUT",
+      "acquisition": "NOT_OBTAINED",
+      "pixelResult": "NOT_OBTAINED"
+    },
+    {
+      "id": "w-12-default-off",
+      "requestStatus": "TIMEOUT",
+      "acquisition": "NOT_OBTAINED",
+      "pixelResult": "NOT_OBTAINED"
+    }
+  ],
+  "comparisons": [
+    {
+      "id": "w-03-default-late",
+      "reference": "w-02-readback-early",
+      "contextPair": [
+        "default",
+        "readback"
+      ],
+      "kinds": [
+        "LATE_PROTOCOL_PAYLOAD_TIMEOUT_REMAINS_FAIL",
+        "ORIGINAL_CAPTURE_FILE"
+      ],
+      "comparison": "ACTUAL_DECODED_PNG_PIXELS",
+      "performanceOutputEquivalence": "NOT_CERTIFIED; different context/trace treatment and late acquisition remain disclosed",
+      "differentChannels": 78950,
+      "differentPixels": 31226,
+      "byChannelRGBA": [
+        26529,
+        25965,
+        26456,
+        0
+      ],
+      "maximumChannelError": 94,
+      "totalAbsoluteChannelError": 391912,
+      "bounds": {
+        "minX": 40,
+        "minY": 84,
+        "maxX": 1755,
+        "maxY": 742
+      },
+      "positions": {
+        "file": "w-03-default-late--w-02-readback-early-positions.json.gz",
+        "sha256": "0f3ff19c1b1a699ba5e5b81cff24952f72916ef5d1c241814dd9b07c62701a36",
+        "bytes": 228595
+      },
+      "differenceImage": {
+        "file": "w-03-default-late--w-02-readback-early-diff.png",
+        "sha256": "02b44d4aaba7900b8e68215cfb374c9d330a295e4aa5fc5ffb398e82c1c7ec73",
+        "bytes": 74385
+      }
+    },
+    {
+      "id": "w-04-readback-off",
+      "reference": "w-02-readback-early",
+      "contextPair": [
+        "readback",
+        "readback"
+      ],
+      "kinds": [
+        "ORIGINAL_CAPTURE_FILE",
+        "ORIGINAL_CAPTURE_FILE"
+      ],
+      "comparison": "ACTUAL_DECODED_PNG_PIXELS",
+      "performanceOutputEquivalence": "NOT_CERTIFIED; different context/trace treatment and late acquisition remain disclosed",
+      "differentChannels": 0,
+      "differentPixels": 0,
+      "byChannelRGBA": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maximumChannelError": 0,
+      "totalAbsoluteChannelError": 0,
+      "bounds": null,
+      "positions": {
+        "file": "w-04-readback-off--w-02-readback-early-positions.json.gz",
+        "sha256": "50c15d921df28492e2d9bf2da5d1cd5c78ee416bdcf478074db63d76d2381cba",
+        "bytes": 22
+      },
+      "differenceImage": {
+        "file": "w-04-readback-off--w-02-readback-early-diff.png",
+        "sha256": "77821847764fa948efece0d30bdca00a70891021abed8e7c81407b5d39e41be4",
+        "bytes": 17992
+      }
+    },
+    {
+      "id": "w-05-default-early",
+      "reference": "w-02-readback-early",
+      "contextPair": [
+        "default",
+        "readback"
+      ],
+      "kinds": [
+        "LATE_PROTOCOL_PAYLOAD_TIMEOUT_REMAINS_FAIL",
+        "ORIGINAL_CAPTURE_FILE"
+      ],
+      "comparison": "ACTUAL_DECODED_PNG_PIXELS",
+      "performanceOutputEquivalence": "NOT_CERTIFIED; different context/trace treatment and late acquisition remain disclosed",
+      "differentChannels": 78950,
+      "differentPixels": 31226,
+      "byChannelRGBA": [
+        26529,
+        25965,
+        26456,
+        0
+      ],
+      "maximumChannelError": 94,
+      "totalAbsoluteChannelError": 391912,
+      "bounds": {
+        "minX": 40,
+        "minY": 84,
+        "maxX": 1755,
+        "maxY": 742
+      },
+      "positions": {
+        "file": "w-05-default-early--w-02-readback-early-positions.json.gz",
+        "sha256": "0f3ff19c1b1a699ba5e5b81cff24952f72916ef5d1c241814dd9b07c62701a36",
+        "bytes": 228595
+      },
+      "differenceImage": {
+        "file": "w-05-default-early--w-02-readback-early-diff.png",
+        "sha256": "02b44d4aaba7900b8e68215cfb374c9d330a295e4aa5fc5ffb398e82c1c7ec73",
+        "bytes": 74385
+      }
+    },
+    {
+      "id": "w-06-readback-late",
+      "reference": "w-02-readback-early",
+      "contextPair": [
+        "readback",
+        "readback"
+      ],
+      "kinds": [
+        "ORIGINAL_CAPTURE_FILE",
+        "ORIGINAL_CAPTURE_FILE"
+      ],
+      "comparison": "ACTUAL_DECODED_PNG_PIXELS",
+      "performanceOutputEquivalence": "NOT_CERTIFIED; different context/trace treatment and late acquisition remain disclosed",
+      "differentChannels": 0,
+      "differentPixels": 0,
+      "byChannelRGBA": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maximumChannelError": 0,
+      "totalAbsoluteChannelError": 0,
+      "bounds": null,
+      "positions": {
+        "file": "w-06-readback-late--w-02-readback-early-positions.json.gz",
+        "sha256": "50c15d921df28492e2d9bf2da5d1cd5c78ee416bdcf478074db63d76d2381cba",
+        "bytes": 22
+      },
+      "differenceImage": {
+        "file": "w-06-readback-late--w-02-readback-early-diff.png",
+        "sha256": "77821847764fa948efece0d30bdca00a70891021abed8e7c81407b5d39e41be4",
+        "bytes": 17992
+      }
+    },
+    {
+      "id": "w-07-readback-late",
+      "reference": "w-02-readback-early",
+      "contextPair": [
+        "readback",
+        "readback"
+      ],
+      "kinds": [
+        "ORIGINAL_CAPTURE_FILE",
+        "ORIGINAL_CAPTURE_FILE"
+      ],
+      "comparison": "ACTUAL_DECODED_PNG_PIXELS",
+      "performanceOutputEquivalence": "NOT_CERTIFIED; different context/trace treatment and late acquisition remain disclosed",
+      "differentChannels": 0,
+      "differentPixels": 0,
+      "byChannelRGBA": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maximumChannelError": 0,
+      "totalAbsoluteChannelError": 0,
+      "bounds": null,
+      "positions": {
+        "file": "w-07-readback-late--w-02-readback-early-positions.json.gz",
+        "sha256": "50c15d921df28492e2d9bf2da5d1cd5c78ee416bdcf478074db63d76d2381cba",
+        "bytes": 22
+      },
+      "differenceImage": {
+        "file": "w-07-readback-late--w-02-readback-early-diff.png",
+        "sha256": "77821847764fa948efece0d30bdca00a70891021abed8e7c81407b5d39e41be4",
+        "bytes": 17992
+      }
+    },
+    {
+      "id": "w-08-default-early",
+      "reference": "w-02-readback-early",
+      "contextPair": [
+        "default",
+        "readback"
+      ],
+      "kinds": [
+        "LATE_PROTOCOL_PAYLOAD_TIMEOUT_REMAINS_FAIL",
+        "ORIGINAL_CAPTURE_FILE"
+      ],
+      "comparison": "ACTUAL_DECODED_PNG_PIXELS",
+      "performanceOutputEquivalence": "NOT_CERTIFIED; different context/trace treatment and late acquisition remain disclosed",
+      "differentChannels": 78950,
+      "differentPixels": 31226,
+      "byChannelRGBA": [
+        26529,
+        25965,
+        26456,
+        0
+      ],
+      "maximumChannelError": 94,
+      "totalAbsoluteChannelError": 391912,
+      "bounds": {
+        "minX": 40,
+        "minY": 84,
+        "maxX": 1755,
+        "maxY": 742
+      },
+      "positions": {
+        "file": "w-08-default-early--w-02-readback-early-positions.json.gz",
+        "sha256": "0f3ff19c1b1a699ba5e5b81cff24952f72916ef5d1c241814dd9b07c62701a36",
+        "bytes": 228595
+      },
+      "differenceImage": {
+        "file": "w-08-default-early--w-02-readback-early-diff.png",
+        "sha256": "02b44d4aaba7900b8e68215cfb374c9d330a295e4aa5fc5ffb398e82c1c7ec73",
+        "bytes": 74385
+      }
+    },
+    {
+      "id": "w-09-readback-off",
+      "reference": "w-02-readback-early",
+      "contextPair": [
+        "readback",
+        "readback"
+      ],
+      "kinds": [
+        "ORIGINAL_CAPTURE_FILE",
+        "ORIGINAL_CAPTURE_FILE"
+      ],
+      "comparison": "ACTUAL_DECODED_PNG_PIXELS",
+      "performanceOutputEquivalence": "NOT_CERTIFIED; different context/trace treatment and late acquisition remain disclosed",
+      "differentChannels": 0,
+      "differentPixels": 0,
+      "byChannelRGBA": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maximumChannelError": 0,
+      "totalAbsoluteChannelError": 0,
+      "bounds": null,
+      "positions": {
+        "file": "w-09-readback-off--w-02-readback-early-positions.json.gz",
+        "sha256": "50c15d921df28492e2d9bf2da5d1cd5c78ee416bdcf478074db63d76d2381cba",
+        "bytes": 22
+      },
+      "differenceImage": {
+        "file": "w-09-readback-off--w-02-readback-early-diff.png",
+        "sha256": "77821847764fa948efece0d30bdca00a70891021abed8e7c81407b5d39e41be4",
+        "bytes": 17992
+      }
+    },
+    {
+      "id": "w-10-default-late",
+      "reference": "w-02-readback-early",
+      "contextPair": [
+        "default",
+        "readback"
+      ],
+      "kinds": [
+        "LATE_PROTOCOL_PAYLOAD_TIMEOUT_REMAINS_FAIL",
+        "ORIGINAL_CAPTURE_FILE"
+      ],
+      "comparison": "ACTUAL_DECODED_PNG_PIXELS",
+      "performanceOutputEquivalence": "NOT_CERTIFIED; different context/trace treatment and late acquisition remain disclosed",
+      "differentChannels": 78950,
+      "differentPixels": 31226,
+      "byChannelRGBA": [
+        26529,
+        25965,
+        26456,
+        0
+      ],
+      "maximumChannelError": 94,
+      "totalAbsoluteChannelError": 391912,
+      "bounds": {
+        "minX": 40,
+        "minY": 84,
+        "maxX": 1755,
+        "maxY": 742
+      },
+      "positions": {
+        "file": "w-10-default-late--w-02-readback-early-positions.json.gz",
+        "sha256": "0f3ff19c1b1a699ba5e5b81cff24952f72916ef5d1c241814dd9b07c62701a36",
+        "bytes": 228595
+      },
+      "differenceImage": {
+        "file": "w-10-default-late--w-02-readback-early-diff.png",
+        "sha256": "02b44d4aaba7900b8e68215cfb374c9d330a295e4aa5fc5ffb398e82c1c7ec73",
+        "bytes": 74385
+      }
+    },
+    {
+      "id": "w-11-readback-early",
+      "reference": "w-02-readback-early",
+      "contextPair": [
+        "readback",
+        "readback"
+      ],
+      "kinds": [
+        "ORIGINAL_CAPTURE_FILE",
+        "ORIGINAL_CAPTURE_FILE"
+      ],
+      "comparison": "ACTUAL_DECODED_PNG_PIXELS",
+      "performanceOutputEquivalence": "NOT_CERTIFIED; different context/trace treatment and late acquisition remain disclosed",
+      "differentChannels": 0,
+      "differentPixels": 0,
+      "byChannelRGBA": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maximumChannelError": 0,
+      "totalAbsoluteChannelError": 0,
+      "bounds": null,
+      "positions": {
+        "file": "w-11-readback-early--w-02-readback-early-positions.json.gz",
+        "sha256": "50c15d921df28492e2d9bf2da5d1cd5c78ee416bdcf478074db63d76d2381cba",
+        "bytes": 22
+      },
+      "differenceImage": {
+        "file": "w-11-readback-early--w-02-readback-early-diff.png",
+        "sha256": "77821847764fa948efece0d30bdca00a70891021abed8e7c81407b5d39e41be4",
+        "bytes": 17992
+      }
+    }
+  ]
+}

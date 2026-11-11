@@ -1,7 +1,9 @@
 import {captureParameters,timedRequest,stoppedFrame,observeCleanup} from './three-body-stage-u-contracts.mjs';
+export {measuredRequest,timingOf,auditTiming} from './three-body-stage-w-timing.mjs';
 export {captureParameters,timedRequest,stoppedFrame,observeCleanup};
 export const baseline='9779cdb796eac3dab00f0ac73561cdf33be3ccdf';
-export const sources=['tools/three-body-stage-v.mjs','tools/three-body-stage-v-contracts.mjs','tools/three-body-stage-v-trace.mjs','tools/three-body-stage-v-audit.mjs','tools/three-body-stage-u-fixture.mjs','tools/three-body-stage-u-contracts.mjs','tools/three-body-stage-q-browser.mjs','tools/three-body-stage-q-capture.mjs','tools/three-body-stage-p-analysis.mjs'];
+export const legacySources=['tools/three-body-stage-v.mjs','tools/three-body-stage-v-contracts.mjs','tools/three-body-stage-v-trace.mjs','tools/three-body-stage-v-audit.mjs','tools/three-body-stage-u-fixture.mjs','tools/three-body-stage-u-contracts.mjs','tools/three-body-stage-q-browser.mjs','tools/three-body-stage-q-capture.mjs','tools/three-body-stage-p-analysis.mjs'];
+export const sources=[...legacySources,'tools/three-body-stage-u-audit.mjs','tools/three-body-stage-w-timing.mjs','tools/three-body-stage-w-source.mjs'];
 export function plans(){
  const primary=[['default',false],['readback',true],['default',true],['readback',false],['readback',false],['default',true],['readback',true],['default',false]];
  const counts={};const rows=primary.map(([context,trace],i)=>{const key=context+trace,repeat=counts[key]=(counts[key]??0)+1;return{id:`v-p${i+1}-${context}-${trace?'on':'off'}`,kind:'capture',context,trace,readback:false,repeat};});
