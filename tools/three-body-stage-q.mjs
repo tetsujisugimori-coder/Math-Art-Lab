@@ -9,6 +9,7 @@ import{distribution,analyzeTrace}from'./three-body-stage-p-analysis.mjs';
 import { categories, recordIssue, suiteState } from './three-body-stage-q-contracts.mjs';
 import { capturePage, inspectCaptureBitmap } from './three-body-stage-q-capture.mjs';
 import { deliverFromSender } from './three-body-stage-q-sender.mjs';
+import { preserveExplicitPlan } from './three-body-stage-q-plan.mjs';
 const args=Object.fromEntries(process.argv.slice(2).map(s=>s.replace(/^--/,'').split('=')));
 const root=args.output??'.three-body-evidence/stage-q',suite=args.suite??'smoke',engine=args.browser??'chromium',base='b07ccec1205ca99a1112ab8db951efbe94a51f74';
 for(const d of ['raw','traces','screenshots','sources'])fs.mkdirSync(`${root}/${d}`,{recursive:true});
@@ -17,6 +18,8 @@ const current=p=>fs.readFileSync(p,'utf8'),source=p=>args.ref==='base'&&p.starts
 const deadline=(promise,ms,label)=>{let timer;return Promise.race([promise,new Promise((_,reject)=>timer=setTimeout(()=>reject(Error(label+' deadline')),ms))]).finally(()=>clearTimeout(timer));};
 const ownFiles=['tools/three-body-stage-q.mjs','tools/three-body-stage-q-contracts.mjs','tools/three-body-stage-q-capture.mjs','tools/three-body-stage-q-pipeline.mjs','tools/three-body-stage-q-evidence.mjs','tools/three-body-stage-q-metrics.mjs','tools/three-body-stage-q-sender.mjs','tools/three-body-stage-q-sender-child.mjs','tools/three-body-stage-q-browser.mjs','tools/three-body-stage-q-os.mjs','tools/three-body-stage-q-threads.ps1','tools/three-body-stage-p-analysis.mjs','tools/three-body-stage-p.mjs'];
 ownFiles.push('tools/three-body-stage-q-report.mjs','tools/three-body-stage-q-check.mjs','tools/three-body-stage-s-attribution.mjs');
+ownFiles.push('tools/three-body-stage-q-plan.mjs');
+const externalPlan = args['plan-file'] ? preserveExplicitPlan(root, suite, args['plan-file']) : null;
 const toolHashes=Object.fromEntries(ownFiles.map(p=>[p,hash(current(p).replaceAll('\r\n','\n'))]));
 for(const[p,h]of Object.entries(toolHashes))fs.writeFileSync(`${root}/sources/${h}-${path.basename(p)}`,current(p).replaceAll('\r\n','\n'));
 // Reuse the baseline diagnostic transform without executing its old server/harness.
@@ -43,6 +46,7 @@ const server=createServer((req,res)=>{try{const u=new URL(req.url,'http://localh
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const url=`http://127.0.0.1:${server.address().port}`;
 const mini={mini:true,canvas:'app',dom:'app',width:438,height:330,count:2,period:40,geometry:true};
 function plans(){
+ if(externalPlan)return externalPlan;
  if(suite==='emulation')return[0,1,2].flatMap(repeat=>['readback','default'].flatMap(context=>[false,true].map(captureEmulation=>({...mini,name:`emulation-${context}-${captureEmulation?'on':'off'}`,context,captureEmulation,captureApi:'playwright',captureStage:'after-trace-end',trace:true,pixelCheck:true,duration:1200,repeat}))));
  if(suite==='mechanism')return[0,1,2].flatMap(repeat=>[
   {name:'native-on',native:true,instrument:true},
@@ -82,6 +86,7 @@ if(fs.existsSync(manifestFile))throw Error('Existing evidence; select unused out
 const sourceHashes=Object.fromEntries(execFileSync('git',['ls-files','src'],{encoding:'utf8'}).trim().split(/\r?\n/).map(p=>[p,hash(source(p).replaceAll('\r\n','\n'))]));
 const plannedRuns=plans();
 const manifest={date:new Date().toISOString(),head:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),reference:args.ref??'working',base,suite,engine,plannedCount:plannedRuns.length,plannedRuns,fixture,toolHashes,sourceHashes,environment:{os:os.platform(),release:os.release(),cpu:os.cpus()[0].model,memory:os.totalmem(),node:process.version,hostPid:process.pid},runs:[]};write(manifestFile,manifest);
+if(externalPlan)manifest.explicitPlanSha256=hash(current(args['plan-file']));
 manifest.schema=2;
 manifest.status='PLANNED';
 manifest.runs=plannedRuns.map((plan,index)=>{
@@ -95,7 +100,7 @@ async function run(o){
  const id=`${suite}-${engine}-${String(++counter).padStart(3,'0')}-${o.name}`,file=`${root}/raw/${id}.json.gz`;
  const launchArgs=engine!=='chromium'?[]:o.backend==='unforced'?[]:o.backend==='disabled'?['--disable-gpu']:['--use-angle=swiftshader','--enable-unsafe-swiftshader'];
  const report={id,options:o,fixture,toolHashes,reference:args.ref??'working',start:new Date().toISOString(),errors:[],issues:[],hostSamples:[],launchArgs,
-  readbackPolicy:{preCapture:'No getImageData in diagnostic JavaScript; browser internals NOT_TESTED',postCapture:o.pixelCheck?'Canvas pixel verification':'none',initialBitmapHash:'NOT_TESTED_WITHOUT_READBACK'}};
+  readbackPolicy:{preCapture:o.preReadback?'Explicit post-stop getImageData intervention; may affect backend':'No getImageData in diagnostic JavaScript; browser internals NOT_TESTED',postCapture:o.pixelCheck?'Canvas pixel verification':'none',initialBitmapHash:'NOT_TESTED_WITHOUT_READBACK'}};
  const entry=manifest.runs[counter-1];entry.status='RUNNING';entry.started=report.start;manifest.status='RUNNING';write(manifestFile,manifest);
  const save=()=>fs.writeFileSync(file,gzipSync(JSON.stringify(report)));
  let browser,context,page,cdp,bc,tracing=false,sampler,osFinished=false;
@@ -122,7 +127,7 @@ async function run(o){
   try{
    browser=await({chromium,webkit}[engine]).launch({headless:true,...(engine==='chromium'?{args:launchArgs}:{})});
    context=await browser.newContext({viewport:{width:1280,height:900},deviceScaleFactor:o.dpr??2});page=await context.newPage();
-   cdp=engine==='chromium'?await context.newCDPSession(page):null;bc=cdp?await browser.newBrowserCDPSession():null;
+   cdp=engine==='chromium'&&o.extraCdp!==false?await context.newCDPSession(page):null;bc=cdp?await browser.newBrowserCDPSession():null;
    if(o.pixelCheck&&cdp&&o.captureEmulation!==false){
     report.captureEmulation={width:1280,height:900,deviceScaleFactor:o.dpr??2,mobile:false};
     await cdp.send('Emulation.setDeviceMetricsOverride',report.captureEmulation);
@@ -175,6 +180,22 @@ async function run(o){
   for(const t of report.transitions??[])if(t.error||(t.page&&!t.page.cancelled&&!t.page.after.playing&&!t.page.later.playing&&t.page.after.step!==t.page.later.step))report.errors.push('rapid pause continued');
   save();
   if(o.captureStage==='after-trace-end')await finishTrace();
+  // Stage T factors are explicit diagnostic interventions, never implicit
+  // screenshot fallbacks. Releasing resources intentionally changes the target.
+  if(o.preReadback)report.preCaptureReadback=await deadline(page.evaluate(async()=>{
+   const results=[];
+   for(const canvas of document.querySelectorAll('#canvases canvas')){
+    const begin=performance.now(),bytes=canvas.getContext('2d').getImageData(0,0,canvas.width,canvas.height).data;
+    const sha256=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),b=>b.toString(16).padStart(2,'0')).join('');
+    results.push({begin,end:performance.now(),width:canvas.width,height:canvas.height,sha256});
+   }
+   return results;
+  }),5000,'explicit pre-capture readback');
+  if(o.releaseResources)report.resourceRelease=await page.evaluate(()=>{
+   const before=[...document.querySelectorAll('#canvases canvas')].map(cv=>({width:cv.width,height:cv.height}));
+   for(const cv of document.querySelectorAll('#canvases canvas')){cv.width=0;cv.height=0;cv.remove();}
+   return{at:performance.now(),before,after:document.querySelectorAll('#canvases canvas').length,scope:'Backing reset and DOM removal; JavaScript context references retained, GPU disposal NOT_TESTED',pixelEquivalence:'NOT_APPLICABLE_TARGET_INTENTIONALLY_CHANGED'};
+  });
   async function captureClock(){
    const samples=[];
    for(let i=0;i<8;i++){
@@ -193,7 +214,9 @@ async function run(o){
     const imageFile=`${root}/screenshots/${id}.png`;
     await capturePage(page,cdp,imageFile,o.captureApi);
     report.capture.acquiredAt=performance.now();
-    report.capture.status='PASS';report.capture.file=imageFile;report.capture.sha256=hash(fs.readFileSync(imageFile));
+    const imageBytes=fs.readFileSync(imageFile);
+    report.capture.status='PASS';report.capture.file=imageFile;report.capture.sha256=hash(imageBytes);
+    report.capture.image={bytes:imageBytes.length,width:imageBytes.readUInt32BE(16),height:imageBytes.readUInt32BE(20),format:'PNG'};
     if(o.pixelCheck){
      report.capture.bitmapCheckBegin=performance.now();
      report.capture.bitmap=await deadline(inspectCaptureBitmap(page,fs.readFileSync(imageFile)),5000,'capture bitmap verification');

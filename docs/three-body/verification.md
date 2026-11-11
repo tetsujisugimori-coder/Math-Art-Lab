@@ -147,3 +147,7 @@ Windows最終GUIは開発46/48（4.7分）、本番46/48（4.4分）。失敗は
 [Stage S](review-44/stage-s/investigation.md)へ93run、撮影失敗14、非再現と再現、raw／trace／画像／summary／manifestのhashを保存。[解析状態](review-44/stage-s/diagnostic-state.md)を明文化し、破損JSONの取得誤表示とartifact読取例外後のPASS残存をRED→GREENで修正。全単体476、型、両build、開発48／本番48GUI成功。6条件のFloat64 bit／全履歴一致、独立基準と保存則を再検証した。
 
 paint454.4ms、Layout373.296ms／CPU5.380ms、Task467.957ms／CPU39.008msなどを取得したが、具体的native／OS機構はUNKNOWN。専用senderの自然HIT1／MISS8は追加step0・A/B同期。製品変更0・性能予算非緩和・総合PARTIAL。旧証拠hash一致と遠隔完全複製NOT_UPLOADEDを保持する。[検証記録](review-44/stage-s/verification.md)に最終HEAD CIの確定先を示す。606run計画の完了／失敗／未実行とartifact実期限はPR44の最終対応コメントで確認する。
+
+## Stage T
+
+P/Q/R/Sの承認済みWindowsローカル複製10182件・5693282588bytesは全SHA/サイズ/集合一致、別process再照合も0不一致。REMOTE_BACKUP_NOT_UPLOADEDは維持。診断planのsuite間衝突を負対照で修正した。新規105runは完走したが撮影30件失敗、遅延のnative/OS根因はUNKNOWN。物理/製品修正0、性能予算非緩和、改善率NOT_TESTED。数理bit/全履歴6条件一致、RK4/20周期/三角形/二次収束も再確認。Windows既存unit2件timeout、GUI初回1timeoutと再実行成功を分けて残す。詳細と最終HEAD CI参照は[Stage T](review-44/stage-t/verification.md)。総合PARTIAL、独立再レビュー前にmergeしない。

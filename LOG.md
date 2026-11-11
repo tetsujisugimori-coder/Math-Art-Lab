@@ -1024,3 +1024,13 @@ P3-04の撮影障害を最優先に36条件とCDP対照を実施。旧context撮
 専用senderは自然HIT1・MISS8、追加step0、A/B同期、timer/rAF取消。基準8f4とbit／履歴6条件一致、RK4・20周期・三角形・二次収束を再確認。型／両buildとWindows開発／本番GUI各48成功、skip／flaky0。旧P/Q/R追跡資料差分0、Q原本140・R原本255・旧CI ZIP6・索引1983のSHA一致。新原本は隔離保存、Gitへ約8MBの要約・source・索引・代表画像。遠隔完全原本複製はNOT_UPLOADED。
 
 製品候補試作／採用0件、総合PARTIAL・P3-05限定PASS・マージ推奨NO。新CIは既存555条件を維持して606条件を計画し、最終HEADの件数・失敗・実artifact／expiry／digest・checkout treeをPR44対応コメントに固定する。Issue43 OPEN／PR44 Draft／auto-merge無効を維持し、独立再レビュー待ちで停止する。
+
+## Stage T（2026-11-11）
+
+- 基準34c4・レビュー5857179468を再取得。Issue43 OPEN、PR44 Draft、auto-mergeなしを確認。製品コード・モデル・公開経路の変更0。
+- 承認済みWindows永続領域へP/Q/R/S原本10182件・5693282588bytesを非破壊コピー。サイズ・集合・SHA-256を全件再読込し、別processでも不一致0。LOCAL_BACKUP_VERIFIED、遠隔独立複製はREMOTE_BACKUP_NOT_UPLOADED。公開資料に個人の絶対パスを含めない。
+- 一因子ABBA対照、明示plan snapshot、撮影前readback／追加CDP／backing reset診断を追加。新規plan保存名の衝突を41完了・64未実行で保存し、負対照→suite別保存で修正。105再実行完了、撮影30失敗（26timeout・4直接CDP例外）を保持。5000msは変更しない。
+- 最大入力配送471.854ms、Task479.414ms/CPU32.205ms・Layout union5.443ms等を記録。native.stroke193.9msなども観測。CPU・GC・geometry単独の共通原因説は不足。native/OS待機・元1249msとの同因はUNKNOWN。製品修正0、改善率NOT_TESTED。
+- 全Float64 bit・全履歴6/6一致、独立RK4・約20周期・三角形・二次収束を再確認。18停止の追加step0、9確認HIT・2MISS・7未確認（計測OFF6、clock envelope1）。性能予算は未達。
+- 型・開発/本番build成功。Windows単体は既存2件が5秒timeout（初回486/488、追加privacy試験後489/491、基準test集合474/476）。許容時間・skip非変更。開発GUI47/48→同条件48/48、本番48/48。初回失敗を保全。
+- 詳細はdocs/three-body/review-44/stage-t/。最終HEADの正式/診断CI、artifact実ID・digest・expires_at、取得/照合・checkout treeはPR最終報告で確定する。総合PARTIAL、限定マージNO、独立再レビュー待ち。
