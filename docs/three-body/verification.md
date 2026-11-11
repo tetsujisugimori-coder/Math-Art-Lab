@@ -151,3 +151,8 @@ paint454.4ms、Layout373.296ms／CPU5.380ms、Task467.957ms／CPU39.008msなど�
 ## Stage T
 
 P/Q/R/Sの承認済みWindowsローカル複製10182件・5693282588bytesは全SHA/サイズ/集合一致、別process再照合も0不一致。REMOTE_BACKUP_NOT_UPLOADEDは維持。診断planのsuite間衝突を負対照で修正した。新規105runは完走したが撮影30件失敗、遅延のnative/OS根因はUNKNOWN。物理/製品修正0、性能予算非緩和、改善率NOT_TESTED。数理bit/全履歴6条件一致、RK4/20周期/三角形/二次収束も再確認。Windows既存unit2件timeout、GUI初回1timeoutと再実行成功を分けて残す。詳細と最終HEAD CI参照は[Stage T](review-44/stage-t/verification.md)。総合PARTIAL、独立再レビュー前にmergeしない。
+
+
+## Stage U minimum CDP controls
+
+See [Stage U protocol](review-44/stage-u/protocol.md), [local results](review-44/stage-u/results.md) and [verification](review-44/stage-u/verification.md). Overall PARTIAL, root wait UNKNOWN, product changes0, merge NO. Final-HEAD CI and verified archive receipts are posted on existing Issue43/PR44 after execution. All prior failures and ledgers are retained.

@@ -1,0 +1,105 @@
+{
+  "id": "u-002-default-B-0",
+  "plan": {
+    "id": "u-002-default-B-0",
+    "context": "default",
+    "operation": "B",
+    "block": 0,
+    "readback": false,
+    "repeat": 0
+  },
+  "status": "FAIL",
+  "issues": [
+    {
+      "category": "E_SCREENSHOT",
+      "code": "TIMEOUT",
+      "error": "Page.captureScreenshot timeout 5000ms",
+      "at": 9246.6105,
+      "clock": "harness performance.now"
+    }
+  ],
+  "requests": [
+    {
+      "session": {
+        "logicalId": "u-002-default-B-0/page-session",
+        "targetId": "1B0E95105AC1D636C3411B47203278C1",
+        "wireSessionId": "NOT_EXPOSED_BY_PUBLIC_PLAYWRIGHT_API",
+        "sameObjectForAllMeasuredRequests": true
+      },
+      "requestId": "u-002-default-B-0/page-session/request-1",
+      "method": "Page.captureScreenshot",
+      "params": {
+        "format": "png",
+        "fromSurface": true,
+        "clip": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 900,
+          "scale": 1
+        },
+        "captureBeyondViewport": false
+      },
+      "start": 4137.2967,
+      "clock": "harness performance.now ms",
+      "timeoutMs": 5000,
+      "wireRequestId": "NOT_EXPOSED_BY_PUBLIC_PLAYWRIGHT_API",
+      "response": null,
+      "finished": 9246.0452,
+      "elapsed": 5108.748500000001,
+      "status": "TIMEOUT",
+      "error": {
+        "name": "TimeoutError",
+        "message": "Page.captureScreenshot timeout 5000ms"
+      },
+      "lateReply": "NOT_TESTED_AFTER_DEADLINE"
+    }
+  ],
+  "gap": null,
+  "captureStatus": "TIMEOUT",
+  "image": {
+    "acquisition": "NOT_ACQUIRED"
+  },
+  "before": {
+    "step": 30,
+    "bStep": 30,
+    "ab": true,
+    "playing": false,
+    "disposed": false,
+    "timer": false,
+    "raf": false,
+    "trail": 0,
+    "graph": 0,
+    "b": "30",
+    "a": "30",
+    "observed": "30"
+  },
+  "after": {
+    "step": 30,
+    "bStep": 30,
+    "ab": true,
+    "playing": false,
+    "disposed": false,
+    "timer": false,
+    "raf": false,
+    "trail": 0,
+    "graph": 0,
+    "b": "30",
+    "a": "30",
+    "observed": "30"
+  },
+  "later": {
+    "step": 30,
+    "bStep": 30,
+    "ab": true,
+    "playing": false,
+    "disposed": false,
+    "timer": false,
+    "raf": false,
+    "trail": 0,
+    "graph": 0,
+    "b": "30",
+    "a": "30",
+    "observed": "30"
+  }
+}

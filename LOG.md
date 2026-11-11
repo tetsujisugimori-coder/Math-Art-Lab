@@ -1034,3 +1034,12 @@ P3-04の撮影障害を最優先に36条件とCDP対照を実施。旧context撮
 - 全Float64 bit・全履歴6/6一致、独立RK4・約20周期・三角形・二次収束を再確認。18停止の追加step0、9確認HIT・2MISS・7未確認（計測OFF6、clock envelope1）。性能予算は未達。
 - 型・開発/本番build成功。Windows単体は既存2件が5秒timeout（初回486/488、追加privacy試験後489/491、基準test集合474/476）。許容時間・skip非変更。開発GUI47/48→同条件48/48、本番48/48。初回失敗を保全。
 - 詳細はdocs/three-body/review-44/stage-t/。最終HEADの正式/診断CI、artifact実ID・digest・expires_at、取得/照合・checkout treeはPR最終報告で確定する。総合PARTIAL、限定マージNO、独立再レビュー待ち。
+
+
+## 2026-11-11 Stage U minimal CDP controls (PR #44)
+
+- Fixed A(layout only)/B(capture only)/C(layout then capture), OFF/ON ABBA,2 samples per cell, fresh Chromium,24 unique trials per environment; no product changes.
+- Local cohort24/24 completed with12 failures: old/OFF capture4 timeout; old/ON intervention6 timeout and primary operations not sent; cleanup failures retained. Current12 trials PASS,8 actual PNGs match frozen bitmap. Original prefix and source versions preserved.
+- RTT is protocol wall time, not internal CPU/native wait. Native/OS mechanism, original1249ms relationship, product performance and natural stop-HIT remain UNKNOWN/PARTIAL.
+- Added independent source/raw/summary/image/index audits, negative controls, immutable review-copy index and a two-OS diagnostic workflow. Final CI/artifact/archive receipts follow on existing Issue43/PR44.
+- Details: docs/three-body/review-44/stage-u/. No merge/auto-merge, Issue OPEN, PR Draft.
