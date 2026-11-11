@@ -1,4 +1,4 @@
-name: Three-body Stage W source-bound pre-draw trace controls
+name: Three-body Stage W fixed-cohort re-audit (no new captures)
 on:
   pull_request:
     branches: [main]
@@ -11,12 +11,17 @@ on:
       - '.github/workflows/three-body-stage-w.yml'
 permissions:
   contents: read
+  actions: read
 jobs:
-  fixed-cohort:
+  fixed-cohort-reaudit:
     strategy:
       fail-fast: false
       matrix:
-        os: [windows-2025, ubuntu-24.04]
+        include:
+          - os: windows-2025
+            cohort: windows
+          - os: ubuntu-24.04
+            cohort: linux
     runs-on: ${{ matrix.os }}
     timeout-minutes: 15
     steps:
@@ -28,19 +33,16 @@ jobs:
         with:
           node-version: '24'
           cache: npm
-      - name: Save fixed12 plan before preparation
-        run: >-
-          node --input-type=module -e "import fs from 'node:fs';import {plans,baseline} from './tools/three-body-stage-w-contracts.mjs';fs.mkdirSync('test-results/stage-w',{recursive:true});fs.writeFileSync('test-results/stage-w/planned.json',JSON.stringify({schema:'stage-w-plan-1',baseline,checkout:process.env.GITHUB_SHA,ciRunId:process.env.GITHUB_RUN_ID,status:'PLANNED',plans:plans()}));"
       - run: npm ci
-      - name: Existing Chromium only
-        run: npx playwright install chromium
-      - name: Exactly one fixed source-bound cohort
-        run: node tools/three-body-stage-w.mjs --output=test-results/stage-w
-      - name: Preserve acquired and blocked originals
+      - name: Re-audit completed fixed cohort and preserve original FAIL
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node tools/three-body-stage-w-reaudit.mjs --cohort=${{ matrix.cohort }} --output=test-results/stage-w
+      - name: Preserve original bytes and independent re-audit
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
-          name: stage-w-evidence-${{ matrix.os }}-${{ github.sha }}
+          name: stage-w-reaudit-${{ matrix.os }}-${{ github.sha }}
           path: test-results/stage-w/
           if-no-files-found: error
           retention-days: 90
