@@ -1,0 +1,422 @@
+{
+  "id": "v-a1-default-marked",
+  "originalTraceSha256": "6552df25befeef69ce1c889c908d90e7182da6cf75cf052edcfdbf3f3e9adf8d",
+  "traceBytes": 57915,
+  "selection": "Named scopes/own markers only; absence here is not absence in the full trace. No endpoint assignment from event names.",
+  "events": [
+    {
+      "args": {
+        "data": {
+          "callTime": 5262020301,
+          "navigationId": "C4D819C3ACD099BB526B43FF881A331E",
+          "sampleTraceId": 6190118194919960,
+          "startTime": 1554
+        }
+      },
+      "cat": "blink.user_timing",
+      "name": "v-a1-default-marked/page-before-0",
+      "ph": "I",
+      "pid": 29220,
+      "s": "t",
+      "tid": 25848,
+      "ts": 5262020279,
+      "tts": 147529
+    },
+    {
+      "args": {
+        "data": {
+          "callTime": 5262022778,
+          "navigationId": "C4D819C3ACD099BB526B43FF881A331E",
+          "sampleTraceId": 6190118194919962,
+          "startTime": 1556.5
+        }
+      },
+      "cat": "blink.user_timing",
+      "name": "v-a1-default-marked/handler-start",
+      "ph": "I",
+      "pid": 29220,
+      "s": "t",
+      "tid": 25848,
+      "ts": 5262022775,
+      "tts": 147895
+    },
+    {
+      "args": {
+        "data": {
+          "callTime": 5262022832,
+          "navigationId": "C4D819C3ACD099BB526B43FF881A331E",
+          "sampleTraceId": 6190118194919963,
+          "startTime": 1556.5
+        }
+      },
+      "cat": "blink.user_timing",
+      "name": "v-a1-default-marked/before-getImageData-0",
+      "ph": "I",
+      "pid": 29220,
+      "s": "t",
+      "tid": 25848,
+      "ts": 5262022832,
+      "tts": 147948
+    },
+    {
+      "args": {},
+      "cat": "gpu",
+      "dur": 6727986,
+      "name": "RasterImplementation::ReadbackImagePixels",
+      "ph": "X",
+      "pid": 29220,
+      "tdur": 3195,
+      "tid": 25848,
+      "ts": 5262022967,
+      "tts": 148083
+    },
+    {
+      "args": {},
+      "cat": "gpu",
+      "dur": 6724948,
+      "name": "ImplementationBase::WaitForCmd",
+      "ph": "X",
+      "pid": 29220,
+      "tdur": 169,
+      "tid": 25848,
+      "ts": 5262023055,
+      "tts": 148170
+    },
+    {
+      "args": {},
+      "cat": "gpu",
+      "dur": 6724943,
+      "name": "CommandBufferHelper::Finish",
+      "ph": "X",
+      "pid": 29220,
+      "tdur": 165,
+      "tid": 25848,
+      "ts": 5262023058,
+      "tts": 148172
+    },
+    {
+      "args": {
+        "end": 2048,
+        "start": 2048
+      },
+      "cat": "gpu",
+      "dur": 6724874,
+      "name": "CommandBufferProxyImpl::WaitForGetOffset",
+      "ph": "X",
+      "pid": 29220,
+      "tdur": 139,
+      "tid": 25848,
+      "ts": 5262023086,
+      "tts": 148194
+    },
+    {
+      "args": {},
+      "cat": "gpu",
+      "dur": 6723872,
+      "name": "RasterDecoderImpl::DoReadbackARGBImagePixelsINTERNAL",
+      "ph": "X",
+      "pid": 29628,
+      "tdur": 14319,
+      "tid": 26520,
+      "ts": 5262023422,
+      "tts": 177331
+    },
+    {
+      "args": {
+        "data": {
+          "callTime": 5268751363,
+          "navigationId": "C4D819C3ACD099BB526B43FF881A331E",
+          "sampleTraceId": 6190118194919982,
+          "startTime": 8285
+        }
+      },
+      "cat": "blink.user_timing",
+      "name": "v-a1-default-marked/after-getImageData-0",
+      "ph": "I",
+      "pid": 29220,
+      "s": "t",
+      "tid": 25848,
+      "ts": 5268751357,
+      "tts": 151641
+    },
+    {
+      "args": {
+        "data": {
+          "callTime": 5268751422,
+          "navigationId": "C4D819C3ACD099BB526B43FF881A331E",
+          "sampleTraceId": 6190118194919983,
+          "startTime": 8285.100000000559
+        }
+      },
+      "cat": "blink.user_timing",
+      "name": "v-a1-default-marked/before-getImageData-1",
+      "ph": "I",
+      "pid": 29220,
+      "s": "t",
+      "tid": 25848,
+      "ts": 5268751419,
+      "tts": 151699
+    },
+    {
+      "args": {},
+      "cat": "gpu",
+      "dur": 14172,
+      "name": "RasterImplementation::ReadbackImagePixels",
+      "ph": "X",
+      "pid": 29220,
+      "tdur": 3348,
+      "tid": 25848,
+      "ts": 5268751543,
+      "tts": 151818
+    },
+    {
+      "args": {},
+      "cat": "gpu",
+      "dur": 10877,
+      "name": "ImplementationBase::WaitForCmd",
+      "ph": "X",
+      "pid": 29220,
+      "tdur": 147,
+      "tid": 25848,
+      "ts": 5268751727,
+      "tts": 152001
+    },
+    {
+      "args": {},
+      "cat": "gpu",
+      "dur": 10865,
+      "name": "CommandBufferHelper::Finish",
+      "ph": "X",
+      "pid": 29220,
+      "tdur": 139,
+      "tid": 25848,
+      "ts": 5268751736,
+      "tts": 152007
+    },
+    {
+      "args": {
+        "end": 2067,
+        "start": 2067
+      },
+      "cat": "gpu",
+      "dur": 10775,
+      "name": "CommandBufferProxyImpl::WaitForGetOffset",
+      "ph": "X",
+      "pid": 29220,
+      "tdur": 74,
+      "tid": 25848,
+      "ts": 5268751817,
+      "tts": 152068
+    },
+    {
+      "args": {},
+      "cat": "gpu",
+      "dur": 9870,
+      "name": "RasterDecoderImpl::DoReadbackARGBImagePixelsINTERNAL",
+      "ph": "X",
+      "pid": 29628,
+      "tdur": 3218,
+      "tid": 26520,
+      "ts": 5268752457,
+      "tts": 194402
+    },
+    {
+      "args": {
+        "data": {
+          "callTime": 5268765820,
+          "navigationId": "C4D819C3ACD099BB526B43FF881A331E",
+          "sampleTraceId": 6190118194919979,
+          "startTime": 8299.5
+        }
+      },
+      "cat": "blink.user_timing",
+      "name": "v-a1-default-marked/after-getImageData-1",
+      "ph": "I",
+      "pid": 29220,
+      "s": "t",
+      "tid": 25848,
+      "ts": 5268765811,
+      "tts": 155269
+    },
+    {
+      "args": {
+        "data": {
+          "callTime": 5268765898,
+          "navigationId": "C4D819C3ACD099BB526B43FF881A331E",
+          "sampleTraceId": 6190118194919972,
+          "startTime": 8299.600000000559
+        }
+      },
+      "cat": "blink.user_timing",
+      "name": "v-a1-default-marked/handler-return",
+      "ph": "I",
+      "pid": 29220,
+      "s": "t",
+      "tid": 25848,
+      "ts": 5268765893,
+      "tts": 155344
+    },
+    {
+      "args": {
+        "data": {
+          "callTime": 5268767464,
+          "navigationId": "C4D819C3ACD099BB526B43FF881A331E",
+          "sampleTraceId": 6190118194919974,
+          "startTime": 8301.200000000186
+        }
+      },
+      "cat": "blink.user_timing",
+      "name": "v-a1-default-marked/page-after-0",
+      "ph": "I",
+      "pid": 29220,
+      "s": "t",
+      "tid": 25848,
+      "ts": 5268767455,
+      "tts": 156735
+    },
+    {
+      "args": {
+        "sync_id": "v-a1-default-marked/browser-before-0"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 19908,
+      "tid": 25304,
+      "ts": 5262021093,
+      "tts": 55320
+    },
+    {
+      "args": {
+        "sync_id": "v-a1-default-marked/browser-before-1"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 19908,
+      "tid": 25304,
+      "ts": 5262021770,
+      "tts": 55387
+    },
+    {
+      "args": {
+        "sync_id": "v-a1-default-marked/browser-after-0"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 19908,
+      "tid": 25304,
+      "ts": 5267359756,
+      "tts": 58924
+    },
+    {
+      "args": {
+        "sync_id": "v-a1-default-marked/browser-after-1"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 19908,
+      "tid": 25304,
+      "ts": 5267482511,
+      "tts": 59184
+    }
+  ],
+  "selectedCount": 22,
+  "clock": {
+    "status": "BRACKETED",
+    "mainPid": 29220,
+    "mainTid": 25848,
+    "browserPid": 19908,
+    "browserTid": 25304,
+    "anchors": [
+      {
+        "name": "v-a1-default-marked/page-before-0",
+        "kind": "page",
+        "phase": "before",
+        "begin": 52557.7582,
+        "end": 52558.9481,
+        "status": "PASS",
+        "pid": 29220,
+        "tid": 25848,
+        "traceMs": 5262020.279,
+        "low": 5209461.3309,
+        "high": 5209462.5208
+      },
+      {
+        "name": "v-a1-default-marked/browser-before-0",
+        "kind": "browser",
+        "phase": "before",
+        "begin": 52558.9713,
+        "end": 52559.5177,
+        "status": "PASS",
+        "pid": 19908,
+        "tid": 25304,
+        "traceMs": 5262021.093,
+        "low": 5209461.575300001,
+        "high": 5209462.1217
+      },
+      {
+        "name": "v-a1-default-marked/browser-before-1",
+        "kind": "browser",
+        "phase": "before",
+        "begin": 52559.5377,
+        "end": 52560.1767,
+        "status": "PASS",
+        "pid": 19908,
+        "tid": 25304,
+        "traceMs": 5262021.77,
+        "low": 5209461.5933,
+        "high": 5209462.232299999
+      },
+      {
+        "name": "v-a1-default-marked/browser-after-0",
+        "kind": "browser",
+        "phase": "after",
+        "begin": 57895.3306,
+        "end": 57898.757,
+        "status": "PASS",
+        "pid": 19908,
+        "tid": 25304,
+        "traceMs": 5267359.756,
+        "low": 5209460.999,
+        "high": 5209464.4254
+      },
+      {
+        "name": "v-a1-default-marked/browser-after-1",
+        "kind": "browser",
+        "phase": "after",
+        "begin": 57898.8648,
+        "end": 58021.8007,
+        "status": "PASS",
+        "pid": 19908,
+        "tid": 25304,
+        "traceMs": 5267482.511,
+        "low": 5209460.7103,
+        "high": 5209583.6462
+      },
+      {
+        "name": "v-a1-default-marked/page-after-0",
+        "kind": "page",
+        "phase": "after",
+        "begin": 58021.8951,
+        "end": 59306.6768,
+        "status": "PASS",
+        "pid": 29220,
+        "tid": 25848,
+        "traceMs": 5268767.455,
+        "low": 5209460.7782000005,
+        "high": 5210745.5599
+      }
+    ],
+    "errors": [],
+    "offsetLow": 5209461.5933,
+    "offsetHigh": 5209462.1217,
+    "uncertaintyMs": 0.2642000000923872,
+    "domain": "Chrome trace TimeTicks microseconds -> harness performance.now milliseconds via observed marker brackets",
+    "cpuTimeDomain": "tts/tdur are per-thread CPU microseconds when present; never subtracted into a named wait",
+    "crossProcessAssumption": "Chrome integrated trace ts clock; no independent kernel clock calibration",
+    "accuracyGuaranteed": false
+  }
+}

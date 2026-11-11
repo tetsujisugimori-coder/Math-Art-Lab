@@ -156,3 +156,8 @@ P/Q/R/Sの承認済みWindowsローカル複製10182件・5693282588bytesは全S
 ## Stage U minimum CDP controls
 
 See [Stage U protocol](review-44/stage-u/protocol.md), [local results](review-44/stage-u/results.md) and [verification](review-44/stage-u/verification.md). Overall PARTIAL, root wait UNKNOWN, product changes0, merge NO. Final-HEAD CI and verified archive receipts are posted on existing Issue43/PR44 after execution. All prior failures and ledgers are retained.
+
+
+## Stage V fixed internal trace controls
+
+See [Stage V protocol](review-44/stage-v/protocol.md), [results](review-44/stage-v/results.md), [trace analysis](review-44/stage-v/trace-analysis.md) and [verification](review-44/stage-v/verification.md). Overall PARTIAL, product changes0, improvement NOT_TESTED, mechanism UNKNOWN. Final HEAD CI and verified archive receipts are posted on existing Issue43/PR44; all earlier failures and ledgers are preserved.

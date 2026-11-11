@@ -1,0 +1,44 @@
+name: Three-body Stage V fixed internal trace controls
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tools/three-body-stage-v*'
+      - 'src/three-body-stage-v*'
+      - 'docs/three-body/review-44/stage-v/**'
+      - '.github/workflows/three-body-stage-v.yml'
+permissions:
+  contents: read
+jobs:
+  fixed-cohort:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-2025, ubuntu-24.04]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Save fixed plan before environment preparation
+        run: >-
+          node --input-type=module -e "import fs from 'node:fs';import {plans,baseline} from './tools/three-body-stage-v-contracts.mjs';fs.mkdirSync('test-results/stage-v',{recursive:true});fs.writeFileSync('test-results/stage-v/planned.json',JSON.stringify({schema:'stage-v-plan-1',baseline,checkout:process.env.GITHUB_SHA,ciRunId:process.env.GITHUB_RUN_ID,status:'PLANNED',plans:plans()}));"
+      - run: npm ci
+      - name: Existing Chromium runtime; no OS dependency changes
+        run: npx playwright install chromium
+      - name: One fixed primary and auxiliary cohort
+        run: node tools/three-body-stage-v.mjs --output=test-results/stage-v
+      - name: Preserve acquired and blocked evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: stage-v-evidence-${{ matrix.os }}-${{ github.sha }}
+          path: test-results/stage-v/
+          if-no-files-found: error
+          retention-days: 90

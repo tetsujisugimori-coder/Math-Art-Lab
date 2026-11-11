@@ -1043,3 +1043,12 @@ P3-04の撮影障害を最優先に36条件とCDP対照を実施。旧context撮
 - RTT is protocol wall time, not internal CPU/native wait. Native/OS mechanism, original1249ms relationship, product performance and natural stop-HIT remain UNKNOWN/PARTIAL.
 - Added independent source/raw/summary/image/index audits, negative controls, immutable review-copy index and a two-OS diagnostic workflow. Final CI/artifact/archive receipts follow on existing Issue43/PR44.
 - Details: docs/three-body/review-44/stage-u/. No merge/auto-merge, Issue OPEN, PR Draft.
+
+
+## 2026-11-12 Stage V fixed internal trace controls (PR #44)
+
+- Baseline9779cdb, review5863884642; fixed main8 and separate readback auxiliary6, each condition2 repeats, no product changes.
+- Local14/14 completed: main4 screenshot timeout and auxiliary4 Runtime timeout retained.10 trace streams acquired/calibrated. Current4 PNGs match actual Canvas pixels.
+- Source-matched browser dispatch/copy-result candidates and native readback command-completion scopes narrow the observed path; native/OS/GPU mechanism and original1249ms common cause remain UNKNOWN.
+- Added strict clock/PID/TID/missing-data/evidence negative controls and a harness-only send/late-reply observer. Initial local source version and data remain unchanged; no local replacement trials.
+- Details: docs/three-body/review-44/stage-v/. Final-head CI/artifact/archive receipts follow on existing Issue43/PR44. Overall PARTIAL, improvement NOT_TESTED, merge NO; Draft/OPEN maintained.
