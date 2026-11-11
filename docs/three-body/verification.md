@@ -141,3 +141,9 @@ Windows最終GUIは開発46/48（4.7分）、本番46/48（4.4分）。失敗は
 [対応記録](review-44/stage-r/results.md)を追加。撮影例外をE_SCREENSHOTへ分類し、suiteの独立実行と環境・証拠破損時BLOCKED、計画数と完了数、分析processの終了、全hashを集約。旧contextの撮影timeoutはtrace停止順・計測ON/OFFで再現。最終CDP対照の現行context画像は画素差0、旧contextの画像は未取得。部分artifactの完全性を明示し、失敗を保持する。
 
 新たにpaint447.8ms、geometry378.2ms／包含Task経過408.467ms・CPU35.089msを観測。専用senderの自然HIT5・MISS4、受信後追加step0とA/B同期を確認。機構の根因と元1249msとの同一原因はUNKNOWN、応答予算未達、製品修正0。基準875と6条件のbit/hash一致、独立基準、単体459、型／両build、開発48／本番48GUI成功。初期試験失敗も保存。最終HEADの全作品CIと各suite完了状況はPR対応コメントに固定し、独立再レビュー待ちでDraft停止する。
+
+## 2026-11-11 JST — Stage S／P3-05
+
+[Stage S](review-44/stage-s/investigation.md)へ93run、撮影失敗14、非再現と再現、raw／trace／画像／summary／manifestのhashを保存。[解析状態](review-44/stage-s/diagnostic-state.md)を明文化し、破損JSONの取得誤表示とartifact読取例外後のPASS残存をRED→GREENで修正。全単体476、型、両build、開発48／本番48GUI成功。6条件のFloat64 bit／全履歴一致、独立基準と保存則を再検証した。
+
+paint454.4ms、Layout373.296ms／CPU5.380ms、Task467.957ms／CPU39.008msなどを取得したが、具体的native／OS機構はUNKNOWN。専用senderの自然HIT1／MISS8は追加step0・A/B同期。製品変更0・性能予算非緩和・総合PARTIAL。旧証拠hash一致と遠隔完全複製NOT_UPLOADEDを保持する。[検証記録](review-44/stage-s/verification.md)に最終HEAD CIの確定先を示す。606run計画の完了／失敗／未実行とartifact実期限はPR44の最終対応コメントで確認する。

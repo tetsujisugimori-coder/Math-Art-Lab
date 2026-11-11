@@ -3,7 +3,7 @@ import path from 'node:path';
 import { spawn, execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { categories } from './three-body-stage-q-contracts.mjs';
-import { suiteCounts, writeJson, auditSuite, auditAnalysis, writeArtifactIndex, verifyArtifactIndex } from './three-body-stage-q-evidence.mjs';
+import { suiteCounts, writeJson, auditSuite, readAnalysis, auditAnalysis, writeArtifactIndex, verifyArtifactIndex } from './three-body-stage-q-evidence.mjs';
 
 export async function executeNode(args, logFile) {
   fs.mkdirSync(path.dirname(logFile), { recursive: true });
@@ -55,14 +55,15 @@ function initialize(root, browser) {
   const file = path.join(root, 'pipeline-manifest.json');
   if (fs.existsSync(file)) return JSON.parse(fs.readFileSync(file));
   const head = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
-  const names = ['ci', 'smoke', 'capture', 'screen', 'long', 'host', 'sender', 'lifecycle', 'targets', 'sender-targets'];
-  if (browser === 'chromium') names.splice(3, 0, 'capture-probe');
+  const names = ['ci', 'mechanism', 'smoke', 'capture', 'screen', 'long', 'host', 'sender', 'lifecycle', 'targets', 'sender-targets'];
+  if (browser === 'chromium') names.splice(names.indexOf('capture') + 1, 0, 'capture-probe', 'emulation');
   if (process.platform === 'win32' && browser === 'chromium') names.push('os');
   const manifest = {
-    schema: 1, runId: `${process.env.GITHUB_RUN_ID ?? 'local'}-${process.platform}-${browser}-${Date.now()}`,
+    schema: 2, runId: `${process.env.GITHUB_RUN_ID ?? 'local'}-${process.platform}-${browser}-${Date.now()}`,
     head, browser, status: 'PLANNED', created: new Date().toISOString(),
     environment: { platform: process.platform, node: process.version },
-    completeness: { allRunsCompleted: false, analysisAcquired: false, evidenceComplete: false, acceptance: 'NOT_EVALUATED' },
+    completeness: { allRunsCompleted: false, analysisAcquired: false, analysisCompleted: false,
+      analysisProcessSucceeded: false, analysisVerified: false, evidenceComplete: false, acceptance: 'NOT_EVALUATED' },
     suites: names.map(name => ({ name, planned: suiteCounts[name], status: 'PLANNED' })),
   };
   writeJson(file, manifest);
@@ -101,13 +102,16 @@ export function finalize(manifest, root) {
     }
   }
   const audits = manifest.suites.map(suite => auditSuite(root, suite.name, manifest.browser, suite.planned));
+  const acquisition = readAnalysis(root);
+  manifest.analysisAvailability = { status: acquisition.status, files: acquisition.files };
   let analysisIssues;
-  try { analysisIssues = auditAnalysis(root, audits); }
-  catch (error) { analysisIssues = [{ category: categories.evidence, code: 'ANALYSIS_UNREADABLE', error: String(error) }]; }
+  try { analysisIssues = auditAnalysis(root, audits, acquisition); }
+  catch (error) { analysisIssues = [{ category: categories.evidence, code: 'ANALYSIS_AUDIT_ERROR', error: String(error) }]; }
   const processIssues = manifest.suites.flatMap(suite => (suite.issues ?? []).filter(issue => issue.code === 'CHILD_EXIT').map(issue => ({ ...issue, suite: suite.name })));
   const analysisCompleted = ['PASS', 'FAIL'].includes(manifest.analysis?.status) && Number.isInteger(manifest.analysis?.report?.code) && Number.isInteger(manifest.analysis?.check?.code);
+  const analysisProcessSucceeded = analysisCompleted && manifest.analysis.status === 'PASS' && manifest.analysis.report.code === 0 && manifest.analysis.check.code === 0;
   if (!analysisCompleted) processIssues.push({ category: categories.missing, code: 'ANALYSIS_NOT_COMPLETED', error: 'Report and checker processes did not both finish', scope: 'analysis process completion' });
-  if (manifest.analysis?.status === 'FAIL') {
+  if (manifest.analysis?.status === 'FAIL' || (analysisCompleted && !analysisProcessSucceeded)) {
     processIssues.push({ category: categories.measurement, code: 'VALIDATOR_EXIT', error: JSON.stringify(manifest.analysis), scope: 'analysis/check process result; full diagnostics in logs/analysis.log and logs/checks.log' });
   }
   const issues = audits.flatMap(audit => audit.issues).concat(analysisIssues, processIssues);
@@ -140,8 +144,10 @@ export function finalize(manifest, root) {
   };
   manifest.completeness = {
     allRunsCompleted: manifest.counts.completed === manifest.counts.planned,
-    analysisAcquired: !issues.some(issue => issue.code === 'ANALYSIS_ABSENT'),
+    analysisAcquired: acquisition.acquired,
     analysisCompleted,
+    analysisProcessSucceeded,
+    analysisVerified: acquisition.acquired && !analysisIssues.some(issue => [categories.evidence, categories.missing].includes(issue.category)),
     evidenceComplete: !issues.some(issue => [categories.screenshot, categories.evidence, categories.missing].includes(issue.category)),
     acceptance: issues.length ? 'NOT_ACCEPTED' : 'ACCEPTED_OBSERVED_WINDOW',
   };
@@ -153,6 +159,8 @@ export function finalize(manifest, root) {
   writeArtifactIndex(root);
   const invalid = verifyArtifactIndex(root);
   if (invalid.length) {
+    try { fs.copyFileSync(path.join(root, 'artifact-index.json'), path.join(root, 'artifact-index-failure.json')); }
+    catch (error) { manifest.issues.push({ category: categories.evidence, code: 'ARTIFACT_INDEX_SNAPSHOT_FAILED', error: String(error) }); }
     manifest.issues.push({ category: categories.evidence, code: 'ARTIFACT_INDEX_FAILED', error: JSON.stringify(invalid) });
     manifest.status = 'FAIL';
     manifest.completeness.evidenceComplete = false;

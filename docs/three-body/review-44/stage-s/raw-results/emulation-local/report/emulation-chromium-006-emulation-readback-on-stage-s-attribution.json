@@ -1,0 +1,147 @@
+{
+  "status": "OBSERVED",
+  "clock": {
+    "status": "ALIGNED",
+    "completeMarkerSet": true,
+    "expectedMarks": 2,
+    "foundMarks": 2,
+    "offsetMs": 157551414.50100002,
+    "markBracketMs": 0,
+    "minObservedPositiveDeltaMs": 0.09999999403953552,
+    "accuracyGuaranteed": false,
+    "mainPid": 32544,
+    "mainTid": 23244,
+    "anchorOffsetSpreadMs": 0.09999999403953552
+  },
+  "workerIdentities": [
+    {
+      "name": "emulation-chromium-006-emulation-readback-on-worker-clock",
+      "events": [
+        {
+          "pid": 32544,
+          "tid": 1652,
+          "tsUs": 157551570415
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "javascript": "OBSERVED",
+    "layout": "OBSERVED",
+    "paint": "OBSERVED",
+    "rasterization": "OBSERVED",
+    "compositing": "OBSERVED",
+    "synchronousGC": "OBSERVED",
+    "recordedWait": "OBSERVED"
+  },
+  "mainTaskWall": {
+    "n": 239,
+    "median": 0.039,
+    "p95": 4.962,
+    "p99": 7.438,
+    "max": 8.241,
+    "over50": 0,
+    "percentileIsGuarantee": false
+  },
+  "mainTaskCpu": {
+    "n": 219,
+    "median": 0.04,
+    "p95": 4.927,
+    "p99": 7.387,
+    "max": 8.014,
+    "over50": 0,
+    "percentileIsGuarantee": false
+  },
+  "samples": [
+    {
+      "kind": "maximum-main-task",
+      "traceBeginMs": 157551882.814,
+      "traceEndMs": 157551891.055,
+      "wallMs": 8.24099999666214,
+      "enclosingTask": {
+        "pid": 32544,
+        "tid": 23244,
+        "tsUs": 157551882814,
+        "durUs": 8241,
+        "threadCpuMs": 7.932
+      },
+      "overlap": {
+        "javascript": {
+          "mainUnionWallMs": 2.552000015974045,
+          "allThreadsUnionWallMs": 2.552000015974045,
+          "eventCount": 1,
+          "identities": [
+            "32544:23244"
+          ],
+          "names": [
+            "FunctionCall"
+          ]
+        },
+        "layout": {
+          "mainUnionWallMs": 1.0090000331401825,
+          "allThreadsUnionWallMs": 1.0090000331401825,
+          "eventCount": 4,
+          "identities": [
+            "32544:23244"
+          ],
+          "names": [
+            "UpdateLayoutTree",
+            "Layout"
+          ]
+        },
+        "paint": {
+          "mainUnionWallMs": 5.326999992132187,
+          "allThreadsUnionWallMs": 5.326999992132187,
+          "eventCount": 3,
+          "identities": [
+            "32544:23244"
+          ],
+          "names": [
+            "PrePaint",
+            "Paint"
+          ]
+        },
+        "rasterization": {
+          "mainUnionWallMs": 0,
+          "allThreadsUnionWallMs": 0,
+          "eventCount": 0,
+          "identities": [],
+          "names": []
+        },
+        "compositing": {
+          "mainUnionWallMs": 0.08300000429153442,
+          "allThreadsUnionWallMs": 0.08300000429153442,
+          "eventCount": 1,
+          "identities": [
+            "32544:23244"
+          ],
+          "names": [
+            "Commit"
+          ]
+        },
+        "synchronousGC": {
+          "mainUnionWallMs": 0,
+          "allThreadsUnionWallMs": 0,
+          "eventCount": 0,
+          "identities": [],
+          "names": []
+        },
+        "recordedWait": {
+          "mainUnionWallMs": 0,
+          "allThreadsUnionWallMs": 0,
+          "eventCount": 0,
+          "identities": [],
+          "names": []
+        }
+      },
+      "interpretation": "Union elapsed overlap; nested categories are not additive, thread CPU belongs to the entire Task. No allocation of wall minus CPU to causes."
+    }
+  ],
+  "screenshot": {
+    "status": "NOT_TESTED",
+    "reason": "No trace-active screenshot interval"
+  },
+  "osScheduler": "NOT_TESTED_KERNEL_EVENTS",
+  "gpuPresentation": "NOT_TESTED",
+  "rootCause": "UNKNOWN"
+}

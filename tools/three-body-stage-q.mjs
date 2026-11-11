@@ -15,7 +15,8 @@ for(const d of ['raw','traces','screenshots','sources'])fs.mkdirSync(`${root}/${
 const hash=x=>createHash('sha256').update(x).digest('hex'),write=(p,v)=>fs.writeFileSync(p,JSON.stringify(v,null,2)+'\n');
 const current=p=>fs.readFileSync(p,'utf8'),source=p=>args.ref==='base'&&p.startsWith('src/')?execFileSync('git',['show',`${base}:${p}`],{encoding:'utf8',maxBuffer:10000000}):current(p);
 const deadline=(promise,ms,label)=>{let timer;return Promise.race([promise,new Promise((_,reject)=>timer=setTimeout(()=>reject(Error(label+' deadline')),ms))]).finally(()=>clearTimeout(timer));};
-const ownFiles=['tools/three-body-stage-q.mjs','tools/three-body-stage-q-contracts.mjs','tools/three-body-stage-q-capture.mjs','tools/three-body-stage-q-pipeline.mjs','tools/three-body-stage-q-evidence.mjs','tools/three-body-stage-q-sender.mjs','tools/three-body-stage-q-sender-child.mjs','tools/three-body-stage-q-browser.mjs','tools/three-body-stage-q-os.mjs','tools/three-body-stage-q-threads.ps1','tools/three-body-stage-p-analysis.mjs','tools/three-body-stage-p.mjs'];
+const ownFiles=['tools/three-body-stage-q.mjs','tools/three-body-stage-q-contracts.mjs','tools/three-body-stage-q-capture.mjs','tools/three-body-stage-q-pipeline.mjs','tools/three-body-stage-q-evidence.mjs','tools/three-body-stage-q-metrics.mjs','tools/three-body-stage-q-sender.mjs','tools/three-body-stage-q-sender-child.mjs','tools/three-body-stage-q-browser.mjs','tools/three-body-stage-q-os.mjs','tools/three-body-stage-q-threads.ps1','tools/three-body-stage-p-analysis.mjs','tools/three-body-stage-p.mjs'];
+ownFiles.push('tools/three-body-stage-q-report.mjs','tools/three-body-stage-q-check.mjs','tools/three-body-stage-s-attribution.mjs');
 const toolHashes=Object.fromEntries(ownFiles.map(p=>[p,hash(current(p).replaceAll('\r\n','\n'))]));
 for(const[p,h]of Object.entries(toolHashes))fs.writeFileSync(`${root}/sources/${h}-${path.basename(p)}`,current(p).replaceAll('\r\n','\n'));
 // Reuse the baseline diagnostic transform without executing its old server/harness.
@@ -42,6 +43,12 @@ const server=createServer((req,res)=>{try{const u=new URL(req.url,'http://localh
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const url=`http://127.0.0.1:${server.address().port}`;
 const mini={mini:true,canvas:'app',dom:'app',width:438,height:330,count:2,period:40,geometry:true};
 function plans(){
+ if(suite==='emulation')return[0,1,2].flatMap(repeat=>['readback','default'].flatMap(context=>[false,true].map(captureEmulation=>({...mini,name:`emulation-${context}-${captureEmulation?'on':'off'}`,context,captureEmulation,captureApi:'playwright',captureStage:'after-trace-end',trace:true,pixelCheck:true,duration:1200,repeat}))));
+ if(suite==='mechanism')return[0,1,2].flatMap(repeat=>[
+  {name:'native-on',native:true,instrument:true},
+  {name:'phase-only',native:false,instrument:true},
+  {name:'instrument-off',native:false,instrument:false},
+ ].map(o=>({mini:false,source:'sender',duration:6000,trace:engine==='chromium',repeat,...o})));
  if(suite==='capture')return [0,1,2].flatMap(repeat=>['readback','default'].flatMap(context=>[true,false].flatMap(instrument=>['none','before-trace-end','after-trace-end'].map(captureStage=>({...mini,name:`capture-${context}-${instrument?'on':'off'}-${captureStage}`,context,instrument,captureStage,trace:engine==='chromium',duration:1200,repeat})))));
  if(suite==='capture-probe')return [0,1,2].flatMap(repeat=>['readback','default'].flatMap(context=>['playwright','cdp-surface','cdp-view'].map(captureApi=>({...mini,name:`probe-${context}-${captureApi}`,context,captureApi,captureStage:'after-trace-end',trace:true,pixelCheck:true,duration:1200,repeat}))));
  if(suite==='smoke')return[{...mini,name:'mini',duration:1200,trace:true},{...mini,name:'worker-positive',duration:1500,positive:'worker'},{mini:false,name:'app',duration:1500},{...mini,name:'main-positive',duration:1500,positive:'main',target:'synthetic-main'}];
@@ -87,7 +94,8 @@ let environmentBlocked=false;
 async function run(o){
  const id=`${suite}-${engine}-${String(++counter).padStart(3,'0')}-${o.name}`,file=`${root}/raw/${id}.json.gz`;
  const launchArgs=engine!=='chromium'?[]:o.backend==='unforced'?[]:o.backend==='disabled'?['--disable-gpu']:['--use-angle=swiftshader','--enable-unsafe-swiftshader'];
- const report={id,options:o,fixture,toolHashes,reference:args.ref??'working',start:new Date().toISOString(),errors:[],issues:[],hostSamples:[],launchArgs};
+ const report={id,options:o,fixture,toolHashes,reference:args.ref??'working',start:new Date().toISOString(),errors:[],issues:[],hostSamples:[],launchArgs,
+  readbackPolicy:{preCapture:'No getImageData in diagnostic JavaScript; browser internals NOT_TESTED',postCapture:o.pixelCheck?'Canvas pixel verification':'none',initialBitmapHash:'NOT_TESTED_WITHOUT_READBACK'}};
  const entry=manifest.runs[counter-1];entry.status='RUNNING';entry.started=report.start;manifest.status='RUNNING';write(manifestFile,manifest);
  const save=()=>fs.writeFileSync(file,gzipSync(JSON.stringify(report)));
  let browser,context,page,cdp,bc,tracing=false,sampler,osFinished=false;
@@ -115,7 +123,7 @@ async function run(o){
    browser=await({chromium,webkit}[engine]).launch({headless:true,...(engine==='chromium'?{args:launchArgs}:{})});
    context=await browser.newContext({viewport:{width:1280,height:900},deviceScaleFactor:o.dpr??2});page=await context.newPage();
    cdp=engine==='chromium'?await context.newCDPSession(page):null;bc=cdp?await browser.newBrowserCDPSession():null;
-   if(o.pixelCheck&&cdp){
+   if(o.pixelCheck&&cdp&&o.captureEmulation!==false){
     report.captureEmulation={width:1280,height:900,deviceScaleFactor:o.dpr??2,mobile:false};
     await cdp.send('Emulation.setDeviceMetricsOverride',report.captureEmulation);
    }

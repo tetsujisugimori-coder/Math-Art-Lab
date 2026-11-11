@@ -2,8 +2,12 @@ import fs from'node:fs';import path from'node:path';import{createHash}from'node:
 import{build}from'esbuild';import{chromium,webkit}from'@playwright/test';
 import{inputStatistics,performanceVerdict,clockBracket}from'./three-body-stage-q-metrics.mjs';import{distribution,analyzeTrace}from'./three-body-stage-p-analysis.mjs';
 import { reportIssues } from './three-body-stage-q-contracts.mjs';
+import { attributeTrace } from './three-body-stage-s-attribution.mjs';
 const root=process.argv[2]??'.three-body-evidence/stage-q',out=process.argv[3]??root+'/report',base='b07ccec1205ca99a1112ab8db951efbe94a51f74';
 fs.mkdirSync(out,{recursive:true});const hash=b=>createHash('sha256').update(b).digest('hex'),write=(p,v)=>fs.writeFileSync(p,JSON.stringify(v,null,2)+'\n');
+const analysisSources=Object.fromEntries(['tools/three-body-stage-q-report.mjs','tools/three-body-stage-s-attribution.mjs','tools/three-body-stage-p-analysis.mjs','tools/three-body-stage-q-metrics.mjs'].map(file=>{
+ const bytes=fs.readFileSync(file),sha256=hash(bytes);fs.mkdirSync(out+'/sources',{recursive:true});fs.writeFileSync(`${out}/sources/${sha256}-${path.basename(file)}`,bytes);return[file,sha256];
+}));
 const walk=d=>fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(d,e.name)):[path.join(d,e.name)]);
 const files=walk(root).filter(f=>/[/\\](?:raw|raw-results)[/\\].*\.json\.gz$/.test(f));
 const code=await build({stdin:{contents:"export * from './src/three-body.ts';export * from './src/three-body-state.ts';",resolveDir:process.cwd()},bundle:true,platform:'browser',format:'iife',globalName:'__qReference',write:false,plugins:[{name:'base-reference',setup(b){b.onLoad({filter:/src[\\/].*\.ts$/},a=>({contents:execFileSync('git',['show',`${base}:src/${a.path.split(/[\\/]/).at(-1)}`],{encoding:'utf8'}),loader:'ts'}));}}]});
@@ -26,6 +30,9 @@ for(const file of files){
  if(r.trace?.file&&fs.existsSync(r.trace.file)){
   const tr=JSON.parse(gunzipSync(fs.readFileSync(r.trace.file))),analysis=analyzeTrace(tr.traceEvents,data??{spans:[],marks:[]});
   row.trace={file:r.trace.file,bytes:fs.statSync(r.trace.file).size,sha256:hash(fs.readFileSync(r.trace.file)),dataLoss:r.trace.dataLoss??null,clock:analysis.clock,task:analysis.tasks,gc:analysis.gc,coverage:analysis.coverage};
+  const attribution=attributeTrace(tr.traceEvents,data??{spans:[],marks:[]},r.capture);
+  write(`${out}/${r.id}-stage-s-attribution.json`,attribution);
+  row.trace.attribution={status:attribution.status,mainTaskWall:attribution.mainTaskWall,mainTaskCpu:attribution.mainTaskCpu,coverage:attribution.coverage,screenshotStatus:attribution.screenshot?.status};
   row.trace.workerIdentity=(data?.workerMarks??[]).map(mark=>({name:mark.name,workerClock:{before:mark.before,after:mark.after},events:tr.traceEvents.filter(e=>e.name===mark.name).map(e=>({pid:e.pid,tid:e.tid,traceUs:e.ts,phase:e.ph})),scope:'Worker marker identifies thread; its performance.now is not the main-page clock'}));
   // Small, reviewable excerpt; the unmodified full trace stays in local/CI raw storage.
   write(`${out}/${r.id}-trace-excerpt.json`,{clock:analysis.clock,workerIdentity:row.trace.workerIdentity,window:analysis.window,task:analysis.tasks,gc:analysis.gc,long:analysis.long,wait:analysis.mainWaits,coverage:analysis.coverage,limitations:analysis.limitations});
@@ -38,7 +45,7 @@ for(const file of files){
  rows.push(row);console.log(JSON.stringify({analyzed:r.id,errors:r.errors.length,math:row.math?.phase,input:row.input.sendToReceive.max}));
 }
 await browser?.close();
-write(out+'/summary.json',{date:new Date().toISOString(),base,runs:rows});write(out+'/raw-index.json',rawIndex);
+write(out+'/summary.json',{date:new Date().toISOString(),base,analysisSources,runs:rows});write(out+'/raw-index.json',rawIndex);
 fs.writeFileSync(out+'/request-times.json.br',brotliCompressSync(Buffer.from(JSON.stringify(requestsExport)),{params:{[constants.BROTLI_PARAM_QUALITY]:4}}));
 const errors=rows.filter(r=>r.errors.length||r.math?.phase===false||r.math?.history===false||r.math?.publicPosition===false||r.draw?.a===false||r.draw?.b===false||r.frames?.mismatch||r.stop?.extraAfterStop!==0||r.stop?.atomic===false||r.lessonRestored===false);
 write(out+'/checks.json',{runs:rows.length,failures:errors.map(r=>({id:r.id,errors:r.errors,math:r.math,draw:r.draw,stop:r.stop})),budgets:rows.filter(r=>r.budget.verdict!=='PASS_OBSERVED_WINDOW').map(r=>({id:r.id,budget:r.budget})),scope:'Functional checks are distinct from observational budgets. Budget success does not establish cause or a worst-case guarantee.'});

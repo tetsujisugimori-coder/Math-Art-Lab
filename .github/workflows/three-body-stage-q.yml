@@ -4,9 +4,12 @@ on:
     branches: [main]
     paths:
       - 'tools/three-body-stage-q*'
+      - 'tools/three-body-stage-s*'
       - 'src/three-body-stage-q*'
+      - 'src/three-body-stage-s*'
       - 'docs/three-body/review-44/stage-q/**'
       - 'docs/three-body/review-44/stage-r/**'
+      - 'docs/three-body/review-44/stage-s/**'
       - '.github/workflows/three-body-stage-q.yml'
 permissions:
   contents: read
@@ -56,6 +59,9 @@ jobs:
       - name: Initial diagnostic controls
         if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
         run: node tools/three-body-stage-q-pipeline.mjs --suite=ci --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Mechanism observation controls
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=mechanism --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
       - name: Timing positive controls
         if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
         run: node tools/three-body-stage-q-pipeline.mjs --suite=smoke --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
@@ -65,6 +71,9 @@ jobs:
       - name: Chromium capture API controls
         if: ${{ !cancelled() && steps.preflight.outcome == 'success' && matrix.browser == 'chromium' }}
         run: node tools/three-body-stage-q-pipeline.mjs --suite=capture-probe --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Additional CDP emulation controls
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' && matrix.browser == 'chromium' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=emulation --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
       - name: Canvas and DOM resource controls
         if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
         run: node tools/three-body-stage-q-pipeline.mjs --suite=screen --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}

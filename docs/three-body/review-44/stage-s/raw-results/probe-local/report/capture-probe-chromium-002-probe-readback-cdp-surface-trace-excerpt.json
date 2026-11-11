@@ -1,0 +1,84 @@
+{
+  "clock": {
+    "status": "ALIGNED_WITH_SPREAD",
+    "completeMarkerSet": true,
+    "expectedMarks": 2,
+    "foundMarks": 2,
+    "offsetMs": 157182226.69,
+    "markBracketMs": 0.050999999046325684,
+    "minObservedPositiveDeltaMs": 0.09999999403953552,
+    "accuracyGuaranteed": false,
+    "mainPid": 9600,
+    "mainTid": 29292,
+    "anchorOffsetSpreadMs": 0.10099998116493225
+  },
+  "workerIdentity": [
+    {
+      "name": "capture-probe-chromium-002-probe-readback-cdp-surface-worker-clock",
+      "workerClock": {
+        "before": 2.9000000059604645,
+        "after": 3
+      },
+      "events": [
+        {
+          "pid": 9600,
+          "tid": 30684,
+          "traceUs": 157182359037,
+          "phase": "I"
+        }
+      ],
+      "scope": "Worker marker identifies thread; its performance.now is not the main-page clock"
+    }
+  ],
+  "window": {
+    "beginMs": 157182358.99,
+    "endMs": 157183813.69,
+    "note": "Boundary events are clipped in window distributions; full durations and full raw trace are preserved."
+  },
+  "task": {
+    "n": 231,
+    "median": 0.026999980211257935,
+    "p95": 5.134999990463257,
+    "p99": 6.00900000333786,
+    "max": 8.10699999332428,
+    "over50": 0,
+    "percentileIsGuarantee": false
+  },
+  "gc": {
+    "n": 122,
+    "median": 0.005000025033950806,
+    "p95": 0.22100001573562622,
+    "p99": 0.40299999713897705,
+    "max": 0.4819999933242798,
+    "over50": 0,
+    "percentileIsGuarantee": false
+  },
+  "long": [],
+  "wait": {
+    "n": 30,
+    "median": 0.0040000081062316895,
+    "p95": 0.010000020265579224,
+    "p99": 0.041999995708465576,
+    "max": 0.041999995708465576,
+    "over50": 0,
+    "percentileIsGuarantee": false
+  },
+  "coverage": {
+    "task": "OBSERVED",
+    "javascript": "OBSERVED",
+    "timer": "OBSERVED",
+    "raf": "OBSERVED",
+    "canvas": "OBSERVED",
+    "styleLayout": "OBSERVED",
+    "paintComposite": "OBSERVED",
+    "gc": "OBSERVED",
+    "input": "NOT_OBSERVED",
+    "worker": "OBSERVED"
+  },
+  "limitations": [
+    "GPU presentation completion NOT_TESTED",
+    "OS context-switch/run-queue/swap NOT_TESTED",
+    "Elapsed task duration is not OS CPU time",
+    "Overlap is not proof of causality"
+  ]
+}

@@ -1,0 +1,263 @@
+{
+  "status": "OBSERVED",
+  "clock": {
+    "status": "ALIGNED",
+    "completeMarkerSet": true,
+    "expectedMarks": 2,
+    "foundMarks": 2,
+    "offsetMs": 156456869.569,
+    "markBracketMs": 0.032000020146369934,
+    "minObservedPositiveDeltaMs": 0.09999999403953552,
+    "accuracyGuaranteed": false,
+    "mainPid": 36624,
+    "mainTid": 16372,
+    "anchorOffsetSpreadMs": 0.13599997758865356
+  },
+  "workerIdentities": [],
+  "coverage": {
+    "javascript": "OBSERVED",
+    "layout": "OBSERVED",
+    "paint": "OBSERVED",
+    "rasterization": "OBSERVED",
+    "compositing": "OBSERVED",
+    "synchronousGC": "OBSERVED",
+    "recordedWait": "OBSERVED"
+  },
+  "mainTaskWall": {
+    "n": 1327,
+    "median": 0.025,
+    "p95": 6.363,
+    "p99": 9.102,
+    "max": 10.779,
+    "over50": 0,
+    "percentileIsGuarantee": false
+  },
+  "mainTaskCpu": {
+    "n": 1178,
+    "median": 0.027,
+    "p95": 6.429,
+    "p99": 9.374,
+    "max": 10.693,
+    "over50": 0,
+    "percentileIsGuarantee": false
+  },
+  "samples": [
+    {
+      "kind": "maximum-main-task",
+      "traceBeginMs": 156459458.8,
+      "traceEndMs": 156459469.579,
+      "wallMs": 10.778999984264374,
+      "enclosingTask": {
+        "pid": 36624,
+        "tid": 16372,
+        "tsUs": 156459458800,
+        "durUs": 10779,
+        "threadCpuMs": 10.693
+      },
+      "overlap": {
+        "javascript": {
+          "mainUnionWallMs": 2.939999997615814,
+          "allThreadsUnionWallMs": 2.939999997615814,
+          "eventCount": 1,
+          "identities": [
+            "36624:16372"
+          ],
+          "names": [
+            "FunctionCall"
+          ]
+        },
+        "layout": {
+          "mainUnionWallMs": 2.055999994277954,
+          "allThreadsUnionWallMs": 2.055999994277954,
+          "eventCount": 4,
+          "identities": [
+            "36624:16372"
+          ],
+          "names": [
+            "UpdateLayoutTree",
+            "Layout"
+          ]
+        },
+        "paint": {
+          "mainUnionWallMs": 5.8739999532699585,
+          "allThreadsUnionWallMs": 5.8739999532699585,
+          "eventCount": 3,
+          "identities": [
+            "36624:16372"
+          ],
+          "names": [
+            "PrePaint",
+            "Paint"
+          ]
+        },
+        "rasterization": {
+          "mainUnionWallMs": 0,
+          "allThreadsUnionWallMs": 0,
+          "eventCount": 0,
+          "identities": [],
+          "names": []
+        },
+        "compositing": {
+          "mainUnionWallMs": 0.10300001502037048,
+          "allThreadsUnionWallMs": 0.13199999928474426,
+          "eventCount": 6,
+          "identities": [
+            "36624:16372",
+            "36624:30016"
+          ],
+          "names": [
+            "Commit",
+            "ProxyImpl::ReadyToCommit",
+            "Scheduler::NotifyReadyToCommit",
+            "ProxyImpl::Commit",
+            "LayerTreeHostImpl::BeginCommit",
+            "LayerTreeHostImpl::FinishCommit"
+          ]
+        },
+        "synchronousGC": {
+          "mainUnionWallMs": 0,
+          "allThreadsUnionWallMs": 0,
+          "eventCount": 0,
+          "identities": [],
+          "names": []
+        },
+        "recordedWait": {
+          "mainUnionWallMs": 0,
+          "allThreadsUnionWallMs": 0,
+          "eventCount": 0,
+          "identities": [],
+          "names": []
+        }
+      },
+      "interpretation": "Union elapsed overlap; nested categories are not additive, thread CPU belongs to the entire Task. No allocation of wall minus CPU to causes."
+    }
+  ],
+  "screenshot": {
+    "status": "OBSERVED_ELAPSED_RANGE",
+    "api": "playwright",
+    "captureStatus": "PASS",
+    "before": {
+      "status": "BRACKET",
+      "low": -15169.503099994039,
+      "high": -15168.95499999404,
+      "offset": -15169.229049994039,
+      "halfWidth": 0.27404999999998836,
+      "precisionGuaranteed": false
+    },
+    "after": {
+      "status": "BRACKET",
+      "low": -15169.504299988079,
+      "high": -15169.01069998808,
+      "offset": -15169.25749998808,
+      "halfWidth": 0.24679999999898428,
+      "precisionGuaranteed": false
+    },
+    "clockUncertaintyMs": 0.3060500201463583,
+    "kind": "capture-api",
+    "traceBeginMs": 156464064.76165003,
+    "traceEndMs": 156464277.72840002,
+    "wallMs": 212.96674999594688,
+    "enclosingTask": null,
+    "overlap": {
+      "javascript": {
+        "mainUnionWallMs": 0,
+        "allThreadsUnionWallMs": 0,
+        "eventCount": 0,
+        "identities": [],
+        "names": []
+      },
+      "layout": {
+        "mainUnionWallMs": 0.6840000450611115,
+        "allThreadsUnionWallMs": 0.6840000450611115,
+        "eventCount": 5,
+        "identities": [
+          "36624:16372"
+        ],
+        "names": [
+          "UpdateLayoutTree"
+        ]
+      },
+      "paint": {
+        "mainUnionWallMs": 1.6250000298023224,
+        "allThreadsUnionWallMs": 1.6250000298023224,
+        "eventCount": 11,
+        "identities": [
+          "36624:16372"
+        ],
+        "names": [
+          "PrePaint",
+          "Paint"
+        ]
+      },
+      "rasterization": {
+        "mainUnionWallMs": 0,
+        "allThreadsUnionWallMs": 30.681000024080276,
+        "eventCount": 28,
+        "identities": [
+          "36624:32968"
+        ],
+        "names": [
+          "RasterizerTaskImpl::RunOnWorkerThread",
+          "RasterTask"
+        ]
+      },
+      "compositing": {
+        "mainUnionWallMs": 0.1940000057220459,
+        "allThreadsUnionWallMs": 1.4790000319480896,
+        "eventCount": 72,
+        "identities": [
+          "36624:30016",
+          "36624:16372",
+          "34468:35496",
+          "15380:33068"
+        ],
+        "names": [
+          "ProxyImpl::SetNeedsCommitOnImplThread",
+          "Commit",
+          "ProxyImpl::ReadyToCommit",
+          "Scheduler::NotifyReadyToCommit",
+          "ProxyImpl::Commit",
+          "LayerTreeHostImpl::BeginCommit",
+          "LayerTreeHostImpl::FinishCommit",
+          "LayerTreeHostImpl::CommitComplete",
+          "LayerTreeHost::WaitForCommitCompletion",
+          "WidgetBase::DidCommitAndDrawCompositorFrame",
+          "Surface::CommitFrame",
+          "DirectRenderer::DrawFrame",
+          "SingleThreadProxy::DoCommit",
+          "SingleThreadProxy::DoPostCommit",
+          "SingleThreadProxy::DoComposite"
+        ]
+      },
+      "synchronousGC": {
+        "mainUnionWallMs": 0,
+        "allThreadsUnionWallMs": 0,
+        "eventCount": 0,
+        "identities": [],
+        "names": []
+      },
+      "recordedWait": {
+        "mainUnionWallMs": 0.020999997854232788,
+        "allThreadsUnionWallMs": 0.4509999752044678,
+        "eventCount": 12,
+        "identities": [
+          "36624:16372",
+          "36624:30016",
+          "34468:35496",
+          "15380:33068",
+          "34468:34732"
+        ],
+        "names": [
+          "LayerTreeHost::WaitForCommitCompletion",
+          "GpuChannelHost::VerifyFlush",
+          "SyncToken::Wait"
+        ]
+      }
+    },
+    "interpretation": "Union elapsed overlap; nested categories are not additive, thread CPU belongs to the entire Task. No allocation of wall minus CPU to causes.",
+    "scope": "Host→page→trace projection, outside physics measurement window; GPU presentation and exact native wait NOT_TESTED"
+  },
+  "osScheduler": "NOT_TESTED_KERNEL_EVENTS",
+  "gpuPresentation": "NOT_TESTED",
+  "rootCause": "UNKNOWN"
+}

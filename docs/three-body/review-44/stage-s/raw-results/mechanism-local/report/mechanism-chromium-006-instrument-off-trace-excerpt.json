@@ -1,0 +1,67 @@
+{
+  "clock": {
+    "status": "ALIGNED",
+    "completeMarkerSet": true,
+    "expectedMarks": 2,
+    "foundMarks": 2,
+    "offsetMs": 156503266.33100003,
+    "markBracketMs": 0,
+    "minObservedPositiveDeltaMs": 0.09999999403953552,
+    "accuracyGuaranteed": false,
+    "mainPid": 7436,
+    "mainTid": 38496,
+    "anchorOffsetSpreadMs": 0.09999999403953552
+  },
+  "workerIdentity": [],
+  "window": {
+    "beginMs": 156503848.43100002,
+    "endMs": 156510163.231,
+    "note": "Boundary events are clipped in window distributions; full durations and full raw trace are preserved."
+  },
+  "task": {
+    "n": 1198,
+    "median": 0.034000009298324585,
+    "p95": 6.63400000333786,
+    "p99": 8.954000025987625,
+    "max": 11.417999982833862,
+    "over50": 0,
+    "percentileIsGuarantee": false
+  },
+  "gc": {
+    "n": 1084,
+    "median": 0.009000003337860107,
+    "p95": 0.35999998450279236,
+    "p99": 1.265999972820282,
+    "max": 2.6959999799728394,
+    "over50": 0,
+    "percentileIsGuarantee": false
+  },
+  "long": [],
+  "wait": {
+    "n": 145,
+    "median": 0.004999995231628418,
+    "p95": 0.01199999451637268,
+    "p99": 0.013000011444091797,
+    "max": 0.01600000262260437,
+    "over50": 0,
+    "percentileIsGuarantee": false
+  },
+  "coverage": {
+    "task": "OBSERVED",
+    "javascript": "OBSERVED",
+    "timer": "OBSERVED",
+    "raf": "OBSERVED",
+    "canvas": "OBSERVED",
+    "styleLayout": "OBSERVED",
+    "paintComposite": "OBSERVED",
+    "gc": "OBSERVED",
+    "input": "OBSERVED",
+    "worker": "OBSERVED"
+  },
+  "limitations": [
+    "GPU presentation completion NOT_TESTED",
+    "OS context-switch/run-queue/swap NOT_TESTED",
+    "Elapsed task duration is not OS CPU time",
+    "Overlap is not proof of causality"
+  ]
+}

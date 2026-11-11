@@ -4,7 +4,7 @@ import { gunzipSync } from 'node:zlib';
 import { categories, reportIssues, sha256, suiteState } from './three-body-stage-q-contracts.mjs';
 
 export const suiteCounts = Object.freeze({
-  ci: 4, smoke: 4, capture: 36, 'capture-probe': 18, screen: 72,
+  ci: 4, mechanism: 9, emulation: 12, smoke: 4, capture: 36, 'capture-probe': 18, screen: 72,
   long: 4, host: 9, sender: 9, 'sender-targets': 9, lifecycle: 15, targets: 9, os: 6,
 });
 
@@ -86,13 +86,47 @@ export function auditSuite(root, name, browser, expected = suiteCounts[name]) {
   };
 }
 
-export function auditAnalysis(root, audits) {
+export function readAnalysis(root) {
+  const files = [], values = {}, issues = [];
+  for (const name of ['summary.json', 'raw-index.json']) {
+    const file = path.join(root, 'report', name);
+    const record = { file, present: fs.existsSync(file), bytesReadable: false, jsonReadable: false };
+    files.push(record);
+    if (!record.present) {
+      issues.push({ category: categories.missing, code: 'ANALYSIS_ABSENT', error: file });
+      continue;
+    }
+    try {
+      const bytes = fs.readFileSync(file);
+      Object.assign(record, { bytesReadable: true, bytes: bytes.length, sha256: sha256(bytes) });
+      values[name] = JSON.parse(bytes);
+      record.jsonReadable = true;
+    } catch (error) {
+      record.error = String(error);
+      issues.push({ category: categories.evidence, code: 'ANALYSIS_UNREADABLE', error: String(error), file });
+    }
+  }
+  if (!issues.length) {
+    const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
+    const rows = values['summary.json']?.runs, index = values['raw-index.json'];
+    const rowValid = row => object(row) && typeof row.id === 'string' && typeof row.file === 'string'
+      && object(row.budget) && typeof row.budget.scope === 'string' && typeof row.budget.verdict === 'string';
+    const indexValid = row => object(row) && typeof row.id === 'string' && typeof row.file === 'string'
+      && typeof row.sha256 === 'string' && typeof row.decodedSha256 === 'string';
+    if (!Array.isArray(rows) || !rows.every(rowValid) || !Array.isArray(index) || !index.every(indexValid)) {
+      issues.push({ category: categories.evidence, code: 'ANALYSIS_SCHEMA', error: 'Readable JSON is not a usable analysis summary/raw index' });
+    }
+  }
+  const acquired = issues.length === 0;
+  const status = acquired ? 'AVAILABLE' : issues.some(i => i.code === 'ANALYSIS_UNREADABLE') ? 'UNREADABLE'
+    : issues.some(i => i.code === 'ANALYSIS_SCHEMA') ? 'INVALID_SCHEMA' : 'ABSENT';
+  return { acquired, status, files, issues, rows: acquired ? values['summary.json'].runs : [], index: acquired ? values['raw-index.json'] : [] };
+}
+
+export function auditAnalysis(root, audits, acquisition = readAnalysis(root)) {
+  if (!acquisition.acquired) return acquisition.issues;
   const issues = [];
-  const summaryFile = path.join(root, 'report', 'summary.json');
-  const indexFile = path.join(root, 'report', 'raw-index.json');
-  if (!fs.existsSync(summaryFile) || !fs.existsSync(indexFile)) return [{ category: categories.missing, code: 'ANALYSIS_ABSENT', error: 'Analysis or raw index not acquired' }];
-  const rows = JSON.parse(fs.readFileSync(summaryFile)).runs;
-  const index = JSON.parse(fs.readFileSync(indexFile));
+  const { rows, index } = acquisition;
   const files = audits.flatMap(audit => audit.files);
   if (index.length !== files.length || rows.length !== files.length) issues.push({ category: categories.evidence, code: 'ANALYSIS_COUNT', error: 'raw / analysis / index counts differ' });
   for (const file of files) {
@@ -126,10 +160,21 @@ export function writeArtifactIndex(root) {
 }
 
 export function verifyArtifactIndex(root) {
-  const index = JSON.parse(fs.readFileSync(path.join(root, 'artifact-index.json')));
-  return index.files.filter(record => {
-    const file = path.resolve(root, record.file);
-    const inside = file.startsWith(path.resolve(root) + path.sep);
-    return !inside || !fs.existsSync(file) || sha256(fs.readFileSync(file)) !== record.sha256;
-  });
+  try {
+    const index = JSON.parse(fs.readFileSync(path.join(root, 'artifact-index.json')));
+    const manifest = JSON.parse(fs.readFileSync(path.join(root, 'pipeline-manifest.json')));
+    if (!Array.isArray(index.files) || index.files.some(record => !record || typeof record.file !== 'string' || typeof record.sha256 !== 'string')) throw Error('Invalid artifact index schema');
+    const invalid = index.files.filter(record => {
+      const file = path.resolve(root, record.file);
+      const inside = file.startsWith(path.resolve(root) + path.sep);
+      return !inside || !fs.existsSync(file) || sha256(fs.readFileSync(file)) !== record.sha256;
+    });
+    if (index.runId !== manifest.runId || JSON.stringify(index.completeness) !== JSON.stringify(manifest.completeness)) invalid.push({ file: 'artifact-index.json', code: 'ARTIFACT_INDEX_METADATA' });
+    const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]);
+    const expected = walk(root).filter(file => file !== path.join(root, 'artifact-index.json') && !file.endsWith('.tmp')).map(file => path.relative(root, file).replaceAll('\\', '/'));
+    if (index.files.length !== expected.length || new Set(index.files.map(row => row.file)).size !== expected.length || expected.some(file => !index.files.some(row => row.file === file))) invalid.push({ file: 'artifact-index.json', code: 'ARTIFACT_INDEX_FILE_SET' });
+    return invalid;
+  } catch (error) {
+    return [{ file: 'artifact-index.json', code: 'ARTIFACT_INDEX_UNREADABLE', error: String(error) }];
+  }
 }

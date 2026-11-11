@@ -1014,3 +1014,13 @@ P3-04の撮影障害を最優先に36条件とCDP対照を実施。旧context撮
 送信専用OS processを追加し、自然長区間HIT5とMISS4、停止後step0・A/B同期を確認。新たにpaint447.8ms、native geometry378.2msを再現し、包含Taskの経過408.467msとCPU35.089msを区別。kernel ETW未取得、native待機先と元1249ms機構はUNKNOWN、応答予算未達で製品修正0件。
 
 基準875とのFloat64 bit／履歴6条件一致、独立RK4・約20周期・解析三角形・二次収束を再確認。単体459、型／両build、Windows開発／本番GUI各48成功。sender起動引数・終了待ちと初期の試験timeoutを修正・保存。既存Stage P/Q証拠は非変更、新原証拠はGit外、小さい索引・要約をstage-rへ保存。原本の遠隔完全複製は未完了。最終HEAD CIはPR44対応コメントへ記録し、Issue43 OPEN／Draft／独立再レビュー待ち、マージ推奨NO。
+
+## 2026-11-11 JST — Stage S／レビュー5854989138への対応
+
+基準8f4。P3-05の破損summary／raw-indexでanalysisAcquired=trueとなるRED2件を再現。artifact index破損で例外後PASS manifestが残る追加REDも保存した。ファイル可用性、process終了／成功、内容監査、証拠完全性、受入を分離し、破損indexのsnapshotを保存してFAIL確定する。関連33＋帰属2テスト成功、全単体476成功。既存の撮影失敗分類・独立suite継続・35分／5秒budgetを維持する。
+
+ローカル93run完了、撮影取得失敗14件を保持。最初のmechanism9件は非再現、同じ9条件の一度の再測定でpaint454.4msと配送474.923msを観測。Layout373.296ms／同event CPU5.380ms、JS区間9.726msでも長いTask467.957ms／CPU39.008msの標本を取得。native／OS待機先と元1249msの機構はUNKNOWN。追加計測OFFにも遅延が残る。追加CDP metrics ON/OFF12件は成功し、単独原因と断定しない。初期の失敗数誤記と補助解析loop中断・継続も保存した。
+
+専用senderは自然HIT1・MISS8、追加step0、A/B同期、timer/rAF取消。基準8f4とbit／履歴6条件一致、RK4・20周期・三角形・二次収束を再確認。型／両buildとWindows開発／本番GUI各48成功、skip／flaky0。旧P/Q/R追跡資料差分0、Q原本140・R原本255・旧CI ZIP6・索引1983のSHA一致。新原本は隔離保存、Gitへ約8MBの要約・source・索引・代表画像。遠隔完全原本複製はNOT_UPLOADED。
+
+製品候補試作／採用0件、総合PARTIAL・P3-05限定PASS・マージ推奨NO。新CIは既存555条件を維持して606条件を計画し、最終HEADの件数・失敗・実artifact／expiry／digest・checkout treeをPR44対応コメントに固定する。Issue43 OPEN／PR44 Draft／auto-merge無効を維持し、独立再レビュー待ちで停止する。

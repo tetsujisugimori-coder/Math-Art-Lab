@@ -219,3 +219,141 @@ test('CDP metrics preparation is included in the five second capture deadline', 
   await vi.advanceTimersByTimeAsync(5001);
   await rejected;
 });
+
+test.each(['summary.json', 'raw-index.json'])('P3-05: corrupt %s cannot report analysis acquired', file => {
+  const root = temporaryRoot();
+  const manifest = completedPipeline(root);
+  fs.writeFileSync(path.join(root, 'report', file), '{invalid JSON');
+  finalize(manifest, root);
+  expect(manifest.status).toBe('FAIL');
+  expect(manifest.completeness.analysisAcquired).toBe(false);
+  expect(manifest.completeness.evidenceComplete).toBe(false);
+  expect(manifest.completeness.acceptance).toBe('NOT_ACCEPTED');
+  expect(manifest.analysisAvailability.status).toBe('UNREADABLE');
+  expect(manifest.analysisAvailability.files.every(file => file.present && file.bytesReadable)).toBe(true);
+  expect(manifest.completeness.analysisCompleted).toBe(true);
+  expect(manifest.completeness.analysisProcessSucceeded).toBe(true);
+  expect(manifest.completeness.analysisVerified).toBe(false);
+});
+
+test('P3-05: healthy evidence distinguishes acquisition, process completion, success and verification', () => {
+  const root = temporaryRoot();
+  const manifest = completedPipeline(root);
+  finalize(manifest, root);
+  expect(manifest.analysisAvailability.status).toBe('AVAILABLE');
+  expect(manifest.completeness).toEqual({ allRunsCompleted: true, analysisAcquired: true, analysisCompleted: true,
+    analysisProcessSucceeded: true, analysisVerified: true, evidenceComplete: true, acceptance: 'ACCEPTED_OBSERVED_WINDOW' });
+});
+
+test('P3-05: missing summary retains the remaining raw index availability', () => {
+  const root = temporaryRoot();
+  const manifest = completedPipeline(root);
+  fs.unlinkSync(path.join(root, 'report', 'summary.json'));
+  finalize(manifest, root);
+  expect(manifest.analysisAvailability.status).toBe('ABSENT');
+  expect(manifest.analysisAvailability.files.map(file => file.present)).toEqual([false, true]);
+  expect(manifest.completeness).toMatchObject({ analysisAcquired: false, analysisCompleted: true, analysisVerified: false, evidenceComplete: false, acceptance: 'NOT_ACCEPTED' });
+});
+
+test.each(['summary.json', 'raw-index.json'])('P3-05: parseable but invalid %s schema cannot be acquired as analysis', file => {
+  const root = temporaryRoot();
+  const manifest = completedPipeline(root);
+  writeJson(path.join(root, 'report', file), null);
+  finalize(manifest, root);
+  expect(manifest.analysisAvailability.status).toBe('INVALID_SCHEMA');
+  expect(manifest.completeness).toMatchObject({ analysisAcquired: false, analysisVerified: false, evidenceComplete: false, acceptance: 'NOT_ACCEPTED' });
+});
+
+test.each(['duplicate', 'missing'])('P3-05: readable %s run set is acquired but not verified', mode => {
+  const root = temporaryRoot();
+  const manifest = completedPipeline(root);
+  const file = path.join(root, 'report', 'summary.json'), summary = JSON.parse(fs.readFileSync(file));
+  summary.runs = mode === 'duplicate' ? [summary.runs[0], summary.runs[0]] : [];
+  writeJson(file, summary);
+  finalize(manifest, root);
+  expect(manifest.analysisAvailability.status).toBe('AVAILABLE');
+  expect(manifest.completeness).toMatchObject({ analysisAcquired: true, analysisCompleted: true, analysisVerified: false, evidenceComplete: false, acceptance: 'NOT_ACCEPTED' });
+});
+
+test.each(['report', 'check'])('P3-05: abnormal %s exit is completed but unsuccessful with complete readable evidence', process => {
+  const root = temporaryRoot();
+  const manifest = completedPipeline(root);
+  manifest.analysis[process].code = 7;
+  manifest.analysis.status = 'FAIL';
+  finalize(manifest, root);
+  expect(manifest.status).toBe('FAIL');
+  expect(manifest.completeness).toMatchObject({ analysisAcquired: true, analysisCompleted: true,
+    analysisProcessSucceeded: false, analysisVerified: true, evidenceComplete: true, acceptance: 'NOT_ACCEPTED' });
+  expect(manifest.issues).toContainEqual(expect.objectContaining({ code: 'VALIDATOR_EXIT' }));
+});
+
+test('P3-05: interrupted report process cannot imply completed analysis', () => {
+  const root = temporaryRoot();
+  const manifest = completedPipeline(root);
+  manifest.analysis.report = { code: null, signal: 'SIGTERM' };
+  manifest.analysis.status = 'FAIL';
+  finalize(manifest, root);
+  expect(manifest.completeness).toMatchObject({ analysisAcquired: true, analysisCompleted: false,
+    analysisProcessSucceeded: false, evidenceComplete: false, acceptance: 'NOT_ACCEPTED' });
+});
+
+test('P3-05: inconsistent process status cannot override an abnormal exit code', () => {
+  const root = temporaryRoot();
+  const manifest = completedPipeline(root);
+  manifest.analysis.report.code = 3;
+  finalize(manifest, root);
+  expect(manifest.status).toBe('FAIL');
+  expect(manifest.completeness.analysisProcessSucceeded).toBe(false);
+});
+
+test('P3-05: artifact byte change during finalization persists failed completeness', () => {
+  const root = temporaryRoot();
+  const manifest = completedPipeline(root);
+  const originalRename = fs.renameSync;
+  let changed = false;
+  const spy = vi.spyOn(fs, 'renameSync').mockImplementation((source, target) => {
+    originalRename(source, target);
+    if (!changed && target === path.join(root, 'artifact-index.json')) {
+      changed = true;
+      fs.writeFileSync(path.join(root, 'raw', 'ci-chromium-001-fixture-summary.json'), 'changed');
+    }
+  });
+  try {
+    expect(() => finalize(manifest, root)).toThrow('Artifact index failed verification');
+  } finally { spy.mockRestore(); }
+  expect(manifest.status).toBe('FAIL');
+  expect(manifest.completeness.evidenceComplete).toBe(false);
+  expect(manifest.completeness.acceptance).toBe('NOT_ACCEPTED');
+  const saved = JSON.parse(fs.readFileSync(path.join(root, 'pipeline-manifest.json')));
+  expect(saved.issues).toContainEqual(expect.objectContaining({ code: 'ARTIFACT_INDEX_FAILED' }));
+});
+
+test('P3-05: unreadable artifact index cannot leave a PASS manifest', () => {
+  const root = temporaryRoot(), manifest = completedPipeline(root), originalRename = fs.renameSync;
+  let changed = false;
+  const spy = vi.spyOn(fs, 'renameSync').mockImplementation((source, target) => {
+    originalRename(source, target);
+    if (!changed && target === path.join(root, 'artifact-index.json')) {
+      changed = true;
+      fs.writeFileSync(target, '{invalid JSON');
+    }
+  });
+  try { expect(() => finalize(manifest, root)).toThrow(); } finally { spy.mockRestore(); }
+  expect(manifest.status).toBe('FAIL');
+  expect(manifest.completeness.evidenceComplete).toBe(false);
+  expect(manifest.completeness.acceptance).toBe('NOT_ACCEPTED');
+  expect(fs.readFileSync(path.join(root, 'artifact-index-failure.json'), 'utf8')).toBe('{invalid JSON');
+});
+
+test('P3-05: artifact completeness metadata and file sets must agree with the saved manifest and bytes', () => {
+  const root = temporaryRoot();
+  writeJson(path.join(root, 'pipeline-manifest.json'), { runId: 'index-test', completeness: { evidenceComplete: false } });
+  const index = writeArtifactIndex(root);
+  index.completeness.evidenceComplete = true;
+  index.files = [];
+  writeJson(path.join(root, 'artifact-index.json'), index);
+  expect(verifyArtifactIndex(root)).toEqual(expect.arrayContaining([
+    expect.objectContaining({ code: 'ARTIFACT_INDEX_METADATA' }),
+    expect.objectContaining({ code: 'ARTIFACT_INDEX_FILE_SET' }),
+  ]));
+});
