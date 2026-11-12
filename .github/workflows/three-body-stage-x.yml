@@ -1,4 +1,4 @@
-name: Three-body Stage X bounded isolation
+name: Three-body Stage X evidence re-audit (no new trials)
 on:
   pull_request:
     branches: [main]
@@ -20,7 +20,7 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
-      - name: Execute fixed acquisition once or re-audit existing evidence
+      - name: Re-audit original partial evidence and preserve FAIL
         env:
           GH_TOKEN: ${{ github.token }}
         run: node tools/three-body-stage-x-pipeline.mjs test-results/stage-x
@@ -28,7 +28,8 @@ jobs:
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
-          name: stage-x-evidence-${{ github.sha }}
+          name: stage-x-reaudit-${{ github.sha }}
           path: test-results/stage-x/
           if-no-files-found: error
+          include-hidden-files: true
           retention-days: 90
