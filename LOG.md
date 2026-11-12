@@ -1061,3 +1061,9 @@ P3-04の撮影障害を最優先に36条件とCDP対照を実施。旧context撮
 - Source-location delayed GPU task path has limited source-consistent support, not unique screenshot/callback ownership. No product/physics/display/dependency/deployment changes, improvement NOT_TESTED; no extra W trials.
 - Local bit/history6 match; independent numerical checks/type/build pass. Full unit565/567 retains2 existing long-duration failures; targeted dev44/48, production corrected invocation48/48; initial0-test command error preserved. Final-head formal/diagnostic CI and archive receipts follow on Issue43/PR44.
 - Details: docs/three-body/review-44/stage-w/. Overall PARTIAL, merge NO, Draft/OPEN maintained.
+
+## 2026-11-12 Stage X fixed isolation (PR #44)
+
+- Review5867375529/startcc7d5b1 verified; immutable original failure artifact/PNG/error-context/log copied with matching digest. Original internal event/step timeline and trace were not acquired.
+- Before any browser trial, fixed Phase A6 (V/W3 each, OFF/ON separated) and Phase B8 Windows/at most8 Linux (ABBA ABBA, matched12000ms window,5500ms end intervention,5000ms primary deadline) in stage-x/protocol.md and Issue43.
+- Diagnostic-only source/clock/window/index contracts tested; no product/model/drawing/dependency/Pages changes. Prior failures and performance budgets unchanged. Final results and CI/archive receipt will be reported on existing Draft PR44/Issue43.
