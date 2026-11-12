@@ -1,0 +1,11 @@
+import fs from 'node:fs';import {test as base,expect} from '@playwright/test';
+import {decorateLocator} from './three-body-stage-x-locator.mjs';
+export {expect};
+export const test=base.extend({page:async({page,browser},use,testInfo)=>{
+ const on=process.env.STAGE_X_OBSERVER==='1',rows=[],now=()=>performance.now(),log=(event,data={})=>rows.push({event,harnessMono:now(),...data});
+ if(on){await page.addInitScript(()=>{const journal=[];globalThis.__stageX={journal,record(event,data){try{if(journal.length<20000)journal.push({event,pageMono:performance.now(),timeOrigin:performance.timeOrigin,...data});}catch{}}};document.addEventListener('click',e=>{const target=e.target?.closest?.('button');if(target)globalThis.__stageX.record('click-capture',{id:target.id,isTrusted:e.isTrusted,detail:e.detail});},true);});
+  const locator=page.locator.bind(page);page.locator=(selector,...args)=>decorateLocator(locator(selector,...args),selector,log,now);
+  const wait=page.waitForTimeout.bind(page);page.waitForTimeout=async ms=>{log('wait-issued',{ms});await wait(ms);log('wait-returned',{ms});if(ms===200){const begin=now();const value=await page.evaluate(()=>({now:performance.now(),timeOrigin:performance.timeOrigin,domStep:document.querySelector('#sm-step-count')?.textContent,journal:globalThis.__stageX?.journal??null}));log('state-after-200ms',{begin,end:now(),value});}};
+ }
+ try{await use(page);}finally{const before=now();let value=null,error=null;if(on)try{value=await page.evaluate(()=>({journal:globalThis.__stageX?.journal??null,now:performance.now(),timeOrigin:performance.timeOrigin,dom:{step:document.querySelector('#sm-step-count')?.textContent,playing:document.querySelector('main.mosaic')?.getAttribute('data-playing'),button:document.querySelector('#sm-play')?.textContent}}));}catch(e){error=String(e);}log('final-journal-read',{begin:before,end:now(),value,error});fs.writeFileSync(testInfo.outputPath('stage-x-observation.json'),JSON.stringify({observer:on,browserVersion:browser.version(),pageClock:'performance.now ms; final read bracket, not synchronized exact event delivery',rows,internalState:on?'DIAGNOSTIC_INSERTIONS':'NOT_OBTAINED'},null,2));}
+}});

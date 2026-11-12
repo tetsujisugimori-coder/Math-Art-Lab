@@ -3,7 +3,8 @@ const root=process.argv[2];if(!root||fs.existsSync(root))throw Error('NEW_ROOT_R
 const rows=[],keys=['diagnostic','complete','source','evidence','cleanup'];
 for(const fault of [null,...keys]){
  const name=fault??'normal',prerequisite=Object.fromEntries(keys.map(k=>[k,k!==fault])),input=root+'/'+name+'.json';
- fs.writeFileSync(input,JSON.stringify({prerequisite,measurement:{command:process.execPath,args:['-e','process.stdout.write("mock measurement started")']}}));
+ const auditFile=root+'/'+name+'-audit.json';fs.writeFileSync(auditFile,JSON.stringify({status:'PASS',kind:'REQUIRED_CURRENT_AUDIT',legacyMissing:6}));
+ fs.writeFileSync(input,JSON.stringify({prerequisite,auditFile,measurement:{command:process.execPath,args:['-e','process.stdout.write("mock measurement started")']}}));
  const p=spawnSync(process.execPath,['tools/three-body-stage-y-control.mjs',input,root+'/'+name],{encoding:'utf8',windowsHide:true});
  const r=JSON.parse(fs.readFileSync(root+'/'+name+'/result.json'));rows.push({fault,exit:p.status,record:r,accepted:fault?p.status!==0&&r.measurementLaunches===0&&r.staticAudit.status==='PASS':p.status===0&&r.measurementLaunches===1,index:verifyIndex(root+'/'+name)});
 }
