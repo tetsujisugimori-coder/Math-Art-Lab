@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {seal,verifyIndex} from './three-body-stage-x-contracts.mjs';
 export function gate(r){
  const reasons=[];
- for(const [key,code] of [['diagnostic','D_MEASUREMENT'],['complete','G_INCOMPLETE'],['source','F_SOURCE'],['evidence','F_EVIDENCE'],['cleanup','B_CLEANUP']])if(r[key]!==true)reasons.push(code);
+ for(const [key,code] of [['diagnostic','D_MEASUREMENT'],['complete','G_INCOMPLETE'],['source','F_SOURCE'],['evidence','F_EVIDENCE'],['cleanup','B_CLEANUP']])if(r?.[key]!==true)reasons.push(code);
  return reasons;
 }
 // Shared process execution path; a subsequent measurement command is unreachable
