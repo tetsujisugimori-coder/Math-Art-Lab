@@ -11,6 +11,8 @@ permissions:
   contents: read
 jobs:
   fixed-cohort:
+    # Stage AB explicitly prohibits browser launches; NOT_RUN, never regression PASS.
+    if: ${{ !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}
     strategy:
       fail-fast: false
       matrix:

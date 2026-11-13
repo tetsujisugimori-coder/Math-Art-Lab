@@ -1,0 +1,9 @@
+import fs from 'node:fs';import path from 'node:path';import os from 'node:os';import {spawnSync} from 'node:child_process';import {createHash} from 'node:crypto';
+const root='.three-body-evidence/stage-ab',sha=b=>createHash('sha256').update(b).digest('hex');
+export function capture(id,command,args){const out=root+'/'+id+'.stdout.bin',err=root+'/'+id+'.stderr.bin';const a=fs.openSync(out,'wx'),b=fs.openSync(err,'wx');let p;try{p=spawnSync(command,args,{stdio:['ignore',a,b],windowsHide:true});}finally{fs.closeSync(a);fs.closeSync(b);}const r={id,command,args,exitCode:p.status,signal:p.signal,error:p.error?String(p.error):null,pid:p.pid,stdout:{file:out,bytes:fs.statSync(out).size,sha256:sha(fs.readFileSync(out))},stderr:{file:err,bytes:fs.statSync(err).size,sha256:sha(fs.readFileSync(err))}};fs.writeFileSync(root+'/'+id+'.json',JSON.stringify(r,null,2),{flag:'wx'});return r;}
+if(process.argv[2]==='control'){
+ const f=capture('fixture','python',['-X','utf8','-c',"import zipfile;z=zipfile.ZipFile('.three-body-evidence/stage-ab/small.zip','x');z.writestr('same.txt',b'fixed-stage-ab-data');z.close()"]);if(f.exitCode!==0)throw Error('FIXTURE');
+ const zip=root+'/small.zip',short=path.resolve('.ab/short'),deep=path.resolve('.ab/deep/'+('d'.repeat(80))+'/'+('e'.repeat(80))+'/'+('f'.repeat(40)));const rows=[];
+ for(const [id,dest]of [['short',short],['deep',deep]]){const r=capture('path-'+id,'python',['-X','utf8','tools/three-body-stage-ab-path-control.py',path.resolve(zip),dest]);rows.push({...r,destination:dest,inputSha256:sha(fs.readFileSync(zip)),createdFiles:fs.existsSync(dest)?fs.readdirSync(dest,{recursive:true}).filter(f=>fs.statSync(path.join(dest,f)).isFile()).map(f=>({file:f,sha256:sha(fs.readFileSync(path.join(dest,f)))})):[]});}
+ fs.writeFileSync(root+'/path-controls.json',JSON.stringify({os:os.release(),rows},null,2),{flag:'wx'});console.log(JSON.stringify(rows.map(r=>({id:r.id,exit:r.exitCode,files:r.createdFiles.length}))));
+}

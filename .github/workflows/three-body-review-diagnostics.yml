@@ -12,6 +12,8 @@ permissions:
   contents: read
 jobs:
   focused-webkit:
+    # Stage AB explicitly prohibits browser launches; NOT_RUN, never regression PASS.
+    if: ${{ !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:

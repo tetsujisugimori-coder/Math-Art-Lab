@@ -1,0 +1,42 @@
+name: Three-body Stage AB browser-free preparation
+on:
+  pull_request:
+    branches: [main]
+    paths: ['tools/three-body-stage-a*', 'src/three-body-stage-a*.test.js', 'docs/three-body/review-44/stage-ab/**', '.github/workflows/three-body-stage-ab.yml']
+permissions:
+  contents: read
+jobs:
+  preparation:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Browser-free diagnostic contracts
+        run: npx vitest run --config tools/three-body-stage-ab-tests.config.mjs src/three-body-stage-aa.test.js src/three-body-stage-ab.test.js
+      - name: Safe ZIP negative controls
+        run: python tools/three-body-stage-ab-zip-test.py
+      - name: Review gate source-exact RED control
+        run: |
+          node tools/three-body-stage-ab-review-controls.mjs test-results/approval-red red
+          if ($LASTEXITCODE -ne 1) { throw 'Expected RED false-acceptance control did not fail' }
+          exit 0
+      - name: Review gate GREEN control
+        run: node tools/three-body-stage-ab-review-controls.mjs test-results/approval-green green
+      - name: Preserve synthetic gate controls including failures
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: stage-ab-gate-controls-${{ github.sha }}
+          path: test-results/approval-*/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 90
+      - name: Explicit scope
+        run: echo 'Browser launches prohibited. Original stop trials NOT_RUN; no product performance acceptance.' >> $env:GITHUB_STEP_SUMMARY
