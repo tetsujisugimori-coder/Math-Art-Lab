@@ -16,15 +16,16 @@ export function runtimeReference(root,b,moduleUrl){
  for(const s of b.files){const bytes=fs.readFileSync(root+'/'+s.copy);if(bytes.length!==s.bytes||sha(bytes)!==s.sha256||blobId(bytes)!==s.runtimeBlobId)throw Error('Runtime source changed: '+s.file);}
  return{bindingId:b.id,executionHead:b.execution.head,executionTree:b.execution.tree,diagnosticRevision:b.execution.diagnosticRevision,runtimeSourceVerified:true,runner:b.execution.runner,runnerSha256:b.files.find(s=>s.file===b.execution.runner).sha256};
 }
-export function launchBound(root,files,runner,diagnosticRevision){
- const b=captureBinding(root,files,runner,diagnosticRevision),entry=path.resolve(root,'sources/runtime',runner),args=process.argv.slice(2).filter(a=>!a.startsWith('--bound='));args.push('--bound='+path.resolve(root));
+export function launchBound(root,files,runner,diagnosticRevision,explicitArgs){
+ if(explicitArgs!==undefined&&(!Array.isArray(explicitArgs)||explicitArgs.some(a=>typeof a!=='string'||a.includes('\0')||a.startsWith('--bound='))))throw Error('INVALID_EXPLICIT_CHILD_ARGUMENTS');
+ const b=captureBinding(root,files,runner,diagnosticRevision),entry=path.resolve(root,'sources/runtime',runner),args=explicitArgs===undefined?process.argv.slice(2).filter(a=>!a.startsWith('--bound=')):[...explicitArgs];args.push('--bound='+path.resolve(root));
  const child=spawnSync(process.execPath,[entry,...args],{cwd:process.cwd(),env:{...process.env,STAGE_W_SOURCE_BINDING_ID:b.id},stdio:'inherit',windowsHide:true});if(child.error)throw child.error;return child.status??1;
 }
 export function verifyBinding(binding,read,{headTree,gitBlob,rawReferences=[],manifestHead,manifestTree,manifestSources,manifestRevision,expectedRunner,indexBindingId,indexHead,indexTree,indexRevision,indexRequired=false}={}){
  const errors=[],proof=[],fail=(code,file=null)=>errors.push({code,file});
  if(!binding)return{status:'UNKNOWN',errors:[],proof,reason:'LEGACY_SOURCE_RUNTIME_BINDING_NOT_OBTAINED'};
  if(binding.contract!==sourceContract||binding.id!==bindingId(binding))fail('BINDING_CONTRACT_OR_ID');const e=binding.execution;
- if(!e||!['stage-v-timing-2','stage-w-1'].includes(e.diagnosticRevision))fail('WRONG_DIAGNOSTIC_REVISION');
+ if(!e||!['stage-v-timing-2','stage-w-1','stage-aa-1'].includes(e.diagnosticRevision))fail('WRONG_DIAGNOSTIC_REVISION');
  if(manifestRevision!==undefined&&e?.diagnosticRevision!==manifestRevision)fail('MANIFEST_DIAGNOSTIC_REVISION');
  if(expectedRunner!==undefined&&e?.runner!==expectedRunner)fail('WRONG_RUNTIME_RUNNER');
  if(e?.head!==manifestHead||e?.tree!==manifestTree||headTree!==e?.tree)fail('EXECUTION_HEAD_TREE');

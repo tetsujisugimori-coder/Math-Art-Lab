@@ -47,21 +47,39 @@ jobs:
           fi
           npx playwright install --with-deps chromium webkit
       - name: Development regression tests
+        id: development_tests
         env:
           CL_EVIDENCE: test-results/cooperation-development
         run: npm run test:e2e -- --output=test-results/development
       - name: Production build smoke tests
+        id: production_tests
         env:
           CL_EVIDENCE: test-results/cooperation-production
         run: npm run test:e2e:production -- --output=test-results/production
-      - name: Preserve regression evidence
+      - name: Inventory regression evidence including last-run records
+        id: evidence_inventory
         if: always()
+        run: node tools/three-body-regression-evidence.mjs create test-results '${{ steps.development_tests.outcome }}' '${{ steps.production_tests.outcome }}'
+      - name: Preserve regression evidence
+        id: evidence_upload
+        if: always() && steps.evidence_inventory.outcome == 'success'
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: regression-evidence-${{ github.sha }}
           path: test-results/
-          if-no-files-found: ignore
+          include-hidden-files: true
+          if-no-files-found: error
           retention-days: 14
+      - name: Retrieve regression evidence for byte verification
+        id: evidence_download
+        if: always() && steps.evidence_upload.outcome == 'success'
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: regression-evidence-${{ github.sha }}
+          path: regression-evidence-readback
+      - name: Verify uploaded regression evidence set size and SHA
+        if: always() && steps.evidence_download.outcome == 'success'
+        run: node tools/three-body-regression-evidence.mjs verify regression-evidence-readback
       - name: Save validated build
         if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
