@@ -1,0 +1,154 @@
+{
+  "status": "OBSERVED",
+  "clock": {
+    "status": "ALIGNED_WITH_SPREAD",
+    "completeMarkerSet": true,
+    "expectedMarks": 2,
+    "foundMarks": 2,
+    "offsetMs": 157583175.119,
+    "markBracketMs": 0.046000003814697266,
+    "minObservedPositiveDeltaMs": 0.09999999403953552,
+    "accuracyGuaranteed": false,
+    "mainPid": 24548,
+    "mainTid": 25164,
+    "anchorOffsetSpreadMs": 0.046000003814697266
+  },
+  "workerIdentities": [
+    {
+      "name": "emulation-chromium-012-emulation-default-on-worker-clock",
+      "events": [
+        {
+          "pid": 24548,
+          "tid": 36812,
+          "tsUs": 157583372219
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "javascript": "OBSERVED",
+    "layout": "OBSERVED",
+    "paint": "OBSERVED",
+    "rasterization": "OBSERVED",
+    "compositing": "OBSERVED",
+    "synchronousGC": "OBSERVED",
+    "recordedWait": "OBSERVED"
+  },
+  "mainTaskWall": {
+    "n": 277,
+    "median": 0.024,
+    "p95": 2.57,
+    "p99": 4.986,
+    "max": 5.878,
+    "over50": 0,
+    "percentileIsGuarantee": false
+  },
+  "mainTaskCpu": {
+    "n": 267,
+    "median": 0.02,
+    "p95": 2.521,
+    "p99": 4.64,
+    "max": 5.422,
+    "over50": 0,
+    "percentileIsGuarantee": false
+  },
+  "samples": [
+    {
+      "kind": "maximum-main-task",
+      "traceBeginMs": 157583964.468,
+      "traceEndMs": 157583970.346,
+      "wallMs": 5.877999991178513,
+      "enclosingTask": {
+        "pid": 24548,
+        "tid": 25164,
+        "tsUs": 157583964468,
+        "durUs": 5878,
+        "threadCpuMs": 5.317
+      },
+      "overlap": {
+        "javascript": {
+          "mainUnionWallMs": 3.8720000088214874,
+          "allThreadsUnionWallMs": 3.8720000088214874,
+          "eventCount": 1,
+          "identities": [
+            "24548:25164"
+          ],
+          "names": [
+            "FunctionCall"
+          ]
+        },
+        "layout": {
+          "mainUnionWallMs": 1.648000031709671,
+          "allThreadsUnionWallMs": 1.648000031709671,
+          "eventCount": 4,
+          "identities": [
+            "24548:25164"
+          ],
+          "names": [
+            "UpdateLayoutTree",
+            "Layout"
+          ]
+        },
+        "paint": {
+          "mainUnionWallMs": 0.6229999959468842,
+          "allThreadsUnionWallMs": 0.6229999959468842,
+          "eventCount": 3,
+          "identities": [
+            "24548:25164"
+          ],
+          "names": [
+            "PrePaint",
+            "Paint"
+          ]
+        },
+        "rasterization": {
+          "mainUnionWallMs": 0,
+          "allThreadsUnionWallMs": 0,
+          "eventCount": 0,
+          "identities": [],
+          "names": []
+        },
+        "compositing": {
+          "mainUnionWallMs": 0.8729999959468842,
+          "allThreadsUnionWallMs": 0.8729999959468842,
+          "eventCount": 7,
+          "identities": [
+            "24548:25164",
+            "24548:30324"
+          ],
+          "names": [
+            "Commit",
+            "ProxyImpl::ReadyToCommit",
+            "Scheduler::NotifyReadyToCommit",
+            "ProxyImpl::Commit",
+            "LayerTreeHostImpl::BeginCommit",
+            "LayerTreeHostImpl::FinishCommit",
+            "LayerTreeHostImpl::CommitComplete"
+          ]
+        },
+        "synchronousGC": {
+          "mainUnionWallMs": 0,
+          "allThreadsUnionWallMs": 0,
+          "eventCount": 0,
+          "identities": [],
+          "names": []
+        },
+        "recordedWait": {
+          "mainUnionWallMs": 0,
+          "allThreadsUnionWallMs": 0,
+          "eventCount": 0,
+          "identities": [],
+          "names": []
+        }
+      },
+      "interpretation": "Union elapsed overlap; nested categories are not additive, thread CPU belongs to the entire Task. No allocation of wall minus CPU to causes."
+    }
+  ],
+  "screenshot": {
+    "status": "NOT_TESTED",
+    "reason": "No trace-active screenshot interval"
+  },
+  "osScheduler": "NOT_TESTED_KERNEL_EVENTS",
+  "gpuPresentation": "NOT_TESTED",
+  "rootCause": "UNKNOWN"
+}

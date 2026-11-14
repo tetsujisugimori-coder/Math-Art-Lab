@@ -1,0 +1,40 @@
+{
+  "id": "u-009-default-C-2",
+  "plan": {
+    "id": "u-009-default-C-2",
+    "context": "default",
+    "operation": "C",
+    "block": 2,
+    "readback": true,
+    "repeat": 1
+  },
+  "status": "FAIL",
+  "issues": [
+    {
+      "category": "D_MEASUREMENT",
+      "code": "TRIAL_EXCEPTION",
+      "error": "Error: explicit readback timeout 5000ms",
+      "at": 96103.6157,
+      "clock": "harness performance.now"
+    }
+  ],
+  "gap": null,
+  "captureStatus": "NOT_TESTED",
+  "image": {
+    "acquisition": "NOT_TESTED"
+  },
+  "before": {
+    "step": 30,
+    "bStep": 30,
+    "ab": true,
+    "playing": false,
+    "disposed": false,
+    "timer": false,
+    "raf": false,
+    "trail": 0,
+    "graph": 0,
+    "b": "30",
+    "a": "30",
+    "observed": "30"
+  }
+}

@@ -1,0 +1,332 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - navigation "作品の選択" [ref=e3]:
+    - generic [ref=e4]:
+      - text: 作品
+      - combobox "作品" [ref=e5]:
+        - option "002 · 光のハーモノグラフ"
+        - option "001 · Fractal × Wave"
+        - option "003 · 光の花園"
+        - option "004 · 光の結び目"
+        - option "005 · カオスの蝶"
+        - option "006 · フラクタルの双子"
+        - option "007 · 波紋の対話"
+        - option "008 · 風の軌跡"
+        - option "009 · チューリングの庭"
+        - option "010 · フーリエの万華鏡"
+        - option "011 · 距離の結晶"
+        - option "012 · 振動の砂絵"
+        - option "013 · 波紋の万華鏡"
+        - option "014 · 需要と供給の蜘蛛の巣"
+        - option "015 · 分断のモザイク"
+        - option "016 · 協力の格子"
+        - option "017 · 三体の舞踏" [selected]
+  - main [ref=e7]:
+    - generic [ref=e8]:
+      - text: MATH ART LAB / EXPERIMENT 017
+      - heading "三体の舞踏" [level=1] [ref=e9]
+      - paragraph [ref=e10]: THREE-BODY DANCE
+      - paragraph [ref=e11]:
+        - text: 三つの引力が、ひとつの軌跡をほどいていく。
+        - text: 秩序と予測の境界を、保存則とともに観察する。
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - generic [ref=e15]:
+            - heading "A · 基準の宇宙" [level=2] [ref=e16]
+            - img "3天体の軌道。左右キーで天体を選択。円1・四角2・三角3" [ref=e17]
+          - generic [ref=e18]:
+            - heading "B · 微小差の宇宙" [level=2] [ref=e19]
+            - img "比較Bの軌道。Aと共通の座標尺度" [ref=e20]
+        - paragraph [ref=e21]:
+          - generic [ref=e22]: ○ 1 · 氷青
+          - generic [ref=e23]: □ 2 · 琥珀
+          - generic [ref=e24]: △ 3 · 藤紫
+          - generic [ref=e25]: ＋ R · 重心
+        - generic [ref=e26]:
+          - button "一時停止" [active] [ref=e27] [cursor=pointer]
+          - button "1ステップ" [ref=e28] [cursor=pointer]
+          - button "初期状態へ戻す" [ref=e29] [cursor=pointer]
+          - button "鑑賞モード" [ref=e30] [cursor=pointer]
+        - status [ref=e31]: 再生中
+        - paragraph [ref=e32]: 表示対象step 28924 / 最新計算step 31287 · 描画待ち（観察値と軌道は表示対象stepの値）。グラフは20ステップごとの標本。
+        - paragraph [ref=e33]: t=28.92400 · 28924ステップ · Δt=0.001 · 最小距離=0.69689 · ニュートン式 ε=0
+        - generic "カメラ操作" [ref=e34]:
+          - button "拡大" [ref=e35] [cursor=pointer]: ＋
+          - button "縮小" [ref=e36] [cursor=pointer]: −
+          - button "左へ平行移動" [ref=e37] [cursor=pointer]: ←
+          - button "上へ平行移動" [ref=e38] [cursor=pointer]: ↑
+          - button "下へ平行移動" [ref=e39] [cursor=pointer]: ↓
+          - button "右へ平行移動" [ref=e40] [cursor=pointer]: →
+          - button "全体表示" [ref=e41] [cursor=pointer]
+          - button "固定座標へ" [ref=e42] [cursor=pointer]
+          - generic [ref=e43]:
+            - checkbox "重心追従" [ref=e44]
+            - text: 重心追従
+        - paragraph [ref=e45]: 軌跡の表示は1天体最大1000点。保存した計算点を等間隔で間引き、端点を含む直線で結びます。計算ステップは省略しません。A/Bの履歴が6000点に達した再生では、表示完了後80ms以上を空けて表示を更新します。待機中の観察値と軌道は直前の同じ時刻です。停止・1ステップはこの表示待ちを解除します。カメラは物理状態を変えません。全体表示はボタンを押したときだけ。タッチは通常ページスクロール、編集モードでは天体の候補位置をドラッグできます。
+        - generic [ref=e46]:
+          - heading "一つの天体から見る" [level=2] [ref=e47]
+          - generic [ref=e48]:
+            - text: 観察する天体
+            - combobox "観察する天体" [ref=e49]:
+              - option "○ 天体1" [selected]
+              - option "□ 天体2"
+              - option "△ 天体3"
+          - paragraph [ref=e50]: 天体1 / t=28.92400 / m=1 / r=(0.61586, 0.35631) / v=(-1.05754, -0.08409) / 速さ=1.06088 / a=(-0.77263, -2.08311)
+          - generic [ref=e51]:
+            - paragraph [ref=e52]: 天体2から：距離=1.73918、a1←2=(-0.32223, -0.07393)
+            - paragraph [ref=e53]: 天体3から：距離=0.69689、a1←3=(-0.45040, -2.00918)
+            - paragraph [ref=e54]: Σの合成 a1 = (-0.77263, -2.08311)（同じ確定時刻の2項の和）
+        - generic [ref=e55]:
+          - heading "宇宙の帳尻" [level=2] [ref=e56]
+          - region "保存量の初期値と現在値" [ref=e57]:
+            - table "Aの保存量と重心（固定座標）" [ref=e58]:
+              - caption [ref=e59]: Aの保存量と重心（固定座標）
+              - rowgroup [ref=e60]:
+                - row "量 初期 現在 変化" [ref=e61]:
+                  - columnheader "量" [ref=e62]
+                  - columnheader "初期" [ref=e63]
+                  - columnheader "現在" [ref=e64]
+                  - columnheader "変化" [ref=e65]
+              - rowgroup [ref=e66]:
+                - row "運動エネルギー K 1.21286 1.35975 0.14689" [ref=e67]:
+                  - rowheader "運動エネルギー K" [ref=e68]
+                  - cell "1.21286" [ref=e69]
+                  - cell "1.35975" [ref=e70]
+                  - cell "0.14689" [ref=e71]
+                - row "位置エネルギー U -2.50000 -2.64689 -0.14689" [ref=e72]:
+                  - rowheader "位置エネルギー U" [ref=e73]
+                  - cell "-2.50000" [ref=e74]
+                  - cell "-2.64689" [ref=e75]
+                  - cell "-0.14689" [ref=e76]
+                - row "全エネルギー E -1.28714 -1.28714 -7.0808e-7" [ref=e77]:
+                  - rowheader "全エネルギー E" [ref=e78]
+                  - cell "-1.28714" [ref=e79]
+                  - cell "-1.28714" [ref=e80]
+                  - cell "-7.0808e-7" [ref=e81]
+                - row "全運動量 P (0.00000, 0.00000) (1.5543e-15, -4.0523e-15) (1.5543e-15, -4.0523e-15)" [ref=e82]:
+                  - rowheader "全運動量 P" [ref=e83]
+                  - cell "(0.00000, 0.00000)" [ref=e84]
+                  - cell "(1.5543e-15, -4.0523e-15)" [ref=e85]
+                  - cell "(1.5543e-15, -4.0523e-15)" [ref=e86]
+                - row "全角運動量 L 0.00000 -5.6899e-15 -5.6899e-15" [ref=e87]:
+                  - rowheader "全角運動量 L" [ref=e88]
+                  - cell "0.00000" [ref=e89]
+                  - cell "-5.6899e-15" [ref=e90]
+                  - cell "-5.6899e-15" [ref=e91]
+                - row "重心位置 R (0.00000, 0.00000) (-1.8541e-14, -9.7515e-15) (-1.8541e-14, -9.7515e-15)" [ref=e92]:
+                  - rowheader "重心位置 R" [ref=e93]
+                  - cell "(0.00000, 0.00000)" [ref=e94]
+                  - cell "(-1.8541e-14, -9.7515e-15)" [ref=e95]
+                  - cell "(-1.8541e-14, -9.7515e-15)" [ref=e96]
+                - row "重心速度 V (0.00000, 0.00000) (5.1810e-16, -1.3508e-15) (5.1810e-16, -1.3508e-15)" [ref=e97]:
+                  - rowheader "重心速度 V" [ref=e98]
+                  - cell "(0.00000, 0.00000)" [ref=e99]
+                  - cell "(5.1810e-16, -1.3508e-15)" [ref=e100]
+                  - cell "(5.1810e-16, -1.3508e-15)" [ref=e101]
+          - paragraph [ref=e102]: A 誤差 ΔE/S_E=-1.9071e-7、|ΔP|/S_P=1.3004e-15、ΔL/(S_P S_R)=-1.7049e-15、重心残差=2.0949e-14
+          - paragraph [ref=e103]: ε=0はニュートン式、ε>0は距離を√(r²+ε²)とするソフトニング近似。位置エネルギーも−Gmᵢmⱼ/√(r²+ε²)を使います。
+          - group [ref=e104]:
+            - generic "誤差の定義と保存則" [ref=e105] [cursor=pointer]
+        - generic [ref=e106]:
+          - heading "わずかな違いの行方" [level=2] [ref=e107]
+          - paragraph [ref=e108]: Aは実線、Bは破線（狭い画面では重ね合わせ）。同じ色と番号は同じ天体です。
+          - paragraph [ref=e109]: 初期差δ=0.000001（天体1のxのみ） / tA=tB=28.92400 / 各天体の位置差=4.0033e-5, 5.6281e-5, 4.8174e-5 / D(t)=4.86174e-5 / D_c=4.86163e-5
+          - img "軌道差D(t)。横軸は物理時間、縦軸は位置差のRMS。値は隣の文章と表で確認" [ref=e110]:
+            - generic [ref=e113]: D
+            - generic [ref=e114]: "4.94000"
+            - generic [ref=e115]: t=28.92000
+            - generic [ref=e116]: 上限 4.861e-5
+            - generic [ref=e117]: "0"
+          - paragraph [ref=e118]: 直近の確定グラフ点：t=28.92000、D=4.86105e-5。縦軸は0〜4.86105e-5、横軸4.94000〜28.92000。20ステップごとに標本化、直近1200点。現在Dは上に表示。
+          - group [ref=e119]:
+            - generic "時系列を数値で読む（直近20点）" [ref=e120] [cursor=pointer]
+          - paragraph [ref=e121]: B 誤差 ΔE/S_E=-1.9072e-7、|ΔP|/S_P=2.6918e-15、ΔL/(S_P S_R)=1.8379e-15、重心残差=2.9951e-14
+          - paragraph [ref=e122]: D(t)=√(Σᵢ|rᵢᴮ−rᵢᴬ|²/3)。重心除去D_c=√(Σᵢ|(rᵢᴮ−Rᴮ)−(rᵢᴬ−Rᴬ)|²/3)。座標は描画丸め前の倍精度値。位置差と速度差は別です。初期値敏感性の観察には刻みを小さくした再実験も必要です。数値誤差の増幅と区別し、有限時間の差だけで正のリアプノフ指数を断定しません。
+      - complementary "三体実験の設定" [ref=e123]:
+        - heading "実験の条件" [level=2] [ref=e124]
+        - paragraph [ref=e125]: 入力は候補です。「設定を適用」で停止し、新しい実験を開始します。リセットは適用済みの初期条件へ戻り、候補入力は保持します。
+        - generic [ref=e126]:
+          - text: プリセット
+          - combobox "プリセット" [ref=e127]:
+            - option "8の字の舞踏" [selected]
+            - option "正三角形の回転"
+            - option "二重星と第三の天体"
+            - option "混沌の接近"
+            - option "逃走する天体"
+        - paragraph [ref=e128]: 等質量の特殊な周期解。ε=0、周期約6.325914。丸めた初期値と有限刻みによる近似です。
+        - generic [ref=e129]:
+          - group "○ 天体1" [ref=e130]:
+            - generic [ref=e131]: ○ 天体1
+            - generic [ref=e132]:
+              - text: 質量
+              - spinbutton "天体1 質量" [ref=e133]: "1"
+            - generic [ref=e134]:
+              - text: 初期位置X
+              - spinbutton "天体1 初期位置X" [ref=e135]: "-0.97000436"
+            - generic [ref=e136]:
+              - text: 初期位置Y
+              - spinbutton "天体1 初期位置Y" [ref=e137]: "0.24308753"
+            - generic [ref=e138]:
+              - text: 初速度VX
+              - spinbutton "天体1 初速度VX" [ref=e139]: "0.466203685"
+            - generic [ref=e140]:
+              - text: 初速度VY
+              - spinbutton "天体1 初速度VY" [ref=e141]: "0.43236573"
+          - group "□ 天体2" [ref=e142]:
+            - generic [ref=e143]: □ 天体2
+            - generic [ref=e144]:
+              - text: 質量
+              - spinbutton "天体2 質量" [ref=e145]: "1"
+            - generic [ref=e146]:
+              - text: 初期位置X
+              - spinbutton "天体2 初期位置X" [ref=e147]: "0.97000436"
+            - generic [ref=e148]:
+              - text: 初期位置Y
+              - spinbutton "天体2 初期位置Y" [ref=e149]: "-0.24308753"
+            - generic [ref=e150]:
+              - text: 初速度VX
+              - spinbutton "天体2 初速度VX" [ref=e151]: "0.466203685"
+            - generic [ref=e152]:
+              - text: 初速度VY
+              - spinbutton "天体2 初速度VY" [ref=e153]: "0.43236573"
+          - group "△ 天体3" [ref=e154]:
+            - generic [ref=e155]: △ 天体3
+            - generic [ref=e156]:
+              - text: 質量
+              - spinbutton "天体3 質量" [ref=e157]: "1"
+            - generic [ref=e158]:
+              - text: 初期位置X
+              - spinbutton "天体3 初期位置X" [ref=e159]: "0"
+            - generic [ref=e160]:
+              - text: 初期位置Y
+              - spinbutton "天体3 初期位置Y" [ref=e161]: "0"
+            - generic [ref=e162]:
+              - text: 初速度VX
+              - spinbutton "天体3 初速度VX" [ref=e163]: "-0.93240737"
+            - generic [ref=e164]:
+              - text: 初速度VY
+              - spinbutton "天体3 初速度VY" [ref=e165]: "-0.86473146"
+          - generic [ref=e166]:
+            - text: G · 重力定数
+            - spinbutton "G · 重力定数" [ref=e167]: "1"
+          - generic [ref=e168]:
+            - text: Δt · 計算刻み
+            - spinbutton "Δt · 計算刻み" [ref=e169]: "0.001"
+          - generic [ref=e170]:
+            - text: ε · ソフトニング（0=ニュートン式）
+            - spinbutton "ε · ソフトニング（0=ニュートン式）" [ref=e171]: "0"
+          - button "設定を適用" [ref=e172] [cursor=pointer]
+          - status
+        - paragraph [ref=e173]: 適用済み：G=1、Δt=0.001、ε=0。軌跡6000/6000点、グラフ1200/1200点。
+        - generic [ref=e174]:
+          - checkbox "初期条件の位置編集モード" [disabled] [ref=e175]
+          - text: 初期条件の位置編集モード
+        - paragraph [ref=e176]: 編集モードは停止時のみ。ドラッグは候補だけを変更します。数値入力でも同じ編集ができます。
+        - generic [ref=e177]:
+          - text: 再生速度（物理時間/秒）
+          - slider "再生速度（物理時間/秒）" [ref=e178] [cursor=pointer]: "4"
+          - status [ref=e179]: "4"
+        - paragraph [ref=e180]: 速度はステップ数を変更し、Δtを変えません。1回の更新は最大2000ステップ。重い条件では指定速度に届かず、壁時計の遅れを捨てても計算ステップは飛ばしません。非表示時と動きを減らす設定への変更時は停止。動きを減らす設定中は1ステップで観察できます。
+        - group [ref=e181]:
+          - generic "光跡と補助線" [ref=e182] [cursor=pointer]
+          - generic [ref=e183]:
+            - checkbox "軌跡" [checked] [ref=e184]
+            - text: 軌跡
+          - generic [ref=e185]:
+            - checkbox "天体" [checked] [ref=e186]
+            - text: 天体
+          - generic [ref=e187]:
+            - checkbox "重心マーカー" [checked] [ref=e188]
+            - text: 重心マーカー
+          - generic [ref=e189]:
+            - checkbox "速度ベクトル（緑）" [checked] [ref=e190]
+            - text: 速度ベクトル（緑）
+          - generic [ref=e191]:
+            - checkbox "加速度ベクトル（赤）" [checked] [ref=e192]
+            - text: 加速度ベクトル（赤）
+          - generic [ref=e193]:
+            - checkbox "座標軸と目盛り" [checked] [ref=e194]
+            - text: 座標軸と目盛り
+          - generic [ref=e195]:
+            - checkbox "発光" [checked] [ref=e196]
+            - text: 発光
+          - generic [ref=e197]:
+            - text: 軌跡履歴長（計算点、上限6000）
+            - slider "軌跡履歴長（計算点、上限6000）" [ref=e198] [cursor=pointer]: "6000"
+            - status [ref=e199]: "6000"
+          - generic [ref=e200]:
+            - text: 軌跡の不透明度
+            - slider "軌跡の不透明度" [ref=e201] [cursor=pointer]: "0.8"
+        - generic [ref=e202]:
+          - heading "微小差で比較する" [level=2] [ref=e203]
+          - paragraph [ref=e204]: 適用済みの初期条件からA/Bを時刻0に作成。比較終了で元の通常実験へ戻ります。
+          - generic [ref=e205]:
+            - text: 変更する天体
+            - combobox "変更する天体" [ref=e206]:
+              - option "天体1" [selected]
+              - option "天体2"
+              - option "天体3"
+          - generic [ref=e207]:
+            - text: 変更する1成分
+            - combobox "変更する1成分" [ref=e208]:
+              - option "位置X" [selected]
+              - option "位置Y"
+              - option "速度VX"
+              - option "速度VY"
+          - generic [ref=e209]:
+            - text: 初期差δ
+            - spinbutton "初期差δ" [ref=e210]: "0.000001"
+          - button "比較開始" [ref=e211] [cursor=pointer]
+          - button "比較終了・元へ戻す" [ref=e212] [cursor=pointer]
+        - button "4段階教材" [ref=e213] [cursor=pointer]
+    - generic [ref=e214]:
+      - heading "引力を読む" [level=2] [ref=e215]
+      - paragraph [ref=e216]:
+        - text: d
+        - button "r" [pressed] [ref=e217] [cursor=pointer]
+        - text: ᵢ/d
+        - button "t" [ref=e218] [cursor=pointer]
+        - text: =
+        - button "v" [ref=e219] [cursor=pointer]
+        - text: ᵢ
+        - text: d
+        - button "v" [ref=e220] [cursor=pointer]
+        - text: ᵢ/d
+        - button "t" [ref=e221] [cursor=pointer]
+        - text: =
+        - button "a" [ref=e222] [cursor=pointer]
+        - text: ᵢ =
+        - button "G" [ref=e223] [cursor=pointer]
+        - button "Σ" [ref=e224] [cursor=pointer]
+        - text: ⱼ≠ᵢ
+        - button "m" [ref=e225] [cursor=pointer]
+        - text: ⱼ (rⱼ−rᵢ) / (|rⱼ−rᵢ|²+ε²)³ᐟ²
+      - generic [ref=e226]:
+        - button "Δt" [ref=e227] [cursor=pointer]
+        - button "E = K + U" [ref=e228] [cursor=pointer]
+        - button "L = Σmᵢ(xᵢvyᵢ−yᵢvxᵢ)" [ref=e229] [cursor=pointer]
+        - button "δ" [ref=e230] [cursor=pointer]
+      - generic [ref=e231]:
+        - term [ref=e232]: 記号の名前
+        - definition [ref=e233]: 位置ベクトル
+        - term [ref=e234]: 式での読み方
+        - definition [ref=e235]: アール・アイ
+        - term [ref=e236]: 物理的な意味
+        - definition [ref=e237]: 固定座標における天体iの位置。カメラを動かしても値は変わりません。
+      - paragraph [ref=e238]: A / t=28.92400 / r1=(0.61586, 0.35631)
+    - generic [ref=e239]:
+      - paragraph [ref=e240]: 2次元の理想化された三体問題、無次元単位系（基本G=1）。実在の太陽系の縮尺・天体暦ではありません。固定中心・合体・反発・消滅はありません。すべての三体軌道がカオスになるわけではなく、8の字のような特殊な周期解もあります。一般的な初期条件には簡単な閉形式解がなく、数値計算は有限精度の近似。予測困難さは完全なランダム性とは異なります。発光と残像は装飾であり物理量ではありません。
+      - paragraph [ref=e241]:
+        - text: 資料：
+        - link "Chenciner & Montgomery (2000)" [ref=e242] [cursor=pointer]:
+          - /url: https://arxiv.org/abs/math/0011268
+        - text: ·
+        - link "Montgomeryの初期値" [ref=e243] [cursor=pointer]:
+          - /url: https://people.ucsc.edu/~rmont/Nbdy/NbdyB.html
+        - text: ·
+        - link "Ichita・Yamada・Asada（ニュートン極限）" [ref=e244] [cursor=pointer]:
+          - /url: https://arxiv.org/abs/1011.3886
+```

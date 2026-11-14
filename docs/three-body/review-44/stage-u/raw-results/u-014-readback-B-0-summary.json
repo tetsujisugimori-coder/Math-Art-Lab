@@ -1,0 +1,128 @@
+{
+  "id": "u-014-readback-B-0",
+  "plan": {
+    "id": "u-014-readback-B-0",
+    "context": "readback",
+    "operation": "B",
+    "block": 0,
+    "readback": false,
+    "repeat": 0
+  },
+  "status": "PASS",
+  "issues": [],
+  "requests": [
+    {
+      "session": {
+        "logicalId": "u-014-readback-B-0/page-session",
+        "targetId": "1D48EC90ABEB324DA1646DC21FA7F1C9",
+        "wireSessionId": "NOT_EXPOSED_BY_PUBLIC_PLAYWRIGHT_API",
+        "sameObjectForAllMeasuredRequests": true
+      },
+      "requestId": "u-014-readback-B-0/page-session/request-1",
+      "method": "Page.captureScreenshot",
+      "params": {
+        "format": "png",
+        "fromSurface": true,
+        "clip": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 900,
+          "scale": 1
+        },
+        "captureBeyondViewport": false
+      },
+      "start": 142798.0525,
+      "clock": "harness performance.now ms",
+      "timeoutMs": 5000,
+      "wireRequestId": "NOT_EXPOSED_BY_PUBLIC_PLAYWRIGHT_API",
+      "response": 142998.8104,
+      "finished": 142998.8104,
+      "elapsed": 200.75789999999688,
+      "status": "PASS",
+      "lateReply": false,
+      "result": {
+        "imagePayload": "stored in raw and original PNG"
+      }
+    }
+  ],
+  "gap": null,
+  "captureStatus": "PASS",
+  "image": {
+    "acquisition": "ACQUIRED",
+    "file": "images/u-014-readback-B-0.png",
+    "bytes": 187524,
+    "sha256": "2cb119d896d25f11ec827aa83d7f9936530fa3658baf594d8ac6acacc5c784e7",
+    "width": 2560,
+    "height": 1800,
+    "bitmap": {
+      "imageWidth": 2560,
+      "imageHeight": 1800,
+      "expectedWidth": 2560,
+      "expectedHeight": 1800,
+      "dimensionsMatch": true,
+      "checks": [
+        {
+          "width": 876,
+          "height": 660,
+          "differentChannels": 0,
+          "maximumChannelError": 0
+        },
+        {
+          "width": 876,
+          "height": 660,
+          "differentChannels": 0,
+          "maximumChannelError": 0
+        }
+      ],
+      "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+    },
+    "postPixels": {
+      "decodedSha256": "25ebc206d4acb7f558660793330b655ec5775c2f78591c72defde7bdfcad7f96",
+      "beforeAfter": null,
+      "scope": "After the measured API; no pre-measurement digest or readback in OFF trials"
+    }
+  },
+  "before": {
+    "step": 30,
+    "bStep": 30,
+    "ab": true,
+    "playing": false,
+    "disposed": false,
+    "timer": false,
+    "raf": false,
+    "trail": 0,
+    "graph": 0,
+    "b": "30",
+    "a": "30",
+    "observed": "30"
+  },
+  "after": {
+    "step": 30,
+    "bStep": 30,
+    "ab": true,
+    "playing": false,
+    "disposed": false,
+    "timer": false,
+    "raf": false,
+    "trail": 0,
+    "graph": 0,
+    "b": "30",
+    "a": "30",
+    "observed": "30"
+  },
+  "later": {
+    "step": 30,
+    "bStep": 30,
+    "ab": true,
+    "playing": false,
+    "disposed": false,
+    "timer": false,
+    "raf": false,
+    "trail": 0,
+    "graph": 0,
+    "b": "30",
+    "a": "30",
+    "observed": "30"
+  }
+}

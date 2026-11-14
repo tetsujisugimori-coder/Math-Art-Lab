@@ -1,0 +1,100 @@
+
+> math-art-lab@0.1.0 test:e2e:production
+> playwright test --config playwright.production.config.ts e2e-production/three-body.spec.ts e2e-production/three-body-review.spec.ts --output=test-results/three-body-review-production-final
+
+
+Running 48 tests using 1 worker
+
+  ✓   1 [chromium] › e2e\three-body-review-checks.ts:79:27 › three-body review: DPR1 delayed rAF coherent step pause reset comparison lesson hide restore (10.5s)
+  ✓   2 [chromium] › e2e\three-body-review-checks.ts:79:27 › three-body review: DPR2 delayed rAF coherent step pause reset comparison lesson hide restore (11.2s)
+  ✘   3 [chromium] › e2e\three-body-review-checks.ts:163:27 › three-body review: DPR1 saturated A/B actual play stop and same display state (21.7s)
+  ✘   4 [chromium] › e2e\three-body-review-checks.ts:163:27 › three-body review: DPR2 saturated A/B actual play stop and same display state (30.2s)
+  ✓   5 [chromium] › e2e\three-body-review-checks.ts:234:1 › three-body review: retained table inspector graph nodes and exact graph sample time (1.8s)
+  ✓   6 [chromium] › e2e\three-body-review-checks.ts:253:1 › three-body review: repeated disposal cancels delayed render and never resumes old experiment (3.0s)
+  ✓   7 [chromium] › e2e\three-body-checks.ts:33:1 › three-body: exact step reset deterministic replay and actual canvas positions (3.2s)
+  ✓   8 [chromium] › e2e\three-body-checks.ts:55:1 › three-body: five preset drafts are separated from applied state (2.9s)
+  ✓   9 [chromium] › e2e\three-body-checks.ts:74:1 › three-body: invalid candidates retain committed state and reset preserves drafts (1.9s)
+  ✓  10 [chromium] › e2e\three-body-checks.ts:92:1 › three-body: comparison timing graph initial delta and original experiment restoration (5.2s)
+  ✓  11 [chromium] › e2e\three-body-checks.ts:114:1 › three-body: symbols select live quantities, sum terms and keyboard body selection (2.2s)
+  ✓  12 [chromium] › e2e\three-body-checks.ts:134:1 › three-body: four interactive lessons restore comparison drafts display and focus (2.6s)
+  ✓  13 [chromium] › e2e\three-body-checks.ts:165:1 › three-body: explicit editing changes only candidates, zoom and pan preserve physics (2.0s)
+  ✓  14 [chromium] › e2e\three-body-checks.ts:195:1 › three-body: play pause speed and reduced-motion safety dominate lesson restore (2.5s)
+  ✓  15 [chromium] › e2e\three-body-checks.ts:223:1 › three-body: hidden document pauses and unmount cancels scheduled work (1.8s)
+  ✓  16 [chromium] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 375, motion no-preference, both themes and 100/200% text (2.0s)
+  ✓  17 [chromium] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 375, motion reduce, both themes and 100/200% text (1.9s)
+  ✓  18 [chromium] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 390, motion no-preference, both themes and 100/200% text (2.0s)
+  ✓  19 [chromium] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 390, motion reduce, both themes and 100/200% text (1.9s)
+  ✓  20 [chromium] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 765, motion no-preference, both themes and 100/200% text (2.2s)
+  ✓  21 [chromium] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 765, motion reduce, both themes and 100/200% text (2.2s)
+  ✓  22 [chromium] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 1280, motion no-preference, both themes and 100/200% text (2.4s)
+  ✓  23 [chromium] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 1280, motion reduce, both themes and 100/200% text (2.5s)
+  ✓  24 [chromium] › e2e\three-body-checks.ts:305:1 › three-body: measured browser compute paint bounded history and screenshot (7.6s)
+  ✓  25 [webkit] › e2e\three-body-review-checks.ts:79:27 › three-body review: DPR1 delayed rAF coherent step pause reset comparison lesson hide restore (7.2s)
+  ✓  26 [webkit] › e2e\three-body-review-checks.ts:79:27 › three-body review: DPR2 delayed rAF coherent step pause reset comparison lesson hide restore (9.6s)
+  ✓  27 [webkit] › e2e\three-body-review-checks.ts:163:27 › three-body review: DPR1 saturated A/B actual play stop and same display state (11.7s)
+  ✓  28 [webkit] › e2e\three-body-review-checks.ts:163:27 › three-body review: DPR2 saturated A/B actual play stop and same display state (13.2s)
+  ✓  29 [webkit] › e2e\three-body-review-checks.ts:234:1 › three-body review: retained table inspector graph nodes and exact graph sample time (1.8s)
+  ✓  30 [webkit] › e2e\three-body-review-checks.ts:253:1 › three-body review: repeated disposal cancels delayed render and never resumes old experiment (4.0s)
+  ✓  31 [webkit] › e2e\three-body-checks.ts:33:1 › three-body: exact step reset deterministic replay and actual canvas positions (5.9s)
+  ✓  32 [webkit] › e2e\three-body-checks.ts:55:1 › three-body: five preset drafts are separated from applied state (4.1s)
+  ✓  33 [webkit] › e2e\three-body-checks.ts:74:1 › three-body: invalid candidates retain committed state and reset preserves drafts (2.2s)
+  ✓  34 [webkit] › e2e\three-body-checks.ts:92:1 › three-body: comparison timing graph initial delta and original experiment restoration (12.5s)
+  ✓  35 [webkit] › e2e\three-body-checks.ts:114:1 › three-body: symbols select live quantities, sum terms and keyboard body selection (4.4s)
+  ✓  36 [webkit] › e2e\three-body-checks.ts:134:1 › three-body: four interactive lessons restore comparison drafts display and focus (4.5s)
+  ✓  37 [webkit] › e2e\three-body-checks.ts:165:1 › three-body: explicit editing changes only candidates, zoom and pan preserve physics (2.6s)
+  ✓  38 [webkit] › e2e\three-body-checks.ts:195:1 › three-body: play pause speed and reduced-motion safety dominate lesson restore (2.2s)
+  ✓  39 [webkit] › e2e\three-body-checks.ts:223:1 › three-body: hidden document pauses and unmount cancels scheduled work (1.5s)
+  ✓  40 [webkit] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 375, motion no-preference, both themes and 100/200% text (2.0s)
+  ✓  41 [webkit] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 375, motion reduce, both themes and 100/200% text (1.9s)
+  ✓  42 [webkit] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 390, motion no-preference, both themes and 100/200% text (1.9s)
+  ✓  43 [webkit] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 390, motion reduce, both themes and 100/200% text (1.9s)
+  ✓  44 [webkit] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 765, motion no-preference, both themes and 100/200% text (2.1s)
+  ✓  45 [webkit] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 765, motion reduce, both themes and 100/200% text (2.0s)
+  ✓  46 [webkit] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 1280, motion no-preference, both themes and 100/200% text (2.2s)
+  ✓  47 [webkit] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 1280, motion reduce, both themes and 100/200% text (2.2s)
+  ✓  48 [webkit] › e2e\three-body-checks.ts:305:1 › three-body: measured browser compute paint bounded history and screenshot (2.3s)
+
+
+  1) [chromium] › e2e\three-body-review-checks.ts:163:27 › three-body review: DPR1 saturated A/B actual play stop and same display state
+
+    TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.
+
+      19 | for(const dpr of [1,2])test(`three-body review: DPR${dpr} saturated A/B actual play stop and same display state`,async({browser,baseURL})=>{
+      20 |   const context=await browser.newContext({baseURL,deviceScaleFactor:dpr,viewport:{width:1280,height:900}}),page=await context.newPage();
+    > 21 |   try{await open(page);await page.locator('#tb-length').fill('6000');await page.locator('[data-tb-layer="velocity"]').check();await page.locator('[data-tb-layer="acceleration"]').check();await page.locator('#tb-compare').click();await page.locator('#tb-speed').fill('4');await page.locator('#tb-play').click();await page.waitForFunction(()=>Number((document.querySelector('.three-body') as HTMLElement).dataset.computedStep)>=26000,null,{timeout:15000});await page.locator('#tb-play').click({timeout:5000});await expect(page.locator('.three-body')).toHaveAttribute('data-playing','false');await settled(page);const state=await coherent(page);await expect(page.locator('.three-body')).toHaveAttribute('data-history-length','6000');await expect(page.locator('.three-body')).toHaveAttribute('data-graph-length','1200');await page.waitForTimeout(150);expect((await coherent(page)).computed).toBe(state.computed);await page.evaluate(slowFrames);await page.locator('#tb-play').click();await page.waitForTimeout(600);await coherent(page);await page.keyboard.press('Escape');await settled(page);const slowStop=await coherent(page);await page.waitForTimeout(300);expect((await coherent(page)).computed).toBe(slowStop.computed);
+         |                                                                                                                                                                                                                                                                                                                                  ^
+      22 |     if(process.env.TB_REVIEW_EVIDENCE){mkdirSync(process.env.TB_REVIEW_EVIDENCE,{recursive:true});await page.locator('#tb-boards').screenshot({path:`${process.env.TB_REVIEW_EVIDENCE}/${test.info().project.name}-dpr${dpr}-saturated.png`});}
+      23 |   }catch(error){mkdirSync(test.info().outputDir,{recursive:true});writeFileSync(test.info().outputPath('state.json'),JSON.stringify(await page.locator('.three-body').evaluate(el=>({...((el as HTMLElement).dataset),status:document.querySelector('#tb-status')?.textContent,render:document.querySelector('#tb-render-status')?.textContent})),null,2));await page.screenshot({path:test.info().outputPath('state.png')});throw error;}finally{await context.close();}
+      24 | });
+        at C:\Users\tetsu\.codex\worktrees\da2c\Math-Art-Lab\e2e\three-body-review-checks.ts:21:322
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\three-body-review-production-final\three-body-review-three-bo-7ba09-stop-and-same-display-state-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › e2e\three-body-review-checks.ts:163:27 › three-body review: DPR2 saturated A/B actual play stop and same display state
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: browserContext.close: Test ended.
+    Browser logs:
+
+    <launching> C:\Users\tetsu\AppData\Local\ms-playwright\chromium_headless_shell-1208\chrome-headless-shell-win64\chrome-headless-shell.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=C:\Users\tetsu\AppData\Local\Temp\playwright_chromiumdev_profile-kXncnT --remote-debugging-pipe --no-startup-window
+    <launched> pid=30032
+    [pid=30032] <gracefully close start>
+
+      21 |   try{await open(page);await page.locator('#tb-length').fill('6000');await page.locator('[data-tb-layer="velocity"]').check();await page.locator('[data-tb-layer="acceleration"]').check();await page.locator('#tb-compare').click();await page.locator('#tb-speed').fill('4');await page.locator('#tb-play').click();await page.waitForFunction(()=>Number((document.querySelector('.three-body') as HTMLElement).dataset.computedStep)>=26000,null,{timeout:15000});await page.locator('#tb-play').click({timeout:5000});await expect(page.locator('.three-body')).toHaveAttribute('data-playing','false');await settled(page);const state=await coherent(page);await expect(page.locator('.three-body')).toHaveAttribute('data-history-length','6000');await expect(page.locator('.three-body')).toHaveAttribute('data-graph-length','1200');await page.waitForTimeout(150);expect((await coherent(page)).computed).toBe(state.computed);await page.evaluate(slowFrames);await page.locator('#tb-play').click();await page.waitForTimeout(600);await coherent(page);await page.keyboard.press('Escape');await settled(page);const slowStop=await coherent(page);await page.waitForTimeout(300);expect((await coherent(page)).computed).toBe(slowStop.computed);
+      22 |     if(process.env.TB_REVIEW_EVIDENCE){mkdirSync(process.env.TB_REVIEW_EVIDENCE,{recursive:true});await page.locator('#tb-boards').screenshot({path:`${process.env.TB_REVIEW_EVIDENCE}/${test.info().project.name}-dpr${dpr}-saturated.png`});}
+    > 23 |   }catch(error){mkdirSync(test.info().outputDir,{recursive:true});writeFileSync(test.info().outputPath('state.json'),JSON.stringify(await page.locator('.three-body').evaluate(el=>({...((el as HTMLElement).dataset),status:document.querySelector('#tb-status')?.textContent,render:document.querySelector('#tb-render-status')?.textContent})),null,2));await page.screenshot({path:test.info().outputPath('state.png')});throw error;}finally{await context.close();}
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                   ^
+      24 | });
+      25 | test('three-body review: retained table inspector graph nodes and exact graph sample time',async({page})=>{
+      26 |   await open(page);await page.locator('#tb-compare').click();await settled(page);await page.evaluate(()=>{(window as any).__tbNodes=['#tb-stats tr','#tb-symbol dd','#tb-graph-line','#tb-graph-table tr'].map(s=>document.querySelector(s));});await page.locator('#tb-step').click();await settled(page);expect(await page.evaluate(()=>(window as any).__tbNodes.every((e:Element,i:number)=>e===document.querySelector(['#tb-stats tr','#tb-symbol dd','#tb-graph-line','#tb-graph-table tr'][i])))).toBe(true);await coherent(page);await expect(page.locator('#tb-graph-values')).toContainText('t=0.00000');await page.locator('#tb-a').focus();await page.keyboard.press('ArrowRight');await settled(page);await expect(page.locator('#tb-observation')).toContainText('天体2');
+        at C:\Users\tetsu\.codex\worktrees\da2c\Math-Art-Lab\e2e\three-body-review-checks.ts:23:435
+
+    Error Context: test-results\three-body-review-production-final\three-body-review-three-bo-0ba39-stop-and-same-display-state-chromium\error-context.md
+
+  2 failed
+    [chromium] › e2e\three-body-review-checks.ts:163:27 › three-body review: DPR1 saturated A/B actual play stop and same display state
+    [chromium] › e2e\three-body-review-checks.ts:163:27 › three-body review: DPR2 saturated A/B actual play stop and same display state
+  46 passed (4.2m)

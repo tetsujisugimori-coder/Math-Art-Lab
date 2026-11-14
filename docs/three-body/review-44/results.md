@@ -1,0 +1,96 @@
+# PR #44 独立レビュー対応記録
+
+最新の採用描画経路・全192条件の再測定は [readback-verification.md](readback-verification.md)。以下は失敗と修正を順に保存した履歴で、旧候補名「final」を最新結果と解釈しない。
+
+## 判定の扱い
+
+P2-01の最悪応答は、短い単発ベンチマークと実再生で結果が大きく異なる。短いpaintが速いことだけでPASSにしない。原版の1249msという特定標本を再現していなくても、連続再生で同程度の停止要求待ちが出た事実を残す。最終集計とGUI結果はこの記録の後半へ追記する。
+
+## 確認した原因と不明点
+
+コードと実行時の要素同一性検査で、原版が保存量表・インスペクター・グラフSVG・直近20点を更新ごとに再生成することを確認。原版は各Canvasで履歴全体を配列化してから表示点を選んでいた。observeは即時、paintは次rAFなので異なる確定時刻が混在する構造も確認した。
+
+原版の飽和A/B連続再生、Chromium DPR2、全表示の初回ではpaint最大674.9ms、observe387.8ms、calculate212.8ms、独立Worker要求から受理まで1197.6ms。単発固定2000stepのpaintは数msであり、この値から連続再生の応答は保証できない。DOM OFFでもCanvasありでは遅延が残り、Canvas OFFでは待ちが小さい。これはCanvas関連の処理・描画頻度が関与する証拠であり、GPU完了待ち・GC・OSスケジューリングのいずれが根本原因かを特定するものではない。
+
+元の1249ms標本の直接原因はUNKNOWN。OS空きメモリが約600MBだった失敗時もあったが、メモリ不足が原因と断定しない。ブラウザー時計の区間にはスケジュール停止や内部待ちも含まれる。
+
+## 採用した局所修正
+
+- DOM要素と表セルを保持し、変更したテキスト/属性だけ更新。SVG構造、インスペクター、直近表を毎回作り直さない。グラフ形状は新しい標本がある場合のみ計算。
+- 循環履歴から同じ実サンプルを直接選択し、全6000点配列の作り直しを減らす。端点・最大1000点・元計算点への所属を維持。
+- 計算を64stepの小区間にし、約4ms経過後にyield。続きはtimerで実行し、Δtと総stepに対する結果は同じ。epochで古いtimerを無効化。
+- 連続再生でCanvas関連の遅延が反復されたため、飽和A/Bは表示完了後80ms以上の間隔を設ける。最大12.5Hzで、実際は描画時間と次rAF分さらに遅い。計算と履歴は間引かず、停止/stepは表示待ちを解除する。滑らかさとの交換条件を画面と資料へ明示。
+- 一つのrAFでCanvas A/BとDOMを同じ確定状態へ更新。計算最新stepと表示step、グラフ標本時刻を分けて表示。描画受付失敗時は停止し、最新と偽らない。
+- Worker製品化は採用しない。今回の限定修正では状態移送を増やさず既存のA/B原子性を保つ。Canvas・ブラウザー自体の長時間占有をtimer分割だけで強制中断することはできない。
+
+## 数理モデル・回帰
+
+`numerical-bitwise.json`：物理核ソース不変、5プリセットと接近δ=10⁻⁶比較の計6実行について、原版2000stepバッチと修正版64stepバッチの全状態・履歴を照合。JSON一致に加え、内部数値をFloat64LEに並べたSHA256も一致し、負のゼロも区別する。表示丸め値の比較ではない。
+
+`numerical-reference.json`：独立RK4の5例、RK4刻み半減、8の字約20周期、正三角形解析解、Verlet二次収束を再実行。8の字最大規格化E誤差2.042511×10⁻⁷、正三角形の解析位置RMS差9.182625×10⁻⁷、接近E誤差2.360754×10⁻⁶。許容差・初期値は変更しない。刻み0.004/0.002/0.001/0.0005の位置RMSは4.489953×10⁻⁵、1.122522×10⁻⁵、2.806327×10⁻⁶、7.015831×10⁻⁷。
+
+全単体424件（31ファイル）成功。近接停止、P/L/重心、独立基準、負対照、A/B同時確定、状態復元、不正入力、実計算点所属を含む。今回2件追加は循環履歴の完全な選択一致とバッチ分割後のA/B状態・履歴一致。
+
+## GUI失敗を保持
+
+表示間隔制御を追加する前の開発版48件は46成功・Chromium飽和DPR1/2が15秒到達予算未達。単独再試験も未達。失敗trace/state/画面は `failures/`。失敗時内部step15884、同時刻表示は成立していたが速度目標には未達だった。画面撮影は後続時刻となり得るためstate.jsonと画像のstep差を表示不整合の証拠とはしない。
+
+## 未検証と再レビューの焦点
+
+実機iPhone Safari、VoiceOver/NVDA、OS文字拡大、低性能実機、実際の隠れたタブ/OS中断/BFCache挙動、数時間連続使用は未検証。Playwright WebKit、合成visibility/pagehide、root font-size200%、rAF250ms模擬を実機検証と呼ばない。
+
+再レビューでは、表示制御の滑らかさ・停止操作の体感、pending中の時刻説明、A/B同時表示、古いtimer破棄、safetyEpoch復元保護、性能スパイクの原因と残存範囲を確認してほしい。Draft・未マージ・auto-mergeなしを維持する。
+
+原版の停止再測定は累積72件中70成功・WebKit pause 2件が5秒以内の停止確認未達。新規72と合わせ142/144成功。元のDocument終端再利用の測定器失敗48件とは別であり、隠さない。これら2件は失敗時イベント列と最終内部状態を採取できておらず原因未確定。以後の計測器にはcatch時のstate/data採取を追加したが、この2件の欠落値を推定補完しない。修正版は144/144で停止を確認。詳細はperformance.mdと両summary.json。
+
+## 最終採用候補（80ms制御を撤回）
+
+総合PARTIAL。P2-01 PARTIAL、P3-01は実施範囲でPASS、P3-02 PARTIAL。独立レビューの代わりとなる承認ではない。マージ推奨NO。
+
+本番と同じindex.html、CSS1Compat、DPR2、1280×900、両Canvas CSS438×330/backing876×660で重点再測定した。Chromium全ONの独立要求待ち（3反復）は原版中央値422.100ms/p95・最大531.300ms、最終候補中央値394.500ms/p95・最大807.200ms。paint最大782.400→387.500ms、calculate最大474.400→182.900ms。区間の短縮が最悪操作応答の改善を意味せず、要求待ち最大は悪化している。WebKit最終候補は要求待ち中央値2ms/p95・最大29ms、paint最大12ms、calculate最大4ms。元の1249ms標本の直接再現なし、原因UNKNOWN。
+
+開発版 gui-development-reviewed.log は46成功/48、4.7分。本番版 gui-production-reviewed.log は46成功/48、4.4分。失敗は両環境ともWindows Chromiumの飽和到達DPR1/2で、26000step/15秒の基準を緩めていない。16基本条件・両テーマ・文字100%/200%・通常の低FPS・教材/比較復元・要素再利用は成功。飽和到達失敗で後続のChromium飽和低FPS/停止サブシナリオは未実行。WebKitでは飽和後の低FPS/停止も成功。撮影用追加2件は成功し、375px reduced-motionの両ブラウザー/両テーマ4画面を保存。型検査・build成功、単体424/424成功（unit-reviewed.log）。
+
+最終候補は全192条件を再実行していない。広いマトリクスはv3診断文脈の不採用試行、採用候補は通常HTMLの12重点測定・停止144条件・GUI96件で区別する。これはP2の未解決範囲に含め、全マトリクスPASSとは呼ばない。
+
+追加調査方針：実再生の長いtaskに対してCDPのmain/render/compositor作業、GCイベント、軌跡/発光/DOMを分けたトレースを対応付ける。通常mainでの作品切替と単独mountも比較する。Worker化は描画による主スレッド占有を解消するとは限らず、通信・停止・原子性を測ってから選ぶ。低性能実機と長時間セッションは別に測定する。
+
+最終HEADのCIはcommit/push後、このPRの検証コメントに対象SHA・run URL・件数・skipを固定して保存する。CI自己参照のためだけに資料commitを繰り返さない。取得した機械データはtest-results/three-body-review-final-ci/にも保存する（既存の生成物除外内）。CI成功だけでWindows高負荷の未達をPASSへ変更しない。
+
+最終停止144/144成功、A/B不一致0、受信後および停止100ms後の追加step0、計算timer残存なし、作品切替/破棄後rAFハンドル残存なし。pause区間最大1.0ms。host要求→settled最大2824ms（通信・actionability・最終表示待ち込み）。独立Workerの807.2ms待ちとは別の指標である。要求前snapshotから停止までのstep増分は上限値であり、要求発生瞬間の正確な追加step数は未測定。安全停止後の自動再生復帰はGUIで認めなかった。最終停止計測時のindex/model/state/render/view/domのLF正規化hashは提出ソースと全件一致（final-source-integrity.json）。
+
+## 提出HEAD 127bbfe のCI失敗と追加診断
+
+CI #42631662251はfailure。単体424成功・型/build成功、開発602成功/2失敗/2手動撮影skip（21.8分）、本番は開発失敗により未実行。失敗はWebKitの新作DPR2低FPS画素照合と既存waveの非表示/教材復元。新作はstep1でDOM/Canvas受付は1、モデル位置も正しいが保存画像の配置と画素参照が一致しない。P3-01を全環境PASSとは扱わず、原因調査を追加する。waveも回帰なしとは断定しない。
+
+ci-127bbfe/にCIログ・job/artifact状態・失敗画面・内部状態を保持。新作画素照合のしきい値を変更せず、変換行列、Canvas/CSS寸法、DPR、参照位置の色、バッファー画像の診断を追加。元の全回帰CI/公開条件は維持したまま、失敗2条件を各3回実行する追加WebKit診断ジョブを作成した。製品/数理コードはこの診断追加では変更しない。
+
+508b6e3のLinux重点診断は新作DPR2が3/3失敗、waveは3/3成功。新作のDPR/寸法/公開変換行列はWindowsと同じだが参照画素は背景色。Windowsの同じ取得では天体色を確認。アプリに渡したarc/変換の実引数と、独立した200×200 Canvasでの4方式（numeric transform/scale/DOMMatrix/identity）の矩形ピクセル範囲を追加取得する。Windowsは全方式で期待する20..39を確認。しきい値・物理計算は変更せず、Linuxの結果と比較する。重点ジョブはDPR1を対照に加え各3反復の9件へ拡張した。
+
+fbb8a91の重点診断はDPR1とwaveが計6成功、DPR2が3失敗。DPR2でもアプリのarc引数はCSS座標(311.6886,241.5160)、matrix倍率2で正しい。独立CanvasのfillRect変換4方式は全て20..39の期待範囲を満たした。基本fillRectは正しく、アプリのパス描画だけが二重化する可能性を切り分けるため、path/identity/反復/transform reset/Path2D/arcの独立対照を追加する。製品コード・画素しきい値はまだ変更しない。
+
+31a19beのLinux診断でもDPR2は3失敗、DPR1/waveは6成功。独立パスのnumeric transform/identity/反復/reset/Path2D/arcも全て期待範囲20..39で描画。基本座標/パス変換だけではアプリの二重位置を説明できず、実アプリで使うshadowBlur=15の有無・identity・fill+strokeを独立Canvas対照へ追加した。未確認のブラウザー内部原因を断定しない。
+
+035164bの重点診断もDPR2が3失敗、DPR1/waveが6成功。小CanvasのshadowBlur有無・identity・fill+strokeは正しい位置だった。単純な発光原因説は未確定のままとし、実アプリ寸法の7対照（通常、発光OFF、遅延rAFなし、willReadFrequently、buffer再初期化、初期readback、alpha:false）を各3回測る追加ツールを実装。Viteの実indexを使い、各対照の物理位置一致も確認する。Windowsで通常/発光OFF各1回の取得は成功した。
+
+## 2026-11-10 JST — 実寸法の描画経路対照と局所修正
+
+e162a90の実アプリ21条件は全て同じモデル位置。通常、発光OFF、遅延rAFなし、buffer再初期化、alpha:falseは各3/3で参照画素不一致。一方willReadFrequently:trueと初期readbackは各3/3で一致した。小さな独立Canvasでは再現しなかったため、発光や一般的パス変換を原因とする仮説を採用しない。Linux WebKitの実寸法Canvasで描画経路選択が結果へ関与することを確認し、描画側getContextのwillReadFrequently:trueだけを採用した。これは実装ヒントであり、GPU/CPU内部機構や元の1249msの根本原因を断定しない。
+
+しきい値150、DPR2バッファー寸法、描画座標、光跡/発光/ベクトル、物理モデルは維持。default経路の再現用renderをattempt-default-context-render.txtへ保存。before/afterの同条件測定はTB_RENDER_FILEで旧renderだけを切り替えられる。追加のforce-defaultは意図的に旧経路を選ぶ負対照で、製品の通常動作ではない。新しい描画経路で数理・全マトリクス・停止・GUIを再検証する。
+
+## 採用描画経路の最終自己検証（2026-11-10 JST）
+
+Linux重点CI d2a7acd / #42644871408 は9/9成功。新作DPR1/2低FPS・既存waveを各3反復。通常アプリの対照も同じモデル位置で一致し、force-default（意図した旧経路）では不一致を検出する。ci-d2a7acd-focused/に結果を保存した。
+
+Windowsは数理6窓の内部Float64/全履歴が原版と一致、独立RK4/解析解/8の字約20周期/二次収束、単体424、型/build成功。JS930.38KB/gzip281.47KB、既存500KB警告は残る。通常HTMLの192条件取得エラー0、通常表示480フレームの即時/確定後時刻不一致0、実描画引数不一致0。停止144/144成功、追加step0、A/B不一致0、pause最大1ms、host→settled最大1138ms（移送/actionability/表示待ち込み）。
+
+旧renderだけを復元した同条件3反復で、Chromium要求待ち中央値368.6→20.3ms、p95/最大747→20.3ms、paint最大388→59.3ms。WebKitは中央値25→16ms、最大36→29ms。Windows GUIは開発48/48（3.5分）、本番48/48（3.3分）。以前失敗したChromium飽和DPR1/2も26000step/15秒の同じ基準で成功。代表モバイル4画面の撮影用2件も成功。
+
+一方、60秒連続再生でChromiumにpaint433.5ms/calculate432.5msの経過区間が残った。停止要求待ちは27.6ms（WebKit10ms）、停止後追加step0だが、長い同期区間が入力到着と重なる場合の上限保証はできない。元の1249ms標本の直接原因UNKNOWNを維持する。P2-01/P3-02はPARTIAL、P3-01は実施範囲で修正。総合PARTIAL、限定マージ推奨NO。新しい全回帰CIと独立再レビューで確認する。
+
+## 修正コード d2a7acd の全回帰CI（最終資料commit前）
+
+[Pages CI #42644870887](https://github.com/tetsujisugimori-coder/Math-Art-Lab/actions/runs/42644870887)はsuccess。単体31ファイル424成功、型/build成功、全作品の開発604成功・2skip（24.8分）、本番482成功・skip0（15.1分）。新作DPR2画素と既存waveの以前の失敗条件を含む。開発2skipは既存wave-captureの手動撮影用条件で、今回追加した除外ではない。PR条件によるvalidated build保存とDeployジョブのskipも維持。ログ・run/jobs/artifactsはci-d2a7acd-full/へ保存した。
+
+このrunは製品コードの検証であり、資料・試験整形を含む最終HEADのrunとは区別する。最終HEAD CIはPR #44の検証コメントに対象SHAとURLを固定する。途中の全回帰run 42637854289 / 42639340000 / 42640276953 / 42641137390 / 42643124190 は後続の診断で置き換えたためcancelledであり、成功件数には含めない。初回127bbfeの失敗はci-127bbfe/に保持する。

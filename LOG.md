@@ -1,5 +1,31 @@
 # Math-Art-Lab 開発・研究記録
 
+## 2026-11-10 JST — PR #44 Stage P：長時間区間の原因調査
+
+基準`b1d24d8098abcbcb8530f7a459387e38265ef2b7`、再レビュー5830894813、Issue #43／既存Draft PR #44を確認。HEAD一致・clean・旧最終CI成功・auto-mergeなしを確認し、Issueへ計画を追記。製品source・数理核・固定刻み・初期値・保存量・履歴上限・教材・公開条件を変更せず、診断専用bundle／CDP trace／独立Worker要求／時計対応と欠測の検証を追加した。
+
+計画215runを保持し212でデータ回収、エラーなし210。初期診断bundle生成3失敗、Escape誤配送1失敗、終了後trace回収1失敗を保存し、原因を修正した別runと分離。全表示60秒×3では入力最大454.15〜479.9ms。明示SwiftShader起動flagを除く／disable-gpu対照では34.05〜39.75ms、旧context負対照では2227.9〜2571ms。同じdeviceStringでもcompositing／rasterizationの有効状態が異なる。無改変module・phase／定期CDP／DOM heartbeatなしでも459.0〜463.4msが残り、追加計測だけが原因という説明は反証。public5分は6575要求、p95 268.2ms、p99 422.5ms、最大462.9ms。相互に異なる試験や旧1249msを同じ原因とは断定しない。
+
+466.1ms paintの包含TaskはCPU32.363ms、411.2ms calculateの包含TaskはCPU1.867msでmain GC重なり0。別区間にはGC重なりがあるが全スパイクの説明にはならない。取得したcommit／GPU sync markerも最大例を説明しない。描画処理経路への依存はSUPPORTED、具体的なnative待機／プロセス間同期／OS実行待ちと元1249msの原因はUNKNOWN。製品修正・Worker化・OffscreenCanvasは未採用。次は最小再現とOS context-switchの同期計測を優先する。
+
+全Float64／履歴の基準前後bit一致6条件、5プリセット・独立RK4・三角形解析・約20周期・二次収束を再検証。同一engine照合はphase206／履歴194で不一致0、公開UI6runはA位置のみ。全表示26466commitのstep不一致0、描画引数の最終phase照合130run不一致0。停止pause本体T2→T3最大約1msだが、要求受信T1→T3最大208.1msの例も残す。GPU提示／独立OS入力／最悪応答の保証とはしない。
+
+単体434/434（追加10）、型・build成功、第17作GUI開発48／本番48成功。最終診断smoke2＋停止9の契約チェック成功。全16既存作とLinux WebKit DPR2を含む最終HEAD CI・件数はPR #44のStage P提出記録へ固定。資料は`docs/three-body/review-44/stage-p/`。可逆圧縮hash・容量・既知credential pattern監査・実行版hashを保持。実機Safari・支援技術・低性能実機・実OS非表示／BFCache・数時間連続は未検証。総合PARTIAL、PR全体の限定マージ推奨NO。Draft・未merge・auto-mergeなしで独立再レビューを待つ。
+
+## 2026-11-08 JST — 第17作「三体の舞踏」
+
+最新origin/main `9167e979b3c954e355d67c2b80e01dc4e733d8cc`とAGENTS・README・LOG・既存16作・全試験定義・Pages公開条件を確認。Issue/PR重複なしを調べ、依頼全文をIssue #43へ保存し、改行正規化後の一致を検証。`feat/017-three-body-dance`をmainから作成。ローカルmain更新・公開条件変更・マージ・auto-mergeは行わない。
+
+平面相互重力、固定刻みVelocity Verlet、ニュートン式ε=0と明示したソフトニング近似、対応する保存量・規格化誤差・重心残差、接近の時間尺度とステップ内線分による安全停止を実装。5プリセットを独立RK4と解析解で検証し、近接・逃走の初期失敗を残して調整。8の字は公開初期値の時間反転版で約20周期を検証し、最大E規格化誤差2.043×10⁻⁷、刻み半減で位置誤差約1/4。接近の採用刻みを0.000025へ縮小し、t=30の基準軌道差0.000771、δ=10⁻⁶のA/B差0.0194403。逃走はt=30で距離36.3817、外向き速度1.34167を独立計算で照合。無限未来の脱出・カオスの証明とはしない。
+
+Canvas 2D軌道・番号/形状・速度/加速度・重心/目盛り、カメラと鑑賞表示、数値/ドラッグ候補編集、A/B同時確定・通常実験復元、SVG時系列と数値代替、11記号の数式連動、4段階操作教材と安全停止優先の状態復元を追加。リング履歴6000/1200、最大2000ステップ/更新、離脱時のタイマー等破棄。依存追加なし、既存作品ソース変更は選択入口への登録だけ。
+
+全単体422/422、型・build成功。GUI初回の30成功/6失敗、候補刻みの精度不足、初回本番35成功/1timeoutを隠さず資料へ記録。ドラッグ試験の画面外座標・motion通知待ちを修正。画像目視でライトテーマのddが既存CSSの淡色を継承することを発見して作品内で修正し、コントラスト比4.5以上の検査を追加。累積撮影後の本番Chromium計測timeoutはtraceで操作要求の待ちを確認し、根本原因UNKNOWNを維持。性能計測を新規ブラウザープロセスへ隔離。開発36/36・本番36/36成功後、追加負荷試験で長い軌跡描画の遅延を観測し、保存6000点を維持して表示だけ最大1000実計算点/体へ削減。端点・実サンプル・履歴不変を新たに単体検証。高負荷Windows Chromiumの全体応答には未達が残るため成功扱いしない。開発4173番は別の既存サーバーが使用していたため、そのプロセスを変更せず4196番で検証。表示削減後の最終開発/本番と最終HEADの全回帰CIは提出時に確定し、結果はDraft PR本文・検証コメントへ固定する。
+
+数理・初期値・原著・操作・初回失敗・生計測・画像を[作品資料](docs/three-body/README.md)と[検証記録](docs/three-body/verification.md)へ保存。NodeのGC後ヒープは26,000〜208,000ステップで12.64〜12.65MB、保持点数は上限一定。ブラウザーCPU命令投入とGPU/実機性能を区別。実機iPhone、読み上げ、OS拡大、低性能端末と独立レビューは未実施のため、総合PARTIAL・独立レビュー待ちとする。
+
+表示間引き後の最終コードで開発36/36・本番36/36を確認し、単体422・型・build成功。16基本条件の両テーマ・両文字サイズ・コントラストも成功。飽和履歴の追加計測は両ブラウザーで停止確定まで観測し約83.5ms/571.9msだったが、Chromiumの描画区間最大1249msや52,000ステップ到達予算未達は制約として維持。これを平均性能やGUI成功で打ち消さない。最終HEADのCI結果をPRへ固定して独立レビュー待ちで停止する。
+
 ## 2026-11-06 JST — PR #40 P2-01：文字拡大時のMathML横溢れ
 
 レビュー対象caa3f0aとlocal／PR HEAD一致、main dd66a7fe、未コミット変更なしを確認。独立レビューFAIL、CI42215659609の開発516成功＋2失敗＋既存2skip、本番未実施を確認した。旧Windows成功をLinuxへ流用せず、同一製品ソースに診断だけを加えた1b88325でLinux/WebKitの375px・両テーマ・20判断・比較ON・200%を再現。root/body386px、MathML右385.90625px・幅354.90625px、親visible overflowの伝播を測定し、局所表の突出と区別した。
@@ -954,3 +980,105 @@ Draft PR #42とIssue #41を相互参照。製品コード・テスト・CI設定
 最終点検で、R=3.1・S=.1、近隣C3人/D5人の同じ構成でも列挙順による加算の丸め差（9.799999999999999と9.8）が同点処理へ影響しうることを発見。得点をC人数×対C利得＋D人数×対D利得の固定式で計算し、平均はその後に人数で割る方式へ揃えた。入力の丸めや任意の同点許容誤差は追加しない。
 
 新規の合計／平均2件のRED（66成功・2失敗）を保存後、修正して全単体385/385（本作68件）、型・build成功。11,000世代の人数保存・history600上限を再測定。修正後のWindows追加E2Eも開発34/34（2.4分）、本番34/34（1.9分）をChromium/WebKitで成功。ログと再撮影PNGのSHA索引を追加し、検証入力SHAを更新した。古い資料HEAD 3767680 のCI run 42385022923は明示取消し、成功ともテスト失敗とも扱わない。新しい最終HEADの全CI結果はPR #42の検証コメントに記録する。Draft・独立レビュー待ちを維持し、merge・auto-mergeしない。
+
+## 2026-11-09 JST — 第17作 PR #44 独立レビュー指摘へ対応
+
+P2-01/P3-01/P3-02を調査。表・SVG・インスペクターのDOM再生成と全履歴配列化を削減、計算は固定Verletの64step小区間と約4msのyieldに分割。Canvas A/BとDOMを一つのrAFで同じ確定状態へ更新し、最新計算/表示/グラフ標本時刻を明示。timer epochを追加し、safetyEpochの復元保護を維持した。
+
+192条件/版の診断と通常HTMLでの重点測定を保存。DOM OFF初期化の交絡、doctype欠落、終端Document再利用の測定器失敗を訂正し、元データを保持。80ms表示間隔制御も試行したが操作応答改善を確認できず不採用、試行コード・測定を保存。最終通常HTMLのChromium要求待ちは中央値394.5ms/最大807.2msで未解決。phase短縮を操作応答改善と呼ばず、根本原因UNKNOWNを残す。
+
+物理核・5初期値・尺度・履歴容量は維持。6窓の全内部Float64値と履歴が原版と一致し、独立RK4・解析解・約20周期・二次収束を再確認。全単体424、型/build成功。最終GUIは開発/本番とも46/48、各Chromium飽和DPR1/2が15秒基準未達、skip・延長なし。16基本条件は両テーマ/両文字サイズで成功。通常HTMLの停止144/144成功、受信後追加step0、pause最大1msだがhost要求→表示確定最大2824ms。要求待ちと受信後停止を分けて記録した。
+
+資料はdocs/three-body/review-44/。最終ソースhashと停止試験hashが一致。全192条件の最終候補再測定・実機/読み上げ/長時間は未検証。総合PARTIAL、P2/P3-02は未解決範囲あり、P3-01は自己検証範囲で修正。既存PR #44を更新し、最終HEAD CIはPR検証コメントへ固定する。Draft・独立再レビュー待ち、merge/auto-mergeなし、マージ推奨NO。
+
+## 2026-11-10 JST — 第17作 Linux DPR2描画経路の修正と性能再計測
+
+最初の修正HEAD127bbfeのCIは新作WebKit DPR2画素と既存waveの2失敗、本番未実行。ログ・画像・内部値を保存し、しきい値を維持して専用診断を追加。小Canvasは正常、実寸法21対照は全て同じ物理位置だが、読出し向け設定/初期readbackだけ参照画素が一致した。描画側getContextにwillReadFrequently:trueを指定。発光・基本変換原因説は採用せず、GPU/GC内部機構を断定しない。
+
+採用経路でLinux重点9件、Windows開発48/48・本番48/48、192条件取得・停止144件、単体424・型/build・独立数値基準を再確認。元の15秒基準のChromium飽和2件も成功。旧renderのみ復元した対照では要求待ち最大747→20.3ms、paint最大388→59.3ms。60秒試験ではChromium433.5msのpaint区間が残り、P2/P3-02はPARTIAL。原1249ms原因UNKNOWN、実機/長時間未検証、NoGoの理由を消さずに残す。
+
+ソース/検証入力hashとreadback資料を既存Draft PR #44へ提出し、最終HEADの全回帰CI結果はPRコメントへ固定する。Pagesの公開条件と数理核は維持。独立再レビュー前にmerge/auto-mergeしない。
+
+## 2026-11-10 JST — 第17作 Stage Q 最小再現・独立入力・証拠保存
+
+レビュー5842434528を受け、製品変更前に計画をIssue #43へ記録。物理計算から独立したCanvas/DOM固定命令ページ、資源保持と命令停止の対照、起動経路、予定時刻を持つWorker、別Node要求、非特権thread snapshotを追加。72screenと60秒×3＋5分等、ローカル140runを保存。旧public生成器をそのまま5分再実行した場合も今回は短い待ちとなり、過去の400ms超を再現できず根因UNKNOWN。旧traceではmainとWorker候補の低CPU長区間の重なりを確認したがOS/native機構は未確定。
+
+製品変更なし。数理Float64 bit／履歴hash6窓一致、RK4・約20周期・解析三角形・二次収束を再確認。単体441、型、開発／本番build、Windows開発GUI48／本番48成功。受信後追加step0と表示時刻整合を維持する一方、自然長区間への9試行は全MISS、作品除去受付104msの予算逸脱を保持。性能解決とは判定しない。
+
+独立したread-only差分・原証拠点検でCI途中失敗の伝播とmanifest完全性の穴を修正。旧Stage P約525MBは変更せず、新巨大rawはGit外／CI artifact、小さい要約・SHA・tool版のみ追加。原証拠の遠隔完全複製は未完了と明示。P2/P3-02/P3-03はPARTIAL、P3-01は実施範囲PASS。#43を閉じず、既存Draft PR #44へ提出し最終HEAD CIはPRコメントに記録。外部独立再レビュー待ち、merge／auto-mergeなし、推奨NO。
+
+## 2026-11-11 JST — 第17作 Stage Q独立レビュー5852944140へ対応
+
+P3-04の撮影障害を最優先に36条件とCDP対照を実施。旧context撮影timeoutを再現し、現行contextのPW/CDP surfaceは同じDPR2画像でCanvas画素差0。初期probeのDPR交絡・source記録不足・APIエラーを保全。A〜G分類、suiteの独立子process実行、環境／証拠障害時BLOCKED、計画・完了・未実行数、manifest/raw/summary/validator/artifact hash照合を追加した。失敗を後続成功で消さず、部分artifactの完全性fieldを保存する。
+
+送信専用OS processを追加し、自然長区間HIT5とMISS4、停止後step0・A/B同期を確認。新たにpaint447.8ms、native geometry378.2msを再現し、包含Taskの経過408.467msとCPU35.089msを区別。kernel ETW未取得、native待機先と元1249ms機構はUNKNOWN、応答予算未達で製品修正0件。
+
+基準875とのFloat64 bit／履歴6条件一致、独立RK4・約20周期・解析三角形・二次収束を再確認。単体459、型／両build、Windows開発／本番GUI各48成功。sender起動引数・終了待ちと初期の試験timeoutを修正・保存。既存Stage P/Q証拠は非変更、新原証拠はGit外、小さい索引・要約をstage-rへ保存。原本の遠隔完全複製は未完了。最終HEAD CIはPR44対応コメントへ記録し、Issue43 OPEN／Draft／独立再レビュー待ち、マージ推奨NO。
+
+## 2026-11-11 JST — Stage S／レビュー5854989138への対応
+
+基準8f4。P3-05の破損summary／raw-indexでanalysisAcquired=trueとなるRED2件を再現。artifact index破損で例外後PASS manifestが残る追加REDも保存した。ファイル可用性、process終了／成功、内容監査、証拠完全性、受入を分離し、破損indexのsnapshotを保存してFAIL確定する。関連33＋帰属2テスト成功、全単体476成功。既存の撮影失敗分類・独立suite継続・35分／5秒budgetを維持する。
+
+ローカル93run完了、撮影取得失敗14件を保持。最初のmechanism9件は非再現、同じ9条件の一度の再測定でpaint454.4msと配送474.923msを観測。Layout373.296ms／同event CPU5.380ms、JS区間9.726msでも長いTask467.957ms／CPU39.008msの標本を取得。native／OS待機先と元1249msの機構はUNKNOWN。追加計測OFFにも遅延が残る。追加CDP metrics ON/OFF12件は成功し、単独原因と断定しない。初期の失敗数誤記と補助解析loop中断・継続も保存した。
+
+専用senderは自然HIT1・MISS8、追加step0、A/B同期、timer/rAF取消。基準8f4とbit／履歴6条件一致、RK4・20周期・三角形・二次収束を再確認。型／両buildとWindows開発／本番GUI各48成功、skip／flaky0。旧P/Q/R追跡資料差分0、Q原本140・R原本255・旧CI ZIP6・索引1983のSHA一致。新原本は隔離保存、Gitへ約8MBの要約・source・索引・代表画像。遠隔完全原本複製はNOT_UPLOADED。
+
+製品候補試作／採用0件、総合PARTIAL・P3-05限定PASS・マージ推奨NO。新CIは既存555条件を維持して606条件を計画し、最終HEADの件数・失敗・実artifact／expiry／digest・checkout treeをPR44対応コメントに固定する。Issue43 OPEN／PR44 Draft／auto-merge無効を維持し、独立再レビュー待ちで停止する。
+
+## Stage T（2026-11-11）
+
+- 基準34c4・レビュー5857179468を再取得。Issue43 OPEN、PR44 Draft、auto-mergeなしを確認。製品コード・モデル・公開経路の変更0。
+- 承認済みWindows永続領域へP/Q/R/S原本10182件・5693282588bytesを非破壊コピー。サイズ・集合・SHA-256を全件再読込し、別processでも不一致0。LOCAL_BACKUP_VERIFIED、遠隔独立複製はREMOTE_BACKUP_NOT_UPLOADED。公開資料に個人の絶対パスを含めない。
+- 一因子ABBA対照、明示plan snapshot、撮影前readback／追加CDP／backing reset診断を追加。新規plan保存名の衝突を41完了・64未実行で保存し、負対照→suite別保存で修正。105再実行完了、撮影30失敗（26timeout・4直接CDP例外）を保持。5000msは変更しない。
+- 最大入力配送471.854ms、Task479.414ms/CPU32.205ms・Layout union5.443ms等を記録。native.stroke193.9msなども観測。CPU・GC・geometry単独の共通原因説は不足。native/OS待機・元1249msとの同因はUNKNOWN。製品修正0、改善率NOT_TESTED。
+- 全Float64 bit・全履歴6/6一致、独立RK4・約20周期・三角形・二次収束を再確認。18停止の追加step0、9確認HIT・2MISS・7未確認（計測OFF6、clock envelope1）。性能予算は未達。
+- 型・開発/本番build成功。Windows単体は既存2件が5秒timeout（初回486/488、追加privacy試験後489/491、基準test集合474/476）。許容時間・skip非変更。開発GUI47/48→同条件48/48、本番48/48。初回失敗を保全。
+- 詳細はdocs/three-body/review-44/stage-t/。最終HEADの正式/診断CI、artifact実ID・digest・expires_at、取得/照合・checkout treeはPR最終報告で確定する。総合PARTIAL、限定マージNO、独立再レビュー待ち。
+
+
+## 2026-11-11 Stage U minimal CDP controls (PR #44)
+
+- Fixed A(layout only)/B(capture only)/C(layout then capture), OFF/ON ABBA,2 samples per cell, fresh Chromium,24 unique trials per environment; no product changes.
+- Local cohort24/24 completed with12 failures: old/OFF capture4 timeout; old/ON intervention6 timeout and primary operations not sent; cleanup failures retained. Current12 trials PASS,8 actual PNGs match frozen bitmap. Original prefix and source versions preserved.
+- RTT is protocol wall time, not internal CPU/native wait. Native/OS mechanism, original1249ms relationship, product performance and natural stop-HIT remain UNKNOWN/PARTIAL.
+- Added independent source/raw/summary/image/index audits, negative controls, immutable review-copy index and a two-OS diagnostic workflow. Final CI/artifact/archive receipts follow on existing Issue43/PR44.
+- Details: docs/three-body/review-44/stage-u/. No merge/auto-merge, Issue OPEN, PR Draft.
+
+
+## 2026-11-12 Stage V fixed internal trace controls (PR #44)
+
+- Baseline9779cdb, review5863884642; fixed main8 and separate readback auxiliary6, each condition2 repeats, no product changes.
+- Local14/14 completed: main4 screenshot timeout and auxiliary4 Runtime timeout retained.10 trace streams acquired/calibrated. Current4 PNGs match actual Canvas pixels.
+- Source-matched browser dispatch/copy-result candidates and native readback command-completion scopes narrow the observed path; native/OS/GPU mechanism and original1249ms common cause remain UNKNOWN.
+- Added strict clock/PID/TID/missing-data/evidence negative controls and a harness-only send/late-reply observer. Initial local source version and data remain unchanged; no local replacement trials.
+- Details: docs/three-body/review-44/stage-v/. Final-head CI/artifact/archive receipts follow on existing Issue43/PR44. Overall PARTIAL, improvement NOT_TESTED, merge NO; Draft/OPEN maintained.
+
+## 2026-11-12 Stage W source-bound pre-draw trace controls (PR #44)
+
+- Baseline1e2e895, review5866092831. P2-02 T4 is now limited to a normal within-deadline protocol reply; late replies, cleanup rejection, wrapper/send and actual deadline observation are separate. Immutable TIMEOUT retained, legacy missing times not reconstructed.
+- P3-06 executes snapshot runner bytes and binds runtime HEAD/tree, source SHA/Git blob, raw references and manifest/index; newline logical equality is distinct from byte identity. Baseline12 counterexamples include8 RED; final V/W diagnostic64 assertions PASS. Independent Python source/raw/index/clock correspondence passes.
+- Fixed local12 complete: old6 capture timeout, current6 normal images;8 trace streams calibrated,4 early-start traces cover navigation/drawing.4 old late PNG payloads separately extracted without T4/PASS; cross-context decoded pixels differ. Specific backend/OS/GPU mechanism and1249ms/400ms common cause UNKNOWN.
+- Source-location delayed GPU task path has limited source-consistent support, not unique screenshot/callback ownership. No product/physics/display/dependency/deployment changes, improvement NOT_TESTED; no extra W trials.
+- Local bit/history6 match; independent numerical checks/type/build pass. Full unit565/567 retains2 existing long-duration failures; targeted dev44/48, production corrected invocation48/48; initial0-test command error preserved. Final-head formal/diagnostic CI and archive receipts follow on Issue43/PR44.
+- Details: docs/three-body/review-44/stage-w/. Overall PARTIAL, merge NO, Draft/OPEN maintained.
+
+## 2026-11-12 Stage X fixed isolation (PR #44)
+
+- Review5867375529/startcc7d5b1 verified; immutable original failure artifact/PNG/error-context/log copied with matching digest. Original internal event/step timeline and trace were not acquired.
+- Before any browser trial, fixed Phase A6 (V/W3 each, OFF/ON separated) and Phase B8 Windows/at most8 Linux (ABBA ABBA, matched12000ms window,5500ms end intervention,5000ms primary deadline) in stage-x/protocol.md and Issue43.
+- Diagnostic-only source/clock/window/index contracts tested; no product/model/drawing/dependency/Pages changes. Prior failures and performance budgets unchanged. Final results and CI/archive receipt will be reported on existing Draft PR44/Issue43.
+
+- Fixed acquisition run43133206196 completed A6 and LinuxB8. A/OFF4 PASS is non-reproduction only; ON2 failed before play because diagnostic Proxy bound Locator.constructor. Candidate repair is unit-only, no additional A trial. The producer's automatic safety gate was too broad; final code blocks continuation after any failed/incomplete A trial.
+- Original artifact13906456621 is missing6 indexed .last-run.json files due to default hidden-file exclusion. This F_EVIDENCE gap is retained, not reconstructed. Future upload explicitly includes hidden files and final CI re-audits original partial evidence with0new trials; missing files keep CI failure. WindowsB8 stopped NOT_RUN/BLOCKED. Linux-first order deviated from the fixed Windows-first plan and is disclosed.
+- LinuxB8 all normal before5000ms (about3941–4078ms), before5500ms end intervention; late behavior not reproduced, H1/H2/H3 and GPU/native/OS root UNKNOWN. Planned22, attempted14,8notrun. Overall BLOCKED, product0, improvement NOT_TESTED, merge NO.
+- Local bit/history6 match, independent reference/type/build PASS; full unit586/588 retains2 failures, target dev41/48 and production48/48. Final diagnostic corrections/CI/archive receipts remain separately versioned; whole-original-evidence backup cannot be claimed with6unavailable originals.
+
+
+## 2026-11-14 Stage AB ? browser-free preparation
+
+PR #44 review 5898515397: safe short-path Windows ZIP extraction verified 329 entries / 328 manifest payloads in separate processes; original/partial data unchanged. Versioned wait/click/handler audit and GitHub-backed independent review gate strengthened, direct non-probe entry closed. Synthetic observation 20/20 and review 12/12 controls; selected diagnostics 190/190. Local full-unit 690/692 retains two failures; type/build and six numerical bit/history comparisons pass. Archive 1118?1131 delta is 13 submission records, independently reread. Browser/GUI/original measurements prohibited and NOT_RUN, product changes zero, overall PARTIAL / merge NO. See docs/three-body/review-44/stage-ab; final CI/archive receipts follow in existing PR/Issue.
+
+
+## 2026-11-14 Stage AC phase 1 - records and CI prohibition
+
+PR44 review 5904109330: confirmed Stage AB source report already contained question-mark substitution before API; preserved originals and posted a new UTF-8 correction explanation, not reconstructed missing prose. Direct versus PowerShell ASCII stdin control reproduces substitution. Exact decoded source/request/response/readback and semantic contract checks added. Eight browser-capable workflows now deny PR44/branch/ref independently of body marker, with committed runtime policy before install. Existing AB approval policy unchanged. Browser/original-stop launches zero; no product change. Fixed local full-unit once: 722/724, same two tests explicitly timed out at 5000ms; no threshold or retry changes. Type/build and six numerical bit/history comparisons pass. Overall PARTIAL, GUI NOT_RUN, merge NO. See stage-ac verification and final PR receipts.

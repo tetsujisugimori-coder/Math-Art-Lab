@@ -1,0 +1,337 @@
+{
+  "clock": {
+    "status": "ALIGNED",
+    "completeMarkerSet": true,
+    "expectedMarks": 2,
+    "foundMarks": 2,
+    "offsetMs": 143112127.765,
+    "markBracketMs": 0.03899998962879181,
+    "minObservedPositiveDeltaMs": 0.09999999403953552,
+    "accuracyGuaranteed": false,
+    "mainPid": 6052,
+    "mainTid": 10944,
+    "anchorOffsetSpreadMs": 0.12200003862380981
+  },
+  "workerIdentity": [
+    {
+      "name": "os-chromium-006-os-off-worker-clock",
+      "workerClock": {
+        "before": 3.5,
+        "after": 3.7999999821186066
+      },
+      "events": [
+        {
+          "pid": 6052,
+          "tid": 38324,
+          "traceUs": 143112911382,
+          "phase": "I"
+        }
+      ],
+      "scope": "Worker marker identifies thread; its performance.now is not the main-page clock"
+    }
+  ],
+  "window": {
+    "beginMs": 143112911.16499996,
+    "endMs": 143119189.86499998,
+    "note": "Boundary events are clipped in window distributions; full durations and full raw trace are preserved."
+  },
+  "task": {
+    "n": 861,
+    "median": 0.07199999690055847,
+    "p95": 29.104999989271164,
+    "p99": 87.75799998641014,
+    "max": 350.71199998259544,
+    "over50": 9,
+    "percentileIsGuarantee": false
+  },
+  "gc": {
+    "n": 624,
+    "median": 0.02399998903274536,
+    "p95": 1.195000022649765,
+    "p99": 1.7960000038146973,
+    "max": 10.261000007390976,
+    "over50": 0,
+    "percentileIsGuarantee": false
+  },
+  "long": [
+    {
+      "id": 4098,
+      "name": "calculate",
+      "begin": 2725.0999999940395,
+      "end": 2813.5999999940395,
+      "duration": 88.5,
+      "traceBeginMs": 143114852.86499998,
+      "traceEndMs": 143114941.36499998,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 88.5,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 142.382,
+        "threadCpuMs": 2.596
+      }
+    },
+    {
+      "id": 4101,
+      "name": "native.geometry",
+      "begin": 2867.699999988079,
+      "end": 3003.0999999940395,
+      "duration": 135.40000000596046,
+      "traceBeginMs": 143114995.46499997,
+      "traceEndMs": 143115130.86499998,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 135.40000000596046,
+      "styleLayoutOverlapMs": 135.24199998378754,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 325.5,
+        "threadCpuMs": 34.633
+      }
+    },
+    {
+      "id": 4100,
+      "name": "paint",
+      "begin": 2867.5999999940395,
+      "end": 3167.2999999821186,
+      "duration": 299.69999998807907,
+      "traceBeginMs": 143114995.36499998,
+      "traceEndMs": 143115295.06499997,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 299.69999998807907,
+      "styleLayoutOverlapMs": 135.24199998378754,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 325.5,
+        "threadCpuMs": 34.633
+      }
+    },
+    {
+      "id": 5603,
+      "name": "refresh",
+      "begin": 3970.199999988079,
+      "end": 4101.699999988079,
+      "duration": 131.5,
+      "traceBeginMs": 143116097.96499997,
+      "traceEndMs": 143116229.46499997,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 131.5,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 186.453,
+        "threadCpuMs": 2.976
+      }
+    },
+    {
+      "id": 5604,
+      "name": "calculate",
+      "begin": 4128.5,
+      "end": 4262.399999976158,
+      "duration": 133.89999997615814,
+      "traceBeginMs": 143116256.265,
+      "traceEndMs": 143116390.16499996,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 133.89999997615814,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 179.921,
+        "threadCpuMs": 2.178
+      }
+    },
+    {
+      "id": 5606,
+      "name": "paint",
+      "begin": 4308.5999999940395,
+      "end": 4372.5999999940395,
+      "duration": 64,
+      "traceBeginMs": 143116436.36499998,
+      "traceEndMs": 143116500.36499998,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 64,
+      "styleLayoutOverlapMs": 1.805999994277954,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 90.439,
+        "threadCpuMs": 31.705
+      }
+    },
+    {
+      "id": 7105,
+      "name": "calculate",
+      "begin": 5093.0999999940395,
+      "end": 5174.299999982119,
+      "duration": 81.19999998807907,
+      "traceBeginMs": 143117220.86499998,
+      "traceEndMs": 143117302.06499997,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 81.19999998807907,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 108.291,
+        "threadCpuMs": 2.127
+      }
+    },
+    {
+      "id": 7108,
+      "name": "native.geometry",
+      "begin": 5221.799999982119,
+      "end": 5523.799999982119,
+      "duration": 302,
+      "traceBeginMs": 143117349.56499997,
+      "traceEndMs": 143117651.56499997,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 302,
+      "styleLayoutOverlapMs": 301.6210000216961,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 331.726,
+        "threadCpuMs": 34.125
+      }
+    },
+    {
+      "id": 7107,
+      "name": "paint",
+      "begin": 5221.699999988079,
+      "end": 5526.899999976158,
+      "duration": 305.19999998807907,
+      "traceBeginMs": 143117349.46499997,
+      "traceEndMs": 143117654.66499996,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 305.19999998807907,
+      "styleLayoutOverlapMs": 301.6210000216961,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 331.726,
+        "threadCpuMs": 34.125
+      }
+    },
+    {
+      "id": 8603,
+      "name": "calculate",
+      "begin": 6263.0999999940395,
+      "end": 6323.299999982119,
+      "duration": 60.19999998807907,
+      "traceBeginMs": 143118390.86499998,
+      "traceEndMs": 143118451.06499997,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 60.19999998807907,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 87.758,
+        "threadCpuMs": 2.476
+      }
+    },
+    {
+      "id": 8606,
+      "name": "native.geometry",
+      "begin": 6350.699999988079,
+      "end": 6671.799999982119,
+      "duration": 321.09999999403954,
+      "traceBeginMs": 143118478.46499997,
+      "traceEndMs": 143118799.56499997,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 321.09999999403954,
+      "styleLayoutOverlapMs": 320.8840000331402,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 350.712,
+        "threadCpuMs": 34.184
+      }
+    },
+    {
+      "id": 8605,
+      "name": "paint",
+      "begin": 6350.5999999940395,
+      "end": 6674.699999988079,
+      "duration": 324.09999999403954,
+      "traceBeginMs": 143118478.36499998,
+      "traceEndMs": 143118802.46499997,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 324.09999999403954,
+      "styleLayoutOverlapMs": 320.8840000331402,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 350.712,
+        "threadCpuMs": 34.184
+      }
+    }
+  ],
+  "wait": {
+    "n": 100,
+    "median": 0.0169999897480011,
+    "p95": 0.020999997854232788,
+    "p99": 0.027000010013580322,
+    "max": 0.09200000762939453,
+    "over50": 0,
+    "percentileIsGuarantee": false
+  },
+  "coverage": {
+    "task": "OBSERVED",
+    "javascript": "OBSERVED",
+    "timer": "OBSERVED",
+    "raf": "OBSERVED",
+    "canvas": "OBSERVED",
+    "styleLayout": "OBSERVED",
+    "paintComposite": "OBSERVED",
+    "gc": "OBSERVED",
+    "input": "OBSERVED",
+    "worker": "OBSERVED"
+  },
+  "limitations": [
+    "GPU presentation completion NOT_TESTED",
+    "OS context-switch/run-queue/swap NOT_TESTED",
+    "Elapsed task duration is not OS CPU time",
+    "Overlap is not proof of causality"
+  ]
+}

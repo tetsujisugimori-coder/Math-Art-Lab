@@ -1,0 +1,11 @@
+
+> math-art-lab@0.1.0 test:e2e:production
+> playwright test --config playwright.production.config.ts e2e-production/three-body.spec.ts --grep matrix width 375, motion reduce --output=test-results/three-body-review-mobile-readback
+
+
+Running 2 tests using 1 worker
+
+  ✓  1 [chromium] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 375, motion reduce, both themes and 100/200% text (4.3s)
+  ✓  2 [webkit] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 375, motion reduce, both themes and 100/200% text (1.5s)
+
+  2 passed (10.5s)

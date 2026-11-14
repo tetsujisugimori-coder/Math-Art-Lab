@@ -1,0 +1,15 @@
+import fs from 'node:fs';import path from 'node:path';import {fileURLToPath} from 'node:url';import {spawnSync} from 'node:child_process';
+export const marker='<!-- stage-ab:no-browser -->';
+export const expression="((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->')";
+export function decision(g,policy,ab){const errors=[];
+ if(policy?.schema!=='pr44-browser-prohibition-1'||policy.repository!=='tetsujisugimori-coder/Math-Art-Lab'||policy.blockedPR!==44||policy.blockedBranch!=='feat/017-three-body-dance'||policy.executionAuthorized!==false||ab?.executionAuthorized!==false||!Array.isArray(ab.trustedReviewerIds)||ab.trustedReviewerIds.length)errors.push('POLICY_INVALID');
+ const e=g?.event??{},p=e.pull_request??{},ref=g?.ref??'',head=g?.head_ref??'';
+ if(g?.repository!==policy?.repository)errors.push('REPOSITORY');
+ if(p.number===44||e.number===44||head==='feat/017-three-body-dance'||ref==='refs/heads/feat/017-three-body-dance'||ref.startsWith('refs/pull/44/'))errors.push('PR44_EXECUTION_PROHIBITED');
+ if(typeof p.body==='string'&&p.body.includes(marker))errors.push('ADDITIONAL_MARKER_DENIAL');
+ const valid=g?.event_name==='pull_request'?Number.isInteger(p.number)&&p.number>0&&typeof head==='string'&&head.length>0&&ref.length>0:['push','workflow_dispatch'].includes(g?.event_name)&&ref.startsWith('refs/heads/');if(!valid)errors.push('EVENT_IDENTITY_INCOMPLETE');
+ return{status:errors.length?'BLOCKED':'PASS',allowed:!errors.length,errors,browserLaunches:0};
+}
+export function runGuarded(g,policy,ab,command,args){const r=decision(g,policy,ab);if(!r.allowed)return{...r,commandLaunches:0,exitCode:2};const p=spawnSync(command,args,{encoding:'utf8',windowsHide:true});return{...r,commandLaunches:1,exitCode:p.error?1:p.status,error:p.error?String(p.error):null,stdout:p.stdout,stderr:p.stderr};}
+export function currentPolicies(){return[JSON.parse(fs.readFileSync(new URL('./three-body-stage-ac-ci-policy.json',import.meta.url))),JSON.parse(fs.readFileSync(new URL('./three-body-stage-ab-review-policy.json',import.meta.url)))];}
+if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){const [policy,ab]=currentPolicies(),event=JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH)),r=decision({event,repository:process.env.GITHUB_REPOSITORY,event_name:process.env.GITHUB_EVENT_NAME,ref:process.env.GITHUB_REF,head_ref:process.env.GITHUB_HEAD_REF},policy,ab);console.log(JSON.stringify(r));if(process.env.GITHUB_OUTPUT)fs.appendFileSync(process.env.GITHUB_OUTPUT,`allowed=${r.allowed}\n`);if(!r.allowed)process.exitCode=2;}

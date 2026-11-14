@@ -1,0 +1,2344 @@
+{
+  "anchors": [
+    {
+      "name": "components-chromium-002-B-light-clock-0",
+      "before": 2114.89999999851,
+      "after": 2115,
+      "pid": 24316,
+      "tid": 31528,
+      "traceMs": 33678558.341,
+      "low": 33676443.341,
+      "high": 33676443.441
+    },
+    {
+      "name": "components-chromium-002-B-light-clock-1",
+      "before": 5274.39999999851,
+      "after": 5274.39999999851,
+      "pid": 24316,
+      "tid": 31528,
+      "traceMs": 33681717.774,
+      "low": 33676443.374,
+      "high": 33676443.374
+    }
+  ],
+  "window": {
+    "beginMs": 33678558.274,
+    "endMs": 33681717.774,
+    "note": "Boundary events are clipped in window distributions; full durations and full raw trace are preserved."
+  },
+  "clock": {
+    "status": "ALIGNED",
+    "completeMarkerSet": true,
+    "expectedMarks": 2,
+    "foundMarks": 2,
+    "offsetMs": 33676443.374,
+    "markBracketMs": 0,
+    "minObservedPositiveDeltaMs": 0.09999999403953552,
+    "accuracyGuaranteed": false,
+    "mainPid": 24316,
+    "mainTid": 31528,
+    "anchorOffsetSpreadMs": 0.10000000149011612
+  },
+  "events": 28962,
+  "names": [
+    [
+      "SequenceManager::DoIdleWork",
+      3210
+    ],
+    [
+      "Graphics.Pipeline",
+      2905
+    ],
+    [
+      "RunTask",
+      2564
+    ],
+    [
+      "ThreadControllerImpl::RunTask",
+      2564
+    ],
+    [
+      "IOHandler::OnIOCompleted",
+      2131
+    ],
+    [
+      "Receive mojo message",
+      1011
+    ],
+    [
+      "SimpleWatcher::OnHandleReady",
+      976
+    ],
+    [
+      "BlinkScheduler_OnTaskCompleted",
+      462
+    ],
+    [
+      "BlinkScheduler_PerformMicrotaskCheckpoint",
+      462
+    ],
+    [
+      "auto cc::Scheduler::SendDidNotProduceFrame(const viz::BeginFrameArgs &, FrameSkippedReason)::(anonymous class)::operator()()::(anonymous class)::operator()(uint32_t) const",
+      428
+    ],
+    [
+      "UpdateCounters",
+      346
+    ],
+    [
+      "v8.callFunction",
+      341
+    ],
+    [
+      "FunctionCall",
+      339
+    ],
+    [
+      "SchedulePostMessage",
+      322
+    ],
+    [
+      "PipelineReporter",
+      296
+    ],
+    [
+      "BeginImplFrameToSendBeginMainFrame",
+      296
+    ],
+    [
+      "LayerTreeHostImpl::DidNotProduceFrame",
+      295
+    ],
+    [
+      "AnimationFrame",
+      286
+    ],
+    [
+      "Scheduler::BeginFrame",
+      255
+    ],
+    [
+      "AnimationHost::TickAnimations",
+      229
+    ],
+    [
+      "SendBeginFrameDecision",
+      222
+    ],
+    [
+      "auto cc::SchedulerStateMachine::ShouldThrottleSendBeginMainFrame()::(anonymous class)::operator()(uint32_t) const",
+      221
+    ],
+    [
+      "SendBeginMainFrame",
+      216
+    ],
+    [
+      "ProxyMain::BeginMainFrame",
+      216
+    ],
+    [
+      "Scheduler::RunTask",
+      210
+    ],
+    [
+      "ExternalBeginFrameSource::OnBeginFrame",
+      207
+    ],
+    [
+      "Scheduler::ScheduleTask",
+      207
+    ],
+    [
+      "Scheduler::ScheduleBeginImplFrameDeadline",
+      154
+    ],
+    [
+      "DelayBasedBeginFrameSource::OnTimerTick",
+      154
+    ],
+    [
+      "HandlePostMessage",
+      150
+    ],
+    [
+      "Scheduler::BeginImplFrame",
+      148
+    ],
+    [
+      "Scheduler::OnBeginImplFrameDeadline",
+      146
+    ],
+    [
+      "auto cc::Scheduler::FinishImplFrame()::(anonymous class)::operator()()::(anonymous class)::operator()(uint32_t) const",
+      146
+    ],
+    [
+      "TimerFire",
+      146
+    ],
+    [
+      "SendBeginMainFrameToCommit",
+      146
+    ],
+    [
+      "AnimationFrame::Render",
+      144
+    ],
+    [
+      "AnimationFrame::StyleAndLayout",
+      144
+    ],
+    [
+      "DidNotSubmitInLastFrame",
+      139
+    ],
+    [
+      "CommandBuffer::OrderingBarrier",
+      138
+    ],
+    [
+      "MainThreadSchedulerIdlePeriod",
+      137
+    ],
+    [
+      "ShortIdlePeriod",
+      137
+    ],
+    [
+      "NeedsBeginFrames",
+      132
+    ],
+    [
+      "DelayBasedTimeSource::SetActive",
+      127
+    ],
+    [
+      "cc::TaskGraphWorkQueue::ScheduleTasks",
+      116
+    ],
+    [
+      "Scheduler::BeginFrameDropped",
+      107
+    ],
+    [
+      "ThreadPool_RunTask",
+      104
+    ],
+    [
+      "Commit",
+      90
+    ],
+    [
+      "Parallel scavenge started",
+      85
+    ],
+    [
+      "auto cc::(anonymous namespace)::InsertNodeForTask(TaskGraph *, TileTask *, uint16_t, uint16_t, size_t, bool)::(anonymous class)::operator()()::(anonymous class)::operator()(uint32_t) const",
+      84
+    ],
+    [
+      "auto cc::SchedulerStateMachine::SetNeedsBeginMainFrame(bool)::(anonymous class)::operator()()::(anonymous class)::operator()(uint32_t) const",
+      74
+    ],
+    [
+      "LayerTreeHost::ApplyCompositorChanges",
+      74
+    ],
+    [
+      "Scheduler::NotifyBeginMainFrameStarted",
+      74
+    ],
+    [
+      "LayerTreeHost::WaitForCommitCompletion",
+      74
+    ],
+    [
+      "ProxyImpl::SetNeedsCommitOnImplThread",
+      72
+    ],
+    [
+      "ProxyImpl::ScheduledActionSendBeginMainFrame",
+      72
+    ],
+    [
+      "ScrollTree::CollectScrollDeltas",
+      72
+    ],
+    [
+      "WidgetBase::WillBeginMainFrame",
+      72
+    ],
+    [
+      "SetLayerTreeId",
+      72
+    ],
+    [
+      "PrePaint",
+      72
+    ],
+    [
+      "Layerize",
+      72
+    ],
+    [
+      "BeginCommitCompositorFrame",
+      72
+    ],
+    [
+      "AnimationFrame::Presentation",
+      71
+    ],
+    [
+      "ProxyMain::SetNeedsAnimate",
+      70
+    ],
+    [
+      "Scheduler::FinishTask",
+      69
+    ],
+    [
+      "CommandBuffer::Flush",
+      69
+    ],
+    [
+      "LocalFrameView::ScheduleAnimation",
+      68
+    ],
+    [
+      "RequestAnimationFrame",
+      66
+    ],
+    [
+      "FireAnimationFrame",
+      66
+    ],
+    [
+      "GpuChannel::Flush",
+      66
+    ],
+    [
+      "EarlyOut_NoUpdates",
+      65
+    ],
+    [
+      "MainFrameAborted",
+      65
+    ],
+    [
+      "ProxyImpl::BeginMainFrameAbortedOnImplThread",
+      65
+    ],
+    [
+      "Scheduler::BeginMainFrameAborted",
+      65
+    ],
+    [
+      "TimerInstall",
+      63
+    ],
+    [
+      "DOMStats",
+      62
+    ],
+    [
+      "Major concurrent marking rescheduled",
+      56
+    ],
+    [
+      "LayerTreeHostImpl::NotifyTileStateChanged",
+      54
+    ],
+    [
+      "SyncToken::Wait",
+      54
+    ],
+    [
+      "Scheduler::SequenceUnblocked",
+      54
+    ],
+    [
+      "GpuChannel::ExecuteDeferredRequest",
+      52
+    ],
+    [
+      "DisplayDamageTracker::HasPendingSurfaces",
+      47
+    ],
+    [
+      "ScheduledTasksState",
+      46
+    ],
+    [
+      "Closed mojo endpoint",
+      44
+    ],
+    [
+      "DisplayScheduler::ScheduleBeginFrameDeadline",
+      44
+    ],
+    [
+      "V8.GC_MC_INCREMENTAL",
+      42
+    ],
+    [
+      "TaskGraphRunner::RunTask",
+      41
+    ],
+    [
+      "Receive mojo reply",
+      38
+    ],
+    [
+      "TileTaskManagerImpl::CheckForCompletedTasks",
+      32
+    ],
+    [
+      "TileManager::CheckPendingGpuWorkAndIssueSignals",
+      31
+    ],
+    [
+      "TaskSetFinishedTaskImpl::RunOnWorkerThread",
+      30
+    ],
+    [
+      "V8.GC_SCAVENGER_BACKGROUND_SCAVENGE_PARALLEL",
+      30
+    ],
+    [
+      "GPUTask",
+      30
+    ],
+    [
+      "thread_name",
+      29
+    ],
+    [
+      "LayerTreeHostImpl::CommitComplete",
+      27
+    ],
+    [
+      "RasterSource::PerformSolidColorAnalysis",
+      27
+    ],
+    [
+      "ScheduledTasks",
+      26
+    ],
+    [
+      "LayerTreeHostImpl::ActivateSyncTree",
+      25
+    ],
+    [
+      "Sweeper::ConcurrentMajorSweeper Finished",
+      25
+    ],
+    [
+      "CommandBufferProxyImpl::OrderingBarrier",
+      25
+    ],
+    [
+      "RasterDecoderImpl::DoRasterCHROMIUM",
+      25
+    ],
+    [
+      "RasterDecoderImpl::DoRasterCHROMIUM::Deserializing",
+      25
+    ],
+    [
+      "RasterizerTaskImpl::RunOnWorkerThread",
+      24
+    ],
+    [
+      "RasterTask",
+      24
+    ],
+    [
+      "GpuRasterBuffer::Playback",
+      24
+    ],
+    [
+      "RasterImplementation::RasterCHROMIUM",
+      24
+    ],
+    [
+      "RendererRasterWorker",
+      24
+    ],
+    [
+      "RasterDecoderImpl::DoBeginRasterCHROMIUM",
+      24
+    ],
+    [
+      "RasterDecoderImpl::DoEndRasterCHROMIUM",
+      24
+    ],
+    [
+      "RasterDecoderImpl::DoEndRasterCHROMIUM::Flush",
+      24
+    ],
+    [
+      "CommandBufferStub::OnAsyncFlush",
+      23
+    ],
+    [
+      "CommandBufferService:PutChanged",
+      23
+    ],
+    [
+      "TileManager::CheckForCompletedTasksAndIssueSignals",
+      22
+    ],
+    [
+      "CommandBuffer::FlushComplete",
+      22
+    ],
+    [
+      "No damage yet",
+      22
+    ],
+    [
+      "v8.newInstance",
+      21
+    ],
+    [
+      "ProxyMain::BeginMainFrame::commit",
+      21
+    ],
+    [
+      "ProxyImpl::ReadyToCommit",
+      21
+    ],
+    [
+      "ProxyImpl::Commit",
+      21
+    ],
+    [
+      "ProxyImpl::ReadyToActivate",
+      21
+    ],
+    [
+      "DisplayScheduler::BeginFrame",
+      20
+    ],
+    [
+      "Scheduler::Running",
+      20
+    ],
+    [
+      "SyncToken::Release",
+      18
+    ],
+    [
+      "DisplayDamageTracker::SetRootFrameMissing",
+      18
+    ],
+    [
+      "EndActivateToSubmitCompositorFrame",
+      18
+    ],
+    [
+      "Using new deadline",
+      17
+    ],
+    [
+      "ProxyImpl::OnCanDrawStateChanged",
+      16
+    ],
+    [
+      "SchedulerStateMachine::SetNeedsPrepareTiles",
+      16
+    ],
+    [
+      "TileManager::PrepareTiles",
+      16
+    ],
+    [
+      "TileManager::AssignGpuMemoryToTiles",
+      16
+    ],
+    [
+      "TileManager::ScheduleTasks",
+      16
+    ],
+    [
+      "TileTaskManagerImpl::ScheduleTasks",
+      16
+    ],
+    [
+      "DidPrepareTiles",
+      16
+    ],
+    [
+      "Using existing deadline",
+      16
+    ],
+    [
+      "EndCommitToActivation",
+      16
+    ],
+    [
+      "Activation",
+      16
+    ],
+    [
+      "TileManager::DidFinishRunningTileTasksRequiredForActivation",
+      15
+    ],
+    [
+      "TileManager::DidFinishRunningTileTasksRequiredForDraw",
+      15
+    ],
+    [
+      "SharedImageStub::OnCreateSharedImage",
+      15
+    ],
+    [
+      "DisplayScheduler::OnBeginFrameDeadline",
+      15
+    ],
+    [
+      "LayerTreeHostSize",
+      15
+    ],
+    [
+      "V8.GCIncrementalMarking",
+      14
+    ],
+    [
+      "V8.GC_MC_INCREMENTAL_EMBEDDER_TRACING",
+      14
+    ],
+    [
+      "PendingTree:waiting",
+      14
+    ],
+    [
+      "SubmitCompositorFrameToPresentationCompositorFrame",
+      14
+    ],
+    [
+      "SubmitToReceiveCompositorFrame",
+      14
+    ],
+    [
+      "Scheduler:pending_submit_frames",
+      14
+    ],
+    [
+      "ReceiveCompositorFrameToStartDraw",
+      14
+    ],
+    [
+      "Graphics.Pipeline.DrawAndSwap",
+      14
+    ],
+    [
+      "StartDrawToSwapStart",
+      14
+    ],
+    [
+      "DisplayScheduler:pending_swaps",
+      14
+    ],
+    [
+      "CommandBufferHelper::Flush",
+      13
+    ],
+    [
+      "DidFinishRunningAllTilesTask::RunOnWorkerThread",
+      13
+    ],
+    [
+      "TileManager::DidFinishRunningAllTileTasks",
+      13
+    ],
+    [
+      "SharedImageStub::OnDestroySharedImage",
+      13
+    ],
+    [
+      "Swap",
+      13
+    ],
+    [
+      "SkiaOutputSurfaceImpl::FlushGpuTasks",
+      12
+    ],
+    [
+      "ObservablePause",
+      12
+    ],
+    [
+      "Marking",
+      12
+    ],
+    [
+      "Atomic",
+      12
+    ],
+    [
+      "Graphics.Pipeline.Draw",
+      12
+    ],
+    [
+      "LayerTreeImpl::UpdateDrawProperties",
+      11
+    ],
+    [
+      "LayerTreeImpl::UpdateDrawProperties::CalculateDrawProperties",
+      11
+    ],
+    [
+      "draw_property_utils::FindLayersThatNeedUpdates",
+      11
+    ],
+    [
+      "draw_property_utils::ComputeDrawPropertiesOfVisibleLayers",
+      11
+    ],
+    [
+      "CalculateRenderSurfaceLayerList",
+      11
+    ],
+    [
+      "LayerTreeImpl::UpdateDrawProperties::Occlusion",
+      11
+    ],
+    [
+      "LayerTreeImpl::UpdateTiles",
+      11
+    ],
+    [
+      "TileManager::IsReadyToDraw",
+      11
+    ],
+    [
+      "ComputeWeaknessProcessor start",
+      11
+    ],
+    [
+      "ClearWeaknessProcessor start",
+      11
+    ],
+    [
+      "Major concurrent marking started",
+      11
+    ],
+    [
+      "V8.GC_MC_SWEEP_START_JOBS",
+      11
+    ],
+    [
+      "Waiting for next BeginFrame",
+      11
+    ],
+    [
+      "auto viz::ClientResourceProvider::ReceiveReturnsFromParent(std::vector<ReturnedResource>)::(anonymous class)::operator()()::(anonymous class)::operator()(uint32_t) const",
+      11
+    ],
+    [
+      "Sweeping",
+      11
+    ],
+    [
+      "Paint",
+      10
+    ],
+    [
+      "HitTest",
+      10
+    ],
+    [
+      "V8.GC_SCAVENGER_SCAVENGE_PARALLEL",
+      10
+    ],
+    [
+      "rendering_starved",
+      10
+    ],
+    [
+      "very_high",
+      10
+    ],
+    [
+      "Scavenge",
+      10
+    ],
+    [
+      "ScheduleStyleRecalculation",
+      9
+    ],
+    [
+      "UpdateLayoutTree",
+      9
+    ],
+    [
+      "LayerTreeHost::DoUpdateLayers",
+      9
+    ],
+    [
+      "Scheduler::NotifyReadyToCommit",
+      9
+    ],
+    [
+      "LayerTreeHostImpl::BeginCommit",
+      9
+    ],
+    [
+      "LayerTreeHostImpl::FinishCommit",
+      9
+    ],
+    [
+      "LayerTreeImpl::PullProperties",
+      9
+    ],
+    [
+      "TreeSynchronizer::PushLayerPropertiesTo.Main",
+      9
+    ],
+    [
+      "LayerTreeHost::AnimationHost::PushProperties",
+      9
+    ],
+    [
+      "ImageAnimationController::AnimateImagesForSyncTree",
+      9
+    ],
+    [
+      "LayerTreeImpl::InvalidateRegionForImages",
+      9
+    ],
+    [
+      "ProcessUIResourceRequestQueue",
+      9
+    ],
+    [
+      "ImageAnimationController::WillActivate",
+      9
+    ],
+    [
+      "LayerTreeHostImpl::PrepareToDraw",
+      9
+    ],
+    [
+      "TileManager::PrepareToDraw",
+      9
+    ],
+    [
+      "TileManager::PrepareToDrawFinished",
+      9
+    ],
+    [
+      "SequenceManagerImpl::UnregisterTaskQueue",
+      9
+    ],
+    [
+      "GpuChannelMessageFilter::FlushDeferredRequests",
+      9
+    ],
+    [
+      "V8.GC_MC_BACKGROUND_MARKING",
+      9
+    ],
+    [
+      "ConcurrentMarking::RunMajor Finished",
+      9
+    ],
+    [
+      "RememberedSetUpdatingItem::Process",
+      9
+    ],
+    [
+      "none",
+      9
+    ],
+    [
+      "normal",
+      9
+    ],
+    [
+      "V8.GC_MC_SWEEP",
+      8
+    ],
+    [
+      "DelegatedFrameHost::EmbedSurface",
+      8
+    ],
+    [
+      "CommandBufferService::Paused",
+      8
+    ],
+    [
+      "UpdateLayer",
+      7
+    ],
+    [
+      "NeedsTickAnimations",
+      7
+    ],
+    [
+      "TileManager::IsReadyToActivate",
+      7
+    ],
+    [
+      "LayerTreeImpl::PushPropertyTreesTo",
+      7
+    ],
+    [
+      "TreeSynchronizer::PushLayerPropertiesTo.Impl",
+      7
+    ],
+    [
+      "LayerTreeImpl::PushPropertiesTo",
+      7
+    ],
+    [
+      "ProxyImpl::DidActivateSyncTreeOnImplThread",
+      7
+    ],
+    [
+      "InputHandler::ClearCurrentlyScrollingNode",
+      7
+    ],
+    [
+      "ProxyImpl::ScheduledActionDraw",
+      7
+    ],
+    [
+      "MainFrame.Draw",
+      7
+    ],
+    [
+      "WidgetBase::DidCommitAndDrawCompositorFrame",
+      7
+    ],
+    [
+      "ProxyImpl::ScheduledActionPrepareTiles",
+      7
+    ],
+    [
+      "V8.GC_TIME_TO_SAFEPOINT",
+      7
+    ],
+    [
+      "LayerTreeHostImpl::CalculateRenderPasses",
+      7
+    ],
+    [
+      "Scroll Delta This Frame",
+      7
+    ],
+    [
+      "DrawLayers.FrameViewerTracing",
+      7
+    ],
+    [
+      "LayerTreeHostImpl::BuildHitTestData",
+      7
+    ],
+    [
+      "Surface::CommitFrame",
+      7
+    ],
+    [
+      "Surface::ActivateFrame",
+      7
+    ],
+    [
+      "DisplayScheduler::DrawAndSwap",
+      7
+    ],
+    [
+      "Display::DrawAndSwap",
+      7
+    ],
+    [
+      "SurfaceManager::GarbageCollectSurfaces",
+      7
+    ],
+    [
+      "V8.GC_HEAP_EXTERNAL_PROLOGUE",
+      6
+    ],
+    [
+      "V8.GC_HEAP_PROLOGUE",
+      6
+    ],
+    [
+      "V8.GC_HEAP_PROLOGUE_SAFEPOINT",
+      6
+    ],
+    [
+      "V8.GC_HEAP_EPILOGUE_SAFEPOINT",
+      6
+    ],
+    [
+      "V8.GC_HEAP_EPILOGUE",
+      6
+    ],
+    [
+      "V8.GCTraceGCNVP",
+      6
+    ],
+    [
+      "V8.GC_HEAP_DUMP_STATISTICS",
+      6
+    ],
+    [
+      "V8.GC_Heap_Stats",
+      6
+    ],
+    [
+      "V8.GC_HEAP_EXTERNAL_EPILOGUE",
+      6
+    ],
+    [
+      "DirectRenderer::DrawFrame",
+      6
+    ],
+    [
+      "SkiaRenderer::BeginDrawingFrame",
+      6
+    ],
+    [
+      "DirectRenderer::DrawRenderPass",
+      6
+    ],
+    [
+      "SkiaRenderer::FinishDrawingFrame",
+      6
+    ],
+    [
+      "SkiaRenderer::SwapBuffers",
+      6
+    ],
+    [
+      "SkiaOutputSurfaceImplOnGpu::BeginAccessImages",
+      6
+    ],
+    [
+      "SkiaOutputSurfaceImplOnGpu::SwapBuffers",
+      6
+    ],
+    [
+      "SkiaOutputSurfaceImplOnGpu::EndAccessImages",
+      6
+    ],
+    [
+      "Display::FrameDisplayed",
+      6
+    ],
+    [
+      "CommandBufferProxyImpl::Flush",
+      6
+    ],
+    [
+      "ScrollTree::SetScrollOffset",
+      6
+    ],
+    [
+      "Graphics.Pipeline.WaitForSwap",
+      6
+    ],
+    [
+      "WaitForPresentation",
+      6
+    ],
+    [
+      "MinorGC",
+      5
+    ],
+    [
+      "V8.GCScavenger",
+      5
+    ],
+    [
+      "V8.GC_SCAVENGER",
+      5
+    ],
+    [
+      "V8.GC_SCAVENGER_SCAVENGE",
+      5
+    ],
+    [
+      "V8.GC_SCAVENGER_SCAVENGE_WEAK_GLOBAL_HANDLES_IDENTIFY",
+      5
+    ],
+    [
+      "V8.GC_SCAVENGER_SCAVENGE_ROOTS",
+      5
+    ],
+    [
+      "V8.GC_SCAVENGER_SCAVENGE_PARALLEL_PHASE",
+      5
+    ],
+    [
+      "V8.GC_SCAVENGER_SCAVENGE_WEAK_GLOBAL_HANDLES_PROCESS",
+      5
+    ],
+    [
+      "V8.GC_SCAVENGER_SCAVENGE_FINALIZE",
+      5
+    ],
+    [
+      "V8.GC_SCAVENGER_SCAVENGE_RESTORE_AND_QUARANTINE_PINNED",
+      5
+    ],
+    [
+      "V8.GC_SCAVENGER_FREE_REMEMBERED_SET",
+      5
+    ],
+    [
+      "V8.GC_SCAVENGER_RESIZE_NEW_SPACE",
+      5
+    ],
+    [
+      "PointersUpdatingJob started",
+      5
+    ],
+    [
+      "V8.GC_MC_BACKGROUND_SWEEPING",
+      5
+    ],
+    [
+      "CommandBufferStub::OnRegisterTransferBuffer",
+      5
+    ],
+    [
+      "ProxyImpl::DidReceiveCompositorFrameAckOnImplThread",
+      5
+    ],
+    [
+      "SkiaOutputSurfaceImplOnGpu::FinishPaintCurrentFrame",
+      5
+    ],
+    [
+      "allocation failure",
+      5
+    ],
+    [
+      "RecordingSource::FinishDisplayItemListUpdate",
+      4
+    ],
+    [
+      "DiscardableImageMap::Generate",
+      4
+    ],
+    [
+      "V8.GC_MC_MARK_EMBEDDER_TRACING",
+      4
+    ],
+    [
+      "V8.GC_MC_MARK_WEAK_CLOSURE_EPHEMERON_MARKING",
+      4
+    ],
+    [
+      "GpuChannelHost::VerifyFlush",
+      4
+    ],
+    [
+      "All active surfaces ready",
+      4
+    ],
+    [
+      "SingleThreadProxy::NotifyReadyToActivate",
+      4
+    ],
+    [
+      "SingleThreadProxy::NotifyReadyToDraw",
+      4
+    ],
+    [
+      "SingleThreadTaskGraphRunner::CollectCompletedTasks",
+      4
+    ],
+    [
+      "Swap throttled",
+      4
+    ],
+    [
+      "UserBlocking",
+      4
+    ],
+    [
+      "process_name",
+      3
+    ],
+    [
+      "process_uptime_seconds",
+      3
+    ],
+    [
+      "FrameSchedulerImpl::UpdateQueuePolicy_QueueEnabled",
+      3
+    ],
+    [
+      "V8.DeoptimizeCode",
+      3
+    ],
+    [
+      "V8.GC_HEAP_ENSURE_SWEEPING_COMPLETED",
+      3
+    ],
+    [
+      "V8.GC_SCAVENGER_TRACED_HANDLES_COMPUTE_WEAKNESS_PARALLEL",
+      3
+    ],
+    [
+      "V8.GC_SCAVENGER_TRACED_HANDLES_RESET_PARALLEL",
+      3
+    ],
+    [
+      "V8.GC_MC_INCREMENTAL_START",
+      3
+    ],
+    [
+      "V8.GC_MC_MARK_ROOTS",
+      3
+    ],
+    [
+      "ClearStringTableJob started",
+      3
+    ],
+    [
+      "ClearTrivialWeakRefJob started",
+      3
+    ],
+    [
+      "FilterNonTrivialWeakRefJob started",
+      3
+    ],
+    [
+      "PageEvacuationJob started",
+      3
+    ],
+    [
+      "V8.GC_MC_FINISH_SWEEP_ARRAY_BUFFERS",
+      3
+    ],
+    [
+      "More damage expected soon",
+      3
+    ],
+    [
+      "Scheduler::ContinueTask",
+      3
+    ],
+    [
+      "CopyOutputRequest",
+      3
+    ],
+    [
+      "EvaluateScript",
+      2
+    ],
+    [
+      "LayerTreeHostImpl::CalculateRenderPasses::EmptyDamageRect",
+      2
+    ],
+    [
+      "EarlyOut_NoDamage",
+      2
+    ],
+    [
+      "V8.GCUpdateAllocationLimits",
+      2
+    ],
+    [
+      "EventDispatch",
+      2
+    ],
+    [
+      "V8.GC_MC_MARK_EMBEDDER_PROLOGUE",
+      2
+    ],
+    [
+      "V8.GC_MC_EVACUATE",
+      2
+    ],
+    [
+      "Evacuator::EvacuatePage",
+      2
+    ],
+    [
+      "FullEvacuator::RawEvacuatePage",
+      2
+    ],
+    [
+      "LiveObjectVisitor::VisitMarkedObjects",
+      2
+    ],
+    [
+      "SingleThreadProxy::ScheduledActionSendBeginMainFrame",
+      2
+    ],
+    [
+      "PropertyTreeLayerTreeDelegate::UpdatePropertyTreesIfNeeded",
+      2
+    ],
+    [
+      "SingleThreadProxy::DoCommit",
+      2
+    ],
+    [
+      "SurfaceLayer::PushPropertiesTo",
+      2
+    ],
+    [
+      "SingleThreadProxy::DoPostCommit",
+      2
+    ],
+    [
+      "SingleThreadProxy::SetNeedsPrepareTilesOnImplThread",
+      2
+    ],
+    [
+      "SingleThreadProxy::OnCanDrawStateChanged",
+      2
+    ],
+    [
+      "SingleThreadProxy::DoComposite",
+      2
+    ],
+    [
+      "SingleThreadProxy::ScheduledActionPrepareTiles",
+      2
+    ],
+    [
+      "SingleThreadTaskGraphRunner::ScheduleTasks",
+      2
+    ],
+    [
+      "SingleThreadProxy::DidReceiveCompositorFrameAckOnImplThread",
+      2
+    ],
+    [
+      "FramePresented",
+      2
+    ],
+    [
+      "UpdateStateFromAnimationDrivers",
+      2
+    ],
+    [
+      "ProxyMain::SetNeedsCommit",
+      2
+    ],
+    [
+      "WorkerSchedulerIdlePeriod",
+      2
+    ],
+    [
+      "LongIdlePeriodPaused",
+      2
+    ],
+    [
+      "IncrementalMarking",
+      2
+    ],
+    [
+      "SurfaceQueuedPending",
+      2
+    ],
+    [
+      "TracingStartedInBrowser",
+      1
+    ],
+    [
+      "V8PerIsolateData::Initialize",
+      1
+    ],
+    [
+      "V8.DeserializeIsolate",
+      1
+    ],
+    [
+      "TracingSessionIdForWorker",
+      1
+    ],
+    [
+      "V8.DeserializeContext",
+      1
+    ],
+    [
+      "ResourceReceiveResponse",
+      1
+    ],
+    [
+      "ResourceReceivedData",
+      1
+    ],
+    [
+      "v8.compile",
+      1
+    ],
+    [
+      "v8.run",
+      1
+    ],
+    [
+      "v8.produceCache",
+      1
+    ],
+    [
+      "ResourceFinish",
+      1
+    ],
+    [
+      "components-chromium-002-B-light-clock-0",
+      1
+    ],
+    [
+      "V8.GC_MC_COMPLETE_SWEEP_ARRAY_BUFFERS",
+      1
+    ],
+    [
+      "V8.GC_MC_COMPLETE_SWEEPING",
+      1
+    ],
+    [
+      "V8.GCDeoptMarkedAllocationSites",
+      1
+    ],
+    [
+      "TimerRemove",
+      1
+    ],
+    [
+      "components-chromium-002-B-light-clock-1",
+      1
+    ],
+    [
+      "V8.GCIncrementalMarkingStart",
+      1
+    ],
+    [
+      "V8.GC_MC_INCREMENTAL_EXTERNAL_PROLOGUE",
+      1
+    ],
+    [
+      "V8.GC_MC_INCREMENTAL_EXTERNAL_EPILOGUE",
+      1
+    ],
+    [
+      "MajorGC",
+      1
+    ],
+    [
+      "V8.GCFinalizeMC",
+      1
+    ],
+    [
+      "V8.GC_MARK_COMPACTOR",
+      1
+    ],
+    [
+      "V8.GC_MC_PROLOGUE",
+      1
+    ],
+    [
+      "V8.GC_MC_MARK",
+      1
+    ],
+    [
+      "V8.GC_MC_MARK_FINISH_INCREMENTAL",
+      1
+    ],
+    [
+      "V8.GC_MC_MARK_CLIENT_HEAPS",
+      1
+    ],
+    [
+      "V8.GC_MC_MARK_RETAIN_MAPS",
+      1
+    ],
+    [
+      "V8.GC_MC_MARK_FULL_CLOSURE_PARALLEL",
+      1
+    ],
+    [
+      "V8.GC_MC_MARK_FULL_CLOSURE_PARALLEL_JOIN",
+      1
+    ],
+    [
+      "V8.GC_CONSERVATIVE_STACK_SCANNING",
+      1
+    ],
+    [
+      "V8.GC_MC_MARK_FULL_CLOSURE_SERIAL",
+      1
+    ],
+    [
+      "V8.GC_MC_CLEAR",
+      1
+    ],
+    [
+      "V8.GC_MC_CLEAR_STRING_FORWARDING_TABLE",
+      1
+    ],
+    [
+      "V8.GC_MC_CLEAR_EXTERNAL_STRING_TABLE",
+      1
+    ],
+    [
+      "V8.GC_MC_CLEAR_WEAK_GLOBAL_HANDLES",
+      1
+    ],
+    [
+      "V8.GC_MC_CLEAR_STRING_TABLE",
+      1
+    ],
+    [
+      "V8.GC_MC_CLEAR_FLUSHABLE_BYTECODE",
+      1
+    ],
+    [
+      "V8.GC_MC_SWEEP_JS_DISPATCH_TABLE",
+      1
+    ],
+    [
+      "V8.GC_MC_CLEAR_FLUSHED_JS_FUNCTIONS",
+      1
+    ],
+    [
+      "V8.GC_MC_CLEAR_WEAK_LISTS",
+      1
+    ],
+    [
+      "V8.GC_MC_CLEAR_MAPS",
+      1
+    ],
+    [
+      "V8.GC_MC_SWEEP_EXTERNAL_POINTER_TABLE",
+      1
+    ],
+    [
+      "V8.GC_MC_CLEAR_WEAK_REFERENCES_TRIVIAL",
+      1
+    ],
+    [
+      "V8.GC_MC_CLEAR_WEAK_REFERENCES_FILTER_NON_TRIVIAL",
+      1
+    ],
+    [
+      "V8.GC_MC_SWEEP_TRUSTED_POINTER_TABLE",
+      1
+    ],
+    [
+      "V8.GC_MC_SWEEP_CODE_POINTER_TABLE",
+      1
+    ],
+    [
+      "V8.GC_MC_SWEEP_WASM_CODE_POINTER_TABLE",
+      1
+    ],
+    [
+      "V8.GC_MC_CLEAR_WEAK_REFERENCES_JOIN_FILTER_JOB",
+      1
+    ],
+    [
+      "V8.GC_MC_WEAKNESS_HANDLING",
+      1
+    ],
+    [
+      "V8.GC_MC_CLEAR_WEAK_REFERENCES_NON_TRIVIAL",
+      1
+    ],
+    [
+      "V8.GC_MC_CLEAR_WEAK_COLLECTIONS",
+      1
+    ],
+    [
+      "V8.GC_MC_CLEAR_JS_WEAK_REFERENCES",
+      1
+    ],
+    [
+      "V8.GC_MC_CLEAR_JOIN_JOB",
+      1
+    ],
+    [
+      "V8.GC_MC_EVACUATE_PROLOGUE",
+      1
+    ],
+    [
+      "V8.GC_MC_EVACUATE_COPY",
+      1
+    ],
+    [
+      "MarkCompactCollector::EvacuatePagesInParallel",
+      1
+    ],
+    [
+      "V8.GC_MC_EVACUATE_COPY_PARALLEL",
+      1
+    ],
+    [
+      "V8.GC_MC_EVACUATE_UPDATE_POINTERS",
+      1
+    ],
+    [
+      "V8.GC_MC_EVACUATE_UPDATE_POINTERS_TO_NEW_ROOTS",
+      1
+    ],
+    [
+      "V8.GC_MC_EVACUATE_UPDATE_POINTERS_CLIENT_HEAPS",
+      1
+    ],
+    [
+      "V8.GC_MC_EVACUATE_UPDATE_POINTERS_SLOTS_MAIN",
+      1
+    ],
+    [
+      "V8.GC_MC_EVACUATE_UPDATE_POINTERS_PARALLEL",
+      1
+    ],
+    [
+      "V8.GC_MC_BACKGROUND_EVACUATE_UPDATE_POINTERS",
+      1
+    ],
+    [
+      "V8.GC_MC_EVACUATE_UPDATE_POINTERS_WEAK",
+      1
+    ],
+    [
+      "V8.GC_MC_EVACUATE_UPDATE_POINTERS_POINTER_TABLES",
+      1
+    ],
+    [
+      "V8.GC_MC_EVACUATE_CLEAN_UP",
+      1
+    ],
+    [
+      "V8.GC_MC_EVACUATE_EPILOGUE",
+      1
+    ],
+    [
+      "V8.GC_MC_SWEEP_NEW_LO",
+      1
+    ],
+    [
+      "V8.GC_MC_EVACUATE_REBALANCE",
+      1
+    ],
+    [
+      "V8.GC_MC_FINISH",
+      1
+    ],
+    [
+      "V8.GC_BACKGROUND_FULL_ARRAY_BUFFER_SWEEP",
+      1
+    ],
+    [
+      "ArrayBufferSweeper Finished",
+      1
+    ],
+    [
+      "V8.GC_MC_EPILOGUE",
+      1
+    ],
+    [
+      "V8.GC_HEAP_EXTERNAL_WEAK_GLOBAL_HANDLES",
+      1
+    ],
+    [
+      "V8.GC_HEAP_EMBEDDER_TRACING_EPILOGUE",
+      1
+    ],
+    [
+      "V8.GCMarkCompactorSummary",
+      1
+    ],
+    [
+      "V8.GCMarkCompactorMarkingSummary",
+      1
+    ],
+    [
+      "V8.GCSpeedSummary",
+      1
+    ],
+    [
+      "V8.GCPhantomHandleProcessingCallback",
+      1
+    ],
+    [
+      "V8.GC_HEAP_EXTERNAL_SECOND_PASS_CALLBACKS",
+      1
+    ],
+    [
+      "TransferBuffer::Free",
+      1
+    ],
+    [
+      "CommandBufferStub::SetGetBuffer",
+      1
+    ],
+    [
+      "CommandBufferStub::OnDestroyTransferBuffer",
+      1
+    ],
+    [
+      "FrameSinkManagerImpl::RequestCopyOfOutput",
+      1
+    ],
+    [
+      "Draw skipped.",
+      1
+    ],
+    [
+      "Swap skipped.",
+      1
+    ],
+    [
+      "ImageUploadTaskImpl::RunOnWorkerThread",
+      1
+    ],
+    [
+      "ImageUploadTask",
+      1
+    ],
+    [
+      "GpuImageDecodeCache::UploadImage",
+      1
+    ],
+    [
+      "Surface deadline passed",
+      1
+    ],
+    [
+      "SurfaceSynchronizationEvent",
+      1
+    ],
+    [
+      "GrShaderCache::load",
+      1
+    ],
+    [
+      "ANGLEPlatformImpl::RunWorkerTask",
+      1
+    ],
+    [
+      "GrShaderCache::store",
+      1
+    ],
+    [
+      "Surface::RequestCopyOfOutput",
+      1
+    ],
+    [
+      "Surface::RequestCopyOfOutputOnRootRenderPass",
+      1
+    ],
+    [
+      "SkiaOutputSurfaceImplOnGpu::FinishPaintRenderPass",
+      1
+    ],
+    [
+      "SkiaOutputSurfaceImplOnGpu::CopyOutput",
+      1
+    ],
+    [
+      "viz::mojom::CopyOutputResultSender::SendResult",
+      1
+    ],
+    [
+      "CopyOutputResultSenderImpl::SendResult",
+      1
+    ],
+    [
+      "Scheduler::MissedBeginFrameDropped",
+      1
+    ],
+    [
+      "Damage not visible.",
+      1
+    ],
+    [
+      "no",
+      1
+    ],
+    [
+      "Incremental Mark-Compact",
+      1
+    ],
+    [
+      "task",
+      1
+    ],
+    [
+      "finalize incremental marking via task",
+      1
+    ]
+  ],
+  "processes": [
+    {
+      "args": {
+        "name": "swapper"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 0,
+      "tid": 0,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "CrBrowserMain"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 30960,
+      "tid": 16688,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "Compositor"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 24316,
+      "tid": 14980,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "PerfettoTrace"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 30960,
+      "tid": 22276,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "Chrome_IOThread"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 30960,
+      "tid": 31808,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "PerfettoTrace"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 24316,
+      "tid": 28024,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "CrRendererMain"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 24316,
+      "tid": 31528,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "Chrome_ChildIOThread"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 24316,
+      "tid": 4800,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "PerfettoTrace"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 22876,
+      "tid": 29468,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "Chrome_ChildIOThread"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 22876,
+      "tid": 31408,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "DevToolsPipeHandlerWriteThread"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 30960,
+      "tid": 32888,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 24316,
+      "tid": 28404,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "DedicatedWorker thread"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 24316,
+      "tid": 14948,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "VizCompositorThread"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 22876,
+      "tid": 32116,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolServiceThread"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 30960,
+      "tid": 1612,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 30960,
+      "tid": 9408,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 24316,
+      "tid": 10072,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 24316,
+      "tid": 32104,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 24316,
+      "tid": 33756,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolServiceThread"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 24316,
+      "tid": 33204,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "CrGpuMain"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 22876,
+      "tid": 27828,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 24316,
+      "tid": 17608,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 24316,
+      "tid": 28292,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 24316,
+      "tid": 5964,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 24316,
+      "tid": 12800,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 24316,
+      "tid": 33356,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 24316,
+      "tid": 8772,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 24316,
+      "tid": 32580,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "ThreadPoolForegroundWorker"
+      },
+      "cat": "__metadata",
+      "name": "thread_name",
+      "ph": "M",
+      "pid": 22876,
+      "tid": 24176,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "Browser"
+      },
+      "cat": "__metadata",
+      "name": "process_name",
+      "ph": "M",
+      "pid": 30960,
+      "tid": 0,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "Renderer"
+      },
+      "cat": "__metadata",
+      "name": "process_name",
+      "ph": "M",
+      "pid": 24316,
+      "tid": 0,
+      "ts": 0
+    },
+    {
+      "args": {
+        "name": "GPU Process"
+      },
+      "cat": "__metadata",
+      "name": "process_name",
+      "ph": "M",
+      "pid": 22876,
+      "tid": 0,
+      "ts": 0
+    },
+    {
+      "args": {
+        "uptime": "10"
+      },
+      "cat": "__metadata",
+      "name": "process_uptime_seconds",
+      "ph": "M",
+      "pid": 30960,
+      "tid": 0,
+      "ts": 0
+    },
+    {
+      "args": {
+        "uptime": "10"
+      },
+      "cat": "__metadata",
+      "name": "process_uptime_seconds",
+      "ph": "M",
+      "pid": 24316,
+      "tid": 0,
+      "ts": 0
+    },
+    {
+      "args": {
+        "uptime": "10"
+      },
+      "cat": "__metadata",
+      "name": "process_uptime_seconds",
+      "ph": "M",
+      "pid": 22876,
+      "tid": 0,
+      "ts": 0
+    }
+  ],
+  "long": [],
+  "mainWaits": {
+    "n": 63,
+    "median": 0.017999999225139618,
+    "p95": 0.020999997854232788,
+    "p99": 0.057999998331069946,
+    "max": 0.057999998331069946,
+    "over50": 0,
+    "percentileIsGuarantee": false
+  },
+  "gc": {
+    "n": 29,
+    "median": 0.016999997198581696,
+    "p95": 2.3859999999403954,
+    "p99": 2.832999996840954,
+    "max": 2.832999996840954,
+    "over50": 0,
+    "percentileIsGuarantee": false
+  },
+  "tasks": {
+    "n": 301,
+    "median": 0.2629999965429306,
+    "p95": 1.2519999966025352,
+    "p99": 2.0799999982118607,
+    "max": 14.467000000178814,
+    "over50": 0,
+    "percentileIsGuarantee": false
+  },
+  "fullTaskIntervals": {
+    "n": 301,
+    "median": 0.264,
+    "p95": 1.252,
+    "p99": 2.08,
+    "max": 14.467,
+    "over50": 0,
+    "percentileIsGuarantee": false
+  },
+  "boundaryClippedTasks": [
+    {
+      "ts": 33678558252,
+      "dur": 25,
+      "clippedMs": 0.003000006079673767
+    },
+    {
+      "ts": 33681717588,
+      "dur": 430,
+      "clippedMs": 0.18599999696016312
+    }
+  ],
+  "coverage": {
+    "task": "OBSERVED",
+    "javascript": "OBSERVED",
+    "timer": "OBSERVED",
+    "raf": "OBSERVED",
+    "canvas": "OBSERVED",
+    "styleLayout": "OBSERVED",
+    "paintComposite": "OBSERVED",
+    "gc": "OBSERVED",
+    "input": "OBSERVED",
+    "worker": "OBSERVED"
+  },
+  "limitations": [
+    "GPU presentation completion NOT_TESTED",
+    "OS context-switch/run-queue/swap NOT_TESTED",
+    "Elapsed task duration is not OS CPU time",
+    "Overlap is not proof of causality"
+  ],
+  "processDurations": [
+    {
+      "pid": 24316,
+      "tid": 31528,
+      "count": 2742,
+      "maxMs": 14.467
+    },
+    {
+      "pid": 24316,
+      "tid": 14948,
+      "count": 534,
+      "maxMs": 2.591
+    },
+    {
+      "pid": 24316,
+      "tid": 14980,
+      "count": 4582,
+      "maxMs": 8.842
+    },
+    {
+      "pid": 24316,
+      "tid": 4800,
+      "count": 807,
+      "maxMs": 0.199
+    },
+    {
+      "pid": 24316,
+      "tid": 28024,
+      "count": 70,
+      "maxMs": 4.918
+    },
+    {
+      "pid": 30960,
+      "tid": 31808,
+      "count": 119,
+      "maxMs": 0.433
+    },
+    {
+      "pid": 22876,
+      "tid": 31408,
+      "count": 1230,
+      "maxMs": 0.343
+    },
+    {
+      "pid": 30960,
+      "tid": 16688,
+      "count": 112,
+      "maxMs": 1.285
+    },
+    {
+      "pid": 30960,
+      "tid": 32888,
+      "count": 44,
+      "maxMs": 3.725
+    },
+    {
+      "pid": 22876,
+      "tid": 32116,
+      "count": 3095,
+      "maxMs": 0.607
+    },
+    {
+      "pid": 22876,
+      "tid": 29468,
+      "count": 58,
+      "maxMs": 0.333
+    },
+    {
+      "pid": 24316,
+      "tid": 28404,
+      "count": 15,
+      "maxMs": 1.517
+    },
+    {
+      "pid": 30960,
+      "tid": 1612,
+      "count": 17,
+      "maxMs": 0.455
+    },
+    {
+      "pid": 30960,
+      "tid": 9408,
+      "count": 3,
+      "maxMs": 0.219
+    },
+    {
+      "pid": 30960,
+      "tid": 22276,
+      "count": 79,
+      "maxMs": 0.741
+    },
+    {
+      "pid": 24316,
+      "tid": 10072,
+      "count": 4,
+      "maxMs": 0.657
+    },
+    {
+      "pid": 24316,
+      "tid": 32104,
+      "count": 2,
+      "maxMs": 0.375
+    },
+    {
+      "pid": 24316,
+      "tid": 33756,
+      "count": 2,
+      "maxMs": 0.355
+    },
+    {
+      "pid": 24316,
+      "tid": 33204,
+      "count": 3,
+      "maxMs": 0.07
+    }
+  ],
+  "inputWindows": []
+}

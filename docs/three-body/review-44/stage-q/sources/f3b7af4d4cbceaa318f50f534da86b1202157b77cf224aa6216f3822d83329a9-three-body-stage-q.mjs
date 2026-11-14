@@ -1,0 +1,100 @@
+// Standalone diagnostic server and bounded runs. Product entry never imports it.
+import fs from 'node:fs';import path from 'node:path';import os from 'node:os';
+import{execFileSync}from'node:child_process';import{createHash}from'node:crypto';
+import{gzipSync,gunzipSync}from'node:zlib';import{createServer}from'node:http';
+import{build,transformSync}from'esbuild';import ts from'typescript';import{chromium,webkit}from'@playwright/test';
+import{installStageQ,installMinimal}from'./three-body-stage-q-browser.mjs';
+import{distribution,analyzeTrace}from'./three-body-stage-p-analysis.mjs';
+const args=Object.fromEntries(process.argv.slice(2).map(s=>s.replace(/^--/,'').split('=')));
+const root=args.output??'.three-body-evidence/stage-q',suite=args.suite??'smoke',engine=args.browser??'chromium',base='b07ccec1205ca99a1112ab8db951efbe94a51f74';
+for(const d of ['raw','traces','screenshots','sources'])fs.mkdirSync(`${root}/${d}`,{recursive:true});
+const hash=x=>createHash('sha256').update(x).digest('hex'),write=(p,v)=>fs.writeFileSync(p,JSON.stringify(v,null,2)+'\n');
+const current=p=>fs.readFileSync(p,'utf8'),source=p=>args.ref==='base'&&p.startsWith('src/')?execFileSync('git',['show',`${base}:${p}`],{encoding:'utf8',maxBuffer:10000000}):current(p);
+const deadline=(promise,ms,label)=>{let timer;return Promise.race([promise,new Promise((_,reject)=>timer=setTimeout(()=>reject(Error(label+' deadline')),ms))]).finally(()=>clearTimeout(timer));};
+const ownFiles=['tools/three-body-stage-q.mjs','tools/three-body-stage-q-browser.mjs','tools/three-body-stage-p-analysis.mjs','tools/three-body-stage-p.mjs'];
+const toolHashes=Object.fromEntries(ownFiles.map(p=>[p,hash(current(p).replaceAll('\r\n','\n'))]));
+for(const[p,h]of Object.entries(toolHashes))fs.writeFileSync(`${root}/sources/${h}-${path.basename(p)}`,current(p).replaceAll('\r\n','\n'));
+// Reuse the baseline diagnostic transform without executing its old server/harness.
+const ast=ts.createSourceFile('p.mjs',current('tools/three-body-stage-p.mjs'),ts.ScriptTarget.Latest,true,ts.ScriptKind.JS);
+const fn=ast.statements.find(s=>ts.isFunctionDeclaration(s)&&s.name?.text==='instrument');
+const change=(s,a,b)=>{if(!s.includes(a))throw Error('Missing baseline anchor '+a);return s.replace(a,b);};
+const instrument=new Function('transformSync','change','legacyInstrument',`return (${fn.getText(ast)})`)(transformSync,change,()=>{throw Error('legacy not supported');});
+const fixtureBuild=await build({stdin:{contents:"export * from './src/three-body.ts';export * from './src/three-body-state.ts';export * from './src/three-body-render.ts';",resolveDir:process.cwd()},bundle:true,platform:'node',format:'esm',write:false});
+const m=await import(`data:text/javascript;base64,${Buffer.from(fixtureBuild.outputFiles[0].text).toString('base64')}`);
+const comparison=m.createComparison(m.presets[0].config,0,'x',1e-6);for(let i=0;i<26000;i+=2000)m.advanceComparison(comparison,2000);
+globalThis.devicePixelRatio=2;
+const tapes=[comparison.a,comparison.b].map(e=>{const tape=[],ctx=new Proxy({},{get:(_,key)=>(...a)=>tape.push(['call',key,a]),set:(_,key,v)=>{tape.push(['set',key,v]);return true;}}),cv={width:876,height:660,dataset:{},getBoundingClientRect:()=>({width:438,height:330}),getContext:()=>ctx};
+ m.drawOrbit(cv,e.phase,e.config,e.trail,{x:0,y:0,span:4,follow:true},{trails:true,center:true,velocity:true,acceleration:true,axes:true,bodies:true,glow:true,length:6000,opacity:.7},0,'r');return tape;});
+const fixture={steps:26000,tapeSha256:hash(JSON.stringify(tapes)),commands:tapes.map(t=>t.length),physicsInMinimalPage:false};
+const bundle=await build({entryPoints:['src/main.ts'],bundle:true,format:'esm',target:'es2022',outdir:'test-results/stage-q-bundle',write:false,plugins:[{name:'q-only',setup(b){b.onLoad({filter:/src[\\/].*\.ts$/},a=>{const p='src/'+a.path.split(/[\\/]/).at(-1);let text=source(p);if(p==='src/main.ts')text=change(text,'let dispose=mountHarmonograph(host);','let dispose=globalThis.__stageQ.options.direct?()=>{}:mountHarmonograph(host);');return{contents:instrument(p,text,'light'),loader:'js'};});}}]});
+const assets=new Map(bundle.outputFiles.map(f=>[path.basename(f.path),f.contents]));
+const server=createServer((req,res)=>{try{const u=new URL(req.url,'http://localhost');if(u.pathname==='/'){
+ const config=JSON.parse(u.searchParams.get('config')),opts={id:u.searchParams.get('id'),mode:'light',context:config.context??'readback',mini:!!config.mini,direct:!!config.direct,instrument:config.instrument!==false};
+ const shim=`<script>(${installStageQ.toString()})(${JSON.stringify(opts)});</script>`;
+ res.setHeader('Content-Type','text/html; charset=utf-8');
+ if(config.mini)res.end(`<!doctype html><html><head><meta charset="utf-8"><style>body{margin:16px;background:#eef2f8;color:#162538;font:14px system-ui}#canvases{display:flex;gap:16px}#probe{width:400px}#values span{display:inline-block;min-width:70px}canvas{background:#070c19}</style>${shim}</head><body><button id="stop">停止</button><output id="value">0</output><div id="canvases"></div><div id="probe"><div id="values"></div><svg width="400" height="100"><path id="curve" stroke="blue" fill="none"/></svg></div><script>(${installMinimal.toString()})(${JSON.stringify(config)},${JSON.stringify(tapes)});document.querySelector('#stop').onclick=()=>__stageQ.control.stop();</script></body></html>`);
+ else res.end(current('index.html').replace('src="/src/main.ts"','src="/main.js"').replace('</head>',`<link rel="stylesheet" href="/main.css">${shim}</head>`));
+ }else{res.setHeader('Content-Type',u.pathname.endsWith('.css')?'text/css':'application/javascript');res.end(assets.get(u.pathname.slice(1))??'');}}catch(e){res.statusCode=500;res.end(String(e));}});
+await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const url=`http://127.0.0.1:${server.address().port}`;
+const mini={mini:true,canvas:'app',dom:'app',width:438,height:330,count:2,period:40,geometry:true};
+function plans(){
+ if(suite==='smoke')return[{...mini,name:'mini',duration:1200,trace:true},{...mini,name:'worker-positive',duration:1500,positive:'worker'},{mini:false,name:'app',duration:1500},{...mini,name:'main-positive',duration:1500,positive:'main',target:'synthetic-main'}];
+ if(suite==='screen')return[0,1,2].flatMap(repeat=>[
+  ...['none','element','context','bitmap','clear','lines','app','split'].map(canvas=>({...mini,name:'canvas-'+canvas,canvas})),
+  ...['none','text','attribute','svg','geometry','layout'].map(dom=>({...mini,name:'dom-'+dom,dom})),
+  {...mini,name:'DPR1',dpr:1},{...mini,name:'one-canvas',count:1},{...mini,name:'hidden',hidden:true},{...mini,name:'small',width:219,height:165},
+  {...mini,name:'period80',period:80},{...mini,name:'old-context',context:'default'},{...mini,name:'unforced',backend:'unforced'},{...mini,name:'disable-gpu',backend:'disabled'},
+  {...mini,name:'instrument-off',instrument:false},{...mini,name:'warm-webgl',warmWebgl:true}
+ ].map(o=>({...o,repeat,duration:3000})));
+ if(suite==='follow')return[0,1,2].flatMap(repeat=>[
+  {...mini,name:'mini',trace:repeat===0},{...mini,name:'warm-webgl',warmWebgl:true,trace:repeat===0},
+  {mini:false,name:'app',trace:repeat===0},{mini:false,name:'direct-app',direct:true,trace:repeat===0}
+ ].map(o=>({...o,repeat,duration:6000})));
+ if(suite==='long')return[0,1,2].map(repeat=>({mini:false,name:'app-60',repeat,duration:60000})).concat([{mini:false,name:'app-300',duration:300000}]);
+ if(suite==='ci')return[{...mini,name:'mini-none',canvas:'none',duration:1500,trace:engine==='chromium'},{...mini,name:'mini-app',duration:1500,trace:engine==='chromium'},{...mini,name:'timer-positive',duration:1500,positive:'worker'},{mini:false,name:'app',duration:2000}];
+ if(suite==='stops')return[0,1,2].flatMap(repeat=>['pause','escape','visibility'].map(action=>({mini:false,name:action,action,repeat,duration:3000})));
+ throw Error('Unknown suite '+suite);
+}
+const manifestFile=`${root}/${suite}-${engine}-${args.ref??'working'}-manifest.json`;
+if(fs.existsSync(manifestFile))throw Error('Existing evidence; select unused output');
+const manifest={date:new Date().toISOString(),head:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),reference:args.ref??'working',base,suite,engine,fixture,toolHashes,environment:{os:os.platform(),release:os.release(),cpu:os.cpus()[0].model,memory:os.totalmem(),node:process.version},runs:[]};write(manifestFile,manifest);
+let counter=0;
+async function run(o){
+ const id=`${suite}-${engine}-${String(++counter).padStart(3,'0')}-${o.name}`,file=`${root}/raw/${id}.json.gz`;
+ const launchArgs=engine!=='chromium'?[]:o.backend==='unforced'?[]:o.backend==='disabled'?['--disable-gpu']:['--use-angle=swiftshader','--enable-unsafe-swiftshader'];
+ const report={id,options:o,fixture,toolHashes,reference:args.ref??'working',start:new Date().toISOString(),errors:[],hostSamples:[],launchArgs};
+ manifest.runs.push({id,file});write(manifestFile,manifest);
+ const save=()=>fs.writeFileSync(file,gzipSync(JSON.stringify(report)));
+ const browser=await({chromium,webkit}[engine]).launch({headless:true,...(engine==='chromium'?{args:launchArgs}:{})});
+ const context=await browser.newContext({viewport:{width:1280,height:900},deviceScaleFactor:o.dpr??2}),page=await context.newPage();
+ const cdp=engine==='chromium'?await context.newCDPSession(page):null,bc=cdp?await browser.newBrowserCDPSession():null;let tracing=false;
+ page.on('pageerror',e=>report.errors.push(String(e)));
+ try{
+  report.browser={name:engine,version:browser.version(),gpuInfo:bc?await bc.send('SystemInfo.getInfo'):'NOT_TESTED'};
+  const response=await page.goto(`${url}/?id=${id}&config=${encodeURIComponent(JSON.stringify(o))}`);if(response.status()!==200)throw Error('HTTP '+response.status());
+  if(!o.mini){await page.locator('#experiment').selectOption('three-body');await page.evaluate(()=>__stageQ.control.configure({ab:true,saturated:true}));}
+  await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
+  if(!o.mini)await page.evaluate(()=>__stageQ.control.activate());
+  report.before=JSON.parse(await page.evaluate(()=>JSON.stringify(__stageQ.control.snapshot())));
+  if(cdp&&o.trace){await cdp.send('Tracing.start',{transferMode:'ReturnAsStream',streamCompression:'gzip',traceConfig:{recordMode:'recordContinuously',includedCategories:['toplevel','devtools.timeline','disabled-by-default-devtools.timeline','blink.user_timing','v8','disabled-by-default-v8.gc','cc','gpu','viz','input','renderer.scheduler','sequence_manager','skia']}});tracing=true;}
+  await page.evaluate(o=>__stageQ.start(o.duration,o.action??'pause',o.target??null,'worker',o.positive??null),o);
+  await deadline(page.evaluate(()=>__stageQ.done.then(()=>true)),o.duration+10000,'Input/stop');
+  Object.assign(report,JSON.parse(await page.evaluate(()=>__stageQ.collect())));
+  const stop=report.result.stop,s=report.result.state.small;
+  if(stop.after.step!==stop.later.step)report.errors.push('continued after stop');
+  if(s.playing||s.timer||s.raf)report.errors.push('pending work after stop');
+  if(s.bStep!==s.step)report.errors.push('A/B mismatch');
+  if(stop.T2==null||stop.T3==null||stop.T4==null)report.errors.push('missing stop/receipt');
+  if(!o.mini&&(s.observed!==String(s.step)||s.a!==String(s.step)||s.b!==String(s.step)))report.errors.push('display mismatch');
+  save();
+  await page.screenshot({path:`${root}/screenshots/${id}.png`,timeout:5000});
+ }catch(e){report.errors.push(String(e));try{report.partial=JSON.parse(await deadline(page.evaluate(()=>JSON.stringify({data:__stageQ.result(),state:__stageQ.control.snapshot()})),2000,'partial'));}catch{}}
+ finally{
+  if(tracing)try{const complete=new Promise(r=>cdp.once('Tracing.tracingComplete',r));await cdp.send('Tracing.end');const end=await deadline(complete,10000,'trace completion');const fd=fs.openSync(`${root}/traces/${id}.json.gz`,'w');try{while(true){const chunk=await cdp.send('IO.read',{handle:end.stream});fs.writeSync(fd,Buffer.from(chunk.data,chunk.base64Encoded?'base64':'utf8'));if(chunk.eof)break;}}finally{fs.closeSync(fd);await cdp.send('IO.close',{handle:end.stream});}report.trace={file:`${root}/traces/${id}.json.gz`,dataLoss:end.dataLossOccurred??null};}catch(e){report.errors.push('trace '+String(e));}
+  await browser.close();report.finish=new Date().toISOString();save();
+  const req=report.data?.requests??[],spans=report.data?.spans??[];
+  report.summary={id,errors:report.errors,scheduledToSend:distribution(req.map(r=>r.T0-r.Tminus1)),sendToReceive:distribution(req.map(r=>r.T1-r.T0)),scheduledToReceive:distribution(req.map(r=>r.T1-r.Tminus1)),phases:Object.fromEntries(['paint','observe','calculate','geometry','dom-geometry'].map(n=>[n,distribution(spans.filter(s=>s.name===n).map(s=>s.end-s.begin))])),steps:report.result?.state.small,stop:report.result?.stop};
+  write(`${root}/raw/${id}-summary.json`,report.summary);save();console.log(JSON.stringify({id,errors:report.errors,input:report.summary.sendToReceive.max,timer:report.summary.scheduledToSend.max,paint:report.summary.phases.paint.max,steps:report.summary.steps?.step}));if(report.errors.length)process.exitCode=1;global.gc?.();
+ }
+}
+try{for(const p of plans())await run(p);}finally{manifest.finished=new Date().toISOString();write(manifestFile,manifest);server.close();}

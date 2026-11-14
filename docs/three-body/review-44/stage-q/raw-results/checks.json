@@ -1,0 +1,89 @@
+{
+  "runs": 140,
+  "failures": [],
+  "budgets": [
+    {
+      "id": "lifecycle-chromium-005-switch-dispose",
+      "budget": {
+        "verdict": "PARTIAL",
+        "checks": {
+          "scheduledP95": 16.354950000000827,
+          "scheduledP99": 18.154949997020594,
+          "scheduledMax": 18.154949997020594,
+          "receiveStopMax": 0.10000000894069672,
+          "stopReceiptMax": 104
+        },
+        "targets": {
+          "scheduledP95": 100,
+          "scheduledP99": 200,
+          "scheduledMax": 250,
+          "receiveStopMax": 20,
+          "stopReceiptMax": 100
+        },
+        "failed": [
+          "stopReceiptMax"
+        ],
+        "missing": [],
+        "upperBoundGuaranteed": false,
+        "scope": "PRODUCT_OBSERVED_WINDOW"
+      }
+    },
+    {
+      "id": "public-chromium-001-unmodified-public-public",
+      "budget": {
+        "verdict": "NOT_TESTED",
+        "checks": {
+          "scheduledP95": null,
+          "scheduledP99": null,
+          "scheduledMax": null,
+          "receiveStopMax": null,
+          "stopReceiptMax": null
+        },
+        "targets": {
+          "scheduledP95": 100,
+          "scheduledP99": 200,
+          "scheduledMax": 250,
+          "receiveStopMax": 20,
+          "stopReceiptMax": 100
+        },
+        "failed": [],
+        "missing": [
+          "scheduledP95",
+          "scheduledP99",
+          "scheduledMax",
+          "receiveStopMax",
+          "stopReceiptMax"
+        ],
+        "upperBoundGuaranteed": false,
+        "scope": "PRODUCT_OBSERVED_WINDOW"
+      }
+    },
+    {
+      "id": "smoke-chromium-004-main-positive",
+      "budget": {
+        "verdict": "PARTIAL",
+        "checks": {
+          "scheduledP95": 100.20000000298023,
+          "scheduledP99": 100.20000000298023,
+          "scheduledMax": 100.20000000298023,
+          "receiveStopMax": 0.09999999403953552,
+          "stopReceiptMax": 0.800000011920929
+        },
+        "targets": {
+          "scheduledP95": 100,
+          "scheduledP99": 200,
+          "scheduledMax": 250,
+          "receiveStopMax": 20,
+          "stopReceiptMax": 100
+        },
+        "failed": [
+          "scheduledP95"
+        ],
+        "missing": [],
+        "upperBoundGuaranteed": false,
+        "scope": "SYNTHETIC_DETECTOR_NOT_PRODUCT"
+      }
+    }
+  ],
+  "scope": "Functional checks are distinct from observational budgets. Budget success does not establish cause or a worst-case guarantee."
+}

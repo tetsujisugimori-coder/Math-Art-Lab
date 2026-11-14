@@ -1,0 +1,125 @@
+name: Three-body Stage Q validation and evidence
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tools/three-body-stage-q*'
+      - 'tools/three-body-stage-s*'
+      - 'src/three-body-stage-q*'
+      - 'src/three-body-stage-s*'
+      - 'docs/three-body/review-44/stage-q/**'
+      - 'docs/three-body/review-44/stage-r/**'
+      - 'docs/three-body/review-44/stage-s/**'
+      - '.github/workflows/three-body-stage-q.yml'
+permissions:
+  contents: read
+jobs:
+  bounded-diagnostics:
+    # Stage AB explicitly prohibits browser launches; NOT_RUN, never regression PASS.
+    if: ${{ ((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-2025
+            browser: chromium
+          - os: ubuntu-24.04
+            browser: chromium
+          - os: ubuntu-24.04
+            browser: webkit
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 35
+    env:
+      EVIDENCE: test-results/stage-q
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Save diagnostic plan before dependency preparation
+        run: node tools/three-body-stage-q-pipeline.mjs --init --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - run: npm ci
+        id: dependencies
+      - name: Enforce committed browser policy
+        run: node tools/three-body-stage-ac-ci.mjs
+      - name: Install Linux browser
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          if [ -f /etc/apt/apt-mirrors.txt ]; then
+            sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu|https://archive.ubuntu.com/ubuntu|g' /etc/apt/apt-mirrors.txt
+          fi
+          npx playwright install --with-deps ${{ matrix.browser }}
+      - name: Install Windows browser
+        if: runner.os == 'Windows'
+        run: npx playwright install chromium
+      - name: Validate mandatory environment
+        id: preflight
+        run: node tools/three-body-stage-q-pipeline.mjs --preflight --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Initial diagnostic controls
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=ci --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Mechanism observation controls
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=mechanism --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Timing positive controls
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=smoke --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Capture order and instrumentation controls
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=capture --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Chromium capture API controls
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' && matrix.browser == 'chromium' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=capture-probe --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Additional CDP emulation controls
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' && matrix.browser == 'chromium' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=emulation --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Canvas and DOM resource controls
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=screen --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Preserve checkpoint with planned and unexecuted entries
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: stage-q-checkpoint-${{ matrix.os }}-${{ matrix.browser }}-${{ github.sha }}
+          path: test-results/stage-q/
+          retention-days: 90
+      - name: Sixty second repeats and five minute playback
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=long --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Harness Node stop delivery
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=host --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Dedicated send-only OS process
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=sender --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Lesson restoration and component disposal
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=lifecycle --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Natural phase targeting
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=targets --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Dedicated sender natural phase targeting
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=sender-targets --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Nonprivileged Windows thread sampling
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' && runner.os == 'Windows' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --suite=os --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Independent numerical and display analysis
+        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        run: node tools/three-body-stage-q-pipeline.mjs --analyze --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Finalize suite counts and verify artifact index
+        if: always()
+        run: node tools/three-body-stage-q-pipeline.mjs --finalize --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
+      - name: Preserve evidence with explicit completeness
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: stage-q-evidence-${{ matrix.os }}-${{ matrix.browser }}-${{ github.sha }}
+          path: test-results/stage-q/
+          if-no-files-found: error
+          retention-days: 90

@@ -1,0 +1,59 @@
+﻿name: Three-body Stage T bounded controls
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tools/three-body-stage-t*'
+      - 'tools/three-body-stage-q*'
+      - 'src/three-body-stage-t*'
+      - 'docs/three-body/review-44/stage-t/**'
+      - '.github/workflows/three-body-stage-t.yml'
+permissions:
+  contents: read
+jobs:
+  controls:
+    # Stage AB explicitly prohibits browser launches; NOT_RUN, never regression PASS.
+    if: ${{ ((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-2025
+            browser: chromium
+          - os: ubuntu-24.04
+            browser: chromium
+          - os: ubuntu-24.04
+            browser: webkit
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Preserve plan before dependency preparation
+        run: >-
+          node --input-type=module -e "import fs from 'node:fs'; import {stageTPlans} from './tools/three-body-stage-t-plans.mjs'; fs.mkdirSync('test-results/stage-t',{recursive:true}); fs.writeFileSync('test-results/stage-t/planned.json',JSON.stringify({status:'PLANNED',runId:process.env.GITHUB_RUN_ID,checkout:process.env.GITHUB_SHA,plans:stageTPlans('${{ matrix.browser }}')}));"
+      - run: npm ci
+      - name: Enforce committed browser policy
+        run: node tools/three-body-stage-ac-ci.mjs
+      - name: Install Linux browser
+        if: runner.os == 'Linux'
+        run: npx playwright install --with-deps ${{ matrix.browser }}
+      - name: Install Windows browser
+        if: runner.os == 'Windows'
+        run: npx playwright install chromium
+      - name: Run fixed controls and preserve every failure
+        run: node tools/three-body-stage-t.mjs --browser=${{ matrix.browser }} --output=test-results/stage-t
+      - name: Preserve indexed evidence with explicit completeness
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: stage-t-evidence-${{ matrix.os }}-${{ matrix.browser }}-${{ github.sha }}
+          path: test-results/stage-t/
+          if-no-files-found: error
+          retention-days: 90

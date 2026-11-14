@@ -1,0 +1,48 @@
+﻿name: Three-body Stage U minimal CDP controls
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tools/three-body-stage-u*'
+      - 'src/three-body-stage-u*'
+      - 'docs/three-body/review-44/stage-u/**'
+      - '.github/workflows/three-body-stage-u.yml'
+permissions:
+  contents: read
+jobs:
+  primary:
+    # Stage AB explicitly prohibits browser launches; NOT_RUN, never regression PASS.
+    if: ${{ ((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-2025, ubuntu-24.04]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Record plan before dependency preparation
+        run: >-
+          node --input-type=module -e "import fs from 'node:fs';import {stageUPlans} from './tools/three-body-stage-u-contracts.mjs';fs.mkdirSync('test-results/stage-u',{recursive:true});fs.writeFileSync('test-results/stage-u/planned.json',JSON.stringify({status:'PLANNED',runId:process.env.GITHUB_RUN_ID,checkout:process.env.GITHUB_SHA,plans:stageUPlans()}));"
+      - run: npm ci
+      - name: Enforce committed browser policy
+        run: node tools/three-body-stage-ac-ci.mjs
+      - name: Use existing Chromium runtime dependencies; no elevation or OS changes
+        run: npx playwright install chromium
+      - name: Fixed primary CDP controls
+        run: node tools/three-body-stage-u.mjs --output=test-results/stage-u
+      - name: Preserve all completed and blocked evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: stage-u-evidence-${{ matrix.os }}-${{ github.sha }}
+          path: test-results/stage-u/
+          if-no-files-found: error
+          retention-days: 90

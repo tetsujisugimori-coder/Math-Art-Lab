@@ -1,0 +1,9 @@
+# 計測器の修正履歴
+
+capture36条件の初回ローカル測定では旧contextの撮影12件が5000ms timeout、現行contextの撮影12件が成功し、撮影なし12件は計画対照として保持した。
+
+追加probe初版18件ではCDP surfaceのclipを省略したため、現行contextの画像が1280×900となり、PlaywrightのDPR2画像2560×1800と一致しなかった。画素検査がこの不整合を失敗として検出した。初版rawを保全し、同条件の比較には使わない。
+
+インストール済みPlaywrightの`crPage.takeScreenshot`と[CDP Page.captureScreenshot](https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-captureScreenshot)を確認し、明示clip・visualViewport.scale・captureBeyondViewport=falseを指定した版で18条件を再試験する。Canvas寸法・DPR・5000ms予算は維持する。CDP viewがUnable to capture screenshotを返した事実も保持する。
+
+clip指定版も画素不一致を検出した。rawでは撮影後のdevicePixelRatioが1となっていた。別CDP clientのdevice emulation設定がPlaywrightの設定と一致していない交絡として記録し、両clientへ同じwidth/height/DPRを設定した18条件を最後の限定probeとする。撮影前後のdevicePixelRatioを追加記録し、設定が変わる試行はE_SCREENSHOTの失敗にする。初版・clip版の原データは保全し、同じDPRの対照と解釈しない。

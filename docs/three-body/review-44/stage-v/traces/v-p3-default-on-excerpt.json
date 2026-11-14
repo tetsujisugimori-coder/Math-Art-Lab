@@ -1,0 +1,239 @@
+{
+  "id": "v-p3-default-on",
+  "originalTraceSha256": "c65be6db9a26ce8c528d015cfa37fa6d70522fee8284c475b0684303ec8bf058",
+  "traceBytes": 122488,
+  "selection": "Named scopes/own markers only; absence here is not absence in the full trace. No endpoint assignment from event names.",
+  "events": [
+    {
+      "args": {
+        "data": {
+          "callTime": 5225702784,
+          "navigationId": "A4CFE8FFD88D542CFC9DB7216C8AA5E0",
+          "sampleTraceId": 8997140621862187,
+          "startTime": 1537.5
+        }
+      },
+      "cat": "blink.user_timing",
+      "name": "v-p3-default-on/page-before-0",
+      "ph": "I",
+      "pid": 29652,
+      "s": "t",
+      "tid": 25816,
+      "ts": 5225702757,
+      "tts": 144633
+    },
+    {
+      "args": {
+        "call_id": 37,
+        "method": "Page.captureScreenshot"
+      },
+      "cat": "devtools",
+      "dur": 334,
+      "name": "DevToolsSession::HandleCommand in Browser",
+      "ph": "X",
+      "pid": 12164,
+      "tdur": 328,
+      "tid": 1840,
+      "ts": 5225706534,
+      "tts": 51893
+    },
+    {
+      "args": {},
+      "cat": "viz",
+      "dur": 6166,
+      "name": "SkiaOutputSurfaceImplOnGpu::CopyOutput",
+      "ph": "X",
+      "pid": 29588,
+      "tdur": 6154,
+      "tid": 5892,
+      "ts": 5225726635,
+      "tts": 187683
+    },
+    {
+      "args": {
+        "data": {
+          "callTime": 5232527149,
+          "navigationId": "A4CFE8FFD88D542CFC9DB7216C8AA5E0",
+          "sampleTraceId": 8997140621862170,
+          "startTime": 8361.899999999441
+        }
+      },
+      "cat": "blink.user_timing",
+      "name": "v-p3-default-on/page-after-0",
+      "ph": "I",
+      "pid": 29652,
+      "s": "t",
+      "tid": 25816,
+      "ts": 5232527141,
+      "tts": 150407
+    },
+    {
+      "args": {
+        "sync_id": "v-p3-default-on/browser-before-0"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 12164,
+      "tid": 1840,
+      "ts": 5225704276,
+      "tts": 51722
+    },
+    {
+      "args": {
+        "sync_id": "v-p3-default-on/browser-before-1"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 12164,
+      "tid": 1840,
+      "ts": 5225705554,
+      "tts": 51827
+    },
+    {
+      "args": {
+        "sync_id": "v-p3-default-on/browser-after-0"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 12164,
+      "tid": 1840,
+      "ts": 5231118897,
+      "tts": 57729
+    },
+    {
+      "args": {
+        "sync_id": "v-p3-default-on/browser-after-1"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 12164,
+      "tid": 1840,
+      "ts": 5232524113,
+      "tts": 58578
+    },
+    {
+      "args": {},
+      "cat": "viz",
+      "id2": {
+        "local": "0x2a"
+      },
+      "name": "CopyOutputRequest",
+      "ph": "b",
+      "pid": 12164,
+      "tid": 1840,
+      "ts": 5225706799
+    },
+    {
+      "args": {},
+      "cat": "viz",
+      "id2": {
+        "local": "0x32"
+      },
+      "name": "CopyOutputRequest",
+      "ph": "b",
+      "pid": 29588,
+      "tid": 18032,
+      "ts": 5225707042
+    }
+  ],
+  "selectedCount": 10,
+  "clock": {
+    "status": "BRACKETED",
+    "mainPid": 29652,
+    "mainTid": 25816,
+    "browserPid": 12164,
+    "browserTid": 1840,
+    "anchors": [
+      {
+        "name": "v-p3-default-on/page-before-0",
+        "kind": "page",
+        "phase": "before",
+        "begin": 16239.8741,
+        "end": 16241.5589,
+        "status": "PASS",
+        "pid": 29652,
+        "tid": 25816,
+        "traceMs": 5225702.757,
+        "low": 5209461.198100001,
+        "high": 5209462.882900001
+      },
+      {
+        "name": "v-p3-default-on/browser-before-0",
+        "kind": "browser",
+        "phase": "before",
+        "begin": 16241.627,
+        "end": 16242.8544,
+        "status": "PASS",
+        "pid": 12164,
+        "tid": 1840,
+        "traceMs": 5225704.276,
+        "low": 5209461.4216,
+        "high": 5209462.648999999
+      },
+      {
+        "name": "v-p3-default-on/browser-before-1",
+        "kind": "browser",
+        "phase": "before",
+        "begin": 16242.9194,
+        "end": 16243.9251,
+        "status": "PASS",
+        "pid": 12164,
+        "tid": 1840,
+        "traceMs": 5225705.554,
+        "low": 5209461.6289,
+        "high": 5209462.6345999995
+      },
+      {
+        "name": "v-p3-default-on/browser-after-0",
+        "kind": "browser",
+        "phase": "after",
+        "begin": 21267.6905,
+        "end": 21821.3133,
+        "status": "PASS",
+        "pid": 12164,
+        "tid": 1840,
+        "traceMs": 5231118.897,
+        "low": 5209297.5837,
+        "high": 5209851.2065
+      },
+      {
+        "name": "v-p3-default-on/browser-after-1",
+        "kind": "browser",
+        "phase": "after",
+        "begin": 21821.4528,
+        "end": 23063.1829,
+        "status": "PASS",
+        "pid": 12164,
+        "tid": 1840,
+        "traceMs": 5232524.113,
+        "low": 5209460.9300999995,
+        "high": 5210702.6602
+      },
+      {
+        "name": "v-p3-default-on/page-after-0",
+        "kind": "page",
+        "phase": "after",
+        "begin": 23063.303,
+        "end": 23066.6652,
+        "status": "PASS",
+        "pid": 29652,
+        "tid": 25816,
+        "traceMs": 5232527.141,
+        "low": 5209460.4758,
+        "high": 5209463.8379999995
+      }
+    ],
+    "errors": [],
+    "offsetLow": 5209461.6289,
+    "offsetHigh": 5209462.6345999995,
+    "uncertaintyMs": 0.5028499998152256,
+    "domain": "Chrome trace TimeTicks microseconds -> harness performance.now milliseconds via observed marker brackets",
+    "cpuTimeDomain": "tts/tdur are per-thread CPU microseconds when present; never subtracted into a named wait",
+    "crossProcessAssumption": "Chrome integrated trace ts clock; no independent kernel clock calibration",
+    "accuracyGuaranteed": false
+  }
+}

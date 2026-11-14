@@ -1,0 +1,13 @@
+# Stage V verification/submission record
+
+Baseline9779cdb796eac3dab00f0ac73561cdf33be3ccdf. Overall PARTIAL, root mechanism UNKNOWN, product changes0, performance improvement NOT_TESTED, merge NO. PR44 Draft, Issue43 OPEN, auto-merge disabled. Existing P/Q/R/S/T/U files and SHA ledgers are unchanged.
+
+The fixed protocol and initial SHA were posted on Issue43 before measurement. Main8 and auxiliary6 are separate; all14 local trials completed,8 failed. Clock brackets were obtained for all10 trace trials, but no invented internal protocol endpoint was assigned. Actual capture failures remain FAIL and diagnostic CI exits nonzero.
+
+Legacy clock negative control: the old marker-count alignment accepted completeMarkerSet=true despite different endpoint PID/TID. This retrospective baseline RED assertion and old source are preserved. Stage V's independent strict PID/TID/bracket/missing-event validator rejects it. No prior trace/raw record is rewritten.34 contract tests cover missing replies, late reply observed after immutable timeout, original rejection/cleanup phase, trace absence, identity/clock incompatibility, false endpoint association, incomplete plans, run-local continuation and raw/summary/image/trace/source/index faults.
+
+The first local source version lacks separately retained send-invocation/late-reply callback timestamps; source snapshots and original bytes remain intact. A harness-only correction is used for hosted cohorts. It adds no browser command, changes no capture or fixture settings and cannot turn late data into an on-time PASS. Original local T0/wrapper and trace timestamps retain their original definitions. No local replacement trials.
+
+Regression is run once per command/cohort for this Stage: six bit/full-history cases versus baseline, independent RK4/20-period/triangle/second-order convergence, all unit/type/build, targeted development/production Chromium/WebKit GUI. Windows unit discovery also includes15 old Stage U tests under its preserved ignored source-snapshot directory; these duplicate executions are reported separately, not as new coverage. No evidence is deleted/excluded to alter discovery. Stage U's earlier unit/DPR1 failures remain historical even if this execution does not reproduce them.
+
+Final HEAD formal CI, checkout-tree equality, individual failures/skips/not-run GUI, all cohort counters, actual artifact IDs/SHA/expires_at/acquisition and Windows archive verification are published in the final Issue/PR receipt after execution. No past-head CI success substitutes for the final HEAD. A successful source build is not a successful formal GUI. Targeted selection is not all-artworks coverage.

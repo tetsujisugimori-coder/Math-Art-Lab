@@ -1,0 +1,13 @@
+# 入力・停止・時計の契約
+
+T-1は独立要求源の予定時刻、T0は実送信、T1はpage受信、T2/T3は既存pause処理の開始／完了、T4は停止した同stepのCanvasとDOMの命令受付。GPU提示完了はNOT_TESTED。作品切替のT4はコンポーネント除去のacknowledgementでありCanvas表示ではない。
+
+Workerは37msごとの有限個の予定timerを最初に予約する。予定→実送信も保存し、Worker側遅延を欠測扱いにしない。別NodeプロセスからRuntime.evaluate経由の要求も採取した。これは独立プロセスからのprotocol要求であって、物理キーボードやOS入力ではない。合成visibilitychangeは実OS非表示と区別する。
+
+Worker↔page、Node↔page、QPC↔Nodeは開始／終了各8往復のbracketを原証拠に残す。最短往復のmidpointを表示換算に使用する。bracketは量子化・非対称通信・driftを含めた厳密誤差保証ではない。Chromiumで幅0となる標本もあり、時計誤差が厳密に0という意味ではない。負の微小遅延もclampしない。開始／終了差と原時刻を保持し、時計精度を越える追加step数を要求時刻から保証しない。
+
+停止処理前後の内部stepと100ms後のstepを直接比較した範囲では、追加step0、A/B同時刻、timer/rAFなしを確認。受信→停止の全製品run最大11ms。通常A／飽和A+B／pause／Escape／合成非表示／連続6切替／教材終了／教材安全停止復元／作品切替破棄を別条件で保存。教材は保存した全experiment/comparison JSONと照合し、安全停止後に保存時playingへ戻らないことを確認した。復元によるstep番号の飛びは積分step数に数えない。
+
+自然のpaint／calculate／observeの50ms以上の区間に停止要求を重ねる9試行は全て**TARGET_MISS**。長い自然区間中の停止改善はNOT_TESTED。人工main占有のHITは検出器の正対照に限る。要求受信後の追加step0を、要求待ち0や最悪応答保証と混同しない。
+
+実OSのvisibility、物理キー、kernel context switch、GPU提示、実機Safari、低性能実機での応答保証はNOT_TESTED。CIが成功しても性能予算や歴史的原因の解決は示さない。

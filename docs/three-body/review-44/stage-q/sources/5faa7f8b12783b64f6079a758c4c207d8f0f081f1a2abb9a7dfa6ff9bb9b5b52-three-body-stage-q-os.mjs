@@ -1,0 +1,13 @@
+import{spawn}from'node:child_process';import{createInterface}from'node:readline';import os from'node:os';
+export async function prepareThreadSampler(pids,duration){
+ if(os.platform()!=='win32')return{data:{status:'NOT_TESTED',reason:'Windows ProcessThread snapshots unavailable'},start(){},async finish(){}};
+ const child=spawn('powershell.exe',['-NoProfile','-NonInteractive','-File','tools/three-body-stage-q-threads.ps1','-StageProcesses',pids.join(','),'-StageDuration',String(duration)],{windowsHide:true,stdio:['pipe','pipe','pipe']});
+ const data={status:'sampling',pids,hostPid:process.pid,samplerPid:child.pid,sync:[],samples:[],errors:[],kind:'non-atomic ProcessThread snapshots, not context-switch events'},waiting=new Map();let counter=0,doneResolve;
+ const done=new Promise(r=>doneResolve=r),closed=new Promise(r=>child.once('exit',code=>{data.exitCode=code;r();}));
+ child.stdin.on('error',e=>data.errors.push(String(e)));child.on('error',e=>data.errors.push(String(e)));
+ child.stderr.on('data',b=>data.errors.push(b.toString('utf8')));
+ createInterface({input:child.stdout}).on('line',line=>{const received=performance.now();try{const r=JSON.parse(line.replace(/^\uFEFF/,''));if(r.type==='sync'){const pending=waiting.get(r.id);if(pending){data.sync.push({...r,hostBefore:pending.before,hostAfter:received,low:pending.before-r.q1*1000/r.frequency,high:received-r.q2*1000/r.frequency});waiting.delete(r.id);pending.resolve();}}else if(r.type==='sample')data.samples.push({...r,hostReceived:received});else if(r.type==='sampling-done')doneResolve();else data.errors.push(r);}catch(e){data.errors.push(String(e));}});
+ const sync=()=>new Promise((resolve,reject)=>{const id=String(++counter),before=performance.now(),timer=setTimeout(()=>{waiting.delete(id);reject(Error('OS clock sync deadline'));},5000);waiting.set(id,{before,resolve:()=>{clearTimeout(timer);resolve();}});child.stdin.write(id+'\n');});
+ try{for(let i=0;i<8;i++)await sync();}catch(e){data.status='NOT_TESTED';data.errors.push(String(e));child.kill();return{data,start(){},async finish(){await closed;}};}
+ return{data,start(){child.stdin.write('start\n');},async finish(){let timer;try{await Promise.race([done,new Promise((_,reject)=>timer=setTimeout(()=>reject(Error('OS sampling deadline')),duration+10000))]);for(let i=0;i<8;i++)await sync();await closed;data.status=data.errors.length?'PARTIAL':'complete';}catch(e){data.status='NOT_TESTED';data.errors.push(String(e));child.kill();await closed;}finally{clearTimeout(timer);}}};
+}

@@ -1,0 +1,473 @@
+{
+  "schema": "stage-x-review-index-1",
+  "acquisitionCommit": "db993aa8fc44f18819b486ee50ce67796d82777b",
+  "measurementHead": "8dd958bc8d44e121749828b09619bde2caee8354",
+  "measurementTree": "df8825b1201e30509ccc9b1fd184e3934cbae859",
+  "runId": 43133206196,
+  "artifactId": 13906456621,
+  "zipDigest": "sha256:4f28d8cb5752dd7f777492d1453eac03c269d6e530682467ba573507fde0c4ca",
+  "expires_at": "2027-02-10T01:15:11Z",
+  "overall": "BLOCKED",
+  "phaseA": {
+    "counts": {
+      "planned": 6,
+      "completed": 6,
+      "failed": 2,
+      "blocked": 0,
+      "unexecuted": 0
+    },
+    "correspondence": "FAIL",
+    "validOffTrials": 4,
+    "onFailure": "DIAGNOSTIC_LOCATOR_IDENTITY_BEFORE_PLAY",
+    "originalCause": "UNKNOWN"
+  },
+  "phaseB": {
+    "linux": {
+      "counts": {
+        "planned": 8,
+        "completed": 8,
+        "failed": 0,
+        "unexecuted": 0
+      },
+      "correspondence": "PASS",
+      "records": [
+        {
+          "id": "x-b1-A",
+          "group": "A",
+          "classification": "PASS_WITHIN_DEADLINE",
+          "requestStatus": "PASS",
+          "T0": 2349.869853,
+          "T4": 6397.439475,
+          "deadlinePlanned": 7349.869853,
+          "deadlineObserved": null,
+          "lateCallbackAt": null,
+          "callbackKind": "PROTOCOL_REPLY",
+          "callbackPhase": "MEASURED_REQUEST",
+          "window": {
+            "plannedStart": 2349.869853,
+            "postDeadlineStart": 7349.869853,
+            "plannedEnd": 14349.869853,
+            "endObservedAt": 14350.801929,
+            "clock": "harness performance.now ms",
+            "eligibility": "callback observed at or before common mathematical cutoff"
+          },
+          "endRequested": 7850.851066,
+          "endResponse": 7851.691597,
+          "traceComplete": 7968.3779,
+          "cleanup": {
+            "begin": 14355.189358,
+            "budgetMs": 5000,
+            "graceMs": 10000,
+            "budgetExceeded": false,
+            "closed": true,
+            "closedAt": 14436.785152,
+            "finished": 14436.839764,
+            "error": null,
+            "status": "PASS"
+          },
+          "trace": "ACQUIRED",
+          "clock": "BRACKETED",
+          "images": [
+            {
+              "file": "images/x-b1-A.png",
+              "bytes": 245939,
+              "sha256": "f54f4cb2772810510f50e816111fd1d3a05e201efe2717b6db132993601fe285",
+              "width": 2560,
+              "height": 1800,
+              "kind": "WITHIN_DEADLINE",
+              "originalCanvasCheck": "NOT_OBTAINED_NO_READBACK_INTERVENTION"
+            }
+          ],
+          "issues": []
+        },
+        {
+          "id": "x-b2-B",
+          "group": "B",
+          "classification": "PASS_WITHIN_DEADLINE",
+          "requestStatus": "PASS",
+          "T0": 16131.595686,
+          "T4": 20097.058729,
+          "deadlinePlanned": 21131.595686,
+          "deadlineObserved": null,
+          "lateCallbackAt": null,
+          "callbackKind": "PROTOCOL_REPLY",
+          "callbackPhase": "MEASURED_REQUEST",
+          "window": {
+            "plannedStart": 16131.595686,
+            "postDeadlineStart": 21131.595686,
+            "plannedEnd": 28131.595686,
+            "endObservedAt": 28132.660834,
+            "clock": "harness performance.now ms",
+            "eligibility": "callback observed at or before common mathematical cutoff"
+          },
+          "endRequested": 28132.711069,
+          "endResponse": 28133.332081,
+          "traceComplete": 28270.496432,
+          "cleanup": {
+            "begin": 28274.099386,
+            "budgetMs": 5000,
+            "graceMs": 10000,
+            "budgetExceeded": false,
+            "closed": true,
+            "closedAt": 28324.183934,
+            "finished": 28324.209973,
+            "error": null,
+            "status": "PASS"
+          },
+          "trace": "ACQUIRED",
+          "clock": "BRACKETED",
+          "images": [
+            {
+              "file": "images/x-b2-B.png",
+              "bytes": 245939,
+              "sha256": "f54f4cb2772810510f50e816111fd1d3a05e201efe2717b6db132993601fe285",
+              "width": 2560,
+              "height": 1800,
+              "kind": "WITHIN_DEADLINE",
+              "originalCanvasCheck": "NOT_OBTAINED_NO_READBACK_INTERVENTION"
+            }
+          ],
+          "issues": []
+        },
+        {
+          "id": "x-b3-B",
+          "group": "B",
+          "classification": "PASS_WITHIN_DEADLINE",
+          "requestStatus": "PASS",
+          "T0": 29970.092605,
+          "T4": 34022.058588,
+          "deadlinePlanned": 34970.092605,
+          "deadlineObserved": null,
+          "lateCallbackAt": null,
+          "callbackKind": "PROTOCOL_REPLY",
+          "callbackPhase": "MEASURED_REQUEST",
+          "window": {
+            "plannedStart": 29970.092605,
+            "postDeadlineStart": 34970.092605,
+            "plannedEnd": 41970.092605,
+            "endObservedAt": 41970.343867,
+            "clock": "harness performance.now ms",
+            "eligibility": "callback observed at or before common mathematical cutoff"
+          },
+          "endRequested": 41970.394443,
+          "endResponse": 41971.059385,
+          "traceComplete": 42116.508011,
+          "cleanup": {
+            "begin": 42120.268146,
+            "budgetMs": 5000,
+            "graceMs": 10000,
+            "budgetExceeded": false,
+            "closed": true,
+            "closedAt": 42174.209236,
+            "finished": 42174.252901,
+            "error": null,
+            "status": "PASS"
+          },
+          "trace": "ACQUIRED",
+          "clock": "BRACKETED",
+          "images": [
+            {
+              "file": "images/x-b3-B.png",
+              "bytes": 245959,
+              "sha256": "9e434911590ec9078c23bf9aeaf27b89991cfa7b1456f1792ae4c0aaf3de5fbc",
+              "width": 2560,
+              "height": 1800,
+              "kind": "WITHIN_DEADLINE",
+              "originalCanvasCheck": "NOT_OBTAINED_NO_READBACK_INTERVENTION"
+            }
+          ],
+          "issues": []
+        },
+        {
+          "id": "x-b4-A",
+          "group": "A",
+          "classification": "PASS_WITHIN_DEADLINE",
+          "requestStatus": "PASS",
+          "T0": 43845.506198,
+          "T4": 47786.788307,
+          "deadlinePlanned": 48845.506198,
+          "deadlineObserved": null,
+          "lateCallbackAt": null,
+          "callbackKind": "PROTOCOL_REPLY",
+          "callbackPhase": "MEASURED_REQUEST",
+          "window": {
+            "plannedStart": 43845.506198,
+            "postDeadlineStart": 48845.506198,
+            "plannedEnd": 55845.506198,
+            "endObservedAt": 55846.141375,
+            "clock": "harness performance.now ms",
+            "eligibility": "callback observed at or before common mathematical cutoff"
+          },
+          "endRequested": 49346.206586,
+          "endResponse": 49347.008934,
+          "traceComplete": 49463.54248,
+          "cleanup": {
+            "begin": 55849.962664,
+            "budgetMs": 5000,
+            "graceMs": 10000,
+            "budgetExceeded": false,
+            "closed": true,
+            "closedAt": 55900.158785,
+            "finished": 55900.185134,
+            "error": null,
+            "status": "PASS"
+          },
+          "trace": "ACQUIRED",
+          "clock": "BRACKETED",
+          "images": [
+            {
+              "file": "images/x-b4-A.png",
+              "bytes": 245939,
+              "sha256": "f54f4cb2772810510f50e816111fd1d3a05e201efe2717b6db132993601fe285",
+              "width": 2560,
+              "height": 1800,
+              "kind": "WITHIN_DEADLINE",
+              "originalCanvasCheck": "NOT_OBTAINED_NO_READBACK_INTERVENTION"
+            }
+          ],
+          "issues": []
+        },
+        {
+          "id": "x-b5-A",
+          "group": "A",
+          "classification": "PASS_WITHIN_DEADLINE",
+          "requestStatus": "PASS",
+          "T0": 57568.019889,
+          "T4": 61609.92874,
+          "deadlinePlanned": 62568.019889,
+          "deadlineObserved": null,
+          "lateCallbackAt": null,
+          "callbackKind": "PROTOCOL_REPLY",
+          "callbackPhase": "MEASURED_REQUEST",
+          "window": {
+            "plannedStart": 57568.019889,
+            "postDeadlineStart": 62568.019889,
+            "plannedEnd": 69568.019889,
+            "endObservedAt": 69569.067436,
+            "clock": "harness performance.now ms",
+            "eligibility": "callback observed at or before common mathematical cutoff"
+          },
+          "endRequested": 63068.435799,
+          "endResponse": 63069.268593,
+          "traceComplete": 63182.006667,
+          "cleanup": {
+            "begin": 69572.569167,
+            "budgetMs": 5000,
+            "graceMs": 10000,
+            "budgetExceeded": false,
+            "closed": true,
+            "closedAt": 69640.321311,
+            "finished": 69640.350335,
+            "error": null,
+            "status": "PASS"
+          },
+          "trace": "ACQUIRED",
+          "clock": "BRACKETED",
+          "images": [
+            {
+              "file": "images/x-b5-A.png",
+              "bytes": 245939,
+              "sha256": "f54f4cb2772810510f50e816111fd1d3a05e201efe2717b6db132993601fe285",
+              "width": 2560,
+              "height": 1800,
+              "kind": "WITHIN_DEADLINE",
+              "originalCanvasCheck": "NOT_OBTAINED_NO_READBACK_INTERVENTION"
+            }
+          ],
+          "issues": []
+        },
+        {
+          "id": "x-b6-B",
+          "group": "B",
+          "classification": "PASS_WITHIN_DEADLINE",
+          "requestStatus": "PASS",
+          "T0": 71279.943087,
+          "T4": 75310.494493,
+          "deadlinePlanned": 76279.943087,
+          "deadlineObserved": null,
+          "lateCallbackAt": null,
+          "callbackKind": "PROTOCOL_REPLY",
+          "callbackPhase": "MEASURED_REQUEST",
+          "window": {
+            "plannedStart": 71279.943087,
+            "postDeadlineStart": 76279.943087,
+            "plannedEnd": 83279.943087,
+            "endObservedAt": 83280.671726,
+            "clock": "harness performance.now ms",
+            "eligibility": "callback observed at or before common mathematical cutoff"
+          },
+          "endRequested": 83280.721881,
+          "endResponse": 83281.371305,
+          "traceComplete": 83422.496293,
+          "cleanup": {
+            "begin": 83425.901535,
+            "budgetMs": 5000,
+            "graceMs": 10000,
+            "budgetExceeded": false,
+            "closed": true,
+            "closedAt": 83501.447022,
+            "finished": 83501.476577,
+            "error": null,
+            "status": "PASS"
+          },
+          "trace": "ACQUIRED",
+          "clock": "BRACKETED",
+          "images": [
+            {
+              "file": "images/x-b6-B.png",
+              "bytes": 245959,
+              "sha256": "9e434911590ec9078c23bf9aeaf27b89991cfa7b1456f1792ae4c0aaf3de5fbc",
+              "width": 2560,
+              "height": 1800,
+              "kind": "WITHIN_DEADLINE",
+              "originalCanvasCheck": "NOT_OBTAINED_NO_READBACK_INTERVENTION"
+            }
+          ],
+          "issues": []
+        },
+        {
+          "id": "x-b7-B",
+          "group": "B",
+          "classification": "PASS_WITHIN_DEADLINE",
+          "requestStatus": "PASS",
+          "T0": 85147.858364,
+          "T4": 89226.268742,
+          "deadlinePlanned": 90147.858364,
+          "deadlineObserved": null,
+          "lateCallbackAt": null,
+          "callbackKind": "PROTOCOL_REPLY",
+          "callbackPhase": "MEASURED_REQUEST",
+          "window": {
+            "plannedStart": 85147.858364,
+            "postDeadlineStart": 90147.858364,
+            "plannedEnd": 97147.858364,
+            "endObservedAt": 97148.931959,
+            "clock": "harness performance.now ms",
+            "eligibility": "callback observed at or before common mathematical cutoff"
+          },
+          "endRequested": 97148.983136,
+          "endResponse": 97149.597412,
+          "traceComplete": 97287.404927,
+          "cleanup": {
+            "begin": 97291.000385,
+            "budgetMs": 5000,
+            "graceMs": 10000,
+            "budgetExceeded": false,
+            "closed": true,
+            "closedAt": 97340.677056,
+            "finished": 97340.711057,
+            "error": null,
+            "status": "PASS"
+          },
+          "trace": "ACQUIRED",
+          "clock": "BRACKETED",
+          "images": [
+            {
+              "file": "images/x-b7-B.png",
+              "bytes": 245939,
+              "sha256": "f54f4cb2772810510f50e816111fd1d3a05e201efe2717b6db132993601fe285",
+              "width": 2560,
+              "height": 1800,
+              "kind": "WITHIN_DEADLINE",
+              "originalCanvasCheck": "NOT_OBTAINED_NO_READBACK_INTERVENTION"
+            }
+          ],
+          "issues": []
+        },
+        {
+          "id": "x-b8-A",
+          "group": "A",
+          "classification": "PASS_WITHIN_DEADLINE",
+          "requestStatus": "PASS",
+          "T0": 99031.935148,
+          "T4": 103102.313377,
+          "deadlinePlanned": 104031.935148,
+          "deadlineObserved": null,
+          "lateCallbackAt": null,
+          "callbackKind": "PROTOCOL_REPLY",
+          "callbackPhase": "MEASURED_REQUEST",
+          "window": {
+            "plannedStart": 99031.935148,
+            "postDeadlineStart": 104031.935148,
+            "plannedEnd": 111031.935148,
+            "endObservedAt": 111033.71347,
+            "clock": "harness performance.now ms",
+            "eligibility": "callback observed at or before common mathematical cutoff"
+          },
+          "endRequested": 104533.007212,
+          "endResponse": 104533.808634,
+          "traceComplete": 104647.993647,
+          "cleanup": {
+            "begin": 111037.406885,
+            "budgetMs": 5000,
+            "graceMs": 10000,
+            "budgetExceeded": false,
+            "closed": true,
+            "closedAt": 111087.241313,
+            "finished": 111087.269315,
+            "error": null,
+            "status": "PASS"
+          },
+          "trace": "ACQUIRED",
+          "clock": "BRACKETED",
+          "images": [
+            {
+              "file": "images/x-b8-A.png",
+              "bytes": 245939,
+              "sha256": "f54f4cb2772810510f50e816111fd1d3a05e201efe2717b6db132993601fe285",
+              "width": 2560,
+              "height": 1800,
+              "kind": "WITHIN_DEADLINE",
+              "originalCanvasCheck": "NOT_OBTAINED_NO_READBACK_INTERVENTION"
+            }
+          ],
+          "issues": []
+        }
+      ]
+    },
+    "windows": {
+      "planned": 8,
+      "attempted": 0,
+      "status": "BLOCKED_NOT_RUN"
+    }
+  },
+  "missingOriginalFiles": [
+    {
+      "file": "phase-a/x-a1/test-results/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": "phase-a/x-a2/test-results/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": "phase-a/x-a3/test-results/.last-run.json",
+      "bytes": 96,
+      "sha256": "aae97c77dc60d258b8ae92d96e8fa04687c8433914ef011698ee943635c3de11"
+    },
+    {
+      "file": "phase-a/x-a4/test-results/.last-run.json",
+      "bytes": 96,
+      "sha256": "aae97c77dc60d258b8ae92d96e8fa04687c8433914ef011698ee943635c3de11"
+    },
+    {
+      "file": "phase-a/x-a5/test-results/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": "phase-a/x-a6/test-results/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    }
+  ],
+  "sourceBinding": {
+    "phaseA": "09a6e9814b06d99cc52417c8005fa825f80351ec83bd0740a6afe5f4090decef",
+    "phaseB": "a01c521f869cd00158cad958a691499318c8ff5f9e17398d0a67eaeb3c6329cd"
+  },
+  "productChanges": 0,
+  "improvement": "NOT_TESTED",
+  "remote": "REMOTE_BACKUP_NOT_UPLOADED"
+}

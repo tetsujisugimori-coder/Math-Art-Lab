@@ -1,0 +1,9 @@
+# Stage U evidence retention
+
+P/Q/R/S/T original data, Git history, old errors and SHA ledgers are unchanged. Stage U uses separate local original-prefix, resumed-cohort, regression and CI-acquisition roots. Completed trial1 is imported unchanged, not counted twice. The resume manifest records both harness clock domains/source versions.
+
+Public Git contains small anonymized summaries, the review-copy SHA index, representative actual PNG and diagnostic code. The full gzip raw, original PNGs, source snapshots, original manifest/index, cleanup proof, original RED/GREEN logs and CI ZIPs remain in isolated evidence storage and are copied non-destructively to the user-approved real Windows archive's independent stage-u subtree. Public review copies have their own SHA values; anonymization is not applied to originals.
+
+The approved archive is identified publicly as Math-Art-Lab/PR-44-three-body-dance/stage-u; no personal absolute path is published. Copy requires real Windows access, capacity preflight, exclusive copies, collision refusal, source/destination file-set/size/SHA checks and a second process rereading every file. LOCAL_BACKUP_VERIFIED is reported only after both processes succeed. Per-file provenance records source commit/tool snapshot or actual CI artifact/run. Logs acquired after freezing the main archive are kept as separate manifest receipts, preserving the archived stage-u file set.
+
+GitHub Actions artifacts are temporary remote acquisitions, not permanent independent replication. Record actual artifact ID/run ID/digest/expires_at and whether download SHA verification and extraction checks succeeded. Retention configuration is not a permanence guarantee. REMOTE_BACKUP_NOT_UPLOADED remains for the complete historical original set. No external destination is created and no evidence is deleted.

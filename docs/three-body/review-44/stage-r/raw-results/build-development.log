@@ -1,0 +1,20 @@
+
+> math-art-lab@0.1.0 build
+> tsc && vite build --mode development --outDir .three-body-evidence/stage-r/dist-development
+
+vite v7.3.7 building client environment for development...
+transforming...
+✓ 84 modules transformed.
+rendering chunks...
+computing gzip size...
+.three-body-evidence/stage-r/dist-development/index.html                                      0.38 kB │ gzip:   0.27 kB
+.three-body-evidence/stage-r/dist-development/assets/reaction-diffusion-worker-DvgLOm96.js    1.48 kB
+.three-body-evidence/stage-r/dist-development/assets/twins-worker-DUDV5IT-.js                 2.75 kB
+.three-body-evidence/stage-r/dist-development/assets/index-DK-3ZrZ8.css                      68.18 kB │ gzip:  13.37 kB
+.three-body-evidence/stage-r/dist-development/assets/index-PpE9IvMb.js                      930.38 kB │ gzip: 281.47 kB
+✓ built in 1.22s
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.

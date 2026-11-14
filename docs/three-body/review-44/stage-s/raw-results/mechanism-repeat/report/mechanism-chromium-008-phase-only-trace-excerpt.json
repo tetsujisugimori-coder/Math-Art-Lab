@@ -1,0 +1,825 @@
+{
+  "clock": {
+    "status": "ALIGNED",
+    "completeMarkerSet": true,
+    "expectedMarks": 2,
+    "foundMarks": 2,
+    "offsetMs": 157790742.5565,
+    "markBracketMs": 0.03350001573562622,
+    "minObservedPositiveDeltaMs": 0.09999999403953552,
+    "accuracyGuaranteed": false,
+    "mainPid": 16008,
+    "mainTid": 31168,
+    "anchorOffsetSpreadMs": 0.2330000102519989
+  },
+  "workerIdentity": [],
+  "window": {
+    "beginMs": 157791563.15649998,
+    "endMs": 157797934.7565,
+    "note": "Boundary events are clipped in window distributions; full durations and full raw trace are preserved."
+  },
+  "task": {
+    "n": 865,
+    "median": 0.07500001788139343,
+    "p95": 28.851000010967255,
+    "p99": 35.49200001358986,
+    "max": 475.619000017643,
+    "over50": 7,
+    "percentileIsGuarantee": false
+  },
+  "gc": {
+    "n": 809,
+    "median": 0.02799999713897705,
+    "p95": 1.155000001192093,
+    "p99": 53.572999984025955,
+    "max": 333.1200000047684,
+    "over50": 10,
+    "percentileIsGuarantee": false
+  },
+  "long": [
+    {
+      "id": 261,
+      "name": "calculate",
+      "begin": 2699.7000000178814,
+      "end": 2774.2000000178814,
+      "duration": 74.5,
+      "traceBeginMs": 157793442.2565,
+      "traceEndMs": 157793516.7565,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 74.5,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 108.932,
+        "threadCpuMs": 1.974
+      }
+    },
+    {
+      "id": 263,
+      "name": "paint",
+      "begin": 2913,
+      "end": 3134.2000000178814,
+      "duration": 221.2000000178814,
+      "traceBeginMs": 157793655.5565,
+      "traceEndMs": 157793876.7565,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 221.2000000178814,
+      "styleLayoutOverlapMs": 142.44800001382828,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 300.48,
+        "threadCpuMs": 35.296
+      }
+    },
+    {
+      "id": 364,
+      "name": "calculate",
+      "begin": 3844.4000000059605,
+      "end": 3896.9000000059605,
+      "duration": 52.5,
+      "traceBeginMs": 157794586.9565,
+      "traceEndMs": 157794639.4565,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 52.5,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 189.177,
+        "threadCpuMs": 3.522
+      }
+    },
+    {
+      "id": 366,
+      "name": "paint",
+      "begin": 4059,
+      "end": 4281.700000017881,
+      "duration": 222.7000000178814,
+      "traceBeginMs": 157794801.5565,
+      "traceEndMs": 157795024.2565,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 222.7000000178814,
+      "styleLayoutOverlapMs": 163.8710000216961,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 277.493,
+        "threadCpuMs": 34.132
+      }
+    },
+    {
+      "id": 467,
+      "name": "calculate",
+      "begin": 5010.700000017881,
+      "end": 5088.200000017881,
+      "duration": 77.5,
+      "traceBeginMs": 157795753.2565,
+      "traceEndMs": 157795830.7565,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 77.5,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 164.434,
+        "threadCpuMs": 3.35
+      }
+    },
+    {
+      "id": 468,
+      "name": "refresh",
+      "begin": 5088.200000017881,
+      "end": 5174.200000017881,
+      "duration": 86,
+      "traceBeginMs": 157795830.7565,
+      "traceEndMs": 157795916.7565,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 86,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 164.434,
+        "threadCpuMs": 3.35
+      }
+    },
+    {
+      "id": 469,
+      "name": "paint",
+      "begin": 5195.300000011921,
+      "end": 5451.0999999940395,
+      "duration": 255.7999999821186,
+      "traceBeginMs": 157795937.8565,
+      "traceEndMs": 157796193.65649998,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 255.7999999821186,
+      "styleLayoutOverlapMs": 252.28499999642372,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 283.997,
+        "threadCpuMs": 34.878
+      }
+    },
+    {
+      "id": 575,
+      "name": "paint",
+      "begin": 6195,
+      "end": 6641.5999999940395,
+      "duration": 446.59999999403954,
+      "traceBeginMs": 157796937.5565,
+      "traceEndMs": 157797384.15649998,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 360.5930000245571,
+      "gcIntervals": [
+        {
+          "name": "V8.GCIncrementalMarking",
+          "begin": 157796937.663,
+          "durationMs": 0.049,
+          "threadCpuMs": 0.04
+        },
+        {
+          "name": "V8.GC_MC_INCREMENTAL",
+          "begin": 157796937.673,
+          "durationMs": 0.037,
+          "threadCpuMs": 0.034
+        },
+        {
+          "name": "V8.GC_MC_INCREMENTAL_EMBEDDER_TRACING",
+          "begin": 157796937.683,
+          "durationMs": 0.022,
+          "threadCpuMs": 0.022
+        },
+        {
+          "name": "V8.GCIncrementalMarking",
+          "begin": 157796938.932,
+          "durationMs": 0.102,
+          "threadCpuMs": 0.094
+        },
+        {
+          "name": "V8.GC_MC_INCREMENTAL",
+          "begin": 157796938.942,
+          "durationMs": 0.087,
+          "threadCpuMs": 0.086
+        },
+        {
+          "name": "V8.GC_MC_INCREMENTAL_EMBEDDER_TRACING",
+          "begin": 157796938.947,
+          "durationMs": 0.039,
+          "threadCpuMs": 0.038
+        },
+        {
+          "name": "V8.GCIncrementalMarking",
+          "begin": 157796940.435,
+          "durationMs": 0.078,
+          "threadCpuMs": 0.069
+        },
+        {
+          "name": "V8.GC_MC_INCREMENTAL",
+          "begin": 157796940.446,
+          "durationMs": 0.065,
+          "threadCpuMs": 0.062
+        },
+        {
+          "name": "V8.GC_MC_INCREMENTAL_EMBEDDER_TRACING",
+          "begin": 157796940.452,
+          "durationMs": 0.052,
+          "threadCpuMs": 0.053
+        },
+        {
+          "name": "V8.GCIncrementalMarking",
+          "begin": 157796940.728,
+          "durationMs": 0.023,
+          "threadCpuMs": 0.017
+        },
+        {
+          "name": "V8.GC_MC_INCREMENTAL",
+          "begin": 157796940.734,
+          "durationMs": 0.014,
+          "threadCpuMs": 0.012
+        },
+        {
+          "name": "V8.GC_MC_INCREMENTAL_EMBEDDER_TRACING",
+          "begin": 157796940.737,
+          "durationMs": 0.007,
+          "threadCpuMs": 0.005
+        },
+        {
+          "name": "V8.GCIncrementalMarking",
+          "begin": 157796940.969,
+          "durationMs": 0.02,
+          "threadCpuMs": 0.014
+        },
+        {
+          "name": "V8.GC_MC_INCREMENTAL",
+          "begin": 157796940.975,
+          "durationMs": 0.012,
+          "threadCpuMs": 0.01
+        },
+        {
+          "name": "V8.GC_MC_INCREMENTAL_EMBEDDER_TRACING",
+          "begin": 157796940.978,
+          "durationMs": 0.005,
+          "threadCpuMs": 0.004
+        },
+        {
+          "name": "V8.GCIncrementalMarking",
+          "begin": 157796942.395,
+          "durationMs": 0.084,
+          "threadCpuMs": 0.07
+        },
+        {
+          "name": "V8.GC_MC_INCREMENTAL",
+          "begin": 157796942.413,
+          "durationMs": 0.062,
+          "threadCpuMs": 0.059
+        },
+        {
+          "name": "V8.GC_MC_INCREMENTAL_EMBEDDER_TRACING",
+          "begin": 157796942.422,
+          "durationMs": 0.012,
+          "threadCpuMs": 0.012
+        },
+        {
+          "name": "V8.GCIncrementalMarking",
+          "begin": 157796942.768,
+          "durationMs": 0.028,
+          "threadCpuMs": 0.022
+        },
+        {
+          "name": "V8.GC_MC_INCREMENTAL",
+          "begin": 157796942.776,
+          "durationMs": 0.017,
+          "threadCpuMs": 0.015
+        },
+        {
+          "name": "V8.GC_MC_INCREMENTAL_EMBEDDER_TRACING",
+          "begin": 157796942.78,
+          "durationMs": 0.006,
+          "threadCpuMs": 0.005
+        },
+        {
+          "name": "V8.GCIncrementalMarking",
+          "begin": 157796996.741,
+          "durationMs": 27.089,
+          "threadCpuMs": 0.103
+        },
+        {
+          "name": "V8.GC_MC_INCREMENTAL",
+          "begin": 157797023.743,
+          "durationMs": 0.083,
+          "threadCpuMs": 0.062
+        },
+        {
+          "name": "V8.GC_MC_INCREMENTAL_EMBEDDER_TRACING",
+          "begin": 157797023.786,
+          "durationMs": 0.031,
+          "threadCpuMs": 0.023
+        },
+        {
+          "name": "V8.GCHandleGCRequest",
+          "begin": 157797050.206,
+          "durationMs": 333.12,
+          "threadCpuMs": 10.149
+        },
+        {
+          "name": "V8.GC_HEAP_EXTERNAL_PROLOGUE",
+          "begin": 157797050.774,
+          "durationMs": 0.032,
+          "threadCpuMs": 0.029
+        },
+        {
+          "name": "MajorGC",
+          "begin": 157797050.815,
+          "durationMs": 332.46,
+          "threadCpuMs": 10.037
+        },
+        {
+          "name": "V8.GC_HEAP_PROLOGUE",
+          "begin": 157797050.825,
+          "durationMs": 0.004,
+          "threadCpuMs": 0.003
+        },
+        {
+          "name": "V8.GCFinalizeMC",
+          "begin": 157797050.832,
+          "durationMs": 331.687,
+          "threadCpuMs": 9.554
+        },
+        {
+          "name": "V8.GC_TIME_TO_SAFEPOINT",
+          "begin": 157797050.87,
+          "durationMs": 0.004,
+          "threadCpuMs": 0.003
+        },
+        {
+          "name": "V8.GC_MARK_COMPACTOR",
+          "begin": 157797050.893,
+          "durationMs": 331.617,
+          "threadCpuMs": 9.483
+        },
+        {
+          "name": "V8.GC_HEAP_PROLOGUE_SAFEPOINT",
+          "begin": 157797050.914,
+          "durationMs": 0.003,
+          "threadCpuMs": 0.002
+        },
+        {
+          "name": "V8.GC_MC_PROLOGUE",
+          "begin": 157797050.923,
+          "durationMs": 0.037,
+          "threadCpuMs": 0.037
+        },
+        {
+          "name": "V8.GC_MC_MARK",
+          "begin": 157797050.964,
+          "durationMs": 111.092,
+          "threadCpuMs": 2.446
+        },
+        {
+          "name": "V8.GC_MC_MARK_FINISH_INCREMENTAL",
+          "begin": 157797050.97,
+          "durationMs": 0.013,
+          "threadCpuMs": 0.013
+        },
+        {
+          "name": "V8.GC_MC_MARK_ROOTS",
+          "begin": 157797108.135,
+          "durationMs": 0.28,
+          "threadCpuMs": 0.198
+        },
+        {
+          "name": "V8.GC_MC_MARK_CLIENT_HEAPS",
+          "begin": 157797108.423,
+          "durationMs": 0.005,
+          "threadCpuMs": 0.015
+        },
+        {
+          "name": "V8.GC_MC_MARK_RETAIN_MAPS",
+          "begin": 157797108.459,
+          "durationMs": 0.041,
+          "threadCpuMs": 0.024
+        },
+        {
+          "name": "V8.GC_MC_MARK_FULL_CLOSURE_PARALLEL",
+          "begin": 157797108.504,
+          "durationMs": 53.463,
+          "threadCpuMs": 0.581
+        },
+        {
+          "name": "V8.GC_MC_MARK_EMBEDDER_TRACING",
+          "begin": 157797108.564,
+          "durationMs": 26.331,
+          "threadCpuMs": 0.199
+        },
+        {
+          "name": "V8.GC_MC_MARK_WEAK_CLOSURE_EPHEMERON_MARKING",
+          "begin": 157797134.906,
+          "durationMs": 26.682,
+          "threadCpuMs": 0.126
+        },
+        {
+          "name": "V8.GC_MC_MARK_EMBEDDER_TRACING",
+          "begin": 157797161.598,
+          "durationMs": 0.012,
+          "threadCpuMs": 0.011
+        },
+        {
+          "name": "V8.GC_MC_MARK_WEAK_CLOSURE_EPHEMERON_MARKING",
+          "begin": 157797161.613,
+          "durationMs": 0.007,
+          "threadCpuMs": 0.006
+        },
+        {
+          "name": "V8.GC_MC_MARK_FULL_CLOSURE_PARALLEL_JOIN",
+          "begin": 157797161.624,
+          "durationMs": 0.299,
+          "threadCpuMs": 0.16
+        },
+        {
+          "name": "V8.GC_MC_MARK_ROOTS",
+          "begin": 157797161.972,
+          "durationMs": 0.016,
+          "threadCpuMs": 0.013
+        },
+        {
+          "name": "V8.GC_CONSERVATIVE_STACK_SCANNING",
+          "begin": 157797161.976,
+          "durationMs": 0.008,
+          "threadCpuMs": 0.008
+        },
+        {
+          "name": "V8.GC_MC_MARK_FULL_CLOSURE_SERIAL",
+          "begin": 157797161.99,
+          "durationMs": 0.023,
+          "threadCpuMs": 0.018
+        },
+        {
+          "name": "V8.GC_MC_MARK_EMBEDDER_TRACING",
+          "begin": 157797161.997,
+          "durationMs": 0.006,
+          "threadCpuMs": 0.005
+        },
+        {
+          "name": "V8.GC_MC_MARK_WEAK_CLOSURE_EPHEMERON_MARKING",
+          "begin": 157797162.006,
+          "durationMs": 0.004,
+          "threadCpuMs": 0.003
+        },
+        {
+          "name": "V8.GC_MC_CLEAR",
+          "begin": 157797162.07,
+          "durationMs": 215.642,
+          "threadCpuMs": 2.36
+        },
+        {
+          "name": "V8.GC_MC_CLEAR_STRING_FORWARDING_TABLE",
+          "begin": 157797162.088,
+          "durationMs": 0.006,
+          "threadCpuMs": 0.004
+        },
+        {
+          "name": "V8.GC_MC_CLEAR_EXTERNAL_STRING_TABLE",
+          "begin": 157797162.134,
+          "durationMs": 53.573,
+          "threadCpuMs": 0.968
+        },
+        {
+          "name": "V8.GC_MC_CLEAR_WEAK_GLOBAL_HANDLES",
+          "begin": 157797215.72,
+          "durationMs": 0.177,
+          "threadCpuMs": 0.178
+        },
+        {
+          "name": "V8.GC_MC_CLEAR_FLUSHABLE_BYTECODE",
+          "begin": 157797215.902,
+          "durationMs": 0.006,
+          "threadCpuMs": 0.005
+        },
+        {
+          "name": "V8.GC_MC_SWEEP_JS_DISPATCH_TABLE",
+          "begin": 157797215.916,
+          "durationMs": 0.073,
+          "threadCpuMs": 0.073
+        },
+        {
+          "name": "V8.GC_MC_CLEAR_FLUSHED_JS_FUNCTIONS",
+          "begin": 157797215.993,
+          "durationMs": 0.003,
+          "threadCpuMs": 0.003
+        },
+        {
+          "name": "V8.GC_MC_CLEAR_WEAK_LISTS",
+          "begin": 157797215.999,
+          "durationMs": 0.024,
+          "threadCpuMs": 0.023
+        },
+        {
+          "name": "V8.GC_MC_CLEAR_MAPS",
+          "begin": 157797216.026,
+          "durationMs": 0.036,
+          "threadCpuMs": 0.036
+        },
+        {
+          "name": "V8.GC_MC_SWEEP_EXTERNAL_POINTER_TABLE",
+          "begin": 157797216.122,
+          "durationMs": 104.946,
+          "threadCpuMs": 0.624
+        },
+        {
+          "name": "V8.GC_MC_SWEEP_TRUSTED_POINTER_TABLE",
+          "begin": 157797321.08,
+          "durationMs": 0.048,
+          "threadCpuMs": 0.047
+        },
+        {
+          "name": "V8.GC_MC_SWEEP_CODE_POINTER_TABLE",
+          "begin": 157797321.131,
+          "durationMs": 0.024,
+          "threadCpuMs": 0.024
+        },
+        {
+          "name": "V8.GC_MC_SWEEP_WASM_CODE_POINTER_TABLE",
+          "begin": 157797321.159,
+          "durationMs": 0.005,
+          "threadCpuMs": 0.017
+        },
+        {
+          "name": "V8.GC_MC_CLEAR_WEAK_REFERENCES_JOIN_FILTER_JOB",
+          "begin": 157797321.222,
+          "durationMs": 0.105,
+          "threadCpuMs": 0.058
+        },
+        {
+          "name": "V8.GC_MC_WEAKNESS_HANDLING",
+          "begin": 157797321.339,
+          "durationMs": 0.063,
+          "threadCpuMs": 0.057
+        },
+        {
+          "name": "V8.GC_MC_CLEAR_WEAK_REFERENCES_NON_TRIVIAL",
+          "begin": 157797321.35,
+          "durationMs": 0.006,
+          "threadCpuMs": 0.005
+        },
+        {
+          "name": "V8.GC_MC_CLEAR_WEAK_COLLECTIONS",
+          "begin": 157797321.359,
+          "durationMs": 0.03,
+          "threadCpuMs": 0.031
+        },
+        {
+          "name": "V8.GC_MC_CLEAR_JS_WEAK_REFERENCES",
+          "begin": 157797321.394,
+          "durationMs": 0.005,
+          "threadCpuMs": 0.004
+        },
+        {
+          "name": "V8.GC_MC_CLEAR_JOIN_JOB",
+          "begin": 157797321.405,
+          "durationMs": 56.298,
+          "threadCpuMs": 0.086
+        },
+        {
+          "name": "V8.GC_MC_SWEEP",
+          "begin": 157797378.037,
+          "durationMs": 0.058,
+          "threadCpuMs": 0.055
+        },
+        {
+          "name": "V8.GC_MC_EVACUATE",
+          "begin": 157797378.099,
+          "durationMs": 3.91,
+          "threadCpuMs": 3.733
+        },
+        {
+          "name": "V8.GC_MC_EVACUATE_PROLOGUE",
+          "begin": 157797378.103,
+          "durationMs": 0.036,
+          "threadCpuMs": 0.035
+        },
+        {
+          "name": "V8.GC_MC_EVACUATE_COPY",
+          "begin": 157797378.142,
+          "durationMs": 1.673,
+          "threadCpuMs": 1.64
+        },
+        {
+          "name": "MarkCompactCollector::EvacuatePagesInParallel",
+          "begin": 157797378.213,
+          "durationMs": 1.438,
+          "threadCpuMs": 1.41
+        },
+        {
+          "name": "V8.GC_MC_EVACUATE_COPY_PARALLEL",
+          "begin": 157797378.394,
+          "durationMs": 1.155,
+          "threadCpuMs": 1.13
+        },
+        {
+          "name": "V8.GC_MC_SWEEP",
+          "begin": 157797378.446,
+          "durationMs": 0.049,
+          "threadCpuMs": 0.064
+        },
+        {
+          "name": "V8.GC_MC_EVACUATE_UPDATE_POINTERS",
+          "begin": 157797379.823,
+          "durationMs": 1.938,
+          "threadCpuMs": 1.811
+        },
+        {
+          "name": "V8.GC_MC_EVACUATE_UPDATE_POINTERS_TO_NEW_ROOTS",
+          "begin": 157797379.828,
+          "durationMs": 1.098,
+          "threadCpuMs": 1.091
+        },
+        {
+          "name": "V8.GC_MC_EVACUATE_UPDATE_POINTERS_CLIENT_HEAPS",
+          "begin": 157797380.935,
+          "durationMs": 0.009,
+          "threadCpuMs": 0.008
+        },
+        {
+          "name": "V8.GC_MC_EVACUATE_UPDATE_POINTERS_SLOTS_MAIN",
+          "begin": 157797380.947,
+          "durationMs": 0.487,
+          "threadCpuMs": 0.388
+        },
+        {
+          "name": "V8.GC_MC_EVACUATE_UPDATE_POINTERS_PARALLEL",
+          "begin": 157797381.023,
+          "durationMs": 0.275,
+          "threadCpuMs": 0.242
+        },
+        {
+          "name": "V8.GC_MC_EVACUATE_UPDATE_POINTERS_WEAK",
+          "begin": 157797381.444,
+          "durationMs": 0.02,
+          "threadCpuMs": 0.019
+        },
+        {
+          "name": "V8.GC_MC_EVACUATE_UPDATE_POINTERS_POINTER_TABLES",
+          "begin": 157797381.468,
+          "durationMs": 0.272,
+          "threadCpuMs": 0.27
+        },
+        {
+          "name": "V8.GC_MC_EVACUATE_CLEAN_UP",
+          "begin": 157797381.764,
+          "durationMs": 0.006,
+          "threadCpuMs": 0.004
+        },
+        {
+          "name": "V8.GC_MC_EVACUATE_EPILOGUE",
+          "begin": 157797381.772,
+          "durationMs": 0.229,
+          "threadCpuMs": 0.22
+        },
+        {
+          "name": "V8.GC_MC_SWEEP",
+          "begin": 157797382.015,
+          "durationMs": 0.015,
+          "threadCpuMs": 0.012
+        },
+        {
+          "name": "V8.GC_MC_SWEEP_NEW_LO",
+          "begin": 157797382.021,
+          "durationMs": 0.006,
+          "threadCpuMs": 0.005
+        },
+        {
+          "name": "V8.GC_MC_EVACUATE",
+          "begin": 157797382.032,
+          "durationMs": 0.011,
+          "threadCpuMs": 0.009
+        },
+        {
+          "name": "V8.GC_MC_EVACUATE_REBALANCE",
+          "begin": 157797382.035,
+          "durationMs": 0.006,
+          "threadCpuMs": 0.005
+        },
+        {
+          "name": "V8.GC_MC_FINISH",
+          "begin": 157797382.046,
+          "durationMs": 0.084,
+          "threadCpuMs": 0.08
+        },
+        {
+          "name": "V8.GC_MC_FINISH_SWEEP_ARRAY_BUFFERS",
+          "begin": 157797382.059,
+          "durationMs": 0.021,
+          "threadCpuMs": 0.02
+        },
+        {
+          "name": "V8.GC_MC_SWEEP_START_JOBS",
+          "begin": 157797382.093,
+          "durationMs": 0.023,
+          "threadCpuMs": 0.023
+        },
+        {
+          "name": "V8.GC_MC_EPILOGUE",
+          "begin": 157797382.133,
+          "durationMs": 0.004,
+          "threadCpuMs": 0.004
+        },
+        {
+          "name": "V8.GC_HEAP_EXTERNAL_WEAK_GLOBAL_HANDLES",
+          "begin": 157797382.144,
+          "durationMs": 0.25,
+          "threadCpuMs": 0.251
+        },
+        {
+          "name": "V8.GC_HEAP_EMBEDDER_TRACING_EPILOGUE",
+          "begin": 157797382.398,
+          "durationMs": 0.073,
+          "threadCpuMs": 0.073
+        },
+        {
+          "name": "V8.GC_HEAP_EPILOGUE_SAFEPOINT",
+          "begin": 157797382.493,
+          "durationMs": 0.013,
+          "threadCpuMs": 0.013
+        },
+        {
+          "name": "V8.GC_HEAP_EPILOGUE",
+          "begin": 157797382.528,
+          "durationMs": 0.009,
+          "threadCpuMs": 0.008
+        },
+        {
+          "name": "V8.GC_HEAP_DUMP_STATISTICS",
+          "begin": 157797382.826,
+          "durationMs": 0.005,
+          "threadCpuMs": 0.004
+        },
+        {
+          "name": "V8.GC_HEAP_EXTERNAL_EPILOGUE",
+          "begin": 157797383.288,
+          "durationMs": 0.028,
+          "threadCpuMs": 0.026
+        }
+      ],
+      "jsOverlapMs": 446.57149997353554,
+      "styleLayoutOverlapMs": 1.9189999997615814,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 475.619,
+        "threadCpuMs": 45.069
+      }
+    }
+  ],
+  "wait": {
+    "n": 102,
+    "median": 0.01600000262260437,
+    "p95": 0.022000014781951904,
+    "p99": 0.03299999237060547,
+    "max": 0.038000017404556274,
+    "over50": 0,
+    "percentileIsGuarantee": false
+  },
+  "coverage": {
+    "task": "OBSERVED",
+    "javascript": "OBSERVED",
+    "timer": "OBSERVED",
+    "raf": "OBSERVED",
+    "canvas": "OBSERVED",
+    "styleLayout": "OBSERVED",
+    "paintComposite": "OBSERVED",
+    "gc": "OBSERVED",
+    "input": "OBSERVED",
+    "worker": "OBSERVED"
+  },
+  "limitations": [
+    "GPU presentation completion NOT_TESTED",
+    "OS context-switch/run-queue/swap NOT_TESTED",
+    "Elapsed task duration is not OS CPU time",
+    "Overlap is not proof of causality"
+  ]
+}

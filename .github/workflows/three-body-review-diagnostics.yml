@@ -1,0 +1,47 @@
+name: Three-body review diagnostics
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/three-body*'
+      - 'e2e/three-body*'
+      - 'tools/three-body-*'
+      - 'docs/three-body/review-44/stage-p/**'
+      - '.github/workflows/three-body-review-diagnostics.yml'
+permissions:
+  contents: read
+jobs:
+  focused-webkit:
+    # Stage AB explicitly prohibits browser launches; NOT_RUN, never regression PASS.
+    if: ${{ ((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Enforce committed browser policy
+        run: node tools/three-body-stage-ac-ci.mjs
+      - name: Install WebKit
+        run: |
+          if [ -f /etc/apt/apt-mirrors.txt ]; then
+            sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu|https://archive.ubuntu.com/ubuntu|g' /etc/apt/apt-mirrors.txt
+          fi
+          npx playwright install --with-deps webkit
+      - name: Repeat DPR controls and the observed lifecycle failure
+        run: npm run test:e2e -- --project=webkit --grep 'DPR[12] delayed rAF|hidden while playing pauses' --repeat-each=3 --output=test-results/review-focused
+      - name: Isolate actual app raster state
+        if: always()
+        run: node tools/three-body-raster-controls.mjs
+      - name: Preserve diagnostics
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: three-body-review-focused-${{ github.sha }}
+          path: test-results/
+          retention-days: 14
