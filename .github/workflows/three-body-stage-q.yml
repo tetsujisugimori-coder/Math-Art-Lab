@@ -45,6 +45,7 @@ jobs:
       - run: npm ci
         id: dependencies
       - name: Enforce committed browser policy
+        id: browser_policy
         run: node tools/three-body-stage-ac-ci.mjs
       - name: Install Linux browser
         if: runner.os == 'Linux'
@@ -61,25 +62,25 @@ jobs:
         id: preflight
         run: node tools/three-body-stage-q-pipeline.mjs --preflight --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
       - name: Initial diagnostic controls
-        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' }}
         run: node tools/three-body-stage-q-pipeline.mjs --suite=ci --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
       - name: Mechanism observation controls
-        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' }}
         run: node tools/three-body-stage-q-pipeline.mjs --suite=mechanism --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
       - name: Timing positive controls
-        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' }}
         run: node tools/three-body-stage-q-pipeline.mjs --suite=smoke --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
       - name: Capture order and instrumentation controls
-        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' }}
         run: node tools/three-body-stage-q-pipeline.mjs --suite=capture --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
       - name: Chromium capture API controls
-        if: ${{ !cancelled() && steps.preflight.outcome == 'success' && matrix.browser == 'chromium' }}
+        if: ${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' && matrix.browser == 'chromium' }}
         run: node tools/three-body-stage-q-pipeline.mjs --suite=capture-probe --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
       - name: Additional CDP emulation controls
-        if: ${{ !cancelled() && steps.preflight.outcome == 'success' && matrix.browser == 'chromium' }}
+        if: ${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' && matrix.browser == 'chromium' }}
         run: node tools/three-body-stage-q-pipeline.mjs --suite=emulation --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
       - name: Canvas and DOM resource controls
-        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' }}
         run: node tools/three-body-stage-q-pipeline.mjs --suite=screen --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
       - name: Preserve checkpoint with planned and unexecuted entries
         if: always()
@@ -89,28 +90,28 @@ jobs:
           path: test-results/stage-q/
           retention-days: 90
       - name: Sixty second repeats and five minute playback
-        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' }}
         run: node tools/three-body-stage-q-pipeline.mjs --suite=long --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
       - name: Harness Node stop delivery
-        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' }}
         run: node tools/three-body-stage-q-pipeline.mjs --suite=host --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
       - name: Dedicated send-only OS process
-        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' }}
         run: node tools/three-body-stage-q-pipeline.mjs --suite=sender --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
       - name: Lesson restoration and component disposal
-        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' }}
         run: node tools/three-body-stage-q-pipeline.mjs --suite=lifecycle --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
       - name: Natural phase targeting
-        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' }}
         run: node tools/three-body-stage-q-pipeline.mjs --suite=targets --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
       - name: Dedicated sender natural phase targeting
-        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' }}
         run: node tools/three-body-stage-q-pipeline.mjs --suite=sender-targets --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
       - name: Nonprivileged Windows thread sampling
-        if: ${{ !cancelled() && steps.preflight.outcome == 'success' && runner.os == 'Windows' }}
+        if: ${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' && runner.os == 'Windows' }}
         run: node tools/three-body-stage-q-pipeline.mjs --suite=os --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
       - name: Independent numerical and display analysis
-        if: ${{ !cancelled() && steps.preflight.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' }}
         run: node tools/three-body-stage-q-pipeline.mjs --analyze --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}
       - name: Finalize suite counts and verify artifact index
         if: always()

@@ -1086,3 +1086,8 @@ PR44 review 5904109330: confirmed Stage AB source report already contained quest
 ## 2026-11-15 Stage AD browser-free preparation
 
 Audited current CI identity gates and transplant/old-rerun limits without changing approval policies. Fixed external observation auditing (required clock domain, independent CPU validity, execution/observation state and checkpoints). Fixed four local unit trials: knot OFF/ON PASS; figure-eight OFF/ON retain 5000ms timeout FAIL. Product and original test bodies unchanged; no browser/CDP/original-stop runs. Type/build and six-condition bit/history comparison passed. Draft plan/source manifest remains BLOCKED pending independent approval. See docs/three-body/review-44/stage-ad/.
+
+
+## 2026-11-15 JST - PR #44 Stage AE
+
+Diagnostic-only fixed ABBA cohort completed 4/4 in fresh Node processes; browser launches 0. The original test body and thresholds are unchanged. Runtime source snapshots and result bits/history agree; measured instrumentation costs are not original Vitest costs or product improvement. Structural YAML guards now prevent always/!cancelled browser paths after policy rejection. Local contracts: 126 PASS; type/build and six numerical bit/history conditions PASS. Prior failures remain. See docs/three-body/review-44/stage-ae/results.md. Overall PARTIAL; merge NO.

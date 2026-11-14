@@ -1,0 +1,29 @@
+name: Three-body Stage AE browser-free contracts
+on:
+  pull_request:
+    branches: [main]
+    paths: ['tools/three-body-stage-ae*', 'src/three-body-stage-ae*', 'docs/three-body/review-44/stage-ae/**', '.github/workflows/**']
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Static and mock contracts only
+        run: npx vitest run --config tools/three-body-stage-ab-tests.config.mjs src/three-body-stage-ae.test.js src/three-body-stage-ae-evidence.test.js
+      - name: Actual PR44 denial without measurement
+        if: github.event.pull_request.number == 44
+        run: |
+          node tools/three-body-stage-ac-ci.mjs
+          if ($LASTEXITCODE -ne 2) { throw 'Expected prohibited browser event' }
+          exit 0
+      - name: Scope
+        run: echo 'No fixed diagnostic trials, browsers, CDP, GUI, original stop or ZIP experiment in this job. Not execution approval.' >> $env:GITHUB_STEP_SUMMARY

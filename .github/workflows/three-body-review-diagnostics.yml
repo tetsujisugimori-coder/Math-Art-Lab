@@ -26,6 +26,7 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Enforce committed browser policy
+        id: browser_policy
         run: node tools/three-body-stage-ac-ci.mjs
       - name: Install WebKit
         run: |
@@ -36,7 +37,7 @@ jobs:
       - name: Repeat DPR controls and the observed lifecycle failure
         run: npm run test:e2e -- --project=webkit --grep 'DPR[12] delayed rAF|hidden while playing pauses' --repeat-each=3 --output=test-results/review-focused
       - name: Isolate actual app raster state
-        if: always()
+        if: always() && steps.browser_policy.outcome == 'success'
         run: node tools/three-body-raster-controls.mjs
       - name: Preserve diagnostics
         if: always()

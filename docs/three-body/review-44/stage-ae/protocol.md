@@ -1,0 +1,19 @@
+# Stage AE fixed protocol — PARTIAL, execution approval unchanged
+
+Baseline 0b4f1ab8f38ec3dc692fe8056610ecbbe12c4954 / tree 212792f58e79a9eb3eb7aeedc386544e9426ff1a. Review5907277825. No browser/CDP/GUI/original stop, no AD trial rerun, no product or original test edits. Original 5000ms and all assertions/tolerances remain unchanged. AB/AC policies false/[] remain unchanged.
+
+## Four new diagnostic trials only
+
+Order ae-A1 OFF, ae-B1 ON, ae-B2 ON, ae-A2 OFF. Fresh standalone Node process each. Hard parent safety deadline 30000ms/process (not original test acceptance). No child grandchildren. Timeout terminates this process, preserves raw partial checkpoints and FAIL; remaining trials BLOCKED. No retry/replacement/addition. Any source/observer/evidence/cleanup failure blocks remaining trials. Plan/source snapshot is sealed before first launch. Single-use output directory and sequential immutable checkpoints prevent silent repeat.
+
+Original selected test body is extracted using TypeScript AST and retained verbatim inside the diagnostic function, with imported numerical functions wrapped but their arguments/returns unchanged. Original RMS expression and RK4 source retained; two diagnostic counter increments in an in-memory reference copy count RK4 loop/RHS executions and erase exactly to original. Same Chai + @vitest/expect matcher implementation and assertion counter; Vitest worker/test association, collection, snapshot/soft assertion plugins are absent. No numerical/assertion success inferred from mere completion. A full original Vitest rerun is prohibited. OFF is the extracted-body numerical reference within this diagnostic cohort, not a new original-test PASS.
+
+Both groups retain counts and all-Verlet-phase Float64 history hash. ON additionally samples performance.now/process.cpuUsage/threadCpuUsage when available at call boundaries. These additions perturb execution. Nonoverlapping category sums (Verlet, invariants, assertion construction+matcher, RK4, final RMS) and body envelope are distinct; unclassified is body elapsed minus these sums, never labeled OS wait. CPU sums are process/thread observations, not occupancy estimates. Single-process domains only; harness/worker clocks not subtracted. Import interval is independently measured in child; spawn-to-exit in parent; exact collection/cleanup costs unavailable in standalone path.
+
+Counts expected: Verlet126518, invariant12652, reason assertions126518 plus two final inequalities, RK4 calls1, n=ceil((126518*.001)/.0002)=632590 and RHS2530360. Capture final bodies/Float64 bits, max energy error, RMS, reference bodies and history hash. Compare OFF/ON within cohort and separate existing six-case bit/history regression (once).
+
+## Preconditions and audit
+
+Observer/sequence/source/gate fault contracts PASS; actual YAML parsed with existing Playwright utility YAML parser only (no browser API imported); build bundle import closure with esbuild metadata; snapshot all included JS/TS inputs, generated entry, original test, type-only dependencies, lock/config/instrumentation. Runtime executable SHA recorded; Node native libraries/OS environmental dependencies explicitly UNKNOWN, not full-environment binding PASS. Bundle must have only node: external imports. Before and after every trial verify original inputs and copied snapshot/bundle hashes; runtime child validates its bundle. Record Git blob when tracked; untracked inputs are explicitly precommit bytes, not fake Git blobs. No late source retrieval as acquisition original.
+
+Archive only new Stage-AE evidence; independent set/size/SHA readback. UTF8 report source fixed before posting/readback. Historical AB ZIP timeout reviewed read-only/mock; no extra Python/ZIP measurements. Formal ordinary push CI is distinct from diagnostic trial budget; no workflow reruns. End after four or first blocker; merge NO, next-stage approval BLOCKED.
