@@ -1,0 +1,22 @@
+import {describe,it,expect} from 'vitest';
+import {span} from '../tools/three-body-stage-ad-observer.mjs';
+import {gateAudit} from '../tools/three-body-stage-ad-audit.mjs';
+import {outcome,sequence} from '../tools/three-body-stage-ad-timeout.mjs';
+import fs from 'node:fs';import {createHash} from 'node:crypto';
+const row=(event,at)=>({event,at,pid:1,threadId:0,clock:'performance.now',cpu:{user:at*100,system:0}});
+describe('Stage AD browser-free audit',()=>{
+ it('audits real policy and all browser workflows without measurement',()=>{const r=gateAudit();expect(r.status).toBe('PASS');expect(r.browserLaunches).toBe(0);expect(r.diagnosticChildren).toBe(0);expect(r.rows.find(x=>x.id==='transplanted-other-pr').result.allowed).toBe(true);});
+ it('reports same-clock span only',()=>expect(span([row('a',2),row('b',5)],'a','b').wallMs).toBe(3));
+ it.each([[],[row('a',2)],[row('a',2),row('b',3),row('b',4)]].map(rows=>({rows})))('rejects missing or duplicate boundary %j',({rows})=>expect(span(rows,'a','b').status).toBe('NOT_OBTAINED'));
+ it.each([undefined,null,{},[null]])('rejects malformed record input %j',rows=>expect(span(rows,'a','b').status).toBe('NOT_OBTAINED'));
+ it.each([{pid:2},{threadId:2},{clock:'other'}])('rejects uncalibrated domains %j',change=>expect(span([row('a',2),{...row('b',3),...change}],'a','b').status).toBe('NOT_OBTAINED'));
+ it.each([-1,NaN,Infinity])('rejects reversed or invalid timestamp %s',at=>expect(span([row('a',2),row('b',at)],'a','b').status).toBe('FAIL'));
+ it('rejects missing domains instead of equating undefined',()=>expect(span([{event:'a',at:1},{event:'b',at:2}],'a','b').status).toBe('NOT_OBTAINED'));
+ it.each([undefined,{user:NaN,system:0},{user:0,system:0}])('separates bad CPU from observed wall %j',cpu=>{const r=span([row('a',2),{...row('b',3),cpu}],'a','b');expect(r.status).toBe('OBSERVED');expect(r.cpuStatus).toBe('NOT_OBTAINED');expect(r.processCpuUs).toBeNull();});
+ it('preserves executed failure and blocks only following mock trial',()=>{let launches=0;const saved=[];const rows=sequence([{id:1},{id:2}],p=>{launches++;return{...p,...outcome({exitCode:1,pid:1},['MISSING'])}},r=>saved.push(structuredClone(r)));expect(launches).toBe(1);expect(rows.map(r=>r.status)).toEqual(['FAIL','BLOCKED']);expect(saved.length).toBe(2);});
+ it('records exception without inventing unstarted status and prevents following mock launch',()=>{let launches=0;const saved=[];sequence([1,2],()=>{launches++;throw Error('READ')},r=>saved.push(structuredClone(r)));expect(launches).toBe(1);expect(saved.at(-1).map(r=>r.status)).toEqual(['PARTIAL','BLOCKED']);expect(saved.at(-1)[0].executionStatus).toBe('NOT_OBTAINED');});
+ it('retains PASS execution with failed observation as PARTIAL',()=>expect(outcome({exitCode:0},['MISSING'])).toMatchObject({executionStatus:'PASS',status:'PARTIAL',continueAllowed:false}));
+ it('normal mock sequence saves both completions',()=>{let n=0;const rows=sequence([1,2],()=>{n++;return outcome({exitCode:0},[])},()=>{});expect(n).toBe(2);expect(rows.every(r=>r.status==='PASS')).toBe(true);});
+ it('save failure throws before next mock execution',()=>{let n=0;expect(()=>sequence([1,2],()=>{n++;return outcome({exitCode:0},[])},()=>{throw Error('DISK')})).toThrow('DISK');expect(n).toBe(1);});
+ it('binds draft plan and source set without self-reference or approval',()=>{const m=JSON.parse(fs.readFileSync('docs/three-body/review-44/stage-ad/phase-two-manifest.json'));const sha=b=>createHash('sha256').update(b).digest('hex');expect(sha(fs.readFileSync(m.plan))).toBe(m.planSha256);expect(sha(JSON.stringify(m.sources))).toBe(m.sourceSetSha256);expect(m.status).toBe('DRAFT/BLOCKED');expect(m.executionAuthorized).toBe(false);expect(m.trustedReviewerIds).toEqual([]);expect(m.requiresRebindingAfterGateChanges).toBe(true);});
+});
