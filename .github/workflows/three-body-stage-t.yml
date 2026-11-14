@@ -13,7 +13,7 @@ permissions:
 jobs:
   controls:
     # Stage AB explicitly prohibits browser launches; NOT_RUN, never regression PASS.
-    if: ${{ !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}
+    if: ${{ ((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}
     strategy:
       fail-fast: false
       matrix:
@@ -39,6 +39,8 @@ jobs:
         run: >-
           node --input-type=module -e "import fs from 'node:fs'; import {stageTPlans} from './tools/three-body-stage-t-plans.mjs'; fs.mkdirSync('test-results/stage-t',{recursive:true}); fs.writeFileSync('test-results/stage-t/planned.json',JSON.stringify({status:'PLANNED',runId:process.env.GITHUB_RUN_ID,checkout:process.env.GITHUB_SHA,plans:stageTPlans('${{ matrix.browser }}')}));"
       - run: npm ci
+      - name: Enforce committed browser policy
+        run: node tools/three-body-stage-ac-ci.mjs
       - name: Install Linux browser
         if: runner.os == 'Linux'
         run: npx playwright install --with-deps ${{ matrix.browser }}

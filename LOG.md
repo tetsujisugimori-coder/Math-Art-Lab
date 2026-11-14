@@ -1077,3 +1077,8 @@ P3-04の撮影障害を最優先に36条件とCDP対照を実施。旧context撮
 ## 2026-11-14 Stage AB ? browser-free preparation
 
 PR #44 review 5898515397: safe short-path Windows ZIP extraction verified 329 entries / 328 manifest payloads in separate processes; original/partial data unchanged. Versioned wait/click/handler audit and GitHub-backed independent review gate strengthened, direct non-probe entry closed. Synthetic observation 20/20 and review 12/12 controls; selected diagnostics 190/190. Local full-unit 690/692 retains two failures; type/build and six numerical bit/history comparisons pass. Archive 1118?1131 delta is 13 submission records, independently reread. Browser/GUI/original measurements prohibited and NOT_RUN, product changes zero, overall PARTIAL / merge NO. See docs/three-body/review-44/stage-ab; final CI/archive receipts follow in existing PR/Issue.
+
+
+## 2026-11-14 Stage AC phase 1 - records and CI prohibition
+
+PR44 review 5904109330: confirmed Stage AB source report already contained question-mark substitution before API; preserved originals and posted a new UTF-8 correction explanation, not reconstructed missing prose. Direct versus PowerShell ASCII stdin control reproduces substitution. Exact decoded source/request/response/readback and semantic contract checks added. Eight browser-capable workflows now deny PR44/branch/ref independently of body marker, with committed runtime policy before install. Existing AB approval policy unchanged. Browser/original-stop launches zero; no product change. Fixed local full-unit once: 722/724, same two tests explicitly timed out at 5000ms; no threshold or retry changes. Type/build and six numerical bit/history comparisons pass. Overall PARTIAL, GUI NOT_RUN, merge NO. See stage-ac verification and final PR receipts.

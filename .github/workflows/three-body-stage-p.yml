@@ -15,7 +15,7 @@ permissions:
 jobs:
   diagnostic-contract:
     # Stage AB explicitly prohibits browser launches; NOT_RUN, never regression PASS.
-    if: ${{ !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}
+    if: ${{ ((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
@@ -27,6 +27,8 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
+      - name: Enforce committed browser policy
+        run: node tools/three-body-stage-ac-ci.mjs
       - name: Install isolated Chromium
         run: |
           if [ -f /etc/apt/apt-mirrors.txt ]; then

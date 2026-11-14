@@ -12,7 +12,7 @@ permissions:
 jobs:
   fixed-cohort:
     # Stage AB explicitly prohibits browser launches; NOT_RUN, never regression PASS.
-    if: ${{ !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}
+    if: ${{ ((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}
     strategy:
       fail-fast: false
       matrix:
@@ -32,6 +32,8 @@ jobs:
         run: >-
           node --input-type=module -e "import fs from 'node:fs';import {plans,baseline} from './tools/three-body-stage-v-contracts.mjs';fs.mkdirSync('test-results/stage-v',{recursive:true});fs.writeFileSync('test-results/stage-v/planned.json',JSON.stringify({schema:'stage-v-plan-1',baseline,checkout:process.env.GITHUB_SHA,ciRunId:process.env.GITHUB_RUN_ID,status:'PLANNED',plans:plans()}));"
       - run: npm ci
+      - name: Enforce committed browser policy
+        run: node tools/three-body-stage-ac-ci.mjs
       - name: Existing Chromium runtime; no OS dependency changes
         run: npx playwright install chromium
       - name: One fixed primary and auxiliary cohort
