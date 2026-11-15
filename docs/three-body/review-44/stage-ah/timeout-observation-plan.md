@@ -9,8 +9,10 @@ installed `@vitest/runner/dist/chunk-hooks.js`のwithTimeoutは、safe timerか�
 |対象前の明示failure eventと失敗result|STOP_BEFORE_BODY|単にbeginがないだけでは対象前停止とはしない|
 |同workerでbody.begin→body.throw|STOP_DURING_BODY|外部killやtimeout表示だけでbody中断とはしない|
 |body.end後の明示timeout決定event|TIMEOUT_AFTER_BODY|body自体が中断されたとはしない|
-|timeout決定eventがbody.endより前、後に正常end|TIMEOUT_REPORTED_DURING_BODY|timerが同期callbackをpreemptしたとはしない|
-|timeout表示あり、決定event/終点が欠落|UNKNOWN、必要区間NOT_OBTAINED|body中か終了後か推測しない|
+|timeout決定event→body.begin→body.end|TIMEOUT_BEFORE_BODY、completion COMPLETED|body未実行とはしない|
+|body.begin→timeout決定event→body.end|TIMEOUT_REPORTED_DURING_BODY|timerが同期callbackをpreemptしたとはしない|
+|body.begin→timeout決定event、body.end欠測|TIMEOUT_REPORTED_AFTER_BODY_BEGIN、completion UNKNOWN|取得済み順序を残すが中断/完了を推定しない|
+|timeout表示あり、決定eventまたはbody.begin欠測|UNKNOWN、位置NOT_OBTAINED/UNKNOWN|body中か終了後か推測しない|
 |worker応答なし|WORKER_RESPONSE_MISSING|CPU占有、crash、IPC障害を区別できない|
 |signal/非正常process終了|PROCESS_ABNORMAL_EXIT/実行FAIL|原数理assertion失敗と同一視しない|
 |監視側エラー|MONITOR_FAILURE/観測FAIL|既知のtimeout/body失敗をPASSに戻さない|
@@ -18,7 +20,9 @@ installed `@vitest/runner/dist/chunk-hooks.js`のwithTimeoutは、safe timerか�
 |原票/receipt未取得|EVIDENCE_INCOMPLETE/NOT_OBTAINED|未取得を保存成功やゼロ計測へ昇格しない|
 |正常結果と必要な証拠|NORMAL_EXIT（synthetic分類のみ）|実測済み、timeout解消、性能改善へ昇格しない|
 
-実行outcomeと観測outcomeを別フィールドにする。監視失敗が併発しても既知のtimeout/body.throw/nonzeroはFAILを保持する。wallが5000ms以上でもtimeout表示がなければ自動でtimeoutとは分類せず、未解決anomalyとして次枠を停止する。timeout eventとreportが矛盾する場合も観測失敗。
+実行outcome、観測outcome、証拠完全性を別フィールドにする。runnerStatus FAILは独立した失敗根拠とし、監視/保存/原票不備でもFAILを保持する。exit0との矛盾はcontradictionsへ記録する。runner欠測はNOT_OBTAINED、不正値はINVALIDで、PASSへしない。既知のtimeout/body.throw/nonzeroも保持する。wallが5000ms以上でもtimeout表示がなければ自動でtimeoutとは分類せず、未解決anomalyとして次枠を停止する。timeout eventとreportが矛盾する場合も観測失敗。
+
+P2修正後はtimeoutPosition/bodyCompletionを分離する。distinctなtimer/resolve決定が共存するときは最初の同domain eventで主分類し、全件をtimeoutDecisionsへ保存する。同名重複は拒否。詳細な先行期待表とbefore/afterは[p2-review/classification-contract.md](p2-review/classification-contract.md)。SYNTHETIC分類を実行時帰属VERIFIEDへ昇格しない。
 
 時計領域は3役を区別する。`parent`は外部supervisorでT0/T7を持つ。Vitest coordinator/serverは別processで、transform専用時間/CPUは今回案では未取得。workerはT1〜T6を持つ。経路表の親子関係表示を共有clockの許可と解釈しない。T2はworker import待ちを含むenvelopeであり、coordinator transformの純粋費用ではない。
 

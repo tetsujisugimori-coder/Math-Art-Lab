@@ -33,3 +33,5 @@ O. 根因UNKNOWN、実時間NOT_COMPARABLE、性能改善/原停止NOT_TESTED。
 P. 次工程には別commitでのobserver/実行gate実装と独立レビュー、固定計画/環境/原証拠/停止機構の照合、live独立承認とAB/ACの別判定が必要。既存PR44/Issue43へUTF-8投稿・API/readback全文一致を保全。Draft維持、auto-merge無効、mergeなし。
 
 2026-11-15 JST
+
+P2修正追記（レビュー5911250527、基準9fb0b1d）：runner FAIL保持とexit0矛盾記録、実行/観測/証拠完全性の分離、timeout begin/decision/endの三点判定と完了不明の保持を追加。先行28反例は12 RED/16 BASELINE_PASS、同反例の修正後28 GREEN、既存264を含む322契約成功。詳細は[p2-review/verification.md](p2-review/verification.md)。実測承認や根因解明ではなく、PLAN_ONLY/実測BLOCKED/APPROVAL_MISSING/承認HOLDを維持する。

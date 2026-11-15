@@ -3,7 +3,12 @@ import fs from 'node:fs';import childProcess from 'node:child_process';import ts
 import {loadBundle,auditSources} from '../tools/three-body-stage-ah-audit.mjs';
 import {validateDocuments,validatePlan,executionGate,interval,classifyFixture,assessProgress,seal} from '../tools/three-body-stage-ah-contract.mjs';
 import {planFaults,progressFaults,event,packet,row} from '../tools/three-body-stage-ah-fixtures.mjs';
+import {p2Cases} from '../tools/three-body-stage-ah-p2-fixtures.mjs';
 const bundle=loadBundle();
+it.each(p2Cases(bundle))('P2 core $issue / $id',c=>expect(classifyFixture(c.packet,bundle)).toMatchObject(c.expectedCore));
+it.each(p2Cases(bundle))('P2 fields $issue / $id',c=>expect(classifyFixture(c.packet,bundle)).toMatchObject(c.expected));
+it('P2 retains runner failure even when context or event evidence is unusable',()=>{const p=packet(bundle);p.runnerStatus='FAIL';expect(classifyFixture(p).executionOutcome).toBe('FAIL');p.events=null;expect(classifyFixture(p,bundle)).toMatchObject({executionOutcome:'FAIL',observationOutcome:'FAIL',evidenceCompleteness:'INVALID'});});
+it('P2 records all distinct timeout decisions and selects the first mechanism',()=>{const p=packet(bundle);p.timeoutReported=true;p.events.push(event(bundle,'timeout.resolve.elapsed',25),event(bundle,'timeout.timer',30));expect(classifyFixture(p,bundle)).toMatchObject({timeoutMechanism:'RESOLUTION_ELAPSED_CHECK',timeoutPosition:'AFTER_BODY_END',timeoutDecisions:[{event:'timeout.resolve.elapsed',seq:25,position:'AFTER_BODY_END'},{event:'timeout.timer',seq:30,position:'AFTER_BODY_END'}]});});
 it('accepts the fixed plan but never grants execution',()=>{expect(validateDocuments(bundle).status).toBe('PLAN_VALID');const r=executionGate(bundle);expect(r).toMatchObject({status:'BLOCKED',planStatus:'PLAN_VALID',approvalStatus:'APPROVAL_MISSING',allowed:false,executionStatus:'NOT_TESTED'});expect(auditSources('.',bundle).status).toBe('PLAN_VALID');});
 it.each(Object.keys(planFaults))('rejects invalid plan/policy/state %s',kind=>{const b=structuredClone(bundle);planFaults[kind](b);expect(validateDocuments(b).status).toBe('PLAN_INVALID');expect(executionGate(b,{action:'EXECUTE',approval:{state:'APPROVED'}}).allowed).toBe(false);});
 it.each([undefined,null,{},[],{schema:'wrong'}])('rejects malformed plan %j',p=>expect(validatePlan(p,bundle.lock).status).toBe('PLAN_INVALID'));

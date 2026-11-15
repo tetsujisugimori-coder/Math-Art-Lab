@@ -1,0 +1,97 @@
+{
+  "schema": "ah-p2-evidence-1",
+  "acquisition": "POSTHOC_SOURCE_AND_SYNTHETIC_CLASSIFICATION",
+  "baselineHead": "9fb0b1d759b8558f6d3ee30cd607af12ea26f634",
+  "baselineTree": "1067bced955ac7aeb8eb439bae128f67542f2f9f",
+  "baselineSourceBinding": {
+    "head": "9fb0b1d759b8558f6d3ee30cd607af12ea26f634",
+    "tree": "1067bced955ac7aeb8eb439bae128f67542f2f9f",
+    "acquisition": "BEFORE_P2_FIX_SOURCE_BYTES",
+    "files": [
+      {
+        "file": "tools/three-body-stage-ah-contract.mjs",
+        "bytes": 17313,
+        "sha256": "1902b621b37f51144f603dd625d5d38ffbe807d99439d79ef9e37512b5d93231",
+        "gitBlob": "3d4ad1c54983004bae43fc8c0458c24b64a24a17"
+      },
+      {
+        "file": "tools/three-body-stage-ah-spec.mjs",
+        "bytes": 4229,
+        "sha256": "83cd1cdc1c2eaa99c982524e8f2e19343cd14d11b63abb384595c5d6e5a72c01",
+        "gitBlob": "58dbf806a1db1534ef9662ab30904d1e80e918fd"
+      },
+      {
+        "file": "tools/three-body-stage-ad-observer.mjs",
+        "bytes": 1455,
+        "sha256": "6ce7aa2a61da6634f1d80bf7b47e60af3d8b08a660512866dfaa95f1dfc4c089",
+        "gitBlob": "2fc68d32b87f036c3aab31bc1f6ada83aeba8dc7"
+      }
+    ]
+  },
+  "currentSources": [
+    {
+      "file": "tools/three-body-stage-ah-contract.mjs",
+      "bytes": 19841,
+      "sha256": "2422b38344dcd12e58f07f47155b6e74d4fd7c86e6948d39ee1a195ad373fdf0"
+    },
+    {
+      "file": "tools/three-body-stage-ah-p2-fixtures.mjs",
+      "bytes": 5487,
+      "sha256": "a80598e40c7972d506853ad61a01a2dd32b45498394cc24ee6302c084ac32f07"
+    },
+    {
+      "file": "tools/three-body-stage-ah-p2-controls.mjs",
+      "bytes": 1521,
+      "sha256": "1837c2a3650bf459af8f02725ab696a09e65e3a302ef2422c022c36b808030f1"
+    },
+    {
+      "file": "src/three-body-stage-ah.test.js",
+      "bytes": 13341,
+      "sha256": "2fc5415f8ba8c33415d1bd42d6ed6291daf1d6925ab124f9d6728522d97acedd"
+    }
+  ],
+  "counterexampleFiles": [
+    {
+      "file": ".three-body-evidence/stage-ah-p2/before-v2.json",
+      "bytes": 98575,
+      "sha256": "d56917ce9f64b8b83b741cd8fc4329311d68d12254ecd57f71a576708d073678"
+    },
+    {
+      "file": ".three-body-evidence/stage-ah-p2/before-v2-tests.json",
+      "bytes": 39192,
+      "sha256": "fb91765c93cbff7f51af5fb9221f0f87a3b2d091ee3e654144cd6716ab8b9af6"
+    },
+    {
+      "file": ".three-body-evidence/stage-ah-p2/after-first.json",
+      "bytes": 105833,
+      "sha256": "8ba31379d3b421766b452f4f0e6671815913d4053d7e0c40d31dd57b62b5e495"
+    },
+    {
+      "file": ".three-body-evidence/stage-ah-p2/contracts-first.json",
+      "bytes": 74340,
+      "sha256": "4582122e5de0a359117a98f0197acdcb75d8e6d2a288b94be516452babd4cbef"
+    },
+    {
+      "file": ".three-body-evidence/stage-ah-p2/expectation-correction.json",
+      "bytes": 458,
+      "sha256": "1f9d5688f08560eae2acb6ea51ab9423c078d6cc2392ef231f859f6598fd46a5"
+    }
+  ],
+  "before": {
+    "RED": 12,
+    "BASELINE_PASS": 16
+  },
+  "after": {
+    "GREEN": 28
+  },
+  "sameInputsAndExpectations": true,
+  "gate": "BLOCKED",
+  "approval": "APPROVAL_MISSING",
+  "approvalDecision": "HOLD",
+  "actualExecution": "NOT_TESTED",
+  "measurements": 0,
+  "selfHash": "External archive manifest/receipt",
+  "oldRawEvidence": "UNCHANGED",
+  "wholeHistory": "LOCAL_BACKUP_PARTIAL_ORIGINAL_GAPS",
+  "remoteBackup": "REMOTE_BACKUP_NOT_UPLOADED"
+}

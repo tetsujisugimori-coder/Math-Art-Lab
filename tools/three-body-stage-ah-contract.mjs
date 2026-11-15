@@ -58,6 +58,7 @@ export function validateEvents(rows){
     domains.set(r.owner,r);
   }
   const count=e=>rows.filter(r=>r.event===e).length,index=e=>rows.findIndex(r=>r.event===e);
+  if(count('timeout.timer')>1||count('timeout.resolve.elapsed')>1)return {status:'FAIL',reason:'DUPLICATE_TIMEOUT_DECISION'};
   if(count('body.begin')>1||count('body.end')>1||count('body.throw')>1||(count('body.end')||count('body.throw'))&&!count('body.begin')||count('body.end')&&count('body.throw')||count('body.end')&&index('body.end')<index('body.begin')||count('body.throw')&&index('body.throw')<index('body.begin'))return {status:'FAIL',reason:'BODY_EVENT_ORDER'};
   return {status:'VALID'};
 }
@@ -77,33 +78,48 @@ export function interval(rows,begin,end){
 export function classifyFixture(packet,bundle){
   // This accepts synthetic observations only; none can promote an actual plan to executed.
   if(packet?.synthetic!==true)return {classification:'NOT_OBTAINED',executionOutcome:'NOT_OBTAINED',observationOutcome:'FAIL',actualExecution:'NOT_TESTED'};
-  if(validateDocuments(bundle).status!=='PLAN_VALID')return {classification:'EVIDENCE_INCOMPLETE',executionOutcome:'UNKNOWN',observationOutcome:'FAIL',actualExecution:'NOT_TESTED'};
-  if(!Array.isArray(packet.events)||packet.events.some(r=>!r||typeof r!=='object'))return {classification:'NOT_OBTAINED',executionOutcome:'UNKNOWN',observationOutcome:'FAIL',actualExecution:'NOT_TESTED'};
+  const runnerStatusState=['PASS','FAIL'].includes(packet.runnerStatus)?'OBSERVED':packet.runnerStatus==null?'NOT_OBTAINED':'INVALID';
+  const runnerFailed=packet.runnerStatus==='FAIL',contradictions=runnerFailed&&packet.exitCode===0?['RUNNER_FAIL_WITH_ZERO_EXIT']:[];
+  const rawComplete=packet.saved===true&&packet.receiptBound===true&&packet.rawMissing!==true&&packet.saveFailure!==true;
+  const common={classificationVersion:'ah-p2-classification-1',runnerStatusState,contradictions,timeoutPosition:'UNKNOWN',bodyCompletion:'UNKNOWN',timeoutDecisions:[],evidenceCompleteness:runnerStatusState==='INVALID'?'INVALID':rawComplete&&runnerStatusState==='OBSERVED'?'COMPLETE':'EVIDENCE_INCOMPLETE',actualExecution:'NOT_TESTED'};
+  // A later observation/evidence error cannot erase an independently reported runner failure.
+  const finish=result=>({...common,...result,executionOutcome:runnerFailed?'FAIL':result.executionOutcome});
+  if(validateDocuments(bundle).status!=='PLAN_VALID')return finish({classification:'EVIDENCE_INCOMPLETE',executionOutcome:'UNKNOWN',observationOutcome:'FAIL',evidenceCompleteness:'EVIDENCE_INCOMPLETE'});
+  if(!Array.isArray(packet.events)||packet.events.some(r=>!r||typeof r!=='object'))return finish({classification:'NOT_OBTAINED',executionOutcome:'UNKNOWN',observationOutcome:'FAIL',evidenceCompleteness:'INVALID'});
   const eventCheck=validateEvents(packet.events);
-  if(eventCheck.status!=='VALID'||!['OFF','ON'].includes(packet.mode)||packet.events.some(r=>r.mode!==packet.mode||r.planSha256!==bundle.lock.planSha256||r.sourceSetSha256!==bundle.lock.sourceSetSha256)||packet.mode==='OFF'&&packet.events.some(r=>r.owner==='worker'))return {classification:'INVALID_CLOCK_EVIDENCE',executionOutcome:'UNKNOWN',observationOutcome:'FAIL',reason:eventCheck.reason??'MODE_OR_BINDING',actualExecution:'NOT_TESTED'};
-  const rows=packet.events,has=e=>rows.some(r=>r.event===e),begin=has('body.begin'),end=has('body.end'),bodyPosition=packet.mode==='OFF'?'NOT_OBTAINED_TIMING_OFF':end?'AFTER_BODY':begin?'BODY_IN_PROGRESS_AT_LAST_EVENT':'BEFORE_BODY';
-  if((has('timeout.timer')||has('timeout.resolve.elapsed'))&&packet.timeoutReported!==true)return {classification:'INCONSISTENT_TIMEOUT_EVIDENCE',executionOutcome:'UNKNOWN',observationOutcome:'FAIL',actualExecution:'NOT_TESTED'};
+  if(eventCheck.status!=='VALID'||!['OFF','ON'].includes(packet.mode)||packet.events.some(r=>r.mode!==packet.mode||r.planSha256!==bundle.lock.planSha256||r.sourceSetSha256!==bundle.lock.sourceSetSha256)||packet.mode==='OFF'&&packet.events.some(r=>r.owner==='worker'))return finish({classification:'INVALID_CLOCK_EVIDENCE',executionOutcome:'UNKNOWN',observationOutcome:'FAIL',reason:eventCheck.reason??'MODE_OR_BINDING',evidenceCompleteness:'INVALID'});
+  const rows=packet.events,has=e=>rows.some(r=>r.event===e),index=e=>rows.findIndex(r=>r.event===e),begin=has('body.begin'),end=has('body.end');
+  const bodyPosition=packet.mode==='OFF'?'NOT_OBTAINED_TIMING_OFF':end?'AFTER_BODY':begin?'BODY_IN_PROGRESS_AT_LAST_EVENT':packet.preBodyFailureConfirmed&&has('pre-body.failure')?'BEFORE_BODY':'NOT_OBTAINED';
+  const bodyCompletion=packet.mode==='OFF'?'NOT_OBTAINED_TIMING_OFF':end?'COMPLETED':has('body.throw')?'THREW':begin?'UNKNOWN':'NOT_OBTAINED';
+  const position=i=>!begin?'UNKNOWN':i<index('body.begin')?'BEFORE_BODY_BEGIN':end&&i>index('body.end')?'AFTER_BODY_END':end?'BETWEEN_BODY_BEGIN_AND_END':'AFTER_BODY_BEGIN';
+  const timeoutDecisions=rows.flatMap((r,i)=>['timeout.timer','timeout.resolve.elapsed'].includes(r.event)?[{event:r.event,seq:r.seq,position:position(i)}]:[]);
+  const timeoutPosition=packet.timeoutReported?timeoutDecisions[0]?.position??'NOT_OBTAINED':'NOT_REPORTED';
+  if(timeoutDecisions.length&&packet.timeoutReported!==true)return finish({classification:'INCONSISTENT_TIMEOUT_EVIDENCE',executionOutcome:'UNKNOWN',observationOutcome:'FAIL',evidenceCompleteness:'INVALID',bodyCompletion});
   let classification='UNKNOWN',executionOutcome=Number.isInteger(packet.exitCode)&&packet.exitCode!==0||packet.signal||packet.abnormalExit||packet.timeoutReported===true||has('body.throw')?'FAIL':packet.saved===true&&packet.receiptBound===true&&packet.rawMissing!==true&&packet.workerResponded===true&&packet.exitCode===0&&packet.runnerStatus==='PASS'?'PASS':'UNKNOWN',observationOutcome='PASS';
   const body=begin&&end?interval(rows,'body.begin','body.end'):{status:'NOT_OBTAINED'};
+  const boundariesComplete=packet.mode==='OFF'?interval(rows,'parent.launch.request','parent.exit.received').status==='OBSERVED':body.status==='OBSERVED';
+  const evidenceCompleteness=common.evidenceCompleteness==='COMPLETE'&&!boundariesComplete?'EVIDENCE_INCOMPLETE':common.evidenceCompleteness;
   if(packet.monitorFailure){classification='MONITOR_FAILURE';observationOutcome='FAIL';}
   else if(packet.saveFailure===true){classification='EVIDENCE_SAVE_FAILURE';observationOutcome='FAIL';}
   else if(packet.saved!==true||packet.receiptBound!==true||packet.rawMissing===true){classification='EVIDENCE_INCOMPLETE';observationOutcome='NOT_OBTAINED';}
   else if(begin&&end&&body.status!=='OBSERVED'){classification='INVALID_CLOCK_EVIDENCE';observationOutcome='FAIL';}
   else if(packet.workerResponded!==true){classification='WORKER_RESPONSE_MISSING';observationOutcome='NOT_OBTAINED';}
+  else if(runnerStatusState!=='OBSERVED'){classification=runnerStatusState==='INVALID'?'INVALID_RUNNER_EVIDENCE':'EVIDENCE_INCOMPLETE';observationOutcome=runnerStatusState==='INVALID'?'FAIL':'NOT_OBTAINED';}
   else if(packet.signal||packet.abnormalExit){classification='PROCESS_ABNORMAL_EXIT';executionOutcome='FAIL';}
   else if(has('body.throw')){classification='STOP_DURING_BODY';executionOutcome='FAIL';}
   else if(packet.timeoutReported){
-    const decision=rows.findIndex(r=>r.event==='timeout.timer'||r.event==='timeout.resolve.elapsed'),bodyEnd=rows.findIndex(r=>r.event==='body.end');
-    classification=end&&decision>bodyEnd?'TIMEOUT_AFTER_BODY':begin&&decision>=0&&decision<bodyEnd?'TIMEOUT_REPORTED_DURING_BODY':!begin&&packet.preBodyFailureConfirmed&&has('pre-body.failure')?'STOP_BEFORE_BODY':'UNKNOWN';executionOutcome='FAIL';
+    classification=({'BEFORE_BODY_BEGIN':'TIMEOUT_BEFORE_BODY','BETWEEN_BODY_BEGIN_AND_END':'TIMEOUT_REPORTED_DURING_BODY','AFTER_BODY_END':'TIMEOUT_AFTER_BODY','AFTER_BODY_BEGIN':'TIMEOUT_REPORTED_AFTER_BODY_BEGIN'})[timeoutPosition]??(!begin&&packet.preBodyFailureConfirmed&&has('pre-body.failure')?'STOP_BEFORE_BODY':'UNKNOWN');
+    executionOutcome='FAIL';if(body.status==='NOT_OBTAINED')observationOutcome='NOT_OBTAINED';
   }
   else if(!begin&&packet.preBodyFailureConfirmed&&has('pre-body.failure')){classification='STOP_BEFORE_BODY';executionOutcome='FAIL';}
+  else if(runnerFailed){classification='RUNNER_FAILURE';executionOutcome='FAIL';}
   else if(packet.exitCode===0&&packet.runnerStatus==='PASS'&&begin&&end){classification='NORMAL_EXIT';executionOutcome='PASS';}
   else if(packet.mode==='OFF'&&packet.exitCode===0&&packet.runnerStatus==='PASS'&&interval(rows,'parent.launch.request','parent.exit.received').status==='OBSERVED'){classification='NORMAL_EXIT';executionOutcome='PASS';}
   else if(Number.isInteger(packet.exitCode)&&packet.exitCode!==0)executionOutcome='FAIL';
   if(classification==='UNKNOWN'&&body.status==='NOT_OBTAINED')observationOutcome='NOT_OBTAINED';
   const wallBeyondOriginalLimit=body.status==='OBSERVED'&&body.wallMs>=5000;
   const anomalies=wallBeyondOriginalLimit&&!packet.timeoutReported?['WALL_OVER_LIMIT_WITHOUT_TIMEOUT_REPORT']:[];
-  return {classification,bodyPosition,executionOutcome,observationOutcome,timeoutReported:packet.timeoutReported===true,timeoutMechanism:packet.timeoutReported&&has('timeout.timer')?'TIMER':packet.timeoutReported&&has('timeout.resolve.elapsed')?'RESOLUTION_ELAPSED_CHECK':'UNKNOWN',wallBeyondOriginalLimit,anomalies,actualExecution:'NOT_TESTED',bodyInterval:body};
+  return finish({classification,bodyPosition,bodyCompletion,timeoutPosition,timeoutDecisions,executionOutcome,observationOutcome,evidenceCompleteness,timeoutReported:packet.timeoutReported===true,timeoutMechanism:packet.timeoutReported&&timeoutDecisions[0]?.event==='timeout.timer'?'TIMER':packet.timeoutReported&&timeoutDecisions[0]?.event==='timeout.resolve.elapsed'?'RESOLUTION_ELAPSED_CHECK':'UNKNOWN',wallBeyondOriginalLimit,anomalies,bodyInterval:body});
 }
 export function assessProgress(bundle,simulation){
   const errors=[];const validation=validateDocuments(bundle);

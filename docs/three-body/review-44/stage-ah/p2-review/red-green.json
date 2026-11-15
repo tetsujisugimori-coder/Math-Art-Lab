@@ -1,0 +1,1695 @@
+{
+  "scope": "SYNTHETIC_CLASSIFICATION_ONLY",
+  "baselineHead": "9fb0b1d759b8558f6d3ee30cd607af12ea26f634",
+  "before": {
+    "RED": 12,
+    "BASELINE_PASS": 16,
+    "GREEN": 0,
+    "FAIL": 0
+  },
+  "after": {
+    "RED": 0,
+    "BASELINE_PASS": 0,
+    "GREEN": 28,
+    "FAIL": 0
+  },
+  "sameInputsAndExpectations": true,
+  "baselineNewFields": "NOT_APPLICABLE_NEW_INTERFACE",
+  "discardedDraft": "before.json / before-tests.json: DRAFT_EXPECTATION_ERROR_NOT_ACCEPTED_AS_RED_COUNT",
+  "contracts": {
+    "prior": 264,
+    "additional": 58,
+    "passed": 322,
+    "failed": 0
+  },
+  "rows": [
+    {
+      "id": "runner-fail-zero",
+      "issue": "P2-AH01",
+      "expectedCore": {
+        "executionOutcome": "FAIL"
+      },
+      "expectedNewFields": {
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [
+          "RUNNER_FAIL_WITH_ZERO_EXIT"
+        ],
+        "observationOutcome": "PASS",
+        "evidenceCompleteness": "COMPLETE"
+      },
+      "before": {
+        "classification": "UNKNOWN",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "PASS",
+        "timeoutReported": false,
+        "timeoutMechanism": "UNKNOWN",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "actualExecution": "NOT_TESTED",
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "beforeVerdict": "RED",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [
+          "RUNNER_FAIL_WITH_ZERO_EXIT"
+        ],
+        "timeoutPosition": "NOT_REPORTED",
+        "bodyCompletion": "COMPLETED",
+        "timeoutDecisions": [],
+        "evidenceCompleteness": "COMPLETE",
+        "actualExecution": "NOT_TESTED",
+        "classification": "RUNNER_FAILURE",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "PASS",
+        "timeoutReported": false,
+        "timeoutMechanism": "UNKNOWN",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "runner-fail-nonzero",
+      "issue": "P2-AH01",
+      "expectedCore": {
+        "executionOutcome": "FAIL",
+        "observationOutcome": "PASS"
+      },
+      "expectedNewFields": {
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [],
+        "evidenceCompleteness": "COMPLETE"
+      },
+      "before": {
+        "classification": "UNKNOWN",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "PASS",
+        "timeoutReported": false,
+        "timeoutMechanism": "UNKNOWN",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "actualExecution": "NOT_TESTED",
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "beforeVerdict": "BASELINE_PASS",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [],
+        "timeoutPosition": "NOT_REPORTED",
+        "bodyCompletion": "COMPLETED",
+        "timeoutDecisions": [],
+        "evidenceCompleteness": "COMPLETE",
+        "actualExecution": "NOT_TESTED",
+        "classification": "RUNNER_FAILURE",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "PASS",
+        "timeoutReported": false,
+        "timeoutMechanism": "UNKNOWN",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "runner-fail-monitor",
+      "issue": "P2-AH01",
+      "expectedCore": {
+        "executionOutcome": "FAIL",
+        "classification": "MONITOR_FAILURE",
+        "observationOutcome": "FAIL"
+      },
+      "expectedNewFields": {
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [
+          "RUNNER_FAIL_WITH_ZERO_EXIT"
+        ],
+        "evidenceCompleteness": "COMPLETE"
+      },
+      "before": {
+        "classification": "MONITOR_FAILURE",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "FAIL",
+        "timeoutReported": false,
+        "timeoutMechanism": "UNKNOWN",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "actualExecution": "NOT_TESTED",
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "beforeVerdict": "RED",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [
+          "RUNNER_FAIL_WITH_ZERO_EXIT"
+        ],
+        "timeoutPosition": "NOT_REPORTED",
+        "bodyCompletion": "COMPLETED",
+        "timeoutDecisions": [],
+        "evidenceCompleteness": "COMPLETE",
+        "actualExecution": "NOT_TESTED",
+        "classification": "MONITOR_FAILURE",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "FAIL",
+        "timeoutReported": false,
+        "timeoutMechanism": "UNKNOWN",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "runner-fail-save",
+      "issue": "P2-AH01",
+      "expectedCore": {
+        "executionOutcome": "FAIL",
+        "classification": "EVIDENCE_SAVE_FAILURE",
+        "observationOutcome": "FAIL"
+      },
+      "expectedNewFields": {
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [
+          "RUNNER_FAIL_WITH_ZERO_EXIT"
+        ],
+        "evidenceCompleteness": "EVIDENCE_INCOMPLETE"
+      },
+      "before": {
+        "classification": "EVIDENCE_SAVE_FAILURE",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "FAIL",
+        "timeoutReported": false,
+        "timeoutMechanism": "UNKNOWN",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "actualExecution": "NOT_TESTED",
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "beforeVerdict": "RED",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [
+          "RUNNER_FAIL_WITH_ZERO_EXIT"
+        ],
+        "timeoutPosition": "NOT_REPORTED",
+        "bodyCompletion": "COMPLETED",
+        "timeoutDecisions": [],
+        "evidenceCompleteness": "EVIDENCE_INCOMPLETE",
+        "actualExecution": "NOT_TESTED",
+        "classification": "EVIDENCE_SAVE_FAILURE",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "FAIL",
+        "timeoutReported": false,
+        "timeoutMechanism": "UNKNOWN",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "runner-fail-raw-missing",
+      "issue": "P2-AH01",
+      "expectedCore": {
+        "executionOutcome": "FAIL",
+        "classification": "EVIDENCE_INCOMPLETE",
+        "observationOutcome": "NOT_OBTAINED"
+      },
+      "expectedNewFields": {
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [
+          "RUNNER_FAIL_WITH_ZERO_EXIT"
+        ],
+        "evidenceCompleteness": "EVIDENCE_INCOMPLETE"
+      },
+      "before": {
+        "classification": "EVIDENCE_INCOMPLETE",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "NOT_OBTAINED",
+        "timeoutReported": false,
+        "timeoutMechanism": "UNKNOWN",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "actualExecution": "NOT_TESTED",
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "beforeVerdict": "RED",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [
+          "RUNNER_FAIL_WITH_ZERO_EXIT"
+        ],
+        "timeoutPosition": "NOT_REPORTED",
+        "bodyCompletion": "COMPLETED",
+        "timeoutDecisions": [],
+        "evidenceCompleteness": "EVIDENCE_INCOMPLETE",
+        "actualExecution": "NOT_TESTED",
+        "classification": "EVIDENCE_INCOMPLETE",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "NOT_OBTAINED",
+        "timeoutReported": false,
+        "timeoutMechanism": "UNKNOWN",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "runner-status-missing",
+      "issue": "P2-AH01",
+      "expectedCore": {
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "NOT_OBTAINED"
+      },
+      "expectedNewFields": {
+        "runnerStatusState": "NOT_OBTAINED",
+        "evidenceCompleteness": "EVIDENCE_INCOMPLETE"
+      },
+      "before": {
+        "classification": "UNKNOWN",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "PASS",
+        "timeoutReported": false,
+        "timeoutMechanism": "UNKNOWN",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "actualExecution": "NOT_TESTED",
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "beforeVerdict": "RED",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "NOT_OBTAINED",
+        "contradictions": [],
+        "timeoutPosition": "NOT_REPORTED",
+        "bodyCompletion": "COMPLETED",
+        "timeoutDecisions": [],
+        "evidenceCompleteness": "EVIDENCE_INCOMPLETE",
+        "actualExecution": "NOT_TESTED",
+        "classification": "EVIDENCE_INCOMPLETE",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "NOT_OBTAINED",
+        "timeoutReported": false,
+        "timeoutMechanism": "UNKNOWN",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "runner-status-null",
+      "issue": "P2-AH01",
+      "expectedCore": {
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "NOT_OBTAINED"
+      },
+      "expectedNewFields": {
+        "runnerStatusState": "NOT_OBTAINED",
+        "evidenceCompleteness": "EVIDENCE_INCOMPLETE"
+      },
+      "before": {
+        "classification": "UNKNOWN",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "PASS",
+        "timeoutReported": false,
+        "timeoutMechanism": "UNKNOWN",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "actualExecution": "NOT_TESTED",
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "beforeVerdict": "RED",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "NOT_OBTAINED",
+        "contradictions": [],
+        "timeoutPosition": "NOT_REPORTED",
+        "bodyCompletion": "COMPLETED",
+        "timeoutDecisions": [],
+        "evidenceCompleteness": "EVIDENCE_INCOMPLETE",
+        "actualExecution": "NOT_TESTED",
+        "classification": "EVIDENCE_INCOMPLETE",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "NOT_OBTAINED",
+        "timeoutReported": false,
+        "timeoutMechanism": "UNKNOWN",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "runner-status-invalid",
+      "issue": "P2-AH01",
+      "expectedCore": {
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "FAIL"
+      },
+      "expectedNewFields": {
+        "runnerStatusState": "INVALID",
+        "evidenceCompleteness": "INVALID"
+      },
+      "before": {
+        "classification": "UNKNOWN",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "PASS",
+        "timeoutReported": false,
+        "timeoutMechanism": "UNKNOWN",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "actualExecution": "NOT_TESTED",
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "beforeVerdict": "RED",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "INVALID",
+        "contradictions": [],
+        "timeoutPosition": "NOT_REPORTED",
+        "bodyCompletion": "COMPLETED",
+        "timeoutDecisions": [],
+        "evidenceCompleteness": "INVALID",
+        "actualExecution": "NOT_TESTED",
+        "classification": "INVALID_RUNNER_EVIDENCE",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "FAIL",
+        "timeoutReported": false,
+        "timeoutMechanism": "UNKNOWN",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "runner-pass",
+      "issue": "P2-AH01",
+      "expectedCore": {
+        "executionOutcome": "PASS",
+        "observationOutcome": "PASS",
+        "classification": "NORMAL_EXIT"
+      },
+      "expectedNewFields": {
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [],
+        "evidenceCompleteness": "COMPLETE"
+      },
+      "before": {
+        "classification": "NORMAL_EXIT",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "PASS",
+        "observationOutcome": "PASS",
+        "timeoutReported": false,
+        "timeoutMechanism": "UNKNOWN",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "actualExecution": "NOT_TESTED",
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "beforeVerdict": "BASELINE_PASS",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [],
+        "timeoutPosition": "NOT_REPORTED",
+        "bodyCompletion": "COMPLETED",
+        "timeoutDecisions": [],
+        "evidenceCompleteness": "COMPLETE",
+        "actualExecution": "NOT_TESTED",
+        "classification": "NORMAL_EXIT",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "PASS",
+        "observationOutcome": "PASS",
+        "timeoutReported": false,
+        "timeoutMechanism": "UNKNOWN",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "runner-pass-monitor",
+      "issue": "P2-AH01",
+      "expectedCore": {
+        "executionOutcome": "PASS",
+        "observationOutcome": "FAIL"
+      },
+      "expectedNewFields": {
+        "evidenceCompleteness": "COMPLETE"
+      },
+      "before": {
+        "classification": "MONITOR_FAILURE",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "PASS",
+        "observationOutcome": "FAIL",
+        "timeoutReported": false,
+        "timeoutMechanism": "UNKNOWN",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "actualExecution": "NOT_TESTED",
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "beforeVerdict": "BASELINE_PASS",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [],
+        "timeoutPosition": "NOT_REPORTED",
+        "bodyCompletion": "COMPLETED",
+        "timeoutDecisions": [],
+        "evidenceCompleteness": "COMPLETE",
+        "actualExecution": "NOT_TESTED",
+        "classification": "MONITOR_FAILURE",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "PASS",
+        "observationOutcome": "FAIL",
+        "timeoutReported": false,
+        "timeoutMechanism": "UNKNOWN",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "runner-fail-invalid-clock",
+      "issue": "P2-AH01",
+      "expectedCore": {
+        "executionOutcome": "FAIL",
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "observationOutcome": "FAIL"
+      },
+      "expectedNewFields": {
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [
+          "RUNNER_FAIL_WITH_ZERO_EXIT"
+        ],
+        "evidenceCompleteness": "INVALID"
+      },
+      "before": {
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "FAIL",
+        "reason": "EVENT_ORDER_OR_DOMAIN",
+        "actualExecution": "NOT_TESTED"
+      },
+      "beforeVerdict": "RED",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [
+          "RUNNER_FAIL_WITH_ZERO_EXIT"
+        ],
+        "timeoutPosition": "UNKNOWN",
+        "bodyCompletion": "UNKNOWN",
+        "timeoutDecisions": [],
+        "evidenceCompleteness": "INVALID",
+        "actualExecution": "NOT_TESTED",
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "FAIL",
+        "reason": "EVENT_ORDER_OR_DOMAIN"
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "timeout-before-begin",
+      "issue": "P2-AH02",
+      "expectedCore": {
+        "classification": "TIMEOUT_BEFORE_BODY",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "PASS"
+      },
+      "expectedNewFields": {
+        "timeoutPosition": "BEFORE_BODY_BEGIN",
+        "bodyCompletion": "COMPLETED",
+        "evidenceCompleteness": "COMPLETE"
+      },
+      "before": {
+        "classification": "TIMEOUT_REPORTED_DURING_BODY",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "PASS",
+        "timeoutReported": true,
+        "timeoutMechanism": "TIMER",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "actualExecution": "NOT_TESTED",
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "beforeVerdict": "RED",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [],
+        "timeoutPosition": "BEFORE_BODY_BEGIN",
+        "bodyCompletion": "COMPLETED",
+        "timeoutDecisions": [
+          {
+            "event": "timeout.timer",
+            "seq": 5,
+            "position": "BEFORE_BODY_BEGIN"
+          }
+        ],
+        "evidenceCompleteness": "COMPLETE",
+        "actualExecution": "NOT_TESTED",
+        "classification": "TIMEOUT_BEFORE_BODY",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "PASS",
+        "timeoutReported": true,
+        "timeoutMechanism": "TIMER",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "timeout-between",
+      "issue": "P2-AH02",
+      "expectedCore": {
+        "classification": "TIMEOUT_REPORTED_DURING_BODY",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "PASS"
+      },
+      "expectedNewFields": {
+        "timeoutPosition": "BETWEEN_BODY_BEGIN_AND_END",
+        "bodyCompletion": "COMPLETED",
+        "evidenceCompleteness": "COMPLETE"
+      },
+      "before": {
+        "classification": "TIMEOUT_REPORTED_DURING_BODY",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "PASS",
+        "timeoutReported": true,
+        "timeoutMechanism": "TIMER",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "actualExecution": "NOT_TESTED",
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "beforeVerdict": "BASELINE_PASS",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [],
+        "timeoutPosition": "BETWEEN_BODY_BEGIN_AND_END",
+        "bodyCompletion": "COMPLETED",
+        "timeoutDecisions": [
+          {
+            "event": "timeout.timer",
+            "seq": 15,
+            "position": "BETWEEN_BODY_BEGIN_AND_END"
+          }
+        ],
+        "evidenceCompleteness": "COMPLETE",
+        "actualExecution": "NOT_TESTED",
+        "classification": "TIMEOUT_REPORTED_DURING_BODY",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "PASS",
+        "timeoutReported": true,
+        "timeoutMechanism": "TIMER",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "timeout-after-end",
+      "issue": "P2-AH02",
+      "expectedCore": {
+        "classification": "TIMEOUT_AFTER_BODY",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "PASS"
+      },
+      "expectedNewFields": {
+        "timeoutPosition": "AFTER_BODY_END",
+        "bodyCompletion": "COMPLETED",
+        "evidenceCompleteness": "COMPLETE"
+      },
+      "before": {
+        "classification": "TIMEOUT_AFTER_BODY",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "PASS",
+        "timeoutReported": true,
+        "timeoutMechanism": "RESOLUTION_ELAPSED_CHECK",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "actualExecution": "NOT_TESTED",
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "beforeVerdict": "BASELINE_PASS",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [],
+        "timeoutPosition": "AFTER_BODY_END",
+        "bodyCompletion": "COMPLETED",
+        "timeoutDecisions": [
+          {
+            "event": "timeout.resolve.elapsed",
+            "seq": 25,
+            "position": "AFTER_BODY_END"
+          }
+        ],
+        "evidenceCompleteness": "COMPLETE",
+        "actualExecution": "NOT_TESTED",
+        "classification": "TIMEOUT_AFTER_BODY",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "PASS",
+        "timeoutReported": true,
+        "timeoutMechanism": "RESOLUTION_ELAPSED_CHECK",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "timeout-after-begin-end-missing",
+      "issue": "P2-AH02",
+      "expectedCore": {
+        "classification": "TIMEOUT_REPORTED_AFTER_BODY_BEGIN",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "NOT_OBTAINED"
+      },
+      "expectedNewFields": {
+        "timeoutPosition": "AFTER_BODY_BEGIN",
+        "bodyCompletion": "UNKNOWN",
+        "evidenceCompleteness": "EVIDENCE_INCOMPLETE"
+      },
+      "before": {
+        "classification": "UNKNOWN",
+        "bodyPosition": "BODY_IN_PROGRESS_AT_LAST_EVENT",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "NOT_OBTAINED",
+        "timeoutReported": true,
+        "timeoutMechanism": "TIMER",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "actualExecution": "NOT_TESTED",
+        "bodyInterval": {
+          "status": "NOT_OBTAINED"
+        }
+      },
+      "beforeVerdict": "RED",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [],
+        "timeoutPosition": "AFTER_BODY_BEGIN",
+        "bodyCompletion": "UNKNOWN",
+        "timeoutDecisions": [
+          {
+            "event": "timeout.timer",
+            "seq": 15,
+            "position": "AFTER_BODY_BEGIN"
+          }
+        ],
+        "evidenceCompleteness": "EVIDENCE_INCOMPLETE",
+        "actualExecution": "NOT_TESTED",
+        "classification": "TIMEOUT_REPORTED_AFTER_BODY_BEGIN",
+        "bodyPosition": "BODY_IN_PROGRESS_AT_LAST_EVENT",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "NOT_OBTAINED",
+        "timeoutReported": true,
+        "timeoutMechanism": "TIMER",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "bodyInterval": {
+          "status": "NOT_OBTAINED"
+        }
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "timeout-decision-missing",
+      "issue": "P2-AH02",
+      "expectedCore": {
+        "classification": "UNKNOWN",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "NOT_OBTAINED"
+      },
+      "expectedNewFields": {
+        "timeoutPosition": "NOT_OBTAINED",
+        "bodyCompletion": "UNKNOWN",
+        "evidenceCompleteness": "EVIDENCE_INCOMPLETE"
+      },
+      "before": {
+        "classification": "UNKNOWN",
+        "bodyPosition": "BODY_IN_PROGRESS_AT_LAST_EVENT",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "NOT_OBTAINED",
+        "timeoutReported": true,
+        "timeoutMechanism": "UNKNOWN",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "actualExecution": "NOT_TESTED",
+        "bodyInterval": {
+          "status": "NOT_OBTAINED"
+        }
+      },
+      "beforeVerdict": "BASELINE_PASS",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [],
+        "timeoutPosition": "NOT_OBTAINED",
+        "bodyCompletion": "UNKNOWN",
+        "timeoutDecisions": [],
+        "evidenceCompleteness": "EVIDENCE_INCOMPLETE",
+        "actualExecution": "NOT_TESTED",
+        "classification": "UNKNOWN",
+        "bodyPosition": "BODY_IN_PROGRESS_AT_LAST_EVENT",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "NOT_OBTAINED",
+        "timeoutReported": true,
+        "timeoutMechanism": "UNKNOWN",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "bodyInterval": {
+          "status": "NOT_OBTAINED"
+        }
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "body-begin-missing",
+      "issue": "P2-AH02",
+      "expectedCore": {
+        "classification": "UNKNOWN",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "NOT_OBTAINED"
+      },
+      "expectedNewFields": {
+        "timeoutPosition": "UNKNOWN",
+        "bodyCompletion": "NOT_OBTAINED",
+        "evidenceCompleteness": "EVIDENCE_INCOMPLETE"
+      },
+      "before": {
+        "classification": "UNKNOWN",
+        "bodyPosition": "BEFORE_BODY",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "NOT_OBTAINED",
+        "timeoutReported": true,
+        "timeoutMechanism": "TIMER",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "actualExecution": "NOT_TESTED",
+        "bodyInterval": {
+          "status": "NOT_OBTAINED"
+        }
+      },
+      "beforeVerdict": "BASELINE_PASS",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [],
+        "timeoutPosition": "UNKNOWN",
+        "bodyCompletion": "NOT_OBTAINED",
+        "timeoutDecisions": [
+          {
+            "event": "timeout.timer",
+            "seq": 15,
+            "position": "UNKNOWN"
+          }
+        ],
+        "evidenceCompleteness": "EVIDENCE_INCOMPLETE",
+        "actualExecution": "NOT_TESTED",
+        "classification": "UNKNOWN",
+        "bodyPosition": "NOT_OBTAINED",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "NOT_OBTAINED",
+        "timeoutReported": true,
+        "timeoutMechanism": "TIMER",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "bodyInterval": {
+          "status": "NOT_OBTAINED"
+        }
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "end-without-begin",
+      "issue": "P2-AH02",
+      "expectedCore": {
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "observationOutcome": "FAIL"
+      },
+      "expectedNewFields": {
+        "executionOutcome": "UNKNOWN",
+        "timeoutPosition": "UNKNOWN",
+        "bodyCompletion": "UNKNOWN",
+        "evidenceCompleteness": "INVALID"
+      },
+      "before": {
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "FAIL",
+        "reason": "BODY_EVENT_ORDER",
+        "actualExecution": "NOT_TESTED"
+      },
+      "beforeVerdict": "BASELINE_PASS",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [],
+        "timeoutPosition": "UNKNOWN",
+        "bodyCompletion": "UNKNOWN",
+        "timeoutDecisions": [],
+        "evidenceCompleteness": "INVALID",
+        "actualExecution": "NOT_TESTED",
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "FAIL",
+        "reason": "BODY_EVENT_ORDER"
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "duplicate-begin",
+      "issue": "P2-AH02",
+      "expectedCore": {
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "observationOutcome": "FAIL"
+      },
+      "expectedNewFields": {
+        "executionOutcome": "UNKNOWN",
+        "timeoutPosition": "UNKNOWN",
+        "bodyCompletion": "UNKNOWN",
+        "evidenceCompleteness": "INVALID"
+      },
+      "before": {
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "FAIL",
+        "reason": "BODY_EVENT_ORDER",
+        "actualExecution": "NOT_TESTED"
+      },
+      "beforeVerdict": "BASELINE_PASS",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [],
+        "timeoutPosition": "UNKNOWN",
+        "bodyCompletion": "UNKNOWN",
+        "timeoutDecisions": [],
+        "evidenceCompleteness": "INVALID",
+        "actualExecution": "NOT_TESTED",
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "FAIL",
+        "reason": "BODY_EVENT_ORDER"
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "duplicate-end",
+      "issue": "P2-AH02",
+      "expectedCore": {
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "observationOutcome": "FAIL"
+      },
+      "expectedNewFields": {
+        "executionOutcome": "UNKNOWN",
+        "timeoutPosition": "UNKNOWN",
+        "bodyCompletion": "UNKNOWN",
+        "evidenceCompleteness": "INVALID"
+      },
+      "before": {
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "FAIL",
+        "reason": "BODY_EVENT_ORDER",
+        "actualExecution": "NOT_TESTED"
+      },
+      "beforeVerdict": "BASELINE_PASS",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [],
+        "timeoutPosition": "UNKNOWN",
+        "bodyCompletion": "UNKNOWN",
+        "timeoutDecisions": [],
+        "evidenceCompleteness": "INVALID",
+        "actualExecution": "NOT_TESTED",
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "FAIL",
+        "reason": "BODY_EVENT_ORDER"
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "duplicate-timeout",
+      "issue": "P2-AH02",
+      "expectedCore": {
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "observationOutcome": "FAIL"
+      },
+      "expectedNewFields": {
+        "executionOutcome": "UNKNOWN",
+        "timeoutPosition": "UNKNOWN",
+        "bodyCompletion": "UNKNOWN",
+        "evidenceCompleteness": "INVALID"
+      },
+      "before": {
+        "classification": "TIMEOUT_REPORTED_DURING_BODY",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "PASS",
+        "timeoutReported": true,
+        "timeoutMechanism": "TIMER",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "actualExecution": "NOT_TESTED",
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "beforeVerdict": "RED",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [],
+        "timeoutPosition": "UNKNOWN",
+        "bodyCompletion": "UNKNOWN",
+        "timeoutDecisions": [],
+        "evidenceCompleteness": "INVALID",
+        "actualExecution": "NOT_TESTED",
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "FAIL",
+        "reason": "DUPLICATE_TIMEOUT_DECISION"
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "reversed",
+      "issue": "P2-AH02",
+      "expectedCore": {
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "observationOutcome": "FAIL"
+      },
+      "expectedNewFields": {
+        "executionOutcome": "UNKNOWN",
+        "timeoutPosition": "UNKNOWN",
+        "bodyCompletion": "UNKNOWN",
+        "evidenceCompleteness": "INVALID"
+      },
+      "before": {
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "FAIL",
+        "reason": "EVENT_ORDER_OR_DOMAIN",
+        "actualExecution": "NOT_TESTED"
+      },
+      "beforeVerdict": "BASELINE_PASS",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [],
+        "timeoutPosition": "UNKNOWN",
+        "bodyCompletion": "UNKNOWN",
+        "timeoutDecisions": [],
+        "evidenceCompleteness": "INVALID",
+        "actualExecution": "NOT_TESTED",
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "FAIL",
+        "reason": "EVENT_ORDER_OR_DOMAIN"
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "foreign-trial",
+      "issue": "P2-AH02",
+      "expectedCore": {
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "observationOutcome": "FAIL"
+      },
+      "expectedNewFields": {
+        "executionOutcome": "UNKNOWN",
+        "timeoutPosition": "UNKNOWN",
+        "bodyCompletion": "UNKNOWN",
+        "evidenceCompleteness": "INVALID"
+      },
+      "before": {
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "FAIL",
+        "reason": "EVENT_IDENTITY",
+        "actualExecution": "NOT_TESTED"
+      },
+      "beforeVerdict": "BASELINE_PASS",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [],
+        "timeoutPosition": "UNKNOWN",
+        "bodyCompletion": "UNKNOWN",
+        "timeoutDecisions": [],
+        "evidenceCompleteness": "INVALID",
+        "actualExecution": "NOT_TESTED",
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "FAIL",
+        "reason": "EVENT_IDENTITY"
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "foreign-pid",
+      "issue": "P2-AH02",
+      "expectedCore": {
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "observationOutcome": "FAIL"
+      },
+      "expectedNewFields": {
+        "executionOutcome": "UNKNOWN",
+        "timeoutPosition": "UNKNOWN",
+        "bodyCompletion": "UNKNOWN",
+        "evidenceCompleteness": "INVALID"
+      },
+      "before": {
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "FAIL",
+        "reason": "EVENT_ORDER_OR_DOMAIN",
+        "actualExecution": "NOT_TESTED"
+      },
+      "beforeVerdict": "BASELINE_PASS",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [],
+        "timeoutPosition": "UNKNOWN",
+        "bodyCompletion": "UNKNOWN",
+        "timeoutDecisions": [],
+        "evidenceCompleteness": "INVALID",
+        "actualExecution": "NOT_TESTED",
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "FAIL",
+        "reason": "EVENT_ORDER_OR_DOMAIN"
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "foreign-tid",
+      "issue": "P2-AH02",
+      "expectedCore": {
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "observationOutcome": "FAIL"
+      },
+      "expectedNewFields": {
+        "executionOutcome": "UNKNOWN",
+        "timeoutPosition": "UNKNOWN",
+        "bodyCompletion": "UNKNOWN",
+        "evidenceCompleteness": "INVALID"
+      },
+      "before": {
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "FAIL",
+        "reason": "EVENT_ORDER_OR_DOMAIN",
+        "actualExecution": "NOT_TESTED"
+      },
+      "beforeVerdict": "BASELINE_PASS",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [],
+        "timeoutPosition": "UNKNOWN",
+        "bodyCompletion": "UNKNOWN",
+        "timeoutDecisions": [],
+        "evidenceCompleteness": "INVALID",
+        "actualExecution": "NOT_TESTED",
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "FAIL",
+        "reason": "EVENT_ORDER_OR_DOMAIN"
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "foreign-clock",
+      "issue": "P2-AH02",
+      "expectedCore": {
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "observationOutcome": "FAIL"
+      },
+      "expectedNewFields": {
+        "executionOutcome": "UNKNOWN",
+        "timeoutPosition": "UNKNOWN",
+        "bodyCompletion": "UNKNOWN",
+        "evidenceCompleteness": "INVALID"
+      },
+      "before": {
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "FAIL",
+        "reason": "EVENT_SCHEMA_OR_OWNER",
+        "actualExecution": "NOT_TESTED"
+      },
+      "beforeVerdict": "BASELINE_PASS",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [],
+        "timeoutPosition": "UNKNOWN",
+        "bodyCompletion": "UNKNOWN",
+        "timeoutDecisions": [],
+        "evidenceCompleteness": "INVALID",
+        "actualExecution": "NOT_TESTED",
+        "classification": "INVALID_CLOCK_EVIDENCE",
+        "executionOutcome": "UNKNOWN",
+        "observationOutcome": "FAIL",
+        "reason": "EVENT_SCHEMA_OR_OWNER"
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "two-decisions-first-before",
+      "issue": "P2-AH02",
+      "expectedCore": {
+        "classification": "TIMEOUT_BEFORE_BODY",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "PASS"
+      },
+      "expectedNewFields": {
+        "timeoutPosition": "BEFORE_BODY_BEGIN",
+        "bodyCompletion": "COMPLETED",
+        "evidenceCompleteness": "COMPLETE"
+      },
+      "before": {
+        "classification": "TIMEOUT_REPORTED_DURING_BODY",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "PASS",
+        "timeoutReported": true,
+        "timeoutMechanism": "TIMER",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "actualExecution": "NOT_TESTED",
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "beforeVerdict": "RED",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [],
+        "timeoutPosition": "BEFORE_BODY_BEGIN",
+        "bodyCompletion": "COMPLETED",
+        "timeoutDecisions": [
+          {
+            "event": "timeout.timer",
+            "seq": 5,
+            "position": "BEFORE_BODY_BEGIN"
+          },
+          {
+            "event": "timeout.resolve.elapsed",
+            "seq": 25,
+            "position": "AFTER_BODY_END"
+          }
+        ],
+        "evidenceCompleteness": "COMPLETE",
+        "actualExecution": "NOT_TESTED",
+        "classification": "TIMEOUT_BEFORE_BODY",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "PASS",
+        "timeoutReported": true,
+        "timeoutMechanism": "TIMER",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "afterVerdict": "GREEN"
+    },
+    {
+      "id": "two-decisions-first-during",
+      "issue": "P2-AH02",
+      "expectedCore": {
+        "classification": "TIMEOUT_REPORTED_DURING_BODY",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "PASS"
+      },
+      "expectedNewFields": {
+        "timeoutPosition": "BETWEEN_BODY_BEGIN_AND_END",
+        "bodyCompletion": "COMPLETED",
+        "evidenceCompleteness": "COMPLETE"
+      },
+      "before": {
+        "classification": "TIMEOUT_REPORTED_DURING_BODY",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "PASS",
+        "timeoutReported": true,
+        "timeoutMechanism": "TIMER",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "actualExecution": "NOT_TESTED",
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "beforeVerdict": "BASELINE_PASS",
+      "after": {
+        "classificationVersion": "ah-p2-classification-1",
+        "runnerStatusState": "OBSERVED",
+        "contradictions": [],
+        "timeoutPosition": "BETWEEN_BODY_BEGIN_AND_END",
+        "bodyCompletion": "COMPLETED",
+        "timeoutDecisions": [
+          {
+            "event": "timeout.timer",
+            "seq": 15,
+            "position": "BETWEEN_BODY_BEGIN_AND_END"
+          },
+          {
+            "event": "timeout.resolve.elapsed",
+            "seq": 25,
+            "position": "AFTER_BODY_END"
+          }
+        ],
+        "evidenceCompleteness": "COMPLETE",
+        "actualExecution": "NOT_TESTED",
+        "classification": "TIMEOUT_REPORTED_DURING_BODY",
+        "bodyPosition": "AFTER_BODY",
+        "executionOutcome": "FAIL",
+        "observationOutcome": "PASS",
+        "timeoutReported": true,
+        "timeoutMechanism": "TIMER",
+        "wallBeyondOriginalLimit": false,
+        "anomalies": [],
+        "bodyInterval": {
+          "status": "OBSERVED",
+          "wallMs": 10,
+          "wallUnit": "ms",
+          "processCpuUs": {
+            "user": 1000,
+            "system": 0
+          },
+          "processCpuStatus": "OBSERVED",
+          "threadCpuUs": null,
+          "threadCpuStatus": "NOT_OBTAINED",
+          "scope": "Same pid/tid only; not a decomposition or cross-process subtraction"
+        }
+      },
+      "afterVerdict": "GREEN"
+    }
+  ],
+  "actualExecution": "NOT_TESTED",
+  "measurements": 0
+}
