@@ -2,7 +2,7 @@ import {it,expect} from 'vitest';
 import fs from 'node:fs';import os from 'node:os';import path from 'node:path';
 import {validateResult,bodyBits,analyze} from '../tools/three-body-stage-ae-analyze.mjs';
 import {interval} from '../tools/three-body-stage-ae-observer.mjs';
-import {plans} from '../tools/three-body-stage-ae-run.mjs';
+import {plans,validatePlan} from '../tools/three-body-stage-ae-run.mjs';
 import {categoryCalls,wallTolerance} from '../tools/three-body-stage-af-timing.mjs';
 import {runtimeReceipt,runtimeIdentity,digest,json} from '../tools/three-body-stage-af-records.mjs';
 import {createIndex,audit} from '../tools/three-body-stage-af-audit.mjs';
@@ -19,9 +19,9 @@ function fixture(runtime=false) {
   const contract={success:true,numFailedTests:0,numPassedTests:29};save(root,'preflight-contract.json',contract);
   fs.writeFileSync(root+'/source.txt','mock source');
   const sources=[{file:'source.txt',snapshot:'source.txt',bytes:11,sha256:digest('mock source'),head:'a'.repeat(40),tree:'b'.repeat(40)}];
-  const manifest={head:'a'.repeat(40),tree:'b'.repeat(40),rows:sources,sourceSetSha256:digest(JSON.stringify(sources)),bundle:{bytes:11,sha256:digest('mock bundle')},bootstrapSha256:digest('mock bootstrap')};
+  const manifest={...(runtime?{runtimeBinding:'af-runtime-1'}:{}),head:'a'.repeat(40),tree:'b'.repeat(40),rows:sources,sourceSetSha256:digest(JSON.stringify(sources)),bundle:{bytes:11,sha256:digest('mock bundle')},bootstrapSha256:digest('mock bootstrap')};
   save(root,'source-manifest.json',manifest);
-  save(root,'run-plan.json',{schema:'ae-fixed-4-1',plans,timeout:30000,sourceSetSha256:manifest.sourceSetSha256,bundleSha256:manifest.bundle.sha256,bootstrapSha256:manifest.bootstrapSha256,manifestSha256:digest(fs.readFileSync(root+'/source-manifest.json')),contractSha256:digest(fs.readFileSync(root+'/preflight-contract.json')),executionAuthorized:false,browserLaunches:0,gateAudit:'PASS'});
+  save(root,'run-plan.json',{schema:'ae-fixed-4-1',...(runtime?{runtimeBinding:'af-runtime-1'}:{}),plans,timeout:30000,sourceSetSha256:manifest.sourceSetSha256,bundleSha256:manifest.bundle.sha256,bootstrapSha256:manifest.bootstrapSha256,manifestSha256:digest(fs.readFileSync(root+'/source-manifest.json')),contractSha256:digest(fs.readFileSync(root+'/preflight-contract.json')),executionAuthorized:false,browserLaunches:0,gateAudit:'PASS'});
   const rows=[];
   for(const [i,p] of plans.entries()) {
     save(root,p.id+'.result.json',{...(runtime?{id:p.id}:{}),...result(p.mode,i+1)});
@@ -77,3 +77,23 @@ it.each(Object.keys(faults))('rejects P3 copied evidence fault %s',kind=>{const 
 it('rejects summary-only alteration',()=>{const root=fixture();try{const index=createIndex(root),summary=analyze(root);summary.rows[0].numericalHash='forged';expect(audit(root,index,summary).errors).toContain('SUMMARY_MISMATCH');}finally{fs.rmSync(root,{recursive:true});}});
 it('requires final summary, verifies saved raw bytes, and rejects forged resealed summary',()=>{const root=fixture(),out=root+'/report';try{expect(audit(root,createIndex(root)).status).toBe('FAIL');expect(captureReport(root,out).status).toBe('PASS');fs.writeFileSync(out+'/summary.json','{"status":"PASS","rows":[]}');expect(verifyReport(root,out).status).toBe('FAIL');const index=json(out,'audit-index.json'),b=fs.readFileSync(out+'/summary.json');index.summary={file:'summary.json',bytes:b.length,sha256:digest(b)};save(out,'audit-index.json',index);expect(verifyReport(root,out).errors).toContain('SUMMARY_MISMATCH');}finally{fs.rmSync(root,{recursive:true});}});
 it.each(['runtimeHead','runtimeTree','id','mode','checkpoint','head','tree','sourceSetSha256','bundleSha256','result','clock','plan'])('independently rejects runtime receipt contradiction %s after posthoc reseal',key=>{const root=fixture(true);try{const c=json(root,'cohort.json');c.rows[0].runtimeReceipt[key]='forged';save(root,'cohort.json',c);for(let i=1;i<=4;i++)save(root,`checkpoint-${i}.json`,c.rows.slice(0,i));expect(audit(root,createIndex(root),analyze(root)).errors).toContain('RUNTIME_BINDING:ae-A1');}finally{fs.rmSync(root,{recursive:true});}});
+it.each(['raw-identity','manifest-contract'])('rejects missing future receipts at first audit: %s',kind=>{
+  const root=fixture(kind==='raw-identity');
+  try {
+    const c=json(root,'cohort.json');
+    c.rows.forEach(r=>delete r.runtimeReceipt);
+    save(root,'cohort.json',c);
+    for(let i=1;i<=4;i++)save(root,`checkpoint-${i}.json`,c.rows.slice(0,i));
+    if(kind==='manifest-contract'){
+      const m=json(root,'source-manifest.json'),p=json(root,'run-plan.json');
+      m.runtimeBinding='af-runtime-1';save(root,'source-manifest.json',m);
+      p.runtimeBinding='af-runtime-1';p.manifestSha256=digest(fs.readFileSync(root+'/source-manifest.json'));save(root,'run-plan.json',p);
+    }
+    const a=audit(root,createIndex(root),analyze(root));
+    expect(a.status).toBe('FAIL');
+    for(const p of plans)expect(a.errors).toContain('RUNTIME_RECEIPT_NOT_OBTAINED:'+p.id);
+    expect(a.rows.every(r=>r.runtimeAttribution==='NOT_OBTAINED')).toBe(true);
+  }finally{fs.rmSync(root,{recursive:true});}
+});
+
+it('requires matching supported future runtime contracts in fixed plan',()=>{const root=fixture(true);try{const p=json(root,'run-plan.json'),m=json(root,'source-manifest.json'),c=json(root,'preflight-contract.json');expect(validatePlan(p,m,c)).toBe(true);for(const runtimeBinding of [undefined,null,'unknown'])expect(validatePlan({...p,runtimeBinding},m,c)).toBe(false);expect(validatePlan(p,{...m,runtimeBinding:'unknown'},c)).toBe(false);}finally{fs.rmSync(root,{recursive:true});}});

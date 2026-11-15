@@ -46,6 +46,8 @@ export function audit(root,index,summary) {
       check(clocks.every((x,j)=>Number.isFinite(x.at)&&x.clock==='performance.now'&&x.pid===run.pid&&x.pid===r.start.pid&&(!j||x.at>=clocks[j-1].at)),'CLOCK_DOMAIN:'+plan.id);
       check(clocks[2].at<=r.start.at&&r.end.at<=clocks[3].at,'CLOCK_BODY:'+plan.id);
       let runtimeAttribution='NOT_OBTAINED';
+      const receiptRequired=m.runtimeBinding==='af-runtime-1'||p.runtimeBinding==='af-runtime-1'||Object.hasOwn(r,'id')||clocks.some(x=>Object.hasOwn(x,'id')||Object.hasOwn(x,'mode'));
+      check(!receiptRequired||Object.hasOwn(run,'runtimeReceipt'),'RUNTIME_RECEIPT_NOT_OBTAINED:'+plan.id);
       if(Object.hasOwn(run,'runtimeReceipt')) {
         const rawIdentity=r.id===plan.id&&clocks.every(x=>x.id===plan.id&&x.mode===plan.mode);
         check(rawIdentity,'RUNTIME_RAW_ID_MODE:'+plan.id);

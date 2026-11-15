@@ -31,3 +31,7 @@ N. 根本原因UNKNOWN、改善率NOT_TESTED、過去実行時帰属NOT_OBTAINED
 O. 既存PR44とIssue43へUTF-8原文を投稿、API応答と再取得本文を照合する。指摘はreview5910307815の本文内2件なので、指摘別の対応返信を既存PR conversationへ投稿する。
 
 P. PR44 Draft維持、Issue43 OPEN、マージ推奨NOで停止。
+
+2026-11-15 21:17 JST 追加独立検証：開始時HEADは既存Stage AFコミット `7ed29986bfc987636a2de97a234be35c7ccbd345`（tree `72e65d1842e7c4c62185083121333c17823c5fef`）でGitHubと一致、作業差分なし。指定AE基準の後続差分を確認して保持した。
+
+独立レビューで将来形式のreceipt全欠落を初回監査が過去形式として受理する漏れを検出。新manifestと固定計画のruntimeBinding宣言、runnerの必須契約、新原票ID/modeを含む監査のreceipt必須検査を追加。追加2反例は修正前RED 2誤受理→修正後GREEN、AE/AF契約134/134成功。旧原票・旧RED/GREENは上書きしない。追加結果はreceipt-regression.json。型検査・build成功（既存chunk警告）、正常4原票の再照合PASS、既存Windows領域1,189ファイル/20,268,273 bytesの別process再照合PASS。新規計測0。追加差分source一覧・検証記録・投稿原文と最終CIは専用追加領域に保全する。
