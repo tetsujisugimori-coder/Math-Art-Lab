@@ -1,6 +1,6 @@
 # Stage AG 検証結果
 
-ローカル最終候補は専用configで177/177成功：AE44、AE evidence23、AF67の既存134件と、AG43件。原`three-body.test.ts`はinclude対象外。新しいsource/claims故障25件と保存原票コピー4件を全拒否、正常static/historical対照を受理。故障注入はmemoryまたは隔離コピーのみ。追加測定0。
+ローカル最終候補は専用configで178/178成功：AE44、AE evidence23、AF67の既存134件と、AG44件。原`three-body.test.ts`はinclude対象外。新しいsource/claims故障25件と保存原票コピー4件を全拒否、正常static/historical対照を受理。故障注入はmemoryまたは隔離コピーのみ。追加測定0。
 
 初期164件成功→W/X状態検証追加で165件成功→独立レビュー3指摘のRED（0成功/3失敗）を保存→修正後168件成功→個別metadata/proof/状態検査を加え177件成功。これは実装追加によるmock回帰であり、性能試行のretryではない。初期正常系で引用符canonical化差によりFAILを観測し修正した記録も保存し、誤PASSのREDとは区別する。
 
@@ -13,3 +13,5 @@ RED/GREENの詳細は[red-green.json](red-green.json)。旧抽出関数のガー
 保存済み4試行の再解析は`historical-final.json`に別保存。AEの実行/観測PASSと現在のPOSTHOC照合PASSは別属性であり、runtime NOT_OBTAINEDを変更しない。旧W/Xログは[prior-evidence.json](prior-evidence.json)に内容と取得元descriptorを結び、W BLOCKED、X FAIL、欠落INDEX_MISSINGを保持する。ログの後続importを旧原本の完全取得とは称さない。
 
 2026-11-15 22:00 JST
+
+????CI?3e3a230??success4/failure4/skip7?W/X?????????raw descriptor???????Pages?AE???????????????????rawBase64?size/SHA???checkout?????????????????LF checkout?????raw???????????178????workflow????????commit???CI??????

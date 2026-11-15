@@ -17,7 +17,7 @@
   },
   "green": {
     "success": true,
-    "passed": 177,
+    "passed": 178,
     "failed": 0,
     "suites": [
       {
@@ -34,7 +34,7 @@
       },
       {
         "name": "three-body-stage-ag.test.js",
-        "tests": 43
+        "tests": 44
       }
     ]
   },
@@ -554,5 +554,40 @@
   ],
   "newMeasurements": 0,
   "runtimeAttribution": "NOT_OBTAINED",
-  "timeComparison": "NOT_COMPARABLE"
+  "timeComparison": "NOT_COMPARABLE",
+  "greenBeforeCheckoutFix": {
+    "success": true,
+    "passed": 177,
+    "failed": 0,
+    "suites": [
+      {
+        "name": "three-body-stage-ae-evidence.test.js",
+        "tests": 23
+      },
+      {
+        "name": "three-body-stage-ae.test.js",
+        "tests": 44
+      },
+      {
+        "name": "three-body-stage-af.test.js",
+        "tests": 67
+      },
+      {
+        "name": "three-body-stage-ag.test.js",
+        "tests": 43
+      }
+    ]
+  },
+  "initialFormalCI": {
+    "head": "3e3a230f156a4029368e39ba5441f2b8413eb083",
+    "success": 4,
+    "failure": 4,
+    "skipped": 7,
+    "newFailures": [
+      "Pages:931 PASS/1 AG normal-control FAIL",
+      "AE:176 PASS/1 AG normal-control FAIL"
+    ],
+    "reason": "Recorded raw source mixed line endings cannot be reconstructed from LF/CRLF candidates; preserved rawBase64 now checked separately from checkout logical identity",
+    "manualRerun": false
+  }
 }

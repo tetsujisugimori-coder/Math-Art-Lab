@@ -12,7 +12,7 @@ E. 原body/RMSのAST対応、wrapper引数/戻り値/副作用、referenceの2co
 
 F. collection、TS変換、module範囲、worker/setup、expect context、cleanup、5000/30000msはDIFFERENT。native/OSはUNKNOWN、原Vitestの対応区間・歴史runtimeはNOT_OBTAINED。実時間NOT_COMPARABLE。
 
-G. 25 source/claims反例と4原票コピーを拒否。独立レビュー3反例RED→GREENを保存。AE/AF134+AG43=177成功。旧extractのみの限定REDは新AGのREDと区別する。
+G. 25 source/claims反例と4原票コピーを拒否。独立レビュー3反例RED→GREENを保存。AE/AF134+AG44=177成功。旧extractのみの限定REDは新AGのREDと区別する。
 
 H. 既存4件のみread-only再解析。body wall 1392.0457/3163.9133/3172.9999/1415.4547 msは過去原票の値。新しい測定値ではない。4件のbit/reference bit/history/count/実行・観測statusを確認。runtime NOT_OBTAINED、POSTHOC_VERIFIED。
 
@@ -33,3 +33,5 @@ O. bundle派生再build、過去worker実設定、Node native/OS全面束縛は�
 P. 既存PR44/Issue43へUTF-8原文を投稿し、API応答と再取得本文の全文一致を検証・保全する。Draft維持、auto-merge無効、mergeなし。
 
 2026-11-15 22:00 JST
+
+????CI?3e3a230??success4/failure4/skip7?W/X?????????raw descriptor???????Pages?AE???????????????????rawBase64?size/SHA???checkout?????????????????LF checkout?????raw???????????178????workflow????????commit???CI??????

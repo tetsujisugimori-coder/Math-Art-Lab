@@ -21,10 +21,10 @@ export function staticAudit(root,binding){
     if(binding.schema!=='ag-binding-1'||binding.diagnosticVersion!==version||binding.runtimeAttribution!=='NOT_OBTAINED'||binding.baselineHead!=='8e6b3803af4a24a7920858dfb9b38cea5dcac961'||binding.baselineTree!=='bcebe1e030dcfe8ce81db90a3139396fc882da33')errors.push('BINDING_IDENTITY');
     const verifyGit=gitProof(binding),sourceStates=[];
     for(const r of binding.sources){
-      const raw=read(root,r.file),lf=Buffer.from(logical(raw)),crlf=Buffer.from(logical(raw).replaceAll('\n','\r\n'));
+      const raw=read(root,r.file),lf=Buffer.from(logical(raw)),recorded=Buffer.from(r.rawBase64,'base64');
       if(hash(lf)!==r.logicalSha256)errors.push('SOURCE_BYTES:'+r.file);
       const matches=b=>hash(b)===r.sha256&&b.length===r.bytes;
-      if(![raw,lf,crlf].some(matches))errors.push('RAW_SOURCE_DESCRIPTOR:'+r.file);
+      if(!matches(recorded)||hash(Buffer.from(logical(recorded)))!==r.logicalSha256)errors.push('RAW_SOURCE_DESCRIPTOR:'+r.file);
       const expectedAcquisition=r.gitBlob?'POSTHOC_BASELINE_GIT_AND_WORKSPACE':r.file.startsWith('node_modules/')?'POSTHOC_INSTALLED; HISTORICAL_RUNTIME_NOT_OBTAINED':'POSTHOC_UNCOMMITTED_AG_NO_BASELINE_BLOB';
       if(r.acquisition!==expectedAcquisition)errors.push('SOURCE_ACQUISITION:'+r.file);
       sourceStates.push({file:r.file,rawBytes:matches(raw)?'RAW_MATCH':'LINE_ENDING_EQUIVALENT_ONLY',git:verifyGit(r),acquisition:'POSTHOC'});
