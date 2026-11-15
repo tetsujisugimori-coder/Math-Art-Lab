@@ -1091,3 +1091,8 @@ Audited current CI identity gates and transplant/old-rerun limits without changi
 ## 2026-11-15 JST - PR #44 Stage AE
 
 Diagnostic-only fixed ABBA cohort completed 4/4 in fresh Node processes; browser launches 0. The original test body and thresholds are unchanged. Runtime source snapshots and result bits/history agree; measured instrumentation costs are not original Vitest costs or product improvement. Structural YAML guards now prevent always/!cancelled browser paths after policy rejection. Local contracts: 126 PASS; type/build and six numerical bit/history conditions PASS. Prior failures remain. See docs/three-body/review-44/stage-ae/results.md. Overall PARTIAL; merge NO.
+
+
+## 2026-11-15 JST - PR #44 Stage AF
+
+Implemented independent wall sum/residual checks with fixed binary64 rounding tolerance and strict OFF missing-timing semantics. Raw result/clock bytes, source/plan, checkpoint/cohort and saved summary correspondence are now audited; historical runtime attribution remains NOT_OBTAINED, posthoc audit POSTHOC_VERIFIED. Future-only runner receipts capture actual Git identity and bind raw bytes before checkpoint; no new trial executed. RED false accepts preserved, copied-evidence P2 13/P3 12 negatives all rejected, four normal records accepted. Six numerical bit/history comparisons, type/build and PR44 gates pass. Independent P2 PASS/P3 scoped PASS; W/X failures and all historical evidence gaps remain. Final CI, new Windows archive readback and UTF-8 submission receipts follow on existing PR44/Issue43. Root UNKNOWN, improvement NOT_TESTED, Draft/merge NO. See docs/three-body/review-44/stage-af/.

@@ -1,0 +1,210 @@
+{
+  "normal": "PASS",
+  "p2": [
+    {
+      "name": "verlet",
+      "errors": [
+        "WALL_SUM"
+      ]
+    },
+    {
+      "name": "assertion",
+      "errors": [
+        "WALL_SUM"
+      ]
+    },
+    {
+      "name": "rk4",
+      "errors": [
+        "WALL_SUM"
+      ]
+    },
+    {
+      "name": "unclassified",
+      "errors": [
+        "WALL_SUM"
+      ]
+    },
+    {
+      "name": "body",
+      "errors": [
+        "WALL_SUM"
+      ]
+    },
+    {
+      "name": "missing",
+      "errors": [
+        "WALL_REQUIRED",
+        "CATEGORY_SET",
+        "CATEGORY:rk4",
+        "MEASUREMENT:rk4"
+      ]
+    },
+    {
+      "name": "extra",
+      "errors": [
+        "CATEGORY_SET"
+      ]
+    },
+    {
+      "name": "nan",
+      "errors": [
+        "WALL_REQUIRED"
+      ]
+    },
+    {
+      "name": "infinity",
+      "errors": [
+        "WALL_REQUIRED"
+      ]
+    },
+    {
+      "name": "negative",
+      "errors": [
+        "WALL_REQUIRED"
+      ]
+    },
+    {
+      "name": "mode",
+      "errors": [
+        "PLAN_ID_MODE",
+        "OFF_UNCLASSIFIED",
+        "OFF_ACCUMULATOR:initialization",
+        "OFF_ACCUMULATOR:verlet",
+        "OFF_ACCUMULATOR:invariants",
+        "OFF_ACCUMULATOR:assertion",
+        "OFF_ACCUMULATOR:rk4",
+        "OFF_ACCUMULATOR:finalRms",
+        "CATEGORY:initialization",
+        "CATEGORY:verlet",
+        "CATEGORY:invariants",
+        "CATEGORY:assertion",
+        "CATEGORY:rk4",
+        "CATEGORY:finalRms"
+      ]
+    },
+    {
+      "name": "planId",
+      "errors": [
+        "PLAN_ID_MODE",
+        "RESULT_ID_MODE"
+      ]
+    },
+    {
+      "name": "off-false-zero",
+      "errors": [
+        "OFF_UNCLASSIFIED"
+      ]
+    }
+  ],
+  "p3": [
+    {
+      "kind": "result-swap",
+      "status": "FAIL",
+      "errors": [
+        "FILE_SET_SIZE_SHA",
+        "CLOCK_DOMAIN:ae-B1",
+        "CLOCK_BODY:ae-B1",
+        "SUMMARY_MISMATCH"
+      ]
+    },
+    {
+      "kind": "clock-swap",
+      "status": "FAIL",
+      "errors": [
+        "FILE_SET_SIZE_SHA",
+        "CLOCK_DOMAIN:ae-B1",
+        "SUMMARY_MISMATCH"
+      ]
+    },
+    {
+      "kind": "trial-swap",
+      "status": "FAIL",
+      "errors": [
+        "FILE_SET_SIZE_SHA",
+        "CLOCK_DOMAIN:ae-B1",
+        "SUMMARY_MISMATCH"
+      ]
+    },
+    {
+      "kind": "sha",
+      "status": "FAIL",
+      "errors": [
+        "FILE_SET_SIZE_SHA",
+        "ANALYSIS:FAIL",
+        "SUMMARY_MISMATCH"
+      ]
+    },
+    {
+      "kind": "size",
+      "status": "FAIL",
+      "errors": [
+        "FILE_SET_SIZE_SHA"
+      ]
+    },
+    {
+      "kind": "id",
+      "status": "FAIL",
+      "errors": [
+        "FILE_SET_SIZE_SHA",
+        "ID_MODE:ae-B1",
+        "CHECKPOINT:ae-B1",
+        "CHECKPOINT:ae-B2",
+        "CHECKPOINT:ae-A2",
+        "ANALYSIS:PARTIAL",
+        "SUMMARY_MISMATCH"
+      ]
+    },
+    {
+      "kind": "mode",
+      "status": "FAIL",
+      "errors": [
+        "FILE_SET_SIZE_SHA",
+        "RESULT:ae-B1:PLAN_ID_MODE,OFF_UNCLASSIFIED,OFF_ACCUMULATOR:initialization,OFF_ACCUMULATOR:verlet,OFF_ACCUMULATOR:invariants,OFF_ACCUMULATOR:assertion,OFF_ACCUMULATOR:rk4,OFF_ACCUMULATOR:finalRms,CATEGORY:initialization,CATEGORY:verlet,CATEGORY:invariants,CATEGORY:assertion,CATEGORY:rk4,CATEGORY:finalRms",
+        "ANALYSIS:FAIL",
+        "SUMMARY_MISMATCH"
+      ]
+    },
+    {
+      "kind": "checkpoint",
+      "status": "FAIL",
+      "errors": [
+        "FILE_SET_SIZE_SHA",
+        "CHECKPOINT:ae-A1"
+      ]
+    },
+    {
+      "kind": "missing",
+      "status": "FAIL",
+      "errors": [
+        "FILE_SET_SIZE_SHA",
+        "EVIDENCE_MISSING_OR_INVALID:Error: ENOENT: no such file or directory, open 'C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\stage-af\\negative-copies\\missing\\ae-B1.result.json'"
+      ]
+    },
+    {
+      "kind": "truncated-json",
+      "status": "FAIL",
+      "errors": [
+        "FILE_SET_SIZE_SHA",
+        "EVIDENCE_MISSING_OR_INVALID:SyntaxError: Unexpected end of JSON input"
+      ]
+    },
+    {
+      "kind": "truncated-jsonl",
+      "status": "FAIL",
+      "errors": [
+        "FILE_SET_SIZE_SHA",
+        "CLOCK_TRUNCATED:ae-B1",
+        "EVIDENCE_MISSING_OR_INVALID:SyntaxError: Unexpected end of JSON input"
+      ]
+    },
+    {
+      "kind": "summary",
+      "status": "FAIL",
+      "errors": [
+        "SUMMARY_MISMATCH"
+      ]
+    }
+  ],
+  "green": true
+}

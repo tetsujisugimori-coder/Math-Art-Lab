@@ -1,0 +1,482 @@
+{
+  "normalAccepted": true,
+  "results": [
+    {
+      "name": "verlet",
+      "accepted": true,
+      "errors": []
+    },
+    {
+      "name": "assertion",
+      "accepted": true,
+      "errors": []
+    },
+    {
+      "name": "rk4",
+      "accepted": true,
+      "errors": []
+    },
+    {
+      "name": "unclassified",
+      "accepted": true,
+      "errors": []
+    },
+    {
+      "name": "body",
+      "accepted": true,
+      "errors": []
+    },
+    {
+      "name": "missing",
+      "accepted": false,
+      "errors": [
+        "CATEGORY_SET",
+        "CATEGORY:rk4",
+        "MEASUREMENT:rk4"
+      ]
+    },
+    {
+      "name": "extra",
+      "accepted": false,
+      "errors": [
+        "CATEGORY_SET"
+      ]
+    },
+    {
+      "name": "nan",
+      "accepted": true,
+      "errors": []
+    },
+    {
+      "name": "infinity",
+      "accepted": true,
+      "errors": []
+    },
+    {
+      "name": "negative",
+      "accepted": true,
+      "errors": []
+    },
+    {
+      "name": "mode",
+      "accepted": false,
+      "errors": [
+        "CATEGORY:initialization",
+        "CATEGORY:verlet",
+        "CATEGORY:invariants",
+        "CATEGORY:assertion",
+        "CATEGORY:rk4",
+        "CATEGORY:finalRms"
+      ]
+    },
+    {
+      "name": "planId",
+      "accepted": true,
+      "errors": []
+    },
+    {
+      "name": "off-false-zero",
+      "accepted": true,
+      "errors": []
+    }
+  ],
+  "baselineAnalysis": {
+    "status": "PASS",
+    "errors": [],
+    "rows": [
+      {
+        "id": "ae-A1",
+        "mode": "OFF",
+        "executionStatus": "PASS",
+        "body": {
+          "status": "OBSERVED",
+          "wallMs": 1392.0457000000001,
+          "cpu": {
+            "status": "OBSERVED",
+            "user": 1390000,
+            "system": 171000
+          },
+          "thread": {
+            "status": "OBSERVED",
+            "user": 1328000,
+            "system": 62000
+          }
+        },
+        "parentWallMs": 1785.0765,
+        "importWallMs": 10.228299999999997,
+        "resultSaveWallMs": 0.5516000000000076,
+        "categories": {
+          "initialization": {
+            "calls": 1,
+            "status": "NOT_OBTAINED_TIMING_OFF"
+          },
+          "verlet": {
+            "calls": 126518,
+            "status": "NOT_OBTAINED_TIMING_OFF"
+          },
+          "assertion": {
+            "calls": 253040,
+            "status": "NOT_OBTAINED_TIMING_OFF"
+          },
+          "invariants": {
+            "calls": 12652,
+            "status": "NOT_OBTAINED_TIMING_OFF"
+          },
+          "rk4": {
+            "calls": 1,
+            "status": "NOT_OBTAINED_TIMING_OFF"
+          },
+          "finalRms": {
+            "calls": 1,
+            "status": "NOT_OBTAINED_TIMING_OFF"
+          }
+        },
+        "unclassifiedWallMs": null,
+        "numerical": {
+          "phase": {
+            "bodies": [
+              {
+                "m": 1,
+                "x": -0.9701615032511562,
+                "y": 0.24293976405604834,
+                "vx": 0.4657953824806792,
+                "vy": 0.4324694771232964
+              },
+              {
+                "m": 1,
+                "x": 0.9698474702759613,
+                "y": -0.2432326114763156,
+                "vx": 0.4666116080070813,
+                "vy": 0.4322626110310694
+              },
+              {
+                "m": 1,
+                "x": 0.00031403297626457217,
+                "y": 0.0002928474201161344,
+                "vx": -0.9324069904877361,
+                "vy": -0.8647320881543502
+              }
+            ],
+            "steps": 126518
+          },
+          "max": 2.0425110705340324e-7,
+          "rms": 0.00005166206684615977,
+          "finalBits": "000000000000f03f47a90923900befbf3c64c272a618cf3f1278986f97cfdd3f5cd1307594addb3f000000000000f03fdb31de8ffd08ef3ffd43ce073f22cfbfbdc214eff6dcdd3f675e6acc30aadb3f000000000000f03fcd72e85c9994343ff2f694172a31333f8c9c562f47d6edbf5597cda0e2abebbf",
+          "referenceBits": "000000000000f03f9304fc75580befbf18a512928519cf3f6127911fb7d0dd3face5e91946addb3f000000000000f03fc2b63c813409ef3f6f072a477621cfbf171b8a61d9dbdd3f792eb0d57baadb3f000000000000f03f9a1be9f2a51f313f4fa4055cd4c22f3f3fa38d4048d6edbf7a0acdf7e0abebbf",
+          "historyHash": "d090b4c5cdefc04a0de13262b815d06893eb5e655d941a76b5fcdc37f40996d4",
+          "assertions": 126520
+        },
+        "numericalHash": "391adbad0eea492800a72abd21c8ea5fb3e34e2b3853eab16e2489ccf233e335"
+      },
+      {
+        "id": "ae-B1",
+        "mode": "ON",
+        "executionStatus": "PASS",
+        "body": {
+          "status": "OBSERVED",
+          "wallMs": 3163.9133,
+          "cpu": {
+            "status": "OBSERVED",
+            "user": 1953000,
+            "system": 1359000
+          },
+          "thread": {
+            "status": "OBSERVED",
+            "user": 1797000,
+            "system": 1312000
+          }
+        },
+        "parentWallMs": 3413.4388000000004,
+        "importWallMs": 18.591199999999997,
+        "resultSaveWallMs": 0.598700000000008,
+        "categories": {
+          "initialization": {
+            "calls": 1,
+            "wallMs": 0.04739999999999611,
+            "cpuUs": 0,
+            "threadUs": 0,
+            "observed": 1,
+            "threadObserved": 1
+          },
+          "verlet": {
+            "calls": 126518,
+            "wallMs": 313.240499999972,
+            "cpuUs": 298000,
+            "threadUs": 342000,
+            "observed": 126518,
+            "threadObserved": 126518
+          },
+          "assertion": {
+            "calls": 253040,
+            "wallMs": 917.4560999999643,
+            "cpuUs": 998000,
+            "threadUs": 828000,
+            "observed": 253040,
+            "threadObserved": 253040
+          },
+          "invariants": {
+            "calls": 12652,
+            "wallMs": 37.70449999998293,
+            "cpuUs": 31000,
+            "threadUs": 16000,
+            "observed": 12652,
+            "threadObserved": 12652
+          },
+          "rk4": {
+            "calls": 1,
+            "wallMs": 808.9344000000001,
+            "cpuUs": 860000,
+            "threadUs": 797000,
+            "observed": 1,
+            "threadObserved": 1
+          },
+          "finalRms": {
+            "calls": 1,
+            "wallMs": 0.1218999999996413,
+            "cpuUs": 0,
+            "threadUs": 0,
+            "observed": 1,
+            "threadObserved": 1
+          }
+        },
+        "unclassifiedWallMs": 1086.408500000081,
+        "numerical": {
+          "phase": {
+            "bodies": [
+              {
+                "m": 1,
+                "x": -0.9701615032511562,
+                "y": 0.24293976405604834,
+                "vx": 0.4657953824806792,
+                "vy": 0.4324694771232964
+              },
+              {
+                "m": 1,
+                "x": 0.9698474702759613,
+                "y": -0.2432326114763156,
+                "vx": 0.4666116080070813,
+                "vy": 0.4322626110310694
+              },
+              {
+                "m": 1,
+                "x": 0.00031403297626457217,
+                "y": 0.0002928474201161344,
+                "vx": -0.9324069904877361,
+                "vy": -0.8647320881543502
+              }
+            ],
+            "steps": 126518
+          },
+          "max": 2.0425110705340324e-7,
+          "rms": 0.00005166206684615977,
+          "finalBits": "000000000000f03f47a90923900befbf3c64c272a618cf3f1278986f97cfdd3f5cd1307594addb3f000000000000f03fdb31de8ffd08ef3ffd43ce073f22cfbfbdc214eff6dcdd3f675e6acc30aadb3f000000000000f03fcd72e85c9994343ff2f694172a31333f8c9c562f47d6edbf5597cda0e2abebbf",
+          "referenceBits": "000000000000f03f9304fc75580befbf18a512928519cf3f6127911fb7d0dd3face5e91946addb3f000000000000f03fc2b63c813409ef3f6f072a477621cfbf171b8a61d9dbdd3f792eb0d57baadb3f000000000000f03f9a1be9f2a51f313f4fa4055cd4c22f3f3fa38d4048d6edbf7a0acdf7e0abebbf",
+          "historyHash": "d090b4c5cdefc04a0de13262b815d06893eb5e655d941a76b5fcdc37f40996d4",
+          "assertions": 126520
+        },
+        "numericalHash": "391adbad0eea492800a72abd21c8ea5fb3e34e2b3853eab16e2489ccf233e335"
+      },
+      {
+        "id": "ae-B2",
+        "mode": "ON",
+        "executionStatus": "PASS",
+        "body": {
+          "status": "OBSERVED",
+          "wallMs": 3172.9999,
+          "cpu": {
+            "status": "OBSERVED",
+            "user": 2032000,
+            "system": 1266000
+          },
+          "thread": {
+            "status": "OBSERVED",
+            "user": 1937000,
+            "system": 1188000
+          }
+        },
+        "parentWallMs": 3446.0423,
+        "importWallMs": 9.985300000000002,
+        "resultSaveWallMs": 0.5875999999998385,
+        "categories": {
+          "initialization": {
+            "calls": 1,
+            "wallMs": 0.045999999999999375,
+            "cpuUs": 0,
+            "threadUs": 0,
+            "observed": 1,
+            "threadObserved": 1
+          },
+          "verlet": {
+            "calls": 126518,
+            "wallMs": 312.2327000000372,
+            "cpuUs": 298000,
+            "threadUs": 342000,
+            "observed": 126518,
+            "threadObserved": 126518
+          },
+          "assertion": {
+            "calls": 253040,
+            "wallMs": 920.3098999999835,
+            "cpuUs": 747000,
+            "threadUs": 893000,
+            "observed": 253040,
+            "threadObserved": 253040
+          },
+          "invariants": {
+            "calls": 12652,
+            "wallMs": 37.672299999994905,
+            "cpuUs": 15000,
+            "threadUs": 63000,
+            "observed": 12652,
+            "threadObserved": 12652
+          },
+          "rk4": {
+            "calls": 1,
+            "wallMs": 805.4134000000004,
+            "cpuUs": 813000,
+            "threadUs": 797000,
+            "observed": 1,
+            "threadObserved": 1
+          },
+          "finalRms": {
+            "calls": 1,
+            "wallMs": 0.05690000000004147,
+            "cpuUs": 0,
+            "threadUs": 0,
+            "observed": 1,
+            "threadObserved": 1
+          }
+        },
+        "unclassifiedWallMs": 1097.2686999999837,
+        "numerical": {
+          "phase": {
+            "bodies": [
+              {
+                "m": 1,
+                "x": -0.9701615032511562,
+                "y": 0.24293976405604834,
+                "vx": 0.4657953824806792,
+                "vy": 0.4324694771232964
+              },
+              {
+                "m": 1,
+                "x": 0.9698474702759613,
+                "y": -0.2432326114763156,
+                "vx": 0.4666116080070813,
+                "vy": 0.4322626110310694
+              },
+              {
+                "m": 1,
+                "x": 0.00031403297626457217,
+                "y": 0.0002928474201161344,
+                "vx": -0.9324069904877361,
+                "vy": -0.8647320881543502
+              }
+            ],
+            "steps": 126518
+          },
+          "max": 2.0425110705340324e-7,
+          "rms": 0.00005166206684615977,
+          "finalBits": "000000000000f03f47a90923900befbf3c64c272a618cf3f1278986f97cfdd3f5cd1307594addb3f000000000000f03fdb31de8ffd08ef3ffd43ce073f22cfbfbdc214eff6dcdd3f675e6acc30aadb3f000000000000f03fcd72e85c9994343ff2f694172a31333f8c9c562f47d6edbf5597cda0e2abebbf",
+          "referenceBits": "000000000000f03f9304fc75580befbf18a512928519cf3f6127911fb7d0dd3face5e91946addb3f000000000000f03fc2b63c813409ef3f6f072a477621cfbf171b8a61d9dbdd3f792eb0d57baadb3f000000000000f03f9a1be9f2a51f313f4fa4055cd4c22f3f3fa38d4048d6edbf7a0acdf7e0abebbf",
+          "historyHash": "d090b4c5cdefc04a0de13262b815d06893eb5e655d941a76b5fcdc37f40996d4",
+          "assertions": 126520
+        },
+        "numericalHash": "391adbad0eea492800a72abd21c8ea5fb3e34e2b3853eab16e2489ccf233e335"
+      },
+      {
+        "id": "ae-A2",
+        "mode": "OFF",
+        "executionStatus": "PASS",
+        "body": {
+          "status": "OBSERVED",
+          "wallMs": 1415.4547,
+          "cpu": {
+            "status": "OBSERVED",
+            "user": 1359000,
+            "system": 156000
+          },
+          "thread": {
+            "status": "OBSERVED",
+            "user": 1328000,
+            "system": 62000
+          }
+        },
+        "parentWallMs": 1697.7525999999998,
+        "importWallMs": 10.280099999999997,
+        "resultSaveWallMs": 0.5915999999999713,
+        "categories": {
+          "initialization": {
+            "calls": 1,
+            "status": "NOT_OBTAINED_TIMING_OFF"
+          },
+          "verlet": {
+            "calls": 126518,
+            "status": "NOT_OBTAINED_TIMING_OFF"
+          },
+          "assertion": {
+            "calls": 253040,
+            "status": "NOT_OBTAINED_TIMING_OFF"
+          },
+          "invariants": {
+            "calls": 12652,
+            "status": "NOT_OBTAINED_TIMING_OFF"
+          },
+          "rk4": {
+            "calls": 1,
+            "status": "NOT_OBTAINED_TIMING_OFF"
+          },
+          "finalRms": {
+            "calls": 1,
+            "status": "NOT_OBTAINED_TIMING_OFF"
+          }
+        },
+        "unclassifiedWallMs": null,
+        "numerical": {
+          "phase": {
+            "bodies": [
+              {
+                "m": 1,
+                "x": -0.9701615032511562,
+                "y": 0.24293976405604834,
+                "vx": 0.4657953824806792,
+                "vy": 0.4324694771232964
+              },
+              {
+                "m": 1,
+                "x": 0.9698474702759613,
+                "y": -0.2432326114763156,
+                "vx": 0.4666116080070813,
+                "vy": 0.4322626110310694
+              },
+              {
+                "m": 1,
+                "x": 0.00031403297626457217,
+                "y": 0.0002928474201161344,
+                "vx": -0.9324069904877361,
+                "vy": -0.8647320881543502
+              }
+            ],
+            "steps": 126518
+          },
+          "max": 2.0425110705340324e-7,
+          "rms": 0.00005166206684615977,
+          "finalBits": "000000000000f03f47a90923900befbf3c64c272a618cf3f1278986f97cfdd3f5cd1307594addb3f000000000000f03fdb31de8ffd08ef3ffd43ce073f22cfbfbdc214eff6dcdd3f675e6acc30aadb3f000000000000f03fcd72e85c9994343ff2f694172a31333f8c9c562f47d6edbf5597cda0e2abebbf",
+          "referenceBits": "000000000000f03f9304fc75580befbf18a512928519cf3f6127911fb7d0dd3face5e91946addb3f000000000000f03fc2b63c813409ef3f6f072a477621cfbf171b8a61d9dbdd3f792eb0d57baadb3f000000000000f03f9a1be9f2a51f313f4fa4055cd4c22f3f3fa38d4048d6edbf7a0acdf7e0abebbf",
+          "historyHash": "d090b4c5cdefc04a0de13262b815d06893eb5e655d941a76b5fcdc37f40996d4",
+          "assertions": 126520
+        },
+        "numericalHash": "391adbad0eea492800a72abd21c8ea5fb3e34e2b3853eab16e2489ccf233e335"
+      }
+    ],
+    "scope": "Diagnostic numerical equivalence and bounded observations, NOT original Vitest PASS or product improvement",
+    "limitations": [
+      "Same matcher implementation, different Vitest test association/runtime/bundling",
+      "Counter/hash overhead in OFF and ON",
+      "ON clocks/CPU reads strongly perturb tiny calls",
+      "CPU counters have coarse finite resolution; per-call sums may differ from envelope and other counters",
+      "Import/parent/worker domains never subtracted; exact collection/cleanup NOT_OBTAINED",
+      "Native libraries and OS environment not fully bound"
+    ]
+  }
+}
