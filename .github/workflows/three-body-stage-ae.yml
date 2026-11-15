@@ -2,7 +2,7 @@ name: Three-body Stage AE browser-free contracts
 on:
   pull_request:
     branches: [main]
-    paths: ['tools/three-body-stage-ae*', 'tools/three-body-stage-af*', 'src/three-body-stage-ae*', 'src/three-body-stage-af*', 'docs/three-body/review-44/stage-ae/**', 'docs/three-body/review-44/stage-af/**', '.github/workflows/**']
+    paths: ['tools/three-body-stage-ae*', 'tools/three-body-stage-af*', 'tools/three-body-stage-ag*', 'src/three-body-stage-ae*', 'src/three-body-stage-af*', 'src/three-body-stage-ag*', 'docs/three-body/review-44/stage-ae/**', 'docs/three-body/review-44/stage-af/**', 'docs/three-body/review-44/stage-ag/**', '.github/workflows/**']
 permissions:
   contents: read
 jobs:
@@ -18,7 +18,9 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Static and mock contracts only
-        run: npx vitest run --config tools/three-body-stage-ab-tests.config.mjs src/three-body-stage-ae.test.js src/three-body-stage-ae-evidence.test.js src/three-body-stage-af.test.js
+        run: npx vitest run --config tools/three-body-stage-ag-tests.config.mjs
+      - name: Stage AG static source correspondence only
+        run: node tools/three-body-stage-ag-audit.mjs static .
       - name: Actual PR44 denial without measurement
         if: github.event.pull_request.number == 44
         run: |
