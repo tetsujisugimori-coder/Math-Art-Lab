@@ -12,7 +12,7 @@ E. 原body/RMSのAST対応、wrapper引数/戻り値/副作用、referenceの2co
 
 F. collection、TS変換、module範囲、worker/setup、expect context、cleanup、5000/30000msはDIFFERENT。native/OSはUNKNOWN、原Vitestの対応区間・歴史runtimeはNOT_OBTAINED。実時間NOT_COMPARABLE。
 
-G. 25 source/claims反例と4原票コピーを拒否。独立レビュー3反例RED→GREENを保存。AE/AF134+AG44=177成功。旧extractのみの限定REDは新AGのREDと区別する。
+G. 25 source/claims反例と4原票コピーを拒否。独立レビュー3反例RED→GREENを保存。AE/AF134+AG44=178成功。旧extractのみの限定REDは新AGのREDと区別する。
 
 H. 既存4件のみread-only再解析。body wall 1392.0457/3163.9133/3172.9999/1415.4547 msは過去原票の値。新しい測定値ではない。4件のbit/reference bit/history/count/実行・観測statusを確認。runtime NOT_OBTAINED、POSTHOC_VERIFIED。
 
@@ -22,7 +22,7 @@ J. 4件の数値同等性、保存済み6条件bit/history照合6/6と製品sour
 
 K. ゲート監査PASS。browser/CDP/GUI/原停止・ABBA再実行・retry/replacement・workflow手動起動0。
 
-L. 最終HEADの正式CIは通常push後に取得し、別receiptへ固定する。W/X旧failureを保持、skipは未実行。ローカル177成功と正式CIを別記録にする。
+L. 最終HEADの正式CIは通常push後に取得し、別receiptへ固定する。W/X旧failureを保持、skipは未実行。ローカル178成功と正式CIを別記録にする。
 
 M. Windows新規Stage-AG領域へ保存し、別processで集合/size/SHA照合。確定件数と状態は保全receipt・最終投稿を参照。旧6原本欠落・履歴部分保全・遠隔未保全を維持。
 
@@ -34,4 +34,4 @@ P. 既存PR44/Issue43へUTF-8原文を投稿し、API応答と再取得本文の
 
 2026-11-15 22:00 JST
 
-????CI?3e3a230??success4/failure4/skip7?W/X?????????raw descriptor???????Pages?AE???????????????????rawBase64?size/SHA???checkout?????????????????LF checkout?????raw???????????178????workflow????????commit???CI??????
+初回正式CI（3e3a230）はsuccess4/failure4/skip7。W/Xに加え、混在改行のraw descriptorを再構成できずPagesとAE正常対照が失敗した。失敗を保存し、保存rawBase64のsize/SHA検証とcheckout論理一致を分離する修正を追加。隔離LF checkoutを受理し偽rawを拒否する対照を加え、178件成功。workflow再実行はせず、新commitの通常CIと区別する。提出前に追加節の文字化けも検出・別保存し、修正した。

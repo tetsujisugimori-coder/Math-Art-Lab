@@ -12,7 +12,7 @@
 
 過去AEは当時の52入力snapshotと別契約で照合する。AFの固定index/summaryを保持し、entry/reference-counted/metafileもAGの後作成索引で追加固定する。bundleの保存bytes・source snapshot集合・metafile入力サイズを照合するが、再buildによる派生証明はNOT_TESTED。Git/source/manifestはNode native・OS全体を束縛しない。
 
-Git帰属は保存したGitオブジェクトの`type + size + NUL + bytes`からSHA1を再計算し、固定基準commit→root tree→各path→blobを検証する。これによりCIの浅いcheckoutでもbaseline metadataを独立照合できる。raw descriptorは現bytesまたはLF/CRLF候補との一致を検査し、RAW_MATCHとLINE_ENDING_EQUIVALENT_ONLYを別表示する。改行同等をraw同一や実行時帰属と呼ばない。同名別importは正規化前に厳密な許可fullpath/仮想alias集合で拒否する。
+Git帰属は保存したGitオブジェクトの`type + size + NUL + bytes`からSHA1を再計算し、固定基準commit→root tree→各path→blobを検証する。これによりCIの浅いcheckoutでもbaseline metadataを独立照合できる。raw descriptorは保存rawBase64のsize/SHAを検証し、checkoutとは改行正規化内容を照合する。RAW_MATCHとLINE_ENDING_EQUIVALENT_ONLYを別表示し、改行同等をraw同一や実行時帰属と呼ばない。同名別importは正規化前に厳密な許可fullpath/仮想alias集合で拒否する。
 
 REDは実在する従来`extract()`の限定ガードで再現できる誤受理だけを記録する。抽出関数はwrapperや状態を監査していなかったことを明示し、AF監査全体の誤受理とは称さない。従来にclaims検証器がない反例はRED NOT_APPLICABLE。元body・保存原票は変更せず、故障はメモリーfixture/新しいコピーに限定する。正常対照・同じ反例の拒否をGREENとして保存する。
 
