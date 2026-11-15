@@ -1,0 +1,532 @@
+{
+  "scope": "PLAN_ONLY_STATIC_AND_SYNTHETIC",
+  "priorAHValidator": "NOT_APPLICABLE",
+  "legacyContinuationContrast": {
+    "scope": "Previous AD outcome() permits continuation after integer test failure; differs from new AH stop-on-first-failure. Not a historical execution PASS or an AH prior verifier.",
+    "input": {
+      "exitCode": 1,
+      "errors": []
+    },
+    "red": {
+      "continueAllowed": true,
+      "executionStatus": "FAIL"
+    },
+    "green": {
+      "stop": true,
+      "status": "BLOCKED",
+      "nextId": null
+    }
+  },
+  "planAndProgressFaults": [
+    {
+      "name": "wrongPR",
+      "red": "NOT_APPLICABLE: no previous AH plan validator",
+      "green": "PLAN_INVALID",
+      "errors": [
+        {
+          "code": "IDENTITY",
+          "status": "PLAN_INVALID"
+        },
+        {
+          "code": "PLAN_SEAL",
+          "status": "PLAN_INVALID"
+        }
+      ],
+      "execution": "BLOCKED"
+    },
+    {
+      "name": "wrongBranch",
+      "red": "NOT_APPLICABLE: no previous AH plan validator",
+      "green": "PLAN_INVALID",
+      "errors": [
+        {
+          "code": "IDENTITY",
+          "status": "PLAN_INVALID"
+        },
+        {
+          "code": "PLAN_SEAL",
+          "status": "PLAN_INVALID"
+        }
+      ],
+      "execution": "BLOCKED"
+    },
+    {
+      "name": "wrongHead",
+      "red": "NOT_APPLICABLE: no previous AH plan validator",
+      "green": "PLAN_INVALID",
+      "errors": [
+        {
+          "code": "TARGET",
+          "status": "SOURCE_DRIFT"
+        },
+        {
+          "code": "PLAN_SEAL",
+          "status": "PLAN_INVALID"
+        }
+      ],
+      "execution": "BLOCKED"
+    },
+    {
+      "name": "wrongTree",
+      "red": "NOT_APPLICABLE: no previous AH plan validator",
+      "green": "PLAN_INVALID",
+      "errors": [
+        {
+          "code": "TARGET",
+          "status": "SOURCE_DRIFT"
+        },
+        {
+          "code": "PLAN_SEAL",
+          "status": "PLAN_INVALID"
+        }
+      ],
+      "execution": "BLOCKED"
+    },
+    {
+      "name": "wrongSource",
+      "red": "NOT_APPLICABLE: no previous AH plan validator",
+      "green": "PLAN_INVALID",
+      "errors": [
+        {
+          "code": "SOURCE_SET",
+          "status": "SOURCE_DRIFT"
+        },
+        {
+          "code": "PLAN_SEAL",
+          "status": "PLAN_INVALID"
+        }
+      ],
+      "execution": "BLOCKED"
+    },
+    {
+      "name": "invalidPolicy",
+      "red": "NOT_APPLICABLE: no previous AH plan validator",
+      "green": "PLAN_INVALID",
+      "errors": [
+        {
+          "code": "POLICY_MUTATION",
+          "status": "PLAN_INVALID"
+        }
+      ],
+      "execution": "BLOCKED"
+    },
+    {
+      "name": "trialCount",
+      "red": "NOT_APPLICABLE: no previous AH plan validator",
+      "green": "PLAN_INVALID",
+      "errors": [
+        {
+          "code": "FINITE_ORDER",
+          "status": "PLAN_INVALID"
+        },
+        {
+          "code": "PLAN_SEAL",
+          "status": "PLAN_INVALID"
+        }
+      ],
+      "execution": "BLOCKED"
+    },
+    {
+      "name": "trialOrder",
+      "red": "NOT_APPLICABLE: no previous AH plan validator",
+      "green": "PLAN_INVALID",
+      "errors": [
+        {
+          "code": "FINITE_ORDER",
+          "status": "PLAN_INVALID"
+        },
+        {
+          "code": "PLAN_SEAL",
+          "status": "PLAN_INVALID"
+        }
+      ],
+      "execution": "BLOCKED"
+    },
+    {
+      "name": "timeout",
+      "red": "NOT_APPLICABLE: no previous AH plan validator",
+      "green": "PLAN_INVALID",
+      "errors": [
+        {
+          "code": "NUMERICAL_OR_TIMEOUT",
+          "status": "PLAN_INVALID"
+        },
+        {
+          "code": "PLAN_SEAL",
+          "status": "PLAN_INVALID"
+        }
+      ],
+      "execution": "BLOCKED"
+    },
+    {
+      "name": "expectation",
+      "red": "NOT_APPLICABLE: no previous AH plan validator",
+      "green": "PLAN_INVALID",
+      "errors": [
+        {
+          "code": "NUMERICAL_OR_TIMEOUT",
+          "status": "PLAN_INVALID"
+        },
+        {
+          "code": "PLAN_SEAL",
+          "status": "PLAN_INVALID"
+        }
+      ],
+      "execution": "BLOCKED"
+    },
+    {
+      "name": "statePromotion",
+      "red": "NOT_APPLICABLE: no previous AH plan validator",
+      "green": "PLAN_INVALID",
+      "errors": [
+        {
+          "code": "STATE_PROMOTION",
+          "status": "PLAN_INVALID"
+        },
+        {
+          "code": "PLAN_SEAL",
+          "status": "PLAN_INVALID"
+        }
+      ],
+      "execution": "BLOCKED"
+    },
+    {
+      "name": "observerPromotion",
+      "red": "NOT_APPLICABLE: no previous AH plan validator",
+      "green": "PLAN_INVALID",
+      "errors": [
+        {
+          "code": "IMPLEMENTATION_PROMOTION",
+          "status": "PLAN_INVALID"
+        },
+        {
+          "code": "PLAN_SEAL",
+          "status": "PLAN_INVALID"
+        }
+      ],
+      "execution": "BLOCKED"
+    },
+    {
+      "name": "timingMutation",
+      "red": "NOT_APPLICABLE: no previous AH plan validator",
+      "green": "PLAN_INVALID",
+      "errors": [
+        {
+          "code": "DOCUMENT_DRIFT:timing",
+          "status": "PLAN_INVALID"
+        },
+        {
+          "code": "TIMING_SEMANTICS",
+          "status": "PLAN_INVALID"
+        }
+      ],
+      "execution": "BLOCKED"
+    },
+    {
+      "name": "stopRelaxation",
+      "red": "NOT_APPLICABLE: no previous AH plan validator",
+      "green": "PLAN_INVALID",
+      "errors": [
+        {
+          "code": "DOCUMENT_DRIFT:stops",
+          "status": "PLAN_INVALID"
+        },
+        {
+          "code": "STOP_SEMANTICS",
+          "status": "PLAN_INVALID"
+        }
+      ],
+      "execution": "BLOCKED"
+    },
+    {
+      "name": "gatePromotion",
+      "red": "NOT_APPLICABLE: no previous AH plan validator",
+      "green": "PLAN_INVALID",
+      "errors": [
+        {
+          "code": "DOCUMENT_DRIFT:approval",
+          "status": "PLAN_INVALID"
+        },
+        {
+          "code": "APPROVAL_POLICY",
+          "status": "PLAN_INVALID"
+        }
+      ],
+      "execution": "BLOCKED"
+    },
+    {
+      "name": "historyPromotion",
+      "red": "NOT_APPLICABLE: no previous AH plan validator",
+      "green": "PLAN_INVALID",
+      "errors": [
+        {
+          "code": "STATE_PROMOTION",
+          "status": "PLAN_INVALID"
+        },
+        {
+          "code": "PLAN_SEAL",
+          "status": "PLAN_INVALID"
+        }
+      ],
+      "execution": "BLOCKED"
+    },
+    {
+      "name": "progress-nonzero",
+      "red": "NOT_APPLICABLE: no previous AH stop contract",
+      "green": "BLOCKED",
+      "evidenceStatus": "EVIDENCE_INCOMPLETE",
+      "errors": [
+        "FAILURE_OR_INCOMPLETE:0"
+      ]
+    },
+    {
+      "name": "progress-signal",
+      "red": "NOT_APPLICABLE: no previous AH stop contract",
+      "green": "BLOCKED",
+      "evidenceStatus": "EVIDENCE_INCOMPLETE",
+      "errors": [
+        "FAILURE_OR_INCOMPLETE:0"
+      ]
+    },
+    {
+      "name": "progress-timeout",
+      "red": "NOT_APPLICABLE: no previous AH stop contract",
+      "green": "BLOCKED",
+      "evidenceStatus": "EVIDENCE_INCOMPLETE",
+      "errors": [
+        "FAILURE_OR_INCOMPLETE:0"
+      ]
+    },
+    {
+      "name": "progress-missingRaw",
+      "red": "NOT_APPLICABLE: no previous AH stop contract",
+      "green": "BLOCKED",
+      "evidenceStatus": "EVIDENCE_INCOMPLETE",
+      "errors": [
+        "FAILURE_OR_INCOMPLETE:0"
+      ]
+    },
+    {
+      "name": "progress-unknownAttribution",
+      "red": "NOT_APPLICABLE: no previous AH stop contract",
+      "green": "BLOCKED",
+      "evidenceStatus": "EVIDENCE_INCOMPLETE",
+      "errors": [
+        "FAILURE_OR_INCOMPLETE:0"
+      ]
+    },
+    {
+      "name": "progress-missingCheckpoint",
+      "red": "NOT_APPLICABLE: no previous AH stop contract",
+      "green": "BLOCKED",
+      "evidenceStatus": "EVIDENCE_INCOMPLETE",
+      "errors": [
+        "FAILURE_OR_INCOMPLETE:0"
+      ]
+    },
+    {
+      "name": "progress-saveFailure",
+      "red": "NOT_APPLICABLE: no previous AH stop contract",
+      "green": "BLOCKED",
+      "evidenceStatus": "EVIDENCE_INCOMPLETE",
+      "errors": [
+        "FAILURE_OR_INCOMPLETE:0"
+      ]
+    },
+    {
+      "name": "progress-monitorFailure",
+      "red": "NOT_APPLICABLE: no previous AH stop contract",
+      "green": "BLOCKED",
+      "evidenceStatus": "EVIDENCE_INCOMPLETE",
+      "errors": [
+        "FAILURE_OR_INCOMPLETE:0"
+      ]
+    },
+    {
+      "name": "progress-modeSwap",
+      "red": "NOT_APPLICABLE: no previous AH stop contract",
+      "green": "BLOCKED",
+      "evidenceStatus": "EVIDENCE_INCOMPLETE",
+      "errors": [
+        "ORDER_OR_SOURCE:0",
+        "EVIDENCE_OR_ENVIRONMENT:0"
+      ]
+    },
+    {
+      "name": "progress-sourceDrift",
+      "red": "NOT_APPLICABLE: no previous AH stop contract",
+      "green": "BLOCKED",
+      "evidenceStatus": "SYNTHETIC_ONLY",
+      "errors": [
+        "ORDER_OR_SOURCE:0"
+      ]
+    },
+    {
+      "name": "progress-selection",
+      "red": "NOT_APPLICABLE: no previous AH stop contract",
+      "green": "BLOCKED",
+      "evidenceStatus": "EVIDENCE_INCOMPLETE",
+      "errors": [
+        "EVIDENCE_OR_ENVIRONMENT:0"
+      ]
+    },
+    {
+      "name": "progress-worker",
+      "red": "NOT_APPLICABLE: no previous AH stop contract",
+      "green": "BLOCKED",
+      "evidenceStatus": "EVIDENCE_INCOMPLETE",
+      "errors": [
+        "EVIDENCE_OR_ENVIRONMENT:0"
+      ]
+    },
+    {
+      "name": "progress-environment",
+      "red": "NOT_APPLICABLE: no previous AH stop contract",
+      "green": "BLOCKED",
+      "evidenceStatus": "EVIDENCE_INCOMPLETE",
+      "errors": [
+        "EVIDENCE_OR_ENVIRONMENT:0"
+      ]
+    },
+    {
+      "name": "progress-falseOffZero",
+      "red": "NOT_APPLICABLE: no previous AH stop contract",
+      "green": "BLOCKED",
+      "evidenceStatus": "EVIDENCE_INCOMPLETE",
+      "errors": [
+        "EVIDENCE_OR_ENVIRONMENT:0"
+      ]
+    },
+    {
+      "name": "progress-parentSafety",
+      "red": "NOT_APPLICABLE: no previous AH stop contract",
+      "green": "BLOCKED",
+      "evidenceStatus": "SYNTHETIC_ONLY",
+      "errors": [
+        "PARENT_BOUND:0"
+      ]
+    },
+    {
+      "name": "progress-anomaly",
+      "red": "NOT_APPLICABLE: no previous AH stop contract",
+      "green": "BLOCKED",
+      "evidenceStatus": "EVIDENCE_INCOMPLETE",
+      "errors": [
+        "FAILURE_OR_INCOMPLETE:0"
+      ]
+    },
+    {
+      "name": "approval-record-missing",
+      "red": "NOT_APPLICABLE",
+      "green": "BLOCKED"
+    },
+    {
+      "name": "unapproved-request",
+      "red": "NOT_APPLICABLE",
+      "green": "BLOCKED"
+    },
+    {
+      "name": "forged-approval",
+      "red": "NOT_APPLICABLE",
+      "green": "BLOCKED"
+    }
+  ],
+  "independentReviewRed": [
+    {
+      "file": "review-red.json",
+      "passed": 0,
+      "failed": 7,
+      "cases": [
+        "review RED: rejects reversed event record order",
+        "review RED: rejects foreign timeout event identity",
+        "review RED: handles null event rows without throwing",
+        "review RED: rejects semantic document change after reseal stops",
+        "review RED: rejects semantic document change after reseal timing",
+        "review RED: rejects semantic document change after reseal stages",
+        "review RED: rejects semantic document change after reseal stageSources"
+      ]
+    },
+    {
+      "file": "review-red-2.json",
+      "passed": 0,
+      "failed": 3,
+      "cases": [
+        "review RED2: rejects interval runtime promotion after reseal",
+        "review RED2: rejects CPU counter rollback in later timeout event",
+        "review RED2: does not label an earlier timeout as post-body"
+      ]
+    },
+    {
+      "file": "review-red-3.json",
+      "passed": 0,
+      "failed": 1,
+      "cases": [
+        "review RED3: retains timeout or body failure when monitoring also fails"
+      ]
+    }
+  ],
+  "green": {
+    "passed": 264,
+    "failed": 0,
+    "suites": [
+      {
+        "name": "three-body-stage-ae-evidence.test.js",
+        "tests": 23
+      },
+      {
+        "name": "three-body-stage-ae.test.js",
+        "tests": 44
+      },
+      {
+        "name": "three-body-stage-af.test.js",
+        "tests": 67
+      },
+      {
+        "name": "three-body-stage-ag.test.js",
+        "tests": 44
+      },
+      {
+        "name": "three-body-stage-ah.test.js",
+        "tests": 86
+      }
+    ]
+  },
+  "archiveIntegrityMocks": {
+    "scope": "SYNTHETIC_ARCHIVE_INTEGRITY_CONTROLS; NOT_WINDOWS_BACKUP_COMPLETION",
+    "cases": [
+      {
+        "name": "normal-mock",
+        "status": "LOCAL_BACKUP_VERIFIED",
+        "expected": "LOCAL_BACKUP_VERIFIED"
+      },
+      {
+        "name": "payload",
+        "status": "BLOCKED",
+        "expected": "BLOCKED"
+      },
+      {
+        "name": "missing",
+        "status": "BLOCKED",
+        "expected": "BLOCKED"
+      },
+      {
+        "name": "extra",
+        "status": "BLOCKED",
+        "expected": "BLOCKED"
+      },
+      {
+        "name": "manifest-resealed",
+        "status": "BLOCKED",
+        "expected": "BLOCKED"
+      },
+      {
+        "name": "missing-external-receipt",
+        "status": "BLOCKED",
+        "expected": "BLOCKED"
+      }
+    ],
+    "success": true
+  },
+  "actualExecution": "NOT_TESTED",
+  "measurements": 0
+}
