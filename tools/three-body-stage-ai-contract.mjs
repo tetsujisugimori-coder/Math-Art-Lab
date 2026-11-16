@@ -23,17 +23,23 @@ export function validateDesign(d){
 export const executionGate=()=>({allowed:false,status:'BLOCKED',approval:'APPROVAL_MISSING',decision:'HOLD',runtime:'NOT_TESTED'});
 // Pure synthetic state reducer. No transports, timers, process handles or callbacks.
 export function reduceTrace(enrolled,events){
-  const s={stop:'NOT_REQUESTED',exit:'NOT_OBTAINED',resources:'NOT_OBTAINED',storage:'NOT_STARTED',remaining:'NOT_STARTED',failure:false,errors:[],lateEvidence:[],execution:'UNKNOWN',observation:'PASS',evidence:'EVIDENCE_INCOMPLETE',physical:'NOT_TESTED'};
+  const s={stop:'NOT_REQUESTED',exit:'NOT_OBTAINED',resources:'NOT_OBTAINED',storage:'NOT_STARTED',remaining:'NOT_STARTED',failure:false,errors:[],lateEvidence:[],savedCommits:[],execution:'UNKNOWN',observation:'PASS',evidence:'EVIDENCE_INCOMPLETE',physical:'NOT_TESTED'};
   let seq=-1,at=-1;const seen=new Set();
-  const reject=code=>{s.errors.push(code);s.failure=true;s.observation='FAIL';s.remaining='BLOCKED';};
+  const record=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
+  const reject=code=>{s.errors.push(code);s.failure=true;s.observation='FAIL';s.remaining='BLOCKED';s.evidence='EVIDENCE_INCOMPLETE';};
   if(!enrolled||identityKeys.some(k=>k==='pid'? !Number.isInteger(enrolled[k])||enrolled[k]<=0:typeof enrolled[k]!=='string'||!enrolled[k].trim())||!['worker','parent','coordinator','monitor'].includes(enrolled.role)||!['head','tree'].every(k=>/^[a-f0-9]{40}$/.test(enrolled[k]))||!['planSha','sourceSha'].every(k=>/^[a-f0-9]{64}$/.test(enrolled[k]))){reject('IDENTITY_MISSING');return s;}
-  for(const e of events??[]){
-    if(e.synthetic!==true||identityKeys.some(k=>!equal(e.identity?.[k],enrolled[k]))){reject('IDENTITY_OR_DOMAIN');continue;}
-    if(!Number.isFinite(e.at)||e.at<0||!Number.isInteger(e.seq)||e.seq<=seq||e.at<at||seen.has(e.id)){reject('ORDER_OR_DUPLICATE');continue;}
+  if(!Array.isArray(events)){reject('EVENTS_NOT_ARRAY');return s;}
+  // AH's finite event ceiling also bounds errors and delayed evidence here.
+  for(const e of events.slice(0,1024)){
+    if(!record(e)){reject('EVENT_NOT_RECORD');continue;}
+    if(typeof e.id!=='string'||!e.id.trim()){reject('EVENT_ID_INVALID');continue;}
+    if(e.synthetic!==true||!record(e.identity)||identityKeys.some(k=>!equal(e.identity[k],enrolled[k]))){reject('IDENTITY_OR_DOMAIN');continue;}
+    if(typeof e.type!=='string'||!e.type.trim()){reject('EVENT_TYPE_INVALID');continue;}
+    if(!Number.isFinite(e.at)||e.at<0||!Number.isSafeInteger(e.seq)||e.seq<0||e.seq<=seq||e.at<at||seen.has(e.id)){reject('ORDER_OR_DUPLICATE');continue;}
     seq=e.seq;at=e.at;seen.add(e.id);
     switch(e.type){
       case 'runner.fail':s.execution='FAIL';s.failure=true;s.remaining='BLOCKED';break;
-      case 'runner.pass':if(s.execution!=='FAIL')s.execution='PASS';break;
+      case 'runner.pass':if(!s.failure&&s.execution!=='FAIL')s.execution='PASS';break;
       case 'stop.request':if(s.stop!=='NOT_REQUESTED'){reject('STOP_ORDER');break;}s.stop='REQUESTED';break;
       case 'stop.sent':if(s.stop!=='REQUESTED'){reject('STOP_ORDER');break;}s.stop='SENT';break;
       case 'stop.ack':if(s.stop!=='SENT'){reject('STOP_ORDER');break;}s.stop='ACKED';break;
@@ -42,11 +48,12 @@ export function reduceTrace(enrolled,events){
       case 'exit.missing':s.exit='UNCONFIRMED';reject('EXIT_NOT_CONFIRMED');break;
       case 'resources.released':if(s.exit!=='CONFIRMED'){reject('RELEASE_BEFORE_EXIT');break;}s.resources='RELEASED';break;
       case 'save.begin':if(s.storage!=='NOT_STARTED'){reject('SAVE_ORDER');break;}s.storage='WRITING';break;
-      case 'save.commit':if(s.storage!=='WRITING'||!Array.isArray(e.raw)||e.raw.length!==2||!equal(e.raw.map(r=>r.name).sort(),['clock','result'])||e.raw.some(r=>typeof r.base64!=='string'||Buffer.from(r.base64,'base64').length!==r.bytes||digest(Buffer.from(r.base64,'base64'))!==r.sha256)||!equal(e.receipt,e.raw)){reject('RECEIPT_OR_RAW');s.storage='INCOMPLETE';break;}s.storage='COMMITTED';s.evidence='SYNTHETIC_COMPLETE';break;
+      case 'save.commit':if(s.storage!=='WRITING'||!Array.isArray(e.raw)||e.raw.length!==2||!e.raw.every(record)||!equal(e.raw.map(r=>r.name).sort(),['clock','result'])||e.raw.some(r=>typeof r.base64!=='string'||r.base64.length>1398104||!Number.isSafeInteger(r.bytes)||r.bytes<0||r.bytes>1048576||Buffer.from(r.base64,'base64').length!==r.bytes||digest(Buffer.from(r.base64,'base64'))!==r.sha256)||e.raw.reduce((n,r)=>n+r.bytes,0)>1048576||!Array.isArray(e.receipt)||!e.receipt.every(record)||!equal(e.receipt,e.raw)){reject('RECEIPT_OR_RAW');s.storage='INCOMPLETE';break;}s.storage='COMMITTED';s.savedCommits.push({raw:e.raw.map(r=>({...r})),receipt:e.receipt.map(r=>({...r}))});s.evidence=s.failure?'EVIDENCE_INCOMPLETE':'SYNTHETIC_COMPLETE';break;
       case 'save.failed':s.storage='FAILED';s.evidence='EVIDENCE_INCOMPLETE';reject('SAVE_FAILURE');break;
       case 'monitor.failed':case 'worker.silent':case 'parent.silent':case 'communication.failed':case 'buffer.overflow':reject(e.type);break;
       default:reject('UNKNOWN_EVENT');
     }
   }
+  if(events.length>1024)reject('EVENT_BUFFER_OVERFLOW');
   return s;
 }
