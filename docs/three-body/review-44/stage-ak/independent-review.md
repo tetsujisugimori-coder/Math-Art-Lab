@@ -1,0 +1,13 @@
+# Independent AK-review-v4: LIMITED PASS
+
+Separate reviewer ak_independent_review directly checked18/18 frozen logical hashes and independently ran566/566 contracts (prior494 + AK72), with no original test/browser/native/Job/VM launch. Review-v1 found4 semantic false accepts: reversed qualification order, required VM key replacement preserving count, hidden slack authorization, contradictory maximum scheduled time. Saved old-source snapshots and exactly the same inputs were independently replayed before/after; all4 reject after correction. Native helper versus unique Job-handle owner ambiguity was clarified as M native EXE with C/D/E logical units in one process. Two additional topology/method rejection tests pass.
+
+Reviewer independently verified11 support-source commit/blob/current SHA bindings, actual Node executable SHA/ABI137/N-API10,4 compiler/SDK files,4 runtime DLL files with PE machine,18 workflow hashes and read-only host registry Core/build26300/UBR9974. Baseline12 execution denials exactly match saved and current outputs. validate exit0 remains false-authority; execution CLI exit2 BLOCKED/APPROVAL_MISSING/HOLD. Seven physical planned paths absent. Product/original test/AH/seal/policies/workflows/dependencies diff empty.
+
+Official UpdateProcThreadAttribute and AssignProcessToJobObject pages were independently retrieved successfully by reviewer, although the implementation agent's first API-reference retrieval timed out. HANDLE_LIST inheritable IPC handles/bInheritHandles TRUE and JOB_LIST candidate/rights are consistent in the reviewed design. No universal creator-death rollback, native recovery or real isolation is certified.
+
+AK-review-v1 was reviewed with required changes. v2/v3 were superseded before acceptance while clarifying native process/handle topology. v4 alone is final limited acceptance; the corresponding manifests retain these distinctions. Administrative results/storage/submission documents are later and not represented as the18 reviewed source bytes.
+
+No new P1/P2 in final reviewed design/static/mock scope. AK01/02 remain OPEN, guarantee NONE/startNO. Reviewer independently confirms commit/push HOLD: Pages PR-main invokes unguarded npm test -> vitest run src including the original test. Browser guards do not protect that unit step.
+
+NOT_VERIFIED/NOT_TESTED by reviewer: independent type/build rerun, AK formal CI, Windows archive, binary signatures/native compatibility, actual peer authentication/VM isolation/Job behavior/stop/exit/release/durability and physical recovery. No implementation or execution approval. Date2026-11-16 JST.

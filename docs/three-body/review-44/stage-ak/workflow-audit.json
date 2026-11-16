@@ -1,0 +1,1963 @@
+{
+  "basis": "bca7eb3abedf51679eaffff2f8eaee15b86b5ab6",
+  "files": [
+    {
+      "file": "deploy-pages.yml",
+      "sha256": "553d52fece412b7825232c404a85bd4cb294c6c2bae7edfe2a9afbedd8cbd29a",
+      "logicalSha256": "92b982885f24c6e9b1c89ec9441ab7a20257b56707f9250b0e45ffe6ad3b9df4",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ]
+        },
+        "push": {
+          "branches": [
+            "main"
+          ]
+        },
+        "workflow_dispatch": null
+      },
+      "jobs": [
+        {
+          "id": "validate",
+          "if": "github.event_name != 'workflow_dispatch' || github.ref == 'refs/heads/main'",
+          "uses": null,
+          "steps": [
+            {
+              "name": "Checkout",
+              "run": null,
+              "if": null,
+              "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+            },
+            {
+              "name": "Set up Node.js",
+              "run": null,
+              "if": null,
+              "uses": "actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+            },
+            {
+              "name": "Install dependencies",
+              "run": "npm ci",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Unit tests",
+              "run": "npm test",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Type check",
+              "run": "npm run typecheck",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Build for GitHub Pages",
+              "run": "npm run build",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Enforce committed browser policy",
+              "run": "node tools/three-body-stage-ac-ci.mjs",
+              "if": "${{ ((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}",
+              "uses": null
+            },
+            {
+              "name": "Install Playwright browsers and system dependencies",
+              "run": "# Slow Azure mirror downloads exhausted the job budget before E2E (Issue #18).\n# Keep Ubuntu suites/signatures; change only the runner's download mirror.\nif [ -f /etc/apt/apt-mirrors.txt ]; then\n  sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu|https://archive.ubuntu.com/ubuntu|g' /etc/apt/apt-mirrors.txt\nfi\nnpx playwright install --with-deps chromium webkit\n",
+              "if": "${{ ((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}",
+              "uses": null
+            },
+            {
+              "name": "Development regression tests",
+              "run": "npm run test:e2e -- --output=test-results/development",
+              "if": "${{ ((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}",
+              "uses": null
+            },
+            {
+              "name": "Production build smoke tests",
+              "run": "npm run test:e2e:production -- --output=test-results/production",
+              "if": "${{ ((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}",
+              "uses": null
+            },
+            {
+              "name": "Inventory regression evidence including last-run records",
+              "run": "node tools/three-body-regression-evidence.mjs create test-results '${{ steps.development_tests.outcome }}' '${{ steps.production_tests.outcome }}'",
+              "if": "${{ always() && (((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->')) }}",
+              "uses": null
+            },
+            {
+              "name": "Preserve regression evidence",
+              "run": null,
+              "if": "always() && steps.evidence_inventory.outcome == 'success'",
+              "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+            },
+            {
+              "name": "Retrieve regression evidence for byte verification",
+              "run": null,
+              "if": "always() && steps.evidence_upload.outcome == 'success'",
+              "uses": "actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333"
+            },
+            {
+              "name": "Verify uploaded regression evidence set size and SHA",
+              "run": "node tools/three-body-regression-evidence.mjs verify regression-evidence-readback",
+              "if": "always() && steps.evidence_download.outcome == 'success'",
+              "uses": null
+            },
+            {
+              "name": "Record browser prohibition (not GUI acceptance)",
+              "run": "echo 'Stage AB browser launches prohibited; development/production GUI NOT_RUN. Unit/type/build success is not full regression acceptance.' >> \"$GITHUB_STEP_SUMMARY\"",
+              "if": "${{ !(((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->')) }}",
+              "uses": null
+            },
+            {
+              "name": "Save validated build",
+              "run": null,
+              "if": "github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')",
+              "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+            }
+          ]
+        },
+        {
+          "id": "deploy",
+          "if": "github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')",
+          "uses": null,
+          "steps": [
+            {
+              "name": "Download validated build",
+              "run": null,
+              "if": null,
+              "uses": "actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333"
+            },
+            {
+              "name": "Configure Pages",
+              "run": null,
+              "if": null,
+              "uses": "actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d"
+            },
+            {
+              "name": "Upload Pages artifact",
+              "run": null,
+              "if": null,
+              "uses": "actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9"
+            },
+            {
+              "name": "Deploy Pages",
+              "run": null,
+              "if": null,
+              "uses": "actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "segregation-layout.yml",
+      "sha256": "7312da0c4ef1647eb5cff75afc6bc5cd1f6d87912d656046e0232564bb0a26a3",
+      "logicalSha256": "196df80ed8c5099f916590565c585583084148a5f64b6a5cae088943c7fd096a",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "src/segregation*",
+            "e2e/segregation*",
+            ".github/workflows/segregation-layout.yml",
+            "docs/segregation/verification.md"
+          ]
+        }
+      },
+      "jobs": [
+        {
+          "id": "diagnose",
+          "if": "${{ github.head_ref == 'feat/015-segregation-mosaic' && (((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->')) }}",
+          "uses": null,
+          "steps": [
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+            },
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+            },
+            {
+              "name": null,
+              "run": "npm ci",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Enforce committed browser policy",
+              "run": "node tools/three-body-stage-ac-ci.mjs",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Install diagnostic browsers",
+              "run": "if [ -f /etc/apt/apt-mirrors.txt ]; then\n  sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu|https://archive.ubuntu.com/ubuntu|g' /etc/apt/apt-mirrors.txt\nfi\nnpx playwright install --with-deps chromium webkit\n",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Measure original layout assertions",
+              "run": "npx playwright test e2e/segregation.spec.ts e2e/segregation-p2-diagnostics.spec.ts --grep 'layout|P2-01' --reporter=line --output layout-diagnostics/results",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Preserve measurements and screenshots",
+              "run": null,
+              "if": "always()",
+              "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "three-body-review-diagnostics.yml",
+      "sha256": "9bcf946ee4535288a6407c48f9bbcaf096aa6846a379cb1ba6d42fe67491c020",
+      "logicalSha256": "9bcf946ee4535288a6407c48f9bbcaf096aa6846a379cb1ba6d42fe67491c020",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "src/three-body*",
+            "e2e/three-body*",
+            "tools/three-body-*",
+            "docs/three-body/review-44/stage-p/**",
+            ".github/workflows/three-body-review-diagnostics.yml"
+          ]
+        }
+      },
+      "jobs": [
+        {
+          "id": "focused-webkit",
+          "if": "${{ ((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}",
+          "uses": null,
+          "steps": [
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+            },
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+            },
+            {
+              "name": null,
+              "run": "npm ci",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Enforce committed browser policy",
+              "run": "node tools/three-body-stage-ac-ci.mjs",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Install WebKit",
+              "run": "if [ -f /etc/apt/apt-mirrors.txt ]; then\n  sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu|https://archive.ubuntu.com/ubuntu|g' /etc/apt/apt-mirrors.txt\nfi\nnpx playwright install --with-deps webkit\n",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Repeat DPR controls and the observed lifecycle failure",
+              "run": "npm run test:e2e -- --project=webkit --grep 'DPR[12] delayed rAF|hidden while playing pauses' --repeat-each=3 --output=test-results/review-focused",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Isolate actual app raster state",
+              "run": "node tools/three-body-raster-controls.mjs",
+              "if": "always() && steps.browser_policy.outcome == 'success'",
+              "uses": null
+            },
+            {
+              "name": "Preserve diagnostics",
+              "run": null,
+              "if": "always()",
+              "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "three-body-stage-ab.yml",
+      "sha256": "3869b99c6988586e7a8b72846252986e74555b1628fef2962a485f1f6b6a6700",
+      "logicalSha256": "3869b99c6988586e7a8b72846252986e74555b1628fef2962a485f1f6b6a6700",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-a*",
+            "src/three-body-stage-a*.test.js",
+            "docs/three-body/review-44/stage-ab/**",
+            ".github/workflows/three-body-stage-ab.yml"
+          ]
+        }
+      },
+      "jobs": [
+        {
+          "id": "preparation",
+          "if": null,
+          "uses": null,
+          "steps": [
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+            },
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+            },
+            {
+              "name": null,
+              "run": "npm ci",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Browser-free diagnostic contracts",
+              "run": "npx vitest run --config tools/three-body-stage-ab-tests.config.mjs src/three-body-stage-aa.test.js src/three-body-stage-ab.test.js",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Safe ZIP negative controls",
+              "run": "python tools/three-body-stage-ab-zip-test.py",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Review gate source-exact RED control",
+              "run": "node tools/three-body-stage-ab-review-controls.mjs test-results/approval-red red\nif ($LASTEXITCODE -ne 1) { throw 'Expected RED false-acceptance control did not fail' }\nexit 0\n",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Review gate GREEN control",
+              "run": "node tools/three-body-stage-ab-review-controls.mjs test-results/approval-green green",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Preserve synthetic gate controls including failures",
+              "run": null,
+              "if": "always()",
+              "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+            },
+            {
+              "name": "Explicit scope",
+              "run": "echo 'Browser launches prohibited. Original stop trials NOT_RUN; no product performance acceptance.' >> $env:GITHUB_STEP_SUMMARY",
+              "if": null,
+              "uses": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "three-body-stage-ac.yml",
+      "sha256": "35eb80e2f7c9c85b4d11384f0be566c493e6b6e77c246c87329fe9cff43507aa",
+      "logicalSha256": "35eb80e2f7c9c85b4d11384f0be566c493e6b6e77c246c87329fe9cff43507aa",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-ac*",
+            "src/three-body-stage-ac.test.js",
+            "docs/three-body/review-44/stage-ac/**",
+            ".github/workflows/**"
+          ]
+        }
+      },
+      "jobs": [
+        {
+          "id": "audit",
+          "if": null,
+          "uses": null,
+          "steps": [
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+            },
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+            },
+            {
+              "name": null,
+              "run": "npm ci",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Static and mock contracts only",
+              "run": "npx vitest run --config tools/three-body-stage-ab-tests.config.mjs src/three-body-stage-ac.test.js",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Actual GitHub event denial (no measurement command)",
+              "run": "node tools/three-body-stage-ac-ci.mjs\nif ($LASTEXITCODE -ne 2) { throw 'Expected closed gate for PR44' }\nexit 0\n",
+              "if": "github.event.pull_request.number == 44",
+              "uses": null
+            },
+            {
+              "name": "Scope",
+              "run": "echo 'Browser/GUI NOT_RUN. Mock and event-gate verification is not execution approval.' >> $env:GITHUB_STEP_SUMMARY",
+              "if": null,
+              "uses": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "three-body-stage-ad.yml",
+      "sha256": "6ac7fea8b0ab145ae85912674ea8038e962c3aeb3bf28163075b71e211941a22",
+      "logicalSha256": "6ac7fea8b0ab145ae85912674ea8038e962c3aeb3bf28163075b71e211941a22",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-ad*",
+            "src/three-body-stage-ad.test.js",
+            "docs/three-body/review-44/stage-ad/**",
+            ".github/workflows/three-body-stage-ad.yml"
+          ]
+        }
+      },
+      "jobs": [
+        {
+          "id": "audit",
+          "if": null,
+          "uses": null,
+          "steps": [
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+            },
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+            },
+            {
+              "name": null,
+              "run": "npm ci",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Static and mock audit only",
+              "run": "npx vitest run --config tools/three-body-stage-ab-tests.config.mjs src/three-body-stage-ad.test.js",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Actual PR44 event remains prohibited",
+              "run": "node tools/three-body-stage-ac-ci.mjs\nif ($LASTEXITCODE -ne 2) { throw 'Expected BLOCKED exit 2' }\nexit 0\n",
+              "if": "github.event.pull_request.number == 44",
+              "uses": null
+            },
+            {
+              "name": "Scope",
+              "run": "echo 'Browser/GUI/original stop NOT_RUN; no timeout investigation trials in this job; no execution approval.' >> $env:GITHUB_STEP_SUMMARY",
+              "if": null,
+              "uses": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "three-body-stage-ae.yml",
+      "sha256": "932c8006103ad3119a009362f21ca0300c978fd3cef816f1837a61b989010401",
+      "logicalSha256": "122dc966552da163840f91d2f44c430da41dd73325aa4a59d270eaeb1bd6f0dc",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-ae*",
+            "tools/three-body-stage-af*",
+            "tools/three-body-stage-ag*",
+            "src/three-body-stage-ae*",
+            "src/three-body-stage-af*",
+            "src/three-body-stage-ag*",
+            "docs/three-body/review-44/stage-ae/**",
+            "docs/three-body/review-44/stage-af/**",
+            "docs/three-body/review-44/stage-ag/**",
+            ".github/workflows/**"
+          ]
+        }
+      },
+      "jobs": [
+        {
+          "id": "audit",
+          "if": null,
+          "uses": null,
+          "steps": [
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+            },
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+            },
+            {
+              "name": null,
+              "run": "npm ci",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Static and mock contracts only",
+              "run": "npx vitest run --config tools/three-body-stage-ag-tests.config.mjs",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Stage AG static source correspondence only",
+              "run": "node tools/three-body-stage-ag-audit.mjs static .",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Actual PR44 denial without measurement",
+              "run": "node tools/three-body-stage-ac-ci.mjs\nif ($LASTEXITCODE -ne 2) { throw 'Expected prohibited browser event' }\nexit 0\n",
+              "if": "github.event.pull_request.number == 44",
+              "uses": null
+            },
+            {
+              "name": "Scope",
+              "run": "echo 'No fixed diagnostic trials, browsers, CDP, GUI, original stop or ZIP experiment in this job. Not execution approval.' >> $env:GITHUB_STEP_SUMMARY",
+              "if": null,
+              "uses": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "three-body-stage-ah.yml",
+      "sha256": "5124bd37b45c35b23ef5076c08e50e2fe4b6115a64f7d43ad3d5cbdbd9f22f4e",
+      "logicalSha256": "5124bd37b45c35b23ef5076c08e50e2fe4b6115a64f7d43ad3d5cbdbd9f22f4e",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-ah*",
+            "src/three-body-stage-ah*",
+            "docs/three-body/review-44/stage-ah/**",
+            ".github/workflows/**"
+          ]
+        }
+      },
+      "jobs": [
+        {
+          "id": "plan-only",
+          "if": null,
+          "uses": null,
+          "steps": [
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+            },
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+            },
+            {
+              "name": null,
+              "run": "npm ci",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Exact static and mock scope including prior 178 contracts",
+              "run": "npx vitest run --config tools/three-body-stage-ah-tests.config.mjs",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Validate plan and static sources only",
+              "run": "node tools/three-body-stage-ah-audit.mjs validate",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Confirm pure PLAN_ONLY denial without a launcher",
+              "run": "node tools/three-body-stage-ah-audit.mjs --execute\nif ($LASTEXITCODE -ne 2) { throw 'Expected PLAN_ONLY refusal' }\nexit 0\n",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Scope",
+              "run": "echo 'PLAN_ONLY. No original numerical test, stop test, performance trial, browser or CDP is launched by this job. No execution approval.' >> $env:GITHUB_STEP_SUMMARY",
+              "if": null,
+              "uses": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "three-body-stage-ai.yml",
+      "sha256": "e154ff6c994495ad3c264987bbde3ce7ac8e4427b84814dda0e69ddca7d5b2f7",
+      "logicalSha256": "d9852b809a2681f914f5881d4213e82937d8d922fad4b2bc5ec5d249509707a5",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-ai*",
+            "src/three-body-stage-ai*",
+            "docs/three-body/review-44/stage-ai/**",
+            ".github/workflows/**"
+          ]
+        }
+      },
+      "jobs": [
+        {
+          "id": "plan-only",
+          "if": null,
+          "uses": null,
+          "steps": [
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+            },
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+            },
+            {
+              "name": null,
+              "run": "npm ci",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Exact static and mock scope including prior 322 contracts",
+              "run": "npx vitest run --config tools/three-body-stage-ai-tests.config.mjs",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Validate design and static sources only",
+              "run": "node tools/three-body-stage-ai-audit.mjs validate",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Confirm pure PLAN_ONLY denial without a launcher",
+              "run": "node tools/three-body-stage-ai-audit.mjs --execute\nif ($LASTEXITCODE -ne 2) { throw 'Expected PLAN_ONLY refusal' }\nexit 0\n",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Scope",
+              "run": "echo 'PLAN_ONLY. No original numerical test, stop test, performance trial, browser or CDP is launched by this job. No execution approval.' >> $env:GITHUB_STEP_SUMMARY",
+              "if": null,
+              "uses": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "three-body-stage-aj.yml",
+      "sha256": "a8167bfff70e31cfe3e13ae00f0530d77c73a62c5ee959776a0b1c848057b44a",
+      "logicalSha256": "c6d9107880c2eadda3166b00e81b1ba2fc061f4cd0b0fc13fe5ecc51d95a3282",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-aj*",
+            "src/three-body-stage-aj*",
+            "docs/three-body/review-44/stage-aj/**",
+            ".github/workflows/**"
+          ]
+        }
+      },
+      "jobs": [
+        {
+          "id": "plan-only",
+          "if": null,
+          "uses": null,
+          "steps": [
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+            },
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+            },
+            {
+              "name": null,
+              "run": "npm ci",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Exact static and mock scope including prior 462 contracts",
+              "run": "npx vitest run --config tools/three-body-stage-aj-tests.config.mjs",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Validate design and static sources only",
+              "run": "node tools/three-body-stage-aj-audit.mjs validate",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Confirm pure PLAN_ONLY denial without a launcher",
+              "run": "node tools/three-body-stage-aj-audit.mjs --execute\nif ($LASTEXITCODE -ne 2) { throw 'Expected PLAN_ONLY refusal' }\nexit 0\n",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Scope",
+              "run": "echo 'PLAN_ONLY. No original numerical test, stop test, performance trial, browser or CDP is launched by this job. No execution approval.' >> $env:GITHUB_STEP_SUMMARY",
+              "if": null,
+              "uses": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "three-body-stage-p.yml",
+      "sha256": "e7cfca5e35f4bc34fc5019e161b2d1a62d2fb2b4c35a81bbd5a1f068a7c694ec",
+      "logicalSha256": "e7cfca5e35f4bc34fc5019e161b2d1a62d2fb2b4c35a81bbd5a1f068a7c694ec",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-p*",
+            "src/three-body-stage-p.test.js",
+            "docs/three-body/review-44/stage-p/**",
+            ".github/workflows/three-body-stage-p.yml",
+            "tools/three-body-stage-q*",
+            "src/three-body-stage-q.test.js",
+            "docs/three-body/review-44/stage-q/**"
+          ]
+        }
+      },
+      "jobs": [
+        {
+          "id": "diagnostic-contract",
+          "if": "${{ ((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}",
+          "uses": null,
+          "steps": [
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+            },
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+            },
+            {
+              "name": null,
+              "run": "npm ci",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Enforce committed browser policy",
+              "run": "node tools/three-body-stage-ac-ci.mjs",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Install isolated Chromium",
+              "run": "if [ -f /etc/apt/apt-mirrors.txt ]; then\n  sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu|https://archive.ubuntu.com/ubuntu|g' /etc/apt/apt-mirrors.txt\nfi\nnpx playwright install --with-deps chromium\n",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Trace and independent-input positive control",
+              "run": "node --expose-gc tools/three-body-stage-p.mjs --suite=smoke --browser=chromium --output=test-results/stage-p",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Repeat stop event routing",
+              "run": "node --expose-gc tools/three-body-stage-p.mjs --suite=stops --browser=chromium --output=test-results/stage-p",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Check clock, mathematical identity, display and stop evidence",
+              "run": "node tools/three-body-stage-p-report.mjs test-results/stage-p\nnode tools/three-body-stage-p-check.mjs test-results/stage-p\n",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Preserve raw trace and evidence",
+              "run": null,
+              "if": "always()",
+              "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "three-body-stage-q.yml",
+      "sha256": "4a418036dd628c23fdc8e00904926db94acaceda7141998cc034239510f82304",
+      "logicalSha256": "4a418036dd628c23fdc8e00904926db94acaceda7141998cc034239510f82304",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-q*",
+            "tools/three-body-stage-s*",
+            "src/three-body-stage-q*",
+            "src/three-body-stage-s*",
+            "docs/three-body/review-44/stage-q/**",
+            "docs/three-body/review-44/stage-r/**",
+            "docs/three-body/review-44/stage-s/**",
+            ".github/workflows/three-body-stage-q.yml"
+          ]
+        }
+      },
+      "jobs": [
+        {
+          "id": "bounded-diagnostics",
+          "if": "${{ ((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}",
+          "uses": null,
+          "steps": [
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+            },
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+            },
+            {
+              "name": "Save diagnostic plan before dependency preparation",
+              "run": "node tools/three-body-stage-q-pipeline.mjs --init --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": null,
+              "run": "npm ci",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Enforce committed browser policy",
+              "run": "node tools/three-body-stage-ac-ci.mjs",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Install Linux browser",
+              "run": "if [ -f /etc/apt/apt-mirrors.txt ]; then\n  sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu|https://archive.ubuntu.com/ubuntu|g' /etc/apt/apt-mirrors.txt\nfi\nnpx playwright install --with-deps ${{ matrix.browser }}\n",
+              "if": "runner.os == 'Linux'",
+              "uses": null
+            },
+            {
+              "name": "Install Windows browser",
+              "run": "npx playwright install chromium",
+              "if": "runner.os == 'Windows'",
+              "uses": null
+            },
+            {
+              "name": "Validate mandatory environment",
+              "run": "node tools/three-body-stage-q-pipeline.mjs --preflight --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Initial diagnostic controls",
+              "run": "node tools/three-body-stage-q-pipeline.mjs --suite=ci --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}",
+              "if": "${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' }}",
+              "uses": null
+            },
+            {
+              "name": "Mechanism observation controls",
+              "run": "node tools/three-body-stage-q-pipeline.mjs --suite=mechanism --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}",
+              "if": "${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' }}",
+              "uses": null
+            },
+            {
+              "name": "Timing positive controls",
+              "run": "node tools/three-body-stage-q-pipeline.mjs --suite=smoke --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}",
+              "if": "${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' }}",
+              "uses": null
+            },
+            {
+              "name": "Capture order and instrumentation controls",
+              "run": "node tools/three-body-stage-q-pipeline.mjs --suite=capture --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}",
+              "if": "${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' }}",
+              "uses": null
+            },
+            {
+              "name": "Chromium capture API controls",
+              "run": "node tools/three-body-stage-q-pipeline.mjs --suite=capture-probe --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}",
+              "if": "${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' && matrix.browser == 'chromium' }}",
+              "uses": null
+            },
+            {
+              "name": "Additional CDP emulation controls",
+              "run": "node tools/three-body-stage-q-pipeline.mjs --suite=emulation --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}",
+              "if": "${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' && matrix.browser == 'chromium' }}",
+              "uses": null
+            },
+            {
+              "name": "Canvas and DOM resource controls",
+              "run": "node tools/three-body-stage-q-pipeline.mjs --suite=screen --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}",
+              "if": "${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' }}",
+              "uses": null
+            },
+            {
+              "name": "Preserve checkpoint with planned and unexecuted entries",
+              "run": null,
+              "if": "always()",
+              "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+            },
+            {
+              "name": "Sixty second repeats and five minute playback",
+              "run": "node tools/three-body-stage-q-pipeline.mjs --suite=long --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}",
+              "if": "${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' }}",
+              "uses": null
+            },
+            {
+              "name": "Harness Node stop delivery",
+              "run": "node tools/three-body-stage-q-pipeline.mjs --suite=host --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}",
+              "if": "${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' }}",
+              "uses": null
+            },
+            {
+              "name": "Dedicated send-only OS process",
+              "run": "node tools/three-body-stage-q-pipeline.mjs --suite=sender --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}",
+              "if": "${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' }}",
+              "uses": null
+            },
+            {
+              "name": "Lesson restoration and component disposal",
+              "run": "node tools/three-body-stage-q-pipeline.mjs --suite=lifecycle --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}",
+              "if": "${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' }}",
+              "uses": null
+            },
+            {
+              "name": "Natural phase targeting",
+              "run": "node tools/three-body-stage-q-pipeline.mjs --suite=targets --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}",
+              "if": "${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' }}",
+              "uses": null
+            },
+            {
+              "name": "Dedicated sender natural phase targeting",
+              "run": "node tools/three-body-stage-q-pipeline.mjs --suite=sender-targets --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}",
+              "if": "${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' }}",
+              "uses": null
+            },
+            {
+              "name": "Nonprivileged Windows thread sampling",
+              "run": "node tools/three-body-stage-q-pipeline.mjs --suite=os --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}",
+              "if": "${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' && runner.os == 'Windows' }}",
+              "uses": null
+            },
+            {
+              "name": "Independent numerical and display analysis",
+              "run": "node tools/three-body-stage-q-pipeline.mjs --analyze --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}",
+              "if": "${{ !cancelled() && steps.browser_policy.outcome == 'success' && steps.preflight.outcome == 'success' }}",
+              "uses": null
+            },
+            {
+              "name": "Finalize suite counts and verify artifact index",
+              "run": "node tools/three-body-stage-q-pipeline.mjs --finalize --browser=${{ matrix.browser }} --output=${{ env.EVIDENCE }}",
+              "if": "always()",
+              "uses": null
+            },
+            {
+              "name": "Preserve evidence with explicit completeness",
+              "run": null,
+              "if": "always()",
+              "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "three-body-stage-t.yml",
+      "sha256": "ecb03de0e179f4da739cceaee62f161aa5b6a1da27fa06645303e27730d8f6a9",
+      "logicalSha256": "ecb03de0e179f4da739cceaee62f161aa5b6a1da27fa06645303e27730d8f6a9",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-t*",
+            "tools/three-body-stage-q*",
+            "src/three-body-stage-t*",
+            "docs/three-body/review-44/stage-t/**",
+            ".github/workflows/three-body-stage-t.yml"
+          ]
+        }
+      },
+      "jobs": [
+        {
+          "id": "controls",
+          "if": "${{ ((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}",
+          "uses": null,
+          "steps": [
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+            },
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+            },
+            {
+              "name": "Preserve plan before dependency preparation",
+              "run": "node --input-type=module -e \"import fs from 'node:fs'; import {stageTPlans} from './tools/three-body-stage-t-plans.mjs'; fs.mkdirSync('test-results/stage-t',{recursive:true}); fs.writeFileSync('test-results/stage-t/planned.json',JSON.stringify({status:'PLANNED',runId:process.env.GITHUB_RUN_ID,checkout:process.env.GITHUB_SHA,plans:stageTPlans('${{ matrix.browser }}')}));\"",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": null,
+              "run": "npm ci",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Enforce committed browser policy",
+              "run": "node tools/three-body-stage-ac-ci.mjs",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Install Linux browser",
+              "run": "npx playwright install --with-deps ${{ matrix.browser }}",
+              "if": "runner.os == 'Linux'",
+              "uses": null
+            },
+            {
+              "name": "Install Windows browser",
+              "run": "npx playwright install chromium",
+              "if": "runner.os == 'Windows'",
+              "uses": null
+            },
+            {
+              "name": "Run fixed controls and preserve every failure",
+              "run": "node tools/three-body-stage-t.mjs --browser=${{ matrix.browser }} --output=test-results/stage-t",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Preserve indexed evidence with explicit completeness",
+              "run": null,
+              "if": "always()",
+              "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "three-body-stage-u.yml",
+      "sha256": "080e0af20b0d913047b85350aafacfe4ab6425f61b5c28004b2bf9282a688efb",
+      "logicalSha256": "080e0af20b0d913047b85350aafacfe4ab6425f61b5c28004b2bf9282a688efb",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-u*",
+            "src/three-body-stage-u*",
+            "docs/three-body/review-44/stage-u/**",
+            ".github/workflows/three-body-stage-u.yml"
+          ]
+        }
+      },
+      "jobs": [
+        {
+          "id": "primary",
+          "if": "${{ ((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}",
+          "uses": null,
+          "steps": [
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+            },
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+            },
+            {
+              "name": "Record plan before dependency preparation",
+              "run": "node --input-type=module -e \"import fs from 'node:fs';import {stageUPlans} from './tools/three-body-stage-u-contracts.mjs';fs.mkdirSync('test-results/stage-u',{recursive:true});fs.writeFileSync('test-results/stage-u/planned.json',JSON.stringify({status:'PLANNED',runId:process.env.GITHUB_RUN_ID,checkout:process.env.GITHUB_SHA,plans:stageUPlans()}));\"",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": null,
+              "run": "npm ci",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Enforce committed browser policy",
+              "run": "node tools/three-body-stage-ac-ci.mjs",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Use existing Chromium runtime dependencies; no elevation or OS changes",
+              "run": "npx playwright install chromium",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Fixed primary CDP controls",
+              "run": "node tools/three-body-stage-u.mjs --output=test-results/stage-u",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Preserve all completed and blocked evidence",
+              "run": null,
+              "if": "always()",
+              "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "three-body-stage-v.yml",
+      "sha256": "124d0fabd04cde71482241eb6b9d2cf13c7f973fe959830dcebcc526c204158d",
+      "logicalSha256": "124d0fabd04cde71482241eb6b9d2cf13c7f973fe959830dcebcc526c204158d",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-v*",
+            "src/three-body-stage-v*",
+            "docs/three-body/review-44/stage-v/**",
+            ".github/workflows/three-body-stage-v.yml"
+          ]
+        }
+      },
+      "jobs": [
+        {
+          "id": "fixed-cohort",
+          "if": "${{ ((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}",
+          "uses": null,
+          "steps": [
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+            },
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+            },
+            {
+              "name": "Save fixed plan before environment preparation",
+              "run": "node --input-type=module -e \"import fs from 'node:fs';import {plans,baseline} from './tools/three-body-stage-v-contracts.mjs';fs.mkdirSync('test-results/stage-v',{recursive:true});fs.writeFileSync('test-results/stage-v/planned.json',JSON.stringify({schema:'stage-v-plan-1',baseline,checkout:process.env.GITHUB_SHA,ciRunId:process.env.GITHUB_RUN_ID,status:'PLANNED',plans:plans()}));\"",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": null,
+              "run": "npm ci",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Enforce committed browser policy",
+              "run": "node tools/three-body-stage-ac-ci.mjs",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Existing Chromium runtime; no OS dependency changes",
+              "run": "npx playwright install chromium",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "One fixed primary and auxiliary cohort",
+              "run": "node tools/three-body-stage-v.mjs --output=test-results/stage-v",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Preserve acquired and blocked evidence",
+              "run": null,
+              "if": "always()",
+              "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "three-body-stage-w.yml",
+      "sha256": "8bb3058074b0cab5e795c6f9234eb40b1f05c3a72919b7b101c5e649882c0fdd",
+      "logicalSha256": "8bb3058074b0cab5e795c6f9234eb40b1f05c3a72919b7b101c5e649882c0fdd",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-w*",
+            "tools/three-body-stage-v*",
+            "src/three-body-stage-w*",
+            "src/three-body-stage-v*",
+            "docs/three-body/review-44/stage-w/**",
+            ".github/workflows/three-body-stage-w.yml"
+          ]
+        }
+      },
+      "jobs": [
+        {
+          "id": "fixed-cohort-reaudit",
+          "if": null,
+          "uses": null,
+          "steps": [
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+            },
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+            },
+            {
+              "name": null,
+              "run": "npm ci",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Re-audit completed fixed cohort and preserve original FAIL",
+              "run": "node tools/three-body-stage-w-reaudit.mjs --cohort=${{ matrix.cohort }} --output=test-results/stage-w",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Preserve original bytes and independent re-audit",
+              "run": null,
+              "if": "always()",
+              "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "three-body-stage-x.yml",
+      "sha256": "42dc4463fb43f5ef605b9d544789a4f59b15709874f622c6e3d9d4c7b18d082a",
+      "logicalSha256": "42dc4463fb43f5ef605b9d544789a4f59b15709874f622c6e3d9d4c7b18d082a",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-x*",
+            "src/three-body-stage-x*",
+            "docs/three-body/review-44/stage-x/**",
+            ".github/workflows/three-body-stage-x.yml"
+          ]
+        }
+      },
+      "jobs": [
+        {
+          "id": "isolation",
+          "if": null,
+          "uses": null,
+          "steps": [
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+            },
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+            },
+            {
+              "name": null,
+              "run": "npm ci",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Re-audit original partial evidence and preserve FAIL",
+              "run": "node tools/three-body-stage-x-pipeline.mjs test-results/stage-x",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": "Preserve every attempted trial and failure",
+              "run": null,
+              "if": "always()",
+              "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "three-body-stage-z.yml",
+      "sha256": "b8f056717d166da5dfd1c6178e88b3004e2cc0074b6444364ad25deb053f3c65",
+      "logicalSha256": "b8f056717d166da5dfd1c6178e88b3004e2cc0074b6444364ad25deb053f3c65",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-z*",
+            "tools/three-body-stage-y-control.mjs",
+            "docs/three-body/review-44/stage-z/**",
+            ".github/workflows/three-body-stage-z.yml"
+          ]
+        }
+      },
+      "jobs": [
+        {
+          "id": "transfer",
+          "if": null,
+          "uses": null,
+          "steps": [
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+            },
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+            },
+            {
+              "name": null,
+              "run": "node tools/three-body-stage-z-transfer.mjs create test-results/stage-z-transfer",
+              "if": null,
+              "uses": null
+            },
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+            },
+            {
+              "name": null,
+              "run": null,
+              "if": null,
+              "uses": "actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333"
+            },
+            {
+              "name": null,
+              "run": "node tools/three-body-stage-z-transfer.mjs verify test-results/stage-z-downloaded",
+              "if": null,
+              "uses": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "browserKnownCommandAudit": {
+    "status": "PASS",
+    "files": [
+      {
+        "file": "deploy-pages.yml",
+        "status": "PASS",
+        "errors": [],
+        "rows": [
+          {
+            "job": "validate",
+            "index": 7,
+            "name": "Install Playwright browsers and system dependencies",
+            "guardIndex": 6,
+            "passed": true
+          },
+          {
+            "job": "validate",
+            "index": 8,
+            "name": "Development regression tests",
+            "guardIndex": 6,
+            "passed": true
+          },
+          {
+            "job": "validate",
+            "index": 9,
+            "name": "Production build smoke tests",
+            "guardIndex": 6,
+            "passed": true
+          }
+        ],
+        "unknown": [
+          "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+          "EXTERNAL_ACTION:actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333",
+          "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+          "EXTERNAL_ACTION:actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333",
+          "EXTERNAL_ACTION:actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d",
+          "EXTERNAL_ACTION:actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9",
+          "EXTERNAL_ACTION:actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346"
+        ],
+        "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+      },
+      {
+        "file": "segregation-layout.yml",
+        "status": "PASS",
+        "errors": [],
+        "rows": [
+          {
+            "job": "diagnose",
+            "index": 4,
+            "name": "Install diagnostic browsers",
+            "guardIndex": 3,
+            "passed": true
+          },
+          {
+            "job": "diagnose",
+            "index": 5,
+            "name": "Measure original layout assertions",
+            "guardIndex": 3,
+            "passed": true
+          }
+        ],
+        "unknown": [
+          "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+        ],
+        "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+      },
+      {
+        "file": "three-body-review-diagnostics.yml",
+        "status": "PASS",
+        "errors": [],
+        "rows": [
+          {
+            "job": "focused-webkit",
+            "index": 4,
+            "name": "Install WebKit",
+            "guardIndex": 3,
+            "passed": true
+          },
+          {
+            "job": "focused-webkit",
+            "index": 5,
+            "name": "Repeat DPR controls and the observed lifecycle failure",
+            "guardIndex": 3,
+            "passed": true
+          },
+          {
+            "job": "focused-webkit",
+            "index": 6,
+            "name": "Isolate actual app raster state",
+            "guardIndex": 3,
+            "passed": true
+          }
+        ],
+        "unknown": [
+          "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+        ],
+        "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+      },
+      {
+        "file": "three-body-stage-ab.yml",
+        "status": "PASS",
+        "errors": [],
+        "rows": [],
+        "unknown": [
+          "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+        ],
+        "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+      },
+      {
+        "file": "three-body-stage-ac.yml",
+        "status": "PASS",
+        "errors": [],
+        "rows": [],
+        "unknown": [
+          "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+        ],
+        "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+      },
+      {
+        "file": "three-body-stage-ad.yml",
+        "status": "PASS",
+        "errors": [],
+        "rows": [],
+        "unknown": [
+          "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+        ],
+        "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+      },
+      {
+        "file": "three-body-stage-ae.yml",
+        "status": "PASS",
+        "errors": [],
+        "rows": [],
+        "unknown": [
+          "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+        ],
+        "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+      },
+      {
+        "file": "three-body-stage-ah.yml",
+        "status": "PASS",
+        "errors": [],
+        "rows": [],
+        "unknown": [
+          "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+        ],
+        "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+      },
+      {
+        "file": "three-body-stage-ai.yml",
+        "status": "PASS",
+        "errors": [],
+        "rows": [],
+        "unknown": [
+          "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+        ],
+        "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+      },
+      {
+        "file": "three-body-stage-aj.yml",
+        "status": "PASS",
+        "errors": [],
+        "rows": [],
+        "unknown": [
+          "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+        ],
+        "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+      },
+      {
+        "file": "three-body-stage-p.yml",
+        "status": "PASS",
+        "errors": [],
+        "rows": [
+          {
+            "job": "diagnostic-contract",
+            "index": 4,
+            "name": "Install isolated Chromium",
+            "guardIndex": 3,
+            "passed": true
+          },
+          {
+            "job": "diagnostic-contract",
+            "index": 5,
+            "name": "Trace and independent-input positive control",
+            "guardIndex": 3,
+            "passed": true
+          },
+          {
+            "job": "diagnostic-contract",
+            "index": 6,
+            "name": "Repeat stop event routing",
+            "guardIndex": 3,
+            "passed": true
+          }
+        ],
+        "unknown": [
+          "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+        ],
+        "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+      },
+      {
+        "file": "three-body-stage-q.yml",
+        "status": "PASS",
+        "errors": [],
+        "rows": [
+          {
+            "job": "bounded-diagnostics",
+            "index": 5,
+            "name": "Install Linux browser",
+            "guardIndex": 4,
+            "passed": true
+          },
+          {
+            "job": "bounded-diagnostics",
+            "index": 6,
+            "name": "Install Windows browser",
+            "guardIndex": 4,
+            "passed": true
+          },
+          {
+            "job": "bounded-diagnostics",
+            "index": 7,
+            "name": "Validate mandatory environment",
+            "guardIndex": 4,
+            "passed": true
+          },
+          {
+            "job": "bounded-diagnostics",
+            "index": 8,
+            "name": "Initial diagnostic controls",
+            "guardIndex": 4,
+            "passed": true
+          },
+          {
+            "job": "bounded-diagnostics",
+            "index": 9,
+            "name": "Mechanism observation controls",
+            "guardIndex": 4,
+            "passed": true
+          },
+          {
+            "job": "bounded-diagnostics",
+            "index": 10,
+            "name": "Timing positive controls",
+            "guardIndex": 4,
+            "passed": true
+          },
+          {
+            "job": "bounded-diagnostics",
+            "index": 11,
+            "name": "Capture order and instrumentation controls",
+            "guardIndex": 4,
+            "passed": true
+          },
+          {
+            "job": "bounded-diagnostics",
+            "index": 12,
+            "name": "Chromium capture API controls",
+            "guardIndex": 4,
+            "passed": true
+          },
+          {
+            "job": "bounded-diagnostics",
+            "index": 13,
+            "name": "Additional CDP emulation controls",
+            "guardIndex": 4,
+            "passed": true
+          },
+          {
+            "job": "bounded-diagnostics",
+            "index": 14,
+            "name": "Canvas and DOM resource controls",
+            "guardIndex": 4,
+            "passed": true
+          },
+          {
+            "job": "bounded-diagnostics",
+            "index": 16,
+            "name": "Sixty second repeats and five minute playback",
+            "guardIndex": 4,
+            "passed": true
+          },
+          {
+            "job": "bounded-diagnostics",
+            "index": 17,
+            "name": "Harness Node stop delivery",
+            "guardIndex": 4,
+            "passed": true
+          },
+          {
+            "job": "bounded-diagnostics",
+            "index": 18,
+            "name": "Dedicated send-only OS process",
+            "guardIndex": 4,
+            "passed": true
+          },
+          {
+            "job": "bounded-diagnostics",
+            "index": 19,
+            "name": "Lesson restoration and component disposal",
+            "guardIndex": 4,
+            "passed": true
+          },
+          {
+            "job": "bounded-diagnostics",
+            "index": 20,
+            "name": "Natural phase targeting",
+            "guardIndex": 4,
+            "passed": true
+          },
+          {
+            "job": "bounded-diagnostics",
+            "index": 21,
+            "name": "Dedicated sender natural phase targeting",
+            "guardIndex": 4,
+            "passed": true
+          },
+          {
+            "job": "bounded-diagnostics",
+            "index": 22,
+            "name": "Nonprivileged Windows thread sampling",
+            "guardIndex": 4,
+            "passed": true
+          }
+        ],
+        "unknown": [
+          "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+          "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+        ],
+        "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+      },
+      {
+        "file": "three-body-stage-t.yml",
+        "status": "PASS",
+        "errors": [],
+        "rows": [
+          {
+            "job": "controls",
+            "index": 5,
+            "name": "Install Linux browser",
+            "guardIndex": 4,
+            "passed": true
+          },
+          {
+            "job": "controls",
+            "index": 6,
+            "name": "Install Windows browser",
+            "guardIndex": 4,
+            "passed": true
+          },
+          {
+            "job": "controls",
+            "index": 7,
+            "name": "Run fixed controls and preserve every failure",
+            "guardIndex": 4,
+            "passed": true
+          }
+        ],
+        "unknown": [
+          "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+        ],
+        "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+      },
+      {
+        "file": "three-body-stage-u.yml",
+        "status": "PASS",
+        "errors": [],
+        "rows": [
+          {
+            "job": "primary",
+            "index": 5,
+            "name": "Use existing Chromium runtime dependencies; no elevation or OS changes",
+            "guardIndex": 4,
+            "passed": true
+          },
+          {
+            "job": "primary",
+            "index": 6,
+            "name": "Fixed primary CDP controls",
+            "guardIndex": 4,
+            "passed": true
+          }
+        ],
+        "unknown": [
+          "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+        ],
+        "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+      },
+      {
+        "file": "three-body-stage-v.yml",
+        "status": "PASS",
+        "errors": [],
+        "rows": [
+          {
+            "job": "fixed-cohort",
+            "index": 5,
+            "name": "Existing Chromium runtime; no OS dependency changes",
+            "guardIndex": 4,
+            "passed": true
+          },
+          {
+            "job": "fixed-cohort",
+            "index": 6,
+            "name": "One fixed primary and auxiliary cohort",
+            "guardIndex": 4,
+            "passed": true
+          }
+        ],
+        "unknown": [
+          "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+        ],
+        "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+      },
+      {
+        "file": "three-body-stage-w.yml",
+        "status": "PASS",
+        "errors": [],
+        "rows": [],
+        "unknown": [
+          "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+        ],
+        "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+      },
+      {
+        "file": "three-body-stage-x.yml",
+        "status": "PASS",
+        "errors": [],
+        "rows": [],
+        "unknown": [
+          "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+        ],
+        "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+      },
+      {
+        "file": "three-body-stage-z.yml",
+        "status": "PASS",
+        "errors": [],
+        "rows": [],
+        "unknown": [
+          "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+          "EXTERNAL_ACTION:actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333"
+        ],
+        "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+      }
+    ]
+  },
+  "push": "HOLD",
+  "blocker": {
+    "file": "deploy-pages.yml",
+    "event": "pull_request main with no paths filter",
+    "job": "validate",
+    "step": "Unit tests",
+    "run": "npm test",
+    "packageScript": "vitest run src",
+    "target": "src/three-body.test.ts",
+    "authorization": "NOT_GRANTED_FOR_AK"
+  },
+  "scope": "Full YAML event/job/step inventory; known browser gate checker reused. External actions and arbitrary shell indirection remain UNKNOWN. Pages original-test path alone proves push unsafe."
+}

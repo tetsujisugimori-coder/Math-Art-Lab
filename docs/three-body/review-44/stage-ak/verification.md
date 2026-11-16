@@ -1,0 +1,9 @@
+# Final non-execution validation
+
+Commands and original stdout/stderr/exit/time records are preserved under case-specific .three-body-evidence/stage-ak. Exact config tools/three-body-stage-ak-tests.config.mjs includes prior AJ494 plus AK static/mock tests only, not src/three-body.test.ts. Final566/566 PASS. Initial560 PASS preceded4 review regression tests and2 native-topology tests; preserve both runs, do not label initial560 a failure. Typecheck/build exit0; design CLI DESIGN_VALID/allowed:false; --execute exit2/BLOCKED/APPROVAL_MISSING. Invalid approvals never grant authority.
+
+Legacy gate's12 denied requests actually executed before AK final validation and are BASELINE_PASS, not RED. New AK responsibilities were not prior validator scope and are NOT_APPLICABLE historically. Four genuine local v1 false-valid outputs were saved before fixes, with source snapshots and same-input final rejection; red-green.json includes required original FINITE/VM error checks so later topology changes cannot mask the fixes. No performance/physical values produced.
+
+Existing files and dependencies are unchanged, no new workflow or LOG edit. Exact18-workflow YAML event/job/step/command/hash inventory and known-browser-guard audit saved. Pages unit path directly violates current no-original-Vitest authorization; external actions/indirect shell remain UNKNOWN. Commit/push HOLD. Baseline bca7eb3 CI18 workflows success9/failure2(W/X)/skip7/pending0 is fetched as BASELINE_ONLY_NOT_AK_CI. New AK snapshot formal CI NOT_RUN_PUSH_HOLD. No dispatch/rerun/skip-CI bypass.
+
+Windows edition ProductName is registry data, not inferred OS identity; native/ABI/VM/recovery evidence gaps remain explicit. Qualification8/10000/90000 and AH2/OFF->ON/5000/30000/90000 unchanged. Budget feasibility NOT_TESTED, first failure may block later slots. Old W/X and historical missing evidence retained. Final worktree/source manifest and immutable archive receipts follow in submission.
