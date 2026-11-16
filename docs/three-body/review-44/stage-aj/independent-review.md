@@ -1,0 +1,7 @@
+# AJ-review-v1: independent blocked pre-fixation acceptance
+
+Separate reviewer ai05_06_review checked13/13 frozen logical SHA256 entries and independently ran the exact8-file static/mock suite:494/494 PASS. Review manifest is review-manifest.json. All9 support-source rows match actual c499e58 commit/blob/raw Git bytes and current source SHA; basis tree matches. Reviewer independently rehashed the actual Node executable; recorded SHA matches. Seven reserved physical paths are absent; no process/stop/Job APIs were added.
+
+Normal result PREFIX_VALID while physical NOT_IMPLEMENTED/startNO/deny. Direct mutations of hang guarantee, start permission, fabricated native implementation, candidate and slot constraints reject. Reviewer confirmed monitor hang NONE/startNO, conditional death behavior, preassignment orphan blocker, human recovery not automatic, and eight-slot upper-bound versus first-any-failure coverage constraint are explicit.
+
+No new P1/P2 in frozen pre-fixation scope; LIMITED PASS for honest blocked pre-fixation only, not physical implementation acceptance. Actual Windows isolation/native ABI/rights/recovery/Job compatibility, formal CI and archives remain NOT_VERIFIED/NOT_TESTED by reviewer. No physical tests or Job operations performed. Administrative results/storage/submission follow after the reviewed13 source/spec files; they are not represented as reviewed original bytes. Date2026-11-16 JST.

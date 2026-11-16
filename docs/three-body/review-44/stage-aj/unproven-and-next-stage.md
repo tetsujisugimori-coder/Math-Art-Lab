@@ -1,0 +1,9 @@
+# Unproven requirements and start conditions
+
+All A-G physical source revisions remain null/NOT_IMPLEMENTED. Source-fixed pure support is available; it does not supply runtime observation/authentication/native stop. Current static OS release is not a complete qualified Windows image: patch/UBR, image SHA, VM identity, hypervisor, account rights, job ancestry, DLL/compiler/native ABI and operator identity are not obtained. No other version or current CI machine is substituted for them.
+
+The safe recovery route from monitor hang has not been demonstrated. Guarantee NONE and qualification NO remain binding, including for an intentionally hung monitor fixture. Preassignment suspended-child cleanup and creator death are unresolved. No new time grace is authorized; 80000ms proposed fixture maxima within90000ms do not establish actual total-budget feasibility. First failure can block coverage of later fixtures. Completing all8 in one campaign is not established, and retry/reorder/replacement is forbidden.
+
+Next implementation stage requires a separately reviewed source/dependency/ABI design and explicit permission to implement the physical components; this task grants none. Before isolated qualification, independently fix implemented source and binary hashes, environment/image/account/containment/recovery actors and evidence, finite exact plan and ceilings; conduct independent safety review and obtain explicit execution authorization. Before original Vitest observation, preserve AH2/OFF->ON/5000/30000/90000 and AB/AC approvals or obtain a separately authorized plan revision. Neither stage starts automatically from PREFIX_VALID or review LIMITED PASS.
+
+Root UNKNOWN; real-time NOT_COMPARABLE; improvement/original-stop NOT_TESTED; old W/X retained, historical/old6 originals NOT_OBTAINED; LOCAL_BACKUP_PARTIAL_ORIGINAL_GAPS; REMOTE_BACKUP_NOT_UPLOADED. Draft/no auto-merge/merge NO.

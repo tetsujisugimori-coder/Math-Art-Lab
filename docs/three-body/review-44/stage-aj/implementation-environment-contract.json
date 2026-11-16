@@ -1,0 +1,319 @@
+{
+  "revision": "aj-prefixed-1",
+  "state": "PLAN_ONLY",
+  "executionAuthorized": false,
+  "runtime": "NOT_TESTED",
+  "qualificationStart": "NO",
+  "approval": "APPROVAL_MISSING",
+  "decision": "HOLD",
+  "basis": {
+    "head": "c499e58bfde6b9bdebaff91ee359dea6a39c7c1c",
+    "tree": "e16cfbb08f9093ac5eba68238850e949d3f5e3a0",
+    "acquisition": "AFTER_INDEPENDENT_AI_LIMITED_ACCEPTANCE_NOT_PUSHED_YET"
+  },
+  "components": [
+    {
+      "id": "A",
+      "name": "worker observer",
+      "state": "NOT_IMPLEMENTED",
+      "source": {
+        "path": null,
+        "commit": null,
+        "sha256": null
+      },
+      "plannedPath": "tools/three-body-stage-ai-worker-observer.mjs",
+      "actor": "W inside J",
+      "thread": "primary event loop; no cross-thread clock subtraction",
+      "permissions": "own event channel only",
+      "ipc": {
+        "peer": "collector P",
+        "authentication": "PROPOSED private inherited capability channel + session nonce + enrolled peer creation identity; not implemented"
+      },
+      "identity": "session/trial/role/process-handle incarnation/parent relation/HEAD/tree/AH plan+source/channel peer/sequence/domain; PID alone forbidden",
+      "clock": {
+        "wall": "performance.now milliseconds in own process/thread/incarnation/origin domain",
+        "cpu": "process.cpuUsage microseconds; threadCpuUsage optional local only",
+        "interval": "body begin/end/throw and timeout decision, excluding setup/import/cleanup"
+      },
+      "input": "original Vitest hooks and fixed target",
+      "output": "bounded observed events, missing events explicitly missing",
+      "stopAndRecovery": "own loop stalls cannot self-stop; external M required",
+      "evidence": "append-only original channel bytes + local identity-bound stream + separate immutable receipt; path PR-44/new trial namespace, capacity bounded",
+      "notGuaranteed": "own hang observation or full matcher profiling",
+      "falsification": "clock-domain drift or dropped begin/timeout attribution",
+      "physical": "NOT_TESTED"
+    },
+    {
+      "id": "B",
+      "name": "parent collector",
+      "state": "NOT_IMPLEMENTED",
+      "source": {
+        "path": null,
+        "commit": null,
+        "sha256": null
+      },
+      "plannedPath": "tools/three-body-stage-ai-collector.mjs",
+      "actor": "P inside J",
+      "thread": "primary event loop; no cross-thread clock subtraction",
+      "permissions": "new immutable artifact paths; no global kill",
+      "ipc": {
+        "peer": "W/C and external M",
+        "authentication": "PROPOSED private inherited capability channel + session nonce + enrolled peer creation identity; not implemented"
+      },
+      "identity": "session/trial/role/process-handle incarnation/parent relation/HEAD/tree/AH plan+source/channel peer/sequence/domain; PID alone forbidden",
+      "clock": {
+        "wall": "performance.now milliseconds in own process/thread/incarnation/origin domain",
+        "cpu": "process.cpuUsage microseconds; threadCpuUsage optional local only",
+        "interval": "local request to receipt only"
+      },
+      "input": "authenticated envelopes",
+      "output": "raw result/clock bytes and receipt",
+      "stopAndRecovery": "notify M; never block stop on synchronous persistence",
+      "evidence": "append-only original channel bytes + local identity-bound stream + separate immutable receipt; path PR-44/new trial namespace, capacity bounded",
+      "notGuaranteed": "continuing observation while own loop hung",
+      "falsification": "capacity exhaustion delays monitor or archive overwrites",
+      "physical": "NOT_TESTED"
+    },
+    {
+      "id": "C",
+      "name": "independent monitor",
+      "state": "NOT_IMPLEMENTED",
+      "source": {
+        "path": null,
+        "commit": null,
+        "sha256": null
+      },
+      "plannedPath": "tools/three-body-stage-ai-monitor.mjs",
+      "actor": "M outside J",
+      "thread": "primary event loop; no cross-thread clock subtraction",
+      "permissions": "sole non-inherited owned job handle + query/terminate rights",
+      "ipc": {
+        "peer": "P and future native bridge",
+        "authentication": "PROPOSED private inherited capability channel + session nonce + enrolled peer creation identity; not implemented"
+      },
+      "identity": "session/trial/role/process-handle incarnation/parent relation/HEAD/tree/AH plan+source/channel peer/sequence/domain; PID alone forbidden",
+      "clock": {
+        "wall": "performance.now milliseconds in own process/thread/incarnation/origin domain",
+        "cpu": "process.cpuUsage microseconds; threadCpuUsage optional local only",
+        "interval": "monitor enrollment to safety/overall deadline"
+      },
+      "input": "verified ledger, heartbeat, deadlines",
+      "output": "decision/send/exit-unconfirmed ledger",
+      "stopAndRecovery": "own hang guarantee NONE; no active external watchdog implemented",
+      "evidence": "append-only original channel bytes + local identity-bound stream + separate immutable receipt; path PR-44/new trial namespace, capacity bounded",
+      "notGuaranteed": "automatic recovery from monitor hang or host/kernel failure",
+      "falsification": "M cannot run independently of P/W or shares blocked loop",
+      "physical": "NOT_TESTED"
+    },
+    {
+      "id": "D",
+      "name": "verified stop adapter",
+      "state": "NOT_IMPLEMENTED",
+      "source": {
+        "path": null,
+        "commit": null,
+        "sha256": null
+      },
+      "plannedPath": "tools/three-body-stage-ai-stop-runtime.mjs",
+      "actor": "M outside J",
+      "thread": "primary event loop; no cross-thread clock subtraction",
+      "permissions": "owned handles only, never arbitrary PID/name",
+      "ipc": {
+        "peer": "native bridge E",
+        "authentication": "PROPOSED private inherited capability channel + session nonce + enrolled peer creation identity; not implemented"
+      },
+      "identity": "session/trial/role/process-handle incarnation/parent relation/HEAD/tree/AH plan+source/channel peer/sequence/domain; PID alone forbidden",
+      "clock": {
+        "wall": "performance.now milliseconds in own process/thread/incarnation/origin domain",
+        "cpu": "process.cpuUsage microseconds; threadCpuUsage optional local only",
+        "interval": "local request/send/confirmation separate events"
+      },
+      "input": "enrolled handles+creation identity+membership",
+      "output": "send/ack/actual exit/resource states",
+      "stopAndRecovery": "mismatch refuses stop; missing proof UNCONFIRMED; no extra grace",
+      "evidence": "append-only original channel bytes + local identity-bound stream + separate immutable receipt; path PR-44/new trial namespace, capacity bounded",
+      "notGuaranteed": "successful send means actual exit",
+      "falsification": "foreign process targeted or ACK promoted to exit",
+      "physical": "NOT_TESTED"
+    },
+    {
+      "id": "E",
+      "name": "Windows Job Object native bridge",
+      "state": "NOT_IMPLEMENTED",
+      "source": {
+        "path": null,
+        "commit": null,
+        "sha256": null
+      },
+      "plannedPath": "tools/three-body-stage-ai-windows-native.mjs",
+      "actor": "native calls owned by M outside J",
+      "thread": "primary event loop; no cross-thread clock subtraction",
+      "permissions": "PROCESS_CREATE_PROCESS/SET_QUOTA/TERMINATE/query/synchronize only as required; exact ACL pending review",
+      "ipc": {
+        "peer": "M; no public kill endpoint",
+        "authentication": "PROPOSED private inherited capability channel + session nonce + enrolled peer creation identity; not implemented"
+      },
+      "identity": "session/trial/role/process-handle incarnation/parent relation/HEAD/tree/AH plan+source/channel peer/sequence/domain; PID alone forbidden",
+      "clock": {
+        "wall": "performance.now milliseconds in own process/thread/incarnation/origin domain",
+        "cpu": "process.cpuUsage microseconds; threadCpuUsage optional local only",
+        "interval": "native creation identity FILETIME is identity, not wall interval"
+      },
+      "input": "suspended launch specification and owned handles",
+      "output": "assignment/membership/handle provenance/exit facts",
+      "stopAndRecovery": "assign before resume; refusal blocks; breakaway forbidden; nested job compatibility unproved",
+      "evidence": "append-only original channel bytes + local identity-bound stream + separate immutable receipt; path PR-44/new trial namespace, capacity bounded",
+      "notGuaranteed": "sole handle ownership or nested hierarchy before qualification",
+      "falsification": "resume before assignment, inherited job handle or breakaway escape",
+      "physical": "NOT_TESTED"
+    },
+    {
+      "id": "F",
+      "name": "runtime classification adapter",
+      "state": "NOT_IMPLEMENTED",
+      "source": {
+        "path": null,
+        "commit": null,
+        "sha256": null
+      },
+      "plannedPath": "tools/three-body-stage-ai-runtime-adapter.mjs",
+      "actor": "offline pure auditor outside measurement actors",
+      "thread": "primary event loop; no cross-thread clock subtraction",
+      "permissions": "read-only raw; no launch authority",
+      "ipc": {
+        "peer": "immutable writer G output",
+        "authentication": "PROPOSED private inherited capability channel + session nonce + enrolled peer creation identity; not implemented"
+      },
+      "identity": "session/trial/role/process-handle incarnation/parent relation/HEAD/tree/AH plan+source/channel peer/sequence/domain; PID alone forbidden",
+      "clock": {
+        "wall": "performance.now milliseconds in own process/thread/incarnation/origin domain",
+        "cpu": "process.cpuUsage microseconds; threadCpuUsage optional local only",
+        "interval": "same-domain event ordering only"
+      },
+      "input": "authenticated acquired original raw",
+      "output": "AH execution/observation/evidence lanes and AI stop lanes",
+      "stopAndRecovery": "preserve runner FAIL, raw gaps and terminal uncertainty",
+      "evidence": "append-only original channel bytes + local identity-bound stream + separate immutable receipt; path PR-44/new trial namespace, capacity bounded",
+      "notGuaranteed": "pure existing classifier proves runtime peer authentication",
+      "falsification": "incomplete evidence promoted PASS or cross-domain subtraction",
+      "physical": "NOT_TESTED"
+    },
+    {
+      "id": "G",
+      "name": "immutable evidence writer",
+      "state": "NOT_IMPLEMENTED",
+      "source": {
+        "path": null,
+        "commit": null,
+        "sha256": null
+      },
+      "plannedPath": "tools/three-body-stage-aj-runtime-writer.mjs",
+      "actor": "P/M independent bounded writers",
+      "thread": "primary event loop; no cross-thread clock subtraction",
+      "permissions": "exclusive new directory writes; no overwrite/delete",
+      "ipc": {
+        "peer": "collector and monitor separately",
+        "authentication": "PROPOSED private inherited capability channel + session nonce + enrolled peer creation identity; not implemented"
+      },
+      "identity": "session/trial/role/process-handle incarnation/parent relation/HEAD/tree/AH plan+source/channel peer/sequence/domain; PID alone forbidden",
+      "clock": {
+        "wall": "performance.now milliseconds in own process/thread/incarnation/origin domain",
+        "cpu": "process.cpuUsage microseconds; threadCpuUsage optional local only",
+        "interval": "own bounded write/receipt milestones only"
+      },
+      "input": "raw bytes and identity-bound descriptors",
+      "output": "committed receipt or partial raw + failure",
+      "stopAndRecovery": "save cannot gate stop; capacity/receipt mismatch BLOCKED",
+      "evidence": "append-only original channel bytes + local identity-bound stream + separate immutable receipt; path PR-44/new trial namespace, capacity bounded",
+      "notGuaranteed": "fsync/atomic durability or forced-kill flush before tests",
+      "falsification": "unbounded write blocks stop or invalid receipt accepted",
+      "physical": "NOT_TESTED"
+    }
+  ],
+  "environment": {
+    "candidateFromAH": {
+      "node": "v24.20.0",
+      "vitest": "3.2.7",
+      "platform": "win32",
+      "release": "10.0.26300",
+      "arch": "x64",
+      "nodeExecutableSha256": "5c976096e04e5c2c1f091938926234cc9fbebfe9787ddd149351b3b0ecc707b5"
+    },
+    "currentStaticReceipt": "current-static-environment.json",
+    "currentDoesNotProveIsolation": true,
+    "qualificationEnvironment": "NOT_OBTAINED",
+    "nativeBridge": "NOT_IMPLEMENTED",
+    "bridgeAbi": "UNKNOWN",
+    "compilerSdk": "NOT_OBTAINED",
+    "nativePackage": "NOT_OBTAINED",
+    "dependencyLock": "package-lock.json at basis commit; full transitive graph in support binding",
+    "executableAcquisition": "future independent raw bytes SHA256 + size + canonical path; do not substitute a version string"
+  },
+  "isolation": {
+    "monitorOutsideJob": true,
+    "suspendAssignResume": true,
+    "pidOnlyStop": false,
+    "breakaway": false,
+    "handleInheritance": false,
+    "nestedJobCompatibility": "NOT_TESTED",
+    "membershipProof": "NOT_OBTAINED",
+    "stopSendImpliesExit": false,
+    "storageBlocksStop": false,
+    "unrelatedTargetAllowed": false
+  },
+  "monitorRecovery": {
+    "death": "CONDITIONAL_KILL_ON_LAST_HANDLE_CLOSE_NOT_TESTED",
+    "hangGuarantee": "NONE",
+    "externalWatchdog": "NOT_IMPLEMENTED",
+    "outOfBandAutomaticRecovery": "NOT_OBTAINED",
+    "humanRecovery": "MANUAL_ONLY_NOT_AUTOMATIC_GUARANTEE",
+    "qualificationStart": "NO"
+  },
+  "limits": {
+    "originalMs": 5000,
+    "parentMs": 30000,
+    "totalMs": 90000,
+    "ahSlots": 2,
+    "ahOrder": [
+      "OFF",
+      "ON"
+    ],
+    "retry": 0,
+    "replacement": 0,
+    "reorder": false,
+    "graceMs": 0
+  },
+  "qualification": {
+    "slots": 8,
+    "order": [
+      "normal",
+      "worker-silent",
+      "parent-silent",
+      "monitor-hang",
+      "stop-send-failed",
+      "exit-missing",
+      "save-interrupted",
+      "pid-reuse"
+    ],
+    "perSlotMs": 10000,
+    "totalMs": 90000,
+    "maxScheduledMs": 80000,
+    "extraSlackAuthorized": false,
+    "retry": 0,
+    "replacement": 0,
+    "reorder": false,
+    "firstFailure": "BLOCK_REMAINING",
+    "executed": 0,
+    "start": "NO",
+    "reason": "No physical implementation, no isolated environment, no demonstrated monitor-hang recovery, no explicit approval"
+  },
+  "preserved": {
+    "root": "UNKNOWN",
+    "time": "NOT_COMPARABLE",
+    "improvement": "NOT_TESTED",
+    "originalStop": "NOT_TESTED",
+    "historicalRuntime": "NOT_OBTAINED",
+    "W": "BLOCKED",
+    "X": "FAIL"
+  }
+}
