@@ -1,0 +1,38 @@
+{
+  "stage": "AL-postreview-P3",
+  "predecessor": "a627fa944b31b2e98e2dcb3908e2d84d62cd302f",
+  "codeCommit": "17346c435f15d354423def224937720221d1736d",
+  "sourceGitBlobs": {
+    "tools/three-body-stage-al-contract.mjs": "0283f81127f596dda5ed5dc4da3cbaf3a1e3f819",
+    "tools/three-body-stage-al-fixtures.mjs": "0a6cbef4f4ac9c2cb07bd8c9f96732a5f8de6e5f",
+    "src/three-body-stage-al.test.js": "592a58d7417cf7a79f9ce73f6b935360bc24a885"
+  },
+  "testMethod": "Fetched exact GitHub contract + fixtures sources; stripped static ES module import/export syntax for isolated V8 in-memory evaluation; injected JSON structural equality for unused eq helper. Executed custom assertion harness against recoveryTrace using fixture factory. NOT a Vitest run.",
+  "cases": [
+    "valid_mock",
+    "absent",
+    "notDurable",
+    "noReadback",
+    "noNonceLedger",
+    "unboundVm",
+    "unboundEpoch",
+    "wrongKind",
+    "missingRecordId",
+    "differentRecordId",
+    "invalidDigest",
+    "differentDigest",
+    "CREDENTIAL_REVOKED",
+    "VM_ROLLBACK"
+  ],
+  "total": 14,
+  "passed": 14,
+  "failed": 0,
+  "scope": "pure synthetic recoveryTrace only; original 672-test Vitest NOT_RERUN, independent reviewer NOT_RERUN, native/VM/R/qualification NOT_TESTED, official CI NOT_TRIGGERED",
+  "decision": "P3_CORRECTION_CODE_PRESENT; FULL_ACCEPTANCE_PENDING_OFFICIAL_RUN_AND_INDEPENDENT_REVIEW",
+  "gates": {
+    "physical": "NOT_TESTED",
+    "qualification": "BLOCKED",
+    "pr44Merge": "NO",
+    "recoveryGuarantee": "NONE"
+  }
+}
