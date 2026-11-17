@@ -1,0 +1,369 @@
+{
+  "branch": "codex/stage-al-publication-plan-20261116",
+  "rows": [
+    {
+      "file": "deploy-pages.yml",
+      "logicalSha256": "92b982885f24c6e9b1c89ec9441ab7a20257b56707f9250b0e45ffe6ad3b9df4",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ]
+        },
+        "push": {
+          "branches": [
+            "main"
+          ]
+        },
+        "workflow_dispatch": null
+      },
+      "pushMayMatch": false,
+      "unknownEvents": []
+    },
+    {
+      "file": "segregation-layout.yml",
+      "logicalSha256": "196df80ed8c5099f916590565c585583084148a5f64b6a5cae088943c7fd096a",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "src/segregation*",
+            "e2e/segregation*",
+            ".github/workflows/segregation-layout.yml",
+            "docs/segregation/verification.md"
+          ]
+        }
+      },
+      "pushMayMatch": false,
+      "unknownEvents": []
+    },
+    {
+      "file": "three-body-review-diagnostics.yml",
+      "logicalSha256": "9bcf946ee4535288a6407c48f9bbcaf096aa6846a379cb1ba6d42fe67491c020",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "src/three-body*",
+            "e2e/three-body*",
+            "tools/three-body-*",
+            "docs/three-body/review-44/stage-p/**",
+            ".github/workflows/three-body-review-diagnostics.yml"
+          ]
+        }
+      },
+      "pushMayMatch": false,
+      "unknownEvents": []
+    },
+    {
+      "file": "three-body-stage-ab.yml",
+      "logicalSha256": "3869b99c6988586e7a8b72846252986e74555b1628fef2962a485f1f6b6a6700",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-a*",
+            "src/three-body-stage-a*.test.js",
+            "docs/three-body/review-44/stage-ab/**",
+            ".github/workflows/three-body-stage-ab.yml"
+          ]
+        }
+      },
+      "pushMayMatch": false,
+      "unknownEvents": []
+    },
+    {
+      "file": "three-body-stage-ac.yml",
+      "logicalSha256": "35eb80e2f7c9c85b4d11384f0be566c493e6b6e77c246c87329fe9cff43507aa",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-ac*",
+            "src/three-body-stage-ac.test.js",
+            "docs/three-body/review-44/stage-ac/**",
+            ".github/workflows/**"
+          ]
+        }
+      },
+      "pushMayMatch": false,
+      "unknownEvents": []
+    },
+    {
+      "file": "three-body-stage-ad.yml",
+      "logicalSha256": "6ac7fea8b0ab145ae85912674ea8038e962c3aeb3bf28163075b71e211941a22",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-ad*",
+            "src/three-body-stage-ad.test.js",
+            "docs/three-body/review-44/stage-ad/**",
+            ".github/workflows/three-body-stage-ad.yml"
+          ]
+        }
+      },
+      "pushMayMatch": false,
+      "unknownEvents": []
+    },
+    {
+      "file": "three-body-stage-ae.yml",
+      "logicalSha256": "122dc966552da163840f91d2f44c430da41dd73325aa4a59d270eaeb1bd6f0dc",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-ae*",
+            "tools/three-body-stage-af*",
+            "tools/three-body-stage-ag*",
+            "src/three-body-stage-ae*",
+            "src/three-body-stage-af*",
+            "src/three-body-stage-ag*",
+            "docs/three-body/review-44/stage-ae/**",
+            "docs/three-body/review-44/stage-af/**",
+            "docs/three-body/review-44/stage-ag/**",
+            ".github/workflows/**"
+          ]
+        }
+      },
+      "pushMayMatch": false,
+      "unknownEvents": []
+    },
+    {
+      "file": "three-body-stage-ah.yml",
+      "logicalSha256": "5124bd37b45c35b23ef5076c08e50e2fe4b6115a64f7d43ad3d5cbdbd9f22f4e",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-ah*",
+            "src/three-body-stage-ah*",
+            "docs/three-body/review-44/stage-ah/**",
+            ".github/workflows/**"
+          ]
+        }
+      },
+      "pushMayMatch": false,
+      "unknownEvents": []
+    },
+    {
+      "file": "three-body-stage-ai.yml",
+      "logicalSha256": "d9852b809a2681f914f5881d4213e82937d8d922fad4b2bc5ec5d249509707a5",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-ai*",
+            "src/three-body-stage-ai*",
+            "docs/three-body/review-44/stage-ai/**",
+            ".github/workflows/**"
+          ]
+        }
+      },
+      "pushMayMatch": false,
+      "unknownEvents": []
+    },
+    {
+      "file": "three-body-stage-aj.yml",
+      "logicalSha256": "c6d9107880c2eadda3166b00e81b1ba2fc061f4cd0b0fc13fe5ecc51d95a3282",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-aj*",
+            "src/three-body-stage-aj*",
+            "docs/three-body/review-44/stage-aj/**",
+            ".github/workflows/**"
+          ]
+        }
+      },
+      "pushMayMatch": false,
+      "unknownEvents": []
+    },
+    {
+      "file": "three-body-stage-p.yml",
+      "logicalSha256": "e7cfca5e35f4bc34fc5019e161b2d1a62d2fb2b4c35a81bbd5a1f068a7c694ec",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-p*",
+            "src/three-body-stage-p.test.js",
+            "docs/three-body/review-44/stage-p/**",
+            ".github/workflows/three-body-stage-p.yml",
+            "tools/three-body-stage-q*",
+            "src/three-body-stage-q.test.js",
+            "docs/three-body/review-44/stage-q/**"
+          ]
+        }
+      },
+      "pushMayMatch": false,
+      "unknownEvents": []
+    },
+    {
+      "file": "three-body-stage-q.yml",
+      "logicalSha256": "4a418036dd628c23fdc8e00904926db94acaceda7141998cc034239510f82304",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-q*",
+            "tools/three-body-stage-s*",
+            "src/three-body-stage-q*",
+            "src/three-body-stage-s*",
+            "docs/three-body/review-44/stage-q/**",
+            "docs/three-body/review-44/stage-r/**",
+            "docs/three-body/review-44/stage-s/**",
+            ".github/workflows/three-body-stage-q.yml"
+          ]
+        }
+      },
+      "pushMayMatch": false,
+      "unknownEvents": []
+    },
+    {
+      "file": "three-body-stage-t.yml",
+      "logicalSha256": "ecb03de0e179f4da739cceaee62f161aa5b6a1da27fa06645303e27730d8f6a9",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-t*",
+            "tools/three-body-stage-q*",
+            "src/three-body-stage-t*",
+            "docs/three-body/review-44/stage-t/**",
+            ".github/workflows/three-body-stage-t.yml"
+          ]
+        }
+      },
+      "pushMayMatch": false,
+      "unknownEvents": []
+    },
+    {
+      "file": "three-body-stage-u.yml",
+      "logicalSha256": "080e0af20b0d913047b85350aafacfe4ab6425f61b5c28004b2bf9282a688efb",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-u*",
+            "src/three-body-stage-u*",
+            "docs/three-body/review-44/stage-u/**",
+            ".github/workflows/three-body-stage-u.yml"
+          ]
+        }
+      },
+      "pushMayMatch": false,
+      "unknownEvents": []
+    },
+    {
+      "file": "three-body-stage-v.yml",
+      "logicalSha256": "124d0fabd04cde71482241eb6b9d2cf13c7f973fe959830dcebcc526c204158d",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-v*",
+            "src/three-body-stage-v*",
+            "docs/three-body/review-44/stage-v/**",
+            ".github/workflows/three-body-stage-v.yml"
+          ]
+        }
+      },
+      "pushMayMatch": false,
+      "unknownEvents": []
+    },
+    {
+      "file": "three-body-stage-w.yml",
+      "logicalSha256": "8bb3058074b0cab5e795c6f9234eb40b1f05c3a72919b7b101c5e649882c0fdd",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-w*",
+            "tools/three-body-stage-v*",
+            "src/three-body-stage-w*",
+            "src/three-body-stage-v*",
+            "docs/three-body/review-44/stage-w/**",
+            ".github/workflows/three-body-stage-w.yml"
+          ]
+        }
+      },
+      "pushMayMatch": false,
+      "unknownEvents": []
+    },
+    {
+      "file": "three-body-stage-x.yml",
+      "logicalSha256": "42dc4463fb43f5ef605b9d544789a4f59b15709874f622c6e3d9d4c7b18d082a",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-x*",
+            "src/three-body-stage-x*",
+            "docs/three-body/review-44/stage-x/**",
+            ".github/workflows/three-body-stage-x.yml"
+          ]
+        }
+      },
+      "pushMayMatch": false,
+      "unknownEvents": []
+    },
+    {
+      "file": "three-body-stage-z.yml",
+      "logicalSha256": "b8f056717d166da5dfd1c6178e88b3004e2cc0074b6444364ad25deb053f3c65",
+      "on": {
+        "pull_request": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            "tools/three-body-stage-z*",
+            "tools/three-body-stage-y-control.mjs",
+            "docs/three-body/review-44/stage-z/**",
+            ".github/workflows/three-body-stage-z.yml"
+          ]
+        }
+      },
+      "pushMayMatch": false,
+      "unknownEvents": []
+    }
+  ],
+  "gitConfigurationScope": "18 repository YAML files only; no isolated branch PR must exist; external apps/webhooks NOT_VERIFIED",
+  "decision": "SAFE_ISOLATED_PUSH_ONLY_NO_PR_CREATION",
+  "pr44HeadUpdate": "PROHIBITED",
+  "mainPush": "PROHIBITED",
+  "dispatchRerun": "PROHIBITED"
+}
