@@ -1,0 +1,3008 @@
+{
+  "kind": "SUPPLEMENTAL_PURE_CONTROLS_NOT_VITEST_COUNT",
+  "cases": [
+    {
+      "id": "missing-proof",
+      "issue": "P3-AL02",
+      "input": {
+        "identity": {
+          "vmId": "synthetic-vmId",
+          "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "generation": "synthetic-generation",
+          "hypervisorId": "synthetic-hypervisorId",
+          "stationId": "synthetic-stationId",
+          "session": "synthetic-session",
+          "epoch": "synthetic-epoch"
+        },
+        "events": [
+          {
+            "synthetic": true,
+            "type": "ENROLL",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-0",
+            "seq": 0,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "STOP_REQUEST",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-1",
+            "seq": 1,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "VM_STOPPED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-2",
+            "seq": 2,
+            "beforeGuest": true,
+            "freshStatus": true
+          },
+          {
+            "synthetic": true,
+            "type": "API_ACCEPTED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-3",
+            "seq": 3,
+            "beforeGuest": true
+          }
+        ]
+      },
+      "expected": {
+        "remaining": "BLOCKED",
+        "stop": "NOT_REQUESTED",
+        "vmStopped": "NOT_OBTAINED",
+        "reason": "ENROLL_PROOF_NOT_OBTAINED",
+        "physical": "NOT_TESTED"
+      },
+      "before": {
+        "stop": "REQUESTED",
+        "accepted": "SYNTHETIC_ACCEPTED",
+        "vmStopped": "SYNTHETIC_CONFIRMED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "NOT_STARTED",
+        "errors": [],
+        "physical": "NOT_TESTED"
+      },
+      "after": {
+        "enrollment": "NOT_ENROLLED",
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "ENROLL_PROOF_NOT_OBTAINED"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "beforeStatus": "RED",
+      "afterStatus": "GREEN"
+    },
+    {
+      "id": "null-proof",
+      "issue": "P3-AL02",
+      "input": {
+        "identity": {
+          "vmId": "synthetic-vmId",
+          "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "generation": "synthetic-generation",
+          "hypervisorId": "synthetic-hypervisorId",
+          "stationId": "synthetic-stationId",
+          "session": "synthetic-session",
+          "epoch": "synthetic-epoch"
+        },
+        "events": [
+          {
+            "synthetic": true,
+            "type": "ENROLL",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-0",
+            "seq": 0,
+            "beforeGuest": true,
+            "enrollmentEvidence": null
+          },
+          {
+            "synthetic": true,
+            "type": "STOP_REQUEST",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-1",
+            "seq": 1,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "VM_STOPPED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-2",
+            "seq": 2,
+            "beforeGuest": true,
+            "freshStatus": true
+          },
+          {
+            "synthetic": true,
+            "type": "API_ACCEPTED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-3",
+            "seq": 3,
+            "beforeGuest": true
+          }
+        ]
+      },
+      "expected": {
+        "remaining": "BLOCKED",
+        "stop": "NOT_REQUESTED",
+        "vmStopped": "NOT_OBTAINED",
+        "reason": "ENROLL_PROOF_NOT_OBTAINED",
+        "physical": "NOT_TESTED"
+      },
+      "before": {
+        "stop": "REQUESTED",
+        "accepted": "SYNTHETIC_ACCEPTED",
+        "vmStopped": "SYNTHETIC_CONFIRMED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "NOT_STARTED",
+        "errors": [],
+        "physical": "NOT_TESTED"
+      },
+      "after": {
+        "enrollment": "NOT_ENROLLED",
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "ENROLL_PROOF_NOT_OBTAINED"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "beforeStatus": "RED",
+      "afterStatus": "GREEN"
+    },
+    {
+      "id": "array-proof",
+      "issue": "P3-AL02",
+      "input": {
+        "identity": {
+          "vmId": "synthetic-vmId",
+          "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "generation": "synthetic-generation",
+          "hypervisorId": "synthetic-hypervisorId",
+          "stationId": "synthetic-stationId",
+          "session": "synthetic-session",
+          "epoch": "synthetic-epoch"
+        },
+        "events": [
+          {
+            "synthetic": true,
+            "type": "ENROLL",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-0",
+            "seq": 0,
+            "beforeGuest": true,
+            "enrollmentEvidence": []
+          },
+          {
+            "synthetic": true,
+            "type": "STOP_REQUEST",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-1",
+            "seq": 1,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "VM_STOPPED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-2",
+            "seq": 2,
+            "beforeGuest": true,
+            "freshStatus": true
+          },
+          {
+            "synthetic": true,
+            "type": "API_ACCEPTED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-3",
+            "seq": 3,
+            "beforeGuest": true
+          }
+        ]
+      },
+      "expected": {
+        "remaining": "BLOCKED",
+        "stop": "NOT_REQUESTED",
+        "vmStopped": "NOT_OBTAINED",
+        "reason": "ENROLL_PROOF_NOT_OBTAINED",
+        "physical": "NOT_TESTED"
+      },
+      "before": {
+        "stop": "REQUESTED",
+        "accepted": "SYNTHETIC_ACCEPTED",
+        "vmStopped": "SYNTHETIC_CONFIRMED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "NOT_STARTED",
+        "errors": [],
+        "physical": "NOT_TESTED"
+      },
+      "after": {
+        "enrollment": "NOT_ENROLLED",
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "ENROLL_PROOF_NOT_OBTAINED"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "beforeStatus": "RED",
+      "afterStatus": "GREEN"
+    },
+    {
+      "id": "not-durable",
+      "issue": "P3-AL02",
+      "input": {
+        "identity": {
+          "vmId": "synthetic-vmId",
+          "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "generation": "synthetic-generation",
+          "hypervisorId": "synthetic-hypervisorId",
+          "stationId": "synthetic-stationId",
+          "session": "synthetic-session",
+          "epoch": "synthetic-epoch"
+        },
+        "events": [
+          {
+            "synthetic": true,
+            "type": "ENROLL",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-0",
+            "seq": 0,
+            "beforeGuest": true,
+            "enrollmentEvidence": {
+              "kind": "SYNTHETIC_EXTERNAL_LEDGER",
+              "durable": false,
+              "independentReadback": true,
+              "nonceLedgerReady": true,
+              "targetBound": true,
+              "epochBound": true,
+              "recordId": "synthetic-enrollment-record",
+              "readbackRecordId": "synthetic-enrollment-record",
+              "recordSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "readbackSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            }
+          },
+          {
+            "synthetic": true,
+            "type": "STOP_REQUEST",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-1",
+            "seq": 1,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "VM_STOPPED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-2",
+            "seq": 2,
+            "beforeGuest": true,
+            "freshStatus": true
+          },
+          {
+            "synthetic": true,
+            "type": "API_ACCEPTED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-3",
+            "seq": 3,
+            "beforeGuest": true
+          }
+        ]
+      },
+      "expected": {
+        "remaining": "BLOCKED",
+        "stop": "NOT_REQUESTED",
+        "vmStopped": "NOT_OBTAINED",
+        "reason": "ENROLL_PROOF_NOT_OBTAINED",
+        "physical": "NOT_TESTED"
+      },
+      "before": {
+        "stop": "REQUESTED",
+        "accepted": "SYNTHETIC_ACCEPTED",
+        "vmStopped": "SYNTHETIC_CONFIRMED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "NOT_STARTED",
+        "errors": [],
+        "physical": "NOT_TESTED"
+      },
+      "after": {
+        "enrollment": "NOT_ENROLLED",
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "ENROLL_PROOF_NOT_OBTAINED"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "beforeStatus": "RED",
+      "afterStatus": "GREEN"
+    },
+    {
+      "id": "string-durable",
+      "issue": "P3-AL02",
+      "input": {
+        "identity": {
+          "vmId": "synthetic-vmId",
+          "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "generation": "synthetic-generation",
+          "hypervisorId": "synthetic-hypervisorId",
+          "stationId": "synthetic-stationId",
+          "session": "synthetic-session",
+          "epoch": "synthetic-epoch"
+        },
+        "events": [
+          {
+            "synthetic": true,
+            "type": "ENROLL",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-0",
+            "seq": 0,
+            "beforeGuest": true,
+            "enrollmentEvidence": {
+              "kind": "SYNTHETIC_EXTERNAL_LEDGER",
+              "durable": "true",
+              "independentReadback": true,
+              "nonceLedgerReady": true,
+              "targetBound": true,
+              "epochBound": true,
+              "recordId": "synthetic-enrollment-record",
+              "readbackRecordId": "synthetic-enrollment-record",
+              "recordSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "readbackSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            }
+          },
+          {
+            "synthetic": true,
+            "type": "STOP_REQUEST",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-1",
+            "seq": 1,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "VM_STOPPED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-2",
+            "seq": 2,
+            "beforeGuest": true,
+            "freshStatus": true
+          },
+          {
+            "synthetic": true,
+            "type": "API_ACCEPTED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-3",
+            "seq": 3,
+            "beforeGuest": true
+          }
+        ]
+      },
+      "expected": {
+        "remaining": "BLOCKED",
+        "stop": "NOT_REQUESTED",
+        "vmStopped": "NOT_OBTAINED",
+        "reason": "ENROLL_PROOF_NOT_OBTAINED",
+        "physical": "NOT_TESTED"
+      },
+      "before": {
+        "stop": "REQUESTED",
+        "accepted": "SYNTHETIC_ACCEPTED",
+        "vmStopped": "SYNTHETIC_CONFIRMED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "NOT_STARTED",
+        "errors": [],
+        "physical": "NOT_TESTED"
+      },
+      "after": {
+        "enrollment": "NOT_ENROLLED",
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "ENROLL_PROOF_NOT_OBTAINED"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "beforeStatus": "RED",
+      "afterStatus": "GREEN"
+    },
+    {
+      "id": "no-independent-readback",
+      "issue": "P3-AL02",
+      "input": {
+        "identity": {
+          "vmId": "synthetic-vmId",
+          "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "generation": "synthetic-generation",
+          "hypervisorId": "synthetic-hypervisorId",
+          "stationId": "synthetic-stationId",
+          "session": "synthetic-session",
+          "epoch": "synthetic-epoch"
+        },
+        "events": [
+          {
+            "synthetic": true,
+            "type": "ENROLL",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-0",
+            "seq": 0,
+            "beforeGuest": true,
+            "enrollmentEvidence": {
+              "kind": "SYNTHETIC_EXTERNAL_LEDGER",
+              "durable": true,
+              "independentReadback": false,
+              "nonceLedgerReady": true,
+              "targetBound": true,
+              "epochBound": true,
+              "recordId": "synthetic-enrollment-record",
+              "readbackRecordId": "synthetic-enrollment-record",
+              "recordSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "readbackSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            }
+          },
+          {
+            "synthetic": true,
+            "type": "STOP_REQUEST",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-1",
+            "seq": 1,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "VM_STOPPED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-2",
+            "seq": 2,
+            "beforeGuest": true,
+            "freshStatus": true
+          },
+          {
+            "synthetic": true,
+            "type": "API_ACCEPTED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-3",
+            "seq": 3,
+            "beforeGuest": true
+          }
+        ]
+      },
+      "expected": {
+        "remaining": "BLOCKED",
+        "stop": "NOT_REQUESTED",
+        "vmStopped": "NOT_OBTAINED",
+        "reason": "ENROLL_PROOF_NOT_OBTAINED",
+        "physical": "NOT_TESTED"
+      },
+      "before": {
+        "stop": "REQUESTED",
+        "accepted": "SYNTHETIC_ACCEPTED",
+        "vmStopped": "SYNTHETIC_CONFIRMED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "NOT_STARTED",
+        "errors": [],
+        "physical": "NOT_TESTED"
+      },
+      "after": {
+        "enrollment": "NOT_ENROLLED",
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "ENROLL_PROOF_NOT_OBTAINED"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "beforeStatus": "RED",
+      "afterStatus": "GREEN"
+    },
+    {
+      "id": "no-nonce-ledger",
+      "issue": "P3-AL02",
+      "input": {
+        "identity": {
+          "vmId": "synthetic-vmId",
+          "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "generation": "synthetic-generation",
+          "hypervisorId": "synthetic-hypervisorId",
+          "stationId": "synthetic-stationId",
+          "session": "synthetic-session",
+          "epoch": "synthetic-epoch"
+        },
+        "events": [
+          {
+            "synthetic": true,
+            "type": "ENROLL",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-0",
+            "seq": 0,
+            "beforeGuest": true,
+            "enrollmentEvidence": {
+              "kind": "SYNTHETIC_EXTERNAL_LEDGER",
+              "durable": true,
+              "independentReadback": true,
+              "nonceLedgerReady": false,
+              "targetBound": true,
+              "epochBound": true,
+              "recordId": "synthetic-enrollment-record",
+              "readbackRecordId": "synthetic-enrollment-record",
+              "recordSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "readbackSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            }
+          },
+          {
+            "synthetic": true,
+            "type": "STOP_REQUEST",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-1",
+            "seq": 1,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "VM_STOPPED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-2",
+            "seq": 2,
+            "beforeGuest": true,
+            "freshStatus": true
+          },
+          {
+            "synthetic": true,
+            "type": "API_ACCEPTED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-3",
+            "seq": 3,
+            "beforeGuest": true
+          }
+        ]
+      },
+      "expected": {
+        "remaining": "BLOCKED",
+        "stop": "NOT_REQUESTED",
+        "vmStopped": "NOT_OBTAINED",
+        "reason": "ENROLL_PROOF_NOT_OBTAINED",
+        "physical": "NOT_TESTED"
+      },
+      "before": {
+        "stop": "REQUESTED",
+        "accepted": "SYNTHETIC_ACCEPTED",
+        "vmStopped": "SYNTHETIC_CONFIRMED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "NOT_STARTED",
+        "errors": [],
+        "physical": "NOT_TESTED"
+      },
+      "after": {
+        "enrollment": "NOT_ENROLLED",
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "ENROLL_PROOF_NOT_OBTAINED"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "beforeStatus": "RED",
+      "afterStatus": "GREEN"
+    },
+    {
+      "id": "vm-not-bound",
+      "issue": "P3-AL02",
+      "input": {
+        "identity": {
+          "vmId": "synthetic-vmId",
+          "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "generation": "synthetic-generation",
+          "hypervisorId": "synthetic-hypervisorId",
+          "stationId": "synthetic-stationId",
+          "session": "synthetic-session",
+          "epoch": "synthetic-epoch"
+        },
+        "events": [
+          {
+            "synthetic": true,
+            "type": "ENROLL",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-0",
+            "seq": 0,
+            "beforeGuest": true,
+            "enrollmentEvidence": {
+              "kind": "SYNTHETIC_EXTERNAL_LEDGER",
+              "durable": true,
+              "independentReadback": true,
+              "nonceLedgerReady": true,
+              "targetBound": false,
+              "epochBound": true,
+              "recordId": "synthetic-enrollment-record",
+              "readbackRecordId": "synthetic-enrollment-record",
+              "recordSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "readbackSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            }
+          },
+          {
+            "synthetic": true,
+            "type": "STOP_REQUEST",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-1",
+            "seq": 1,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "VM_STOPPED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-2",
+            "seq": 2,
+            "beforeGuest": true,
+            "freshStatus": true
+          },
+          {
+            "synthetic": true,
+            "type": "API_ACCEPTED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-3",
+            "seq": 3,
+            "beforeGuest": true
+          }
+        ]
+      },
+      "expected": {
+        "remaining": "BLOCKED",
+        "stop": "NOT_REQUESTED",
+        "vmStopped": "NOT_OBTAINED",
+        "reason": "ENROLL_PROOF_NOT_OBTAINED",
+        "physical": "NOT_TESTED"
+      },
+      "before": {
+        "stop": "REQUESTED",
+        "accepted": "SYNTHETIC_ACCEPTED",
+        "vmStopped": "SYNTHETIC_CONFIRMED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "NOT_STARTED",
+        "errors": [],
+        "physical": "NOT_TESTED"
+      },
+      "after": {
+        "enrollment": "NOT_ENROLLED",
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "ENROLL_PROOF_NOT_OBTAINED"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "beforeStatus": "RED",
+      "afterStatus": "GREEN"
+    },
+    {
+      "id": "epoch-not-bound",
+      "issue": "P3-AL02",
+      "input": {
+        "identity": {
+          "vmId": "synthetic-vmId",
+          "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "generation": "synthetic-generation",
+          "hypervisorId": "synthetic-hypervisorId",
+          "stationId": "synthetic-stationId",
+          "session": "synthetic-session",
+          "epoch": "synthetic-epoch"
+        },
+        "events": [
+          {
+            "synthetic": true,
+            "type": "ENROLL",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-0",
+            "seq": 0,
+            "beforeGuest": true,
+            "enrollmentEvidence": {
+              "kind": "SYNTHETIC_EXTERNAL_LEDGER",
+              "durable": true,
+              "independentReadback": true,
+              "nonceLedgerReady": true,
+              "targetBound": true,
+              "epochBound": false,
+              "recordId": "synthetic-enrollment-record",
+              "readbackRecordId": "synthetic-enrollment-record",
+              "recordSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "readbackSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            }
+          },
+          {
+            "synthetic": true,
+            "type": "STOP_REQUEST",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-1",
+            "seq": 1,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "VM_STOPPED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-2",
+            "seq": 2,
+            "beforeGuest": true,
+            "freshStatus": true
+          },
+          {
+            "synthetic": true,
+            "type": "API_ACCEPTED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-3",
+            "seq": 3,
+            "beforeGuest": true
+          }
+        ]
+      },
+      "expected": {
+        "remaining": "BLOCKED",
+        "stop": "NOT_REQUESTED",
+        "vmStopped": "NOT_OBTAINED",
+        "reason": "ENROLL_PROOF_NOT_OBTAINED",
+        "physical": "NOT_TESTED"
+      },
+      "before": {
+        "stop": "REQUESTED",
+        "accepted": "SYNTHETIC_ACCEPTED",
+        "vmStopped": "SYNTHETIC_CONFIRMED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "NOT_STARTED",
+        "errors": [],
+        "physical": "NOT_TESTED"
+      },
+      "after": {
+        "enrollment": "NOT_ENROLLED",
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "ENROLL_PROOF_NOT_OBTAINED"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "beforeStatus": "RED",
+      "afterStatus": "GREEN"
+    },
+    {
+      "id": "wrong-kind",
+      "issue": "P3-AL02",
+      "input": {
+        "identity": {
+          "vmId": "synthetic-vmId",
+          "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "generation": "synthetic-generation",
+          "hypervisorId": "synthetic-hypervisorId",
+          "stationId": "synthetic-stationId",
+          "session": "synthetic-session",
+          "epoch": "synthetic-epoch"
+        },
+        "events": [
+          {
+            "synthetic": true,
+            "type": "ENROLL",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-0",
+            "seq": 0,
+            "beforeGuest": true,
+            "enrollmentEvidence": {
+              "kind": "GUEST_ONLY",
+              "durable": true,
+              "independentReadback": true,
+              "nonceLedgerReady": true,
+              "targetBound": true,
+              "epochBound": true,
+              "recordId": "synthetic-enrollment-record",
+              "readbackRecordId": "synthetic-enrollment-record",
+              "recordSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "readbackSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            }
+          },
+          {
+            "synthetic": true,
+            "type": "STOP_REQUEST",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-1",
+            "seq": 1,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "VM_STOPPED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-2",
+            "seq": 2,
+            "beforeGuest": true,
+            "freshStatus": true
+          },
+          {
+            "synthetic": true,
+            "type": "API_ACCEPTED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-3",
+            "seq": 3,
+            "beforeGuest": true
+          }
+        ]
+      },
+      "expected": {
+        "remaining": "BLOCKED",
+        "stop": "NOT_REQUESTED",
+        "vmStopped": "NOT_OBTAINED",
+        "reason": "ENROLL_PROOF_NOT_OBTAINED",
+        "physical": "NOT_TESTED"
+      },
+      "before": {
+        "stop": "REQUESTED",
+        "accepted": "SYNTHETIC_ACCEPTED",
+        "vmStopped": "SYNTHETIC_CONFIRMED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "NOT_STARTED",
+        "errors": [],
+        "physical": "NOT_TESTED"
+      },
+      "after": {
+        "enrollment": "NOT_ENROLLED",
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "ENROLL_PROOF_NOT_OBTAINED"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "beforeStatus": "RED",
+      "afterStatus": "GREEN"
+    },
+    {
+      "id": "missing-record-id",
+      "issue": "P3-AL02",
+      "input": {
+        "identity": {
+          "vmId": "synthetic-vmId",
+          "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "generation": "synthetic-generation",
+          "hypervisorId": "synthetic-hypervisorId",
+          "stationId": "synthetic-stationId",
+          "session": "synthetic-session",
+          "epoch": "synthetic-epoch"
+        },
+        "events": [
+          {
+            "synthetic": true,
+            "type": "ENROLL",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-0",
+            "seq": 0,
+            "beforeGuest": true,
+            "enrollmentEvidence": {
+              "kind": "SYNTHETIC_EXTERNAL_LEDGER",
+              "durable": true,
+              "independentReadback": true,
+              "nonceLedgerReady": true,
+              "targetBound": true,
+              "epochBound": true,
+              "readbackRecordId": "synthetic-enrollment-record",
+              "recordSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "readbackSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            }
+          },
+          {
+            "synthetic": true,
+            "type": "STOP_REQUEST",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-1",
+            "seq": 1,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "VM_STOPPED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-2",
+            "seq": 2,
+            "beforeGuest": true,
+            "freshStatus": true
+          },
+          {
+            "synthetic": true,
+            "type": "API_ACCEPTED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-3",
+            "seq": 3,
+            "beforeGuest": true
+          }
+        ]
+      },
+      "expected": {
+        "remaining": "BLOCKED",
+        "stop": "NOT_REQUESTED",
+        "vmStopped": "NOT_OBTAINED",
+        "reason": "ENROLL_PROOF_NOT_OBTAINED",
+        "physical": "NOT_TESTED"
+      },
+      "before": {
+        "stop": "REQUESTED",
+        "accepted": "SYNTHETIC_ACCEPTED",
+        "vmStopped": "SYNTHETIC_CONFIRMED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "NOT_STARTED",
+        "errors": [],
+        "physical": "NOT_TESTED"
+      },
+      "after": {
+        "enrollment": "NOT_ENROLLED",
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "ENROLL_PROOF_NOT_OBTAINED"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "beforeStatus": "RED",
+      "afterStatus": "GREEN"
+    },
+    {
+      "id": "blank-record-id",
+      "issue": "P3-AL02",
+      "input": {
+        "identity": {
+          "vmId": "synthetic-vmId",
+          "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "generation": "synthetic-generation",
+          "hypervisorId": "synthetic-hypervisorId",
+          "stationId": "synthetic-stationId",
+          "session": "synthetic-session",
+          "epoch": "synthetic-epoch"
+        },
+        "events": [
+          {
+            "synthetic": true,
+            "type": "ENROLL",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-0",
+            "seq": 0,
+            "beforeGuest": true,
+            "enrollmentEvidence": {
+              "kind": "SYNTHETIC_EXTERNAL_LEDGER",
+              "durable": true,
+              "independentReadback": true,
+              "nonceLedgerReady": true,
+              "targetBound": true,
+              "epochBound": true,
+              "recordId": " ",
+              "readbackRecordId": "synthetic-enrollment-record",
+              "recordSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "readbackSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            }
+          },
+          {
+            "synthetic": true,
+            "type": "STOP_REQUEST",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-1",
+            "seq": 1,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "VM_STOPPED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-2",
+            "seq": 2,
+            "beforeGuest": true,
+            "freshStatus": true
+          },
+          {
+            "synthetic": true,
+            "type": "API_ACCEPTED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-3",
+            "seq": 3,
+            "beforeGuest": true
+          }
+        ]
+      },
+      "expected": {
+        "remaining": "BLOCKED",
+        "stop": "NOT_REQUESTED",
+        "vmStopped": "NOT_OBTAINED",
+        "reason": "ENROLL_PROOF_NOT_OBTAINED",
+        "physical": "NOT_TESTED"
+      },
+      "before": {
+        "stop": "REQUESTED",
+        "accepted": "SYNTHETIC_ACCEPTED",
+        "vmStopped": "SYNTHETIC_CONFIRMED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "NOT_STARTED",
+        "errors": [],
+        "physical": "NOT_TESTED"
+      },
+      "after": {
+        "enrollment": "NOT_ENROLLED",
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "ENROLL_PROOF_NOT_OBTAINED"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "beforeStatus": "RED",
+      "afterStatus": "GREEN"
+    },
+    {
+      "id": "wrong-record-id",
+      "issue": "P3-AL02",
+      "input": {
+        "identity": {
+          "vmId": "synthetic-vmId",
+          "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "generation": "synthetic-generation",
+          "hypervisorId": "synthetic-hypervisorId",
+          "stationId": "synthetic-stationId",
+          "session": "synthetic-session",
+          "epoch": "synthetic-epoch"
+        },
+        "events": [
+          {
+            "synthetic": true,
+            "type": "ENROLL",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-0",
+            "seq": 0,
+            "beforeGuest": true,
+            "enrollmentEvidence": {
+              "kind": "SYNTHETIC_EXTERNAL_LEDGER",
+              "durable": true,
+              "independentReadback": true,
+              "nonceLedgerReady": true,
+              "targetBound": true,
+              "epochBound": true,
+              "recordId": "synthetic-enrollment-record",
+              "readbackRecordId": "foreign",
+              "recordSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "readbackSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            }
+          },
+          {
+            "synthetic": true,
+            "type": "STOP_REQUEST",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-1",
+            "seq": 1,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "VM_STOPPED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-2",
+            "seq": 2,
+            "beforeGuest": true,
+            "freshStatus": true
+          },
+          {
+            "synthetic": true,
+            "type": "API_ACCEPTED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-3",
+            "seq": 3,
+            "beforeGuest": true
+          }
+        ]
+      },
+      "expected": {
+        "remaining": "BLOCKED",
+        "stop": "NOT_REQUESTED",
+        "vmStopped": "NOT_OBTAINED",
+        "reason": "ENROLL_PROOF_NOT_OBTAINED",
+        "physical": "NOT_TESTED"
+      },
+      "before": {
+        "stop": "REQUESTED",
+        "accepted": "SYNTHETIC_ACCEPTED",
+        "vmStopped": "SYNTHETIC_CONFIRMED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "NOT_STARTED",
+        "errors": [],
+        "physical": "NOT_TESTED"
+      },
+      "after": {
+        "enrollment": "NOT_ENROLLED",
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "ENROLL_PROOF_NOT_OBTAINED"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "beforeStatus": "RED",
+      "afterStatus": "GREEN"
+    },
+    {
+      "id": "invalid-sha",
+      "issue": "P3-AL02",
+      "input": {
+        "identity": {
+          "vmId": "synthetic-vmId",
+          "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "generation": "synthetic-generation",
+          "hypervisorId": "synthetic-hypervisorId",
+          "stationId": "synthetic-stationId",
+          "session": "synthetic-session",
+          "epoch": "synthetic-epoch"
+        },
+        "events": [
+          {
+            "synthetic": true,
+            "type": "ENROLL",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-0",
+            "seq": 0,
+            "beforeGuest": true,
+            "enrollmentEvidence": {
+              "kind": "SYNTHETIC_EXTERNAL_LEDGER",
+              "durable": true,
+              "independentReadback": true,
+              "nonceLedgerReady": true,
+              "targetBound": true,
+              "epochBound": true,
+              "recordId": "synthetic-enrollment-record",
+              "readbackRecordId": "synthetic-enrollment-record",
+              "recordSha256": "wrong",
+              "readbackSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            }
+          },
+          {
+            "synthetic": true,
+            "type": "STOP_REQUEST",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-1",
+            "seq": 1,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "VM_STOPPED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-2",
+            "seq": 2,
+            "beforeGuest": true,
+            "freshStatus": true
+          },
+          {
+            "synthetic": true,
+            "type": "API_ACCEPTED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-3",
+            "seq": 3,
+            "beforeGuest": true
+          }
+        ]
+      },
+      "expected": {
+        "remaining": "BLOCKED",
+        "stop": "NOT_REQUESTED",
+        "vmStopped": "NOT_OBTAINED",
+        "reason": "ENROLL_PROOF_NOT_OBTAINED",
+        "physical": "NOT_TESTED"
+      },
+      "before": {
+        "stop": "REQUESTED",
+        "accepted": "SYNTHETIC_ACCEPTED",
+        "vmStopped": "SYNTHETIC_CONFIRMED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "NOT_STARTED",
+        "errors": [],
+        "physical": "NOT_TESTED"
+      },
+      "after": {
+        "enrollment": "NOT_ENROLLED",
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "ENROLL_PROOF_NOT_OBTAINED"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "beforeStatus": "RED",
+      "afterStatus": "GREEN"
+    },
+    {
+      "id": "numeric-sha",
+      "issue": "P3-AL02",
+      "input": {
+        "identity": {
+          "vmId": "synthetic-vmId",
+          "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "generation": "synthetic-generation",
+          "hypervisorId": "synthetic-hypervisorId",
+          "stationId": "synthetic-stationId",
+          "session": "synthetic-session",
+          "epoch": "synthetic-epoch"
+        },
+        "events": [
+          {
+            "synthetic": true,
+            "type": "ENROLL",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-0",
+            "seq": 0,
+            "beforeGuest": true,
+            "enrollmentEvidence": {
+              "kind": "SYNTHETIC_EXTERNAL_LEDGER",
+              "durable": true,
+              "independentReadback": true,
+              "nonceLedgerReady": true,
+              "targetBound": true,
+              "epochBound": true,
+              "recordId": "synthetic-enrollment-record",
+              "readbackRecordId": "synthetic-enrollment-record",
+              "recordSha256": 7,
+              "readbackSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            }
+          },
+          {
+            "synthetic": true,
+            "type": "STOP_REQUEST",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-1",
+            "seq": 1,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "VM_STOPPED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-2",
+            "seq": 2,
+            "beforeGuest": true,
+            "freshStatus": true
+          },
+          {
+            "synthetic": true,
+            "type": "API_ACCEPTED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-3",
+            "seq": 3,
+            "beforeGuest": true
+          }
+        ]
+      },
+      "expected": {
+        "remaining": "BLOCKED",
+        "stop": "NOT_REQUESTED",
+        "vmStopped": "NOT_OBTAINED",
+        "reason": "ENROLL_PROOF_NOT_OBTAINED",
+        "physical": "NOT_TESTED"
+      },
+      "before": {
+        "stop": "REQUESTED",
+        "accepted": "SYNTHETIC_ACCEPTED",
+        "vmStopped": "SYNTHETIC_CONFIRMED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "NOT_STARTED",
+        "errors": [],
+        "physical": "NOT_TESTED"
+      },
+      "after": {
+        "enrollment": "NOT_ENROLLED",
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "ENROLL_PROOF_NOT_OBTAINED"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "beforeStatus": "RED",
+      "afterStatus": "GREEN"
+    },
+    {
+      "id": "different-readback-sha",
+      "issue": "P3-AL02",
+      "input": {
+        "identity": {
+          "vmId": "synthetic-vmId",
+          "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "generation": "synthetic-generation",
+          "hypervisorId": "synthetic-hypervisorId",
+          "stationId": "synthetic-stationId",
+          "session": "synthetic-session",
+          "epoch": "synthetic-epoch"
+        },
+        "events": [
+          {
+            "synthetic": true,
+            "type": "ENROLL",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-0",
+            "seq": 0,
+            "beforeGuest": true,
+            "enrollmentEvidence": {
+              "kind": "SYNTHETIC_EXTERNAL_LEDGER",
+              "durable": true,
+              "independentReadback": true,
+              "nonceLedgerReady": true,
+              "targetBound": true,
+              "epochBound": true,
+              "recordId": "synthetic-enrollment-record",
+              "readbackRecordId": "synthetic-enrollment-record",
+              "recordSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "readbackSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+            }
+          },
+          {
+            "synthetic": true,
+            "type": "STOP_REQUEST",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-1",
+            "seq": 1,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "VM_STOPPED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-2",
+            "seq": 2,
+            "beforeGuest": true,
+            "freshStatus": true
+          },
+          {
+            "synthetic": true,
+            "type": "API_ACCEPTED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-3",
+            "seq": 3,
+            "beforeGuest": true
+          }
+        ]
+      },
+      "expected": {
+        "remaining": "BLOCKED",
+        "stop": "NOT_REQUESTED",
+        "vmStopped": "NOT_OBTAINED",
+        "reason": "ENROLL_PROOF_NOT_OBTAINED",
+        "physical": "NOT_TESTED"
+      },
+      "before": {
+        "stop": "REQUESTED",
+        "accepted": "SYNTHETIC_ACCEPTED",
+        "vmStopped": "SYNTHETIC_CONFIRMED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "NOT_STARTED",
+        "errors": [],
+        "physical": "NOT_TESTED"
+      },
+      "after": {
+        "enrollment": "NOT_ENROLLED",
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "ENROLL_PROOF_NOT_OBTAINED"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "beforeStatus": "RED",
+      "afterStatus": "GREEN"
+    },
+    {
+      "id": "null-readback-sha",
+      "issue": "P3-AL02",
+      "input": {
+        "identity": {
+          "vmId": "synthetic-vmId",
+          "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "generation": "synthetic-generation",
+          "hypervisorId": "synthetic-hypervisorId",
+          "stationId": "synthetic-stationId",
+          "session": "synthetic-session",
+          "epoch": "synthetic-epoch"
+        },
+        "events": [
+          {
+            "synthetic": true,
+            "type": "ENROLL",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-0",
+            "seq": 0,
+            "beforeGuest": true,
+            "enrollmentEvidence": {
+              "kind": "SYNTHETIC_EXTERNAL_LEDGER",
+              "durable": true,
+              "independentReadback": true,
+              "nonceLedgerReady": true,
+              "targetBound": true,
+              "epochBound": true,
+              "recordId": "synthetic-enrollment-record",
+              "readbackRecordId": "synthetic-enrollment-record",
+              "recordSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "readbackSha256": null
+            }
+          },
+          {
+            "synthetic": true,
+            "type": "STOP_REQUEST",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-1",
+            "seq": 1,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "VM_STOPPED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-2",
+            "seq": 2,
+            "beforeGuest": true,
+            "freshStatus": true
+          },
+          {
+            "synthetic": true,
+            "type": "API_ACCEPTED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-3",
+            "seq": 3,
+            "beforeGuest": true
+          }
+        ]
+      },
+      "expected": {
+        "remaining": "BLOCKED",
+        "stop": "NOT_REQUESTED",
+        "vmStopped": "NOT_OBTAINED",
+        "reason": "ENROLL_PROOF_NOT_OBTAINED",
+        "physical": "NOT_TESTED"
+      },
+      "before": {
+        "stop": "REQUESTED",
+        "accepted": "SYNTHETIC_ACCEPTED",
+        "vmStopped": "SYNTHETIC_CONFIRMED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "NOT_STARTED",
+        "errors": [],
+        "physical": "NOT_TESTED"
+      },
+      "after": {
+        "enrollment": "NOT_ENROLLED",
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "ENROLL_PROOF_NOT_OBTAINED"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "beforeStatus": "RED",
+      "afterStatus": "GREEN"
+    },
+    {
+      "id": "foreign-vm-envelope",
+      "issue": "P3-AL02",
+      "input": {
+        "identity": {
+          "vmId": "synthetic-vmId",
+          "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "generation": "synthetic-generation",
+          "hypervisorId": "synthetic-hypervisorId",
+          "stationId": "synthetic-stationId",
+          "session": "synthetic-session",
+          "epoch": "synthetic-epoch"
+        },
+        "events": [
+          {
+            "synthetic": true,
+            "type": "ENROLL",
+            "identity": {
+              "vmId": "foreign",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-0",
+            "seq": 0,
+            "beforeGuest": true,
+            "enrollmentEvidence": {
+              "kind": "SYNTHETIC_EXTERNAL_LEDGER",
+              "durable": true,
+              "independentReadback": true,
+              "nonceLedgerReady": true,
+              "targetBound": true,
+              "epochBound": true,
+              "recordId": "synthetic-enrollment-record",
+              "readbackRecordId": "synthetic-enrollment-record",
+              "recordSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "readbackSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            }
+          },
+          {
+            "synthetic": true,
+            "type": "STOP_REQUEST",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-1",
+            "seq": 1,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "VM_STOPPED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-2",
+            "seq": 2,
+            "beforeGuest": true,
+            "freshStatus": true
+          },
+          {
+            "synthetic": true,
+            "type": "API_ACCEPTED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-3",
+            "seq": 3,
+            "beforeGuest": true
+          }
+        ]
+      },
+      "expected": {
+        "remaining": "BLOCKED",
+        "stop": "NOT_REQUESTED",
+        "vmStopped": "NOT_OBTAINED",
+        "reason": "IDENTITY_AUTH_REPLAY",
+        "physical": "NOT_TESTED"
+      },
+      "before": {
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "IDENTITY_AUTH_REPLAY",
+          "NOT_ENROLLED",
+          "NOT_ENROLLED",
+          "NOT_ENROLLED"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "after": {
+        "enrollment": "NOT_ENROLLED",
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "IDENTITY_AUTH_REPLAY"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "beforeStatus": "BASELINE_PASS",
+      "afterStatus": "GREEN"
+    },
+    {
+      "id": "foreign-epoch-envelope",
+      "issue": "P3-AL02",
+      "input": {
+        "identity": {
+          "vmId": "synthetic-vmId",
+          "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "generation": "synthetic-generation",
+          "hypervisorId": "synthetic-hypervisorId",
+          "stationId": "synthetic-stationId",
+          "session": "synthetic-session",
+          "epoch": "synthetic-epoch"
+        },
+        "events": [
+          {
+            "synthetic": true,
+            "type": "ENROLL",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "foreign"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-0",
+            "seq": 0,
+            "beforeGuest": true,
+            "enrollmentEvidence": {
+              "kind": "SYNTHETIC_EXTERNAL_LEDGER",
+              "durable": true,
+              "independentReadback": true,
+              "nonceLedgerReady": true,
+              "targetBound": true,
+              "epochBound": true,
+              "recordId": "synthetic-enrollment-record",
+              "readbackRecordId": "synthetic-enrollment-record",
+              "recordSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "readbackSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            }
+          },
+          {
+            "synthetic": true,
+            "type": "STOP_REQUEST",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-1",
+            "seq": 1,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "VM_STOPPED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-2",
+            "seq": 2,
+            "beforeGuest": true,
+            "freshStatus": true
+          },
+          {
+            "synthetic": true,
+            "type": "API_ACCEPTED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-3",
+            "seq": 3,
+            "beforeGuest": true
+          }
+        ]
+      },
+      "expected": {
+        "remaining": "BLOCKED",
+        "stop": "NOT_REQUESTED",
+        "vmStopped": "NOT_OBTAINED",
+        "reason": "IDENTITY_AUTH_REPLAY",
+        "physical": "NOT_TESTED"
+      },
+      "before": {
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "IDENTITY_AUTH_REPLAY",
+          "NOT_ENROLLED",
+          "NOT_ENROLLED",
+          "NOT_ENROLLED"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "after": {
+        "enrollment": "NOT_ENROLLED",
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "IDENTITY_AUTH_REPLAY"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "beforeStatus": "BASELINE_PASS",
+      "afterStatus": "GREEN"
+    },
+    {
+      "id": "CREDENTIAL_REVOKED",
+      "issue": "P3-AL03",
+      "input": {
+        "identity": {
+          "vmId": "synthetic-vmId",
+          "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "generation": "synthetic-generation",
+          "hypervisorId": "synthetic-hypervisorId",
+          "stationId": "synthetic-stationId",
+          "session": "synthetic-session",
+          "epoch": "synthetic-epoch"
+        },
+        "events": [
+          {
+            "synthetic": true,
+            "type": "ENROLL",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-0",
+            "seq": 0,
+            "beforeGuest": true,
+            "enrollmentEvidence": {
+              "kind": "SYNTHETIC_EXTERNAL_LEDGER",
+              "durable": true,
+              "independentReadback": true,
+              "nonceLedgerReady": true,
+              "targetBound": true,
+              "epochBound": true,
+              "recordId": "synthetic-enrollment-record",
+              "readbackRecordId": "synthetic-enrollment-record",
+              "recordSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "readbackSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            }
+          },
+          {
+            "synthetic": true,
+            "type": "CREDENTIAL_REVOKED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-1",
+            "seq": 1,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "VM_STOPPED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-2",
+            "seq": 2,
+            "beforeGuest": true,
+            "freshStatus": true
+          },
+          {
+            "synthetic": true,
+            "type": "STOP_REQUEST",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-3",
+            "seq": 3,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "PERSISTED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-4",
+            "seq": 4,
+            "beforeGuest": true,
+            "receiptReadback": true
+          }
+        ]
+      },
+      "expected": {
+        "remaining": "BLOCKED",
+        "stop": "NOT_REQUESTED",
+        "vmStopped": "NOT_OBTAINED",
+        "reason": "CREDENTIAL_REVOKED",
+        "physical": "NOT_TESTED"
+      },
+      "before": {
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "UNKNOWN_OR_MISSING_INDEPENDENT_PROOF"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "after": {
+        "enrollment": "SYNTHETIC_DURABLE_READBACK",
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "CREDENTIAL_REVOKED"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "beforeStatus": "RED",
+      "afterStatus": "GREEN"
+    },
+    {
+      "id": "VM_ROLLBACK",
+      "issue": "P3-AL03",
+      "input": {
+        "identity": {
+          "vmId": "synthetic-vmId",
+          "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "generation": "synthetic-generation",
+          "hypervisorId": "synthetic-hypervisorId",
+          "stationId": "synthetic-stationId",
+          "session": "synthetic-session",
+          "epoch": "synthetic-epoch"
+        },
+        "events": [
+          {
+            "synthetic": true,
+            "type": "ENROLL",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-0",
+            "seq": 0,
+            "beforeGuest": true,
+            "enrollmentEvidence": {
+              "kind": "SYNTHETIC_EXTERNAL_LEDGER",
+              "durable": true,
+              "independentReadback": true,
+              "nonceLedgerReady": true,
+              "targetBound": true,
+              "epochBound": true,
+              "recordId": "synthetic-enrollment-record",
+              "readbackRecordId": "synthetic-enrollment-record",
+              "recordSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "readbackSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            }
+          },
+          {
+            "synthetic": true,
+            "type": "VM_ROLLBACK",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-1",
+            "seq": 1,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "VM_STOPPED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-2",
+            "seq": 2,
+            "beforeGuest": true,
+            "freshStatus": true
+          },
+          {
+            "synthetic": true,
+            "type": "STOP_REQUEST",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-3",
+            "seq": 3,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "PERSISTED",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-4",
+            "seq": 4,
+            "beforeGuest": true,
+            "receiptReadback": true
+          }
+        ]
+      },
+      "expected": {
+        "remaining": "BLOCKED",
+        "stop": "NOT_REQUESTED",
+        "vmStopped": "NOT_OBTAINED",
+        "reason": "VM_ROLLBACK",
+        "physical": "NOT_TESTED"
+      },
+      "before": {
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "UNKNOWN_OR_MISSING_INDEPENDENT_PROOF"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "after": {
+        "enrollment": "SYNTHETIC_DURABLE_READBACK",
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "VM_ROLLBACK"
+        ],
+        "physical": "NOT_TESTED"
+      },
+      "beforeStatus": "RED",
+      "afterStatus": "GREEN"
+    }
+  ],
+  "normalControl": {
+    "input": {
+      "identity": {
+        "vmId": "synthetic-vmId",
+        "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "generation": "synthetic-generation",
+        "hypervisorId": "synthetic-hypervisorId",
+        "stationId": "synthetic-stationId",
+        "session": "synthetic-session",
+        "epoch": "synthetic-epoch"
+      },
+      "events": [
+        {
+          "synthetic": true,
+          "type": "ENROLL",
+          "identity": {
+            "vmId": "synthetic-vmId",
+            "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "generation": "synthetic-generation",
+            "hypervisorId": "synthetic-hypervisorId",
+            "stationId": "synthetic-stationId",
+            "session": "synthetic-session",
+            "epoch": "synthetic-epoch"
+          },
+          "authenticated": true,
+          "vmScopedAcl": true,
+          "nonce": "n-0",
+          "seq": 0,
+          "beforeGuest": true,
+          "enrollmentEvidence": {
+            "kind": "SYNTHETIC_EXTERNAL_LEDGER",
+            "durable": true,
+            "independentReadback": true,
+            "nonceLedgerReady": true,
+            "targetBound": true,
+            "epochBound": true,
+            "recordId": "synthetic-enrollment-record",
+            "readbackRecordId": "synthetic-enrollment-record",
+            "recordSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "readbackSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          }
+        },
+        {
+          "synthetic": true,
+          "type": "STOP_REQUEST",
+          "identity": {
+            "vmId": "synthetic-vmId",
+            "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "generation": "synthetic-generation",
+            "hypervisorId": "synthetic-hypervisorId",
+            "stationId": "synthetic-stationId",
+            "session": "synthetic-session",
+            "epoch": "synthetic-epoch"
+          },
+          "authenticated": true,
+          "vmScopedAcl": true,
+          "nonce": "n-1",
+          "seq": 1,
+          "beforeGuest": true
+        }
+      ]
+    },
+    "before": {
+      "stop": "REQUESTED",
+      "accepted": "NOT_OBTAINED",
+      "vmStopped": "NOT_OBTAINED",
+      "guestExit": "NOT_OBTAINED",
+      "released": "NOT_OBTAINED",
+      "persisted": "NOT_OBTAINED",
+      "guarantee": "NONE",
+      "remaining": "NOT_STARTED",
+      "errors": [],
+      "physical": "NOT_TESTED"
+    },
+    "after": {
+      "enrollment": "SYNTHETIC_DURABLE_READBACK",
+      "stop": "REQUESTED",
+      "accepted": "NOT_OBTAINED",
+      "vmStopped": "NOT_OBTAINED",
+      "guestExit": "NOT_OBTAINED",
+      "released": "NOT_OBTAINED",
+      "persisted": "NOT_OBTAINED",
+      "guarantee": "NONE",
+      "remaining": "NOT_STARTED",
+      "errors": [],
+      "physical": "NOT_TESTED"
+    }
+  }
+}

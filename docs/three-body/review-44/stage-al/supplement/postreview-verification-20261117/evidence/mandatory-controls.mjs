@@ -1,0 +1,37 @@
+import fs from 'node:fs';
+import {recoveryTrace as before} from './contract-before.mjs';
+import {recoveryTrace as after} from './contract-after.mjs';
+import {rEvent,rIdentity} from '../../tools/three-body-stage-al-fixtures.mjs';
+const rows=[];
+const add=(id,change,reason='ENROLL_PROOF_NOT_OBTAINED')=>{
+ const e=rEvent('ENROLL');change(e);
+ const input={identity:{...rIdentity},events:[e,rEvent('STOP_REQUEST',1),rEvent('VM_STOPPED',2,{freshStatus:true}),rEvent('API_ACCEPTED',3)]};
+ rows.push({id,issue:'P3-AL02',input,expected:{remaining:'BLOCKED',stop:'NOT_REQUESTED',vmStopped:'NOT_OBTAINED',reason,physical:'NOT_TESTED'}});
+};
+add('missing-proof',e=>delete e.enrollmentEvidence);
+add('null-proof',e=>e.enrollmentEvidence=null);
+add('array-proof',e=>e.enrollmentEvidence=[]);
+add('not-durable',e=>e.enrollmentEvidence.durable=false);
+add('string-durable',e=>e.enrollmentEvidence.durable='true');
+add('no-independent-readback',e=>e.enrollmentEvidence.independentReadback=false);
+add('no-nonce-ledger',e=>e.enrollmentEvidence.nonceLedgerReady=false);
+add('vm-not-bound',e=>e.enrollmentEvidence.targetBound=false);
+add('epoch-not-bound',e=>e.enrollmentEvidence.epochBound=false);
+add('wrong-kind',e=>e.enrollmentEvidence.kind='GUEST_ONLY');
+add('missing-record-id',e=>delete e.enrollmentEvidence.recordId);
+add('blank-record-id',e=>e.enrollmentEvidence.recordId=' ');
+add('wrong-record-id',e=>e.enrollmentEvidence.readbackRecordId='foreign');
+add('invalid-sha',e=>e.enrollmentEvidence.recordSha256='wrong');
+add('numeric-sha',e=>e.enrollmentEvidence.recordSha256=7);
+add('different-readback-sha',e=>e.enrollmentEvidence.readbackSha256='c'.repeat(64));
+add('null-readback-sha',e=>e.enrollmentEvidence.readbackSha256=null);
+add('foreign-vm-envelope',e=>e.identity.vmId='foreign','IDENTITY_AUTH_REPLAY');
+add('foreign-epoch-envelope',e=>e.identity.epoch='foreign','IDENTITY_AUTH_REPLAY');
+for(const reason of ['CREDENTIAL_REVOKED','VM_ROLLBACK'])rows.push({id:reason,issue:'P3-AL03',input:{identity:{...rIdentity},events:[rEvent('ENROLL'),rEvent(reason,1),rEvent('VM_STOPPED',2,{freshStatus:true}),rEvent('STOP_REQUEST',3),rEvent('PERSISTED',4,{receiptReadback:true})]},expected:{remaining:'BLOCKED',stop:'NOT_REQUESTED',vmStopped:'NOT_OBTAINED',reason,physical:'NOT_TESTED'}});
+const matches=(actual,e)=>actual.remaining===e.remaining&&actual.stop===e.stop&&actual.vmStopped===e.vmStopped&&actual.physical===e.physical&&actual.errors.includes(e.reason);
+for(const row of rows){row.before=before(row.input.identity,row.input.events);row.after=after(row.input.identity,row.input.events);row.beforeStatus=matches(row.before,row.expected)?'BASELINE_PASS':'RED';row.afterStatus=matches(row.after,row.expected)?'GREEN':'FAIL';}
+const controlInput={identity:{...rIdentity},events:[rEvent('ENROLL'),rEvent('STOP_REQUEST',1)]};
+const control={input:controlInput,before:before(controlInput.identity,controlInput.events),after:after(controlInput.identity,controlInput.events)};
+fs.writeFileSync('.three-body-evidence/stage-al-p3-verification-20261117/mandatory-controls.json',JSON.stringify({kind:'SUPPLEMENTAL_PURE_CONTROLS_NOT_VITEST_COUNT',cases:rows,normalControl:control},null,2));
+console.log(JSON.stringify({cases:rows.length,red:rows.filter(x=>x.beforeStatus==='RED').length,baselinePass:rows.filter(x=>x.beforeStatus==='BASELINE_PASS').length,green:rows.filter(x=>x.afterStatus==='GREEN').length,normalControl:control.after.stop==='REQUESTED'}));
+if(rows.some(r=>r.afterStatus!=='GREEN')||control.after.stop!=='REQUESTED')process.exitCode=1;
