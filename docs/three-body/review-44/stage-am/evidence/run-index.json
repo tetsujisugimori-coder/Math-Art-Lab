@@ -1,0 +1,170 @@
+[
+  {
+    "id": "al-regression",
+    "command": [
+      "node",
+      "../../node_modules/vitest/vitest.mjs",
+      "run",
+      "--config",
+      "tools/three-body-stage-al-tests.config.mjs",
+      "--reporter=default",
+      "--reporter=json",
+      "--outputFile=.three-body-evidence/stage-am/formal-envfix/al-regression.per-test.json"
+    ],
+    "cwd": "C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am",
+    "startUTC": "2026-11-17T20:06:48.280697+00:00",
+    "endUTC": "2026-11-17T20:06:57.471561+00:00",
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "head": "f700e6705dd896037fe6e9d2241f0067fa35efdd",
+    "tree": "0b84169717f2815f8b8e84183682ad5724762d66",
+    "sourceBinding": "../frozen-binding-v2.json"
+  },
+  {
+    "id": "am-contracts",
+    "command": [
+      "node",
+      "../../node_modules/vitest/vitest.mjs",
+      "run",
+      "--config",
+      "tools/three-body-stage-am-tests.config.mjs",
+      "--reporter=default",
+      "--reporter=json",
+      "--outputFile=.three-body-evidence/stage-am/formal-envfix/am-contracts.per-test.json"
+    ],
+    "cwd": "C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am",
+    "startUTC": "2026-11-17T20:06:57.528544+00:00",
+    "endUTC": "2026-11-17T20:07:03.579810+00:00",
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "head": "f700e6705dd896037fe6e9d2241f0067fa35efdd",
+    "tree": "0b84169717f2815f8b8e84183682ad5724762d66",
+    "sourceBinding": "../frozen-binding-v2.json"
+  },
+  {
+    "id": "typecheck",
+    "command": [
+      "node",
+      "../../node_modules/typescript/bin/tsc",
+      "--noEmit"
+    ],
+    "cwd": "C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am",
+    "startUTC": "2026-11-17T20:07:03.646942+00:00",
+    "endUTC": "2026-11-17T20:07:06.304740+00:00",
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "head": "f700e6705dd896037fe6e9d2241f0067fa35efdd",
+    "tree": "0b84169717f2815f8b8e84183682ad5724762d66",
+    "sourceBinding": "../frozen-binding-v2.json"
+  },
+  {
+    "id": "build-tsc",
+    "command": [
+      "node",
+      "../../node_modules/typescript/bin/tsc"
+    ],
+    "cwd": "C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am",
+    "startUTC": "2026-11-17T20:07:06.355665+00:00",
+    "endUTC": "2026-11-17T20:07:08.169359+00:00",
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "head": "f700e6705dd896037fe6e9d2241f0067fa35efdd",
+    "tree": "0b84169717f2815f8b8e84183682ad5724762d66",
+    "sourceBinding": "../frozen-binding-v2.json"
+  },
+  {
+    "id": "build-vite",
+    "command": [
+      "node",
+      "../../node_modules/vite/bin/vite.js",
+      "build"
+    ],
+    "cwd": "C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am",
+    "startUTC": "2026-11-17T20:07:08.220613+00:00",
+    "endUTC": "2026-11-17T20:07:10.248946+00:00",
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "head": "f700e6705dd896037fe6e9d2241f0067fa35efdd",
+    "tree": "0b84169717f2815f8b8e84183682ad5724762d66",
+    "sourceBinding": "../frozen-binding-v2.json"
+  },
+  {
+    "id": "closure",
+    "command": [
+      "node",
+      ".three-body-evidence/stage-am/closure-envfix.mjs"
+    ],
+    "cwd": "C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am",
+    "startUTC": "2026-11-17T20:07:10.302148+00:00",
+    "endUTC": "2026-11-17T20:07:10.809274+00:00",
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "head": "f700e6705dd896037fe6e9d2241f0067fa35efdd",
+    "tree": "0b84169717f2815f8b8e84183682ad5724762d66",
+    "sourceBinding": "../frozen-binding-v2.json"
+  },
+  {
+    "id": "am-static",
+    "command": [
+      "node",
+      "tools/three-body-stage-am-audit.mjs",
+      "validate"
+    ],
+    "cwd": "C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am",
+    "startUTC": "2026-11-17T20:07:10.860171+00:00",
+    "endUTC": "2026-11-17T20:07:11.143953+00:00",
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "head": "f700e6705dd896037fe6e9d2241f0067fa35efdd",
+    "tree": "0b84169717f2815f8b8e84183682ad5724762d66",
+    "sourceBinding": "../frozen-binding-v2.json"
+  },
+  {
+    "id": "al-static",
+    "command": [
+      "node",
+      "tools/three-body-stage-al-audit.mjs",
+      "validate"
+    ],
+    "cwd": "C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am",
+    "startUTC": "2026-11-17T20:07:11.194290+00:00",
+    "endUTC": "2026-11-17T20:07:11.471731+00:00",
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "head": "f700e6705dd896037fe6e9d2241f0067fa35efdd",
+    "tree": "0b84169717f2815f8b8e84183682ad5724762d66",
+    "sourceBinding": "../frozen-binding-v2.json"
+  },
+  {
+    "id": "am-execute-denial",
+    "command": [
+      "node",
+      "tools/three-body-stage-am-audit.mjs",
+      "--execute"
+    ],
+    "cwd": "C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am",
+    "startUTC": "2026-11-17T20:07:11.527448+00:00",
+    "endUTC": "2026-11-17T20:07:11.824207+00:00",
+    "exitCode": 2,
+    "expectedExitCode": 2,
+    "head": "f700e6705dd896037fe6e9d2241f0067fa35efdd",
+    "tree": "0b84169717f2815f8b8e84183682ad5724762d66",
+    "sourceBinding": "../frozen-binding-v2.json"
+  },
+  {
+    "id": "al-execute-denial",
+    "command": [
+      "node",
+      "tools/three-body-stage-al-audit.mjs",
+      "--execute"
+    ],
+    "cwd": "C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am",
+    "startUTC": "2026-11-17T20:07:11.890350+00:00",
+    "endUTC": "2026-11-17T20:07:12.148174+00:00",
+    "exitCode": 2,
+    "expectedExitCode": 2,
+    "head": "f700e6705dd896037fe6e9d2241f0067fa35efdd",
+    "tree": "0b84169717f2815f8b8e84183682ad5724762d66",
+    "sourceBinding": "../frozen-binding-v2.json"
+  }
+]

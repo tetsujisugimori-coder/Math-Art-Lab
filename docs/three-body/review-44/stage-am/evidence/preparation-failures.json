@@ -1,0 +1,41 @@
+{
+  "kind": "POSTHOC_TRANSCRIPT_SUMMARY_NOT_RAW_STDERR",
+  "failuresRetained": [
+    {
+      "stage": "worktree-create",
+      "result": "FAILED_LONG_WINDOWS_PATH",
+      "recovery": "command-local core.longpaths=true; no old worktree changed"
+    },
+    {
+      "stage": "premature-read",
+      "result": "files not yet available during worktree preparation",
+      "testsExecuted": 0
+    },
+    {
+      "stage": "initial-sandbox-al",
+      "result": "esbuild upper directory access denied, startup exit1",
+      "raw": "al-regression.stderr.bin",
+      "testsExecuted": 0
+    },
+    {
+      "stage": "collector-display",
+      "result": "cp932 UnicodeEncodeError after failure logs saved",
+      "rawRun": "al-regression.run.json"
+    },
+    {
+      "stage": "formal-wrapper-preparation",
+      "result": "PowerShell/python-c quote SyntaxError; subsequent script missing; no tests executed",
+      "recovery": "new prepare-formal.py file"
+    },
+    {
+      "stage": "formal-al-without-junction",
+      "pass": 682,
+      "fail": 4,
+      "skip": 0,
+      "raw": "formal/al-regression.per-test.json",
+      "cause": "AG/AH hardcoded node_modules runner original was missing in fresh worktree",
+      "fix": "new node_modules junction to unchanged ancestor dependencies",
+      "sourceChanges": []
+    }
+  ]
+}

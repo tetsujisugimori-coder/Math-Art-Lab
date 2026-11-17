@@ -1,0 +1,170 @@
+{
+  "scope": "HYPOTHETICAL_SYNTHETIC_MODEL_NOT_AUTHORIZATION",
+  "statePersistence": "NOT_IMPLEMENTED",
+  "realApprovalAccepted": false,
+  "edges": [
+    {
+      "from": "PLAN_ONLY",
+      "to": "SPEC_READY",
+      "action": "SPEC",
+      "authority": "STATIC_MODEL",
+      "evidence": [
+        "specification/source binding",
+        "independent review where required"
+      ],
+      "refuse": [
+        "missing/forged/stale/wrong-scope evidence",
+        "prior failure",
+        "synthetic evidence promoted to physical"
+      ]
+    },
+    {
+      "from": "SPEC_READY",
+      "to": "REVIEW_PENDING",
+      "action": "REQUEST_REVIEW",
+      "authority": "INDEPENDENT_SOURCE_BOUND_REVIEW",
+      "evidence": [
+        "specification/source binding",
+        "independent review where required"
+      ],
+      "refuse": [
+        "missing/forged/stale/wrong-scope evidence",
+        "prior failure",
+        "synthetic evidence promoted to physical"
+      ]
+    },
+    {
+      "from": "REVIEW_PENDING",
+      "to": "REVIEW_FAILED",
+      "action": "REVIEW_FAIL",
+      "authority": "INDEPENDENT_SOURCE_BOUND_REVIEW",
+      "evidence": [
+        "specification/source binding",
+        "independent review where required"
+      ],
+      "refuse": [
+        "missing/forged/stale/wrong-scope evidence",
+        "prior failure",
+        "synthetic evidence promoted to physical"
+      ]
+    },
+    {
+      "from": "REVIEW_PENDING",
+      "to": "IMPLEMENTATION_ELIGIBLE",
+      "action": "REVIEW_PASS",
+      "authority": "INDEPENDENT_SOURCE_BOUND_REVIEW",
+      "evidence": [
+        "specification/source binding",
+        "independent review where required"
+      ],
+      "refuse": [
+        "missing/forged/stale/wrong-scope evidence",
+        "prior failure",
+        "synthetic evidence promoted to physical"
+      ]
+    },
+    {
+      "from": "IMPLEMENTATION_ELIGIBLE",
+      "to": "APPROVAL_MISSING",
+      "action": "NO_APPROVAL",
+      "authority": "STATIC_MODEL",
+      "evidence": [
+        "specification/source binding",
+        "independent review where required"
+      ],
+      "refuse": [
+        "missing/forged/stale/wrong-scope evidence",
+        "prior failure",
+        "synthetic evidence promoted to physical"
+      ]
+    },
+    {
+      "from": "APPROVAL_MISSING",
+      "to": "HOLD",
+      "action": "HOLD",
+      "authority": "STATIC_MODEL",
+      "evidence": [
+        "specification/source binding",
+        "independent review where required"
+      ],
+      "refuse": [
+        "missing/forged/stale/wrong-scope evidence",
+        "prior failure",
+        "synthetic evidence promoted to physical"
+      ]
+    },
+    {
+      "from": "IMPLEMENTATION_ELIGIBLE",
+      "to": "IMPLEMENT_ONLY",
+      "action": "OWNER_IMPLEMENT",
+      "authority": "OWNER_EXPLICIT_SEPARATE_APPROVAL",
+      "evidence": [
+        "exact grant raw+sha+readback",
+        "owner identity/current key",
+        "HEAD/tree/source/environment/scope",
+        "VM/generation/epoch",
+        "issued/expiry/revoked/nonce ledger"
+      ],
+      "refuse": [
+        "missing/forged/stale/wrong-scope evidence",
+        "prior failure",
+        "synthetic evidence promoted to physical"
+      ]
+    },
+    {
+      "from": "IMPLEMENT_ONLY",
+      "to": "QUALIFICATION_BLOCKED",
+      "action": "IMPLEMENTATION_RECORDED",
+      "authority": "STATIC_MODEL",
+      "evidence": [
+        "specification/source binding",
+        "independent review where required"
+      ],
+      "refuse": [
+        "missing/forged/stale/wrong-scope evidence",
+        "prior failure",
+        "synthetic evidence promoted to physical"
+      ]
+    },
+    {
+      "from": "QUALIFICATION_BLOCKED",
+      "to": "QUALIFICATION_READY",
+      "action": "QUALIFICATION_REVIEW",
+      "authority": "INDEPENDENT_SOURCE_BOUND_REVIEW",
+      "evidence": [
+        "real recovery and orphan proof",
+        "finite plan and environment binding"
+      ],
+      "refuse": [
+        "missing/forged/stale/wrong-scope evidence",
+        "prior failure",
+        "synthetic evidence promoted to physical"
+      ]
+    },
+    {
+      "from": "QUALIFICATION_READY",
+      "to": "QUALIFICATION_RUN",
+      "action": "OWNER_QUALIFY",
+      "authority": "OWNER_EXPLICIT_SEPARATE_APPROVAL",
+      "evidence": [
+        "exact grant raw+sha+readback",
+        "owner identity/current key",
+        "HEAD/tree/source/environment/scope",
+        "VM/generation/epoch",
+        "issued/expiry/revoked/nonce ledger"
+      ],
+      "refuse": [
+        "missing/forged/stale/wrong-scope evidence",
+        "prior failure",
+        "synthetic evidence promoted to physical"
+      ]
+    }
+  ],
+  "failureLatch": {
+    "states": [
+      "BLOCKED",
+      "REVIEW_FAILED"
+    ],
+    "reset": "NOT_IMPLEMENTED_REQUIRES_SEPARATE_REVIEW"
+  }
+}

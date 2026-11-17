@@ -1,0 +1,143 @@
+{
+  "reviewer": "am_independent_review",
+  "independentOfImplementationAndFormalTestOwner": true,
+  "status": "DESIGN_AND_PURE_CONTRACT_LIMITED_PASS",
+  "newP1": 0,
+  "newP2": 0,
+  "baselineHead": "f700e6705dd896037fe6e9d2241f0067fa35efdd",
+  "baselineTree": "0b84169717f2815f8b8e84183682ad5724762d66",
+  "frozenSourceSetSha256": "0369479e85ef24625ebe7be3bf8190db2ef2ce851988244e3e40177eb5703ed4",
+  "directFilesAndRawGitBlobsMatched": 77,
+  "reviewedContract": {
+    "file": "tools/three-body-stage-am-contract.mjs",
+    "bytes": 10617,
+    "sha256": "7228ab6673a32166e159dafb221b4e97e6842e0b7035302231c50007c4a048e6"
+  },
+  "independentAmVitest": {
+    "passed": 224,
+    "failed": 0,
+    "skipped": 0,
+    "unexecuted": 0,
+    "actualVitestExitCode": 0,
+    "collectorDisplayExitCode": 1,
+    "formalIdsAndStatusesMatch": true
+  },
+  "independentSyntheticProbes": {
+    "total": 109,
+    "pass": 109,
+    "fail": 0
+  },
+  "alRegression": {
+    "rootFormalPassed": 686,
+    "rootFormalFailed": 0,
+    "idsMatchPrior686": true,
+    "independentRerun": false
+  },
+  "rootTypeBuildAndGatesDirectlyRead": {
+    "typecheck": {
+      "exitCode": 0,
+      "command": [
+        "node",
+        "../../node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "recordSha256": "923cea746279cca3f76c42a8decf989b84fdd5e064c8056713de6f1c02e64332"
+    },
+    "build-tsc": {
+      "exitCode": 0,
+      "command": [
+        "node",
+        "../../node_modules/typescript/bin/tsc"
+      ],
+      "recordSha256": "28813ee1615101b6abec7730a5e7188e6bbfd774da25ed14689205a1201070a2"
+    },
+    "build-vite": {
+      "exitCode": 0,
+      "command": [
+        "node",
+        "../../node_modules/vite/bin/vite.js",
+        "build"
+      ],
+      "recordSha256": "d8c3cb82d15457ffc6088c0c7fdfcba32eed7783c1aeb507b5dabe018d34cef6"
+    },
+    "al-static": {
+      "exitCode": 0,
+      "command": [
+        "node",
+        "tools/three-body-stage-al-audit.mjs",
+        "validate"
+      ],
+      "recordSha256": "55c8b2e6841697d6275199521effdc7177497b095eb20ce22f7ad5e87e94b84e"
+    },
+    "am-static": {
+      "exitCode": 0,
+      "command": [
+        "node",
+        "tools/three-body-stage-am-audit.mjs",
+        "validate"
+      ],
+      "recordSha256": "1885b7622b39514cebed264db228cf17035ce1368146ab83271f51d7b3a6b4f4"
+    },
+    "al-execute-denial": {
+      "exitCode": 2,
+      "command": [
+        "node",
+        "tools/three-body-stage-al-audit.mjs",
+        "--execute"
+      ],
+      "recordSha256": "aebfc60aeebbc0efb9d0dc36dd7ec86e9b7bbb7b190e692ec4fba6afbb8edc86"
+    },
+    "am-execute-denial": {
+      "exitCode": 2,
+      "command": [
+        "node",
+        "tools/three-body-stage-am-audit.mjs",
+        "--execute"
+      ],
+      "recordSha256": "361973b85a182ec5d637d24c7436dc6cc9bfec081d554835017229a3f705e2cc"
+    }
+  },
+  "closure": {
+    "testRoots": 11,
+    "localModules": 54,
+    "originalTestRuntimeImport": false,
+    "reviewedUnknownRequire": "Existing playwright-core YAML parser only",
+    "physicalCapableExports": "Existing AE prepare/run and AF runtimeIdentity defaults; tests do not call prepare/run, identity calls inject stubs; CLI guards checked",
+    "thirdPartyRunnerInternals": "NOT_EXHAUSTIVELY_VERIFIED"
+  },
+  "ak28Unchanged": true,
+  "newTrackedProtectedDiff": false,
+  "pr44Head": "bca7eb3abedf51679eaffff2f8eaee15b86b5ab6",
+  "pr44Draft": true,
+  "autoMerge": false,
+  "currentPhysicalGate": {
+    "allowed": false,
+    "status": "BLOCKED",
+    "approval": "APPROVAL_MISSING",
+    "decision": "HOLD",
+    "physical": "NOT_TESTED",
+    "qualificationStart": "NO"
+  },
+  "oldDraftConcerns": {
+    "atMonotonic": "Fixed before v2; old draft was NOT_TESTED independently, not RED",
+    "approvalRawGrantBinding": "Fixed before v2; old draft was NOT_TESTED independently, not RED",
+    "handleBeforeCreationWording": "Clarified before v2; no old physical execution claim"
+  },
+  "unverified": [
+    "Future Windows VM identity/ACL/R station/native API behavior/Job atomicity/actual containment",
+    "Real external enrollment and signature trust, independent ledger durability, credential enforcement",
+    "Physical implementation, qualification, original Vitest and original stop tests",
+    "Independent original ZIP preservation audit and final publication commit/GitHub state (another audit step pending)",
+    "Independent typecheck/build rerun; root raw outcomes directly inspected",
+    "ResumeThread official page retrieval timed out; prior count contract retained without a new physical claim"
+  ],
+  "decisions": {
+    "AK01": "Static obligations acceptable; actual guarantee NONE",
+    "AK02": "Static obligations acceptable; physical UNKNOWN",
+    "physicalImplementationApproval": "NO",
+    "qualification": "BLOCKED",
+    "PR44Merge": "NO",
+    "overall": "PARTIAL"
+  },
+  "completedUTC": "2026-11-17T20:10:06.468278+00:00"
+}

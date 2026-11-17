@@ -1,0 +1,91 @@
+{
+  "schema": "am-safety-1",
+  "state": "PLAN_ONLY",
+  "executionAuthorized": false,
+  "physical": "NOT_TESTED",
+  "recoveryGuarantee": "NONE",
+  "orphanPhysical": "UNKNOWN",
+  "qualificationStart": "NO",
+  "limits": {
+    "originalMs": 5000,
+    "parentMs": 30000,
+    "totalMs": 90000,
+    "measurementSlots": 2,
+    "order": [
+      "OFF",
+      "ON"
+    ],
+    "qualificationSlots": 8,
+    "perSlotMs": 10000,
+    "retry": 0,
+    "replacement": 0,
+    "reorder": false
+  },
+  "states": [
+    "PLAN_ONLY",
+    "SPEC_READY",
+    "REVIEW_PENDING",
+    "REVIEW_FAILED",
+    "IMPLEMENTATION_ELIGIBLE",
+    "APPROVAL_MISSING",
+    "IMPLEMENT_ONLY",
+    "QUALIFICATION_BLOCKED",
+    "QUALIFICATION_READY",
+    "QUALIFICATION_RUN",
+    "BLOCKED",
+    "HOLD"
+  ],
+  "topology": {
+    "M": "NATIVE_GUEST_OUTSIDE_JOB",
+    "P": "GUEST_INSIDE_JOB",
+    "W": "GUEST_INSIDE_JOB",
+    "R": "MANAGEMENT_STATION_OUTSIDE_GUEST",
+    "jobHandleOwner": "M",
+    "jobHandleInherited": false
+  },
+  "recovery": {
+    "separateFailureDomains": true,
+    "outsideGuest": true,
+    "beforeGuest": true,
+    "externalDurableLedger": true,
+    "independentReadback": true,
+    "vmEpochBinding": true,
+    "nonceLedger": true,
+    "credentialLifecycle": true,
+    "rollbackRejectsOld": true,
+    "ownClock": true,
+    "independentStopConfirmation": true,
+    "boundedStorage": true
+  },
+  "orphan": {
+    "creationTimeJobList": true,
+    "suspended": true,
+    "limitsBeforeCreate": true,
+    "noninheritedJobHandle": true,
+    "handleOwnershipLedger": true,
+    "birthAndHandleBinding": true,
+    "membershipBeforeResume": true,
+    "resumeReceipt": true,
+    "nestedCompatible": true,
+    "noBreakaway": true,
+    "noAssignFallback": true,
+    "atomicityRequiredBeforeCreate": true,
+    "creatorLossExternalRecovery": true,
+    "exitReleaseSeparate": true
+  },
+  "approval": {
+    "ownerExplicit": true,
+    "separateImplementationQualification": true,
+    "exactBinding": true,
+    "externalAuthenticity": true,
+    "readback": true,
+    "expiry": true,
+    "revocation": true,
+    "noBooleanAuthority": true,
+    "noSyntheticExternalProof": true
+  },
+  "actualEnvironment": "NOT_OBTAINED",
+  "implementation": "NOT_IMPLEMENTED",
+  "realApproval": "NOT_OBTAINED",
+  "budgetFeasibility": "NOT_TESTED"
+}

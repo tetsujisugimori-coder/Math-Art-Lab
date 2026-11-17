@@ -1,0 +1,4572 @@
+{
+  "reviewer": "am_independent_review",
+  "utc": "2026-11-17T20:08:37.346052+00:00",
+  "amFormalAndIndependent": {
+    "tests": 224,
+    "exactOccurrenceIndexedIdsAndStatusesEqual": true,
+    "formalJsonSha256": "b8a1581a4363aeee39775bdf38d7a962d324cad68be5ef3e21be413de72be7f9",
+    "independentJsonSha256": "c678d1cdaeb368039300258a5a410cb7146761c9b79f77169db74c47c201832c"
+  },
+  "alRegression": {
+    "tests": 686,
+    "allPassed": true,
+    "sameIdsAsPrior686": true,
+    "independentRerun": false,
+    "reviewMethod": "Direct per-test JSON and unchanged source Git blobs, not an independent AL test rerun",
+    "jsonSha256": "3e6692d83a390934572158b1b832859dc1996ea77619f0cc2fd3dbbdecc253b0"
+  },
+  "amTests": [
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM normal specification is static SPEC_READY with denial #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement recovery.separateFailureDomains #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement recovery.outsideGuest #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement recovery.beforeGuest #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement recovery.externalDurableLedger #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement recovery.independentReadback #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement recovery.vmEpochBinding #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement recovery.nonceLedger #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement recovery.credentialLifecycle #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement recovery.rollbackRejectsOld #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement recovery.ownClock #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement recovery.independentStopConfirmation #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement recovery.boundedStorage #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement orphan.creationTimeJobList #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement orphan.suspended #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement orphan.limitsBeforeCreate #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement orphan.noninheritedJobHandle #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement orphan.handleOwnershipLedger #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement orphan.birthAndHandleBinding #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement orphan.membershipBeforeResume #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement orphan.resumeReceipt #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement orphan.nestedCompatible #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement orphan.noBreakaway #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement orphan.noAssignFallback #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement orphan.atomicityRequiredBeforeCreate #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement orphan.creatorLossExternalRecovery #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement orphan.exitReleaseSeparate #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement approval.ownerExplicit #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement approval.separateImplementationQualification #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement approval.exactBinding #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement approval.externalAuthenticity #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement approval.readback #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement approval.expiry #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement approval.revocation #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement approval.noBooleanAuthority #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "mandatory requirement approval.noSyntheticExternalProof #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "spec rejects promotion timeout #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "spec rejects promotion retry #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "spec rejects promotion guarantee #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "spec rejects promotion orphan #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "spec rejects promotion authority #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "spec rejects promotion physical #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "spec rejects promotion budget #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "spec rejects promotion environment #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "spec rejects promotion implementation #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "spec rejects promotion states #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "normal trace is synthetic-only and has no physical or external proof #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault M_HANG #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault M_CRASH #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault M_KILLED #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault R_HANG #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault R_UNREACHABLE #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault HEARTBEAT_LOST #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault IPC_DISCONNECT #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault CREDENTIAL_REVOKED #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault CREDENTIAL_EXPIRED #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault VM_ROLLBACK #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault PERSIST_FAILED #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault READBACK_FAILED #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault RECORD_CORRUPT #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault SHA_MISMATCH #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault JOB_CREATE_FAILED #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault JOB_ASSIGN_FAILED #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault CREATOR_LOST #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault HANDLE_LEAK #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault NESTED_JOB_INCOMPATIBLE #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault BREAKAWAY #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault RESUME_FAILED #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault PID_REUSED #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault CLEANUP_FAILED #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault MONITOR_FAILURE #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault SAVE_FAILED #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault vm-identity #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault epoch #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault generation #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault nonce-replay #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault clock-domain #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault event-id #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault sequence #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault false-stop #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault self-proof #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault missing-enrollment-proof #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault not-durable #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault readback-missing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault nonce-ledger #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault sha-corrupt #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault raw-readback-mismatch #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault record-id-mismatch #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault fake-independent #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault same-failure-domain #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "AM fault late-enrollment #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "known runner FAIL retained exit 0 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "known runner FAIL retained exit 1 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "malformed events null #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "malformed events undefined #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "malformed events [object Object] #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "malformed events true #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "malformed events 2 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "malformed events bad #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "malformed events  #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "malformed element null #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "malformed element undefined #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "malformed element [object Object] #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "malformed element true #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "malformed element 2 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "malformed element bad #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "malformed element  #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "event count capacity rejects without buffering #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "raw byte capacity preserves earlier FAIL #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "request and acceptance never imply stopped exit release or persistence #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "VM stopped needs independent proof and never implies guest exit #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "release cannot precede exit #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "valid separate lane proofs remain synthetic and no gate release #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "synthetic model edge PLAN_ONLY to SPEC_READY #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "synthetic model edge SPEC_READY to REVIEW_PENDING #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "synthetic model edge REVIEW_PENDING to REVIEW_FAILED #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "synthetic model edge REVIEW_PENDING to IMPLEMENTATION_ELIGIBLE #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "synthetic model edge IMPLEMENTATION_ELIGIBLE to APPROVAL_MISSING #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "synthetic model edge APPROVAL_MISSING to HOLD #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "synthetic model edge IMPLEMENTATION_ELIGIBLE to IMPLEMENT_ONLY #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "synthetic model edge IMPLEMENT_ONLY to QUALIFICATION_BLOCKED #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "synthetic model edge QUALIFICATION_BLOCKED to QUALIFICATION_READY #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "synthetic model edge QUALIFICATION_READY to QUALIFICATION_RUN #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "approval model rejects boolean #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "approval model rejects missing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "approval model rejects revoked #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "approval model rejects expired #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "approval model rejects future #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "approval model rejects oldVersion #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "approval model rejects vm #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "approval model rejects head #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "approval model rejects scope #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "approval model rejects owner #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "approval model rejects replay #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "approval model rejects purpose #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "approval model rejects selfProof #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "approval model rejects noReadback #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "approval model rejects real #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "approval model rejects epoch #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "latch BLOCKED to PLAN_ONLY #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "latch BLOCKED to SPEC_READY #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "latch BLOCKED to REVIEW_PENDING #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "latch BLOCKED to REVIEW_FAILED #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "latch BLOCKED to IMPLEMENTATION_ELIGIBLE #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "latch BLOCKED to APPROVAL_MISSING #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "latch BLOCKED to IMPLEMENT_ONLY #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "latch BLOCKED to QUALIFICATION_BLOCKED #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "latch BLOCKED to QUALIFICATION_READY #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "latch BLOCKED to QUALIFICATION_RUN #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "latch BLOCKED to BLOCKED #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "latch BLOCKED to HOLD #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "latch REVIEW_FAILED to PLAN_ONLY #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "latch REVIEW_FAILED to SPEC_READY #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "latch REVIEW_FAILED to REVIEW_PENDING #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "latch REVIEW_FAILED to REVIEW_FAILED #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "latch REVIEW_FAILED to IMPLEMENTATION_ELIGIBLE #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "latch REVIEW_FAILED to APPROVAL_MISSING #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "latch REVIEW_FAILED to IMPLEMENT_ONLY #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "latch REVIEW_FAILED to QUALIFICATION_BLOCKED #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "latch REVIEW_FAILED to QUALIFICATION_READY #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "latch REVIEW_FAILED to QUALIFICATION_RUN #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "latch REVIEW_FAILED to BLOCKED #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "latch REVIEW_FAILED to HOLD #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "qualification requires independent physical safety proof in future model #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "approval immutable raw binds head #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "approval immutable raw binds tree #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "approval immutable raw binds sourceSha256 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "approval immutable raw binds planSha256 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "approval immutable raw binds environmentSha256 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "approval immutable raw binds scopeSha256 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "same domain event time reversal is rejected #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input null #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input undefined #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input [object Object] #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input true #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input false #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 0 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input true #2",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input [object Object] #2",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input true #3",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #2",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #3",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #4",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #5",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #6",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #7",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #8",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #9",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #10",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #11",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #12",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #13",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #14",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #15",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #16",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #17",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #18",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #19",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #20",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #21",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #22",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #23",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #24",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 4 #25",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 2 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 2 #2",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 2 #3",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 2 #4",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 2 #5",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 2 #6",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 2 #7",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 2 #8",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 2 #9",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 2 #10",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 2 #11",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 2 #12",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 2 #13",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 2 #14",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 2 #15",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 2 #16",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 2 #17",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 2 #18",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-am.test.js",
+      "id": "constant gate refuses input 2 #19",
+      "status": "passed"
+    }
+  ],
+  "alTests": [
+    {
+      "suite": "three-body-stage-ae-evidence.test.js",
+      "id": "accepts complete measured categories #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae-evidence.test.js",
+      "id": "rejects incomplete/contradictory sections missing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae-evidence.test.js",
+      "id": "rejects incomplete/contradictory sections extra #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae-evidence.test.js",
+      "id": "rejects incomplete/contradictory sections wrong-count #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae-evidence.test.js",
+      "id": "rejects incomplete/contradictory sections missing-cpu #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae-evidence.test.js",
+      "id": "rejects incomplete/contradictory sections reverse #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae-evidence.test.js",
+      "id": "rejects incomplete/contradictory sections wrong-result #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae-evidence.test.js",
+      "id": "ZIP normal rejection mock #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae-evidence.test.js",
+      "id": "ZIP startup failure is not expected byte mismatch #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae-evidence.test.js",
+      "id": "ZIP unrelated nonzero is UNKNOWN #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae-evidence.test.js",
+      "id": "ZIP missing stage remains unobserved #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae-evidence.test.js",
+      "id": "ZIP accepted wrong bytes is a failed negative control #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae-evidence.test.js",
+      "id": "rejects forged or missing measurement domain #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae-evidence.test.js",
+      "id": "rejects forged or missing measurement envelope #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae-evidence.test.js",
+      "id": "rejects forged or missing measurement mode #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae-evidence.test.js",
+      "id": "rejects forged or missing measurement bits #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae-evidence.test.js",
+      "id": "rejects forged or missing measurement hash #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae-evidence.test.js",
+      "id": "rejects forged or missing measurement negative-max #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae-evidence.test.js",
+      "id": "rejects forged or missing measurement negative-rms #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae-evidence.test.js",
+      "id": "clock boundaries cannot both omit required fields #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae-evidence.test.js",
+      "id": "clock duplicate endpoint rejected #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae-evidence.test.js",
+      "id": "optional thread CPU may remain explicitly missing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae-evidence.test.js",
+      "id": "successful numerical output never erases run evidence failure #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "normal single-domain interval #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects missing/different domain null #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects missing/different domain {} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects missing/different domain {\"pid\":2} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects missing/different domain {\"tid\":1} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects missing/different domain {\"clock\":\"other\"} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects reverse/nonfinite time -1 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects reverse/nonfinite time NaN #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects reverse/nonfinite time Infinity #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "CPU invalid independently missing undefined #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "CPU invalid independently missing {\"user\":-1,\"system\":0} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "CPU invalid independently missing {\"user\":null,\"system\":0} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "CPU invalid independently missing {\"user\":0,\"system\":0} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "execution FAIL survives evidence failure and stops future mock process #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "save exception cannot start extra process #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "normal mock fixed schedule calls exactly four times #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "snapshot substitution/missing detected #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "extracts exactly original numerical test body and rejects replacement name #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "real YAML workflow graph is guarded #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "normal YAML guard ordering #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects misplaced/unreachable/bypassed guard #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects misplaced/unreachable/bypassed guard #2",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects misplaced/unreachable/bypassed guard #3",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects misplaced/unreachable/bypassed guard #4",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects misplaced/unreachable/bypassed guard #5",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects expression OR escape #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "explicit successful guard permits independent late diagnostic #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "wrong guard id cannot satisfy success reference #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects duplicate YAML keys #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "accepts only fixed diagnostic plan #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects forged/extra/reordered/drift plan {\"executionAuthorized\":true} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects forged/extra/reordered/drift plan {\"plans\":[{\"id\":\"ae-A1\",\"mode\":\"OFF\"},{\"id\":\"ae-B1\",\"mode\":\"ON\"},{\"id\":\"ae-B2\",\"mode\":\"ON\"},{\"id\":\"ae-A2\",\"mode\":\"OFF\"},{\"id\":\"ae-A1\",\"mode\":\"OFF\"}]} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects forged/extra/reordered/drift plan {\"plans\":[{\"id\":\"ae-A2\",\"mode\":\"OFF\"},{\"id\":\"ae-B2\",\"mode\":\"ON\"},{\"id\":\"ae-B1\",\"mode\":\"ON\"},{\"id\":\"ae-A1\",\"mode\":\"OFF\"}]} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects forged/extra/reordered/drift plan {\"timeout\":40000} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects forged/extra/reordered/drift plan {\"sourceSetSha256\":\"other\"} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects forged/extra/reordered/drift plan {\"gateAudit\":\"FAIL\"} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects forged/extra/reordered/drift plan {\"bundleSha256\":\"other\"} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects edited source rows with unchanged self-reported hash #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects negated guard success #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects non-allowlisted normal condition always () #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects non-allowlisted normal condition FAILURE() #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "rejects non-allowlisted normal condition some_unknown_condition #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "thread CPU missing remains missing across subsequent valid calls #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ae.test.js",
+      "id": "same installed matcher acceptance at boundaries, adapter count retained #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "accepts normal ON without mixing wall and CPU #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "accepts normal OFF without mixing wall and CPU #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "checks actual runtime HEAD and tree before accepting a receipt #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects independent timing/plan mutation verlet #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects independent timing/plan mutation assertion #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects independent timing/plan mutation rk4 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects independent timing/plan mutation unclassified #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects independent timing/plan mutation body #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects independent timing/plan mutation missing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects independent timing/plan mutation extra #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects independent timing/plan mutation mode #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects independent timing/plan mutation id #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects independent timing/plan mutation count #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects independent timing/plan mutation observed #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects invalid required wall value undefined #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects invalid required wall value null #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects invalid required wall value NaN #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects invalid required wall value Infinity #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects invalid required wall value -Infinity #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects invalid required wall value -1 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects OFF false measurement wallMs #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects OFF false measurement cpuUs #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects OFF false measurement threadUs #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects OFF false measurement threadObserved #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects OFF false measurement observed #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects OFF false measurement unclassified #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects ON/OFF plan exchange even with internally coherent timings #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "fixed tolerance accepts rounding, rejects negative residual without clamping #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "verifies complete posthoc/runtime fixture false #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "verifies complete posthoc/runtime fixture true #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects P3 copied evidence fault result-replacement #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects P3 copied evidence fault clock-replacement #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects P3 copied evidence fault trial-replacement #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects P3 copied evidence fault size #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects P3 copied evidence fault sha #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects P3 copied evidence fault id #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects P3 copied evidence fault mode #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects P3 copied evidence fault checkpoint #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects P3 copied evidence fault missing-result #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects P3 copied evidence fault missing-clock #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects P3 copied evidence fault missing-checkpoint #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects P3 copied evidence fault truncated-json #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects P3 copied evidence fault truncated-jsonl #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects P3 copied evidence fault missing-newline #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects P3 copied evidence fault clock-domain #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects P3 copied evidence fault source #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects P3 copied evidence fault bundle #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects P3 copied evidence fault plan-id #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects P3 copied evidence fault head #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects P3 copied evidence fault failure #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects summary-only alteration #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "requires final summary, verifies saved raw bytes, and rejects forged resealed summary #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "independently rejects runtime receipt contradiction runtimeHead after posthoc reseal #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "independently rejects runtime receipt contradiction runtimeTree after posthoc reseal #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "independently rejects runtime receipt contradiction id after posthoc reseal #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "independently rejects runtime receipt contradiction mode after posthoc reseal #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "independently rejects runtime receipt contradiction checkpoint after posthoc reseal #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "independently rejects runtime receipt contradiction head after posthoc reseal #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "independently rejects runtime receipt contradiction tree after posthoc reseal #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "independently rejects runtime receipt contradiction sourceSetSha256 after posthoc reseal #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "independently rejects runtime receipt contradiction bundleSha256 after posthoc reseal #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "independently rejects runtime receipt contradiction result after posthoc reseal #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "independently rejects runtime receipt contradiction clock after posthoc reseal #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "independently rejects runtime receipt contradiction plan after posthoc reseal #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects missing future receipts at first audit: raw-identity #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "rejects missing future receipts at first audit: manifest-contract #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-af.test.js",
+      "id": "requires matching supported future runtime contracts in fixed plan #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "accepts the pinned current static source contract without runtime promotion #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects source correspondence fault import-source #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects source correspondence fault original-body #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects source correspondence fault target-name #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects source correspondence fault duplicate-target #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects source correspondence fault missing-extracted-range #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects source correspondence fault reference-counter-site #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects source correspondence fault reference-counter-extra #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects source correspondence fault wrapper-argument #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects source correspondence fault wrapper-return #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects source correspondence fault wrapper-side-effect #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects source correspondence fault matcher-adapter #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects source correspondence fault producer-wrapper #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects source correspondence fault clock-start-end #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects source correspondence fault clock-unit #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects source correspondence fault timeout-condition #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "requires a unique top-level RMS and exact callback shape #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "reference counter transformation erases exactly with two insertion sites #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects bundle/source snapshot mismatch and never accepts missing historical records #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "accepts only the explicit limited claims and all ten path stages #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects unsupported promotion timeout-equivalence #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects unsupported promotion clock-equivalence #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects unsupported promotion runtime-attribution #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects unsupported promotion missing-timing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects unsupported promotion old-failure #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects unsupported promotion old-blocked #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects unsupported promotion old-originals #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects unsupported promotion performance #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects unsupported promotion collection #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects unsupported promotion worker #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects saved-summary-only state promotion #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "preserves imported W/X failure and missing-index evidence #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects same-basename import substitution #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects forged source binding metadata #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects historical unknown and missing-runtime promotion #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects individual binding field forgery gitBlob #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects individual binding field forgery head #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects individual binding field forgery tree #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects individual binding field forgery gitBlobSha256 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects individual binding field forgery sha256 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects individual binding field forgery bytes #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects damaged and missing Git content-addressed proof #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "rejects binding runtime and row acquisition promotions #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ag.test.js",
+      "id": "accepts a normalized checkout while verifying preserved mixed raw bytes #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH01' / 'runner-fail-zero' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH01' / 'runner-fail-nonzero' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH01' / 'runner-fail-monitor' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH01' / 'runner-fail-save' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH01' / 'runner-fail-raw-missing' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH01' / 'runner-status-missing' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH01' / 'runner-status-null' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH01' / 'runner-status-invalid' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH01' / 'runner-pass' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH01' / 'runner-pass-monitor' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH01' / 'runner-fail-invalid-clock' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH02' / 'timeout-before-begin' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH02' / 'timeout-between' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH02' / 'timeout-after-end' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH02' / 'timeout-after-begin-end-missing' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH02' / 'timeout-decision-missing' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH02' / 'body-begin-missing' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH02' / 'end-without-begin' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH02' / 'duplicate-begin' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH02' / 'duplicate-end' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH02' / 'duplicate-timeout' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH02' / 'reversed' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH02' / 'foreign-trial' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH02' / 'foreign-pid' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH02' / 'foreign-tid' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH02' / 'foreign-clock' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH02' / 'two-decisions-first-before' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 core 'P2-AH02' / 'two-decisions-first-during' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH01' / 'runner-fail-zero' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH01' / 'runner-fail-nonzero' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH01' / 'runner-fail-monitor' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH01' / 'runner-fail-save' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH01' / 'runner-fail-raw-missing' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH01' / 'runner-status-missing' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH01' / 'runner-status-null' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH01' / 'runner-status-invalid' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH01' / 'runner-pass' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH01' / 'runner-pass-monitor' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH01' / 'runner-fail-invalid-clock' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH02' / 'timeout-before-begin' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH02' / 'timeout-between' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH02' / 'timeout-after-end' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH02' / 'timeout-after-begin-end-missing' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH02' / 'timeout-decision-missing' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH02' / 'body-begin-missing' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH02' / 'end-without-begin' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH02' / 'duplicate-begin' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH02' / 'duplicate-end' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH02' / 'duplicate-timeout' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH02' / 'reversed' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH02' / 'foreign-trial' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH02' / 'foreign-pid' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH02' / 'foreign-tid' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH02' / 'foreign-clock' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH02' / 'two-decisions-first-before' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 fields 'P2-AH02' / 'two-decisions-first-during' #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 retains runner failure even when context or event evidence is unusable #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "P2 records all distinct timeout decisions and selects the first mechanism #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "accepts the fixed plan but never grants execution #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects invalid plan/policy/state wrongPR #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects invalid plan/policy/state wrongBranch #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects invalid plan/policy/state wrongHead #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects invalid plan/policy/state wrongTree #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects invalid plan/policy/state wrongSource #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects invalid plan/policy/state invalidPolicy #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects invalid plan/policy/state trialCount #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects invalid plan/policy/state trialOrder #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects invalid plan/policy/state timeout #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects invalid plan/policy/state expectation #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects invalid plan/policy/state statePromotion #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects invalid plan/policy/state observerPromotion #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects invalid plan/policy/state timingMutation #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects invalid plan/policy/state stopRelaxation #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects invalid plan/policy/state gatePromotion #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects invalid plan/policy/state historyPromotion #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects malformed plan undefined #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects malformed plan null #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects malformed plan {} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects malformed plan %j #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects malformed plan {\"schema\":\"wrong\"} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "has no process-generation port, even with forged approvals and callback injection #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "pins a small pure gate import closure without dynamic execution #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "computes same-domain wall and CPU separately and preserves unsupported thread CPU #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects mixed clock/identity domains pid #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects mixed clock/identity domains threadId #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects mixed clock/identity domains clock #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects mixed clock/identity domains unit #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects mixed clock/identity domains owner #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects mixed clock/identity domains trialId #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects mixed clock/identity domains planSha256 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects mixed clock/identity domains sourceSetSha256 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects invalid wall/CPU values null #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects invalid wall/CPU values NaN #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects invalid wall/CPU values Infinity #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects invalid wall/CPU values -Infinity #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects invalid wall/CPU values -1 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "does not treat missing or duplicate endpoints as measured zero #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "separates normal exit, post-body timeout and elapsed wall without timeout display #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "does not infer in-body interruption from a missing end or timeout display #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "separates monitorFailure #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "separates saveFailure #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "separates rawMissing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "separates abnormalExit #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "distinguishes pre-body failure and absent worker response #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "synthetic results cannot become actual execution evidence #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "stops at the first failure or missing receipt: nonzero #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "stops at the first failure or missing receipt: signal #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "stops at the first failure or missing receipt: timeout #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "stops at the first failure or missing receipt: missingRaw #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "stops at the first failure or missing receipt: unknownAttribution #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "stops at the first failure or missing receipt: missingCheckpoint #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "stops at the first failure or missing receipt: saveFailure #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "stops at the first failure or missing receipt: monitorFailure #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "stops at the first failure or missing receipt: modeSwap #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "stops at the first failure or missing receipt: sourceDrift #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "stops at the first failure or missing receipt: selection #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "stops at the first failure or missing receipt: worker #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "stops at the first failure or missing receipt: environment #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "stops at the first failure or missing receipt: falseOffZero #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "stops at the first failure or missing receipt: parentSafety #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "stops at the first failure or missing receipt: anomaly #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects extra, reordered, malformed and over-budget simulations #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects source proof and map runtime promotion #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "review RED: rejects reversed event record order #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "review RED: rejects foreign timeout event identity #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "review RED: handles null event rows without throwing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "review RED: rejects semantic document change after reseal stops #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "review RED: rejects semantic document change after reseal timing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "review RED: rejects semantic document change after reseal stages #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "review RED: rejects semantic document change after reseal stageSources #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "classifies OFF result without inventing worker timing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects stage semantics actor after reseal #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects stage semantics candidateEvents after reseal #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects stage semantics processThreadBoundary after reseal #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects consistently forged event source bindings and absent trusted context #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "review RED2: rejects interval runtime promotion after reseal #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "review RED2: rejects CPU counter rollback in later timeout event #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "review RED2: does not label an earlier timeout as post-body #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "keeps test outcome separate from monitor failure and contradictory timeout evidence #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects proposed environment mutation after reseal arch #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects proposed environment mutation after reseal nodeExecutableSha256 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects proposed environment mutation after reseal acquisition #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "rejects unsupported-thread status and clock/buffer or reviewer promotion after reseal #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ah.test.js",
+      "id": "review RED3: retains timeout or body failure when monitoring also fails #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P2-AI05 id-missing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P2-AI05 id-null #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P2-AI05 id-empty #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P2-AI05 id-space #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P2-AI05 id-number #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P2-AI05 id-array #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P2-AI05 id-object #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P2-AI05 id-duplicate #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P2-AI05 id-invalid-then-pass #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P2-AI05 fail-then-invalid-id #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 element-null #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 element-undefined #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 element-number #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 element-string #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 element-array #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 events-object #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 events-number #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 events-string #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 events-null #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 events-undefined #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 identity-missing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 identity-null #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 identity-array #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 identity-string #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 type-missing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 type-null #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 type-number #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 type-array #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 type-unknown #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 seq-missing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 seq-null #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 seq-string #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 seq-negative #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 seq-nan #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 seq-infinity #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 at-missing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 at-null #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 at-string #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 at-negative #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 at-nan #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 at-infinity #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 raw-null #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 receipt-null #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 receipt-object #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 receipt-element-null #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 fail-then-null #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "P3-AI06 valid-raw-then-null #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "retains already known normal result despite malformed later evidence #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "bounded overflow retains observed FAIL #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "does not swallow an unexpected internal/accessor exception as success #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai-p2.test.js",
+      "id": "invalid approval never grants execution #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract valid design and immutable prior sources #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract rejects state #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract rejects authorization #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract rejects timeout #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract rejects retry #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract rejects slots #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract rejects identity #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract rejects clock #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract rejects zero #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract rejects residual #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract rejects monitor #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract rejects guarantee #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract rejects storage #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract rejects continue #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract rejects component #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract rejects implementation #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract rejects acceptance #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract rejects qualification #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract rejects version #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract always denies {} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract always denies {\"action\":\"EXECUTE\"} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract always denies {\"approved\":true} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract always denies {\"status\":\"DESIGN_VALID\"} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration runner-fail-zero #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration runner-fail-nonzero #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration runner-fail-monitor #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration runner-fail-save #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration runner-fail-raw-missing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration runner-status-missing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration runner-status-null #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration runner-status-invalid #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration runner-pass #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration runner-pass-monitor #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration runner-fail-invalid-clock #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration timeout-before-begin #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration timeout-between #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration timeout-after-end #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration timeout-after-begin-end-missing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration timeout-decision-missing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration body-begin-missing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration end-without-begin #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration duplicate-begin #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration duplicate-end #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration duplicate-timeout #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration reversed #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration foreign-trial #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration foreign-pid #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration foreign-tid #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration foreign-clock #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration two-decisions-first-before #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract AH outcome integration two-decisions-first-during #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract request/send/ack never proves exit #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract exit then release; no storage needed to stop #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract monitor.failed blocks remaining #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract worker.silent blocks remaining #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract parent.silent blocks remaining #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract communication.failed blocks remaining #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract buffer.overflow blocks remaining #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract stop.send-failed blocks remaining #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract stop.refused blocks remaining #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract exit.missing blocks remaining #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract save.failed blocks remaining #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract reject foreign session #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract reject foreign incarnation #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract reject foreign parentIncarnation #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract reject foreign role #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract reject foreign pid #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract reject foreign trial #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract reject foreign head #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract reject foreign tree #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract reject foreign planSha #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract reject foreign sourceSha #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract reject foreign channel #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract reject foreign peer #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract reject foreign clockDomain #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract reject duplicate #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract reject reverse #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract reject missing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract reject not-synthetic #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract cannot release before confirmed exit #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract raw receipt normal #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract raw receipt size #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract raw receipt sha #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract raw receipt missing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract raw receipt receipt #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract runtime-capable imports absent #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract rejects null enrollment #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract rejects acceptance outcome promotion #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ai.test.js",
+      "id": "Stage AI pure design contract late exit evidence cannot reopen terminal uncertainty #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "accepts honest incomplete physical pre-fixation without launch authority #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects authorization #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects state #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects basis #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects component #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects implementation #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects fakeSource #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects sourcePath #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects timeout #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects parent #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects total #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects grace #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects retry #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects schedule #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects executed #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects qualify #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects human #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects hang #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects death #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects watchdog #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects job #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects breakaway #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects pid #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects exit #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects storage #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects environment #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects abi #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects history #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects approved-looking input without invoking anything #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "does not create any proposed physical component #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "rejects replacement dependency candidate #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-aj.test.js",
+      "id": "has no process/stop/transport execution API #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "honest open-P2 design valid, qualification and push prohibited #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject plan monitorGuarantee #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject plan orphanClosed #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject plan approval #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject plan pr #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject plan branch #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject plan head #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject plan vm #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject plan abi #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject plan binary #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject plan implementation #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject plan pid #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject plan breakaway #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject plan creator #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject plan human #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject plan rFailure #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject plan clock #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject plan zero #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject plan timeout #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject plan grace #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject plan retry #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject plan slots #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject plan executed #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject plan history #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject plan push #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "never execute {\"approved\":true} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "never execute {\"pr\":45} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "never execute {\"branch\":\"main\"} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "never execute {\"head\":\"wrong\"} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "never execute {\"vmId\":null} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "never execute {\"abi\":\"UNKNOWN\"} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "never execute {\"jobProof\":\"fake\"} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "never execute {\"monitorHangRecovery\":\"VERIFIED\"} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "never execute {\"stopComplete\":true} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "never execute {\"sha\":\"wrong\",\"manifest\":{}} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "never execute {\"ipc\":[null]} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "never execute {\"source\":{\"implemented\":true,\"sha\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject peer mismatch session #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject peer mismatch trial #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject peer mismatch vmId #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject peer mismatch vmGeneration #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject peer mismatch hypervisorId #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject peer mismatch incarnation #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject peer mismatch handleToken #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject peer mismatch peer #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject peer mismatch channel #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject peer mismatch clockDomain #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject peer mismatch imageSha256 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject malformed IPC null #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject malformed IPC {} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject malformed IPC [null] #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject malformed IPC [null] #2",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject malformed IPC [[]] #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject malformed IPC [7] #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject malformed IPC [{\"synthetic\":true,\"id\":\"e-0\",\"seq\":0,\"at\":0,\"identity\":{\"session\":\"synthetic-session\",\"trial\":\"synthetic-trial\",\"vmId\":\"synthetic-vm\",\"vmGeneration\":\"synthetic-epoch\",\"hypervisorId\":\"synthetic-hypervisor\",\"incarnation\":\"synthetic-process-birth\",\"handleToken\":\"synthetic-handle\",\"peer\":\"synthetic-peer\",\"channel\":\"synthetic-channel\",\"clockDomain\":\"synthetic-clock\",\"imageSha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},\"type\":\"UNKNOWN\"}] #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "STOP and ACK are not EXIT or release #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "fake completion rejected #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "release before exit rejected #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "synthetic proof never becomes physical PASS #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "retain FAIL and raw after malformed/save failure #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject corrupt raw #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "byte capacity keeps prior FAIL #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "event capacity blocks remainder #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "physical planned paths absent #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "new pure tools have no launch/stop APIs #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "push blocker is original Vitest and every workflow inventoried #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject reversed qualification order with false reorder flag #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject missing VM key replaced to keep count #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject hidden qualification slack #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject qualification scheduled maximum extension #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject separate native helper without ownership redesign #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-ak.test.js",
+      "id": "reject unreviewed native method replacement #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "valid supplement and unchanged AK checkout, never execution permission #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "clock claim native-node-wall #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "clock claim native-node-cpu #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "clock claim original-native-node-both #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "clock claim native-correct #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "clock claim node-correct #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "native raw QPC/frequency and process FILETIME remain distinct #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "Node P own-domain interval #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "Node W own-domain interval #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject interval domain #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject interval actor #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject interval missing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject interval reverse #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject interval unit #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject interval frequency #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject interval zeroFrequency #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject interval overflow #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject interval api #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject interval failed #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject interval boundary #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject interval span #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject interval cpuApi #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject interval cpuUnit #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject interval cpuThread #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject interval cpuReverse #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject interval cpuMissing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject interval cpuBoundary #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject interval cpuDomain #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject interval rUnbound #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "CPU may exceed elapsed wall on multicore #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "signed counter raw supported without wrap inference #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "CPU unavailable retains computed wall with PARTIAL #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "CPU API failure cannot be zero filled #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "QPF failure cannot use a guessed frequency #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject missing packet null #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject missing packet [object Object] #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject missing packet  #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject missing packet [object Object] #2",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "reject missing packet undefined #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "native stage success does not prove exit/release or physical safety #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "orphan refusal jobList #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "orphan refusal createFailure #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "orphan refusal nested #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "orphan refusal rights #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "orphan refusal inherit #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "orphan refusal duplicate #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "orphan refusal membership #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "orphan refusal birth #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "orphan refusal resume #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "orphan refusal fallback #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "orphan refusal breakaway #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "orphan refusal pidReuse #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "orphan refusal process #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "orphan refusal vm #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "orphan refusal rMissing #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "orphan refusal owner #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "creator loss at boundary 0 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "creator loss at boundary 1 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "creator loss at boundary 2 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "creator loss at boundary 3 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "creator loss at boundary 4 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "creator loss at boundary 5 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "creator loss at boundary 6 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "STOP ack never exit or release #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "unproven last close not safe completion #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "false exit and release stay unknown #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "resume native return -1 not resumed #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "resume native return 0 not resumed #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "resume native return 2 not resumed #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "late exit cannot undo creator loss #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R ENROLL is only a synthetic durable/readback model, never physical admission #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R enrollment evidence rejection absent #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R enrollment evidence rejection notDurable #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R enrollment evidence rejection noReadback #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R enrollment evidence rejection noNonceLedger #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R enrollment evidence rejection unboundVm #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R enrollment evidence rejection unboundEpoch #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R enrollment evidence rejection wrongKind #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R enrollment evidence rejection missingRecordId #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R enrollment evidence rejection differentRecordId #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R enrollment evidence rejection invalidDigest #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R enrollment evidence rejection differentDigest #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R distinct reason and irreversible cohort block CREDENTIAL_REVOKED #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R distinct reason and irreversible cohort block VM_ROLLBACK #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R request and API acceptance do not prove VM/guest/release/persistence #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R wrong target vmId #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R wrong target imageSha256 #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R wrong target generation #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R wrong target hypervisorId #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R wrong target stationId #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R wrong target session #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R wrong target epoch #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R failure R_HANG #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R failure LINK_DOWN #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R failure KERNEL_HANG #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R failure ENDPOINT_FAILURE #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R failure ACL_DENIED #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R failure LEDGER_FAILURE #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R failure HEARTBEAT_LOST #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R failure CREDENTIAL_REVOKED #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R failure VM_ROLLBACK #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R VM stop is independent of guest process exit #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "stale VM status rejected #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "nonce replay rejected #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "late enrollment refused #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "duplicate enrollment refused #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R auth/ACL refusal authenticated #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "R auth/ACL refusal vmScopedAcl #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "gate always denies {\"approved\":true} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "gate always denies {\"action\":\"IMPLEMENT\"} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "gate always denies {\"action\":\"QUALIFY\"} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "gate always denies {\"allSpecs\":\"PASS\"} #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "same review RED input missing-boundary-names #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "same review RED input numeric-boundary-id #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "same review RED input blank-sample-id #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "same review RED input self-declared-stop-boundary #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "same review RED input blank-native-vm #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "same review RED input blank-r-vm #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "same review RED input blank-command-nonce #1",
+      "status": "passed"
+    },
+    {
+      "suite": "three-body-stage-al.test.js",
+      "id": "trusted boundary registry matches version-fixed clock contract #1",
+      "status": "passed"
+    }
+  ]
+}

@@ -1,0 +1,230 @@
+{
+  "schema": "am-verification-1",
+  "executedSourceBinding": "source-binding.json revision2 / 0369479e85ef24625ebe7be3bf8190db2ef2ce851988244e3e40177eb5703ed4",
+  "sourceBeforeCommit": "f700 plus new AM files; no preexisting tracked changes",
+  "al": {
+    "pass": 686,
+    "fail": 0,
+    "skip": 0,
+    "notExecuted": 0,
+    "priorAll686Executed": true
+  },
+  "am": {
+    "pass": 224,
+    "fail": 0,
+    "skip": 0,
+    "notExecuted": 0
+  },
+  "standaloneFaults": {
+    "green": 44,
+    "baselineTrace": "NOT_APPLICABLE_NEW_PROTOCOL",
+    "red": 0,
+    "gateBaselinePass": 50,
+    "notExtraVitestCount": true
+  },
+  "typecheck": "PASS",
+  "build": "PASS",
+  "buildWarning": "Vite chunk size warning retained, no optimization",
+  "closure": "LOCAL_IMPORT_CLOSURE_PASS",
+  "closureRoots": 11,
+  "closureModules": 54,
+  "oldTrackedDiff": [],
+  "ak28": "PASS_28_OF_28",
+  "sourceBindingUnchanged": true,
+  "executeGates": "EXPECTED_EXIT2_BLOCKED_APPROVAL_MISSING_HOLD_FALSE",
+  "runs": [
+    {
+      "id": "al-regression",
+      "command": [
+        "node",
+        "../../node_modules/vitest/vitest.mjs",
+        "run",
+        "--config",
+        "tools/three-body-stage-al-tests.config.mjs",
+        "--reporter=default",
+        "--reporter=json",
+        "--outputFile=.three-body-evidence/stage-am/formal-envfix/al-regression.per-test.json"
+      ],
+      "cwd": "C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am",
+      "startUTC": "2026-11-17T20:06:48.280697+00:00",
+      "endUTC": "2026-11-17T20:06:57.471561+00:00",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "head": "f700e6705dd896037fe6e9d2241f0067fa35efdd",
+      "tree": "0b84169717f2815f8b8e84183682ad5724762d66",
+      "sourceBinding": "../frozen-binding-v2.json"
+    },
+    {
+      "id": "am-contracts",
+      "command": [
+        "node",
+        "../../node_modules/vitest/vitest.mjs",
+        "run",
+        "--config",
+        "tools/three-body-stage-am-tests.config.mjs",
+        "--reporter=default",
+        "--reporter=json",
+        "--outputFile=.three-body-evidence/stage-am/formal-envfix/am-contracts.per-test.json"
+      ],
+      "cwd": "C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am",
+      "startUTC": "2026-11-17T20:06:57.528544+00:00",
+      "endUTC": "2026-11-17T20:07:03.579810+00:00",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "head": "f700e6705dd896037fe6e9d2241f0067fa35efdd",
+      "tree": "0b84169717f2815f8b8e84183682ad5724762d66",
+      "sourceBinding": "../frozen-binding-v2.json"
+    },
+    {
+      "id": "typecheck",
+      "command": [
+        "node",
+        "../../node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "cwd": "C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am",
+      "startUTC": "2026-11-17T20:07:03.646942+00:00",
+      "endUTC": "2026-11-17T20:07:06.304740+00:00",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "head": "f700e6705dd896037fe6e9d2241f0067fa35efdd",
+      "tree": "0b84169717f2815f8b8e84183682ad5724762d66",
+      "sourceBinding": "../frozen-binding-v2.json"
+    },
+    {
+      "id": "build-tsc",
+      "command": [
+        "node",
+        "../../node_modules/typescript/bin/tsc"
+      ],
+      "cwd": "C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am",
+      "startUTC": "2026-11-17T20:07:06.355665+00:00",
+      "endUTC": "2026-11-17T20:07:08.169359+00:00",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "head": "f700e6705dd896037fe6e9d2241f0067fa35efdd",
+      "tree": "0b84169717f2815f8b8e84183682ad5724762d66",
+      "sourceBinding": "../frozen-binding-v2.json"
+    },
+    {
+      "id": "build-vite",
+      "command": [
+        "node",
+        "../../node_modules/vite/bin/vite.js",
+        "build"
+      ],
+      "cwd": "C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am",
+      "startUTC": "2026-11-17T20:07:08.220613+00:00",
+      "endUTC": "2026-11-17T20:07:10.248946+00:00",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "head": "f700e6705dd896037fe6e9d2241f0067fa35efdd",
+      "tree": "0b84169717f2815f8b8e84183682ad5724762d66",
+      "sourceBinding": "../frozen-binding-v2.json"
+    },
+    {
+      "id": "closure",
+      "command": [
+        "node",
+        ".three-body-evidence/stage-am/closure-envfix.mjs"
+      ],
+      "cwd": "C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am",
+      "startUTC": "2026-11-17T20:07:10.302148+00:00",
+      "endUTC": "2026-11-17T20:07:10.809274+00:00",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "head": "f700e6705dd896037fe6e9d2241f0067fa35efdd",
+      "tree": "0b84169717f2815f8b8e84183682ad5724762d66",
+      "sourceBinding": "../frozen-binding-v2.json"
+    },
+    {
+      "id": "am-static",
+      "command": [
+        "node",
+        "tools/three-body-stage-am-audit.mjs",
+        "validate"
+      ],
+      "cwd": "C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am",
+      "startUTC": "2026-11-17T20:07:10.860171+00:00",
+      "endUTC": "2026-11-17T20:07:11.143953+00:00",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "head": "f700e6705dd896037fe6e9d2241f0067fa35efdd",
+      "tree": "0b84169717f2815f8b8e84183682ad5724762d66",
+      "sourceBinding": "../frozen-binding-v2.json"
+    },
+    {
+      "id": "al-static",
+      "command": [
+        "node",
+        "tools/three-body-stage-al-audit.mjs",
+        "validate"
+      ],
+      "cwd": "C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am",
+      "startUTC": "2026-11-17T20:07:11.194290+00:00",
+      "endUTC": "2026-11-17T20:07:11.471731+00:00",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "head": "f700e6705dd896037fe6e9d2241f0067fa35efdd",
+      "tree": "0b84169717f2815f8b8e84183682ad5724762d66",
+      "sourceBinding": "../frozen-binding-v2.json"
+    },
+    {
+      "id": "am-execute-denial",
+      "command": [
+        "node",
+        "tools/three-body-stage-am-audit.mjs",
+        "--execute"
+      ],
+      "cwd": "C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am",
+      "startUTC": "2026-11-17T20:07:11.527448+00:00",
+      "endUTC": "2026-11-17T20:07:11.824207+00:00",
+      "exitCode": 2,
+      "expectedExitCode": 2,
+      "head": "f700e6705dd896037fe6e9d2241f0067fa35efdd",
+      "tree": "0b84169717f2815f8b8e84183682ad5724762d66",
+      "sourceBinding": "../frozen-binding-v2.json"
+    },
+    {
+      "id": "al-execute-denial",
+      "command": [
+        "node",
+        "tools/three-body-stage-al-audit.mjs",
+        "--execute"
+      ],
+      "cwd": "C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am",
+      "startUTC": "2026-11-17T20:07:11.890350+00:00",
+      "endUTC": "2026-11-17T20:07:12.148174+00:00",
+      "exitCode": 2,
+      "expectedExitCode": 2,
+      "head": "f700e6705dd896037fe6e9d2241f0067fa35efdd",
+      "tree": "0b84169717f2815f8b8e84183682ad5724762d66",
+      "sourceBinding": "../frozen-binding-v2.json"
+    }
+  ],
+  "priorFailure": {
+    "al": {
+      "pass": 682,
+      "fail": 4,
+      "skip": 0
+    },
+    "kind": "EXECUTED_TEST_FAILURE_ENVIRONMENT_DEPENDENCY_PATH",
+    "raw": "case/formal/al-regression.per-test.json",
+    "notErased": true
+  },
+  "physicalTrials": 0,
+  "implementation": "NO",
+  "qualification": "BLOCKED",
+  "actions": "NOT_TRIGGERED_PENDING_FINAL_RECHECK",
+  "independentReview": "DESIGN_AND_PURE_CONTRACT_LIMITED_PASS",
+  "independentStorage": "PENDING_ACTUAL_STORED_ZIP_RETRIEVAL",
+  "overall": "PARTIAL",
+  "independentAm": {
+    "pass": 224,
+    "fail": 0,
+    "skip": 0,
+    "notAddedToRootCount": true
+  },
+  "independentProbes": 109,
+  "independentAl": "ROOT_NEW686_RAW_AND_IDS_CHECKED_NOT_INDEPENDENT_REEXECUTION"
+}
