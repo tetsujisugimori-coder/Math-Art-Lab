@@ -19,4 +19,10 @@ export const nativeEvent=type=>({synthetic:true,type,target:{...nativeTarget},ok
 export const nativeEvents=()=>orphanStages.map(nativeEvent);
 export const nativeFaults={jobList:es=>es[3].jobList=false,createFailure:es=>es[3].ok=false,nested:es=>es[0].nestedCompatible=false,rights:es=>es[1].rightsVerified=false,inherit:es=>es[1].jobInherited=true,duplicate:es=>es[2].duplicateOrLeak=true,membership:es=>es[4].membershipProof=false,birth:es=>es[3].processThreadBirthBound=false,resume:es=>es[5].resumeReceipt=false,fallback:es=>es[3].fallback=true,breakaway:es=>es[0].breakaway=true,pidReuse:es=>es[4].target.processBirth='foreign',process:es=>es[4].target.processHandle='foreign',vm:es=>es[4].target.vmId='foreign',rMissing:es=>es[0].rEnrolled=false,owner:es=>es[0].jobOwner='other'};
 export const rIdentity=Object.fromEntries(rIdentityKeys.map(k=>[k,k==='imageSha256'?'a'.repeat(64):'synthetic-'+k]));
-export const rEvent=(type,i=0,extra={})=>({synthetic:true,type,identity:{...rIdentity},authenticated:true,vmScopedAcl:true,nonce:'n-'+i,seq:i,beforeGuest:true,...extra});
+export const rEnrollmentEvidence=()=>({
+ kind:'SYNTHETIC_EXTERNAL_LEDGER',durable:true,independentReadback:true,
+ nonceLedgerReady:true,targetBound:true,epochBound:true,
+ recordId:'synthetic-enrollment-record',readbackRecordId:'synthetic-enrollment-record',
+ recordSha256:'b'.repeat(64),readbackSha256:'b'.repeat(64)
+});
+export const rEvent=(type,i=0,extra={})=>({synthetic:true,type,identity:{...rIdentity},authenticated:true,vmScopedAcl:true,nonce:'n-'+i,seq:i,beforeGuest:true,...(type==='ENROLL'?{enrollmentEvidence:rEnrollmentEvidence()}:{}),...extra});

@@ -6,6 +6,12 @@ export function clockClaim(c){
 }
 const rec=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
 const nonblank=v=>typeof v==='string'&&v.trim().length>0;
+// A synthetic enrollment receipt contract, not proof that an external ledger exists.
+// Real R admission requires separately acquired authenticated original bytes/readback.
+const enrollmentMockEvidenceReady=e=>{
+ const p=e.enrollmentEvidence;
+ return rec(p)&&p.kind==='SYNTHETIC_EXTERNAL_LEDGER'&&p.durable===true&&p.independentReadback===true&&p.nonceLedgerReady===true&&p.targetBound===true&&p.epochBound===true&&nonblank(p.recordId)&&p.recordId===p.readbackRecordId&&typeof p.recordSha256==='string'&&/^[a-f0-9]{64}$/.test(p.recordSha256)&&p.recordSha256===p.readbackSha256;
+};
 export const boundaryRegistry={M:{envelope:['monitor.enrolled','monitor.exit-observed'],'monitor-failure':['monitor.enrolled','monitor.failure-observed']},P:{envelope:['parent.request','parent.receipt']},W:{envelope:['body.begin','body.end']}};
 const signed=v=>typeof v==='string'&&/^-?(0|[1-9][0-9]*)$/.test(v)&&BigInt(v)>=-(1n<<63n)&&BigInt(v)<(1n<<63n);
 const unsigned=v=>typeof v==='string'&&/^(0|[1-9][0-9]*)$/.test(v)&&BigInt(v)<(1n<<64n);
@@ -75,16 +81,21 @@ export function orphanTrace(events,enrolled){
 }
 export const rIdentityKeys=['vmId','imageSha256','generation','hypervisorId','stationId','session','epoch'];
 export function recoveryTrace(enrolled,events){
- const s={stop:'NOT_REQUESTED',accepted:'NOT_OBTAINED',vmStopped:'NOT_OBTAINED',guestExit:'NOT_OBTAINED',released:'NOT_OBTAINED',persisted:'NOT_OBTAINED',guarantee:'NONE',remaining:'NOT_STARTED',errors:[],physical:'NOT_TESTED'};let seq=-1;const nonces=new Set();
+ const s={enrollment:'NOT_ENROLLED',stop:'NOT_REQUESTED',accepted:'NOT_OBTAINED',vmStopped:'NOT_OBTAINED',guestExit:'NOT_OBTAINED',released:'NOT_OBTAINED',persisted:'NOT_OBTAINED',guarantee:'NONE',remaining:'NOT_STARTED',errors:[],physical:'NOT_TESTED'};let seq=-1;const nonces=new Set();
  const reject=k=>{s.errors.push(k);s.remaining='BLOCKED';};
  if(!rec(enrolled)||rIdentityKeys.some(k=>!nonblank(enrolled[k]))||!/^[a-f0-9]{64}$/.test(enrolled.imageSha256)||!Array.isArray(events)||events.length>64){reject('ENROLLMENT_OR_EVENTS');return s;}
  let admitted=false;
  for(const e of events){
   if(!rec(e)||e.synthetic!==true||!rec(e.identity)||rIdentityKeys.some(k=>e.identity[k]!==enrolled[k])||e.authenticated!==true||e.vmScopedAcl!==true||!nonblank(e.nonce)||nonces.has(e.nonce)||!Number.isSafeInteger(e.seq)||e.seq<=seq){reject('IDENTITY_AUTH_REPLAY');continue;}
   nonces.add(e.nonce);seq=e.seq;
-  if(e.type==='ENROLL'){if(admitted||e.beforeGuest!==true){reject('ENROLL_LATE_OR_DUPLICATE');continue;}admitted=true;continue;}
+  if(s.remaining==='BLOCKED')continue;
+  if(e.type==='ENROLL'){
+   if(admitted||e.beforeGuest!==true){reject('ENROLL_LATE_OR_DUPLICATE');continue;}
+   if(!enrollmentMockEvidenceReady(e)){reject('ENROLL_PROOF_NOT_OBTAINED');continue;}
+   admitted=true;s.enrollment='SYNTHETIC_DURABLE_READBACK';continue;
+  }
   if(!admitted){reject('NOT_ENROLLED');continue;}
-  if(['R_HANG','LINK_DOWN','KERNEL_HANG','ENDPOINT_FAILURE','ACL_DENIED','LEDGER_FAILURE','HEARTBEAT_LOST'].includes(e.type)){reject(e.type);continue;}
+  if(['R_HANG','LINK_DOWN','KERNEL_HANG','ENDPOINT_FAILURE','ACL_DENIED','LEDGER_FAILURE','HEARTBEAT_LOST','CREDENTIAL_REVOKED','VM_ROLLBACK'].includes(e.type)){reject(e.type);continue;}
   // Once failed, late evidence cannot unblock or promote the frozen cohort.
   if(s.remaining==='BLOCKED')continue;
   if(e.type==='STOP_REQUEST')s.stop='REQUESTED';

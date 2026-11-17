@@ -1,7 +1,7 @@
 import {it,expect} from 'vitest';
 import fs from 'node:fs';
 import {clockClaim,interval,orphanTrace,recoveryTrace,gate,orphanStages,rIdentityKeys,boundaryRegistry} from '../tools/three-body-stage-al-contract.mjs';
-import {claimCases,packet,intervalFaults,nativeTarget,nativeEvent,nativeEvents,nativeFaults,rIdentity,rEvent} from '../tools/three-body-stage-al-fixtures.mjs';
+import {claimCases,packet,intervalFaults,nativeTarget,nativeEvent,nativeEvents,nativeFaults,rIdentity,rEvent,rEnrollmentEvidence} from '../tools/three-body-stage-al-fixtures.mjs';
 import {audit} from '../tools/three-body-stage-al-audit.mjs';
 it('valid supplement and unchanged AK checkout, never execution permission',()=>expect(audit()).toMatchObject({status:'SPEC_VALID',gate:{allowed:false},orphanPhysical:'UNKNOWN',recoveryGuarantee:'NONE'}));
 for(const c of claimCases)it('clock claim '+c.id,()=>expect(clockClaim(c.claim).status).toBe(c.valid?'SPEC_VALID':'SPEC_INVALID'));
@@ -22,6 +22,29 @@ it('unproven last close not safe completion',()=>expect(orphanTrace([nativeEvent
 it('false exit and release stay unknown',()=>expect(orphanTrace([nativeEvent('EXIT_CONFIRMED'),nativeEvent('RELEASE_CONFIRMED')],nativeTarget)).toMatchObject({exit:'NOT_OBTAINED',release:'NOT_OBTAINED',remaining:'BLOCKED'}));
 for(const count of [-1,0,2])it('resume native return '+count+' not resumed',()=>{const es=nativeEvents();es[5].resumePreviousCount=count;expect(orphanTrace(es,nativeTarget).remaining).toBe('BLOCKED');});
 it('late exit cannot undo creator loss',()=>{const es=nativeEvents().slice(0,4);es.push(nativeEvent('CREATOR_LOST'),{...nativeEvent('EXIT_CONFIRMED'),handleProof:true});const r=orphanTrace(es,nativeTarget);expect(r.exit).toBe('NOT_OBTAINED');expect(r.lateEvidence).toHaveLength(1);});
+it('R ENROLL is only a synthetic durable/readback model, never physical admission',()=>expect(recoveryTrace(rIdentity,[rEvent('ENROLL')])).toMatchObject({enrollment:'SYNTHETIC_DURABLE_READBACK',guarantee:'NONE',physical:'NOT_TESTED'}));
+const enrollmentEvidenceFaults={
+ absent:e=>{delete e.enrollmentEvidence;},
+ notDurable:e=>{e.enrollmentEvidence.durable=false;},
+ noReadback:e=>{e.enrollmentEvidence.independentReadback=false;},
+ noNonceLedger:e=>{e.enrollmentEvidence.nonceLedgerReady=false;},
+ unboundVm:e=>{e.enrollmentEvidence.targetBound=false;},
+ unboundEpoch:e=>{e.enrollmentEvidence.epochBound=false;},
+ wrongKind:e=>{e.enrollmentEvidence.kind='GUEST_ONLY';},
+ missingRecordId:e=>{e.enrollmentEvidence.recordId='';},
+ differentRecordId:e=>{e.enrollmentEvidence.readbackRecordId='different';},
+ invalidDigest:e=>{e.enrollmentEvidence.recordSha256='not-a-sha256';},
+ differentDigest:e=>{e.enrollmentEvidence.readbackSha256='a'.repeat(64);}
+};
+for(const [id,mutate]of Object.entries(enrollmentEvidenceFaults))it('R enrollment evidence rejection '+id,()=>{
+ const enrollment=rEvent('ENROLL');mutate(enrollment);
+ const out=recoveryTrace(rIdentity,[enrollment,rEvent('STOP_REQUEST',1),rEvent('VM_STOPPED',2,{freshStatus:true})]);
+ expect(out).toMatchObject({enrollment:'NOT_ENROLLED',remaining:'BLOCKED',stop:'NOT_REQUESTED',vmStopped:'NOT_OBTAINED',errors:['ENROLL_PROOF_NOT_OBTAINED'],guarantee:'NONE',physical:'NOT_TESTED'});
+});
+for(const failure of ['CREDENTIAL_REVOKED','VM_ROLLBACK'])it('R distinct reason and irreversible cohort block '+failure,()=>{
+ const out=recoveryTrace(rIdentity,[rEvent('ENROLL'),rEvent(failure,1),rEvent('VM_STOPPED',2,{freshStatus:true})]);
+ expect(out).toMatchObject({enrollment:'SYNTHETIC_DURABLE_READBACK',remaining:'BLOCKED',errors:[failure],vmStopped:'NOT_OBTAINED',guarantee:'NONE'});
+});
 it('R request and API acceptance do not prove VM/guest/release/persistence',()=>expect(recoveryTrace(rIdentity,[rEvent('ENROLL'),rEvent('STOP_REQUEST',1),rEvent('API_ACCEPTED',2)])).toMatchObject({stop:'REQUESTED',accepted:'SYNTHETIC_ACCEPTED',vmStopped:'NOT_OBTAINED',guestExit:'NOT_OBTAINED',released:'NOT_OBTAINED',persisted:'NOT_OBTAINED',guarantee:'NONE'}));
 for(const key of rIdentityKeys)it('R wrong target '+key,()=>{const e=rEvent('STOP_REQUEST',1);e.identity[key]='foreign';expect(recoveryTrace(rIdentity,[rEvent('ENROLL'),e])).toMatchObject({stop:'NOT_REQUESTED',remaining:'BLOCKED'});});
 for(const type of ['R_HANG','LINK_DOWN','KERNEL_HANG','ENDPOINT_FAILURE','ACL_DENIED','LEDGER_FAILURE','HEARTBEAT_LOST','CREDENTIAL_REVOKED','VM_ROLLBACK'])it('R failure '+type,()=>expect(recoveryTrace(rIdentity,[rEvent('ENROLL'),rEvent(type,1),rEvent('VM_STOPPED',2,{freshStatus:true})])).toMatchObject({guarantee:'NONE',remaining:'BLOCKED',vmStopped:'NOT_OBTAINED'}));
