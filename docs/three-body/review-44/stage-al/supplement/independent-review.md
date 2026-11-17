@@ -1,0 +1,15 @@
+# Independent AL-review-v2: limited static acceptance
+
+Separate reviewer al_independent directly matched17/17 final frozen logical SHA256 files and ran exact672/672 tests with case-specific TEMP (prior566 + AL106). Initial v1 independently passed664 but revealed7 false accepts; saved old source and exact7 inputs were independently replayed, with full before/after objects matching saved records. Corrected boundary names/types/nonblank IDs, trusted actor/kind registry and native/R identity/nonce guards pass. Original5 clock claim records independently match3 RED/2 BASELINE_PASS ->5 GREEN.
+
+P2-AL01 static specification PASS: native M QPC/QPF and GetProcessTimes PROCESS CPU, Node P/W APIs and unbound R provider separated; raw units/frequency, named boundaries, failure/missing/reverse/overflow/domain/scope handling verified. Reviewer directly consulted official QPC/QPF/GetProcessTimes/GetThreadTimes. No native acquisition is certified.
+
+AK02 static specification PASS, physical UNKNOWN: creation-time Job list, creator loss at each boundary, owner/handle/birth/VM consistency, inheritance/duplicate/leak/nested/rights failure, separate membership/resume/STOP/exit/release and previous suspend count1 verified. Reviewer consulted official IsProcessInJob/ResumeThread/UpdateProcThreadAttribute; no universal creator-death rollback inferred.
+
+AK01 static specification PASS, actual recovery guarantee NONE: guest-external R, VM ACL, credential lifecycle, nonce/epoch, pre-guest enrollment, own-clock detection and6 distinct evidence lanes verified. API acceptance never supplies VM stop/guest exit/release/persist; failed R/route keeps remaining BLOCKED. Real endpoint/provider/VM/ACL unavailable.
+
+Reviewer independently compared all28 baseline AK Git blobs/raw SHA and initial checkout SHA, plus original/root AK28 raw SHA to its old manifest; all unchanged. Sixteen checkout newline differences are preserved as known normalization, not raw Git equality. Product/original test/AH/seal/policy/workflow/dependency diff empty.10 test roots/49 project modules, source-only original AST reads, YAML parser exception and unused physical-capable exports checked directly; original test runtime import absent. validate0 SPEC_VALID/false; execute2 BLOCKED/APPROVAL_MISSING/HOLD.
+
+All18 workflow events independently checked; no isolated-branch push match or isolated-branch open PR, Actions0. PR44 remains bca7eb3/Draft/no auto-merge. Normal isolated push allowed in current repository workflow definition only, with postpush recheck; external apps/webhooks not generally certified. No new P1/P2 after correction.
+
+NOT_VERIFIED by reviewer: independent type/build rerun, final commit/push state, new Windows archive, real native clocks/Job/VM/peer authentication/recovery/durability. Physical implementation-only recommendation NO, qualification BLOCKED, PR44 mergeNO. v1 and v2 manifests distinguish rejected draft and accepted revision; later administrative reporting is outside the17 reviewed files. Date2026-11-17 JST.

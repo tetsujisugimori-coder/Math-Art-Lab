@@ -1,0 +1,158 @@
+{
+  "red": 3,
+  "baselinePass": 2,
+  "green": 5,
+  "newSampleAndStateContractsBefore": "NOT_APPLICABLE_NEW_SCOPE",
+  "cases": [
+    {
+      "id": "native-node-wall",
+      "claim": {
+        "actor": "M",
+        "wallApi": "performance.now",
+        "cpuApi": "GetProcessTimes",
+        "wallUnit": "ms",
+        "cpuUnit": "100ns"
+      },
+      "valid": false,
+      "actual": {
+        "status": "DESIGN_VALID",
+        "errors": [],
+        "gate": {
+          "state": "PLAN_ONLY",
+          "executionAuthorized": false,
+          "allowed": false,
+          "status": "BLOCKED",
+          "approval": "APPROVAL_MISSING",
+          "decision": "HOLD",
+          "physical": "NOT_TESTED",
+          "qualificationStart": "NO"
+        }
+      },
+      "before": "RED",
+      "after": {
+        "status": "SPEC_INVALID",
+        "allowed": false
+      }
+    },
+    {
+      "id": "native-node-cpu",
+      "claim": {
+        "actor": "M",
+        "wallApi": "QueryPerformanceCounter/QueryPerformanceFrequency",
+        "cpuApi": "process.cpuUsage",
+        "wallUnit": "counts",
+        "cpuUnit": "us"
+      },
+      "valid": false,
+      "actual": {
+        "status": "DESIGN_VALID",
+        "errors": [],
+        "gate": {
+          "state": "PLAN_ONLY",
+          "executionAuthorized": false,
+          "allowed": false,
+          "status": "BLOCKED",
+          "approval": "APPROVAL_MISSING",
+          "decision": "HOLD",
+          "physical": "NOT_TESTED",
+          "qualificationStart": "NO"
+        }
+      },
+      "before": "RED",
+      "after": {
+        "status": "SPEC_INVALID",
+        "allowed": false
+      }
+    },
+    {
+      "id": "original-native-node-both",
+      "claim": {
+        "actor": "M",
+        "wallApi": "performance.now",
+        "cpuApi": "process.cpuUsage",
+        "wallUnit": "ms",
+        "cpuUnit": "us"
+      },
+      "valid": false,
+      "actual": {
+        "status": "DESIGN_VALID",
+        "errors": [],
+        "gate": {
+          "state": "PLAN_ONLY",
+          "executionAuthorized": false,
+          "allowed": false,
+          "status": "BLOCKED",
+          "approval": "APPROVAL_MISSING",
+          "decision": "HOLD",
+          "physical": "NOT_TESTED",
+          "qualificationStart": "NO"
+        }
+      },
+      "before": "RED",
+      "after": {
+        "status": "SPEC_INVALID",
+        "allowed": false
+      }
+    },
+    {
+      "id": "native-correct",
+      "claim": {
+        "actor": "M",
+        "wallApi": "QueryPerformanceCounter/QueryPerformanceFrequency",
+        "cpuApi": "GetProcessTimes",
+        "wallUnit": "counts",
+        "cpuUnit": "100ns"
+      },
+      "valid": true,
+      "actual": {
+        "status": "DESIGN_VALID",
+        "errors": [],
+        "gate": {
+          "state": "PLAN_ONLY",
+          "executionAuthorized": false,
+          "allowed": false,
+          "status": "BLOCKED",
+          "approval": "APPROVAL_MISSING",
+          "decision": "HOLD",
+          "physical": "NOT_TESTED",
+          "qualificationStart": "NO"
+        }
+      },
+      "before": "BASELINE_PASS",
+      "after": {
+        "status": "SPEC_VALID",
+        "allowed": false
+      }
+    },
+    {
+      "id": "node-correct",
+      "claim": {
+        "actor": "W",
+        "wallApi": "performance.now",
+        "cpuApi": "process.cpuUsage",
+        "wallUnit": "ms",
+        "cpuUnit": "us"
+      },
+      "valid": true,
+      "actual": {
+        "status": "DESIGN_VALID",
+        "errors": [],
+        "gate": {
+          "state": "PLAN_ONLY",
+          "executionAuthorized": false,
+          "allowed": false,
+          "status": "BLOCKED",
+          "approval": "APPROVAL_MISSING",
+          "decision": "HOLD",
+          "physical": "NOT_TESTED",
+          "qualificationStart": "NO"
+        }
+      },
+      "before": "BASELINE_PASS",
+      "after": {
+        "status": "SPEC_VALID",
+        "allowed": false
+      }
+    }
+  ]
+}

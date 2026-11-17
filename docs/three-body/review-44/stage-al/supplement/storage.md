@@ -1,0 +1,7 @@
+# New immutable Stage AL preservation
+
+Existing Stage-AL-20261116 export/kit/Git transfer records are untouched. New native-clock-fix-20261117/01-reviewed snapshot:89 payload files,876049 bytes; manifest SHA2561a7862507e7607496969be3372115966cea5e61d941feabdb278f7a7c2242a3e. Separate Node process re-read exact set/count/size/SHA and manifest versus external capture SHA plus sidecar: LOCAL_BACKUP_VERIFIED, first readback success.
+
+Contains initial/final command outputs and per-test JSON, fixed5 claim records with legacy full inputs and source SHA/blob,7 actual review RED inputs and saved v1 source, corrected results, import closure, current18-workflow/PR/Actions audit, AK28 original/checkout recheck, independent v1/v2 manifests and new source/specification. Temporary/cache directories are excluded; canonical fixture definitions and actual results are retained. It is static/synthetic/posthoc evidence, not physical acquisition.
+
+This administrative note is added after reviewed snapshot. Final commit/tree/raw Git blob content, before/after publication state, UTF8 source/API/readback submissions will be captured in a separate new02-terminal snapshot and independently re-read including Git blob header/hash verification. Published source can differ in checkout line endings; Git raw bytes and working bytes are separately bound, never silently equated. No prior archive or AK original is changed.

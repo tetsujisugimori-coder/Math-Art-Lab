@@ -1,0 +1,847 @@
+{
+  "red": 7,
+  "green": 7,
+  "cases": [
+    {
+      "id": "missing-boundary-names",
+      "input": {
+        "synthetic": true,
+        "boundary": {
+          "id": "envelope"
+        },
+        "begin": {
+          "id": "begin",
+          "seq": 1,
+          "boundaryId": "envelope",
+          "domain": {
+            "actor": "M",
+            "trial": "synthetic-trial",
+            "vmId": "synthetic-vm",
+            "generation": "synthetic-generation",
+            "incarnation": "synthetic-birth",
+            "thread": "control-thread",
+            "origin": "synthetic-boot",
+            "clockDomain": "synthetic-domain"
+          },
+          "api": "QueryPerformanceCounter",
+          "unit": "counts",
+          "raw": "100",
+          "ok": true,
+          "frequency": "1000",
+          "frequencyOk": true
+        },
+        "end": {
+          "id": "end",
+          "seq": 2,
+          "boundaryId": "envelope",
+          "domain": {
+            "actor": "M",
+            "trial": "synthetic-trial",
+            "vmId": "synthetic-vm",
+            "generation": "synthetic-generation",
+            "incarnation": "synthetic-birth",
+            "thread": "control-thread",
+            "origin": "synthetic-boot",
+            "clockDomain": "synthetic-domain"
+          },
+          "api": "QueryPerformanceCounter",
+          "unit": "counts",
+          "raw": "200",
+          "ok": true,
+          "frequency": "1000",
+          "frequencyOk": true
+        },
+        "cpu": {
+          "domain": {
+            "actor": "M",
+            "trial": "synthetic-trial",
+            "vmId": "synthetic-vm",
+            "generation": "synthetic-generation",
+            "incarnation": "synthetic-birth",
+            "thread": "control-thread",
+            "origin": "synthetic-boot",
+            "clockDomain": "synthetic-domain"
+          },
+          "beginId": "begin",
+          "endId": "end",
+          "ok": true,
+          "api": "GetProcessTimes",
+          "scope": "PROCESS",
+          "unit": "100ns",
+          "begin": {
+            "user": "10",
+            "kernel": "10"
+          },
+          "end": {
+            "user": "20",
+            "kernel": "30"
+          }
+        }
+      },
+      "actual": {
+        "status": "VALID",
+        "wall": {
+          "status": "SYNTHETIC_RECALCULATED",
+          "deltaCounts": "100",
+          "millisecondsRational": {
+            "numerator": "100000",
+            "denominator": "1000"
+          }
+        },
+        "cpu": {
+          "status": "SYNTHETIC_RECALCULATED",
+          "scope": "PROCESS",
+          "unit": "100ns",
+          "user": "10",
+          "kernel": "20"
+        },
+        "errors": [],
+        "physical": "NOT_TESTED"
+      },
+      "expected": {
+        "status": "INVALID"
+      },
+      "after": {
+        "status": "INVALID",
+        "wall": null,
+        "cpu": {
+          "status": "NOT_OBTAINED"
+        },
+        "errors": [
+          "BOUNDARY"
+        ],
+        "physical": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "numeric-boundary-id",
+      "input": {
+        "synthetic": true,
+        "boundary": {
+          "id": 42,
+          "begin": "begin",
+          "end": "end"
+        },
+        "begin": {
+          "id": "begin",
+          "seq": 1,
+          "event": "begin",
+          "boundaryId": 42,
+          "domain": {
+            "actor": "M",
+            "trial": "synthetic-trial",
+            "vmId": "synthetic-vm",
+            "generation": "synthetic-generation",
+            "incarnation": "synthetic-birth",
+            "thread": "control-thread",
+            "origin": "synthetic-boot",
+            "clockDomain": "synthetic-domain"
+          },
+          "api": "QueryPerformanceCounter",
+          "unit": "counts",
+          "raw": "100",
+          "ok": true,
+          "frequency": "1000",
+          "frequencyOk": true
+        },
+        "end": {
+          "id": "end",
+          "seq": 2,
+          "event": "end",
+          "boundaryId": 42,
+          "domain": {
+            "actor": "M",
+            "trial": "synthetic-trial",
+            "vmId": "synthetic-vm",
+            "generation": "synthetic-generation",
+            "incarnation": "synthetic-birth",
+            "thread": "control-thread",
+            "origin": "synthetic-boot",
+            "clockDomain": "synthetic-domain"
+          },
+          "api": "QueryPerformanceCounter",
+          "unit": "counts",
+          "raw": "200",
+          "ok": true,
+          "frequency": "1000",
+          "frequencyOk": true
+        },
+        "cpu": {
+          "domain": {
+            "actor": "M",
+            "trial": "synthetic-trial",
+            "vmId": "synthetic-vm",
+            "generation": "synthetic-generation",
+            "incarnation": "synthetic-birth",
+            "thread": "control-thread",
+            "origin": "synthetic-boot",
+            "clockDomain": "synthetic-domain"
+          },
+          "beginId": "begin",
+          "endId": "end",
+          "ok": true,
+          "api": "GetProcessTimes",
+          "scope": "PROCESS",
+          "unit": "100ns",
+          "begin": {
+            "user": "10",
+            "kernel": "10"
+          },
+          "end": {
+            "user": "20",
+            "kernel": "30"
+          }
+        }
+      },
+      "actual": {
+        "status": "VALID",
+        "wall": {
+          "status": "SYNTHETIC_RECALCULATED",
+          "deltaCounts": "100",
+          "millisecondsRational": {
+            "numerator": "100000",
+            "denominator": "1000"
+          }
+        },
+        "cpu": {
+          "status": "SYNTHETIC_RECALCULATED",
+          "scope": "PROCESS",
+          "unit": "100ns",
+          "user": "10",
+          "kernel": "20"
+        },
+        "errors": [],
+        "physical": "NOT_TESTED"
+      },
+      "expected": {
+        "status": "INVALID"
+      },
+      "after": {
+        "status": "INVALID",
+        "wall": null,
+        "cpu": {
+          "status": "NOT_OBTAINED"
+        },
+        "errors": [
+          "BOUNDARY"
+        ],
+        "physical": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "blank-sample-id",
+      "input": {
+        "synthetic": true,
+        "boundary": {
+          "id": "envelope",
+          "begin": "begin",
+          "end": "end"
+        },
+        "begin": {
+          "id": " ",
+          "seq": 1,
+          "event": "begin",
+          "boundaryId": "envelope",
+          "domain": {
+            "actor": "M",
+            "trial": "synthetic-trial",
+            "vmId": "synthetic-vm",
+            "generation": "synthetic-generation",
+            "incarnation": "synthetic-birth",
+            "thread": "control-thread",
+            "origin": "synthetic-boot",
+            "clockDomain": "synthetic-domain"
+          },
+          "api": "QueryPerformanceCounter",
+          "unit": "counts",
+          "raw": "100",
+          "ok": true,
+          "frequency": "1000",
+          "frequencyOk": true
+        },
+        "end": {
+          "id": "end",
+          "seq": 2,
+          "event": "end",
+          "boundaryId": "envelope",
+          "domain": {
+            "actor": "M",
+            "trial": "synthetic-trial",
+            "vmId": "synthetic-vm",
+            "generation": "synthetic-generation",
+            "incarnation": "synthetic-birth",
+            "thread": "control-thread",
+            "origin": "synthetic-boot",
+            "clockDomain": "synthetic-domain"
+          },
+          "api": "QueryPerformanceCounter",
+          "unit": "counts",
+          "raw": "200",
+          "ok": true,
+          "frequency": "1000",
+          "frequencyOk": true
+        },
+        "cpu": {
+          "domain": {
+            "actor": "M",
+            "trial": "synthetic-trial",
+            "vmId": "synthetic-vm",
+            "generation": "synthetic-generation",
+            "incarnation": "synthetic-birth",
+            "thread": "control-thread",
+            "origin": "synthetic-boot",
+            "clockDomain": "synthetic-domain"
+          },
+          "beginId": " ",
+          "endId": "end",
+          "ok": true,
+          "api": "GetProcessTimes",
+          "scope": "PROCESS",
+          "unit": "100ns",
+          "begin": {
+            "user": "10",
+            "kernel": "10"
+          },
+          "end": {
+            "user": "20",
+            "kernel": "30"
+          }
+        }
+      },
+      "actual": {
+        "status": "VALID",
+        "wall": {
+          "status": "SYNTHETIC_RECALCULATED",
+          "deltaCounts": "100",
+          "millisecondsRational": {
+            "numerator": "100000",
+            "denominator": "1000"
+          }
+        },
+        "cpu": {
+          "status": "SYNTHETIC_RECALCULATED",
+          "scope": "PROCESS",
+          "unit": "100ns",
+          "user": "10",
+          "kernel": "20"
+        },
+        "errors": [],
+        "physical": "NOT_TESTED"
+      },
+      "expected": {
+        "status": "INVALID"
+      },
+      "after": {
+        "status": "INVALID",
+        "wall": null,
+        "cpu": {
+          "status": "NOT_OBTAINED"
+        },
+        "errors": [
+          "BOUNDARY"
+        ],
+        "physical": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "self-declared-stop-boundary",
+      "input": {
+        "synthetic": true,
+        "boundary": {
+          "id": "envelope",
+          "begin": "begin",
+          "end": "STOP_ACK"
+        },
+        "begin": {
+          "id": "begin",
+          "seq": 1,
+          "event": "begin",
+          "boundaryId": "envelope",
+          "domain": {
+            "actor": "M",
+            "trial": "synthetic-trial",
+            "vmId": "synthetic-vm",
+            "generation": "synthetic-generation",
+            "incarnation": "synthetic-birth",
+            "thread": "control-thread",
+            "origin": "synthetic-boot",
+            "clockDomain": "synthetic-domain"
+          },
+          "api": "QueryPerformanceCounter",
+          "unit": "counts",
+          "raw": "100",
+          "ok": true,
+          "frequency": "1000",
+          "frequencyOk": true
+        },
+        "end": {
+          "id": "end",
+          "seq": 2,
+          "event": "STOP_ACK",
+          "boundaryId": "envelope",
+          "domain": {
+            "actor": "M",
+            "trial": "synthetic-trial",
+            "vmId": "synthetic-vm",
+            "generation": "synthetic-generation",
+            "incarnation": "synthetic-birth",
+            "thread": "control-thread",
+            "origin": "synthetic-boot",
+            "clockDomain": "synthetic-domain"
+          },
+          "api": "QueryPerformanceCounter",
+          "unit": "counts",
+          "raw": "200",
+          "ok": true,
+          "frequency": "1000",
+          "frequencyOk": true
+        },
+        "cpu": {
+          "domain": {
+            "actor": "M",
+            "trial": "synthetic-trial",
+            "vmId": "synthetic-vm",
+            "generation": "synthetic-generation",
+            "incarnation": "synthetic-birth",
+            "thread": "control-thread",
+            "origin": "synthetic-boot",
+            "clockDomain": "synthetic-domain"
+          },
+          "beginId": "begin",
+          "endId": "end",
+          "ok": true,
+          "api": "GetProcessTimes",
+          "scope": "PROCESS",
+          "unit": "100ns",
+          "begin": {
+            "user": "10",
+            "kernel": "10"
+          },
+          "end": {
+            "user": "20",
+            "kernel": "30"
+          }
+        }
+      },
+      "actual": {
+        "status": "VALID",
+        "wall": {
+          "status": "SYNTHETIC_RECALCULATED",
+          "deltaCounts": "100",
+          "millisecondsRational": {
+            "numerator": "100000",
+            "denominator": "1000"
+          }
+        },
+        "cpu": {
+          "status": "SYNTHETIC_RECALCULATED",
+          "scope": "PROCESS",
+          "unit": "100ns",
+          "user": "10",
+          "kernel": "20"
+        },
+        "errors": [],
+        "physical": "NOT_TESTED"
+      },
+      "expected": {
+        "status": "INVALID"
+      },
+      "after": {
+        "status": "INVALID",
+        "wall": null,
+        "cpu": {
+          "status": "NOT_OBTAINED"
+        },
+        "errors": [
+          "BOUNDARY_REGISTRY"
+        ],
+        "physical": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "blank-native-vm",
+      "input": {
+        "enrolled": {
+          "vmId": " ",
+          "generation": "generation",
+          "ownerIncarnation": "M-birth",
+          "jobToken": "job",
+          "processBirth": "child-birth",
+          "processHandle": "process-handle",
+          "threadHandle": "thread-handle"
+        },
+        "events": [
+          {
+            "synthetic": true,
+            "type": "JOB_CREATED",
+            "target": {
+              "vmId": " ",
+              "generation": "generation",
+              "ownerIncarnation": "M-birth",
+              "jobToken": "job",
+              "processBirth": "child-birth",
+              "processHandle": "process-handle",
+              "threadHandle": "thread-handle"
+            },
+            "ok": true,
+            "identityBound": true,
+            "rEnrolled": true,
+            "jobOwner": "M",
+            "jobInherited": false,
+            "duplicateOrLeak": false,
+            "nestedCompatible": true,
+            "rightsVerified": true,
+            "vmBound": true,
+            "fallback": false,
+            "breakaway": false,
+            "jobList": true,
+            "suspended": true,
+            "processThreadBirthBound": true,
+            "membershipProof": true,
+            "resumeReceipt": true,
+            "resumePreviousCount": 1
+          },
+          {
+            "synthetic": true,
+            "type": "LIMITS_SET",
+            "target": {
+              "vmId": " ",
+              "generation": "generation",
+              "ownerIncarnation": "M-birth",
+              "jobToken": "job",
+              "processBirth": "child-birth",
+              "processHandle": "process-handle",
+              "threadHandle": "thread-handle"
+            },
+            "ok": true,
+            "identityBound": true,
+            "rEnrolled": true,
+            "jobOwner": "M",
+            "jobInherited": false,
+            "duplicateOrLeak": false,
+            "nestedCompatible": true,
+            "rightsVerified": true,
+            "vmBound": true,
+            "fallback": false,
+            "breakaway": false,
+            "jobList": true,
+            "suspended": true,
+            "processThreadBirthBound": true,
+            "membershipProof": true,
+            "resumeReceipt": true,
+            "resumePreviousCount": 1
+          },
+          {
+            "synthetic": true,
+            "type": "ATTRIBUTES_READY",
+            "target": {
+              "vmId": " ",
+              "generation": "generation",
+              "ownerIncarnation": "M-birth",
+              "jobToken": "job",
+              "processBirth": "child-birth",
+              "processHandle": "process-handle",
+              "threadHandle": "thread-handle"
+            },
+            "ok": true,
+            "identityBound": true,
+            "rEnrolled": true,
+            "jobOwner": "M",
+            "jobInherited": false,
+            "duplicateOrLeak": false,
+            "nestedCompatible": true,
+            "rightsVerified": true,
+            "vmBound": true,
+            "fallback": false,
+            "breakaway": false,
+            "jobList": true,
+            "suspended": true,
+            "processThreadBirthBound": true,
+            "membershipProof": true,
+            "resumeReceipt": true,
+            "resumePreviousCount": 1
+          },
+          {
+            "synthetic": true,
+            "type": "CREATED_SUSPENDED",
+            "target": {
+              "vmId": " ",
+              "generation": "generation",
+              "ownerIncarnation": "M-birth",
+              "jobToken": "job",
+              "processBirth": "child-birth",
+              "processHandle": "process-handle",
+              "threadHandle": "thread-handle"
+            },
+            "ok": true,
+            "identityBound": true,
+            "rEnrolled": true,
+            "jobOwner": "M",
+            "jobInherited": false,
+            "duplicateOrLeak": false,
+            "nestedCompatible": true,
+            "rightsVerified": true,
+            "vmBound": true,
+            "fallback": false,
+            "breakaway": false,
+            "jobList": true,
+            "suspended": true,
+            "processThreadBirthBound": true,
+            "membershipProof": true,
+            "resumeReceipt": true,
+            "resumePreviousCount": 1
+          },
+          {
+            "synthetic": true,
+            "type": "MEMBERSHIP_CONFIRMED",
+            "target": {
+              "vmId": " ",
+              "generation": "generation",
+              "ownerIncarnation": "M-birth",
+              "jobToken": "job",
+              "processBirth": "child-birth",
+              "processHandle": "process-handle",
+              "threadHandle": "thread-handle"
+            },
+            "ok": true,
+            "identityBound": true,
+            "rEnrolled": true,
+            "jobOwner": "M",
+            "jobInherited": false,
+            "duplicateOrLeak": false,
+            "nestedCompatible": true,
+            "rightsVerified": true,
+            "vmBound": true,
+            "fallback": false,
+            "breakaway": false,
+            "jobList": true,
+            "suspended": true,
+            "processThreadBirthBound": true,
+            "membershipProof": true,
+            "resumeReceipt": true,
+            "resumePreviousCount": 1
+          },
+          {
+            "synthetic": true,
+            "type": "RESUMED",
+            "target": {
+              "vmId": " ",
+              "generation": "generation",
+              "ownerIncarnation": "M-birth",
+              "jobToken": "job",
+              "processBirth": "child-birth",
+              "processHandle": "process-handle",
+              "threadHandle": "thread-handle"
+            },
+            "ok": true,
+            "identityBound": true,
+            "rEnrolled": true,
+            "jobOwner": "M",
+            "jobInherited": false,
+            "duplicateOrLeak": false,
+            "nestedCompatible": true,
+            "rightsVerified": true,
+            "vmBound": true,
+            "fallback": false,
+            "breakaway": false,
+            "jobList": true,
+            "suspended": true,
+            "processThreadBirthBound": true,
+            "membershipProof": true,
+            "resumeReceipt": true,
+            "resumePreviousCount": 1
+          }
+        ]
+      },
+      "actual": {
+        "stage": "RESUMED",
+        "lastConfirmedStage": "RESUMED",
+        "remaining": "NOT_STARTED",
+        "observation": "PASS",
+        "exit": "NOT_OBTAINED",
+        "release": "NOT_OBTAINED",
+        "lateEvidence": [],
+        "errors": [],
+        "physical": "NOT_TESTED"
+      },
+      "expected": {
+        "remaining": "BLOCKED"
+      },
+      "after": {
+        "stage": "NOT_STARTED",
+        "lastConfirmedStage": "NOT_STARTED",
+        "remaining": "BLOCKED",
+        "observation": "FAIL",
+        "exit": "NOT_OBTAINED",
+        "release": "NOT_OBTAINED",
+        "lateEvidence": [],
+        "errors": [
+          "ENROLLMENT_OR_CAPACITY"
+        ],
+        "physical": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "blank-r-vm",
+      "input": {
+        "enrolled": {
+          "vmId": " ",
+          "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "generation": "synthetic-generation",
+          "hypervisorId": "synthetic-hypervisorId",
+          "stationId": "synthetic-stationId",
+          "session": "synthetic-session",
+          "epoch": "synthetic-epoch"
+        },
+        "events": [
+          {
+            "synthetic": true,
+            "type": "ENROLL",
+            "identity": {
+              "vmId": " ",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-0",
+            "seq": 0,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "STOP_REQUEST",
+            "identity": {
+              "vmId": " ",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-1",
+            "seq": 1,
+            "beforeGuest": true
+          }
+        ]
+      },
+      "actual": {
+        "stop": "REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "NOT_STARTED",
+        "errors": [],
+        "physical": "NOT_TESTED"
+      },
+      "expected": {
+        "remaining": "BLOCKED"
+      },
+      "after": {
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "ENROLLMENT_OR_EVENTS"
+        ],
+        "physical": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "blank-command-nonce",
+      "input": {
+        "enrolled": {
+          "vmId": "synthetic-vmId",
+          "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "generation": "synthetic-generation",
+          "hypervisorId": "synthetic-hypervisorId",
+          "stationId": "synthetic-stationId",
+          "session": "synthetic-session",
+          "epoch": "synthetic-epoch"
+        },
+        "events": [
+          {
+            "synthetic": true,
+            "type": "ENROLL",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": "n-0",
+            "seq": 0,
+            "beforeGuest": true
+          },
+          {
+            "synthetic": true,
+            "type": "STOP_REQUEST",
+            "identity": {
+              "vmId": "synthetic-vmId",
+              "imageSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "generation": "synthetic-generation",
+              "hypervisorId": "synthetic-hypervisorId",
+              "stationId": "synthetic-stationId",
+              "session": "synthetic-session",
+              "epoch": "synthetic-epoch"
+            },
+            "authenticated": true,
+            "vmScopedAcl": true,
+            "nonce": " ",
+            "seq": 1,
+            "beforeGuest": true
+          }
+        ]
+      },
+      "actual": {
+        "stop": "REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "NOT_STARTED",
+        "errors": [],
+        "physical": "NOT_TESTED"
+      },
+      "expected": {
+        "remaining": "BLOCKED"
+      },
+      "after": {
+        "stop": "NOT_REQUESTED",
+        "accepted": "NOT_OBTAINED",
+        "vmStopped": "NOT_OBTAINED",
+        "guestExit": "NOT_OBTAINED",
+        "released": "NOT_OBTAINED",
+        "persisted": "NOT_OBTAINED",
+        "guarantee": "NONE",
+        "remaining": "BLOCKED",
+        "errors": [
+          "IDENTITY_AUTH_REPLAY"
+        ],
+        "physical": "NOT_TESTED"
+      }
+    }
+  ]
+}

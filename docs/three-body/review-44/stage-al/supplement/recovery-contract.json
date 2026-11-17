@@ -1,0 +1,58 @@
+{
+  "revision": "al-recovery-1",
+  "state": "PLAN_ONLY",
+  "physical": "NOT_TESTED",
+  "p2": "OPEN",
+  "guarantee": "NONE",
+  "qualificationStart": "NO",
+  "placement": "dedicated management station outside guest OS; actual station/hypervisor NOT_OBTAINED",
+  "identity": [
+    "vmId",
+    "imageSha256",
+    "generation",
+    "hypervisorId",
+    "stationId",
+    "session",
+    "epoch"
+  ],
+  "roles": {
+    "owner": "provisions approved VM-scoped management service and raw retention; identity NOT_OBTAINED",
+    "operator": "enrolls exact target, checks policy/source/budget and starts no guest before R receipt; identity NOT_OBTAINED",
+    "recoveryOwner": "maintains independently reachable console and manual runbook; no finite automatic guarantee; identity NOT_OBTAINED"
+  },
+  "acl": "VM-specific read/status and power-stop capability only; deny other VM/global/role-admin/create/rollback operations; actual ACL NOT_OBTAINED",
+  "credentials": "mutual authenticated endpoint; secret in approved station OS protected credential store/service identity, never manifest/argv/log; fingerprint/issuer/expiry/keyID only; revocation blocks enrollment/new commands; reissue new session/epoch after review, no reuse",
+  "antiReplay": "cryptographically unique command nonce, exact session+epoch+target generation, monotonic ledger sequence; persist consumed IDs before action; crash/uncertain commit -> UNKNOWN/BLOCKED no automatic replay/retry",
+  "enrollment": "R receipt durable+readback, target/ACL/clock/budget and operator bound before guest creation; creation requires capability referencing that receipt",
+  "detection": "R own monotonic receive-clock records heartbeat receipt/missed deadline and hard ceiling; do not trust guest timestamp or M timer. Provider/frequency NOT_BOUND; actual configuration remains unapproved",
+  "failures": {
+    "R_HANG": "NONE; other observer/manual may record NOT_OBTAINED; R cannot guarantee own failure output",
+    "LINK_DOWN": "guest channel loss not proof M/process death; remaining BLOCKED",
+    "KERNEL_HANG": "external endpoint availability NOT_TESTED, guest raw may be lost",
+    "ENDPOINT_FAILURE": "accepted/stop status UNKNOWN, no retry or deadline extension",
+    "ACL_DENIED": "record denial; do not elevate rights",
+    "LEDGER_FAILURE": "durability NOT_OBTAINED; block guest/new actions, safety action cannot wait unbounded on storage"
+  },
+  "lanes": [
+    "STOP_REQUEST",
+    "API_ACCEPTED",
+    "VM_STOPPED",
+    "GUEST_EXIT",
+    "RESOURCE_RELEASED",
+    "PERSISTED"
+  ],
+  "laneProofs": "fresh independent source for each; VM stop not guest handle exit; request acceptance not stop; persist requires external bytes/size/SHA+independent reread",
+  "milestones": "AK candidate only NOT_APPROVED, not runtime settings",
+  "limits": {
+    "originalMs": 5000,
+    "parentMs": 30000,
+    "totalMs": 90000,
+    "qualificationSlots": 8,
+    "perSlotMs": 10000,
+    "retry": 0,
+    "replacement": 0,
+    "reorder": false
+  },
+  "actualEnvironment": "NOT_OBTAINED",
+  "human": "MANUAL_ONLY_NOT_AUTOMATIC"
+}

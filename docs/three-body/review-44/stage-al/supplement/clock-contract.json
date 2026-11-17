@@ -1,0 +1,109 @@
+{
+  "revision": "al-clock-1",
+  "state": "PLAN_ONLY",
+  "physical": "NOT_TESTED",
+  "node": {
+    "actors": [
+      "P",
+      "W"
+    ],
+    "wall": {
+      "api": "performance.now",
+      "raw": "finite nonnegative JavaScript number",
+      "unit": "ms",
+      "domain": "actor/trial/vm/generation/process incarnation/thread/origin token/clockDomain"
+    },
+    "cpu": {
+      "api": "process.cpuUsage",
+      "unit": "us",
+      "scope": "PROCESS user/system all process threads",
+      "thread": "threadCpuUsage optional, separate local thread scope, never substituted for process CPU"
+    }
+  },
+  "native": {
+    "actor": "M",
+    "components": [
+      "C",
+      "D",
+      "E"
+    ],
+    "wall": {
+      "api": "QueryPerformanceCounter/QueryPerformanceFrequency",
+      "counterType": "signed int64 decimal string LARGE_INTEGER.QuadPart",
+      "unit": "counts",
+      "frequency": "positive signed int64 counts per second; obtain at initialization, retain success+raw frequency, same boot domain",
+      "conversion": "exact milliseconds rational (end-start)*1000/frequency; retain numerator/denominator; native implementation must use checked quotient/remainder or wide/multiword arithmetic, no overflow wrap",
+      "bounds": "delta>=0 and delta<2^63; reject raw range overflow/reverse/frequency drift",
+      "apiFailure": "NOT_OBTAINED, no clock fallback, no zero fill"
+    },
+    "cpu": {
+      "api": "GetProcessTimes",
+      "scope": "PROCESS",
+      "raw": "unsigned64 FILETIME user/kernel duration counters",
+      "unit": "100ns",
+      "conversion": "delta*100ns; milliseconds exact rational delta/10000",
+      "wallComparison": "process CPU may exceed wall on multicore; never clamp or classify as fake solely for that",
+      "creationExit": "absolute FILETIME1601 epoch is identity/exit metadata, not CPU; live-process exit FILETIME undefined",
+      "threadAlternative": {
+        "api": "GetThreadTimes",
+        "scope": "THREAD",
+        "unit": "100ns",
+        "rights": "THREAD_QUERY_INFORMATION or THREAD_QUERY_LIMITED_INFORMATION",
+        "status": "OPTIONAL_NOT_OBTAINED; separate thread incarnation and sample boundary, not process CPU"
+      }
+    },
+    "boundary": {
+      "domain": "M process incarnation/trial/VM generation/thread/boot token/frequency",
+      "start": "monitor.enrolled sample group before monitored dispatch",
+      "end": "monitor.exit-observed or named terminal-failure sample group; no STOP/ACK substitution",
+      "included": "native own setup after start, polling/IPC/stop decisions and clock read overhead between samples",
+      "excluded": "pre-start process creation/import, after-end cleanup/write, other actors work; process CPU includes all M threads",
+      "sampling": "QPC+CPU reads not atomic; group ID binds order/brackets and acquisition results. Do not claim exact simultaneous wall/CPU endpoints."
+    }
+  },
+  "R": {
+    "provider": "NOT_BOUND",
+    "environment": "NOT_OBTAINED",
+    "elapsed": "NOT_OBTAINED until own monotonic provider/version/raw units/frequency/domain fixed",
+    "causality": "nonce/seq/receipt linkage only; not a shared clock"
+  },
+  "componentsFG": {
+    "F": "offline classification over saved raw; no observation clock",
+    "G": "each writer uses its actual owner process P or M clock; no generic Node API on native M"
+  },
+  "crossProcessSubtract": false,
+  "cpuWallSubtract": false,
+  "missingAsZero": false,
+  "failureRules": [
+    "missing/acquisition failure NOT_OBTAINED",
+    "reverse/range overflow/unit/domain/boundary mismatch INVALID",
+    "CPU missing PARTIAL with wall retained",
+    "unsupported thread CPU NOT_OBTAINED",
+    "no physical PASS from synthetic recomputation"
+  ],
+  "P2_AL01": "STATIC_SPEC_ONLY",
+  "boundaryRegistry": {
+    "M": {
+      "envelope": [
+        "monitor.enrolled",
+        "monitor.exit-observed"
+      ],
+      "monitor-failure": [
+        "monitor.enrolled",
+        "monitor.failure-observed"
+      ]
+    },
+    "P": {
+      "envelope": [
+        "parent.request",
+        "parent.receipt"
+      ]
+    },
+    "W": {
+      "envelope": [
+        "body.begin",
+        "body.end"
+      ]
+    }
+  }
+}

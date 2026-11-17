@@ -1,0 +1,72 @@
+{
+  "revision": "al-orphan-1",
+  "state": "PLAN_ONLY",
+  "physical": "NOT_TESTED",
+  "p2": "OPEN",
+  "topology": {
+    "M": "native EXE outside J",
+    "CDE": "logical units same M process",
+    "PW": "inside J",
+    "R": "outside guest OS",
+    "jobOwner": "M",
+    "jobInherited": false,
+    "duplicateOrLeak": "unproven; require complete ownership ledger"
+  },
+  "stages": [
+    "JOB_CREATED",
+    "LIMITS_SET",
+    "ATTRIBUTES_READY",
+    "CREATED_SUSPENDED",
+    "MEMBERSHIP_CONFIRMED",
+    "RESUMED"
+  ],
+  "apiPlan": [
+    {
+      "stage": "JOB_CREATED",
+      "api": "CreateJobObjectW",
+      "receipt": "native return/error + owner M birth + opaque handle; returned ALL_ACCESS is not justification to distribute it"
+    },
+    {
+      "stage": "LIMITS_SET",
+      "api": "SetInformationJobObject",
+      "receipt": "KILL_ON_JOB_CLOSE and no breakaway; success return+error, actual hierarchy and ACL; none substitutes for membership"
+    },
+    {
+      "stage": "ATTRIBUTES_READY",
+      "api": "InitializeProcThreadAttributeList/UpdateProcThreadAttribute",
+      "receipt": "expected sizing call may report required buffer; validate documented buffer protocol, dwFlags0, JOB_LIST ordered; HANDLE_LIST IPC-only inheritable list and bInheritHandlesTRUE"
+    },
+    {
+      "stage": "CREATED_SUSPENDED",
+      "api": "CreateProcessW STARTUPINFOEXW EXTENDED_STARTUPINFO_PRESENT CREATE_SUSPENDED PROC_THREAD_ATTRIBUTE_JOB_LIST",
+      "receipt": "API BOOL/error; actual process/thread handles and creation identity; no Assign fallback, success alone not creator-loss proof"
+    },
+    {
+      "stage": "MEMBERSHIP_CONFIRMED",
+      "api": "IsProcessInJob + GetProcessTimes",
+      "receipt": "retained handle/native creation identity/Job/VM generation/owner match; evidence before resume"
+    },
+    {
+      "stage": "RESUMED",
+      "api": "ResumeThread",
+      "receipt": "separate return value incl failure DWORD(-1); do not infer process completed or fully resumed from arbitrary nonfailure suspend count"
+    }
+  ],
+  "rights": {
+    "job": "SET_ATTRIBUTES for limits, QUERY for query/membership, TERMINATE for stop, ASSIGN_PROCESS for Assign API reference only; exact JOB_LIST-specific access prerequisites still require implementation/VM review",
+    "process": "QUERY_INFORMATION or QUERY_LIMITED_INFORMATION for GetProcessTimes; SYNCHRONIZE for wait; TERMINATE only owned target; SET_QUOTA+TERMINATE applies to Assign reference, not silently adopted fallback",
+    "thread": "SUSPEND_RESUME for ResumeThread; query rights for optional GetThreadTimes",
+    "inheritance": "Job handle non-inherited, IPC allowlist explicit; no pseudo handles; every duplicate/leak audited"
+  },
+  "creatorLoss": "at every stage -> UNKNOWN/NOT_OBTAINED, remaining BLOCKED; independent R target recovery needed; no universal kernel rollback claim",
+  "stopExitRelease": "separate request/API result/handle wait+exit/resource close facts; last-close unknown not successful termination",
+  "qualificationStart": "NO",
+  "forbidden": [
+    "unconditional resume",
+    "silent Assign fallback",
+    "PID/name stop",
+    "foreign VM/process action",
+    "breakaway",
+    "physical guarantee from CreateProcess success"
+  ]
+}
