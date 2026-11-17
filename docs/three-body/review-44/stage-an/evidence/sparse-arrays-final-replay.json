@@ -1,0 +1,39 @@
+{
+  "reviewer": "an_independent",
+  "classification": "SAME_INPUT_DRAFT_RED_TO_GREEN",
+  "oldModuleSha256": "8628300425d34a20b71ef81b7a855879c8bf2c1f0dbb92b45a4b18f26b54366a",
+  "newModuleSha256": "6100613510197dd3c4b26b48f1db742ceec0d51c5e2d11e71fcb08b5e181b12b",
+  "rows": [
+    {
+      "inputConstruction": "campaign(); delete .slots[2]",
+      "before": {
+        "throw": "TypeError",
+        "message": "Cannot read properties of undefined (reading 'status')"
+      },
+      "after": {
+        "result": {
+          "reason": "SLOT_ORDER",
+          "physicalTiming": "NOT_TESTED",
+          "gate": {
+            "allowed": false,
+            "executionAuthorized": false,
+            "status": "BLOCKED",
+            "approval": "APPROVAL_MISSING",
+            "decision": "HOLD",
+            "qualificationStart": "NO",
+            "physical": "NOT_TESTED"
+          }
+        }
+      }
+    },
+    {
+      "inputConstruction": "valid grant with paths length 2 and absent index 1",
+      "before": {
+        "result": "{\"action\":\"IMPLEMENT_ONLY\",\"branch\":\"refs/heads/codex/stage-am-safety-gates-20261118\",\"environmentSha256\":\"5555555555555555555555555555555555555555555555555555555555555555\",\"epoch\":\"epoch-1\",\"expiresAt\":30,\"generation\":\"generation-1\",\"grantId\":\"00000000-0000-0000-0000-000000000001\",\"head\":\"1111111111111111111111111111111111111111\",\"issuedAt\":10,\"issuerId\":\"synthetic-issuer\",\"keyId\":\"synthetic-key\",\"nonce\":\"7777777777777777777777777777777777777777777777777777777777777777\",\"ownerId\":\"synthetic-owner\",\"ownerRole\":\"REPOSITORY_OWNER\",\"paths\":[\"tools/candidate-1.cc\",null],\"permission\":\"SOURCE_EDIT_ONLY\",\"planSha256\":\"4444444444444444444444444444444444444444444444444444444444444444\",\"policyVersion\":\"an-proposal-1\",\"pr\":44,\"repository\":\"tetsujisugimori-coder/Math-Art-Lab\",\"repositoryId\":\"1428326650\",\"revocationId\":\"synthetic-status\",\"scopeSha256\":\"6666666666666666666666666666666666666666666666666666666666666666\",\"sourceSha256\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"tree\":\"2222222222222222222222222222222222222222\",\"vmUuid\":\"12345678-1234-1234-1234-123456789abc\"}"
+      },
+      "after": {
+        "result": null
+      }
+    }
+  ]
+}
