@@ -1,0 +1,24 @@
+{
+  "reviewer": "am_independent_review",
+  "reviewTargetHead": "4036c28a7f8e2294c353930c4272cc6f551fdf94",
+  "reviewTargetTree": "77354b4ee3df8680ef9f633631604e8bdc6dfde8",
+  "question": "Repository, PR and branch are not distinct fields in the hypothetical approval model grant",
+  "currentFindingSeverity": "NO_NEW_P1_OR_P2_WITHIN_DESIGN_ONLY_SCOPE",
+  "limitedReviewVerdictUnchanged": true,
+  "reason": [
+    "modelTransition produces SYNTHETIC_ONLY and externalApprovalAccepted=false, never operational authority",
+    "Current real gate is constant refusal for every input, including forged repository/PR/branch fields",
+    "Requested synthetic HEAD/tree/source/plan/environment/scope and VM/generation/epoch bindings are checked separately from actual approval"
+  ],
+  "notProven": "The model does not demonstrate rejection of cross-repository, cross-PR or cross-branch approval reuse as separate target fields",
+  "futureMandatoryCondition": [
+    "Before any real approval validator is introduced, canonical authenticated owner grant bytes must explicitly bind repository full name and immutable repository identity, PR, branch or an explicitly reviewed branch-independent policy, action and approval-policy version",
+    "A scope SHA alone must not be described as verified repository/PR/branch binding without acquisition and semantic verification of its canonical scope document",
+    "Independent negative controls must cover same HEAD copied into another repository, another PR and another branch context",
+    "Keep execution denied until the real schema, trust store, raw readback, current revocation and consumed-nonce ledger have separate independent review and explicit owner approval"
+  ],
+  "sourceChanged": false,
+  "physicalImplementationApproval": "NO",
+  "qualification": "BLOCKED",
+  "dateJST": "2026-11-18"
+}
