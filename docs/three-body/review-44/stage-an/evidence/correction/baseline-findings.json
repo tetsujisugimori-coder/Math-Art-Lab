@@ -1,0 +1,151 @@
+{
+  "baseline": "4252075c092280e2ccbf6b9f5e9fb7ac96044d91",
+  "tree": "4d4f72fd5fdac3b7061bbfdffc6e9a73f04019f2",
+  "utc": "2026-11-17T21:58:37.524496+00:00",
+  "files": {
+    "README.md": {
+      "sha256": "334d1a2a0b654bc060a095a2cfc263e5bf739c7c1cd341bfbeeba72a84b84281",
+      "blob": "9385d428778fbf220cc3b9b66a310a4ca8c03ad4"
+    },
+    "independent-review.md": {
+      "sha256": "077500d5707e4b5fb0a4f532de3cd152a0310234e2392147eacdfa9d01aa394f",
+      "blob": "92e454a7e38020a251ac99ac7eb07cee6aab669b"
+    },
+    "verification.json": {
+      "sha256": "16ce389b9f3a5060e003693731b69e1f067c65f29cc85c7a976219f95ad0ce58",
+      "blob": "2d77f4d5036c9c61afb2c5a1bdbab55dad7002cf"
+    },
+    "evidence-index.md": {
+      "sha256": "b44538720f93b623e64c18eb4f7d0768b94aeed822ba8d85a5393d68c43d169d",
+      "blob": "21acfe5388af5f7f2e63e530d28182bdd8254b21"
+    },
+    "owner-request.md": {
+      "sha256": "c6e041afa7bfacf7defcc97702e6a47a75953c9279c34b2aef746dd3b6069e6d",
+      "blob": "6117b6a05fe205def4f67bd94f3ede50d52b11a8"
+    }
+  },
+  "reproduction": {
+    "P2-AN01": {
+      "readmeCondition": "| DESIGN_ACCEPTED | frozen design, contract tests, source review, real archive readback | PENDING |",
+      "independentClaim": "**DESIGN_ACCEPTED for the specified static and synthetic contracts.** Overall PARTIAL. The reviewed candidate is the exact 14-file set in [review-binding.json](review-binding.json), independently acquired and matched by size, SHA-256 and raw Git blob to the formal freeze. Base AM is dff9bcdbaad05a9e5a37514cfc48a14e7a332a03, tree ba461a8d7214216e4febff3928f65fc7d0a2a599. PR #44 HEAD bca7eb3abedf51679eaffff2f8eaee15b86b5ab6 is a distinct history. Final publication raw verification is a separate follow-up.",
+      "verification": {
+        "testCounts": {
+          "al": {
+            "numTotalTests": 686,
+            "numPassedTests": 686,
+            "numFailedTests": 0,
+            "numPendingTests": 0,
+            "numTodoTests": 0
+          },
+          "am": {
+            "numTotalTests": 224,
+            "numPassedTests": 224,
+            "numFailedTests": 0,
+            "numPendingTests": 0,
+            "numTodoTests": 0
+          },
+          "an-initial": {
+            "numTotalTests": 101,
+            "numPassedTests": 101,
+            "numFailedTests": 0,
+            "numPendingTests": 0,
+            "numTodoTests": 0
+          },
+          "an-final": {
+            "numTotalTests": 103,
+            "numPassedTests": 103,
+            "numFailedTests": 0,
+            "numPendingTests": 0,
+            "numTodoTests": 0
+          }
+        },
+        "anFinalContractSha256": "6100613510197dd3c4b26b48f1db742ceec0d51c5e2d11e71fcb08b5e181b12b",
+        "alAmRetestReason": "dedicated pure contract regressions; final sparse array diff affects AN only",
+        "closure": "AN explicit TypeScript AST import allowlist; inherited AL/AM config and source unchanged since existing reviewed closure",
+        "draftCreatorLossRedGreen": 5,
+        "draftSparseArrayRedGreen": 2,
+        "draftBudgetSchemaMigrationComparisons": 2,
+        "budgetMigrationNotIdenticalInput": true,
+        "operationalGate": "BLOCKED / APPROVAL_MISSING / HOLD",
+        "environmentFrozen": "BLOCKED",
+        "physicalSafety": "UNKNOWN",
+        "externalRecoveryGuarantee": "NONE",
+        "qualification": "BLOCKED",
+        "overall": "PARTIAL",
+        "persistentArchive": "PENDING_OWNER_DESTINATION_CONFIRMATION",
+        "independentSourceReview": "see independent-review.md",
+        "actions": "check exact published HEAD after push"
+      },
+      "observed": "archive prerequisite pending in README and accepted label in review"
+    },
+    "P3-AN02": {
+      "brokenOccurrences": 7,
+      "uniqueTargets": 6,
+      "links": [
+        {
+          "text": "review-binding.json",
+          "href": "review-binding.json",
+          "resolvedPath": "docs/three-body/review-44/stage-an/review-binding.json",
+          "publicExists": false,
+          "alternateEvidencePath": "docs/three-body/review-44/stage-an/evidence/review-binding.json",
+          "alternateExists": true
+        },
+        {
+          "text": "Microsoft API notes",
+          "href": "preliminary-sources.md",
+          "resolvedPath": "docs/three-body/review-44/stage-an/preliminary-sources.md",
+          "publicExists": false,
+          "alternateEvidencePath": "docs/three-body/review-44/stage-an/evidence/preliminary-sources.md",
+          "alternateExists": true
+        },
+        {
+          "text": "independent probes",
+          "href": "independent-probes-candidate-2.json",
+          "resolvedPath": "docs/three-body/review-44/stage-an/independent-probes-candidate-2.json",
+          "publicExists": false,
+          "alternateEvidencePath": "docs/three-body/review-44/stage-an/evidence/independent-probes-candidate-2.json",
+          "alternateExists": true
+        },
+        {
+          "text": "draft comparison",
+          "href": "draft-vs-candidate.json",
+          "resolvedPath": "docs/three-body/review-44/stage-an/draft-vs-candidate.json",
+          "publicExists": false,
+          "alternateEvidencePath": "docs/three-body/review-44/stage-an/evidence/draft-vs-candidate.json",
+          "alternateExists": true
+        },
+        {
+          "text": "sparse-array replay",
+          "href": "sparse-arrays-final-replay.json",
+          "resolvedPath": "docs/three-body/review-44/stage-an/sparse-arrays-final-replay.json",
+          "publicExists": false,
+          "alternateEvidencePath": "docs/three-body/review-44/stage-an/evidence/sparse-arrays-final-replay.json",
+          "alternateExists": true
+        },
+        {
+          "text": "development-node.json",
+          "href": "development-node.json",
+          "resolvedPath": "docs/three-body/review-44/stage-an/development-node.json",
+          "publicExists": false,
+          "alternateEvidencePath": "docs/three-body/review-44/stage-an/evidence/development-node.json",
+          "alternateExists": false
+        },
+        {
+          "text": "review-binding.json",
+          "href": "review-binding.json",
+          "resolvedPath": "docs/three-body/review-44/stage-an/review-binding.json",
+          "publicExists": false,
+          "alternateEvidencePath": "docs/three-body/review-44/stage-an/evidence/review-binding.json",
+          "alternateExists": true
+        }
+      ],
+      "developmentNodePublic": "NOT_OBTAINED",
+      "publicDevelopmentLedger": "docs/three-body/review-44/stage-an/environment-local.json"
+    },
+    "P3-AN03": {
+      "readmeRow": "| PHYSICAL_SAFETY_PROVEN | creator-loss containment and external recovery originals | UNKNOWN |",
+      "reviewClaim": "The owner request binds implementation source-path scope to the separate published commit/tree readback. Environment and actual trust policy still require approved originals. PHYSICAL_SAFETY_PROVEN is NO, IMPLEMENTATION_APPROVED is APPROVAL_MISSING/HOLD and QUALIFICATION_APPROVED is BLOCKED. No production approval validator or grant is evidenced. New review-blocking findings after the verified corrections: none within this scope. Actual host/VM/hypervisor behavior, authorization governance and durable archive retrieval are outside this design and source verdict.",
+      "observed": "physical proof verdict NO and physical outcome UNKNOWN conflated"
+    }
+  }
+}

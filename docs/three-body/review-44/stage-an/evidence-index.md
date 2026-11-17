@@ -1,5 +1,7 @@
 # Stage AN evidence index
 
+- [Correction and current gates](correction.md) supersede historical status labels without editing historical raw outputs.
+
 - Local environment acquisition is labelled development-host-only in environment-local.json. The exact Windows guest, R endpoint, credentials, roles, ABI and binaries remain unbound.
 - evidence/start.json fixes both the isolation baseline and the separate PR review context. evidence/frozen-candidate.json and evidence/frozen-final.json record the working candidate bytes and hashes.
 - evidence/*-vitest.json are original per-test outputs. Initial and final AN runs are distinct. The AL/AM runs use their isolated pure-contract configurations, and unchanged import closures do not include AN.

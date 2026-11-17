@@ -1,0 +1,160 @@
+{
+  "baseline": "4252075c092280e2ccbf6b9f5e9fb7ac96044d91",
+  "candidate": {
+    "base": "4252075c092280e2ccbf6b9f5e9fb7ac96044d91",
+    "rows": [
+      {
+        "file": "docs/three-body/review-44/stage-an/README.md",
+        "sha256": "b6a84bccf748434ae20e957797301de0fb9df5ebf9c8eca2f265a17ee6bc29e6"
+      },
+      {
+        "file": "docs/three-body/review-44/stage-an/archive-approval.md",
+        "sha256": "a2778ad112faeb170fb642548c435db324c1ee2537b2dbf9dfe0d449a12aec04"
+      },
+      {
+        "file": "docs/three-body/review-44/stage-an/correction-state.json",
+        "sha256": "94d388ac3501b91c54cc566b0f9f6ea284f79afc02ebc20a723b0ab6857ee5fa"
+      },
+      {
+        "file": "docs/three-body/review-44/stage-an/correction.md",
+        "sha256": "68b8f298383e930da41a6d766f2cd5f43fb3fa10a51f4923d7e5ba91063941d2"
+      },
+      {
+        "file": "docs/three-body/review-44/stage-an/evidence-index.md",
+        "sha256": "44e1a9cc289ef678870f34fb3b8b7aee087daa61bcc098f0e03ee87ad61971d9"
+      },
+      {
+        "file": "docs/three-body/review-44/stage-an/implementation-gate.md",
+        "sha256": "af5d7a0cb137215239437802630e4115375cf233b66892878e45ef12f078464d"
+      },
+      {
+        "file": "docs/three-body/review-44/stage-an/independent-review.md",
+        "sha256": "c4d60efc8f1e59f225720656d86e807940bfdd7e4a085ef02a529a31fa56f554"
+      },
+      {
+        "file": "src/three-body-stage-an-correction.test.js",
+        "sha256": "b54ab95d0529987d2bdaf938394ce0690e82e6a59abc8f2edb2dbe412fb7e2d0"
+      },
+      {
+        "file": "tools/three-body-stage-an-correction-tests.config.mjs",
+        "sha256": "19b9241c39a3e0d8d4eb7e04f01bb2cbe5a47aa8310d5eef5fdc0724c7ef2ce4"
+      },
+      {
+        "file": "tools/three-body-stage-an-correction.mjs",
+        "sha256": "d8c193ba97cdda78a37a4c3f09d41442feca07572821e717dc905327473c607f"
+      }
+    ]
+  },
+  "tests": {
+    "al": {
+      "pass": 686,
+      "fail": 0,
+      "skip": 0,
+      "historicalPerTestMatch": true,
+      "sha256": "212366c40ad2f0a6f11a6eb4e4c152a47fd372475a2d3927bcb434796e110b27",
+      "run": {
+        "command": [
+          "node",
+          "node_modules/vitest/vitest.mjs",
+          "run",
+          "--config",
+          "C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am\\.three-body-evidence\\stage-an-correction\\al-config.mjs",
+          "--reporter=default",
+          "--reporter=json",
+          "--outputFile=C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am\\.three-body-evidence\\stage-an-correction\\tests\\al.json"
+        ],
+        "start": "2026-11-17T22:02:36.748757+00:00",
+        "end": "2026-11-17T22:02:53.358238+00:00",
+        "exitCode": 0,
+        "base": "4252075c092280e2ccbf6b9f5e9fb7ac96044d91",
+        "freeze": "candidate.json"
+      }
+    },
+    "am": {
+      "pass": 224,
+      "fail": 0,
+      "skip": 0,
+      "historicalPerTestMatch": true,
+      "sha256": "fa10b1d9f69f59be6a238bf356531e5c6a5be86cdd931b637965275513ead65b",
+      "run": {
+        "command": [
+          "node",
+          "node_modules/vitest/vitest.mjs",
+          "run",
+          "--config",
+          "C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am\\.three-body-evidence\\stage-an-correction\\am-config.mjs",
+          "--reporter=default",
+          "--reporter=json",
+          "--outputFile=C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am\\.three-body-evidence\\stage-an-correction\\tests\\am.json"
+        ],
+        "start": "2026-11-17T22:02:53.360910+00:00",
+        "end": "2026-11-17T22:03:01.048122+00:00",
+        "exitCode": 0,
+        "base": "4252075c092280e2ccbf6b9f5e9fb7ac96044d91",
+        "freeze": "candidate.json"
+      }
+    },
+    "an": {
+      "pass": 103,
+      "fail": 0,
+      "skip": 0,
+      "historicalPerTestMatch": true,
+      "sha256": "b0eecf98aae1aba6a59b14063a1bd05429082d894ca9aa1f734598336f99b4f5",
+      "run": {
+        "command": [
+          "node",
+          "node_modules/vitest/vitest.mjs",
+          "run",
+          "--config",
+          "C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am\\.three-body-evidence\\stage-an-correction\\an-config.mjs",
+          "--reporter=default",
+          "--reporter=json",
+          "--outputFile=C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am\\.three-body-evidence\\stage-an-correction\\tests\\an.json"
+        ],
+        "start": "2026-11-17T22:03:01.051572+00:00",
+        "end": "2026-11-17T22:03:08.358148+00:00",
+        "exitCode": 0,
+        "base": "4252075c092280e2ccbf6b9f5e9fb7ac96044d91",
+        "freeze": "candidate.json"
+      }
+    },
+    "an-correction": {
+      "pass": 30,
+      "fail": 0,
+      "skip": 0,
+      "historicalPerTestMatch": null,
+      "sha256": "a136fa008051b48c2b40653901c11af9134619d97a0ccb9bdcee61e254eb265c",
+      "run": {
+        "command": [
+          "node",
+          "node_modules/vitest/vitest.mjs",
+          "run",
+          "--config",
+          "C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am\\.three-body-evidence\\stage-an-correction\\an-correction-config.mjs",
+          "--reporter=default",
+          "--reporter=json",
+          "--outputFile=C:\\Users\\tetsu\\.codex\\worktrees\\da2c\\Math-Art-Lab\\.three-body-evidence\\am\\.three-body-evidence\\stage-an-correction\\tests\\an-correction.json"
+        ],
+        "start": "2026-11-17T22:03:08.362866+00:00",
+        "end": "2026-11-17T22:03:15.864874+00:00",
+        "exitCode": 0,
+        "base": "4252075c092280e2ccbf6b9f5e9fb7ac96044d91",
+        "freeze": "candidate.json"
+      }
+    }
+  },
+  "closure": [
+    "src/three-body-stage-an-correction.test.js [\"vitest\",\"../tools/three-body-stage-an-correction.mjs\"]",
+    "tools/three-body-stage-an-correction.mjs []",
+    "tools/three-body-stage-an-correction-tests.config.mjs []"
+  ],
+  "ak28Unchanged": 28,
+  "originalZipUnchanged": true,
+  "baselineFailures": [
+    "state inconsistency P2-AN01",
+    "seven broken references P3-AN02",
+    "physical fact vs decision P3-AN03"
+  ],
+  "formalTestBaseline": "new correction suite, not historical Vitest RED",
+  "persistent": "BLOCKED / APPROVAL_MISSING"
+}
