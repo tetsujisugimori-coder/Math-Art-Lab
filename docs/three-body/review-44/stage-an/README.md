@@ -1,5 +1,11 @@
 # Stage AN pre-implementation review
 
+## Current decision as of 2026-11-19 JST (Stage AO independent archive audit)
+
+**Current acceptance:** `DESIGN_REVIEW_ACCEPTED=YES`, `DESIGN_ACCEPTED=YES`; the owner-approved persistent archive was independently retrieved and verified in Stage AO, so the former `PENDING_ARCHIVE` hold is lifted. See [Stage AO-B independent readback audit](../stage-ao/stage-ao-b-independent-20261119.md) and its [PR #44 report](https://github.com/tetsujisugimori-coder/Math-Art-Lab/pull/44#issuecomment-6992817484).
+
+**Scope:** this supersedes only the historical design/archive acceptance shown in the frozen Stage AN table below. That table is preserved unchanged as the status at the time of Stage AN. `STAGE_AN_OVERALL=PARTIAL` remains; AK01 external recovery, AK02 creator-loss containment, the actual Windows isolated VM/external R environment and native ABI remain unproven or blocked. Physical-safety proof, `IMPLEMENTATION_APPROVED`, `QUALIFICATION_APPROVED`, physical tests and PR #44 merge receive **no** authorization from this archive acceptance. PR #44 remains Open/Draft.
+
 Stage AM baseline dff9bcdbaad05a9e5a37514cfc48a14e7a332a03 / ba461a8d7214216e4febff3928f65fc7d0a2a599. PR #44 has separate head bca7eb3abedf51679eaffff2f8eaee15b86b5ab6. Continue the AM isolation branch. The linked [Stage AM review](https://github.com/tetsujisugimori-coder/Math-Art-Lab/pull/44#pullrequestreview-5946479953) was posted as COMMENTED on that PR head and names the correct AM target in its body.
 
 | Decision | Required independent evidence | Current status |
