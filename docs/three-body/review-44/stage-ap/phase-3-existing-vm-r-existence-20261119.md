@@ -1,5 +1,49 @@
 # Stage AP 第3工程 — 既存隔離VM／外部Rの有無を確認し、条件付きで構築設計へ分岐
 
+## 実機追補（2026-11-19 14:32〜14:34 JST）
+
+**第3工程は PARTIAL。隔離Windows VMの配備有無は `UNKNOWN`、外部回復Rの配備有無も `UNKNOWN`。実体確定は `BLOCKED`。** 開発Windowsで読み取り専用の直接照会を実施した。Windowsの通常非昇格トークンは `CodexSandboxOffline`（Medium、実効Administratorsなし）で、所有者の対話ログオントークンは利用できなかった。このセッションがアクセスできる範囲と、所有者が管理する環境全体の範囲を台帳上で区別した。
+
+### 対象と根拠
+
+- 開始時の文書Draft PR #46は `codex/stage-ap-01-readonly-20261119`、HEAD `a94b65f4ec1e766282e437a23411f1bf0d8f77d0`、tree `e0880e17af8afeaf6068f4a26048cfad6ca817f6`。GitHubの開始HEADを取得した隔離チェックアウトでこの追補を作成した。割当作業ツリーは別コミットのdetached HEADで、既存の管理ブランチ用作業ツリーは別の場所にあった。[Issue #45](https://github.com/tetsujisugimori-coder/Math-Art-Lab/issues/45)・[Draft PR #46](https://github.com/tetsujisugimori-coder/Math-Art-Lab/pull/46)・[所有者の範囲限定判定方針](https://github.com/tetsujisugimori-coder/Math-Art-Lab/issues/45#issuecomment-7000267369)
+- 実機で照会した範囲は開発Windowsのホスト情報、ローカルSCMとCIM、既定のVM管理製品と登録先、所有者プロファイルの対象限定パス・レジストリキー、ローカルタスク、既に開いている管理ウィンドウのタイトル。既知の管理範囲を確認するためGitHubのIssue・PR・台帳候補を閲覧した。C1/C2の管理対象ホスト・サービス・アカウントや既存の正規閲覧先を特定できなかったため、外部管理面への照会は未実施。
+
+### 今回のWindows観測
+
+| JST（2026-11-19） | 読み取り経路 | 取得結果・限界 |
+|---|---|---|
+| 14:32:49 | `WindowsIdentity.GetCurrent()`、`WindowsPrincipal.IsInRole(Administrator)`、`whoami.exe /groups /fo csv /nh` | `CodexSandboxOffline`、Medium、実効Admin=false。Administrators／Hyper-V Administratorsのグループ表示なし。whoami exit 0 |
+| 14:32:49 | `HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion` の対象値、`RuntimeInformation.OSArchitecture` | Home/Core、レジストリ `ProductName=Windows 10 Home`、build `26300`、UBR `9974`、X64。第2工程Bの同項目と一致。第1工程のCIM captionは当時の記録 |
+| 14:32:49 | `Get-CimInstance Win32_OperatingSystem`、`Win32_OptionalFeature`（Hyper-V・WHP・VMP）、`root\virtualization\v2` の `Msvm_ComputerSystem` | OS captionとオプション機能は `0x80041003`（アクセス拒否）。Hyper-V VM一覧は `0x8004100E`（無効な名前空間）。いずれも `NOT_OBTAINED` |
+| 14:32:49 | `sc.exe query <名前>`、`Get-Module -ListAvailable -Name Hyper-V`、`Get-Command`、HKLM 32/64-bitのUninstall | `HvHost` は RUNNING（exit 0）。`vmms`、`vmcompute`、指定VirtualBox／VMware／WSL／Windows Admin Center等のサービスは照会結果1060。Hyper-Vモジュールと該当の製品登録は取得されず、候補コマンドで解決できたのは `wsl.exe` のみ |
+| 14:32:50 | `Get-Item -LiteralPath`（登録ファイル・既定格納先） | 所有者プロファイルのルートは参照可。所有者の既定 `VirtualBox.xml`、VMware `inventory.vmls`、両製品の既定VM格納先、ホストの既定Hyper-V構成格納先と管理コンソールは `PathNotFound`。一覧0件の原票は得られていない |
+| 14:33:41〜14:34:25 | `ProfileList`、所有者の既存 `HKEY_USERS` に対する `Test-Path` と `Registry.Users.OpenSubKey(..., false)` | `Test-Path` は存在しない対照キーにもtrueを返したため、可視性の判定から除外。直接の読み取りオープンは所有者hiveルート、ユーザーUninstall、Environmentでアクセス拒否。指定のVirtualBox・VMware・WSL登録キーはハンドルを取得できず、WSL子キー列挙もアクセス拒否。所有者の全登録範囲と非既定パスは `NOT_OBTAINED` |
+| 14:32:50〜14:34:49 | ローカル `Get-Service`、`schtasks.exe /Query /FO CSV /NH`、`Get-ScheduledTask`、`sc.exe query Schedule` | サービス照会の初回型解決エラーを `Get-Service` で補完。可視296サービスのうち Math-Art-Lab、Stage AP、AK01、external recovery の名称一致0件。タスク一覧は `schtasks` exit 1（パス未検出）、CIM経路も `0x80041003`。ScheduleはRUNNING（exit 0）。Rの一覧は未取得 |
+| 14:34:27 | Windowsの既存ウィンドウ一覧 `sky.list_windows()` | 取得7件のタイトル・アプリ名から対象管理ウィンドウを同定できず。管理サービスへの新規接続は発生していない |
+
+上記は今回のホスト出力の非機密要約。第1工程および第2工程Bの結果はそれぞれの時点の記録として参照し、対象guestの情報には用いていない。[第1工程](phase-1-readonly-20261119.md)・[第2工程BのWindows記録](phase-2b-windows-readonly-20261119.md)
+
+### VMとRの配備判定
+
+| 対象 | 判定 | 判定に必要な未取得証拠 |
+|---|---|---|
+| 隔離Windows VM | **`UNKNOWN`** | C1/C2の所有者管理範囲、既存台帳・閲覧先、対象資産IDとVM単位の実効閲覧権限。配備が確認できた場合のUUID・世代／epoch・guest OSを採取する経路。C3も登録一覧未取得で `UNKNOWN`、同一開発ホスト依存のため安全実証の採用対象外 |
+| 外部回復R | **`UNKNOWN`** | 既存の配備台帳、運用主体、guest外の実行場所、同一VMとの対応、管理API・read/STOPロールの仕様、独立した新鮮な状態閲覧経路、共通故障依存。ローカル照会では該当サービスを特定できず、タスク一覧と外部管理面は未取得 |
+
+正規資産を具体的に同定できた範囲、または所有者が列挙した管理範囲を十分に照会して未配備と確認できた範囲は、今回いずれも確定していない。所有者本人が管理主体を兼ねられる。ローカルのサービス未登録や既定パス未検出で `NOT_PROVISIONED` へ変更しない。現在のC1/C2費用・権限・運用・共通故障の比較は、下記の机上比較を参照する。
+
+### 次の実行可能工程と保全
+
+1. 所有者が自ら管理するホスト・管理サービス・アカウントを列挙し、既存の読み取り専用の資産一覧・台帳または管理画面を指定する。C3の追加照会が必要なら、所有者が通常ログオンした非昇格セッションで登録VM・管理製品・関連タスクの照会を行う。対象VMとRは別々に、確認時刻、実行主体、照会成功・拒否・未到達を記録する。
+2. 既存資産が見つかれば、そのVMとRの実体・ID・世代・guest OS・ロール・依存関係を対象限定で照合する。未配備を確定できた範囲があれば、その根拠を固定してC1/C2の構築設計に進む。C1を第一候補タイプ、C2を代替とする。現在は実体確定 `BLOCKED`。
+3. 第1工程の10件・79,422 bytesの正式保全 `PASS`（`LIMITED_SHARED_OWNER`）を維持。今回分の新しいLevel 2原票の正式保存は案件別承認がなく `BLOCKED`、独立再取得は `NOT_TESTED`。必要なら対象・分類・保存先・操作主体・ACL・保持条件を承認後に照会を実施し直し、原bytes・receiptの保存と別経路照合を行う。[第2工程Aの正式保全](phase-2a-custody-20261119.md)
+4. **`IMPLEMENT_ONLY=NO`、`QUALIFICATION_RUN=BLOCKED`、AK01 `RECOVERY_GUARANTEE=NONE`、AK02 `PHYSICAL_SAFETY=UNKNOWN`。** VMの起動／停止、STOP、Job・試験用process生成、ACL・認証・設定変更、故障注入、資格試験は未実施。
+
+---
+
+## 以下は第3工程の文書調査時点の記録
+
 **調査・判断日：2026-11-19 JST。現行判定：PARTIAL／既存VM配備 UNKNOWN／外部R配備 UNKNOWN／実体確定 BLOCKED。分岐D継続。実機読み取りは今回 NOT_TESTED。** 既存の第1・第2工程の原票とGitHubの現行記録を再照合した。今回のChatGPT接続には所有者のWindows PowerShell／VM管理API／外部R管理APIを実行する権限・経路がなく、開発Windows上で新規コマンドを実行していない。接続ブラウザーの既存タブにも認可済み管理画面を特定できなかった。別環境の診断結果を所有者の実ホストの診断と扱わない。
 
 ## 1. 固定根拠と確認可能な範囲
