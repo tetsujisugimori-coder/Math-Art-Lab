@@ -1,5 +1,8 @@
 # Stage AP 第1工程 — 実Windows・外部R・AK01/AK02 調査
 
+> **現行判定追補（2026-11-19 JST）**：以下は第1工程実施時点の記録であり、当時の「原票の永続保存先未承認／CUSTODY BLOCKED」はその後の状態を表しません。第2工程Aで固定原票10件（計79,422 bytes）を承認済みWindows Archiveへ新規保存し、別Codex CLIが実保存版と元原票を直接再取得してサイズ・SHA-256・全バイト10/10一致を確認しました。原票の正式保全は `CUSTODY=PASS / VERIFICATION=PASS / INDEPENDENCE=LIMITED_SHARED_OWNER / ACCEPTANCE=PASS` です。詳細は [第2工程Aの正式保全報告](phase-2a-custody-20261119.md) を参照してください。第2工程Bの[VM／外部R候補調査](phase-2b-vm-r-inventory-20261119.md)では、対象実体・管理権限はなお未取得です。AK01・AK02はOPEN、実装承認NO、資格試験BLOCKEDを継続します。過去の原票と当時の判定は以下にそのまま残します。
+
+
 **判定は PARTIAL。開発ホストの棚卸しと静的・mock 検証を完了。隔離VM・外部Rの実原票は NOT_OBTAINED、次工程は BLOCKED。AK01 は OPEN／回復保証 NONE、AK02 は OPEN／実体安全 UNKNOWN／物理検証 NOT_TESTED。**
 
 ## A. 調査対象と固定版
