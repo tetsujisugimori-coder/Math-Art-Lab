@@ -69,7 +69,18 @@ export function mountCooperation(root:HTMLElement):()=>void{
   function schedule(){if(!playing||disposed||timer!==null)return;timer=setTimeout(()=>{timer=null;if(!playing||disposed)return;left=advance(left);if(right)right=advance(right);refresh();schedule();},1000/speed);}
   function reset(a:World,b:World|null=null){pause();left=a;right=b;selected=0;$('#cl-error').textContent='';refresh();}
   function compareInput(){const key=$<HTMLSelectElement>('#cl-compare-key').value as ComparisonKey,opts=choices[key],r=numeric[key];$('#cl-compare-input').innerHTML=opts?`<select id="cl-compare-value">${opts.map(([v,t])=>`<option value="${v}">${t}</option>`).join('')}</select>`:`<input id="cl-compare-value" type="number" min="${r![0]}" max="${r![1]}" step="${r![2]}" required>`;
-    const field=$<HTMLInputElement>('#cl-compare-value');field.value=key==='neighbors'?String(left.config.neighbors===4?8:4):key==='rule'?(left.config.rule==='best'?'fermi':'best'):key==='boundary'?(left.config.boundary==='fixed'?'periodic':'fixed'):key==='scoring'?(left.config.scoring==='sum'?'mean':'sum'):String(key==='mutation'?(left.config.mutation===0?.01:0):key==='T'?left.config.T+1:left.config.temperature*2);
+    const field=$<HTMLInputElement>('#cl-compare-value');
+    if (key === 'T') {
+      const current = left.config.T;
+      const suggested = current + 1 <= numeric.T![1] ? current + 1 : current - 1;
+      field.value = String(Number(suggested.toFixed(1)));
+    } else if (key === 'temperature') {
+      const current = left.config.temperature;
+      const suggested = current * 2 <= numeric.temperature![1] ? current * 2 : current / 2;
+      field.value = String(Number(suggested.toFixed(3)));
+    } else {
+      field.value=key==='neighbors'?String(left.config.neighbors===4?8:4):key==='rule'?(left.config.rule==='best'?'fermi':'best'):key==='boundary'?(left.config.boundary==='fixed'?'periodic':'fixed'):key==='scoring'?(left.config.scoring==='sum'?'mean':'sum'):String(left.config.mutation===0?.01:0);
+    }
   }
   form.onsubmit=e=>{e.preventDefault();try{const c={...defaults};for(const key of Object.keys(c) as (keyof Config)[]){const f=$<HTMLInputElement>(`#cl-${key}`),value=numeric[key]?(f.value.trim()===''?NaN:Number(f.value)):f.value;(c as unknown as Record<string,unknown>)[key]=value;}validate(c);
       const p=presets[Number($<HTMLSelectElement>('#cl-preset').value)],a=createWorld(c);
