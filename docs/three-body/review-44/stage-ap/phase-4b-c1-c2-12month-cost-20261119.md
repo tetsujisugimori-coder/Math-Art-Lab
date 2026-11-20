@@ -9,6 +9,16 @@
 - 両構成ともguestの利用ライセンスの確認、R独立性・VM最小STOP権限・独立観測と保全の実現は未解決。価格差を物理安全PASSにしない。
 - [Loading Museum PR #88](https://github.com/tetsujisugimori-coder/Loading-museum/pull/88)の運用に倣い、費用試算PASS／証拠監査／物理安全／本番試験許可は別判定。両repoのC1/C2識別子を同一視しない。
 
+### 同条件の見積に使う要件
+
+| 項目 | 比較条件 |
+|---|---|
+| guest性能 | C1の設計例は4 vCPU・8～12 GB。C2の現行試算は2 vCPU・8 GiB。同条件の見積では4 vCPUと合意したメモリ・ディスク要件を両方で満たす候補を比較する。C2の4 vCPU候補例は `Standard_D4as_v5`（16 GiB）。SKU採用と試験性能は未確認。[MicrosoftのSKU仕様](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/general-purpose/dasv5-series) |
+| guest OS・利用資格 | Windows 11クライアントの版・用途・実行権を固定し、C1のローカル仮想実行権とC2の対象Azureオファー・契約での資格をそれぞれ確認する。[AzureのWindowsクライアントイメージ](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/client-images) |
+| 実行時間・固定費 | 8h/月・80h/月・連続の3条件を維持し、起動から料金停止までの時間、ストレージ・ログ保持、Rの稼働と障害対策、税・ライセンスを同じ前提で見積もる。 |
+
+3条件の算式は再レビューで再計算と一致した。下記の2 vCPU料金は既存の算数例として掲載し、構成を合わせた見積の単価・金額は `NOT_QUOTED / COST_ACCEPTANCE=HOLD` とする。
+
 ## 2. 算式と共通の仮定（すべて未承認・推定値）
 
 | 項目 | C1例 | C2例 |

@@ -30,7 +30,7 @@
 - R：別物理端末（例：現行ギャラリアを将来のR候補として比較。まだ採用していない）でguest外に配置し、**VMホスト側に対象1VMのread/status・停止要求しか許さない制限された入口**を別途設計する。素のHyper-V管理者権限は広すぎる可能性があり、対象VM単位に制限済みと断定しない。JEA等の制限技術も、権限境界レビューなしで安全としない。
 - O／保全：Rとは論理的に分離した読取・ログ記録処理を候補とし、VM/guestのsnapshot範囲外に保存。RとOの物理ホスト共有時は、その共通故障を明示する。別セッション照合は`LIMITED_SHARED_OWNER`、物理故障独立性の証明とは別。
 
-**停止までの想定トレース（実行禁止・未実測）：** Rでheartbeat欠測を検知→使い捨てVM UUID/generation/epoch/nonceを照合→限定停止要求を記録→hypervisor受付を記録→別のread-only経路で鮮度ある同一VM停止状態を照合→guest EXIT/handle解放は別証拠（採れなければUNKNOWN）→guest外原票を保存/再取得。
+**停止までの想定トレース（実行禁止・未実測）：** Rでheartbeat欠測を検知→使い捨てVM UUID/generation/epoch/nonceを照合しnonceの永続消費を確認→限定停止要求を記録→hypervisor受付と操作結果を個別に記録→別のread-only経路で鮮度ある同一VM停止状態を照合→guest EXIT/handle解放は別証拠（採れなければUNKNOWN）→guest外原票を保存/再取得。
 
 **主要な未解決：** ホストとRが同一宅内電源・LAN・ルーター・認証/管理経路を共有すれば共倒れ可能。VMホスト自体の完全hang/電源断時にRがSTOP/API/観測できるか、管理サービスが落ちても動作する独立経路があるか、Windowsクライアントguestのライセンスが有効かは未確認。Rの自動有限回復保証は`NONE`。
 
@@ -103,7 +103,7 @@
 ### P2-AP4-01 OPEN — STOP操作許可・VM停止観測の鮮度
 
 - R登録には、VM UUID、hypervisor/host identity、イメージ原SHA、構成generation・外部epoch・session/trial・承認操作の束縛、真正な発行/失効検証、**guest rollback範囲外にある耐久台帳のcommitと独立readback**を要求する。単なる同じJSONを検証器で生成したものは、外部Rの認証/受領原票ではない。
-- STOP前にnonceを永続原子消費。永続commit・readback不明、対象不一致、古いepoch、信頼/権限の欠測は**STOP追加送信・自動再試行禁止**。対象VM以外に影響する権限を使う回避策は禁止。
+- STOP前にnonceを永続原子消費。永続commit・readback不明、対象不一致、古いepoch、信頼/権限の欠測は**初回も送信しない**。送信後に受付または操作結果が不明なら**再送しない**。対象VM以外に影響する権限を使う回避策は禁止。
 - 停止操作の実メソッドを固定するまでは、優雅なshutdown、Hyper-V強制電源断、Azure PowerOff、deallocateを同一視しない。API受付は停止証明ではない。**STOP要求→受付→操作結果→別観測で確認した新鮮な同一世代VM停止→guest process EXIT→資源解放→保存/readback**を分離。
 - Azureの状態表示は「最後に把握した状態」であり、HTTP応答到着時刻だけでは状態が新しいと証明できない。状態の更新根拠（世代、provider event/operation相関ID、状態バージョン等）が欠ければ**STOP確認UNKNOWN**。guest電源断で失ったEXIT/handle情報もUNKNOWN。
 - 判定：**設計条件追記済み／STOP方法・API・状態鮮度の実証はNOT_TESTED、P2 OPEN**。
@@ -114,14 +114,14 @@
 - **R自身・管理API・ホストが停止してSTOPできない場合の自動回復保証はNONE**。別PC配置はhostの物理分離であって、同一電源・LAN・資格情報・管理プレーンからの独立ではない。R/G/Oの組合せが同じ故障を共有する場合はその証拠軸を別途失敗とする。
 - 管理者による別コンソール経由の緊急対応は、実体/操作権限/同一対象識別/復旧責任者を別承認で固定するまで存在を仮定しない。人手による復旧を**自動90秒**に算入しない。
 - 初期の登録・nonce記録が不確かな場合は試験開始を拒否。試験中のログ保存不能によって安全停止の待ちを無期限に伸ばさず、証拠欠測をINCOMPLETEで保管し、未証明ゲートを維持。
-- 判定：**故障台帳を[C1詳細設計](phase-4b-c1-detail-20261119.md)で定義済み／物理独立性未確認、P2 OPEN**。
+- 判定：**[C1詳細設計](phase-4b-c1-detail-20261119.md)に、R/O喪失時の残り枠の開始禁止を担うキャンペーン制御担当、中断条件、欠測と取得済み原票の記録先を追記済み。物理独立性・中断の実効性は未確認、P2 OPEN**。
 
 ### P2-AP4-03 OPEN — AK02/有限予算の実施前チェック
 
 - guest対象版・Job入れ子順序・limits・token/ACL・breakaway・handle所有/複製/継承・最後のcloseを確認する。作成時のSTARTUPINFOEXW＋JOB_LIST＋CREATE_SUSPENDED／拡張フラグの有効性を、**対象実OSと実API結果**で確認するまで実装合格にしない。
 - 親の生成消失8境界、CreateProcess内での所属/原子性、resume前の本人性とJob所属、Resume戻り値、EXITと資源回収を**別原票**。post-create AssignProcessToJobObjectへの黙示fallbackは禁止、PID再利用は保持handleで区別する。
 - 原本5000ms/親30000ms/総90000ms、8スロット固定順各10000ms以内、再試行0、初回不成立で残り停止。登録、準備、時計、STOP状態確認、独立readback、後片付けはキャンペーン全体の**同一独立時計90秒**へ含める。時計が異なる区間を引き算して保証しない。
-- 判定：**純粋契約・文書の設計要求を補訂済み／実guest安全性・有限停止保証NOT_TESTED、P2 OPEN**。
+- 判定：**[C1詳細設計](phase-4b-c1-detail-20261119.md)に、次枠の開始前に共通終了処理分を確保する条件と親30,000msの計時区間を追記済み。実guest安全性・有限停止保証はNOT_TESTED、P2 OPEN**。
 
 ### P2-AP4-04 OPEN — C2 Azure権限と非同期進捗読み取り
 
@@ -129,14 +129,14 @@
 - **VM限定STOP主体は最小権限を保持**。リソースグループ全体へのContributor/VM Contributorを安易に付与しない。operation status専用の限定読み取り主体の候補と認可境界を独立審査し、作成していないロールを実装済みとみなさない。
 - 進捗APIを取得できない、非同期operation IDが異なる、管理API障害、実VM状態の鮮度が不足する場合はUNKNOWN/HOLD。進捗取得を断念してSTOPを再送する回避は禁止。
 - [Azure RBACのComputeアクション](https://learn.microsoft.com/ja-jp/azure/role-based-access-control/permissions/compute)、[Azure Resource Manager非同期操作権限](https://learn.microsoft.com/ja-jp/azure/azure-resource-manager/management/async-operations)を根拠とし、対象契約/権限の実証は未実施。
-- 判定：**権限スコープの設計表を補訂済み／Azure実ロール・API権限NOT_TESTED、P2 OPEN**。
+- 判定：**再レビューで権限スコープの文書補訂PASS。対象契約で進捗を読める実効権限・Azure実ロールはNOT_TESTED、P2 OPEN**。
 
 ### P3-AP4-01 OPEN — 同条件費用比較とライセンス
 
 - 比較期間12か月、低稼働8h/月（年間96h）、中稼働80h/月（年間960h）、連続24h/日（年間8760h）。C1のホスト/Rの待機電力とVM稼働増分、機材費の配賦、ホストOS/guest権利、UPS/SSD/保守を分離する。C2はVM Windows込みの従量、停止移行による課金、ディスク/snapshot/IP/ログ/外部R/通信・税を分離する。
 - [仮定付き12か月部分費用モデル](phase-4b-c1-c2-12month-cost-20261119.md)を作成。単価・電力は比較用仮定または二次価格参考であり**Microsoft公式の条件固定済み契約見積ではない**。ライセンス/費用全額はNOT_QUOTED、金額の小さい方を採用候補の決定理由にしない。
 - Windows HomeでHyper-Vホストロールは利用できない。C1新デスクトップのWindows Pro/Enterprise、Windows 11 guest実行権、C2クライアントOSの契約適用範囲を各々別に一次資料と照合する。
-- 判定：**シナリオ・費用式・除外条件は補訂済み／実額とライセンス未固定、P3 OPEN**。
+- 判定：**再レビューで3稼働条件の算式PASS。同一試験要件のC1/C2構成、Windows 11利用資格、公式料金は未確定。COST_ACCEPTANCE=HOLD / NOT_QUOTED、P3 OPEN**。
 
 ### 第4工程Bの工程判定
 
