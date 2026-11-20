@@ -32,6 +32,30 @@ test('lessons navigate both ways and restore all settings and exact pixels',asyn
  const extent=await canvas(page).getAttribute('data-extent');for(const k of [4,16,64]){await page.locator(`[data-fourier-k="${k}"]`).click();await expect(canvas(page)).toHaveAttribute('data-k',String(k));await expect(canvas(page)).toHaveAttribute('data-step','512');await expect(canvas(page)).toHaveAttribute('data-extent',extent!);}
  await page.locator('#fourier-close').click();await expect(page.locator('#fourier-observation')).toHaveText(before!);expect((await canvas(page).screenshot()).equals(pixels)).toBe(true);await expect(page.locator('#fourier-term')).toHaveValue('8');await expect(page.locator('#fourier-speed')).toHaveValue('0.5');await expect(page.locator('#fourier-lesson')).toBeFocused();
 });
+test('lesson descriptions track circle, star and fish and preserve K scale and prior state',async({page})=>{
+ await page.locator('#fourier-preset').selectOption('star');await setK(page,12);await page.locator('#fourier-speed').selectOption('0.5');await page.locator('#fourier-original').uncheck();await page.locator('#fourier-term').selectOption('8');await step(page,19);
+ const before=await page.locator('#fourier-observation').textContent(),pixels=await canvas(page).screenshot();
+ await page.locator('#fourier-lesson').click();
+ for(const stage of [2,3]){
+  await page.locator(`[data-fourier-lesson="${stage}"]`).click();
+  for(const [preset,name] of [['circle','円'],['star','五芒星の外周'],['fish','非対称な魚']] as const){
+   await page.locator('#fourier-preset').selectOption(preset);
+   await expect(page.locator('#fourier-lesson-text')).toContainText(`「${name}」`);
+   await expect(canvas(page)).toHaveAttribute('data-step','0');
+   if(stage===3){
+    const extent=await canvas(page).getAttribute('data-extent');
+    for(const k of [4,16,64]){await page.locator(`[data-fourier-k="${k}"]`).click();await expect(canvas(page)).toHaveAttribute('data-k',String(k));await expect(canvas(page)).toHaveAttribute('data-extent',extent!);}
+   }
+  }
+ }
+ await page.locator('#fourier-close').click();
+ await expect(page.locator('#fourier-preset')).toHaveValue('star');
+ await expect(page.locator('#fourier-observation')).toHaveText(before!);
+ await expect(page.locator('#fourier-speed')).toHaveValue('0.5');
+ await expect(page.locator('#fourier-term')).toHaveValue('8');
+ await expect(page.locator('#fourier-original')).not.toBeChecked();
+ expect((await canvas(page).screenshot()).equals(pixels)).toBe(true);
+});
 test('reduced motion, hidden stop, lesson resume and resize preserve phase',async({page})=>{
  await page.emulateMedia({reducedMotion:'reduce'});await expect(page.locator('#fourier-play')).toHaveText('再生');await page.locator('#fourier-play').click();await expect.poll(async()=>Number(await canvas(page).getAttribute('data-step'))).toBeGreaterThan(0);await page.locator('#fourier-lesson').click();await page.locator('#fourier-close').click();await expect(page.locator('#fourier-play')).toHaveText('再生');
  await page.emulateMedia({reducedMotion:'no-preference'});await page.locator('#fourier-play').click();await page.locator('#fourier-lesson').click();await page.locator('#fourier-close').click();await expect(page.locator('#fourier-play')).toHaveText('一時停止');
