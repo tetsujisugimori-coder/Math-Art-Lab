@@ -56,6 +56,29 @@ test('lesson descriptions track circle, star and fish and preserve K scale and p
  await expect(page.locator('#fourier-original')).not.toBeChecked();
  expect((await canvas(page).screenshot()).equals(pixels)).toBe(true);
 });
+test('lesson text selection survives playback without replacing an unchanged text node',async({page})=>{
+ await page.locator('#fourier-lesson').click();
+ for(const stage of [0,1,2,3]){
+  await page.locator(`[data-fourier-lesson="${stage}"]`).click();
+  await page.locator('#fourier-play').click();
+  await expect.poll(async()=>Number(await canvas(page).getAttribute('data-step'))).toBeGreaterThan(2);
+  const text=page.locator('#fourier-lesson-text');
+  const selectedNode=await text.evaluateHandle(el=>el.firstChild);
+  const selected=await text.evaluate(el=>{
+   const range=document.createRange();range.selectNodeContents(el);
+   const selection=window.getSelection()!;selection.removeAllRanges();selection.addRange(range);
+   return selection.toString();
+  });
+  expect(selected.length).toBeGreaterThan(0);
+  const from=Number(await canvas(page).getAttribute('data-step'));
+  await expect.poll(async()=>Number(await canvas(page).getAttribute('data-step'))).toBeGreaterThan(from+4);
+  expect(await page.evaluate(()=>window.getSelection()?.toString())).toBe(selected);
+  expect(await selectedNode.evaluate(node=>node.parentNode?.nodeName)).toBe('P');
+  expect(await selectedNode.evaluate(node=>node===document.querySelector('#fourier-lesson-text')?.firstChild)).toBe(true);
+  await selectedNode.dispose();
+ }
+ await page.locator('#fourier-close').click();
+});
 test('reduced motion, hidden stop, lesson resume and resize preserve phase',async({page})=>{
  await page.emulateMedia({reducedMotion:'reduce'});await expect(page.locator('#fourier-play')).toHaveText('再生');await page.locator('#fourier-play').click();await expect.poll(async()=>Number(await canvas(page).getAttribute('data-step'))).toBeGreaterThan(0);await page.locator('#fourier-lesson').click();await page.locator('#fourier-close').click();await expect(page.locator('#fourier-play')).toHaveText('再生');
  await page.emulateMedia({reducedMotion:'no-preference'});await page.locator('#fourier-play').click();await page.locator('#fourier-lesson').click();await page.locator('#fourier-close').click();await expect(page.locator('#fourier-play')).toHaveText('一時停止');
