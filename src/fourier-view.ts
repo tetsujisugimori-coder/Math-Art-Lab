@@ -47,7 +47,7 @@ export function mountFourier(host:HTMLElement):()=>void{
   canvas.dataset.renderMs=String(performance.now()-start);
  }
  function sync(){
-  if(lesson>=0)$('lesson-text').textContent=lessonDescription(lesson,state.preset);
+  if(lesson>=0){const description=lessonDescription(lesson,state.preset),text=$('lesson-text');if(text.textContent!==description)text.textContent=description;}
   const tip=path[state.step];canvas.dataset.step=String(state.step);canvas.dataset.k=String(state.k);canvas.dataset.points=String(state.step+1);canvas.dataset.extent=String(model.extent);canvas.dataset.x=String(tip.x);canvas.dataset.y=String(tip.y);
   $('observation').textContent=`位相 t=${state.step}/512 (${format(state.step/STEPS)}) · K=${state.k} · 先端 (x, y)=(${format(tip.x)}, ${format(tip.y)}) · c₀=(${format(model.center.x)}, ${format(model.center.y)})`;
   // Live status and focused button names only mutate on a state transition.
