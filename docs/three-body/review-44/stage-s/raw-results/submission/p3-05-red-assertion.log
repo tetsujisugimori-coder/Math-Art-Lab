@@ -1,0 +1,55 @@
+
+ RUN  v3.2.7 C:/Users/tetsu/.codex/worktrees/da2c/Math-Art-Lab
+
+ ❯ src/three-body-stage-q-pipeline.test.js (20 tests | 2 failed | 18 skipped) 26ms
+   ↓ legacy screenshot errors retain E classification without inventing a physics failure
+   ↓ screenshot failure preserves complete run evidence and permits the next independent suite
+   ↓ mandatory environment failure blocks later suites without attempting their child process
+   ↓ corrupted raw evidence blocks downstream acquisition
+   ↓ missing run summaries are evidence failures even when the child exited successfully
+   ↓ absent suites report NOT_TESTED and preserve the planned count
+   ↓ analysis separately reports baseline mismatch and observational budget excess
+   ↓ artifact index records partial completeness and detects byte changes
+   ↓ actual nonzero child exit is retained in a readable log
+   ↓ retrying a completed suite cannot overwrite its recorded result
+   ↓ dedicated sender has a separate PID and retains scheduled and actual send times
+   ↓ finalization retains a nonzero child exit when recovered raw data all pass
+   ↓ finalization retains checker failure independently of raw acceptance
+   ↓ unfinished manifest and run status disagreement cannot be accepted as full evidence
+   ↓ analysis row duplication is detected even when the row count matches
+   ↓ sender delivery errors produce FAIL while retaining actual request timestamps
+   ↓ existing analysis files cannot substitute for unfinished checker execution
+   ↓ CDP metrics preparation is included in the five second capture deadline
+   × P3-05: corrupt summary.json cannot report analysis acquired 16ms
+     → expected true to be false // Object.is equality
+   × P3-05: corrupt raw-index.json cannot report analysis acquired 9ms
+     → expected true to be false // Object.is equality
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/three-body-stage-q-pipeline.test.js > P3-05: corrupt summary.json cannot report analysis acquired
+ FAIL  src/three-body-stage-q-pipeline.test.js > P3-05: corrupt raw-index.json cannot report analysis acquired
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/three-body-stage-q-pipeline.test.js:229:50
+    227|   finalize(manifest, root);
+    228|   expect(manifest.status).toBe('FAIL');
+    229|   expect(manifest.completeness.analysisAcquired).toBe(false);
+       |                                                  ^
+    230|   expect(manifest.completeness.evidenceComplete).toBe(false);
+    231|   expect(manifest.completeness.acceptance).toBe('NOT_ACCEPTED');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 18 skipped (20)
+   Start at  16:11:47
+   Duration  661ms (transform 49ms, setup 0ms, collect 63ms, tests 26ms, environment 0ms, prepare 109ms)
+

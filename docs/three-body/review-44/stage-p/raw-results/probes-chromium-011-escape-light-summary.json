@@ -1,0 +1,150 @@
+{
+  "id": "probes-chromium-011-escape-light",
+  "options": {
+    "name": "escape",
+    "ab": true,
+    "saturated": true,
+    "dom": true,
+    "canvas": true,
+    "action": "escape",
+    "duration": 3000
+  },
+  "errors": [
+    "FUNCTIONAL: calculation continued after stop",
+    "FUNCTIONAL: compute timer remains"
+  ],
+  "elapsed": 3646.800000000745,
+  "steps": {
+    "step": 36432,
+    "bStep": 36432,
+    "ab": true,
+    "playing": true,
+    "disposed": false,
+    "clockEpoch": 1,
+    "safetyEpoch": 0,
+    "timer": true,
+    "raf": false,
+    "observed": "36432",
+    "a": "36432",
+    "b": "36432",
+    "trail": 6000,
+    "graph": 1200
+  },
+  "phases": {
+    "calculate": {
+      "n": 167,
+      "median": 0.5,
+      "p95": 1,
+      "p99": 14.199999999254942,
+      "max": 79.30000000074506,
+      "over50": 1,
+      "percentileIsGuarantee": false
+    },
+    "paint": {
+      "n": 49,
+      "median": 4.699999999254942,
+      "p95": 20.300000000745058,
+      "p99": 160.10000000149012,
+      "max": 160.10000000149012,
+      "over50": 1,
+      "percentileIsGuarantee": false
+    },
+    "observe": {
+      "n": 49,
+      "median": 2.599999997764826,
+      "p95": 4.800000000745058,
+      "p99": 31.599999997764826,
+      "max": 31.599999997764826,
+      "over50": 0,
+      "percentileIsGuarantee": false
+    },
+    "refresh": {
+      "n": 49,
+      "median": 0.30000000074505806,
+      "p95": 0.5,
+      "p99": 81.30000000074506,
+      "max": 81.30000000074506,
+      "over50": 1,
+      "percentileIsGuarantee": false
+    }
+  },
+  "latency": {
+    "n": 70,
+    "median": 10.549999998882413,
+    "p95": 301.84999999962747,
+    "p99": 415.0499999988824,
+    "max": 415.0499999988824,
+    "over50": 12,
+    "percentileIsGuarantee": false
+  },
+  "stop": {
+    "type": "request",
+    "seq": 70,
+    "T0": 6540.950000001118,
+    "deadline": true,
+    "T0Worker": 3021.300000000745,
+    "T1": 6551.5,
+    "uncertainty": 0.04999999888241291,
+    "stepAtReceive": {
+      "step": 35131,
+      "bStep": 35131,
+      "ab": true,
+      "playing": true,
+      "disposed": false,
+      "clockEpoch": 1,
+      "safetyEpoch": 0,
+      "timer": true,
+      "raf": false,
+      "observed": "35131",
+      "a": "35131",
+      "b": "35131",
+      "trail": 6000,
+      "graph": 1200
+    },
+    "overlapId": null,
+    "targetHit": false,
+    "alreadyStopped": false,
+    "stop": null,
+    "after": {
+      "step": 35131,
+      "bStep": 35131,
+      "ab": true,
+      "playing": true,
+      "disposed": false,
+      "clockEpoch": 1,
+      "safetyEpoch": 0,
+      "timer": true,
+      "raf": false,
+      "observed": "35131",
+      "a": "35131",
+      "b": "35131",
+      "trail": 6000,
+      "graph": 1200
+    },
+    "later": {
+      "step": 35556,
+      "bStep": 35556,
+      "ab": true,
+      "playing": true,
+      "disposed": false,
+      "clockEpoch": 1,
+      "safetyEpoch": 0,
+      "timer": true,
+      "raf": false,
+      "observed": "35556",
+      "a": "35556",
+      "b": "35556",
+      "trail": 6000,
+      "graph": 1200
+    }
+  },
+  "frameIntervals": {
+    "n": 48,
+    "median": 48.899999998509884,
+    "p95": 445.80000000074506,
+    "p99": 464.8999999985099,
+    "max": 464.8999999985099,
+    "over50": 18,
+    "percentileIsGuarantee": false
+  }
+}

@@ -1,0 +1,443 @@
+{
+  "status": "PASS",
+  "files": [
+    {
+      "file": "deploy-pages.yml",
+      "status": "PASS",
+      "errors": [],
+      "rows": [
+        {
+          "job": "validate",
+          "index": 7,
+          "name": "Install Playwright browsers and system dependencies",
+          "guardIndex": 6,
+          "passed": true
+        },
+        {
+          "job": "validate",
+          "index": 8,
+          "name": "Development regression tests",
+          "guardIndex": 6,
+          "passed": true
+        },
+        {
+          "job": "validate",
+          "index": 9,
+          "name": "Production build smoke tests",
+          "guardIndex": 6,
+          "passed": true
+        }
+      ],
+      "unknown": [
+        "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+        "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+        "EXTERNAL_ACTION:actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333",
+        "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+        "EXTERNAL_ACTION:actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333",
+        "EXTERNAL_ACTION:actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d",
+        "EXTERNAL_ACTION:actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9",
+        "EXTERNAL_ACTION:actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346"
+      ],
+      "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+    },
+    {
+      "file": "segregation-layout.yml",
+      "status": "PASS",
+      "errors": [],
+      "rows": [
+        {
+          "job": "diagnose",
+          "index": 4,
+          "name": "Install diagnostic browsers",
+          "guardIndex": 3,
+          "passed": true
+        },
+        {
+          "job": "diagnose",
+          "index": 5,
+          "name": "Measure original layout assertions",
+          "guardIndex": 3,
+          "passed": true
+        }
+      ],
+      "unknown": [
+        "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+        "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+      ],
+      "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+    },
+    {
+      "file": "three-body-review-diagnostics.yml",
+      "status": "PASS",
+      "errors": [],
+      "rows": [
+        {
+          "job": "focused-webkit",
+          "index": 4,
+          "name": "Install WebKit",
+          "guardIndex": 3,
+          "passed": true
+        },
+        {
+          "job": "focused-webkit",
+          "index": 5,
+          "name": "Repeat DPR controls and the observed lifecycle failure",
+          "guardIndex": 3,
+          "passed": true
+        },
+        {
+          "job": "focused-webkit",
+          "index": 6,
+          "name": "Isolate actual app raster state",
+          "guardIndex": 3,
+          "passed": true
+        }
+      ],
+      "unknown": [
+        "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+        "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+      ],
+      "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+    },
+    {
+      "file": "three-body-stage-ab.yml",
+      "status": "PASS",
+      "errors": [],
+      "rows": [],
+      "unknown": [
+        "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+        "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+      ],
+      "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+    },
+    {
+      "file": "three-body-stage-ac.yml",
+      "status": "PASS",
+      "errors": [],
+      "rows": [],
+      "unknown": [
+        "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+      ],
+      "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+    },
+    {
+      "file": "three-body-stage-ad.yml",
+      "status": "PASS",
+      "errors": [],
+      "rows": [],
+      "unknown": [
+        "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+      ],
+      "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+    },
+    {
+      "file": "three-body-stage-ae.yml",
+      "status": "PASS",
+      "errors": [],
+      "rows": [],
+      "unknown": [
+        "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+      ],
+      "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+    },
+    {
+      "file": "three-body-stage-p.yml",
+      "status": "PASS",
+      "errors": [],
+      "rows": [
+        {
+          "job": "diagnostic-contract",
+          "index": 4,
+          "name": "Install isolated Chromium",
+          "guardIndex": 3,
+          "passed": true
+        },
+        {
+          "job": "diagnostic-contract",
+          "index": 5,
+          "name": "Trace and independent-input positive control",
+          "guardIndex": 3,
+          "passed": true
+        },
+        {
+          "job": "diagnostic-contract",
+          "index": 6,
+          "name": "Repeat stop event routing",
+          "guardIndex": 3,
+          "passed": true
+        }
+      ],
+      "unknown": [
+        "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+        "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+      ],
+      "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+    },
+    {
+      "file": "three-body-stage-q.yml",
+      "status": "PASS",
+      "errors": [],
+      "rows": [
+        {
+          "job": "bounded-diagnostics",
+          "index": 5,
+          "name": "Install Linux browser",
+          "guardIndex": 4,
+          "passed": true
+        },
+        {
+          "job": "bounded-diagnostics",
+          "index": 6,
+          "name": "Install Windows browser",
+          "guardIndex": 4,
+          "passed": true
+        },
+        {
+          "job": "bounded-diagnostics",
+          "index": 7,
+          "name": "Validate mandatory environment",
+          "guardIndex": 4,
+          "passed": true
+        },
+        {
+          "job": "bounded-diagnostics",
+          "index": 8,
+          "name": "Initial diagnostic controls",
+          "guardIndex": 4,
+          "passed": true
+        },
+        {
+          "job": "bounded-diagnostics",
+          "index": 9,
+          "name": "Mechanism observation controls",
+          "guardIndex": 4,
+          "passed": true
+        },
+        {
+          "job": "bounded-diagnostics",
+          "index": 10,
+          "name": "Timing positive controls",
+          "guardIndex": 4,
+          "passed": true
+        },
+        {
+          "job": "bounded-diagnostics",
+          "index": 11,
+          "name": "Capture order and instrumentation controls",
+          "guardIndex": 4,
+          "passed": true
+        },
+        {
+          "job": "bounded-diagnostics",
+          "index": 12,
+          "name": "Chromium capture API controls",
+          "guardIndex": 4,
+          "passed": true
+        },
+        {
+          "job": "bounded-diagnostics",
+          "index": 13,
+          "name": "Additional CDP emulation controls",
+          "guardIndex": 4,
+          "passed": true
+        },
+        {
+          "job": "bounded-diagnostics",
+          "index": 14,
+          "name": "Canvas and DOM resource controls",
+          "guardIndex": 4,
+          "passed": true
+        },
+        {
+          "job": "bounded-diagnostics",
+          "index": 16,
+          "name": "Sixty second repeats and five minute playback",
+          "guardIndex": 4,
+          "passed": true
+        },
+        {
+          "job": "bounded-diagnostics",
+          "index": 17,
+          "name": "Harness Node stop delivery",
+          "guardIndex": 4,
+          "passed": true
+        },
+        {
+          "job": "bounded-diagnostics",
+          "index": 18,
+          "name": "Dedicated send-only OS process",
+          "guardIndex": 4,
+          "passed": true
+        },
+        {
+          "job": "bounded-diagnostics",
+          "index": 19,
+          "name": "Lesson restoration and component disposal",
+          "guardIndex": 4,
+          "passed": true
+        },
+        {
+          "job": "bounded-diagnostics",
+          "index": 20,
+          "name": "Natural phase targeting",
+          "guardIndex": 4,
+          "passed": true
+        },
+        {
+          "job": "bounded-diagnostics",
+          "index": 21,
+          "name": "Dedicated sender natural phase targeting",
+          "guardIndex": 4,
+          "passed": true
+        },
+        {
+          "job": "bounded-diagnostics",
+          "index": 22,
+          "name": "Nonprivileged Windows thread sampling",
+          "guardIndex": 4,
+          "passed": true
+        }
+      ],
+      "unknown": [
+        "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+        "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+        "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+      ],
+      "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+    },
+    {
+      "file": "three-body-stage-t.yml",
+      "status": "PASS",
+      "errors": [],
+      "rows": [
+        {
+          "job": "controls",
+          "index": 5,
+          "name": "Install Linux browser",
+          "guardIndex": 4,
+          "passed": true
+        },
+        {
+          "job": "controls",
+          "index": 6,
+          "name": "Install Windows browser",
+          "guardIndex": 4,
+          "passed": true
+        },
+        {
+          "job": "controls",
+          "index": 7,
+          "name": "Run fixed controls and preserve every failure",
+          "guardIndex": 4,
+          "passed": true
+        }
+      ],
+      "unknown": [
+        "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+        "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+      ],
+      "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+    },
+    {
+      "file": "three-body-stage-u.yml",
+      "status": "PASS",
+      "errors": [],
+      "rows": [
+        {
+          "job": "primary",
+          "index": 5,
+          "name": "Use existing Chromium runtime dependencies; no elevation or OS changes",
+          "guardIndex": 4,
+          "passed": true
+        },
+        {
+          "job": "primary",
+          "index": 6,
+          "name": "Fixed primary CDP controls",
+          "guardIndex": 4,
+          "passed": true
+        }
+      ],
+      "unknown": [
+        "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+        "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+      ],
+      "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+    },
+    {
+      "file": "three-body-stage-v.yml",
+      "status": "PASS",
+      "errors": [],
+      "rows": [
+        {
+          "job": "fixed-cohort",
+          "index": 5,
+          "name": "Existing Chromium runtime; no OS dependency changes",
+          "guardIndex": 4,
+          "passed": true
+        },
+        {
+          "job": "fixed-cohort",
+          "index": 6,
+          "name": "One fixed primary and auxiliary cohort",
+          "guardIndex": 4,
+          "passed": true
+        }
+      ],
+      "unknown": [
+        "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+        "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+      ],
+      "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+    },
+    {
+      "file": "three-body-stage-w.yml",
+      "status": "PASS",
+      "errors": [],
+      "rows": [],
+      "unknown": [
+        "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+        "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+      ],
+      "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+    },
+    {
+      "file": "three-body-stage-x.yml",
+      "status": "PASS",
+      "errors": [],
+      "rows": [],
+      "unknown": [
+        "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+        "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+      ],
+      "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+    },
+    {
+      "file": "three-body-stage-z.yml",
+      "status": "PASS",
+      "errors": [],
+      "rows": [],
+      "unknown": [
+        "EXTERNAL_ACTION:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "EXTERNAL_ACTION:actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+        "EXTERNAL_ACTION:actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+        "EXTERNAL_ACTION:actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333"
+      ],
+      "scope": "Known direct commands and YAML structure; external actions, arbitrary shell indirection and modified code are UNKNOWN."
+    }
+  ]
+}

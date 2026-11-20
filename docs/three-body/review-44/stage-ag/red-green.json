@@ -1,0 +1,593 @@
+{
+  "scope": "STATIC/MOCK_AND_READ_ONLY_COPY_AUDIT",
+  "legacyExtractionOnly": {
+    "accepted": 13,
+    "rejected": 2,
+    "claimsWithoutPriorValidator": "RED_NOT_APPLICABLE",
+    "note": "Existing extract-only guard, not previous AF audit or AG full verifier"
+  },
+  "independentReviewRed": {
+    "failed": 3,
+    "passed": 0,
+    "cases": [
+      "rejects same-basename import substitution",
+      "rejects forged source binding metadata",
+      "rejects historical unknown and missing-runtime promotion"
+    ]
+  },
+  "green": {
+    "success": true,
+    "passed": 178,
+    "failed": 0,
+    "suites": [
+      {
+        "name": "three-body-stage-ae-evidence.test.js",
+        "tests": 23
+      },
+      {
+        "name": "three-body-stage-ae.test.js",
+        "tests": 44
+      },
+      {
+        "name": "three-body-stage-af.test.js",
+        "tests": 67
+      },
+      {
+        "name": "three-body-stage-ag.test.js",
+        "tests": 44
+      }
+    ]
+  },
+  "sourceAndClaims": [
+    {
+      "name": "import-source",
+      "red": {
+        "scope": "Existing AE extract() only; not an AF raw audit or a previous AG verifier",
+        "result": "ACCEPTED_BY_EXTRACTION_ONLY",
+        "unexaminedFields": [
+          "prepare",
+          "reference",
+          "adapter",
+          "observer",
+          "runner",
+          "bootstrap",
+          "entry",
+          "counted"
+        ]
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "Error: IMPORT_SOURCE_NOT_ALLOWED:/untrusted/three-body.ts"
+        ]
+      }
+    },
+    {
+      "name": "original-body",
+      "red": {
+        "scope": "Existing AE extract() only; not an AF raw audit or a previous AG verifier",
+        "result": "ACCEPTED_BY_EXTRACTION_ONLY",
+        "unexaminedFields": [
+          "prepare",
+          "reference",
+          "adapter",
+          "observer",
+          "runner",
+          "bootstrap",
+          "entry",
+          "counted"
+        ]
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "ORIGINAL_BODY",
+          "EXTRACTED_BODY_WRAPPERS_BOUNDARIES",
+          "SOURCE_CONTRACT:original"
+        ]
+      }
+    },
+    {
+      "name": "target-name",
+      "red": {
+        "scope": "Existing AE extract() only; not an AF raw audit or a previous AG verifier",
+        "result": "REJECTED",
+        "unexaminedFields": [
+          "prepare",
+          "reference",
+          "adapter",
+          "observer",
+          "runner",
+          "bootstrap",
+          "entry",
+          "counted"
+        ]
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "Error: TARGET_OR_RMS_UNIQUENESS"
+        ]
+      }
+    },
+    {
+      "name": "duplicate-target",
+      "red": {
+        "scope": "Existing AE extract() only; not an AF raw audit or a previous AG verifier",
+        "result": "REJECTED",
+        "unexaminedFields": [
+          "prepare",
+          "reference",
+          "adapter",
+          "observer",
+          "runner",
+          "bootstrap",
+          "entry",
+          "counted"
+        ]
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "Error: TARGET_OR_RMS_UNIQUENESS"
+        ]
+      }
+    },
+    {
+      "name": "missing-extracted-range",
+      "red": {
+        "scope": "Existing AE extract() only; not an AF raw audit or a previous AG verifier",
+        "result": "ACCEPTED_BY_EXTRACTION_ONLY",
+        "unexaminedFields": [
+          "prepare",
+          "reference",
+          "adapter",
+          "observer",
+          "runner",
+          "bootstrap",
+          "entry",
+          "counted"
+        ]
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "EXTRACTED_BODY_WRAPPERS_BOUNDARIES"
+        ]
+      }
+    },
+    {
+      "name": "reference-counter-site",
+      "red": {
+        "scope": "Existing AE extract() only; not an AF raw audit or a previous AG verifier",
+        "result": "ACCEPTED_BY_EXTRACTION_ONLY",
+        "unexaminedFields": [
+          "prepare",
+          "reference",
+          "adapter",
+          "observer",
+          "runner",
+          "bootstrap",
+          "entry",
+          "counted"
+        ]
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "REFERENCE_TRANSFORM"
+        ]
+      }
+    },
+    {
+      "name": "reference-counter-extra",
+      "red": {
+        "scope": "Existing AE extract() only; not an AF raw audit or a previous AG verifier",
+        "result": "ACCEPTED_BY_EXTRACTION_ONLY",
+        "unexaminedFields": [
+          "prepare",
+          "reference",
+          "adapter",
+          "observer",
+          "runner",
+          "bootstrap",
+          "entry",
+          "counted"
+        ]
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "REFERENCE_TRANSFORM"
+        ]
+      }
+    },
+    {
+      "name": "wrapper-argument",
+      "red": {
+        "scope": "Existing AE extract() only; not an AF raw audit or a previous AG verifier",
+        "result": "ACCEPTED_BY_EXTRACTION_ONLY",
+        "unexaminedFields": [
+          "prepare",
+          "reference",
+          "adapter",
+          "observer",
+          "runner",
+          "bootstrap",
+          "entry",
+          "counted"
+        ]
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "EXTRACTED_BODY_WRAPPERS_BOUNDARIES"
+        ]
+      }
+    },
+    {
+      "name": "wrapper-return",
+      "red": {
+        "scope": "Existing AE extract() only; not an AF raw audit or a previous AG verifier",
+        "result": "ACCEPTED_BY_EXTRACTION_ONLY",
+        "unexaminedFields": [
+          "prepare",
+          "reference",
+          "adapter",
+          "observer",
+          "runner",
+          "bootstrap",
+          "entry",
+          "counted"
+        ]
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "EXTRACTED_BODY_WRAPPERS_BOUNDARIES"
+        ]
+      }
+    },
+    {
+      "name": "wrapper-side-effect",
+      "red": {
+        "scope": "Existing AE extract() only; not an AF raw audit or a previous AG verifier",
+        "result": "ACCEPTED_BY_EXTRACTION_ONLY",
+        "unexaminedFields": [
+          "prepare",
+          "reference",
+          "adapter",
+          "observer",
+          "runner",
+          "bootstrap",
+          "entry",
+          "counted"
+        ]
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "EXTRACTED_BODY_WRAPPERS_BOUNDARIES"
+        ]
+      }
+    },
+    {
+      "name": "matcher-adapter",
+      "red": {
+        "scope": "Existing AE extract() only; not an AF raw audit or a previous AG verifier",
+        "result": "ACCEPTED_BY_EXTRACTION_ONLY",
+        "unexaminedFields": [
+          "prepare",
+          "reference",
+          "adapter",
+          "observer",
+          "runner",
+          "bootstrap",
+          "entry",
+          "counted"
+        ]
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "SOURCE_CONTRACT:adapter"
+        ]
+      }
+    },
+    {
+      "name": "producer-wrapper",
+      "red": {
+        "scope": "Existing AE extract() only; not an AF raw audit or a previous AG verifier",
+        "result": "ACCEPTED_BY_EXTRACTION_ONLY",
+        "unexaminedFields": [
+          "prepare",
+          "reference",
+          "adapter",
+          "observer",
+          "runner",
+          "bootstrap",
+          "entry",
+          "counted"
+        ]
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "PRODUCER_TEMPLATE",
+          "SOURCE_CONTRACT:prepare"
+        ]
+      }
+    },
+    {
+      "name": "clock-start-end",
+      "red": {
+        "scope": "Existing AE extract() only; not an AF raw audit or a previous AG verifier",
+        "result": "ACCEPTED_BY_EXTRACTION_ONLY",
+        "unexaminedFields": [
+          "prepare",
+          "reference",
+          "adapter",
+          "observer",
+          "runner",
+          "bootstrap",
+          "entry",
+          "counted"
+        ]
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "EXTRACTED_BODY_WRAPPERS_BOUNDARIES"
+        ]
+      }
+    },
+    {
+      "name": "clock-unit",
+      "red": {
+        "scope": "Existing AE extract() only; not an AF raw audit or a previous AG verifier",
+        "result": "ACCEPTED_BY_EXTRACTION_ONLY",
+        "unexaminedFields": [
+          "prepare",
+          "reference",
+          "adapter",
+          "observer",
+          "runner",
+          "bootstrap",
+          "entry",
+          "counted"
+        ]
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "SOURCE_CONTRACT:observer"
+        ]
+      }
+    },
+    {
+      "name": "timeout-condition",
+      "red": {
+        "scope": "Existing AE extract() only; not an AF raw audit or a previous AG verifier",
+        "result": "ACCEPTED_BY_EXTRACTION_ONLY",
+        "unexaminedFields": [
+          "prepare",
+          "reference",
+          "adapter",
+          "observer",
+          "runner",
+          "bootstrap",
+          "entry",
+          "counted"
+        ]
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "SOURCE_CONTRACT:runner"
+        ]
+      }
+    },
+    {
+      "name": "timeout-equivalence",
+      "red": {
+        "result": "NOT_APPLICABLE",
+        "reason": "No pre-AG claims validator; do not invent a historical false acceptance"
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "UNSUPPORTED_EQUIVALENCE_OR_STATE_PROMOTION"
+        ]
+      }
+    },
+    {
+      "name": "clock-equivalence",
+      "red": {
+        "result": "NOT_APPLICABLE",
+        "reason": "No pre-AG claims validator; do not invent a historical false acceptance"
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "UNSUPPORTED_EQUIVALENCE_OR_STATE_PROMOTION"
+        ]
+      }
+    },
+    {
+      "name": "runtime-attribution",
+      "red": {
+        "result": "NOT_APPLICABLE",
+        "reason": "No pre-AG claims validator; do not invent a historical false acceptance"
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "UNSUPPORTED_EQUIVALENCE_OR_STATE_PROMOTION"
+        ]
+      }
+    },
+    {
+      "name": "missing-timing",
+      "red": {
+        "result": "NOT_APPLICABLE",
+        "reason": "No pre-AG claims validator; do not invent a historical false acceptance"
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "UNSUPPORTED_EQUIVALENCE_OR_STATE_PROMOTION"
+        ]
+      }
+    },
+    {
+      "name": "old-failure",
+      "red": {
+        "result": "NOT_APPLICABLE",
+        "reason": "No pre-AG claims validator; do not invent a historical false acceptance"
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "UNSUPPORTED_EQUIVALENCE_OR_STATE_PROMOTION"
+        ]
+      }
+    },
+    {
+      "name": "old-blocked",
+      "red": {
+        "result": "NOT_APPLICABLE",
+        "reason": "No pre-AG claims validator; do not invent a historical false acceptance"
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "UNSUPPORTED_EQUIVALENCE_OR_STATE_PROMOTION"
+        ]
+      }
+    },
+    {
+      "name": "old-originals",
+      "red": {
+        "result": "NOT_APPLICABLE",
+        "reason": "No pre-AG claims validator; do not invent a historical false acceptance"
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "UNSUPPORTED_EQUIVALENCE_OR_STATE_PROMOTION"
+        ]
+      }
+    },
+    {
+      "name": "performance",
+      "red": {
+        "result": "NOT_APPLICABLE",
+        "reason": "No pre-AG claims validator; do not invent a historical false acceptance"
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "UNSUPPORTED_EQUIVALENCE_OR_STATE_PROMOTION"
+        ]
+      }
+    },
+    {
+      "name": "collection",
+      "red": {
+        "result": "NOT_APPLICABLE",
+        "reason": "No pre-AG claims validator; do not invent a historical false acceptance"
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "UNSUPPORTED_EQUIVALENCE_OR_STATE_PROMOTION"
+        ]
+      }
+    },
+    {
+      "name": "worker",
+      "red": {
+        "result": "NOT_APPLICABLE",
+        "reason": "No pre-AG claims validator; do not invent a historical false acceptance"
+      },
+      "green": {
+        "status": "FAIL",
+        "errors": [
+          "UNSUPPORTED_EQUIVALENCE_OR_STATE_PROMOTION"
+        ]
+      }
+    }
+  ],
+  "copiedEvidence": [
+    {
+      "name": "bundle",
+      "status": "FAIL",
+      "errors": [
+        "HISTORICAL_BYTES:bundle.mjs",
+        "AF_AUDIT:FAIL"
+      ]
+    },
+    {
+      "name": "source-snapshot",
+      "status": "FAIL",
+      "errors": [
+        "HISTORICAL_BYTES:sources/0/three-body.ts",
+        "AF_AUDIT:FAIL"
+      ]
+    },
+    {
+      "name": "truncated-entry",
+      "status": "FAIL",
+      "errors": [
+        "HISTORICAL_BYTES:entry.ts",
+        "Error: SYNTAX",
+        "GENERATED_SNAPSHOT:entry.ts"
+      ]
+    },
+    {
+      "name": "missing-result",
+      "status": "FAIL",
+      "errors": [
+        "AF_AUDIT:FAIL"
+      ]
+    }
+  ],
+  "newMeasurements": 0,
+  "runtimeAttribution": "NOT_OBTAINED",
+  "timeComparison": "NOT_COMPARABLE",
+  "greenBeforeCheckoutFix": {
+    "success": true,
+    "passed": 177,
+    "failed": 0,
+    "suites": [
+      {
+        "name": "three-body-stage-ae-evidence.test.js",
+        "tests": 23
+      },
+      {
+        "name": "three-body-stage-ae.test.js",
+        "tests": 44
+      },
+      {
+        "name": "three-body-stage-af.test.js",
+        "tests": 67
+      },
+      {
+        "name": "three-body-stage-ag.test.js",
+        "tests": 43
+      }
+    ]
+  },
+  "initialFormalCI": {
+    "head": "3e3a230f156a4029368e39ba5441f2b8413eb083",
+    "success": 4,
+    "failure": 4,
+    "skipped": 7,
+    "newFailures": [
+      "Pages:931 PASS/1 AG normal-control FAIL",
+      "AE:176 PASS/1 AG normal-control FAIL"
+    ],
+    "reason": "Recorded raw source mixed line endings cannot be reconstructed from LF/CRLF candidates; preserved rawBase64 now checked separately from checkout logical identity",
+    "manualRerun": false
+  }
+}

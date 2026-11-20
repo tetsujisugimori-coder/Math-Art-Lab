@@ -1,0 +1,2291 @@
+{
+  "head": "e2ccfd8e7ad2dabab5bf332f9bb6d77e7fbd6920",
+  "tree": "6eb19b4271a4a9960cc1a60284b30c623970de91",
+  "total": 47,
+  "red": 18,
+  "baselinePass": 29,
+  "green": 47,
+  "taggedInput": "tools/three-body-stage-ai-p2-fixtures.mjs; undefined/NaN/Infinity retain tags in archived full case records",
+  "cases": [
+    {
+      "id": "id-missing",
+      "issue": "P2-AI05",
+      "beforeStatus": "RED",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "NOT_STARTED",
+          "failure": false,
+          "errors": [],
+          "lateEvidence": [],
+          "execution": "PASS",
+          "observation": "PASS",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENT_ID_INVALID"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "id-null",
+      "issue": "P2-AI05",
+      "beforeStatus": "RED",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "NOT_STARTED",
+          "failure": false,
+          "errors": [],
+          "lateEvidence": [],
+          "execution": "PASS",
+          "observation": "PASS",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENT_ID_INVALID"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "id-empty",
+      "issue": "P2-AI05",
+      "beforeStatus": "RED",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "NOT_STARTED",
+          "failure": false,
+          "errors": [],
+          "lateEvidence": [],
+          "execution": "PASS",
+          "observation": "PASS",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENT_ID_INVALID"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "id-space",
+      "issue": "P2-AI05",
+      "beforeStatus": "RED",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "NOT_STARTED",
+          "failure": false,
+          "errors": [],
+          "lateEvidence": [],
+          "execution": "PASS",
+          "observation": "PASS",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENT_ID_INVALID"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "id-number",
+      "issue": "P2-AI05",
+      "beforeStatus": "RED",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "NOT_STARTED",
+          "failure": false,
+          "errors": [],
+          "lateEvidence": [],
+          "execution": "PASS",
+          "observation": "PASS",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENT_ID_INVALID"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "id-array",
+      "issue": "P2-AI05",
+      "beforeStatus": "RED",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "NOT_STARTED",
+          "failure": false,
+          "errors": [],
+          "lateEvidence": [],
+          "execution": "PASS",
+          "observation": "PASS",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENT_ID_INVALID"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "id-object",
+      "issue": "P2-AI05",
+      "beforeStatus": "RED",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "NOT_STARTED",
+          "failure": false,
+          "errors": [],
+          "lateEvidence": [],
+          "execution": "PASS",
+          "observation": "PASS",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENT_ID_INVALID"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "id-duplicate",
+      "issue": "P2-AI05",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "execution": "FAIL",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "FAIL",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "FAIL",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "id-invalid-then-pass",
+      "issue": "P2-AI05",
+      "beforeStatus": "RED",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "NOT_STARTED",
+          "failure": false,
+          "errors": [],
+          "lateEvidence": [],
+          "execution": "PASS",
+          "observation": "PASS",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENT_ID_INVALID"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "fail-then-invalid-id",
+      "issue": "P2-AI05",
+      "beforeStatus": "RED",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [],
+          "lateEvidence": [],
+          "execution": "FAIL",
+          "observation": "PASS",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "FAIL",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENT_ID_INVALID"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "FAIL",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "element-null",
+      "issue": "P3-AI06",
+      "beforeStatus": "RED",
+      "before": {
+        "thrown": {
+          "name": "TypeError",
+          "message": "Cannot read properties of null (reading 'synthetic')"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENT_NOT_RECORD"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "element-undefined",
+      "issue": "P3-AI06",
+      "beforeStatus": "RED",
+      "before": {
+        "thrown": {
+          "name": "TypeError",
+          "message": "Cannot read properties of undefined (reading 'synthetic')"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENT_NOT_RECORD"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "element-number",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "IDENTITY_OR_DOMAIN"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENT_NOT_RECORD"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "element-string",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "IDENTITY_OR_DOMAIN"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENT_NOT_RECORD"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "element-array",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "IDENTITY_OR_DOMAIN"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENT_NOT_RECORD"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "events-object",
+      "issue": "P3-AI06",
+      "beforeStatus": "RED",
+      "before": {
+        "thrown": {
+          "name": "TypeError",
+          "message": "(events ?? []) is not iterable"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENTS_NOT_ARRAY"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "events-number",
+      "issue": "P3-AI06",
+      "beforeStatus": "RED",
+      "before": {
+        "thrown": {
+          "name": "TypeError",
+          "message": "(events ?? []) is not iterable"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENTS_NOT_ARRAY"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "events-string",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "IDENTITY_OR_DOMAIN",
+            "IDENTITY_OR_DOMAIN",
+            "IDENTITY_OR_DOMAIN",
+            "IDENTITY_OR_DOMAIN",
+            "IDENTITY_OR_DOMAIN",
+            "IDENTITY_OR_DOMAIN"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENTS_NOT_ARRAY"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "events-null",
+      "issue": "P3-AI06",
+      "beforeStatus": "RED",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "NOT_STARTED",
+          "failure": false,
+          "errors": [],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "PASS",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENTS_NOT_ARRAY"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "events-undefined",
+      "issue": "P3-AI06",
+      "beforeStatus": "RED",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "NOT_STARTED",
+          "failure": false,
+          "errors": [],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "PASS",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENTS_NOT_ARRAY"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "identity-missing",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "IDENTITY_OR_DOMAIN"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "IDENTITY_OR_DOMAIN"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "identity-null",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "IDENTITY_OR_DOMAIN"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "IDENTITY_OR_DOMAIN"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "identity-array",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "IDENTITY_OR_DOMAIN"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "IDENTITY_OR_DOMAIN"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "identity-string",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "IDENTITY_OR_DOMAIN"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "IDENTITY_OR_DOMAIN"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "type-missing",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "UNKNOWN_EVENT"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENT_TYPE_INVALID"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "type-null",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "UNKNOWN_EVENT"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENT_TYPE_INVALID"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "type-number",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "UNKNOWN_EVENT"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENT_TYPE_INVALID"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "type-array",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "UNKNOWN_EVENT"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENT_TYPE_INVALID"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "type-unknown",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "UNKNOWN_EVENT"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "UNKNOWN_EVENT"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "seq-missing",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "seq-null",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "seq-string",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "seq-negative",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "seq-nan",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "seq-infinity",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "at-missing",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "at-null",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "at-string",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "at-negative",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "at-nan",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "at-infinity",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "ORDER_OR_DUPLICATE"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "raw-null",
+      "issue": "P3-AI06",
+      "beforeStatus": "RED",
+      "before": {
+        "thrown": {
+          "name": "TypeError",
+          "message": "Cannot read properties of null (reading 'name')"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "INCOMPLETE",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "RECEIPT_OR_RAW"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "receipt-null",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "INCOMPLETE",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "RECEIPT_OR_RAW"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "INCOMPLETE",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "RECEIPT_OR_RAW"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "receipt-object",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "INCOMPLETE",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "RECEIPT_OR_RAW"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "INCOMPLETE",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "RECEIPT_OR_RAW"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "receipt-element-null",
+      "issue": "P3-AI06",
+      "beforeStatus": "BASELINE_PASS",
+      "before": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "INCOMPLETE",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "RECEIPT_OR_RAW"
+          ],
+          "lateEvidence": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "INCOMPLETE",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "RECEIPT_OR_RAW"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "fail-then-null",
+      "issue": "P3-AI06",
+      "beforeStatus": "RED",
+      "before": {
+        "thrown": {
+          "name": "TypeError",
+          "message": "Cannot read properties of null (reading 'synthetic')"
+        }
+      },
+      "expected": {
+        "execution": "FAIL",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "NOT_STARTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENT_NOT_RECORD"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [],
+          "execution": "FAIL",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    },
+    {
+      "id": "valid-raw-then-null",
+      "issue": "P3-AI06",
+      "beforeStatus": "RED",
+      "before": {
+        "thrown": {
+          "name": "TypeError",
+          "message": "Cannot read properties of null (reading 'synthetic')"
+        }
+      },
+      "expected": {
+        "execution": "UNKNOWN",
+        "observation": "FAIL",
+        "remaining": "BLOCKED",
+        "evidence": "EVIDENCE_INCOMPLETE",
+        "physical": "NOT_TESTED",
+        "failure": true
+      },
+      "after": {
+        "returned": {
+          "stop": "NOT_REQUESTED",
+          "exit": "NOT_OBTAINED",
+          "resources": "NOT_OBTAINED",
+          "storage": "COMMITTED",
+          "remaining": "BLOCKED",
+          "failure": true,
+          "errors": [
+            "EVENT_NOT_RECORD"
+          ],
+          "lateEvidence": [],
+          "savedCommits": [
+            {
+              "raw": [
+                {
+                  "name": "clock",
+                  "base64": "e30=",
+                  "bytes": 2,
+                  "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                },
+                {
+                  "name": "result",
+                  "base64": "e30=",
+                  "bytes": 2,
+                  "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                }
+              ],
+              "receipt": [
+                {
+                  "name": "clock",
+                  "base64": "e30=",
+                  "bytes": 2,
+                  "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                },
+                {
+                  "name": "result",
+                  "base64": "e30=",
+                  "bytes": 2,
+                  "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                }
+              ]
+            }
+          ],
+          "execution": "UNKNOWN",
+          "observation": "FAIL",
+          "evidence": "EVIDENCE_INCOMPLETE",
+          "physical": "NOT_TESTED"
+        }
+      }
+    }
+  ]
+}

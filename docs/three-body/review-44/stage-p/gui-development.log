@@ -1,0 +1,67 @@
+
+> math-art-lab@0.1.0 test:e2e
+> playwright test e2e/three-body.spec.ts e2e/three-body-review.spec.ts
+
+[WebServer] (node:3976) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 48 tests using 1 worker
+
+(node:29452) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:29452) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › e2e\three-body-review-checks.ts:205:27 › three-body review: DPR1 delayed rAF coherent step pause reset comparison lesson hide restore (9.2s)
+  ✓   2 [chromium] › e2e\three-body-review-checks.ts:205:27 › three-body review: DPR2 delayed rAF coherent step pause reset comparison lesson hide restore (8.5s)
+  ✓   3 [chromium] › e2e\three-body-review-checks.ts:290:27 › three-body review: DPR1 saturated A/B actual play stop and same display state (13.8s)
+  ✓   4 [chromium] › e2e\three-body-review-checks.ts:290:27 › three-body review: DPR2 saturated A/B actual play stop and same display state (14.9s)
+  ✓   5 [chromium] › e2e\three-body-review-checks.ts:361:1 › three-body review: retained table inspector graph nodes and exact graph sample time (1.8s)
+  ✓   6 [chromium] › e2e\three-body-review-checks.ts:380:1 › three-body review: repeated disposal cancels delayed render and never resumes old experiment (4.3s)
+  ✓   7 [chromium] › e2e\three-body-checks.ts:33:1 › three-body: exact step reset deterministic replay and actual canvas positions (3.6s)
+  ✓   8 [chromium] › e2e\three-body-checks.ts:55:1 › three-body: five preset drafts are separated from applied state (3.1s)
+  ✓   9 [chromium] › e2e\three-body-checks.ts:74:1 › three-body: invalid candidates retain committed state and reset preserves drafts (2.3s)
+  ✓  10 [chromium] › e2e\three-body-checks.ts:92:1 › three-body: comparison timing graph initial delta and original experiment restoration (5.4s)
+  ✓  11 [chromium] › e2e\three-body-checks.ts:114:1 › three-body: symbols select live quantities, sum terms and keyboard body selection (2.5s)
+  ✓  12 [chromium] › e2e\three-body-checks.ts:134:1 › three-body: four interactive lessons restore comparison drafts display and focus (2.6s)
+  ✓  13 [chromium] › e2e\three-body-checks.ts:165:1 › three-body: explicit editing changes only candidates, zoom and pan preserve physics (2.2s)
+  ✓  14 [chromium] › e2e\three-body-checks.ts:195:1 › three-body: play pause speed and reduced-motion safety dominate lesson restore (2.2s)
+  ✓  15 [chromium] › e2e\three-body-checks.ts:223:1 › three-body: hidden document pauses and unmount cancels scheduled work (2.0s)
+  ✓  16 [chromium] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 375, motion no-preference, both themes and 100/200% text (3.7s)
+  ✓  17 [chromium] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 375, motion reduce, both themes and 100/200% text (3.5s)
+  ✓  18 [chromium] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 390, motion no-preference, both themes and 100/200% text (3.5s)
+  ✓  19 [chromium] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 390, motion reduce, both themes and 100/200% text (3.6s)
+  ✓  20 [chromium] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 765, motion no-preference, both themes and 100/200% text (4.2s)
+  ✓  21 [chromium] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 765, motion reduce, both themes and 100/200% text (4.2s)
+  ✓  22 [chromium] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 1280, motion no-preference, both themes and 100/200% text (4.7s)
+  ✓  23 [chromium] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 1280, motion reduce, both themes and 100/200% text (5.0s)
+  ✓  24 [chromium] › e2e\three-body-checks.ts:305:1 › three-body: measured browser compute paint bounded history and screenshot (5.8s)
+(node:18796) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:18796) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  25 [webkit] › e2e\three-body-review-checks.ts:205:27 › three-body review: DPR1 delayed rAF coherent step pause reset comparison lesson hide restore (8.0s)
+  ✓  26 [webkit] › e2e\three-body-review-checks.ts:205:27 › three-body review: DPR2 delayed rAF coherent step pause reset comparison lesson hide restore (10.0s)
+  ✓  27 [webkit] › e2e\three-body-review-checks.ts:290:27 › three-body review: DPR1 saturated A/B actual play stop and same display state (12.0s)
+  ✓  28 [webkit] › e2e\three-body-review-checks.ts:290:27 › three-body review: DPR2 saturated A/B actual play stop and same display state (14.1s)
+  ✓  29 [webkit] › e2e\three-body-review-checks.ts:361:1 › three-body review: retained table inspector graph nodes and exact graph sample time (1.8s)
+  ✓  30 [webkit] › e2e\three-body-review-checks.ts:380:1 › three-body review: repeated disposal cancels delayed render and never resumes old experiment (4.1s)
+  ✓  31 [webkit] › e2e\three-body-checks.ts:33:1 › three-body: exact step reset deterministic replay and actual canvas positions (6.0s)
+  ✓  32 [webkit] › e2e\three-body-checks.ts:55:1 › three-body: five preset drafts are separated from applied state (3.9s)
+  ✓  33 [webkit] › e2e\three-body-checks.ts:74:1 › three-body: invalid candidates retain committed state and reset preserves drafts (2.3s)
+  ✓  34 [webkit] › e2e\three-body-checks.ts:92:1 › three-body: comparison timing graph initial delta and original experiment restoration (12.2s)
+  ✓  35 [webkit] › e2e\three-body-checks.ts:114:1 › three-body: symbols select live quantities, sum terms and keyboard body selection (4.9s)
+  ✓  36 [webkit] › e2e\three-body-checks.ts:134:1 › three-body: four interactive lessons restore comparison drafts display and focus (5.0s)
+  ✓  37 [webkit] › e2e\three-body-checks.ts:165:1 › three-body: explicit editing changes only candidates, zoom and pan preserve physics (2.7s)
+  ✓  38 [webkit] › e2e\three-body-checks.ts:195:1 › three-body: play pause speed and reduced-motion safety dominate lesson restore (2.3s)
+  ✓  39 [webkit] › e2e\three-body-checks.ts:223:1 › three-body: hidden document pauses and unmount cancels scheduled work (1.5s)
+  ✓  40 [webkit] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 375, motion no-preference, both themes and 100/200% text (2.3s)
+  ✓  41 [webkit] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 375, motion reduce, both themes and 100/200% text (2.4s)
+  ✓  42 [webkit] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 390, motion no-preference, both themes and 100/200% text (2.5s)
+  ✓  43 [webkit] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 390, motion reduce, both themes and 100/200% text (2.4s)
+  ✓  44 [webkit] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 765, motion no-preference, both themes and 100/200% text (2.5s)
+  ✓  45 [webkit] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 765, motion reduce, both themes and 100/200% text (2.4s)
+  ✓  46 [webkit] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 1280, motion no-preference, both themes and 100/200% text (2.7s)
+  ✓  47 [webkit] › e2e\three-body-checks.ts:248:3 › three-body: matrix width 1280, motion reduce, both themes and 100/200% text (2.7s)
+  ✓  48 [webkit] › e2e\three-body-checks.ts:305:1 › three-body: measured browser compute paint bounded history and screenshot (2.4s)
+
+  48 passed (3.9m)

@@ -1,0 +1,30 @@
+name: Three-body Stage AH PLAN_ONLY contracts
+on:
+  pull_request:
+    branches: [main]
+    paths: ['tools/three-body-stage-ah*', 'src/three-body-stage-ah*', 'docs/three-body/review-44/stage-ah/**', '.github/workflows/**']
+permissions:
+  contents: read
+jobs:
+  plan-only:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Exact static and mock scope including prior 178 contracts
+        run: npx vitest run --config tools/three-body-stage-ah-tests.config.mjs
+      - name: Validate plan and static sources only
+        run: node tools/three-body-stage-ah-audit.mjs validate
+      - name: Confirm pure PLAN_ONLY denial without a launcher
+        run: |
+          node tools/three-body-stage-ah-audit.mjs --execute
+          if ($LASTEXITCODE -ne 2) { throw 'Expected PLAN_ONLY refusal' }
+          exit 0
+      - name: Scope
+        run: echo 'PLAN_ONLY. No original numerical test, stop test, performance trial, browser or CDP is launched by this job. No execution approval.' >> $env:GITHUB_STEP_SUMMARY

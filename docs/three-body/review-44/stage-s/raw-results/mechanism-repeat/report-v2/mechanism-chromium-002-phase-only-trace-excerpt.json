@@ -1,0 +1,152 @@
+{
+  "clock": {
+    "status": "ALIGNED_WITH_SPREAD",
+    "completeMarkerSet": true,
+    "expectedMarks": 2,
+    "foundMarks": 2,
+    "offsetMs": 157671012.386,
+    "markBracketMs": 0.062000006437301636,
+    "minObservedPositiveDeltaMs": 0.09999999403953552,
+    "accuracyGuaranteed": false,
+    "mainPid": 32968,
+    "mainTid": 25196,
+    "anchorOffsetSpreadMs": 0.062000006437301636
+  },
+  "workerIdentity": [],
+  "window": {
+    "beginMs": 157671805.486,
+    "endMs": 157678158.586,
+    "note": "Boundary events are clipped in window distributions; full durations and full raw trace are preserved."
+  },
+  "task": {
+    "n": 859,
+    "median": 0.07100000977516174,
+    "p95": 29.435999989509583,
+    "p99": 33.6710000038147,
+    "max": 482.03600001335144,
+    "over50": 4,
+    "percentileIsGuarantee": false
+  },
+  "gc": {
+    "n": 753,
+    "median": 0.02899998426437378,
+    "p95": 1.19200000166893,
+    "p99": 4.9749999940395355,
+    "max": 10.662999987602234,
+    "over50": 0,
+    "percentileIsGuarantee": false
+  },
+  "long": [
+    {
+      "id": 266,
+      "name": "paint",
+      "begin": 2681.199999988079,
+      "end": 3135.5999999940395,
+      "duration": 454.40000000596046,
+      "traceBeginMs": 157673693.586,
+      "traceEndMs": 157674147.986,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 454.40000000596046,
+      "styleLayoutOverlapMs": 1.871999979019165,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 482.036,
+        "threadCpuMs": 36.219
+      }
+    },
+    {
+      "id": 375,
+      "name": "paint",
+      "begin": 3899.699999988079,
+      "end": 4325.299999982119,
+      "duration": 425.59999999403954,
+      "traceBeginMs": 157674912.086,
+      "traceEndMs": 157675337.686,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 425.59999999403954,
+      "styleLayoutOverlapMs": 277.55999997258186,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 455.53,
+        "threadCpuMs": 37.833
+      }
+    },
+    {
+      "id": 479,
+      "name": "paint",
+      "begin": 5065.299999982119,
+      "end": 5488.299999982119,
+      "duration": 423,
+      "traceBeginMs": 157676077.686,
+      "traceEndMs": 157676500.686,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 423,
+      "styleLayoutOverlapMs": 8.840000003576279,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 448.917,
+        "threadCpuMs": 34.831
+      }
+    },
+    {
+      "id": 583,
+      "name": "observe",
+      "begin": 6248.9000000059605,
+      "end": 6635.4000000059605,
+      "duration": 386.5,
+      "traceBeginMs": 157677261.286,
+      "traceEndMs": 157677647.786,
+      "mainWaitOverlapMs": 0,
+      "waitIntervals": [],
+      "gcOverlapMs": 0,
+      "gcIntervals": [],
+      "jsOverlapMs": 386.5,
+      "styleLayoutOverlapMs": 0,
+      "paintCompositeOverlapMs": 0,
+      "enclosingTask": {
+        "name": "RunTask",
+        "durationMs": 457.945,
+        "threadCpuMs": 38.354
+      }
+    }
+  ],
+  "wait": {
+    "n": 102,
+    "median": 0.0169999897480011,
+    "p95": 0.020999997854232788,
+    "p99": 0.02400001883506775,
+    "max": 0.025000005960464478,
+    "over50": 0,
+    "percentileIsGuarantee": false
+  },
+  "coverage": {
+    "task": "OBSERVED",
+    "javascript": "OBSERVED",
+    "timer": "OBSERVED",
+    "raf": "OBSERVED",
+    "canvas": "OBSERVED",
+    "styleLayout": "OBSERVED",
+    "paintComposite": "OBSERVED",
+    "gc": "OBSERVED",
+    "input": "OBSERVED",
+    "worker": "OBSERVED"
+  },
+  "limitations": [
+    "GPU presentation completion NOT_TESTED",
+    "OS context-switch/run-queue/swap NOT_TESTED",
+    "Elapsed task duration is not OS CPU time",
+    "Overlap is not proof of causality"
+  ]
+}

@@ -1,0 +1,312 @@
+{
+  "id": "w-07-readback-late",
+  "traceSha256": "cbbe5d57c03d15c71a087e49d44a71cfd9a13d8ee76e8ca6c850b74dcad0bb43",
+  "traceBytes": 91770,
+  "clock": {
+    "status": "BRACKETED",
+    "mainPid": 22828,
+    "mainTid": 28960,
+    "browserPid": 24504,
+    "browserTid": 8604,
+    "anchors": [
+      {
+        "name": "w-07-readback-late/page-before-0",
+        "kind": "page",
+        "phase": "before",
+        "begin": 44118.2282,
+        "end": 44119.9797,
+        "status": "PASS",
+        "pid": 22828,
+        "tid": 28960,
+        "traceMs": 18054661.575,
+        "low": 18010541.5953,
+        "high": 18010543.3468
+      },
+      {
+        "name": "w-07-readback-late/browser-before-0",
+        "kind": "browser",
+        "phase": "before",
+        "begin": 44119.9963,
+        "end": 44121.3459,
+        "status": "PASS",
+        "pid": 24504,
+        "tid": 8604,
+        "traceMs": 18054662.904,
+        "low": 18010541.5581,
+        "high": 18010542.9077
+      },
+      {
+        "name": "w-07-readback-late/browser-before-1",
+        "kind": "browser",
+        "phase": "before",
+        "begin": 44121.3817,
+        "end": 44122.4599,
+        "status": "PASS",
+        "pid": 24504,
+        "tid": 8604,
+        "traceMs": 18054664.157,
+        "low": 18010541.697100002,
+        "high": 18010542.7753
+      },
+      {
+        "name": "w-07-readback-late/browser-after-0",
+        "kind": "browser",
+        "phase": "after",
+        "begin": 44382.5295,
+        "end": 44384.2342,
+        "status": "PASS",
+        "pid": 24504,
+        "tid": 8604,
+        "traceMs": 18054925.775,
+        "low": 18010541.540799998,
+        "high": 18010543.2455
+      },
+      {
+        "name": "w-07-readback-late/browser-after-1",
+        "kind": "browser",
+        "phase": "after",
+        "begin": 44384.2771,
+        "end": 44386.3074,
+        "status": "PASS",
+        "pid": 24504,
+        "tid": 8604,
+        "traceMs": 18054927.578,
+        "low": 18010541.270600002,
+        "high": 18010543.3009
+      },
+      {
+        "name": "w-07-readback-late/page-after-0",
+        "kind": "page",
+        "phase": "after",
+        "begin": 44386.3648,
+        "end": 44388.0582,
+        "status": "PASS",
+        "pid": 22828,
+        "tid": 28960,
+        "traceMs": 18054929.334,
+        "low": 18010541.275799997,
+        "high": 18010542.9692
+      }
+    ],
+    "errors": [],
+    "offsetLow": 18010541.697100002,
+    "offsetHigh": 18010542.7753,
+    "uncertaintyMs": 0.5390999987721443,
+    "domain": "Chrome trace TimeTicks microseconds -> harness performance.now milliseconds via observed marker brackets",
+    "cpuTimeDomain": "tts/tdur are per-thread CPU microseconds when present; never subtracted into a named wait",
+    "crossProcessAssumption": "Chrome integrated trace ts clock; no independent kernel clock calibration",
+    "accuracyGuaranteed": false
+  },
+  "traceStartStage": "AFTER_FROZEN_FRAME30",
+  "earlyStartAckBeforeNavigation": null,
+  "windowBounds": [
+    {
+      "name": "pre-freeze",
+      "beginTraceMs": 18053025.266400002,
+      "endTraceMs": 18054518.3493,
+      "coverage": "NOT_OBTAINED_BEFORE_LATE_TRACE"
+    },
+    {
+      "name": "frozen-to-request",
+      "beginTraceMs": 18054517.271100003,
+      "endTraceMs": 18054721.9507,
+      "coverage": "WITHIN_RECORDING_IF_EVENTS_AVAILABLE"
+    },
+    {
+      "name": "request-decision",
+      "beginTraceMs": 18054720.872500002,
+      "endTraceMs": 18054925.247,
+      "coverage": "WITHIN_RECORDING_IF_EVENTS_AVAILABLE"
+    }
+  ],
+  "selectedCount": 14,
+  "selection": "First120 own marks and named candidates, not full trace. No causal request endpoint assigned.",
+  "events": [
+    {
+      "args": {
+        "data": {
+          "callTime": 18054661599,
+          "navigationId": "7F125F09443BC6DD961CC93F758D5FAE",
+          "sampleTraceId": 1527017931492457,
+          "startTime": 1634
+        }
+      },
+      "cat": "blink.user_timing",
+      "name": "w-07-readback-late/page-before-0",
+      "ph": "I",
+      "pid": 22828,
+      "s": "t",
+      "tid": 28960,
+      "ts": 18054661575,
+      "tts": 217562
+    },
+    {
+      "args": {
+        "call_id": 37,
+        "method": "Page.captureScreenshot"
+      },
+      "cat": "devtools",
+      "dur": 305,
+      "name": "DevToolsSession::HandleCommand in Browser",
+      "ph": "X",
+      "pid": 24504,
+      "tdur": 298,
+      "tid": 8604,
+      "ts": 18054722164,
+      "tts": 54387
+    },
+    {
+      "args": {},
+      "cat": "viz",
+      "dur": 8581,
+      "name": "SkiaOutputSurfaceImplOnGpu::CopyOutput",
+      "ph": "X",
+      "pid": 20272,
+      "tdur": 8017,
+      "tid": 26092,
+      "ts": 18054747097,
+      "tts": 133062
+    },
+    {
+      "args": {},
+      "cat": "viz",
+      "dur": 7667,
+      "name": "viz::mojom::CopyOutputResultSender::SendResult",
+      "ph": "X",
+      "pid": 20272,
+      "tdur": 7658,
+      "tid": 5728,
+      "ts": 18054822838,
+      "tts": 13263
+    },
+    {
+      "args": {},
+      "cat": "viz",
+      "dur": 13,
+      "name": "CopyOutputResultSenderImpl::SendResult",
+      "ph": "X",
+      "pid": 24504,
+      "tdur": 12,
+      "tid": 30268,
+      "ts": 18054830637,
+      "tts": 6119
+    },
+    {
+      "args": {},
+      "cat": "devtools",
+      "dur": 90205,
+      "name": "EncodeBitmapAsPngSlow",
+      "ph": "X",
+      "pid": 24504,
+      "tdur": 90050,
+      "tid": 8604,
+      "ts": 18054830790,
+      "tts": 55983
+    },
+    {
+      "args": {
+        "data": {
+          "callTime": 18054929337,
+          "navigationId": "7F125F09443BC6DD961CC93F758D5FAE",
+          "sampleTraceId": 1527017931492373,
+          "startTime": 1901.7999999970198
+        }
+      },
+      "cat": "blink.user_timing",
+      "name": "w-07-readback-late/page-after-0",
+      "ph": "I",
+      "pid": 22828,
+      "s": "t",
+      "tid": 28960,
+      "ts": 18054929334,
+      "tts": 219478
+    },
+    {
+      "args": {
+        "sync_id": "w-07-readback-late/browser-before-0"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 24504,
+      "tid": 8604,
+      "ts": 18054662904,
+      "tts": 54277
+    },
+    {
+      "args": {
+        "sync_id": "w-07-readback-late/browser-before-1"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 24504,
+      "tid": 8604,
+      "ts": 18054664157,
+      "tts": 54329
+    },
+    {
+      "args": {
+        "sync_id": "w-07-readback-late/browser-after-0"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 24504,
+      "tid": 8604,
+      "ts": 18054925775,
+      "tts": 150084
+    },
+    {
+      "args": {
+        "sync_id": "w-07-readback-late/browser-after-1"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 24504,
+      "tid": 8604,
+      "ts": 18054927578,
+      "tts": 150376
+    },
+    {
+      "args": {},
+      "cat": "viz",
+      "id2": {
+        "local": "0x2b"
+      },
+      "name": "CopyOutputRequest",
+      "ph": "b",
+      "pid": 24504,
+      "tid": 8604,
+      "ts": 18054722434
+    },
+    {
+      "args": {
+        "has_provided_task_runner": true,
+        "success": true
+      },
+      "cat": "viz",
+      "id2": {
+        "local": "0x31"
+      },
+      "name": "CopyOutputRequest",
+      "ph": "b",
+      "pid": 20272,
+      "tid": 5576,
+      "ts": 18054722705
+    },
+    {
+      "args": {},
+      "cat": "viz",
+      "id2": {
+        "local": "0x31"
+      },
+      "name": "CopyOutputRequest",
+      "ph": "e",
+      "pid": 20272,
+      "tid": 5576,
+      "ts": 18054822785
+    }
+  ]
+}

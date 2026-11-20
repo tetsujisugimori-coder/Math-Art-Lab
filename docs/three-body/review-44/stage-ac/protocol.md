@@ -1,0 +1,13 @@
+# Stage AC 第1段階 — 固定計画
+
+基準HEAD fe0cb5f5d9a885b6087adbf2c27c949ab171d2c8、tree 50b19fe0a7beb23a238dc0f13e5a05a15c087c50。ブラウザー、原停止、性能測定は0件。製品・数理・既存期限・旧証拠を変更しない。総合PARTIAL、merge NO。
+
+原文探索は既存Stage AB投稿原票、PR-44/stage-ab内の同名保管原票、Stage ABのGit追跡資料、今回指定API記録に限定する。そこに正常な原文がなければNOT_OBTAINEDとし、他の試行や推測で復元しない。旧報告を残し、新規作成した訂正説明を原文復元と区別して投稿する。取得済みsource/API本文を厳密UTF-8デコードして全文比較し、正常レビューを対照にする。
+
+エンコーディング対照は正常なUTF-8スクリプトの直接実行1回、同じスクリプトを既存PowerShellのnative stdinパイプ経由で実行1回のみ。設定は変更しない。生stdout/stderr、終了値、source SHAを記録する。以後の投稿はUTF-8ファイル→Node JSON→gh APIとし、日本語の代表文字列、期待HEAD、訂正対象の参照、全文の正規化なし一致を検証する。ASCII化済みsourceと応答の一致だけでは合格にしない。
+
+CI禁止はPR44、既存feature branch、refs/pull/44、コミット済み禁止方針を根拠にする。本文markerは追加の拒否条件に残す。dispatch/push/rerunも対象識別で拒否し、他PR/mainの通常条件を限定した正常対照とする。既存AB承認policyは不変。静的workflow条件、実Nodeゲート＋mock child、実GitHub CIでのNOT_RUNを別評価する。
+
+ローカル旧690成功/2失敗の原票は不変。新規全単体は現行srcを明示し1回だけ、defaultとJSONの両reporterで原エラーを保存する。追加の成功までの反復はしない。変更箇所に問題を発見した場合の局所再検証は理由・別IDを記録する。型/build・数理6条件は各1回、browser不要。正式CIは最終HEADで確認するがGUIはNOT_RUN。
+
+新規証拠はPR-44/stage-acへ排他的コピーし別processで集合・サイズ・SHAを確認する。旧6原本NOT_OBTAINED、全履歴LOCAL_BACKUP_PARTIAL_ORIGINAL_GAPS、REMOTE_BACKUP_NOT_UPLOADEDを維持。投稿失敗、保管失敗、計画外の追加試行が必要なら対象をBLOCKEDとして停止する。次回計画はDRAFT/BLOCKEDのみで、今回のレビューを実行承認にしない。

@@ -1,0 +1,123 @@
+{
+  "id": "v-p5-readback-off",
+  "plan": {
+    "id": "v-p5-readback-off",
+    "kind": "capture",
+    "context": "readback",
+    "trace": false,
+    "readback": false,
+    "repeat": 2
+  },
+  "status": "PASS",
+  "issues": [],
+  "request": {
+    "session": {
+      "logicalId": "v-p5-readback-off/page",
+      "targetId": "6DAFFC78D713281DA918BFD884E16699",
+      "wireSessionId": "NOT_EXPOSED_BY_PUBLIC_PLAYWRIGHT_API"
+    },
+    "requestId": "v-p5-readback-off/primary",
+    "wireRequestId": "NOT_EXPOSED_BY_PUBLIC_PLAYWRIGHT_API",
+    "method": "Page.captureScreenshot",
+    "params": {
+      "format": "png",
+      "fromSurface": true,
+      "clip": {
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 900,
+        "scale": 1
+      },
+      "captureBeyondViewport": false
+    },
+    "start": 28682.3834,
+    "clock": "harness performance.now ms",
+    "timeoutMs": 5000,
+    "response": 28885.6314,
+    "finished": 28885.6314,
+    "elapsed": 203.2479999999996,
+    "status": "PASS",
+    "lateReply": false,
+    "result": {
+      "png": "Original payload retained in raw and PNG"
+    }
+  },
+  "timestamps": {
+    "T0": 28682.3834,
+    "T1": null,
+    "T2": null,
+    "T3": null,
+    "T4": 28885.6314,
+    "T1toT3Status": "NOT_OBTAINED",
+    "deadlineFinished": 28885.6314,
+    "clockT0T4": "harness performance.now ms"
+  },
+  "image": {
+    "acquisition": "ACQUIRED",
+    "file": "images/v-p5-readback-off.png",
+    "bytes": 187524,
+    "sha256": "2cb119d896d25f11ec827aa83d7f9936530fa3658baf594d8ac6acacc5c784e7",
+    "bitmap": {
+      "imageWidth": 2560,
+      "imageHeight": 1800,
+      "expectedWidth": 2560,
+      "expectedHeight": 1800,
+      "dimensionsMatch": true,
+      "checks": [
+        {
+          "width": 876,
+          "height": 660,
+          "differentChannels": 0,
+          "maximumChannelError": 0
+        },
+        {
+          "width": 876,
+          "height": 660,
+          "differentChannels": 0,
+          "maximumChannelError": 0
+        }
+      ],
+      "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+    }
+  },
+  "readback": {
+    "contextName": "readback",
+    "explicitBeforePrimary": false,
+    "auxiliary": false,
+    "actualCompletedCalls": null
+  },
+  "before": {
+    "step": 30,
+    "bStep": 30,
+    "ab": true,
+    "playing": false,
+    "disposed": false,
+    "timer": false,
+    "raf": false,
+    "trail": 0,
+    "graph": 0,
+    "b": "30",
+    "a": "30",
+    "observed": "30"
+  },
+  "after": {
+    "step": 30,
+    "bStep": 30,
+    "ab": true,
+    "playing": false,
+    "disposed": false,
+    "timer": false,
+    "raf": false,
+    "trail": 0,
+    "graph": 0,
+    "b": "30",
+    "a": "30",
+    "observed": "30"
+  },
+  "trace": {
+    "requested": false,
+    "status": "OFF",
+    "bufferUsage": []
+  }
+}

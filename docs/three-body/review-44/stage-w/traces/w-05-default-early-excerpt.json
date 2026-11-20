@@ -1,0 +1,261 @@
+{
+  "id": "w-05-default-early",
+  "traceSha256": "9e3df185dc488b6c788145084ba3b02d754838f05e859d1b79aff40aa68ad164",
+  "traceBytes": 713588,
+  "clock": {
+    "status": "BRACKETED",
+    "mainPid": 30616,
+    "mainTid": 3032,
+    "browserPid": 1916,
+    "browserTid": 29132,
+    "anchors": [
+      {
+        "name": "w-05-default-early/page-before-0",
+        "kind": "page",
+        "phase": "before",
+        "begin": 30184.33,
+        "end": 30185.8309,
+        "status": "PASS",
+        "pid": 30616,
+        "tid": 3032,
+        "traceMs": 18040727.349,
+        "low": 18010541.5181,
+        "high": 18010543.019
+      },
+      {
+        "name": "w-05-default-early/browser-before-0",
+        "kind": "browser",
+        "phase": "before",
+        "begin": 30185.8596,
+        "end": 30186.4366,
+        "status": "PASS",
+        "pid": 1916,
+        "tid": 29132,
+        "traceMs": 18040728.224,
+        "low": 18010541.7874,
+        "high": 18010542.3644
+      },
+      {
+        "name": "w-05-default-early/browser-before-1",
+        "kind": "browser",
+        "phase": "before",
+        "begin": 30186.4546,
+        "end": 30187.0324,
+        "status": "PASS",
+        "pid": 1916,
+        "tid": 29132,
+        "traceMs": 18040728.836,
+        "low": 18010541.8036,
+        "high": 18010542.3814
+      },
+      {
+        "name": "w-05-default-early/browser-after-0",
+        "kind": "browser",
+        "phase": "after",
+        "begin": 35300.5217,
+        "end": 35639.0192,
+        "status": "PASS",
+        "pid": 1916,
+        "tid": 29132,
+        "traceMs": 18046180.251,
+        "low": 18010541.231799997,
+        "high": 18010879.7293
+      },
+      {
+        "name": "w-05-default-early/browser-after-1",
+        "kind": "browser",
+        "phase": "after",
+        "begin": 35639.0957,
+        "end": 35640.3418,
+        "status": "PASS",
+        "pid": 1916,
+        "tid": 29132,
+        "traceMs": 18046181.701,
+        "low": 18010541.3592,
+        "high": 18010542.6053
+      },
+      {
+        "name": "w-05-default-early/page-after-0",
+        "kind": "page",
+        "phase": "after",
+        "begin": 35640.4158,
+        "end": 35814.6041,
+        "status": "PASS",
+        "pid": 30616,
+        "tid": 3032,
+        "traceMs": 18046184.522,
+        "low": 18010369.9179,
+        "high": 18010544.1062
+      }
+    ],
+    "errors": [],
+    "offsetLow": 18010541.8036,
+    "offsetHigh": 18010542.3644,
+    "uncertaintyMs": 0.28040000051259995,
+    "domain": "Chrome trace TimeTicks microseconds -> harness performance.now milliseconds via observed marker brackets",
+    "cpuTimeDomain": "tts/tdur are per-thread CPU microseconds when present; never subtracted into a named wait",
+    "crossProcessAssumption": "Chrome integrated trace ts clock; no independent kernel clock calibration",
+    "accuracyGuaranteed": false
+  },
+  "traceStartStage": "BEFORE_NAVIGATION_AND_DRAW",
+  "earlyStartAckBeforeNavigation": true,
+  "windowBounds": [
+    {
+      "name": "pre-freeze",
+      "beginTraceMs": 18039094.106599998,
+      "endTraceMs": 18040617.517899998,
+      "coverage": "WITHIN_RECORDING_IF_EVENTS_AVAILABLE"
+    },
+    {
+      "name": "frozen-to-request",
+      "beginTraceMs": 18040616.957099997,
+      "endTraceMs": 18040789.6477,
+      "coverage": "WITHIN_RECORDING_IF_EVENTS_AVAILABLE"
+    },
+    {
+      "name": "request-decision",
+      "beginTraceMs": 18040789.0869,
+      "endTraceMs": 18045841.0653,
+      "coverage": "WITHIN_RECORDING_IF_EVENTS_AVAILABLE"
+    }
+  ],
+  "selectedCount": 10,
+  "selection": "First120 own marks and named candidates, not full trace. No causal request endpoint assigned.",
+  "events": [
+    {
+      "args": {
+        "data": {
+          "callTime": 18040727372,
+          "navigationId": "76EF49675268CC9D808E4DD3C99ED8A0",
+          "sampleTraceId": 2393636409362412,
+          "startTime": 1630.699999999255
+        }
+      },
+      "cat": "blink.user_timing",
+      "name": "w-05-default-early/page-before-0",
+      "ph": "I",
+      "pid": 30616,
+      "s": "t",
+      "tid": 3032,
+      "ts": 18040727349,
+      "tts": 153168
+    },
+    {
+      "args": {
+        "call_id": 37,
+        "method": "Page.captureScreenshot"
+      },
+      "cat": "devtools",
+      "dur": 276,
+      "name": "DevToolsSession::HandleCommand in Browser",
+      "ph": "X",
+      "pid": 1916,
+      "tdur": 270,
+      "tid": 29132,
+      "ts": 18040789925,
+      "tts": 58888
+    },
+    {
+      "args": {},
+      "cat": "viz",
+      "dur": 11525,
+      "name": "SkiaOutputSurfaceImplOnGpu::CopyOutput",
+      "ph": "X",
+      "pid": 18860,
+      "tdur": 11486,
+      "tid": 20836,
+      "ts": 18040806773,
+      "tts": 192499
+    },
+    {
+      "args": {
+        "data": {
+          "callTime": 18046184532,
+          "navigationId": "76EF49675268CC9D808E4DD3C99ED8A0",
+          "sampleTraceId": 2393636409360440,
+          "startTime": 7087.800000000745
+        }
+      },
+      "cat": "blink.user_timing",
+      "name": "w-05-default-early/page-after-0",
+      "ph": "I",
+      "pid": 30616,
+      "s": "t",
+      "tid": 3032,
+      "ts": 18046184522,
+      "tts": 158479
+    },
+    {
+      "args": {
+        "sync_id": "w-05-default-early/browser-before-0"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 1916,
+      "tid": 29132,
+      "ts": 18040728224,
+      "tts": 58770
+    },
+    {
+      "args": {
+        "sync_id": "w-05-default-early/browser-before-1"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 1916,
+      "tid": 29132,
+      "ts": 18040728836,
+      "tts": 58808
+    },
+    {
+      "args": {
+        "sync_id": "w-05-default-early/browser-after-0"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 1916,
+      "tid": 29132,
+      "ts": 18046180251,
+      "tts": 64640
+    },
+    {
+      "args": {
+        "sync_id": "w-05-default-early/browser-after-1"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 1916,
+      "tid": 29132,
+      "ts": 18046181701,
+      "tts": 64809
+    },
+    {
+      "args": {},
+      "cat": "viz",
+      "id2": {
+        "local": "0x72"
+      },
+      "name": "CopyOutputRequest",
+      "ph": "b",
+      "pid": 1916,
+      "tid": 29132,
+      "ts": 18040790153
+    },
+    {
+      "args": {},
+      "cat": "viz",
+      "id2": {
+        "local": "0x73"
+      },
+      "name": "CopyOutputRequest",
+      "ph": "b",
+      "pid": 18860,
+      "tid": 30556,
+      "ts": 18040790256
+    }
+  ]
+}

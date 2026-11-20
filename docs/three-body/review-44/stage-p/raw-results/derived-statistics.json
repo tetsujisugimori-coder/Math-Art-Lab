@@ -1,0 +1,5167 @@
+{
+  "runs": 215,
+  "valid": 210,
+  "sameEngineCounts": {
+    "phases": 206,
+    "histories": 194,
+    "publicPositionsOnly": 6,
+    "drawReceipts": 130
+  },
+  "missing": [
+    "long-chromium-007-F-legacy",
+    "long-chromium-008-F-legacy",
+    "long-chromium-009-F-legacy"
+  ],
+  "errors": [
+    {
+      "id": "long-chromium-007-F-legacy",
+      "errors": [
+        "TimeoutError: locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#experiment')\u001b[22m\n"
+      ]
+    },
+    {
+      "id": "long-chromium-008-F-legacy",
+      "errors": [
+        "TimeoutError: locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#experiment')\u001b[22m\n"
+      ]
+    },
+    {
+      "id": "long-chromium-009-F-legacy",
+      "errors": [
+        "TimeoutError: locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#experiment')\u001b[22m\n"
+      ]
+    },
+    {
+      "id": "neither-chromium-001-F-no-display-light",
+      "errors": [
+        "Trace: Error: Trace completion deadline"
+      ]
+    },
+    {
+      "id": "probes-chromium-011-escape-light",
+      "errors": [
+        "FUNCTIONAL: calculation continued after stop",
+        "FUNCTIONAL: compute timer remains"
+      ]
+    }
+  ],
+  "sameEngineFailures": [],
+  "crossEngineDifferences": [
+    {
+      "id": "components-webkit-006-F-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 38204,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "components-webkit-012-F-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 38115,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "components-webkit-018-F-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 38095,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "long-webkit-001-F-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 266163,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "long-webkit-002-F-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 266171,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "long-webkit-003-F-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 266151,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-006-F-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 37887,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-007-DPR1-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 37999,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-008-short-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 11935,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-009-no-trails-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 37959,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-010-no-glow-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 38179,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-011-no-vectors-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 37955,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-012-default-context-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 38015,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-013-accumulated-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 37911,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-014-cpu4-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 38091,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-015-trace-off-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 38056,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-016-instrument-off-off",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 38135,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-022-F-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 37979,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-023-DPR1-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 37915,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-024-short-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 11999,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-025-no-trails-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 37891,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-026-no-glow-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 37891,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-027-no-vectors-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 37939,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-028-default-context-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 38015,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-029-accumulated-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 38016,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-030-cpu4-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 38043,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-031-trace-off-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 37967,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-032-instrument-off-off",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 37967,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-038-F-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 37932,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-039-DPR1-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 38044,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-040-short-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 11944,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-041-no-trails-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 37991,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-042-no-glow-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 38028,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-043-no-vectors-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 38175,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-044-default-context-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 38007,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-045-accumulated-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 37975,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-046-cpu4-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 38175,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-047-trace-off-light",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 38055,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    },
+    {
+      "id": "matrix-webkit-048-instrument-off-off",
+      "numeric": {
+        "phasesEqual": true,
+        "historiesEqual": false,
+        "displayedEqual": true,
+        "steps": 38135,
+        "caveat": "Browser JSON round-trip doubles; signed-zero bits not asserted here. Independent Node Float64 verification is separate."
+      }
+    }
+  ],
+  "committedFullFrames": 26466,
+  "committedFullMismatches": [],
+  "drawReceiptFailures": [],
+  "stop": {
+    "T0T1": {
+      "n": 145,
+      "min": -6.5,
+      "max": 1184.7499999981374
+    },
+    "T1T3": {
+      "n": 139,
+      "min": 0,
+      "max": 208.09999999776483
+    },
+    "T2T3": {
+      "n": 139,
+      "min": 0,
+      "max": 1.000000000007276
+    },
+    "T3T4": {
+      "n": 139,
+      "min": 0.8999999985098839,
+      "max": 697.1999999992549
+    },
+    "postSteps": [],
+    "atomicFailures": [],
+    "remainingTimer": []
+  },
+  "traces": {
+    "n": 45,
+    "incomplete": [],
+    "dataLoss": []
+  },
+  "public": [
+    {
+      "id": "minimal-chromium-001-no-poll-public-bare",
+      "latency": {
+        "n": 1238,
+        "median": 10.699999995529652,
+        "p95": 297.5,
+        "p99": 436.40000000596046,
+        "max": 463.3999999985099,
+        "over50": 256,
+        "percentileIsGuarantee": false
+      },
+      "stop": {
+        "T0T1": 46,
+        "T1T3": null,
+        "T2T3": null,
+        "T3T4": null,
+        "uncertainty": 0,
+        "T4Kind": "public DOM/Canvas receipts after two rAFs",
+        "targetHit": false,
+        "postReceiveSteps": null,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": null,
+        "safetyEpoch": [
+          null,
+          null
+        ],
+        "clockEpoch": [
+          null,
+          null
+        ]
+      },
+      "final": {
+        "step": 183078,
+        "bStep": 183078,
+        "ab": true,
+        "playing": false,
+        "timer": null,
+        "clockEpoch": null,
+        "safetyEpoch": null,
+        "observed": "183078",
+        "a": "183078",
+        "b": "183078",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "layout": {
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "minimal-chromium-002-no-poll-public-bare",
+      "latency": {
+        "n": 1246,
+        "median": 10.800000004470348,
+        "p95": 276.79999999701977,
+        "p99": 429.3999999985099,
+        "max": 459,
+        "over50": 258,
+        "percentileIsGuarantee": false
+      },
+      "stop": {
+        "T0T1": 294.70000000298023,
+        "T1T3": null,
+        "T2T3": null,
+        "T3T4": null,
+        "uncertainty": 0,
+        "T4Kind": "public DOM/Canvas receipts after two rAFs",
+        "targetHit": false,
+        "postReceiveSteps": null,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": null,
+        "safetyEpoch": [
+          null,
+          null
+        ],
+        "clockEpoch": [
+          null,
+          null
+        ]
+      },
+      "final": {
+        "step": 181976,
+        "bStep": 181976,
+        "ab": true,
+        "playing": false,
+        "timer": null,
+        "clockEpoch": null,
+        "safetyEpoch": null,
+        "observed": "181976",
+        "a": "181976",
+        "b": "181976",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "layout": {
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "minimal-chromium-003-no-poll-public-bare",
+      "latency": {
+        "n": 1257,
+        "median": 9.650000002235174,
+        "p95": 320.1500000022352,
+        "p99": 418.94999999925494,
+        "max": 462.2500000037253,
+        "over50": 276,
+        "percentileIsGuarantee": false
+      },
+      "stop": {
+        "T0T1": 320.1500000022352,
+        "T1T3": null,
+        "T2T3": null,
+        "T3T4": null,
+        "uncertainty": 0.05000000074505806,
+        "T4Kind": "public DOM/Canvas receipts after two rAFs",
+        "targetHit": false,
+        "postReceiveSteps": null,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": null,
+        "safetyEpoch": [
+          null,
+          null
+        ],
+        "clockEpoch": [
+          null,
+          null
+        ]
+      },
+      "final": {
+        "step": 182709,
+        "bStep": 182709,
+        "ab": true,
+        "playing": false,
+        "timer": null,
+        "clockEpoch": null,
+        "safetyEpoch": null,
+        "observed": "182709",
+        "a": "182709",
+        "b": "182709",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "layout": {
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "minimal-chromium-004-single-request-bare",
+      "latency": {
+        "n": 1,
+        "median": 1.75,
+        "p95": 1.75,
+        "p99": 1.75,
+        "max": 1.75,
+        "over50": 0,
+        "percentileIsGuarantee": false
+      },
+      "stop": {
+        "T0T1": 1.75,
+        "T1T3": null,
+        "T2T3": null,
+        "T3T4": null,
+        "uncertainty": 0.04999999701976776,
+        "T4Kind": "public DOM/Canvas receipts after two rAFs",
+        "targetHit": false,
+        "postReceiveSteps": null,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": null,
+        "safetyEpoch": [
+          null,
+          null
+        ],
+        "clockEpoch": [
+          null,
+          null
+        ]
+      },
+      "final": {
+        "step": 181142,
+        "bStep": 181142,
+        "ab": true,
+        "playing": false,
+        "timer": null,
+        "clockEpoch": null,
+        "safetyEpoch": null,
+        "observed": "181142",
+        "a": "181142",
+        "b": "181142",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "layout": {
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "public-chromium-001-unmodified-public-public",
+      "latency": {
+        "n": 6575,
+        "median": 6.5,
+        "p95": 268.19999999925494,
+        "p99": 422.5,
+        "max": 462.8999999985099,
+        "over50": 1330,
+        "percentileIsGuarantee": false
+      },
+      "stop": {
+        "T0T1": 0.19999999925494194,
+        "T1T3": null,
+        "T2T3": null,
+        "T3T4": null,
+        "uncertainty": 0,
+        "T4Kind": "public DOM/Canvas receipts after two rAFs",
+        "targetHit": false,
+        "postReceiveSteps": null,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": null,
+        "safetyEpoch": [
+          null,
+          null
+        ],
+        "clockEpoch": [
+          null,
+          null
+        ]
+      },
+      "final": {
+        "step": 849465,
+        "bStep": 849465,
+        "ab": true,
+        "playing": false,
+        "timer": null,
+        "clockEpoch": null,
+        "safetyEpoch": null,
+        "observed": "849465",
+        "a": "849465",
+        "b": "849465",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "layout": {
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "public-webkit-001-unmodified-public-public",
+      "latency": {
+        "n": 1253,
+        "median": -1,
+        "p95": 28.000000000007276,
+        "p99": 34,
+        "max": 53,
+        "over50": 1,
+        "percentileIsGuarantee": false
+      },
+      "stop": {
+        "T0T1": 21,
+        "T1T3": null,
+        "T2T3": null,
+        "T3T4": null,
+        "uncertainty": 5,
+        "T4Kind": "public DOM/Canvas receipts after two rAFs",
+        "targetHit": false,
+        "postReceiveSteps": null,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": null,
+        "safetyEpoch": [
+          null,
+          null
+        ],
+        "clockEpoch": [
+          null,
+          null
+        ]
+      },
+      "final": {
+        "step": 269247,
+        "bStep": 269247,
+        "ab": true,
+        "playing": false,
+        "timer": null,
+        "clockEpoch": null,
+        "safetyEpoch": null,
+        "observed": "269247",
+        "a": "269247",
+        "b": "269247",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "layout": {
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "matched": [
+    {
+      "id": "causal-chromium-001-F-causal-light",
+      "options": {
+        "name": "F-causal",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "duration": 60000,
+        "repeat": 0,
+        "trace": true
+      },
+      "latency": {
+        "n": 1262,
+        "median": 8.299999998882413,
+        "p95": 233.59999999962747,
+        "p99": 375.09999999962747,
+        "max": 479.90000000037253,
+        "over50": 199,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 2937,
+          "median": 0.5,
+          "p95": 0.7999999970197678,
+          "p99": 1.199999999254942,
+          "max": 30.099999997764826,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 818,
+          "median": 4.200000002980232,
+          "p95": 15.100000001490116,
+          "p99": 433.9000000022352,
+          "max": 466.1000000014901,
+          "over50": 39,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 818,
+          "median": 2.399999998509884,
+          "p95": 3.899999998509884,
+          "p99": 24.300000000745058,
+          "max": 432,
+          "over50": 8,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 818,
+          "median": 0.3999999985098839,
+          "p95": 0.6000000014901161,
+          "p99": 1.0999999977648258,
+          "max": 129.70000000298023,
+          "over50": 1,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 24.55830922280544,
+        "seconds": 61.2742087,
+        "hostTimeBracketSeconds": [
+          61.228037300000004,
+          61.288269
+        ],
+        "processes": [
+          {
+            "pid": 8404,
+            "type": "browser",
+            "averageCoreEquivalent": 0.006552202117626041
+          },
+          {
+            "pid": 3636,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.7720311204932786
+          },
+          {
+            "pid": 24288,
+            "type": "GPU",
+            "averageCoreEquivalent": 2.7499729262109587
+          },
+          {
+            "pid": 28728,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": 0.000042840210517479964
+          },
+          {
+            "pid": 7648,
+            "type": "tracing.mojom.TracingService",
+            "averageCoreEquivalent": 0.0027736465897437203
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "causal-chromium-002-F-causal-no-canvas-light",
+      "options": {
+        "name": "F-causal-no-canvas",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": false,
+        "duration": 60000,
+        "repeat": 0,
+        "trace": true
+      },
+      "latency": {
+        "n": 1292,
+        "median": 0.7500000018626451,
+        "p95": 195.84999999962747,
+        "p99": 313.24999999813735,
+        "max": 424.5499999988824,
+        "over50": 205,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 3316,
+          "median": 0.4000000022351742,
+          "p95": 0.6999999992549419,
+          "p99": 27.900000002235174,
+          "max": 411.20000000298023,
+          "over50": 26,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 834,
+          "median": 0,
+          "p95": 0.10000000149011612,
+          "p99": 0.10000000149011612,
+          "max": 158,
+          "over50": 1,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 834,
+          "median": 2.2000000029802322,
+          "p95": 3.699999999254942,
+          "p99": 280.0999999977648,
+          "max": 428.80000000074506,
+          "over50": 28,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 846,
+          "median": 0.3999999985098839,
+          "p95": 3.100000001490116,
+          "p99": 131.89999999850988,
+          "max": 241.30000000074506,
+          "over50": 20,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 21.150302605105374,
+        "seconds": 61.4117072,
+        "hostTimeBracketSeconds": [
+          61.3945087,
+          61.423945999999994
+        ],
+        "processes": [
+          {
+            "pid": 408,
+            "type": "browser",
+            "averageCoreEquivalent": 0.006442305840994434
+          },
+          {
+            "pid": 5964,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.2865142625443899
+          },
+          {
+            "pid": 22804,
+            "type": "GPU",
+            "averageCoreEquivalent": 2.7887687023949073
+          },
+          {
+            "pid": 25044,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": 0.0000533611610784206
+          },
+          {
+            "pid": 23640,
+            "type": "tracing.mojom.TracingService",
+            "averageCoreEquivalent": 0.0027407314936198353
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "causal-chromium-003-F-causal-no-dom-light",
+      "options": {
+        "name": "F-causal-no-dom",
+        "ab": true,
+        "saturated": true,
+        "dom": false,
+        "canvas": true,
+        "duration": 60000,
+        "repeat": 0,
+        "trace": true
+      },
+      "latency": {
+        "n": 1443,
+        "median": 1.400000000372529,
+        "p95": 39.90000000037253,
+        "p99": 226.99999999813735,
+        "max": 412.59999999962747,
+        "over50": 68,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 3908,
+          "median": 0.4000000022351742,
+          "p95": 0.6999999992549419,
+          "p99": 1,
+          "max": 244.69999999925494,
+          "over50": 10,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 1054,
+          "median": 2.5,
+          "p95": 3.699999999254942,
+          "p99": 221.10000000149012,
+          "max": 411.4000000022352,
+          "over50": 15,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 1054,
+          "median": 0,
+          "p95": 0.10000000149011612,
+          "p99": 0.10000000149011612,
+          "max": 0.20000000298023224,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 1060,
+          "median": 0.10000000149011612,
+          "p95": 0.30000000074505806,
+          "p99": 5.300000000745058,
+          "max": 57.69999999925494,
+          "over50": 1,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 17.72224240618201,
+        "seconds": 60.726708200000026,
+        "hostTimeBracketSeconds": [
+          60.69508500000002,
+          60.74212110000002
+        ],
+        "processes": [
+          {
+            "pid": 17532,
+            "type": "browser",
+            "averageCoreEquivalent": 0.006323807289788182
+          },
+          {
+            "pid": 16648,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.7751924218411691
+          },
+          {
+            "pid": 29980,
+            "type": "GPU",
+            "averageCoreEquivalent": 1.3178733439070218
+          },
+          {
+            "pid": 31600,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": 0.00005170706750082005
+          },
+          {
+            "pid": 28936,
+            "type": "tracing.mojom.TracingService",
+            "averageCoreEquivalent": 0.0026567881708430873
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "causal-chromium-004-unforced-backend-light",
+      "options": {
+        "name": "unforced-backend",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "backend": "unforced",
+        "duration": 60000,
+        "repeat": 0,
+        "trace": true
+      },
+      "latency": {
+        "n": 1622,
+        "median": 1.8000000026077032,
+        "p95": 27.60000000335276,
+        "p99": 30.09999999962747,
+        "max": 39.000000001862645,
+        "over50": 0,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 4234,
+          "median": 0.4000000022351742,
+          "p95": 0.8000000007450581,
+          "p99": 1.199999999254942,
+          "max": 12.099999997764826,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 1266,
+          "median": 4.199999999254942,
+          "p95": 5.799999997019768,
+          "p99": 7.300000000745058,
+          "max": 17.099999997764826,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 1266,
+          "median": 2.399999998509884,
+          "p95": 3,
+          "p99": 3.800000000745058,
+          "max": 5.799999997019768,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 1266,
+          "median": 0.3999999985098839,
+          "p95": 0.6000000014901161,
+          "p99": 1.0999999977648258,
+          "max": 11.699999999254942,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 12.735095634828697,
+        "seconds": 61.08703729999997,
+        "hostTimeBracketSeconds": [
+          61.04550779999996,
+          61.097648999999976
+        ],
+        "processes": [
+          {
+            "pid": 13324,
+            "type": "browser",
+            "averageCoreEquivalent": 0.0063760990418829855
+          },
+          {
+            "pid": 22028,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.8650976595979066
+          },
+          {
+            "pid": 33376,
+            "type": "GPU",
+            "averageCoreEquivalent": 0.2798683608772758
+          },
+          {
+            "pid": 4348,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": 0.00004799708955601953
+          },
+          {
+            "pid": 26248,
+            "type": "tracing.mojom.TracingService",
+            "averageCoreEquivalent": 0.0028073058963034715
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "causal-chromium-005-gpu-disabled-light",
+      "options": {
+        "name": "gpu-disabled",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "backend": "disabled",
+        "duration": 60000,
+        "repeat": 0,
+        "trace": true
+      },
+      "latency": {
+        "n": 1622,
+        "median": 1.8000000026077032,
+        "p95": 27.10000000335276,
+        "p99": 30.200000004842877,
+        "max": 36.500000001862645,
+        "over50": 0,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 4245,
+          "median": 0.5,
+          "p95": 0.8000000007450581,
+          "p99": 1.199999999254942,
+          "max": 13.400000002235174,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 1278,
+          "median": 4.199999999254942,
+          "p95": 5.800000000745058,
+          "p99": 6.900000002235174,
+          "max": 18.599999997764826,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 1278,
+          "median": 2.399999998509884,
+          "p95": 3,
+          "p99": 4.199999999254942,
+          "max": 5.100000001490116,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 1279,
+          "median": 0.3999999985098839,
+          "p95": 0.6000000014901161,
+          "p99": 1.6000000014901161,
+          "max": 5.699999999254942,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 13.87957494484584,
+        "seconds": 61.101413499999964,
+        "hostTimeBracketSeconds": [
+          61.051412799999994,
+          61.11677739999996
+        ],
+        "processes": [
+          {
+            "pid": 26268,
+            "type": "browser",
+            "averageCoreEquivalent": 0.006457051930558042
+          },
+          {
+            "pid": 23680,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.8804661941249531
+          },
+          {
+            "pid": 15616,
+            "type": "GPU",
+            "averageCoreEquivalent": 0.2892258130820494
+          },
+          {
+            "pid": 23232,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": 0.00004026093438902204
+          },
+          {
+            "pid": 22756,
+            "type": "tracing.mojom.TracingService",
+            "averageCoreEquivalent": 0.002782259693550299
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "causal-chromium-006-geometry-cache-light",
+      "options": {
+        "name": "geometry-cache",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "geometryCache": true,
+        "duration": 60000,
+        "repeat": 0,
+        "trace": true
+      },
+      "latency": {
+        "n": 1278,
+        "median": 7.300000002607703,
+        "p95": 236.8000000026077,
+        "p99": 370.39999999664724,
+        "max": 453.40000000037253,
+        "over50": 214,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 2951,
+          "median": 0.5,
+          "p95": 0.8000000007450581,
+          "p99": 1.2999999970197678,
+          "max": 27.400000002235174,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 818,
+          "median": 3.600000001490116,
+          "p95": 244.59999999776483,
+          "p99": 430.5,
+          "max": 442.80000000074506,
+          "over50": 47,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 818,
+          "median": 2.400000002235174,
+          "p95": 4,
+          "p99": 161.30000000074506,
+          "max": 324.8999999985099,
+          "over50": 15,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 819,
+          "median": 0.3999999985098839,
+          "p95": 0.6000000014901161,
+          "p99": 1.0999999977648258,
+          "max": 53.29999999701977,
+          "over50": 1,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 24.944597443951977,
+        "seconds": 61.1816982000001,
+        "hostTimeBracketSeconds": [
+          61.157333500000064,
+          61.196770699999995
+        ],
+        "processes": [
+          {
+            "pid": 30488,
+            "type": "browser",
+            "averageCoreEquivalent": 0.008136011497634422
+          },
+          {
+            "pid": 28716,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.7782016746962398
+          },
+          {
+            "pid": 7944,
+            "type": "GPU",
+            "averageCoreEquivalent": 2.7521623778661266
+          },
+          {
+            "pid": 32364,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": -0.00040566052806948665
+          },
+          {
+            "pid": 27824,
+            "type": "tracing.mojom.TracingService",
+            "averageCoreEquivalent": 0.002507024232942912
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "causal-chromium-007-default-context-long-light",
+      "options": {
+        "name": "default-context-long",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "context": "default",
+        "duration": 60000,
+        "repeat": 0,
+        "trace": true
+      },
+      "latency": {
+        "n": 754,
+        "median": 542.0999999996275,
+        "p95": 1651.4000000003725,
+        "p99": 2271.8000000026077,
+        "max": 2571.0000000018626,
+        "over50": 605,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 647,
+          "median": 0.5,
+          "p95": 23.399999998509884,
+          "p99": 181.69999999925494,
+          "max": 202.5,
+          "over50": 26,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 147,
+          "median": 5.800000000745058,
+          "p95": 394.5,
+          "p99": 581.8000000007451,
+          "max": 818.6999999992549,
+          "over50": 47,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 147,
+          "median": 2.599999997764826,
+          "p95": 210.80000000074506,
+          "p99": 385.80000000074506,
+          "max": 390.0999999977648,
+          "over50": 40,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 158,
+          "median": 0.3999999985098839,
+          "p95": 2.5,
+          "p99": 177.40000000223517,
+          "max": 186.39999999850988,
+          "over50": 4,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 37.85884612422821,
+        "seconds": 61.60244099999999,
+        "hostTimeBracketSeconds": [
+          61.57654920000001,
+          61.614161300000035
+        ],
+        "processes": [
+          {
+            "pid": 32316,
+            "type": "browser",
+            "averageCoreEquivalent": 0.0034920531801653776
+          },
+          {
+            "pid": 2672,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.10134749368129749
+          },
+          {
+            "pid": 28852,
+            "type": "GPU",
+            "averageCoreEquivalent": 6.373807882061039
+          },
+          {
+            "pid": 32300,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": -0.00011277150527200704
+          },
+          {
+            "pid": 32828,
+            "type": "tracing.mojom.TracingService",
+            "averageCoreEquivalent": 0.002018475209448275
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "causal-chromium-008-F-causal-light",
+      "options": {
+        "name": "F-causal",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "duration": 60000,
+        "repeat": 1,
+        "trace": false
+      },
+      "latency": {
+        "n": 1303,
+        "median": 8.75000000372529,
+        "p95": 282.25,
+        "p99": 402.45000000298023,
+        "max": 454.1500000022352,
+        "over50": 237,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 2906,
+          "median": 0.5,
+          "p95": 0.7999999970197678,
+          "p99": 1.1000000014901161,
+          "max": 86.80000000074506,
+          "over50": 3,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 834,
+          "median": 4.099999997764826,
+          "p95": 86.60000000149012,
+          "p99": 427,
+          "max": 439.30000000074506,
+          "over50": 44,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 834,
+          "median": 2.300000000745058,
+          "p95": 3.899999998509884,
+          "p99": 156.89999999850988,
+          "max": 435.0999999977648,
+          "over50": 16,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 834,
+          "median": 0.30000000074505806,
+          "p95": 0.5999999977648258,
+          "p99": 6.800000000745058,
+          "max": 167.69999999925494,
+          "over50": 5,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 22.56623554213435,
+        "seconds": 61.40496129999997,
+        "hostTimeBracketSeconds": [
+          61.374664100000054,
+          61.415510899999994
+        ],
+        "processes": [
+          {
+            "pid": 33328,
+            "type": "browser",
+            "averageCoreEquivalent": 0.0037210022637047097
+          },
+          {
+            "pid": 28328,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.7083430569640311
+          },
+          {
+            "pid": 24692,
+            "type": "GPU",
+            "averageCoreEquivalent": 2.766814104318963
+          },
+          {
+            "pid": 32372,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": 0.000043270119282690615
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "causal-chromium-009-F-causal-no-canvas-light",
+      "options": {
+        "name": "F-causal-no-canvas",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": false,
+        "duration": 60000,
+        "repeat": 1,
+        "trace": false
+      },
+      "latency": {
+        "n": 1466,
+        "median": 0.19999999925494194,
+        "p95": 71,
+        "p99": 282.1000000014901,
+        "max": 397.30000000074506,
+        "over50": 84,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 3830,
+          "median": 0.19999999925494194,
+          "p95": 0.5999999977648258,
+          "p99": 0.9000000022351742,
+          "max": 292.6000000014901,
+          "over50": 9,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 1091,
+          "median": 0,
+          "p95": 0.10000000149011612,
+          "p99": 0.10000000149011612,
+          "max": 0.30000000074505806,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 1091,
+          "median": 1.1000000014901161,
+          "p95": 2.7999999970197678,
+          "p99": 235.19999999925494,
+          "max": 419.6000000014901,
+          "over50": 21,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 1096,
+          "median": 0.19999999925494194,
+          "p95": 0.5,
+          "p99": 26.300000000745058,
+          "max": 116.30000000074506,
+          "over50": 4,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 15.899292369060959,
+        "seconds": 60.667651799999994,
+        "hostTimeBracketSeconds": [
+          60.63722149999999,
+          60.695947800000084
+        ],
+        "processes": [
+          {
+            "pid": 9308,
+            "type": "browser",
+            "averageCoreEquivalent": 0.0016331108434297441
+          },
+          {
+            "pid": 26732,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.17410179373383958
+          },
+          {
+            "pid": 13168,
+            "type": "GPU",
+            "averageCoreEquivalent": 2.228028562002131
+          },
+          {
+            "pid": 29608,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": 0.000038801567724432715
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "causal-chromium-010-F-causal-no-dom-light",
+      "options": {
+        "name": "F-causal-no-dom",
+        "ab": true,
+        "saturated": true,
+        "dom": false,
+        "canvas": true,
+        "duration": 60000,
+        "repeat": 1,
+        "trace": false
+      },
+      "latency": {
+        "n": 1451,
+        "median": 1.200000001117587,
+        "p95": 68.90000000037253,
+        "p99": 275.8000000026077,
+        "max": 416.2000000011176,
+        "over50": 78,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 3802,
+          "median": 0.4000000022351742,
+          "p95": 0.6999999992549419,
+          "p99": 1,
+          "max": 80.80000000074506,
+          "over50": 5,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 1063,
+          "median": 2.699999999254942,
+          "p95": 3.899999998509884,
+          "p99": 364.5,
+          "max": 395.5,
+          "over50": 22,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 1063,
+          "median": 0,
+          "p95": 0.10000000149011612,
+          "p99": 0.10000000149011612,
+          "max": 30.299999997019768,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 1066,
+          "median": 0.09999999776482582,
+          "p95": 0.20000000298023224,
+          "p99": 0.6000000014901161,
+          "max": 68.59999999776483,
+          "over50": 2,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 17.23277794952398,
+        "seconds": 60.31310200000007,
+        "hostTimeBracketSeconds": [
+          60.29012450000003,
+          60.32619649999996
+        ],
+        "processes": [
+          {
+            "pid": 9292,
+            "type": "browser",
+            "averageCoreEquivalent": 0.003580449236386478
+          },
+          {
+            "pid": 11996,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.7421862002720394
+          },
+          {
+            "pid": 30520,
+            "type": "GPU",
+            "averageCoreEquivalent": 1.3025828119402632
+          },
+          {
+            "pid": 4800,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": 0.00007151016706121321
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "causal-chromium-011-unforced-backend-light",
+      "options": {
+        "name": "unforced-backend",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "backend": "unforced",
+        "duration": 60000,
+        "repeat": 1,
+        "trace": false
+      },
+      "latency": {
+        "n": 1622,
+        "median": 1.6500000022351742,
+        "p95": 25.25,
+        "p99": 28.449999999254942,
+        "max": 39.75,
+        "over50": 0,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 4159,
+          "median": 0.4000000022351742,
+          "p95": 0.6999999992549419,
+          "p99": 1,
+          "max": 3.399999998509884,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 1313,
+          "median": 4,
+          "p95": 5.699999999254942,
+          "p99": 7,
+          "max": 15.399999998509884,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 1313,
+          "median": 2.300000000745058,
+          "p95": 2.900000002235174,
+          "p99": 3.899999998509884,
+          "max": 4.800000000745058,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 1313,
+          "median": 0.30000000074505806,
+          "p95": 0.5999999977648258,
+          "p99": 1.8999999985098839,
+          "max": 31.400000002235174,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 11.28266485125441,
+        "seconds": 61.15202209999995,
+        "hostTimeBracketSeconds": [
+          61.11328279999993,
+          61.1597405999999
+        ],
+        "processes": [
+          {
+            "pid": 30104,
+            "type": "browser",
+            "averageCoreEquivalent": 0.0035363834681764383
+          },
+          {
+            "pid": 15292,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.7839671584629422
+          },
+          {
+            "pid": 18356,
+            "type": "GPU",
+            "averageCoreEquivalent": 0.2764183655670156
+          },
+          {
+            "pid": 4852,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": 0.00004143771396236468
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "causal-chromium-012-gpu-disabled-light",
+      "options": {
+        "name": "gpu-disabled",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "backend": "disabled",
+        "duration": 60000,
+        "repeat": 1,
+        "trace": false
+      },
+      "latency": {
+        "n": 1622,
+        "median": 1.6499999966472387,
+        "p95": 25.549999998882413,
+        "p99": 28.449999997392297,
+        "max": 37.65000000037253,
+        "over50": 0,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 4200,
+          "median": 0.3999999985098839,
+          "p95": 0.6999999992549419,
+          "p99": 0.8999999985098839,
+          "max": 5.099999997764826,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 1309,
+          "median": 4,
+          "p95": 5.5,
+          "p99": 7.5,
+          "max": 15,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 1309,
+          "median": 2.300000000745058,
+          "p95": 3,
+          "p99": 3.800000000745058,
+          "max": 9,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 1309,
+          "median": 0.30000000074505806,
+          "p95": 0.6000000014901161,
+          "p99": 2,
+          "max": 3.199999999254942,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 9.693430696703842,
+        "seconds": 61.004532400000144,
+        "hostTimeBracketSeconds": [
+          60.968567400000055,
+          61.01255920000002
+        ],
+        "processes": [
+          {
+            "pid": 33136,
+            "type": "browser",
+            "averageCoreEquivalent": 0.003408845077878173
+          },
+          {
+            "pid": 28204,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.7794869844785481
+          },
+          {
+            "pid": 27968,
+            "type": "GPU",
+            "averageCoreEquivalent": 0.261021753196816
+          },
+          {
+            "pid": 29652,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": 0.00004075107048931328
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "causal-chromium-013-geometry-cache-light",
+      "options": {
+        "name": "geometry-cache",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "geometryCache": true,
+        "duration": 60000,
+        "repeat": 1,
+        "trace": false
+      },
+      "latency": {
+        "n": 1319,
+        "median": 10.099999999627471,
+        "p95": 281.7000000011176,
+        "p99": 418.99999999813735,
+        "max": 458.2000000011176,
+        "over50": 264,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 2895,
+          "median": 0.4000000022351742,
+          "p95": 0.7000000029802322,
+          "p99": 1.199999999254942,
+          "max": 197.90000000223517,
+          "over50": 4,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 834,
+          "median": 3.5,
+          "p95": 9.799999997019768,
+          "p99": 422.69999999925494,
+          "max": 434.80000000074506,
+          "over50": 37,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 834,
+          "median": 2.300000000745058,
+          "p95": 3.699999999254942,
+          "p99": 103.19999999925494,
+          "max": 434,
+          "over50": 12,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 835,
+          "median": 0.30000000074505806,
+          "p95": 0.5,
+          "p99": 0.8999999985098839,
+          "max": 80.30000000074506,
+          "over50": 1,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 23.599166217362466,
+        "seconds": 61.04398049999983,
+        "hostTimeBracketSeconds": [
+          61.008393099999985,
+          61.06139599999995
+        ],
+        "processes": [
+          {
+            "pid": 32884,
+            "type": "browser",
+            "averageCoreEquivalent": 0.0029205009001665692
+          },
+          {
+            "pid": 26388,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.7111458270648016
+          },
+          {
+            "pid": 33548,
+            "type": "GPU",
+            "averageCoreEquivalent": 2.7778395611013678
+          },
+          {
+            "pid": 9436,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": 0.0005721776285542208
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "causal-chromium-014-default-context-long-light",
+      "options": {
+        "name": "default-context-long",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "context": "default",
+        "duration": 60000,
+        "repeat": 1,
+        "trace": false
+      },
+      "latency": {
+        "n": 1128,
+        "median": 416.5,
+        "p95": 1374.5999999977648,
+        "p99": 1665.2000000029802,
+        "max": 2227.89999999851,
+        "over50": 950,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 649,
+          "median": 0.5,
+          "p95": 150.80000000074506,
+          "p99": 182.80000000074506,
+          "max": 204,
+          "over50": 38,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 151,
+          "median": 5.199999999254942,
+          "p95": 393.80000000074506,
+          "p99": 531.7000000029802,
+          "max": 893.6999999992549,
+          "over50": 54,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 151,
+          "median": 2.600000001490116,
+          "p95": 205.69999999925494,
+          "p99": 340.79999999701977,
+          "max": 603.3999999985099,
+          "over50": 35,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 162,
+          "median": 0.30000000074505806,
+          "p95": 0.6000000014901161,
+          "p99": 2.5,
+          "max": 15.199999999254942,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 37.132453528868545,
+        "seconds": 62.56114960000012,
+        "hostTimeBracketSeconds": [
+          62.50017930000019,
+          63.02018610000005
+        ],
+        "processes": [
+          {
+            "pid": 31216,
+            "type": "browser",
+            "averageCoreEquivalent": 0.0024719174917463426
+          },
+          {
+            "pid": 14944,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.0780364496371082
+          },
+          {
+            "pid": 7944,
+            "type": "GPU",
+            "averageCoreEquivalent": 6.564153386337376
+          },
+          {
+            "pid": 27272,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": 0.00004696205262826549
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "causal-chromium-015-F-causal-light",
+      "options": {
+        "name": "F-causal",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "duration": 60000,
+        "repeat": 2,
+        "trace": false
+      },
+      "latency": {
+        "n": 1297,
+        "median": 9,
+        "p95": 241.59999999776483,
+        "p99": 419.19999999925494,
+        "max": 467.69999999925494,
+        "over50": 237,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 2939,
+          "median": 0.5,
+          "p95": 0.8000000007450581,
+          "p99": 1.2999999970197678,
+          "max": 122.89999999850988,
+          "over50": 5,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 825,
+          "median": 4.199999999254942,
+          "p95": 219.90000000223517,
+          "p99": 427.5,
+          "max": 443.4000000022352,
+          "over50": 45,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 825,
+          "median": 2.399999998509884,
+          "p95": 3.600000001490116,
+          "p99": 30.300000000745058,
+          "max": 211.20000000298023,
+          "over50": 7,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 827,
+          "median": 0.30000000074505806,
+          "p95": 0.6000000014901161,
+          "p99": 6.100000001490116,
+          "max": 99.40000000223517,
+          "over50": 2,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 24.3960576683258,
+        "seconds": 60.71012989999983,
+        "hostTimeBracketSeconds": [
+          60.67259649999998,
+          60.722707399999955
+        ],
+        "processes": [
+          {
+            "pid": 22700,
+            "type": "browser",
+            "averageCoreEquivalent": 0.003041106983366882
+          },
+          {
+            "pid": 29676,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.7344292966172705
+          },
+          {
+            "pid": 31844,
+            "type": "GPU",
+            "averageCoreEquivalent": 2.7415301741925684
+          },
+          {
+            "pid": 5716,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": -0.0009455258964945843
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "causal-chromium-016-F-causal-no-canvas-light",
+      "options": {
+        "name": "F-causal-no-canvas",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": false,
+        "duration": 60000,
+        "repeat": 2,
+        "trace": false
+      },
+      "latency": {
+        "n": 1282,
+        "median": 0.30000000074505806,
+        "p95": 226,
+        "p99": 382.19999999925494,
+        "max": 417.5,
+        "over50": 209,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 3146,
+          "median": 0.3999999985098839,
+          "p95": 0.6000000014901161,
+          "p99": 22,
+          "max": 356.20000000298023,
+          "over50": 21,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 860,
+          "median": 0,
+          "p95": 0.10000000149011612,
+          "p99": 0.19999999925494194,
+          "max": 27.300000000745058,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 860,
+          "median": 2.199999999254942,
+          "p95": 25.699999999254942,
+          "p99": 344.30000000074506,
+          "max": 428,
+          "over50": 41,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 868,
+          "median": 0.29999999701976776,
+          "p95": 0.9000000022351742,
+          "p99": 80.09999999776483,
+          "max": 242.89999999850988,
+          "over50": 15,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 20.278892306021167,
+        "seconds": 60.64553460000013,
+        "hostTimeBracketSeconds": [
+          60.57148280000011,
+          60.65859639999992
+        ],
+        "processes": [
+          {
+            "pid": 31104,
+            "type": "browser",
+            "averageCoreEquivalent": 0.003905332875076996
+          },
+          {
+            "pid": 11384,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.22632193929081088
+          },
+          {
+            "pid": 13324,
+            "type": "GPU",
+            "averageCoreEquivalent": 2.8353847176738327
+          },
+          {
+            "pid": 30240,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": 0.00004664811710638283
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "causal-chromium-017-F-causal-no-dom-light",
+      "options": {
+        "name": "F-causal-no-dom",
+        "ab": true,
+        "saturated": true,
+        "dom": false,
+        "canvas": true,
+        "duration": 60000,
+        "repeat": 2,
+        "trace": false
+      },
+      "latency": {
+        "n": 1487,
+        "median": 0.5499999988824129,
+        "p95": 48.9499999973923,
+        "p99": 221.74999999813735,
+        "max": 417.5499999988824,
+        "over50": 73,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 3917,
+          "median": 0.3999999985098839,
+          "p95": 0.6999999992549419,
+          "p99": 0.9000000022351742,
+          "max": 236.29999999701977,
+          "over50": 6,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 1104,
+          "median": 2.300000000745058,
+          "p95": 3.599999997764826,
+          "p99": 280.3999999985099,
+          "max": 409,
+          "over50": 19,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 1104,
+          "median": 0,
+          "p95": 0.10000000149011612,
+          "p99": 0.10000000149011612,
+          "max": 46,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 1107,
+          "median": 0,
+          "p95": 0.19999999925494194,
+          "p99": 0.4000000022351742,
+          "max": 22.699999999254942,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 15.671857135823808,
+        "seconds": 60.44562150000012,
+        "hostTimeBracketSeconds": [
+          60.42451980000013,
+          60.462275600000055
+        ],
+        "processes": [
+          {
+            "pid": 31788,
+            "type": "browser",
+            "averageCoreEquivalent": 0.0032833643707344397
+          },
+          {
+            "pid": 11424,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.6478185686286627
+          },
+          {
+            "pid": 33584,
+            "type": "GPU",
+            "averageCoreEquivalent": 1.1959259613204547
+          },
+          {
+            "pid": 29524,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": 0.00004756341201653451
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "causal-chromium-018-unforced-backend-light",
+      "options": {
+        "name": "unforced-backend",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "backend": "unforced",
+        "duration": 60000,
+        "repeat": 2,
+        "trace": false
+      },
+      "latency": {
+        "n": 1622,
+        "median": 1.7500000018626451,
+        "p95": 23.84999999962747,
+        "p99": 28.14999999664724,
+        "max": 34.04999999888241,
+        "over50": 0,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 4193,
+          "median": 0.4000000022351742,
+          "p95": 0.6999999992549419,
+          "p99": 1,
+          "max": 1.9000000022351742,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 1315,
+          "median": 4,
+          "p95": 5.700000002980232,
+          "p99": 6.900000002235174,
+          "max": 13.199999999254942,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 1315,
+          "median": 2.300000000745058,
+          "p95": 2.900000002235174,
+          "p99": 3.800000000745058,
+          "max": 11.400000002235174,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 1315,
+          "median": 0.30000000074505806,
+          "p95": 0.6000000014901161,
+          "p99": 1.800000000745058,
+          "max": 3.800000000745058,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 11.46708585575118,
+        "seconds": 60.15421619999991,
+        "hostTimeBracketSeconds": [
+          60.13184719999996,
+          60.16840809999989
+        ],
+        "processes": [
+          {
+            "pid": 32428,
+            "type": "browser",
+            "averageCoreEquivalent": 0.00357248441714382
+          },
+          {
+            "pid": 32304,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.7969795141308827
+          },
+          {
+            "pid": 16572,
+            "type": "GPU",
+            "averageCoreEquivalent": 0.267005074866224
+          },
+          {
+            "pid": 4160,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": 0.00004992168778354077
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "causal-chromium-019-gpu-disabled-light",
+      "options": {
+        "name": "gpu-disabled",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "backend": "disabled",
+        "duration": 60000,
+        "repeat": 2,
+        "trace": false
+      },
+      "latency": {
+        "n": 1622,
+        "median": 1.5000000018626451,
+        "p95": 23.800000002607703,
+        "p99": 28.500000001862645,
+        "max": 35.59999999962747,
+        "over50": 0,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 4199,
+          "median": 0.3999999985098839,
+          "p95": 0.6000000014901161,
+          "p99": 0.9000000022351742,
+          "max": 6.5,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 1317,
+          "median": 4,
+          "p95": 5.5,
+          "p99": 6.899999998509884,
+          "max": 14.800000000745058,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 1317,
+          "median": 2.300000000745058,
+          "p95": 2.900000002235174,
+          "p99": 4.199999999254942,
+          "max": 10.300000000745058,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 1317,
+          "median": 0.30000000074505806,
+          "p95": 0.5,
+          "p99": 1.5999999977648258,
+          "max": 2.699999999254942,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 10.40118800038059,
+        "seconds": 61.168447999999856,
+        "hostTimeBracketSeconds": [
+          61.1395832,
+          61.1764206999999
+        ],
+        "processes": [
+          {
+            "pid": 17880,
+            "type": "browser",
+            "averageCoreEquivalent": 0.0034782801747724667
+          },
+          {
+            "pid": 17020,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.773781803324487
+          },
+          {
+            "pid": 9256,
+            "type": "GPU",
+            "averageCoreEquivalent": 0.2620295679236465
+          },
+          {
+            "pid": 28508,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": 0.00003787900585609112
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "causal-chromium-020-geometry-cache-light",
+      "options": {
+        "name": "geometry-cache",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "geometryCache": true,
+        "duration": 60000,
+        "repeat": 2,
+        "trace": false
+      },
+      "latency": {
+        "n": 1316,
+        "median": 9.449999997392297,
+        "p95": 266.14999999664724,
+        "p99": 403.64999999664724,
+        "max": 465.84999999962747,
+        "over50": 257,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 2924,
+          "median": 0.5,
+          "p95": 0.7000000029802322,
+          "p99": 1.1000000014901161,
+          "max": 163.69999999925494,
+          "over50": 2,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 834,
+          "median": 3.5,
+          "p95": 49,
+          "p99": 412.69999999925494,
+          "max": 435.1000000014901,
+          "over50": 41,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 834,
+          "median": 2.300000000745058,
+          "p95": 3.7000000029802322,
+          "p99": 233.90000000223517,
+          "max": 444.30000000074506,
+          "over50": 17,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 834,
+          "median": 0.30000000074505806,
+          "p95": 0.5,
+          "p99": 1.1000000014901161,
+          "max": 54.399999998509884,
+          "over50": 1,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 25.803638570874575,
+        "seconds": 61.10761920000007,
+        "hostTimeBracketSeconds": [
+          61.07642299999995,
+          61.12138020000001
+        ],
+        "processes": [
+          {
+            "pid": 9004,
+            "type": "browser",
+            "averageCoreEquivalent": 0.003719912557156207
+          },
+          {
+            "pid": 6088,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.7206449470052327
+          },
+          {
+            "pid": 32396,
+            "type": "GPU",
+            "averageCoreEquivalent": 2.7496088572863235
+          },
+          {
+            "pid": 29816,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": 0.00004393887431961998
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "causal-chromium-021-default-context-long-light",
+      "options": {
+        "name": "default-context-long",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "context": "default",
+        "duration": 60000,
+        "repeat": 2,
+        "trace": false
+      },
+      "latency": {
+        "n": 1098,
+        "median": 406.84999999962747,
+        "p95": 1500.3499999996275,
+        "p99": 2120.7499999981374,
+        "max": 2452.7499999981374,
+        "over50": 919,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 703,
+          "median": 0.5,
+          "p95": 41,
+          "p99": 182.09999999776483,
+          "max": 195.39999999850988,
+          "over50": 31,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 159,
+          "median": 5.399999998509884,
+          "p95": 416.30000000074506,
+          "p99": 645.5,
+          "max": 765.7999999970198,
+          "over50": 55,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 159,
+          "median": 2.699999999254942,
+          "p95": 296.8999999985099,
+          "p99": 379.69999999925494,
+          "max": 389.19999999925494,
+          "over50": 33,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 170,
+          "median": 0.30000000074505806,
+          "p95": 0.6999999992549419,
+          "p99": 2.599999997764826,
+          "max": 7.400000002235174,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 39.06086885671656,
+        "seconds": 63.698847700000044,
+        "hostTimeBracketSeconds": [
+          63.684188499999934,
+          63.71329610000015
+        ],
+        "processes": [
+          {
+            "pid": 31628,
+            "type": "browser",
+            "averageCoreEquivalent": 0.0023758043585457183
+          },
+          {
+            "pid": 23540,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.08135112623081242
+          },
+          {
+            "pid": 30800,
+            "type": "GPU",
+            "averageCoreEquivalent": 6.487671079174007
+          },
+          {
+            "pid": 33412,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": 0.0000558722822861991
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "causal-chromium-022-os-counters-light",
+      "options": {
+        "name": "os-counters",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "duration": 60000,
+        "osCounters": true,
+        "trace": true
+      },
+      "latency": {
+        "n": 1302,
+        "median": 11.200000001117587,
+        "p95": 241.90000000037253,
+        "p99": 394.59999999962747,
+        "max": 466.7000000011176,
+        "over50": 241,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 2947,
+          "median": 0.5,
+          "p95": 0.7000000029802322,
+          "p99": 1.199999999254942,
+          "max": 75,
+          "over50": 1,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 818,
+          "median": 4.299999997019768,
+          "p95": 12,
+          "p99": 434,
+          "max": 445.80000000074506,
+          "over50": 39,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 818,
+          "median": 2.400000002235174,
+          "p95": 3.800000000745058,
+          "p99": 65.39999999850988,
+          "max": 340,
+          "over50": 10,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 820,
+          "median": 0.3999999985098839,
+          "p95": 0.6000000014901161,
+          "p99": 1.2999999970197678,
+          "max": 26.100000001490116,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 27.369896192636013,
+        "seconds": 62.72747989999992,
+        "hostTimeBracketSeconds": [
+          62.70060660000006,
+          62.73642839999986
+        ],
+        "processes": [
+          {
+            "pid": 11728,
+            "type": "browser",
+            "averageCoreEquivalent": 0.0016352801063190825
+          },
+          {
+            "pid": 28744,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.7940171050933621
+          },
+          {
+            "pid": 26096,
+            "type": "GPU",
+            "averageCoreEquivalent": 2.6732886968730303
+          },
+          {
+            "pid": 6148,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": 0.00016463278959179126
+          },
+          {
+            "pid": 24212,
+            "type": "tracing.mojom.TracingService",
+            "averageCoreEquivalent": 0.00261357542597531
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "neither-chromium-001-F-no-display-light",
+      "options": {
+        "name": "F-no-display",
+        "ab": true,
+        "saturated": true,
+        "dom": false,
+        "canvas": false,
+        "duration": 60000,
+        "repeat": 0,
+        "trace": true
+      },
+      "latency": {
+        "n": 1618,
+        "median": 0.2000000011175871,
+        "p95": 1.700000001117587,
+        "p99": 2.7000000048428774,
+        "max": 10.400000000372529,
+        "over50": 0,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 4169,
+          "median": 0.30000000074505806,
+          "p95": 0.5999999977648258,
+          "p99": 0.8000000007450581,
+          "max": 17.899999998509884,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 1261,
+          "median": 0,
+          "p95": 0.10000000149011612,
+          "p99": 0.10000000149011612,
+          "max": 0.20000000298023224,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 1261,
+          "median": 0,
+          "p95": 0.09999999776482582,
+          "p99": 0.10000000149011612,
+          "max": 0.19999999925494194,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 1262,
+          "median": 0.10000000149011612,
+          "p95": 0.6999999992549419,
+          "p99": 1.2000000029802322,
+          "max": 24.399999998509884,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 9.312901590380562,
+        "seconds": 60.35288200000001,
+        "hostTimeBracketSeconds": [
+          60.33202860000001,
+          60.362780900000004
+        ],
+        "processes": [
+          {
+            "pid": 28188,
+            "type": "browser",
+            "averageCoreEquivalent": 0.005234994411700174
+          },
+          {
+            "pid": 6240,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.09748122715995566
+          },
+          {
+            "pid": 22424,
+            "type": "GPU",
+            "averageCoreEquivalent": 0.030039725360588413
+          },
+          {
+            "pid": 33764,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": 0.000039235905917467235
+          },
+          {
+            "pid": 8124,
+            "type": "tracing.mojom.TracingService",
+            "averageCoreEquivalent": 0.0016349509208193238
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "neither-chromium-002-F-no-display-light",
+      "options": {
+        "name": "F-no-display",
+        "ab": true,
+        "saturated": true,
+        "dom": false,
+        "canvas": false,
+        "duration": 60000,
+        "repeat": 1,
+        "trace": false
+      },
+      "latency": {
+        "n": 1607,
+        "median": 0.19999999925494194,
+        "p95": 1.6000000014901161,
+        "p99": 2.599999997764826,
+        "max": 15.600000001490116,
+        "over50": 0,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 4258,
+          "median": 0.30000000074505806,
+          "p95": 0.6000000014901161,
+          "p99": 0.8999999985098839,
+          "max": 15.400000002235174,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 1235,
+          "median": 0,
+          "p95": 0.10000000149011612,
+          "p99": 0.10000000149011612,
+          "max": 0.30000000074505806,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 1235,
+          "median": 0,
+          "p95": 0.09999999776482582,
+          "p99": 0.10000000149011612,
+          "max": 0.20000000298023224,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 1237,
+          "median": 0.09999999776482582,
+          "p95": 0.6000000014901161,
+          "p99": 0.9000000022351742,
+          "max": 34.5,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 6.294282043909172,
+        "seconds": 60.287397799999994,
+        "hostTimeBracketSeconds": [
+          60.2747597,
+          60.29527529999999
+        ],
+        "processes": [
+          {
+            "pid": 25332,
+            "type": "browser",
+            "averageCoreEquivalent": 0.003237674988851484
+          },
+          {
+            "pid": 31760,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.07564021945561566
+          },
+          {
+            "pid": 33676,
+            "type": "GPU",
+            "averageCoreEquivalent": 0.024312858963702028
+          },
+          {
+            "pid": 28212,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": 0.00003863162261085359
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "neither-chromium-003-F-no-display-light",
+      "options": {
+        "name": "F-no-display",
+        "ab": true,
+        "saturated": true,
+        "dom": false,
+        "canvas": false,
+        "duration": 60000,
+        "repeat": 2,
+        "trace": false
+      },
+      "latency": {
+        "n": 1610,
+        "median": 0.24999999813735485,
+        "p95": 1.9499999973922968,
+        "p99": 2.749999998137355,
+        "max": 34.84999999590218,
+        "over50": 0,
+        "percentileIsGuarantee": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 4495,
+          "median": 0.30000000074505806,
+          "p95": 0.6000000014901161,
+          "p99": 0.8999999985098839,
+          "max": 34.100000001490116,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 1182,
+          "median": 0,
+          "p95": 0.10000000149011612,
+          "p99": 0.10000000149011612,
+          "max": 0.30000000074505806,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 1182,
+          "median": 0,
+          "p95": 0.10000000149011612,
+          "p99": 0.10000000149011612,
+          "max": 0.20000000298023224,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 1182,
+          "median": 0.09999999776482582,
+          "p95": 0.6999999992549419,
+          "p99": 1,
+          "max": 29.100000001490116,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        }
+      },
+      "cpu": {
+        "hostBusyPercent": 4.6722394161146985,
+        "seconds": 60.41540599999999,
+        "hostTimeBracketSeconds": [
+          60.391438199999975,
+          60.424201499999995
+        ],
+        "processes": [
+          {
+            "pid": 25284,
+            "type": "browser",
+            "averageCoreEquivalent": 0.0029342019153194144
+          },
+          {
+            "pid": 11384,
+            "type": "renderer",
+            "averageCoreEquivalent": 0.07858156245776121
+          },
+          {
+            "pid": 31524,
+            "type": "GPU",
+            "averageCoreEquivalent": 0.028057909600077837
+          },
+          {
+            "pid": 15184,
+            "type": "network.mojom.NetworkService",
+            "averageCoreEquivalent": 0.00009611786768427908
+          }
+        ],
+        "note": "Cumulative CPU deltas over host sampling brackets; not instantaneous thread CPU. Missing start pid is NOT_TESTED."
+      },
+      "layout": {
+        "mode": "CSS1Compat",
+        "visibility": "visible",
+        "canvases": [
+          {
+            "id": "tb-a",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          },
+          {
+            "id": "tb-b",
+            "width": 876,
+            "height": 660,
+            "rect": {
+              "width": 438,
+              "height": 330
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "probes": [
+    {
+      "id": "probes-chromium-001-F-light",
+      "stop": {
+        "T0T1": 5.299999998882413,
+        "T1T3": 1.3999999985098839,
+        "T2T3": 0.30000000074505806,
+        "T3T4": 6,
+        "uncertainty": 0.09999999962747097,
+        "T4Kind": "same-step DOM and Canvas command receipt",
+        "target": "calculate",
+        "targetHit": false,
+        "postReceiveSteps": 0,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": false,
+        "safetyEpoch": [
+          0,
+          0
+        ],
+        "clockEpoch": [
+          1,
+          2
+        ]
+      },
+      "errors": []
+    },
+    {
+      "id": "probes-chromium-002-F-light",
+      "stop": {
+        "T0T1": 67.75000000186265,
+        "T1T3": 208.09999999776483,
+        "T2T3": 0.19999999925494194,
+        "T3T4": 8.800000000745058,
+        "uncertainty": 0.04999999888241291,
+        "T4Kind": "same-step DOM and Canvas command receipt",
+        "target": "calculate",
+        "targetHit": true,
+        "postReceiveSteps": 0,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": false,
+        "safetyEpoch": [
+          0,
+          0
+        ],
+        "clockEpoch": [
+          1,
+          2
+        ]
+      },
+      "errors": []
+    },
+    {
+      "id": "probes-chromium-003-F-light",
+      "stop": {
+        "T0T1": 203.75000000186265,
+        "T1T3": 1.1000000014901161,
+        "T2T3": 0.20000000298023224,
+        "T3T4": 6.299999997019768,
+        "uncertainty": 0.04999999888241291,
+        "T4Kind": "same-step DOM and Canvas command receipt",
+        "target": "calculate",
+        "targetHit": false,
+        "postReceiveSteps": 0,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": false,
+        "safetyEpoch": [
+          0,
+          0
+        ],
+        "clockEpoch": [
+          1,
+          2
+        ]
+      },
+      "errors": []
+    },
+    {
+      "id": "probes-chromium-004-F-light",
+      "stop": {
+        "T0T1": 345.40000000037253,
+        "T1T3": 1.300000000745058,
+        "T2T3": 0.30000000074505806,
+        "T3T4": 8.099999997764826,
+        "uncertainty": 0.09999999962747097,
+        "T4Kind": "same-step DOM and Canvas command receipt",
+        "target": "paint",
+        "targetHit": true,
+        "postReceiveSteps": 0,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": false,
+        "safetyEpoch": [
+          0,
+          0
+        ],
+        "clockEpoch": [
+          1,
+          2
+        ]
+      },
+      "errors": []
+    },
+    {
+      "id": "probes-chromium-005-F-light",
+      "stop": {
+        "T0T1": 266.0499999988824,
+        "T1T3": 1.0999999977648258,
+        "T2T3": 0.19999999925494194,
+        "T3T4": 7.600000001490116,
+        "uncertainty": 0.04999999888241291,
+        "T4Kind": "same-step DOM and Canvas command receipt",
+        "target": "paint",
+        "targetHit": true,
+        "postReceiveSteps": 0,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": false,
+        "safetyEpoch": [
+          0,
+          0
+        ],
+        "clockEpoch": [
+          1,
+          2
+        ]
+      },
+      "errors": []
+    },
+    {
+      "id": "probes-chromium-006-F-light",
+      "stop": {
+        "T0T1": 322.8999999985099,
+        "T1T3": 0.8000000007450581,
+        "T2T3": 0.10000000149011612,
+        "T3T4": 6.800000000745058,
+        "uncertainty": 0,
+        "T4Kind": "same-step DOM and Canvas command receipt",
+        "target": "paint",
+        "targetHit": true,
+        "postReceiveSteps": 0,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": false,
+        "safetyEpoch": [
+          0,
+          0
+        ],
+        "clockEpoch": [
+          1,
+          2
+        ]
+      },
+      "errors": []
+    },
+    {
+      "id": "probes-chromium-007-F-light",
+      "stop": {
+        "T0T1": 25.500000001862645,
+        "T1T3": 1.1000000014901161,
+        "T2T3": 0.30000000074505806,
+        "T3T4": 6.399999998509884,
+        "uncertainty": 0.09999999962747097,
+        "T4Kind": "same-step DOM and Canvas command receipt",
+        "target": "observe",
+        "targetHit": true,
+        "postReceiveSteps": 0,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": false,
+        "safetyEpoch": [
+          0,
+          0
+        ],
+        "clockEpoch": [
+          1,
+          2
+        ]
+      },
+      "errors": []
+    },
+    {
+      "id": "probes-chromium-008-F-light",
+      "stop": {
+        "T0T1": 453.69999999925494,
+        "T1T3": 0.8999999985098839,
+        "T2T3": 0.19999999925494194,
+        "T3T4": 4.5,
+        "uncertainty": 0,
+        "T4Kind": "same-step DOM and Canvas command receipt",
+        "target": "observe",
+        "targetHit": true,
+        "postReceiveSteps": 0,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": false,
+        "safetyEpoch": [
+          0,
+          0
+        ],
+        "clockEpoch": [
+          1,
+          2
+        ]
+      },
+      "errors": []
+    },
+    {
+      "id": "probes-chromium-009-F-light",
+      "stop": {
+        "T0T1": 69.15000000037253,
+        "T1T3": 1.0999999977648258,
+        "T2T3": 0.29999999701976776,
+        "T3T4": 6,
+        "uncertainty": 0.04999999888241291,
+        "T4Kind": "same-step DOM and Canvas command receipt",
+        "target": "observe",
+        "targetHit": true,
+        "postReceiveSteps": 0,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": false,
+        "safetyEpoch": [
+          0,
+          0
+        ],
+        "clockEpoch": [
+          1,
+          2
+        ]
+      },
+      "errors": []
+    },
+    {
+      "id": "probes-chromium-010-synthetic-light",
+      "stop": {
+        "T0T1": 96.74999999627471,
+        "T1T3": 0.9000000022351742,
+        "T2T3": 0.19999999925494194,
+        "T3T4": 7.099999997764826,
+        "uncertainty": 0.05000000074505806,
+        "T4Kind": "same-step DOM and Canvas command receipt",
+        "target": "any",
+        "targetHit": true,
+        "postReceiveSteps": 0,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": false,
+        "safetyEpoch": [
+          0,
+          0
+        ],
+        "clockEpoch": [
+          1,
+          2
+        ]
+      },
+      "errors": []
+    },
+    {
+      "id": "probes-chromium-011-escape-light",
+      "stop": {
+        "T0T1": 10.549999998882413,
+        "T1T3": null,
+        "T2T3": null,
+        "T3T4": null,
+        "uncertainty": 0.04999999888241291,
+        "T4Kind": "same-step DOM and Canvas command receipt",
+        "targetHit": false,
+        "postReceiveSteps": null,
+        "postStopSteps": 425,
+        "atomic": true,
+        "timerAfter": true,
+        "safetyEpoch": [
+          0,
+          0
+        ],
+        "clockEpoch": [
+          1,
+          1
+        ]
+      },
+      "errors": [
+        "FUNCTIONAL: calculation continued after stop",
+        "FUNCTIONAL: compute timer remains"
+      ]
+    },
+    {
+      "id": "probes-chromium-012-visibility-light",
+      "stop": {
+        "T0T1": 7.399999998509884,
+        "T1T3": 0.4000000022351742,
+        "T2T3": 0.10000000149011612,
+        "T3T4": 6.599999997764826,
+        "uncertainty": 0,
+        "T4Kind": "same-step DOM and Canvas command receipt",
+        "targetHit": false,
+        "postReceiveSteps": 0,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": false,
+        "safetyEpoch": [
+          0,
+          1
+        ],
+        "clockEpoch": [
+          1,
+          2
+        ]
+      },
+      "errors": []
+    },
+    {
+      "id": "stops-chromium-001-stop-pause-light",
+      "stop": {
+        "T0T1": 0.25,
+        "T1T3": 0.8999999985098839,
+        "T2T3": 0.09999999776482582,
+        "T3T4": 6.400000002235174,
+        "uncertainty": 0.05000000074505806,
+        "T4Kind": "same-step DOM and Canvas command receipt",
+        "targetHit": false,
+        "postReceiveSteps": 0,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": false,
+        "safetyEpoch": [
+          0,
+          0
+        ],
+        "clockEpoch": [
+          1,
+          2
+        ]
+      },
+      "errors": []
+    },
+    {
+      "id": "stops-chromium-002-stop-escape-light",
+      "stop": {
+        "T0T1": 6.049999998882413,
+        "T1T3": 1,
+        "T2T3": 0.3999999985098839,
+        "T3T4": 7.199999999254942,
+        "uncertainty": 0.15000000037252903,
+        "T4Kind": "same-step DOM and Canvas command receipt",
+        "targetHit": false,
+        "postReceiveSteps": 0,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": false,
+        "safetyEpoch": [
+          0,
+          0
+        ],
+        "clockEpoch": [
+          1,
+          2
+        ]
+      },
+      "errors": []
+    },
+    {
+      "id": "stops-chromium-003-stop-visibility-light",
+      "stop": {
+        "T0T1": 23.34999999962747,
+        "T1T3": 0.9000000022351742,
+        "T2T3": 0.5,
+        "T3T4": 6.299999997019768,
+        "uncertainty": 0.04999999888241291,
+        "T4Kind": "same-step DOM and Canvas command receipt",
+        "targetHit": false,
+        "postReceiveSteps": 0,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": false,
+        "safetyEpoch": [
+          0,
+          1
+        ],
+        "clockEpoch": [
+          1,
+          2
+        ]
+      },
+      "errors": []
+    },
+    {
+      "id": "stops-chromium-004-stop-pause-light",
+      "stop": {
+        "T0T1": 20.399999998509884,
+        "T1T3": 1.1000000014901161,
+        "T2T3": 0.10000000149011612,
+        "T3T4": 6.899999998509884,
+        "uncertainty": 0,
+        "T4Kind": "same-step DOM and Canvas command receipt",
+        "targetHit": false,
+        "postReceiveSteps": 0,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": false,
+        "safetyEpoch": [
+          0,
+          0
+        ],
+        "clockEpoch": [
+          1,
+          2
+        ]
+      },
+      "errors": []
+    },
+    {
+      "id": "stops-chromium-005-stop-escape-light",
+      "stop": {
+        "T0T1": 15.850000001490116,
+        "T1T3": 0.7000000029802322,
+        "T2T3": 0.10000000149011612,
+        "T3T4": 5.5999999940395355,
+        "uncertainty": 0.04999999701976776,
+        "T4Kind": "same-step DOM and Canvas command receipt",
+        "targetHit": false,
+        "postReceiveSteps": 0,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": false,
+        "safetyEpoch": [
+          0,
+          0
+        ],
+        "clockEpoch": [
+          1,
+          2
+        ]
+      },
+      "errors": []
+    },
+    {
+      "id": "stops-chromium-006-stop-visibility-light",
+      "stop": {
+        "T0T1": 11.399999998509884,
+        "T1T3": 0.3999999985098839,
+        "T2T3": 0.10000000149011612,
+        "T3T4": 5.600000001490116,
+        "uncertainty": 0.10000000149011612,
+        "T4Kind": "same-step DOM and Canvas command receipt",
+        "targetHit": false,
+        "postReceiveSteps": 0,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": false,
+        "safetyEpoch": [
+          0,
+          1
+        ],
+        "clockEpoch": [
+          1,
+          2
+        ]
+      },
+      "errors": []
+    },
+    {
+      "id": "stops-chromium-007-stop-pause-light",
+      "stop": {
+        "T0T1": 0.5,
+        "T1T3": 0.8999999985098839,
+        "T2T3": 0.10000000149011612,
+        "T3T4": 14,
+        "uncertainty": 0,
+        "T4Kind": "same-step DOM and Canvas command receipt",
+        "targetHit": false,
+        "postReceiveSteps": 0,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": false,
+        "safetyEpoch": [
+          0,
+          0
+        ],
+        "clockEpoch": [
+          1,
+          2
+        ]
+      },
+      "errors": []
+    },
+    {
+      "id": "stops-chromium-008-stop-escape-light",
+      "stop": {
+        "T0T1": 6.349999997764826,
+        "T1T3": 0.8999999985098839,
+        "T2T3": 0.19999999552965164,
+        "T3T4": 6,
+        "uncertainty": 0.05000000074505806,
+        "T4Kind": "same-step DOM and Canvas command receipt",
+        "targetHit": false,
+        "postReceiveSteps": 0,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": false,
+        "safetyEpoch": [
+          0,
+          0
+        ],
+        "clockEpoch": [
+          1,
+          2
+        ]
+      },
+      "errors": []
+    },
+    {
+      "id": "stops-chromium-009-stop-visibility-light",
+      "stop": {
+        "T0T1": 5.699999995529652,
+        "T1T3": 0.7000000029802322,
+        "T2T3": 0.20000000298023224,
+        "T3T4": 6.299999997019768,
+        "uncertainty": 0,
+        "T4Kind": "same-step DOM and Canvas command receipt",
+        "targetHit": false,
+        "postReceiveSteps": 0,
+        "postStopSteps": 0,
+        "atomic": true,
+        "timerAfter": false,
+        "safetyEpoch": [
+          0,
+          1
+        ],
+        "clockEpoch": [
+          1,
+          2
+        ]
+      },
+      "errors": []
+    }
+  ],
+  "long": [
+    {
+      "id": "legacy-chromium-001-F-legacy",
+      "options": {
+        "name": "F",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "mode": "legacy",
+        "duration": 60000,
+        "repeat": 0,
+        "trace": true
+      },
+      "phases": {
+        "calculate": {
+          "n": 2649,
+          "median": 1.3999999985098839,
+          "p95": 1.8999999985098839,
+          "p99": 2.800000000745058,
+          "max": 168.69999999925494,
+          "over50": 7,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 882,
+          "median": 4.300000000745058,
+          "p95": 6.299999997019768,
+          "p99": 398,
+          "max": 436.3999999985099,
+          "over50": 23,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 882,
+          "median": 3.199999999254942,
+          "p95": 5.399999998509884,
+          "p99": 14.899999998509884,
+          "max": 445.8999999985099,
+          "over50": 6,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 893,
+          "median": 0.3999999985098839,
+          "p95": 0.6999999992549419,
+          "p99": 33.5,
+          "max": 343.69999999925494,
+          "over50": 8,
+          "percentileIsGuarantee": false
+        }
+      },
+      "latency": {
+        "n": 1262,
+        "median": 17.699999997392297,
+        "p95": 264.7999999988824,
+        "p99": 452.0999999959022,
+        "max": 480.7999999951571,
+        "over50": 248,
+        "percentileIsGuarantee": false
+      },
+      "errors": []
+    },
+    {
+      "id": "legacy-chromium-002-F-legacy",
+      "options": {
+        "name": "F",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "mode": "legacy",
+        "duration": 60000,
+        "repeat": 1,
+        "trace": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 2703,
+          "median": 1.300000000745058,
+          "p95": 1.800000000745058,
+          "p99": 3.699999999254942,
+          "max": 421.1000000014901,
+          "over50": 10,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 874,
+          "median": 4.100000001490116,
+          "p95": 6.800000000745058,
+          "p99": 369.80000000074506,
+          "max": 433.30000000074506,
+          "over50": 34,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 874,
+          "median": 3,
+          "p95": 5,
+          "p99": 13.899999998509884,
+          "max": 201.19999999925494,
+          "over50": 5,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 880,
+          "median": 0.30000000074505806,
+          "p95": 0.6999999992549419,
+          "p99": 55.600000001490116,
+          "max": 186.39999999850988,
+          "over50": 12,
+          "percentileIsGuarantee": false
+        }
+      },
+      "latency": {
+        "n": 1286,
+        "median": 14.749999998137355,
+        "p95": 265.65000000037253,
+        "p99": 445.4499999973923,
+        "max": 467.74999999813735,
+        "over50": 259,
+        "percentileIsGuarantee": false
+      },
+      "errors": []
+    },
+    {
+      "id": "legacy-chromium-003-F-legacy",
+      "options": {
+        "name": "F",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "mode": "legacy",
+        "duration": 60000,
+        "repeat": 2,
+        "trace": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 2633,
+          "median": 1.3999999985098839,
+          "p95": 1.8999999985098839,
+          "p99": 2.699999999254942,
+          "max": 298.70000000298023,
+          "over50": 9,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 882,
+          "median": 4.199999999254942,
+          "p95": 6.099999997764826,
+          "p99": 398.4000000022352,
+          "max": 449.30000000074506,
+          "over50": 26,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 882,
+          "median": 3.100000001490116,
+          "p95": 5,
+          "p99": 6.800000000745058,
+          "max": 445.1000000014901,
+          "over50": 3,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 889,
+          "median": 0.30000000074505806,
+          "p95": 0.5999999977648258,
+          "p99": 78.90000000223517,
+          "max": 210.80000000074506,
+          "over50": 13,
+          "percentileIsGuarantee": false
+        }
+      },
+      "latency": {
+        "n": 1263,
+        "median": 16.399999998509884,
+        "p95": 278.80000000074506,
+        "p99": 434.19999999925494,
+        "max": 470.4000000022352,
+        "over50": 249,
+        "percentileIsGuarantee": false
+      },
+      "errors": []
+    },
+    {
+      "id": "long-chromium-001-F-off",
+      "options": {
+        "name": "F",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "mode": "off",
+        "duration": 60000,
+        "repeat": 0,
+        "trace": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        }
+      },
+      "latency": {
+        "n": 1317,
+        "median": 2.699999999254942,
+        "p95": 240.59999999776483,
+        "p99": 401,
+        "max": 456.6000000014901,
+        "over50": 176,
+        "percentileIsGuarantee": false
+      },
+      "errors": []
+    },
+    {
+      "id": "long-chromium-002-F-off",
+      "options": {
+        "name": "F",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "mode": "off",
+        "duration": 60000,
+        "repeat": 1,
+        "trace": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        }
+      },
+      "latency": {
+        "n": 1329,
+        "median": 8.699999999254942,
+        "p95": 269.0999999977648,
+        "p99": 419,
+        "max": 473.69999999925494,
+        "over50": 272,
+        "percentileIsGuarantee": false
+      },
+      "errors": []
+    },
+    {
+      "id": "long-chromium-003-F-off",
+      "options": {
+        "name": "F",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "mode": "off",
+        "duration": 60000,
+        "repeat": 2,
+        "trace": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        }
+      },
+      "latency": {
+        "n": 1260,
+        "median": 6.5,
+        "p95": 243.80000000074506,
+        "p99": 424.19999999925494,
+        "max": 468.29999999701977,
+        "over50": 207,
+        "percentileIsGuarantee": false
+      },
+      "errors": []
+    },
+    {
+      "id": "long-chromium-004-F-light",
+      "options": {
+        "name": "F",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "mode": "light",
+        "duration": 60000,
+        "repeat": 0,
+        "trace": true
+      },
+      "phases": {
+        "calculate": {
+          "n": 3013,
+          "median": 0.5,
+          "p95": 0.7999999970197678,
+          "p99": 1.199999999254942,
+          "max": 123.39999999850988,
+          "over50": 2,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 829,
+          "median": 4.300000000745058,
+          "p95": 7.600000001490116,
+          "p99": 428.5999999977648,
+          "max": 437.3999999985099,
+          "over50": 35,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 829,
+          "median": 2.399999998509884,
+          "p95": 4.100000001490116,
+          "p99": 132,
+          "max": 295.4000000022352,
+          "over50": 10,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 829,
+          "median": 0.3999999985098839,
+          "p95": 0.6000000014901161,
+          "p99": 1.3999999985098839,
+          "max": 287.80000000074506,
+          "over50": 1,
+          "percentileIsGuarantee": false
+        }
+      },
+      "latency": {
+        "n": 1317,
+        "median": 5.699999999254942,
+        "p95": 232.90000000223517,
+        "p99": 399,
+        "max": 473.80000000074506,
+        "over50": 233,
+        "percentileIsGuarantee": false
+      },
+      "errors": []
+    },
+    {
+      "id": "long-chromium-005-F-light",
+      "options": {
+        "name": "F",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "mode": "light",
+        "duration": 60000,
+        "repeat": 1,
+        "trace": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 2988,
+          "median": 0.5,
+          "p95": 0.7000000029802322,
+          "p99": 1.199999999254942,
+          "max": 242.89999999850988,
+          "over50": 3,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 826,
+          "median": 4.100000001490116,
+          "p95": 158.90000000223517,
+          "p99": 430.19999999925494,
+          "max": 445.80000000074506,
+          "over50": 42,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 826,
+          "median": 2.300000000745058,
+          "p95": 3.800000000745058,
+          "p99": 51.30000000074506,
+          "max": 264.3999999985099,
+          "over50": 9,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 826,
+          "median": 0.30000000074505806,
+          "p95": 0.6000000014901161,
+          "p99": 14.400000002235174,
+          "max": 125.30000000074506,
+          "over50": 6,
+          "percentileIsGuarantee": false
+        }
+      },
+      "latency": {
+        "n": 1272,
+        "median": 5.749999998137355,
+        "p95": 259.9499999973923,
+        "p99": 413.84999999962747,
+        "max": 466.4499999973923,
+        "over50": 207,
+        "percentileIsGuarantee": false
+      },
+      "errors": []
+    },
+    {
+      "id": "long-chromium-006-F-light",
+      "options": {
+        "name": "F",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "mode": "light",
+        "duration": 60000,
+        "repeat": 2,
+        "trace": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 2999,
+          "median": 0.4000000022351742,
+          "p95": 0.6999999992549419,
+          "p99": 1.199999999254942,
+          "max": 107.69999999925494,
+          "over50": 1,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 831,
+          "median": 4,
+          "p95": 237.40000000223517,
+          "p99": 430.5,
+          "max": 444,
+          "over50": 45,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 831,
+          "median": 2.300000000745058,
+          "p95": 3.5,
+          "p99": 6.100000001490116,
+          "max": 373.30000000074506,
+          "over50": 4,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 831,
+          "median": 0.30000000074505806,
+          "p95": 0.5,
+          "p99": 0.9000000022351742,
+          "max": 138.5,
+          "over50": 3,
+          "percentileIsGuarantee": false
+        }
+      },
+      "latency": {
+        "n": 1306,
+        "median": 5.449999999254942,
+        "p95": 255.65000000223517,
+        "p99": 407.25,
+        "max": 460.75,
+        "over50": 233,
+        "percentileIsGuarantee": false
+      },
+      "errors": []
+    },
+    {
+      "id": "long-chromium-007-F-legacy",
+      "options": {
+        "name": "F",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "mode": "legacy",
+        "duration": 60000,
+        "repeat": 0,
+        "trace": true
+      },
+      "errors": [
+        "TimeoutError: locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#experiment')\u001b[22m\n"
+      ]
+    },
+    {
+      "id": "long-chromium-008-F-legacy",
+      "options": {
+        "name": "F",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "mode": "legacy",
+        "duration": 60000,
+        "repeat": 1,
+        "trace": false
+      },
+      "errors": [
+        "TimeoutError: locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#experiment')\u001b[22m\n"
+      ]
+    },
+    {
+      "id": "long-chromium-009-F-legacy",
+      "options": {
+        "name": "F",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "mode": "legacy",
+        "duration": 60000,
+        "repeat": 2,
+        "trace": false
+      },
+      "errors": [
+        "TimeoutError: locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#experiment')\u001b[22m\n"
+      ]
+    },
+    {
+      "id": "long-webkit-001-F-light",
+      "options": {
+        "name": "F",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "mode": "light",
+        "duration": 60000,
+        "repeat": 0,
+        "trace": true
+      },
+      "phases": {
+        "calculate": {
+          "n": 4061,
+          "median": 1,
+          "p95": 1.000000000007276,
+          "p99": 2,
+          "max": 11,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 507,
+          "median": 7,
+          "p95": 11,
+          "p99": 14,
+          "max": 24,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 507,
+          "median": 4,
+          "p95": 6.000000000001819,
+          "p99": 8.000000000007276,
+          "max": 12,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 1137,
+          "median": 0,
+          "p95": 1.000000000001819,
+          "p99": 1.000000000007276,
+          "max": 3,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        }
+      },
+      "latency": {
+        "n": 1270,
+        "median": 7,
+        "p95": 35,
+        "p99": 40,
+        "max": 52,
+        "over50": 2,
+        "percentileIsGuarantee": false
+      },
+      "errors": []
+    },
+    {
+      "id": "long-webkit-002-F-light",
+      "options": {
+        "name": "F",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "mode": "light",
+        "duration": 60000,
+        "repeat": 1,
+        "trace": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 4093,
+          "median": 1,
+          "p95": 1.000000000007276,
+          "p99": 3,
+          "max": 13,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 456,
+          "median": 8,
+          "p95": 12,
+          "p99": 15.999999999996362,
+          "max": 21,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 456,
+          "median": 4,
+          "p95": 6,
+          "p99": 9,
+          "max": 11,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 1162,
+          "median": 0,
+          "p95": 1.000000000003638,
+          "p99": 1.000000000007276,
+          "max": 4,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        }
+      },
+      "latency": {
+        "n": 1257,
+        "median": 0.5,
+        "p95": 29.5,
+        "p99": 35.5,
+        "max": 53.5,
+        "over50": 1,
+        "percentileIsGuarantee": false
+      },
+      "errors": []
+    },
+    {
+      "id": "long-webkit-003-F-light",
+      "options": {
+        "name": "F",
+        "ab": true,
+        "saturated": true,
+        "dom": true,
+        "canvas": true,
+        "mode": "light",
+        "duration": 60000,
+        "repeat": 2,
+        "trace": false
+      },
+      "phases": {
+        "calculate": {
+          "n": 4070,
+          "median": 1,
+          "p95": 1.000000000007276,
+          "p99": 3.999999999998181,
+          "max": 23,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "paint": {
+          "n": 473,
+          "median": 7,
+          "p95": 12,
+          "p99": 17.000000000000455,
+          "max": 25.00000000000182,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "observe": {
+          "n": 473,
+          "median": 4,
+          "p95": 6.999999999992724,
+          "p99": 8,
+          "max": 10,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "refresh": {
+          "n": 1154,
+          "median": 0,
+          "p95": 1.000000000003638,
+          "p99": 2,
+          "max": 7.000000000007276,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        }
+      },
+      "latency": {
+        "n": 1258,
+        "median": 1.5,
+        "p95": 30.499999999996362,
+        "p99": 35.5,
+        "max": 58.5,
+        "over50": 2,
+        "percentileIsGuarantee": false
+      },
+      "errors": []
+    }
+  ]
+}

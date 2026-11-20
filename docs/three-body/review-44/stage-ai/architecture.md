@@ -1,0 +1,11 @@
+# Responsibilities and containment proposal
+
+The complete input/output/actor/location/permissions/lifetime/failure/planned-file/status table is `design-contract.json.components`. No listed runtime file is created in AI.
+
+Proposed topology: monitor M owns a single non-inherited Windows Job handle outside job J. Collector P, Vitest coordinator C and forked worker W are in J. A future native bridge must create targets suspended, assign J before resume, prohibit breakaway and prove membership. No attachment to arbitrary existing PIDs. A failed enrollment must stop progression without targeting any unenrolled process. Nested jobs, privileges, handle inheritance and descendant containment require isolated qualification. Node alone is not assumed to provide this bridge.
+
+M uses its own loop and deadline; P/W loop stalls therefore do not inherently block M. M hanging has **no stopping guarantee**: its own timer cannot run. M death could close the sole handle under KILL_ON_JOB_CLOSE, conditional on validated handle ownership and OS semantics; this is NOT_TESTED. Machine/kernel failure and leaked external handles are outside the guarantee. Recovery then requires separately authorized out-of-band handling; no automatic global taskkill fallback exists.
+
+Collector saves bounded raw messages, partial bytes, result status and an immutable receipt. M owns its separate failure ledger; save activity must never be a prerequisite to stop requests. Buffer limits remain AH 1024 events / 1048576 bytes; overflow is observation failure, not numerical failure. Forced termination can lose buffered worker/collector events: record NOT_OBTAINED, never reconstruct historical originals.
+
+Windows job semantics are a design dependency, not proof of this implementation: [Microsoft Job Objects](https://learn.microsoft.com/en-us/windows/win32/procthread/job-objects), [TerminateJobObject](https://learn.microsoft.com/en-us/windows/win32/api/jobapi2/nf-jobapi2-terminatejobobject), [limit information](https://learn.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-jobobject_basic_limit_information), checked 2026-11-16. Node's killed flag is signal-send status, not termination proof: [Node24 child_process](https://nodejs.org/docs/latest-v24.x/api/child_process.html), checked 2026-11-16. These references do not certify host behavior.

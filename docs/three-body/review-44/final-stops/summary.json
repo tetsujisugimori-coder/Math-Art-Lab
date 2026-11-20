@@ -1,0 +1,3669 @@
+{
+  "label": "final-stops",
+  "revision": "working-tree",
+  "environment": {
+    "node": "v24.20.0",
+    "os": "win32",
+    "release": "10.0.26300",
+    "cpu": "Intel(R) Core(TM) i7-14650HX",
+    "totalMemory": 16869351424,
+    "freeMemory": 1254293504
+  },
+  "runs": 0,
+  "errors": 0,
+  "originalStopErrors": 0,
+  "stopRepair": null,
+  "note": "High-frequency per-call distributions use deterministic 1/32 sampling; maxAllCalls/count/total include every call. Nested intervals overlap. Host latency includes driver/transport/frame wait. Synthetic event queue time does not measure native hidden-tab delivery. Worker queueDelay measures independent request to main-thread message handling.",
+  "groups": [],
+  "stops": [
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 1,
+      "action": "pause",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 62,
+        "p95": 77,
+        "max": 77
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 41,
+        "p95": 87,
+        "max": 87
+      },
+      "finalCanvas": [
+        {
+          "a": "26138",
+          "b": "26138",
+          "computed": 26138
+        },
+        {
+          "a": "26178",
+          "b": "26178",
+          "computed": 26178
+        },
+        {
+          "a": "26125",
+          "b": "26125",
+          "computed": 26125
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0.900000000372529,
+        "p95": 1.2000000001862645,
+        "max": 1.2000000001862645
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0.10000000055879354,
+        "max": 0.10000000055879354
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 1,
+      "action": "escape",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 27,
+        "p95": 31,
+        "max": 31
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 43,
+        "p95": 43,
+        "max": 43
+      },
+      "finalCanvas": [
+        {
+          "a": "26133",
+          "b": "26133",
+          "computed": 26133
+        },
+        {
+          "a": "26134",
+          "b": "26134",
+          "computed": 26134
+        },
+        {
+          "a": "26134",
+          "b": "26134",
+          "computed": 26134
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0.7000000001862645,
+        "p95": 1.2999999998137355,
+        "max": 1.2999999998137355
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0.10000000055879354,
+        "max": 0.10000000055879354
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 1,
+      "action": "visibility",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 21,
+        "p95": 22,
+        "max": 22
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "finalCanvas": [
+        {
+          "a": "26128",
+          "b": "26128",
+          "computed": 26128
+        },
+        {
+          "a": "26131",
+          "b": "26131",
+          "computed": 26131
+        },
+        {
+          "a": "26096",
+          "b": "26096",
+          "computed": 26096
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0.10000000055879354,
+        "max": 0.10000000055879354
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0.09999999962747097,
+        "p95": 0.09999999962747097,
+        "max": 0.09999999962747097
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 1,
+      "action": "motion",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 44,
+        "p95": 51,
+        "max": 51
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 41,
+        "p95": 43,
+        "max": 43
+      },
+      "finalCanvas": [
+        {
+          "a": "26132",
+          "b": "26132",
+          "computed": 26132
+        },
+        {
+          "a": "26134",
+          "b": "26134",
+          "computed": 26134
+        },
+        {
+          "a": "26136",
+          "b": "26136",
+          "computed": 26136
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 15.5,
+        "p95": 15.899999999441206,
+        "max": 15.899999999441206
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 1,
+      "action": "switch",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 33,
+        "p95": 34,
+        "max": 34
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 0,
+        "p95": 41,
+        "max": 41
+      },
+      "finalCanvas": [
+        {
+          "a": "26128",
+          "b": "26128",
+          "computed": 26128
+        },
+        {
+          "a": "26125",
+          "b": "26125",
+          "computed": 26125
+        },
+        {
+          "a": "26092",
+          "b": "26092",
+          "computed": 26092
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 1,
+      "action": "dispose",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 27,
+        "p95": 30,
+        "max": 30
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "finalCanvas": [
+        {
+          "a": "26091",
+          "b": "26091",
+          "computed": 26091
+        },
+        {
+          "a": "26101",
+          "b": "26101",
+          "computed": 26101
+        },
+        {
+          "a": "26095",
+          "b": "26095",
+          "computed": 26095
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0.09999999962747097,
+        "p95": 0.10000000055879354,
+        "max": 0.10000000055879354
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 2,
+      "action": "pause",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 67,
+        "p95": 71,
+        "max": 71
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 41,
+        "p95": 41,
+        "max": 41
+      },
+      "finalCanvas": [
+        {
+          "a": "26130",
+          "b": "26130",
+          "computed": 26130
+        },
+        {
+          "a": "26175",
+          "b": "26175",
+          "computed": 26175
+        },
+        {
+          "a": "26142",
+          "b": "26142",
+          "computed": 26142
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 1,
+        "p95": 1.2000000001862645,
+        "max": 1.2000000001862645
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0.10000000055879354,
+        "max": 0.10000000055879354
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 2,
+      "action": "escape",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 24,
+        "p95": 28,
+        "max": 28
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 42,
+        "p95": 42,
+        "max": 42
+      },
+      "finalCanvas": [
+        {
+          "a": "26131",
+          "b": "26131",
+          "computed": 26131
+        },
+        {
+          "a": "26135",
+          "b": "26135",
+          "computed": 26135
+        },
+        {
+          "a": "26140",
+          "b": "26140",
+          "computed": 26140
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 1.199999999254942,
+        "p95": 1.2000000001862645,
+        "max": 1.2000000001862645
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0.09999999962747097,
+        "max": 0.09999999962747097
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 2,
+      "action": "visibility",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 27,
+        "p95": 29,
+        "max": 29
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "finalCanvas": [
+        {
+          "a": "26126",
+          "b": "26126",
+          "computed": 26126
+        },
+        {
+          "a": "26094",
+          "b": "26094",
+          "computed": 26094
+        },
+        {
+          "a": "26092",
+          "b": "26092",
+          "computed": 26092
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0.09999999962747097,
+        "p95": 0.20000000018626451,
+        "max": 0.20000000018626451
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 2,
+      "action": "motion",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 43,
+        "p95": 44,
+        "max": 44
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 42,
+        "p95": 45,
+        "max": 45
+      },
+      "finalCanvas": [
+        {
+          "a": "26137",
+          "b": "26137",
+          "computed": 26137
+        },
+        {
+          "a": "26129",
+          "b": "26129",
+          "computed": 26129
+        },
+        {
+          "a": "26126",
+          "b": "26126",
+          "computed": 26126
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 17.200000000186265,
+        "p95": 18.5,
+        "max": 18.5
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0.09999999962747097,
+        "max": 0.09999999962747097
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 2,
+      "action": "switch",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 36,
+        "p95": 37,
+        "max": 37
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 42,
+        "p95": 44,
+        "max": 44
+      },
+      "finalCanvas": [
+        {
+          "a": "26136",
+          "b": "26136",
+          "computed": 26136
+        },
+        {
+          "a": "26095",
+          "b": "26095",
+          "computed": 26137
+        },
+        {
+          "a": "26103",
+          "b": "26103",
+          "computed": 26103
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0.09999999962747097,
+        "max": 0.09999999962747097
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 2,
+      "action": "dispose",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 29,
+        "p95": 29,
+        "max": 29
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "finalCanvas": [
+        {
+          "a": "26092",
+          "b": "26092",
+          "computed": 26092
+        },
+        {
+          "a": "26096",
+          "b": "26096",
+          "computed": 26096
+        },
+        {
+          "a": "26089",
+          "b": "26089",
+          "computed": 26089
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0.09999999962747097,
+        "p95": 0.09999999962747097,
+        "max": 0.09999999962747097
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 1,
+      "action": "pause",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 130,
+        "p95": 2824,
+        "max": 2824
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 85,
+        "p95": 85,
+        "max": 85
+      },
+      "finalCanvas": [
+        {
+          "a": "26133",
+          "b": "26133",
+          "computed": 26133
+        },
+        {
+          "a": "26183",
+          "b": "26183",
+          "computed": 26183
+        },
+        {
+          "a": "26184",
+          "b": "26184",
+          "computed": 26184
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 2.7000000001862645,
+        "p95": 5.400000000372529,
+        "max": 5.400000000372529
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0.10000000055879354,
+        "max": 0.10000000055879354
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 1,
+      "action": "escape",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 30,
+        "p95": 38,
+        "max": 38
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 0,
+        "p95": 44,
+        "max": 44
+      },
+      "finalCanvas": [
+        {
+          "a": "26092",
+          "b": "26092",
+          "computed": 26092
+        },
+        {
+          "a": "26105",
+          "b": "26105",
+          "computed": 26105
+        },
+        {
+          "a": "26140",
+          "b": "26140",
+          "computed": 26140
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0.900000000372529,
+        "p95": 13.5,
+        "max": 13.5
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0.40000000037252903,
+        "max": 0.40000000037252903
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 1,
+      "action": "visibility",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 26,
+        "p95": 29,
+        "max": 29
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "finalCanvas": [
+        {
+          "a": "26096",
+          "b": "26096",
+          "computed": 26096
+        },
+        {
+          "a": "26099",
+          "b": "26099",
+          "computed": 26099
+        },
+        {
+          "a": "26103",
+          "b": "26103",
+          "computed": 26103
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0.09999999962747097,
+        "p95": 0.09999999962747097,
+        "max": 0.09999999962747097
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0.09999999962747097,
+        "p95": 0.10000000055879354,
+        "max": 0.10000000055879354
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 1,
+      "action": "motion",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 39,
+        "p95": 39,
+        "max": 39
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 0,
+        "p95": 41,
+        "max": 41
+      },
+      "finalCanvas": [
+        {
+          "a": "26138",
+          "b": "26138",
+          "computed": 26138
+        },
+        {
+          "a": "26097",
+          "b": "26097",
+          "computed": 26097
+        },
+        {
+          "a": "26098",
+          "b": "26098",
+          "computed": 26098
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 9.200000000186265,
+        "p95": 9.599999999627471,
+        "max": 9.599999999627471
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0.10000000055879354,
+        "max": 0.10000000055879354
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 1,
+      "action": "switch",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 70,
+        "p95": 2586,
+        "max": 2586
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 136,
+        "p95": 300,
+        "max": 300
+      },
+      "finalCanvas": [
+        {
+          "a": "26217",
+          "b": "26217",
+          "computed": 26353
+        },
+        {
+          "a": "26095",
+          "b": "26095",
+          "computed": 26138
+        },
+        {
+          "a": "26200",
+          "b": "26200",
+          "computed": 26200
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0.10000000055879354,
+        "p95": 0.10000000055879354,
+        "max": 0.10000000055879354
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0.09999999962747097,
+        "max": 0.09999999962747097
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 1,
+      "action": "dispose",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 1040,
+        "p95": 1459,
+        "max": 1459
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 164,
+        "p95": 200,
+        "max": 200
+      },
+      "finalCanvas": [
+        {
+          "a": "26259",
+          "b": "26259",
+          "computed": 26259
+        },
+        {
+          "a": "26000",
+          "b": "26000",
+          "computed": 26064
+        },
+        {
+          "a": "26151",
+          "b": "26151",
+          "computed": 26251
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0.10000000055879354,
+        "p95": 0.10000000055879354,
+        "max": 0.10000000055879354
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0.09999999962747097,
+        "p95": 0.20000000018626451,
+        "max": 0.20000000018626451
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 2,
+      "action": "pause",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 108,
+        "p95": 226,
+        "max": 226
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 52,
+        "p95": 86,
+        "max": 86
+      },
+      "finalCanvas": [
+        {
+          "a": "26214",
+          "b": "26214",
+          "computed": 26214
+        },
+        {
+          "a": "26173",
+          "b": "26173",
+          "computed": 26173
+        },
+        {
+          "a": "26148",
+          "b": "26148",
+          "computed": 26148
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 1.7999999998137355,
+        "p95": 2.2000000001862645,
+        "max": 2.2000000001862645
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0.10000000055879354,
+        "max": 0.10000000055879354
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 2,
+      "action": "escape",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 33,
+        "p95": 316,
+        "max": 316
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 0,
+        "p95": 64,
+        "max": 64
+      },
+      "finalCanvas": [
+        {
+          "a": "26120",
+          "b": "26120",
+          "computed": 26120
+        },
+        {
+          "a": "26095",
+          "b": "26095",
+          "computed": 26095
+        },
+        {
+          "a": "26108",
+          "b": "26108",
+          "computed": 26108
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0.7999999998137355,
+        "p95": 110.5,
+        "max": 110.5
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0.09999999962747097,
+        "max": 0.09999999962747097
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 2,
+      "action": "visibility",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 266,
+        "p95": 2180,
+        "max": 2180
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 80,
+        "p95": 232,
+        "max": 232
+      },
+      "finalCanvas": [
+        {
+          "a": "26208",
+          "b": "26208",
+          "computed": 26208
+        },
+        {
+          "a": "26137",
+          "b": "26137",
+          "computed": 26137
+        },
+        {
+          "a": "26232",
+          "b": "26232",
+          "computed": 26232
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0.09999999962747097,
+        "max": 0.09999999962747097
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0.09999999962747097,
+        "p95": 0.19999999925494194,
+        "max": 0.19999999925494194
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 2,
+      "action": "motion",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 250,
+        "p95": 1418,
+        "max": 1418
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 100,
+        "p95": 114,
+        "max": 114
+      },
+      "finalCanvas": [
+        {
+          "a": "26214",
+          "b": "26214",
+          "computed": 26214
+        },
+        {
+          "a": "26093",
+          "b": "26093",
+          "computed": 26093
+        },
+        {
+          "a": "26100",
+          "b": "26100",
+          "computed": 26100
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 78.80000000074506,
+        "p95": 393.1000000005588,
+        "max": 393.1000000005588
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0.09999999962747097,
+        "p95": 0.19999999925494194,
+        "max": 0.19999999925494194
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 2,
+      "action": "switch",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 1420,
+        "p95": 2095,
+        "max": 2095
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 234,
+        "p95": 325,
+        "max": 325
+      },
+      "finalCanvas": [
+        {
+          "a": "26125",
+          "b": "26125",
+          "computed": 26125
+        },
+        {
+          "a": "26325",
+          "b": "26325",
+          "computed": 26325
+        },
+        {
+          "a": "26279",
+          "b": "26279",
+          "computed": 26279
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0.09999999962747097,
+        "max": 0.09999999962747097
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0.10000000055879354,
+        "max": 0.10000000055879354
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 2,
+      "action": "dispose",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 33,
+        "p95": 428,
+        "max": 428
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 0,
+        "p95": 100,
+        "max": 100
+      },
+      "finalCanvas": [
+        {
+          "a": "26088",
+          "b": "26088",
+          "computed": 26135
+        },
+        {
+          "a": "26117",
+          "b": "26117",
+          "computed": 26117
+        },
+        {
+          "a": "26200",
+          "b": "26200",
+          "computed": 26300
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0.09999999962747097,
+        "max": 0.09999999962747097
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0.09999999962747097,
+        "p95": 0.10000000055879354,
+        "max": 0.10000000055879354
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 1,
+      "action": "pause",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 212,
+        "p95": 215,
+        "max": 215
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 141,
+        "p95": 186,
+        "max": 186
+      },
+      "finalCanvas": [
+        {
+          "a": "26274",
+          "b": "26274",
+          "computed": 26274
+        },
+        {
+          "a": "26274",
+          "b": "26274",
+          "computed": 26274
+        },
+        {
+          "a": "26276",
+          "b": "26276",
+          "computed": 26276
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 2,
+        "p95": 3,
+        "max": 3
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 1,
+      "action": "escape",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 44,
+        "p95": 44,
+        "max": 44
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "finalCanvas": [
+        {
+          "a": "26100",
+          "b": "26100",
+          "computed": 26100
+        },
+        {
+          "a": "26101",
+          "b": "26101",
+          "computed": 26101
+        },
+        {
+          "a": "26137",
+          "b": "26137",
+          "computed": 26137
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 3,
+        "max": 3
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 1,
+      "action": "visibility",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 42,
+        "p95": 44,
+        "max": 44
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "finalCanvas": [
+        {
+          "a": "26138",
+          "b": "26138",
+          "computed": 26138
+        },
+        {
+          "a": "26135",
+          "b": "26135",
+          "computed": 26135
+        },
+        {
+          "a": "26135",
+          "b": "26135",
+          "computed": 26135
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 1,
+      "action": "motion",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 43,
+        "p95": 57,
+        "max": 57
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "finalCanvas": [
+        {
+          "a": "26098",
+          "b": "26098",
+          "computed": 26098
+        },
+        {
+          "a": "26135",
+          "b": "26135",
+          "computed": 26135
+        },
+        {
+          "a": "26133",
+          "b": "26133",
+          "computed": 26133
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 1,
+        "max": 1
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 1,
+      "action": "switch",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 57,
+        "p95": 59,
+        "max": 59
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "finalCanvas": [
+        {
+          "a": "26088",
+          "b": "26088",
+          "computed": 26135
+        },
+        {
+          "a": "26138",
+          "b": "26138",
+          "computed": 26138
+        },
+        {
+          "a": "26088",
+          "b": "26088",
+          "computed": 26136
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 1,
+      "action": "dispose",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 59,
+        "p95": 59,
+        "max": 59
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "finalCanvas": [
+        {
+          "a": "26087",
+          "b": "26087",
+          "computed": 26087
+        },
+        {
+          "a": "26088",
+          "b": "26088",
+          "computed": 26135
+        },
+        {
+          "a": "26089",
+          "b": "26089",
+          "computed": 26138
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 1,
+        "max": 1
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 2,
+      "action": "pause",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 234,
+        "p95": 237,
+        "max": 237
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 186,
+        "p95": 233,
+        "max": 233
+      },
+      "finalCanvas": [
+        {
+          "a": "26281",
+          "b": "26281",
+          "computed": 26281
+        },
+        {
+          "a": "26330",
+          "b": "26330",
+          "computed": 26330
+        },
+        {
+          "a": "26283",
+          "b": "26283",
+          "computed": 26283
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 2,
+        "p95": 3,
+        "max": 3
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 2,
+      "action": "escape",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 46,
+        "p95": 46,
+        "max": 46
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "finalCanvas": [
+        {
+          "a": "26096",
+          "b": "26096",
+          "computed": 26096
+        },
+        {
+          "a": "26097",
+          "b": "26097",
+          "computed": 26097
+        },
+        {
+          "a": "26102",
+          "b": "26102",
+          "computed": 26102
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 2,
+      "action": "visibility",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 50,
+        "p95": 55,
+        "max": 55
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "finalCanvas": [
+        {
+          "a": "26095",
+          "b": "26095",
+          "computed": 26095
+        },
+        {
+          "a": "26137",
+          "b": "26137",
+          "computed": 26137
+        },
+        {
+          "a": "26093",
+          "b": "26093",
+          "computed": 26093
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 2,
+      "action": "motion",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 53,
+        "p95": 61,
+        "max": 61
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 44,
+        "p95": 46,
+        "max": 46
+      },
+      "finalCanvas": [
+        {
+          "a": "26141",
+          "b": "26141",
+          "computed": 26141
+        },
+        {
+          "a": "26133",
+          "b": "26133",
+          "computed": 26133
+        },
+        {
+          "a": "26144",
+          "b": "26144",
+          "computed": 26144
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 2,
+      "action": "switch",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 60,
+        "p95": 67,
+        "max": 67
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 46,
+        "p95": 48,
+        "max": 48
+      },
+      "finalCanvas": [
+        {
+          "a": "26095",
+          "b": "26095",
+          "computed": 26143
+        },
+        {
+          "a": "26097",
+          "b": "26097",
+          "computed": 26143
+        },
+        {
+          "a": "26097",
+          "b": "26097",
+          "computed": 26143
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 2,
+      "action": "dispose",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 45,
+        "p95": 54,
+        "max": 54
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "finalCanvas": [
+        {
+          "a": "26094",
+          "b": "26094",
+          "computed": 26094
+        },
+        {
+          "a": "26096",
+          "b": "26096",
+          "computed": 26096
+        },
+        {
+          "a": "26102",
+          "b": "26102",
+          "computed": 26102
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 1,
+      "action": "pause",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 523,
+        "p95": 540,
+        "max": 540
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 416,
+        "p95": 447,
+        "max": 447
+      },
+      "finalCanvas": [
+        {
+          "a": "26273",
+          "b": "26273",
+          "computed": 26273
+        },
+        {
+          "a": "26542",
+          "b": "26542",
+          "computed": 26542
+        },
+        {
+          "a": "26560",
+          "b": "26560",
+          "computed": 26560
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 11,
+        "p95": 40.00000000000023,
+        "max": 40.00000000000023
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 1,
+      "action": "escape",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 44,
+        "p95": 78,
+        "max": 78
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "finalCanvas": [
+        {
+          "a": "26136",
+          "b": "26136",
+          "computed": 26136
+        },
+        {
+          "a": "26123",
+          "b": "26123",
+          "computed": 26123
+        },
+        {
+          "a": "26103",
+          "b": "26103",
+          "computed": 26103
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0.9999999999995453,
+        "p95": 1,
+        "max": 1
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 1,
+      "action": "visibility",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 60,
+        "p95": 79,
+        "max": 79
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "finalCanvas": [
+        {
+          "a": "26101",
+          "b": "26101",
+          "computed": 26101
+        },
+        {
+          "a": "26120",
+          "b": "26120",
+          "computed": 26120
+        },
+        {
+          "a": "26120",
+          "b": "26120",
+          "computed": 26120
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 1,
+      "action": "motion",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 116,
+        "p95": 163,
+        "max": 163
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 51,
+        "p95": 133,
+        "max": 133
+      },
+      "finalCanvas": [
+        {
+          "a": "26139",
+          "b": "26139",
+          "computed": 26139
+        },
+        {
+          "a": "26239",
+          "b": "26239",
+          "computed": 26239
+        },
+        {
+          "a": "26114",
+          "b": "26114",
+          "computed": 26114
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 1,
+      "action": "switch",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 147,
+        "p95": 188,
+        "max": 188
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 60,
+        "p95": 77,
+        "max": 77
+      },
+      "finalCanvas": [
+        {
+          "a": "26090",
+          "b": "26090",
+          "computed": 26135
+        },
+        {
+          "a": "26119",
+          "b": "26119",
+          "computed": 26179
+        },
+        {
+          "a": "26119",
+          "b": "26119",
+          "computed": 26196
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 1,
+        "max": 1
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 1,
+      "action": "dispose",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 41,
+        "p95": 55,
+        "max": 55
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "finalCanvas": [
+        {
+          "a": "26101",
+          "b": "26101",
+          "computed": 26101
+        },
+        {
+          "a": "26049",
+          "b": "26049",
+          "computed": 26129
+        },
+        {
+          "a": "26052",
+          "b": "26052",
+          "computed": 26120
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 1,
+        "max": 1
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 2,
+      "action": "pause",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 947,
+        "p95": 1185,
+        "max": 1185
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 744,
+        "p95": 894,
+        "max": 894
+      },
+      "finalCanvas": [
+        {
+          "a": "26843",
+          "b": "26843",
+          "computed": 26843
+        },
+        {
+          "a": "27048",
+          "b": "27048",
+          "computed": 27048
+        },
+        {
+          "a": "26878",
+          "b": "26878",
+          "computed": 26878
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 8.999999999999545,
+        "p95": 11,
+        "max": 11
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 2,
+      "action": "escape",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 109,
+        "p95": 133,
+        "max": 133
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "finalCanvas": [
+        {
+          "a": "26099",
+          "b": "26099",
+          "computed": 26099
+        },
+        {
+          "a": "26146",
+          "b": "26146",
+          "computed": 26146
+        },
+        {
+          "a": "26065",
+          "b": "26065",
+          "computed": 26065
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0.9999999999995453,
+        "max": 0.9999999999995453
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 1,
+        "max": 1
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 2,
+      "action": "visibility",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 97,
+        "p95": 104,
+        "max": 104
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "finalCanvas": [
+        {
+          "a": "26146",
+          "b": "26146",
+          "computed": 26146
+        },
+        {
+          "a": "26137",
+          "b": "26137",
+          "computed": 26137
+        },
+        {
+          "a": "26133",
+          "b": "26133",
+          "computed": 26133
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 1,
+        "p95": 1.0000000000004547,
+        "max": 1.0000000000004547
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 2,
+      "action": "motion",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 250,
+        "p95": 262,
+        "max": 262
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 100,
+        "p95": 144,
+        "max": 144
+      },
+      "finalCanvas": [
+        {
+          "a": "26237",
+          "b": "26237",
+          "computed": 26237
+        },
+        {
+          "a": "26196",
+          "b": "26196",
+          "computed": 26196
+        },
+        {
+          "a": "26200",
+          "b": "26200",
+          "computed": 26200
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 1,
+        "max": 1
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 2,
+      "action": "switch",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 300,
+        "p95": 306,
+        "max": 306
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 64,
+        "p95": 77,
+        "max": 77
+      },
+      "finalCanvas": [
+        {
+          "a": "26096",
+          "b": "26096",
+          "computed": 26160
+        },
+        {
+          "a": "26093",
+          "b": "26093",
+          "computed": 26170
+        },
+        {
+          "a": "26070",
+          "b": "26070",
+          "computed": 26132
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 2,
+      "action": "dispose",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 95,
+        "p95": 97,
+        "max": 97
+      },
+      "requestWindowStepUpperBound": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "finalCanvas": [
+        {
+          "a": "26091",
+          "b": "26091",
+          "computed": 26143
+        },
+        {
+          "a": "26091",
+          "b": "26091",
+          "computed": 26091
+        },
+        {
+          "a": "26058",
+          "b": "26058",
+          "computed": 26120
+        }
+      ],
+      "eventQueueDelay": {
+        "samples": 3,
+        "median": 0,
+        "p95": 0,
+        "max": 0
+      },
+      "pauseHandler": {
+        "samples": 3,
+        "median": 0,
+        "p95": 1,
+        "max": 1
+      },
+      "handlerExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "atomicMissing": 0,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    }
+  ],
+  "live": []
+}

@@ -1,0 +1,29 @@
+import {it,expect} from 'vitest';
+import fs from 'node:fs';import os from 'node:os';import path from 'node:path';
+import {verifyStatic,verifyClaims,claims,pathMap,originalParts,countedReference,canonical,verifyPriorFailures} from '../tools/three-body-stage-ag-contract.mjs';
+import {workspaceSources,staticAudit,historicalAudit,verifySavedReport} from '../tools/three-body-stage-ag-audit.mjs';
+const binding=JSON.parse(fs.readFileSync('docs/three-body/review-44/stage-ag/source-binding.json'));
+const sources=workspaceSources();
+import {faults,promotions} from '../tools/three-body-stage-ag-faults.mjs';
+it('accepts the pinned current static source contract without runtime promotion',()=>{const r=staticAudit('.',binding);expect(r.errors).toEqual([]);expect(r.status).toBe('PASS');expect(r.runtimeAttribution).toBe('NOT_OBTAINED');expect(r.timeComparison).toBe('NOT_COMPARABLE');});
+it.each(Object.keys(faults))('rejects source correspondence fault %s',kind=>{const s=structuredClone(sources);faults[kind](s);expect(verifyStatic(s,binding.contract).status).toBe('FAIL');});
+it('requires a unique top-level RMS and exact callback shape',()=>{expect(()=>originalParts(sources.original+'\nconst rms=()=>0;')).toThrow();expect(()=>originalParts(sources.original.replace("20 periods',()=>{","20 periods',async()=>{"))).toThrow();});
+it('reference counter transformation erases exactly with two insertion sites',()=>{const counted=countedReference(sources.reference);expect(canonical(counted)).toBe(canonical(sources.counted));expect(canonical(counted.replace('globalThis.__aeCounts.rhs++;','').replace('globalThis.__aeCounts.rkSteps++;',''))).toBe(canonical(sources.reference));});
+it('rejects bundle/source snapshot mismatch and never accepts missing historical records',()=>{const root=fs.mkdtempSync(path.join(os.tmpdir(),'ag-evidence-'));try{fs.writeFileSync(root+'/bundle.mjs','wrong');const r=historicalAudit(root,root,binding);expect(r.status).toBe('NOT_OBTAINED');expect(r.runtimeAttribution).toBe('NOT_OBTAINED');}finally{fs.rmSync(root,{recursive:true});}});
+it('accepts only the explicit limited claims and all ten path stages',()=>{expect(verifyClaims({...claims,pathMap}).status).toBe('PASS');expect(pathMap.map(p=>p.stage)).toEqual([1,2,3,4,5,6,7,8,9,10]);});
+it.each(Object.keys(promotions))('rejects unsupported promotion %s',kind=>{const c=structuredClone({...claims,pathMap});promotions[kind](c);expect(verifyClaims(c).status).toBe('FAIL');});
+it('rejects saved-summary-only state promotion',()=>{const r=staticAudit('.',binding);expect(verifySavedReport(r,r).status).toBe('PASS');const changed=structuredClone(r);changed.claims.oldX='PASS';expect(verifySavedReport(changed,r).status).toBe('FAIL');});
+
+
+it('preserves imported W/X failure and missing-index evidence',()=>{const old=JSON.parse(fs.readFileSync('docs/three-body/review-44/stage-ag/prior-evidence.json'));expect(verifyPriorFailures(old).status).toBe('PASS');for(const key of ['w','x']){const c=structuredClone(old);if(key==='w')c.w[0].status='PASS';else c.x.status='PASS';expect(verifyPriorFailures(c).status).toBe('FAIL');}const c=structuredClone(old);c.x.originalIndexErrors=[];expect(verifyPriorFailures(c).status).toBe('FAIL');});
+
+it('rejects same-basename import substitution',()=>{const s=structuredClone(sources);s.entry=s.entry.replace('@product','/untrusted/three-body.ts');expect(verifyStatic(s,binding.contract).status).toBe('FAIL');});
+it('rejects forged source binding metadata',()=>{const b=structuredClone(binding);Object.assign(b.sources[0],{gitBlob:'0'.repeat(40),head:'0'.repeat(40),tree:'0'.repeat(40),gitBlobSha256:'0'.repeat(64),sha256:'0'.repeat(64),bytes:0});expect(staticAudit('.',b).status).toBe('FAIL');});
+it('rejects historical unknown and missing-runtime promotion',()=>{const old=JSON.parse(fs.readFileSync('docs/three-body/review-44/stage-ag/prior-evidence.json'));for(const key of ['runtimeOriginals','rootCause']){const c=structuredClone(old);c[key]='VERIFIED';expect(verifyPriorFailures(c).status).toBe('FAIL');}});
+
+it.each(['gitBlob','head','tree','gitBlobSha256','sha256','bytes'])('rejects individual binding field forgery %s',key=>{const b=structuredClone(binding);b.sources[0][key]=key==='bytes'?0:'0'.repeat(key.includes('Sha256')||key==='sha256'?64:40);expect(staticAudit('.',b).status).toBe('FAIL');});
+it('rejects damaged and missing Git content-addressed proof',()=>{const b=structuredClone(binding);b.gitObjects[0].base64=Buffer.from('forged commit').toString('base64');expect(staticAudit('.',b).status).toBe('FAIL');const c=structuredClone(binding);c.gitObjects=c.gitObjects.filter(r=>r.sha!==c.baselineTree);expect(staticAudit('.',c).status).toBe('FAIL');});
+
+it('rejects binding runtime and row acquisition promotions',()=>{for(const key of ['runtimeAttribution','diagnosticVersion']){const b=structuredClone(binding);b[key]='VERIFIED';expect(staticAudit('.',b).status).toBe('FAIL');}const b=structuredClone(binding);b.sources[0].acquisition='EXECUTION_VERIFIED';expect(staticAudit('.',b).status).toBe('FAIL');});
+
+it('accepts a normalized checkout while verifying preserved mixed raw bytes',()=>{const root=fs.mkdtempSync(path.join(os.tmpdir(),'ag-checkout-'));try{for(const row of binding.sources){const target=path.join(root,row.file);fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,Buffer.from(row.rawBase64,'base64').toString('utf8').replaceAll('\r\n','\n'));}const result=staticAudit(root,binding);expect(result.errors).toEqual([]);expect(result.status).toBe('PASS');expect(result.sourceStates.find(r=>r.file==='src/three-body.test.ts').rawBytes).toBe('LINE_ENDING_EQUIVALENT_ONLY');const altered=structuredClone(binding);altered.sources[0].rawBase64=Buffer.from('forged saved raw').toString('base64');expect(staticAudit(root,altered).status).toBe('FAIL');}finally{fs.rmSync(root,{recursive:true});}});

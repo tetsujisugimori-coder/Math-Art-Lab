@@ -1,0 +1,91 @@
+{
+  "schema": "ah-plan-only-1",
+  "repository": "tetsujisugimori-coder/Math-Art-Lab",
+  "pr": 44,
+  "branch": "feat/017-three-body-dance",
+  "state": "PLAN_ONLY",
+  "executionAuthorized": false,
+  "executionStatus": "NOT_TESTED",
+  "target": {
+    "head": "47f12bda192d722b348fc371722130901d936c8c",
+    "tree": "e17ff930687a13e11e50e790c657eb918ebb8e68",
+    "file": "src/three-body.test.ts",
+    "name": "figure eight is reproduced and its energy stays bounded for 20 periods"
+  },
+  "sourceSetSha256": "905f63fc5ae29f4490f2952c2f0e4a774ba590fa32dbacd5f23e1e5aaf0ebb73",
+  "environment": {
+    "node": "v24.20.0",
+    "vitest": "3.2.7",
+    "platform": "win32",
+    "release": "10.0.26300",
+    "arch": "x64",
+    "nodeExecutableSha256": "5c976096e04e5c2c1f091938926234cc9fbebfe9787ddd149351b3b0ecc707b5",
+    "acquisition": "CURRENT_HOST_STATIC_SNAPSHOT; NOT_TARGET_EXECUTION"
+  },
+  "worker": {
+    "pool": "forks",
+    "minWorkers": 1,
+    "maxWorkers": 1,
+    "isolate": true,
+    "fileParallelism": false,
+    "environment": "node"
+  },
+  "originalTimeoutMs": 5000,
+  "thresholds": {
+    "energy": 0.000002,
+    "rms": 0.001,
+    "referenceStep": 0.0002,
+    "verletSteps": 126518
+  },
+  "schedule": [
+    {
+      "id": "ah-O1",
+      "mode": "OFF"
+    },
+    {
+      "id": "ah-O2",
+      "mode": "ON"
+    }
+  ],
+  "slots": 2,
+  "retry": 0,
+  "replacement": 0,
+  "reorder": false,
+  "parentSafetyMs": 30000,
+  "totalBudgetMs": 90000,
+  "stopOnFirstFailure": true,
+  "observerImplementation": "NOT_IMPLEMENTED",
+  "observerRuntimeReceipt": "NOT_OBTAINED",
+  "comparison": "Filtered original Vitest OFF versus ON; no AE timing subtraction or performance-rate estimate",
+  "off": "Original Vitest target filter and parent-only lifecycle/result receipts; worker intervals NOT_OBTAINED_TIMING_OFF",
+  "on": "Proposed Vitest-runtime boundary hooks only; no original test edits; T5 is a coarse overlapping envelope",
+  "expectation": "Either original assertion PASS or preserved FAIL; neither outcome guarantees timeout reproduction",
+  "falsification": [
+    "Expected interval increase absent => reject that interval-cost claim for these slots only",
+    "Same-domain body completed before timeout reported => reject body-preemption claim",
+    "Missing required boundary => hypothesis NOT_TESTED, stop; do not infer a cause"
+  ],
+  "rawFormat": [
+    "original stdout/stderr bytes",
+    "original Vitest result JSON",
+    "parent events JSONL",
+    "worker events JSONL only ON",
+    "effective config and environment receipt",
+    "source/plan/observer raw bytes and size/SHA",
+    "checkpoint after each attempted slot and cohort",
+    "immutable manifest and independent analysis"
+  ],
+  "independentAnalysis": "Re-read raw bytes and receipts in separate process; validate domain/endpoints/outcome separately; retain missing intervals",
+  "preserved": {
+    "rootCause": "UNKNOWN",
+    "timeComparison": "NOT_COMPARABLE",
+    "performanceImprovement": "NOT_TESTED",
+    "originalStop": "NOT_TESTED",
+    "historicalRuntime": "NOT_OBTAINED",
+    "oldW": "BLOCKED",
+    "oldX": "FAIL",
+    "oldSixOriginals": "NOT_OBTAINED",
+    "wholeHistory": "LOCAL_BACKUP_PARTIAL_ORIGINAL_GAPS",
+    "remoteBackup": "REMOTE_BACKUP_NOT_UPLOADED"
+  }
+}

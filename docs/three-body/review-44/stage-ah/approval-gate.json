@@ -1,0 +1,20 @@
+{
+  "schema": "ah-approval-1",
+  "state": "PLAN_ONLY",
+  "executionAuthorized": false,
+  "approvalStatus": "APPROVAL_MISSING",
+  "trustedReviewerIds": [],
+  "currentPolicies": "AB_AND_AC_UNCHANGED_DENY",
+  "gateImplementation": "Pure denial; no process launcher",
+  "requiredBeforeAnyFutureRun": [
+    "Separately committed execution gate and observer implementation",
+    "Exact target HEAD/tree/source/plan/observer/environment receipts",
+    "Live GitHub independent APPROVED record and trusted reviewer policy",
+    "Separate AB/AC approval without author self-approval",
+    "Preflight raw archive path/capacity/write-exclusive/readback verification",
+    "Independent review of unchanged sync callback/matcher/5000ms semantics",
+    "Bounded supervisor termination and flush design verified without performance retry"
+  ],
+  "oldRevisionRerunProtection": "NOT_RETROACTIVE; old workflow code may lack this gate",
+  "scope": "PLAN_VALID is not execution approval"
+}

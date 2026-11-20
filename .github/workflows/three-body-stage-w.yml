@@ -1,0 +1,48 @@
+name: Three-body Stage W fixed-cohort re-audit (no new captures)
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tools/three-body-stage-w*'
+      - 'tools/three-body-stage-v*'
+      - 'src/three-body-stage-w*'
+      - 'src/three-body-stage-v*'
+      - 'docs/three-body/review-44/stage-w/**'
+      - '.github/workflows/three-body-stage-w.yml'
+permissions:
+  contents: read
+  actions: read
+jobs:
+  fixed-cohort-reaudit:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-2025
+            cohort: windows
+          - os: ubuntu-24.04
+            cohort: linux
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Re-audit completed fixed cohort and preserve original FAIL
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node tools/three-body-stage-w-reaudit.mjs --cohort=${{ matrix.cohort }} --output=test-results/stage-w
+      - name: Preserve original bytes and independent re-audit
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: stage-w-reaudit-${{ matrix.os }}-${{ github.sha }}
+          path: test-results/stage-w/
+          if-no-files-found: error
+          retention-days: 90

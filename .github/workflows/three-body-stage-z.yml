@@ -1,0 +1,28 @@
+name: Three-body Stage Z preparation transfer
+on:
+  pull_request:
+    branches: [main]
+    paths: ['tools/three-body-stage-z*', 'tools/three-body-stage-y-control.mjs', 'docs/three-body/review-44/stage-z/**', '.github/workflows/three-body-stage-z.yml']
+permissions:
+  contents: read
+jobs:
+  transfer:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+      - run: node tools/three-body-stage-z-transfer.mjs create test-results/stage-z-transfer
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: stage-z-fixed-transfer
+          path: test-results/stage-z-transfer/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: stage-z-fixed-transfer
+          path: test-results/stage-z-downloaded
+      - run: node tools/three-body-stage-z-transfer.mjs verify test-results/stage-z-downloaded

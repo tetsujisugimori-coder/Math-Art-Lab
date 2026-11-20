@@ -1,0 +1,323 @@
+{
+  "baseline": "1e2e895826e69ab0ce8ad06e92d3e8c60a081313",
+  "before": {
+    "tests": 12,
+    "passed": 4,
+    "failed": 8,
+    "cases": [
+      {
+        "name": "P2 A on-time normal response",
+        "status": "passed"
+      },
+      {
+        "name": "P2 B late normal reply must not populate T4",
+        "status": "failed"
+      },
+      {
+        "name": "P2 C cleanup rejection must not populate T4",
+        "status": "failed"
+      },
+      {
+        "name": "P2 D missing callback stays missing",
+        "status": "passed"
+      },
+      {
+        "name": "P2 E timeout decision wins a later equal-time callback",
+        "status": "failed"
+      },
+      {
+        "name": "P2 F fabricated T1 already rejected by old structural audit",
+        "status": "passed"
+      },
+      {
+        "name": "P3 rejects headTree substitution",
+        "status": "failed"
+      },
+      {
+        "name": "P3 rejects runtimeSource substitution",
+        "status": "failed"
+      },
+      {
+        "name": "P3 rejects wrongRevision substitution",
+        "status": "failed"
+      },
+      {
+        "name": "P3 rejects rawReference substitution",
+        "status": "failed"
+      },
+      {
+        "name": "P3 rejects manifestIndex substitution",
+        "status": "failed"
+      },
+      {
+        "name": "P3 missing source already rejected",
+        "status": "passed"
+      }
+    ]
+  },
+  "after": {
+    "tests": 64,
+    "passed": 64,
+    "failed": 0,
+    "success": true,
+    "cases": [
+      {
+        "name": "records actual send invocation and a late reply while retaining the immutable5000ms TIMEOUT",
+        "status": "passed"
+      },
+      {
+        "name": "distinguishes protocol rejection and cleanup phase from a successful reply",
+        "status": "passed"
+      },
+      {
+        "name": "fixes8 primary plus6 independent auxiliary cases and two repeats per defined cell",
+        "status": "passed"
+      },
+      {
+        "name": "does not replace missing reply with a fabricated T4 or PASS",
+        "status": "passed"
+      },
+      {
+        "name": "keeps protocol failure as failure with original error",
+        "status": "passed"
+      },
+      {
+        "name": "aligns compatible clocks but never invents capture endpoints from a matching event name",
+        "status": "passed"
+      },
+      {
+        "name": "rejects missing calibration as unknown rather than causal alignment",
+        "status": "passed"
+      },
+      {
+        "name": "rejects duplicate calibration as unknown rather than causal alignment",
+        "status": "passed"
+      },
+      {
+        "name": "rejects pid calibration as unknown rather than causal alignment",
+        "status": "passed"
+      },
+      {
+        "name": "rejects tid calibration as unknown rather than causal alignment",
+        "status": "passed"
+      },
+      {
+        "name": "rejects clock calibration as unknown rather than causal alignment",
+        "status": "passed"
+      },
+      {
+        "name": "rejects nonfinite calibration as unknown rather than causal alignment",
+        "status": "passed"
+      },
+      {
+        "name": "rejects browserpid calibration as unknown rather than causal alignment",
+        "status": "passed"
+      },
+      {
+        "name": "missing trace and unknown CPU do not become zero wait",
+        "status": "passed"
+      },
+      {
+        "name": "accepts a consistent synthetic structural evidence set; this is not a bitmap or live-physics test",
+        "status": "passed"
+      },
+      {
+        "name": "detects missingRaw evidence faults independently",
+        "status": "passed"
+      },
+      {
+        "name": "detects corruptRaw evidence faults independently",
+        "status": "passed"
+      },
+      {
+        "name": "detects corruptSummary evidence faults independently",
+        "status": "passed"
+      },
+      {
+        "name": "detects summaryContent evidence faults independently",
+        "status": "passed"
+      },
+      {
+        "name": "detects duplicate evidence faults independently",
+        "status": "passed"
+      },
+      {
+        "name": "detects missingRun evidence faults independently",
+        "status": "passed"
+      },
+      {
+        "name": "detects hash evidence faults independently",
+        "status": "passed"
+      },
+      {
+        "name": "detects source evidence faults independently",
+        "status": "passed"
+      },
+      {
+        "name": "detects extra evidence faults independently",
+        "status": "passed"
+      },
+      {
+        "name": "detects image evidence faults independently",
+        "status": "passed"
+      },
+      {
+        "name": "detects trace evidence faults independently",
+        "status": "passed"
+      },
+      {
+        "name": "rejects missingReply without allowing incomplete evidence to pass",
+        "status": "passed"
+      },
+      {
+        "name": "rejects fabricatedEndpoint without allowing incomplete evidence to pass",
+        "status": "passed"
+      },
+      {
+        "name": "rejects falsePass without allowing incomplete evidence to pass",
+        "status": "passed"
+      },
+      {
+        "name": "rejects missingTrace without allowing incomplete evidence to pass",
+        "status": "passed"
+      },
+      {
+        "name": "rejects wrongThread without allowing incomplete evidence to pass",
+        "status": "passed"
+      },
+      {
+        "name": "rejects unexecuted without allowing incomplete evidence to pass",
+        "status": "passed"
+      },
+      {
+        "name": "preserves a failed completed trial while independently accepting later records into the count",
+        "status": "passed"
+      },
+      {
+        "name": "rejects absent, duplicate, extra or corrupt artifact members",
+        "status": "passed"
+      },
+      {
+        "name": "P2 A normal within-deadline reply alone supplies T4",
+        "status": "passed"
+      },
+      {
+        "name": "P2 B late normal reply stays TIMEOUT with T4 null and separate lateCallbackAt",
+        "status": "passed"
+      },
+      {
+        "name": "P2 C cleanup rejection cannot become T4",
+        "status": "passed"
+      },
+      {
+        "name": "P2 D no callback remains NOT_OBTAINED and has no invented T4",
+        "status": "passed"
+      },
+      {
+        "name": "P2 E equal-time deadline decision wins later callback",
+        "status": "passed"
+      },
+      {
+        "name": "P2 E callback after absolute deadline cannot beat a delayed timeout timer",
+        "status": "passed"
+      },
+      {
+        "name": "P2 F rejects fabricated T1",
+        "status": "passed"
+      },
+      {
+        "name": "P2 F rejects fabricated T2",
+        "status": "passed"
+      },
+      {
+        "name": "P2 F rejects fabricated T3",
+        "status": "passed"
+      },
+      {
+        "name": "separates wrapper entry from actual microtask send invocation",
+        "status": "passed"
+      },
+      {
+        "name": "within-deadline protocol rejection has no normal T4",
+        "status": "passed"
+      },
+      {
+        "name": "missing legacy send/late/deadline times are never inferred from wrapper time",
+        "status": "passed"
+      },
+      {
+        "name": "semantic audit rejects old T4 populated by late response or cleanup rejection",
+        "status": "passed"
+      },
+      {
+        "name": "P3 positive: raw snapshot bytes and Git bytes remain distinct while logical content matches",
+        "status": "passed"
+      },
+      {
+        "name": "P3 rejects independently mismatched manifestRevision",
+        "status": "passed"
+      },
+      {
+        "name": "P3 rejects independently mismatched expectedRunner",
+        "status": "passed"
+      },
+      {
+        "name": "P3 rejects independently mismatched indexRevision",
+        "status": "passed"
+      },
+      {
+        "name": "P3 negative: detects headTree without rewriting raw",
+        "status": "passed"
+      },
+      {
+        "name": "P3 negative: detects runtimeSource without rewriting raw",
+        "status": "passed"
+      },
+      {
+        "name": "P3 negative: detects wrongRevision without rewriting raw",
+        "status": "passed"
+      },
+      {
+        "name": "P3 negative: detects rawReference without rewriting raw",
+        "status": "passed"
+      },
+      {
+        "name": "P3 negative: detects manifestIndex without rewriting raw",
+        "status": "passed"
+      },
+      {
+        "name": "P3 negative: detects missingSource without rewriting raw",
+        "status": "passed"
+      },
+      {
+        "name": "P3 negative: detects differentRevisionBlob without rewriting raw",
+        "status": "passed"
+      },
+      {
+        "name": "P3 negative: detects duplicateSource without rewriting raw",
+        "status": "passed"
+      },
+      {
+        "name": "P3 negative: detects manifestSources without rewriting raw",
+        "status": "passed"
+      },
+      {
+        "name": "P3 negative: detects rawByteNormalization without rewriting raw",
+        "status": "passed"
+      },
+      {
+        "name": "acquired expression expectations bind to exact lf source rather than auditor checkout newlines",
+        "status": "passed"
+      },
+      {
+        "name": "acquired expression expectations bind to exact crlf source rather than auditor checkout newlines",
+        "status": "passed"
+      },
+      {
+        "name": "fixed W plan is exactly12 captures: each context/trace start has2, no auxiliary or readback",
+        "status": "passed"
+      }
+    ]
+  },
+  "scope": "Diagnostic correction only; capture failures are not GREEN"
+}

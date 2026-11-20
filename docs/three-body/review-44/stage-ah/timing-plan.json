@@ -1,0 +1,130 @@
+{
+  "schema": "ah-timing-1",
+  "state": "PLAN_ONLY",
+  "clock": {
+    "wall": "performance.now",
+    "wallUnit": "ms",
+    "processCpu": "process.cpuUsage",
+    "threadCpu": "process.threadCpuUsage if supported",
+    "cpuUnit": "us",
+    "unsupportedThreadCpu": {
+      "value": null,
+      "status": "NOT_OBTAINED"
+    }
+  },
+  "intervals": [
+    {
+      "id": "T0",
+      "begin": "parent.launch.request",
+      "end": "parent.spawn.returned",
+      "owner": "parent",
+      "clock": "performance.now",
+      "unit": "ms",
+      "scope": "Process creation request/return only; child readiness excluded",
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "on": "OFF_AND_ON",
+      "missingEnd": "NOT_OBTAINED; never zero; do not substitute parent timestamps",
+      "intervention": "Bounded event buffer and stamps/CPU reads; overhead UNKNOWN"
+    },
+    {
+      "id": "T1",
+      "begin": "collection.begin",
+      "end": "collection.end",
+      "owner": "worker",
+      "clock": "performance.now",
+      "unit": "ms",
+      "scope": "collectTests envelope incl setup/import/task registration",
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "on": "ON_ONLY",
+      "missingEnd": "NOT_OBTAINED; never zero; do not substitute parent timestamps",
+      "intervention": "Bounded event buffer and stamps/CPU reads; overhead UNKNOWN"
+    },
+    {
+      "id": "T2",
+      "begin": "worker.import.begin",
+      "end": "worker.import.end",
+      "owner": "worker",
+      "clock": "performance.now",
+      "unit": "ms",
+      "scope": "importFile envelope; transform-only server cost NOT_OBTAINED",
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "on": "ON_ONLY",
+      "missingEnd": "NOT_OBTAINED; never zero; do not substitute parent timestamps",
+      "intervention": "Bounded event buffer and stamps/CPU reads; overhead UNKNOWN"
+    },
+    {
+      "id": "T3",
+      "begin": "worker.setup.begin",
+      "end": "worker.setup.end",
+      "owner": "worker",
+      "clock": "performance.now",
+      "unit": "ms",
+      "scope": "Environment setup; setupFiles within T1 not added separately",
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "on": "ON_ONLY",
+      "missingEnd": "NOT_OBTAINED; never zero; do not substitute parent timestamps",
+      "intervention": "Bounded event buffer and stamps/CPU reads; overhead UNKNOWN"
+    },
+    {
+      "id": "T4",
+      "begin": "body.begin",
+      "end": "body.end",
+      "owner": "worker",
+      "clock": "performance.now",
+      "unit": "ms",
+      "scope": "Original synchronous callback only; wrapper clock/CPU reads perturb it",
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "on": "ON_ONLY",
+      "missingEnd": "NOT_OBTAINED; never zero; do not substitute parent timestamps",
+      "intervention": "Bounded event buffer and stamps/CPU reads; overhead UNKNOWN"
+    },
+    {
+      "id": "T5",
+      "begin": "matcher.first.begin",
+      "end": "matcher.last.end",
+      "owner": "worker",
+      "clock": "performance.now",
+      "unit": "ms",
+      "scope": "First to last of 126520 target matcher calls; includes interleaved numerical work",
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "on": "ON_ONLY",
+      "missingEnd": "NOT_OBTAINED; never zero; do not substitute parent timestamps",
+      "intervention": "Bounded event buffer and stamps/CPU reads; overhead UNKNOWN"
+    },
+    {
+      "id": "T6",
+      "begin": "cleanup.begin",
+      "end": "cleanup.end",
+      "owner": "worker",
+      "clock": "performance.now",
+      "unit": "ms",
+      "scope": "Worker cleanup only; parent reporter aggregation separate/unmeasured",
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "on": "ON_ONLY",
+      "missingEnd": "NOT_OBTAINED; never zero; do not substitute parent timestamps",
+      "intervention": "Bounded event buffer and stamps/CPU reads; overhead UNKNOWN"
+    },
+    {
+      "id": "T7",
+      "begin": "parent.launch.request",
+      "end": "parent.exit.received",
+      "owner": "parent",
+      "clock": "performance.now",
+      "unit": "ms",
+      "scope": "Full parent lifecycle envelope; overlaps T0; not child CPU",
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "on": "OFF_AND_ON",
+      "missingEnd": "NOT_OBTAINED; never zero; do not substitute parent timestamps",
+      "intervention": "Bounded event buffer and stamps/CPU reads; overhead UNKNOWN"
+    }
+  ],
+  "sumToTotal": false,
+  "crossProcessSubtraction": false,
+  "residualAllocation": "PROHIBITED",
+  "eventBuffer": {
+    "maxEvents": 1024,
+    "maxBytes": 1048576,
+    "onOverflow": "OBSERVER_FAILURE_STOP"
+  },
+  "matcherClockReads": "First begin and known-last end only; preserve this/args/return/throw; no diagnostic matcher adapter"
+}

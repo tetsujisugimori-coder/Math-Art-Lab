@@ -1,0 +1,244 @@
+{
+  "status": "FAIL",
+  "counts": {
+    "all": {
+      "planned": 12,
+      "completed": 12,
+      "failed": 6,
+      "unexecuted": 0
+    },
+    "primary": {
+      "planned": 12,
+      "completed": 12,
+      "failed": 6,
+      "unexecuted": 0
+    },
+    "auxiliary": {
+      "planned": 0,
+      "completed": 0,
+      "failed": 0,
+      "unexecuted": 0
+    }
+  },
+  "issues": [
+    {
+      "category": "E_SCREENSHOT",
+      "code": "TIMEOUT",
+      "error": "Page.captureScreenshot timeout 5000ms",
+      "at": 8676.0222,
+      "clock": "harness performance.now ms",
+      "id": "w-01-default-off"
+    },
+    {
+      "category": "E_SCREENSHOT",
+      "code": "TIMEOUT",
+      "error": "Page.captureScreenshot timeout 5000ms",
+      "at": 21989.3487,
+      "clock": "harness performance.now ms",
+      "id": "w-03-default-late"
+    },
+    {
+      "category": "E_SCREENSHOT",
+      "code": "TIMEOUT",
+      "error": "Page.captureScreenshot timeout 5000ms",
+      "at": 35300.4805,
+      "clock": "harness performance.now ms",
+      "id": "w-05-default-early"
+    },
+    {
+      "category": "E_SCREENSHOT",
+      "code": "TIMEOUT",
+      "error": "Page.captureScreenshot timeout 5000ms",
+      "at": 52620.589,
+      "clock": "harness performance.now ms",
+      "id": "w-08-default-early"
+    },
+    {
+      "category": "E_SCREENSHOT",
+      "code": "TIMEOUT",
+      "error": "Page.captureScreenshot timeout 5000ms",
+      "at": 66199.5493,
+      "clock": "harness performance.now ms",
+      "id": "w-10-default-late"
+    },
+    {
+      "category": "E_SCREENSHOT",
+      "code": "TIMEOUT",
+      "error": "Page.captureScreenshot timeout 5000ms",
+      "at": 79894.7278,
+      "clock": "harness performance.now ms",
+      "id": "w-12-default-off"
+    }
+  ],
+  "completeness": {
+    "allTrialsCompleted": true,
+    "recordsVerified": true,
+    "primaryRequestsAcquired": false,
+    "auxiliaryRepliesAcquired": true,
+    "traceEvidenceComplete": true,
+    "acceptance": "NOT_ACCEPTED",
+    "productPerformance": "NOT_TESTED",
+    "auxiliaryHandlersCompleted": true,
+    "clockAlignmentComplete": true,
+    "evidenceComplete": false,
+    "sourceBoundVerified": true
+  },
+  "scope": "Diagnostic acquisition/clock/evidence only; no product performance or native-wait certification",
+  "sourceAudit": {
+    "status": "PASS",
+    "errors": [],
+    "proof": [
+      {
+        "file": "tools/three-body-stage-v.mjs",
+        "rawBytesVerified": true,
+        "rawSha256": "0d16d3625de71f7f0b4ff1e6b0183ba66e17aa51605982ff7b7a9ecb019887e1",
+        "runtimeBlobId": "e7438df25712816f0c630d5b5dc3f505b4211763",
+        "headBlobId": "782e97f2a3f7bf74a5f9bbcd23bdcd4a5b7b797f",
+        "headRelation": "DIRTY_RECORDED_SNAPSHOT",
+        "logicalSha256": "1735692c7d4fb453104fd3e307bcbd708bdeb033981c41d2f862fd87274fbba0"
+      },
+      {
+        "file": "tools/three-body-stage-v-contracts.mjs",
+        "rawBytesVerified": true,
+        "rawSha256": "d8563ebf24617ab34d9222ce9c53935934df688b2abc825735bd79da430fd16a",
+        "runtimeBlobId": "97c42479e0ae9c8e42a99afaa42a8e893ea30fed",
+        "headBlobId": "0f31461cec3a3eab0716707ea323537d9a774c0f",
+        "headRelation": "DIRTY_RECORDED_SNAPSHOT",
+        "logicalSha256": "d8563ebf24617ab34d9222ce9c53935934df688b2abc825735bd79da430fd16a"
+      },
+      {
+        "file": "tools/three-body-stage-v-trace.mjs",
+        "rawBytesVerified": true,
+        "rawSha256": "9fab75a873922112f2e85494a6724f5ed375f27ad6969e1774368182a181a2cc",
+        "runtimeBlobId": "fd19df2b508e5bb967e846c947666237d8bbd59e",
+        "headBlobId": "fd19df2b508e5bb967e846c947666237d8bbd59e",
+        "headRelation": "BYTE_IDENTICAL",
+        "logicalSha256": "9fab75a873922112f2e85494a6724f5ed375f27ad6969e1774368182a181a2cc"
+      },
+      {
+        "file": "tools/three-body-stage-v-audit.mjs",
+        "rawBytesVerified": true,
+        "rawSha256": "a6af92f64c8a22db7de4dd70a28b7c154a8bdb1ac084296f326ce5d0d3bd73a0",
+        "runtimeBlobId": "a1d0727d1e4728b45cae3e646620314b0fd6c153",
+        "headBlobId": "4259df371cf66cf6ca734b7148b7ccc5ccc0781b",
+        "headRelation": "DIRTY_RECORDED_SNAPSHOT",
+        "logicalSha256": "39df4b4bca6fe618ccb9c11a4f33bba76239d3099732b7401b92ec3ddc034fe1"
+      },
+      {
+        "file": "tools/three-body-stage-u-fixture.mjs",
+        "rawBytesVerified": true,
+        "rawSha256": "5ff720f6a7920dd19eaa3381ddd9a8472d742696568fc50fea1f09c99b0f800b",
+        "runtimeBlobId": "edaf2fbb5d308cc6173779da19458295352d49d2",
+        "headBlobId": "97d77168768b9368175cdaff55b0a3de74677d24",
+        "headRelation": "CHECKOUT_NEWLINES_ONLY",
+        "logicalSha256": "dd932652667733aa066b9bffa12e03f9081b1d4cde1650827c8685791b1fddd4"
+      },
+      {
+        "file": "tools/three-body-stage-u-contracts.mjs",
+        "rawBytesVerified": true,
+        "rawSha256": "31e90ad5768290a0b24d13b8a931ba10f39b2feb229efd60456a8a8497d9fa7b",
+        "runtimeBlobId": "37c021c2c5c0a18ebd5af7bb51abe013c38291ef",
+        "headBlobId": "21a885efcd81b814023623d1e2b0757585190d5c",
+        "headRelation": "CHECKOUT_NEWLINES_ONLY",
+        "logicalSha256": "80fcd25496ae190825c0fa55f294be7b6220b8c9647d8f21fa32abb8a9adba86"
+      },
+      {
+        "file": "tools/three-body-stage-q-browser.mjs",
+        "rawBytesVerified": true,
+        "rawSha256": "b02815e672719b8c311ca0a3c928c66d50b3a9ca5b4979119e52bf8d1c5021b4",
+        "runtimeBlobId": "0bcbebd555ef359e3165a5747c8aea5d32221aac",
+        "headBlobId": "0bcbebd555ef359e3165a5747c8aea5d32221aac",
+        "headRelation": "BYTE_IDENTICAL",
+        "logicalSha256": "b02815e672719b8c311ca0a3c928c66d50b3a9ca5b4979119e52bf8d1c5021b4"
+      },
+      {
+        "file": "tools/three-body-stage-q-capture.mjs",
+        "rawBytesVerified": true,
+        "rawSha256": "97a12f522d9d765109d8bc4aff52e6209e93d7b0abdc344bc84656a62674780b",
+        "runtimeBlobId": "4c41649f642ec5d6896b0985b729d66fb7233688",
+        "headBlobId": "4c41649f642ec5d6896b0985b729d66fb7233688",
+        "headRelation": "BYTE_IDENTICAL",
+        "logicalSha256": "97a12f522d9d765109d8bc4aff52e6209e93d7b0abdc344bc84656a62674780b"
+      },
+      {
+        "file": "tools/three-body-stage-p-analysis.mjs",
+        "rawBytesVerified": true,
+        "rawSha256": "ec22d58f3e98bbc95182979713473e47b10a356f0a96d2a612ee5482d23f56bd",
+        "runtimeBlobId": "01890f3d996fe35f4c39016b8f96270ec1d8b3ca",
+        "headBlobId": "01890f3d996fe35f4c39016b8f96270ec1d8b3ca",
+        "headRelation": "BYTE_IDENTICAL",
+        "logicalSha256": "ec22d58f3e98bbc95182979713473e47b10a356f0a96d2a612ee5482d23f56bd"
+      },
+      {
+        "file": "tools/three-body-stage-u-audit.mjs",
+        "rawBytesVerified": true,
+        "rawSha256": "4a7d5199d5fbad278d43ca4c8198d91612d0f35086e7af52921692de207c0d41",
+        "runtimeBlobId": "77660de584d307337321752cb3577d932470b3d6",
+        "headBlobId": "e24e05868818e235b005a3cc9f1a535ad21e31d2",
+        "headRelation": "CHECKOUT_NEWLINES_ONLY",
+        "logicalSha256": "80d3b99eef5bc20f35bf7ddca2f6eb2ffa9e8cb8427d79378b34447ef8c808bb"
+      },
+      {
+        "file": "tools/three-body-stage-w-timing.mjs",
+        "rawBytesVerified": true,
+        "rawSha256": "789fa9f0ac4cf85b6b28bf54de4bd0206354eb55ba62162d4b86fb9ab6d761d3",
+        "runtimeBlobId": "adbecd446cc6afd4c5cfa7390fa89a6bc506d217",
+        "headBlobId": null,
+        "headRelation": "NOT_IN_HEAD_DIRTY_SNAPSHOT",
+        "logicalSha256": "789fa9f0ac4cf85b6b28bf54de4bd0206354eb55ba62162d4b86fb9ab6d761d3"
+      },
+      {
+        "file": "tools/three-body-stage-w-source.mjs",
+        "rawBytesVerified": true,
+        "rawSha256": "259f00893f6624f3f00ac7bb8dde0aa3c01a1e8b7ca75230acd48f6731df8d0c",
+        "runtimeBlobId": "0ee6561b3494676cf83d71f290f18c2157102393",
+        "headBlobId": null,
+        "headRelation": "NOT_IN_HEAD_DIRTY_SNAPSHOT",
+        "logicalSha256": "259f00893f6624f3f00ac7bb8dde0aa3c01a1e8b7ca75230acd48f6731df8d0c"
+      },
+      {
+        "file": "tools/three-body-stage-w.mjs",
+        "rawBytesVerified": true,
+        "rawSha256": "64e398081bfb7acfa1d27ef6ac5b9350a63d7c96acacaec6a7a5a3ccf0003053",
+        "runtimeBlobId": "2ceda450aaca52dd7849e9a2fd44dbc167f1127d",
+        "headBlobId": null,
+        "headRelation": "NOT_IN_HEAD_DIRTY_SNAPSHOT",
+        "logicalSha256": "b67a66a93637e3497a4e65fa66939b7ed6710f5d46c087b63e2f972ed3dd8ad8"
+      },
+      {
+        "file": "tools/three-body-stage-w-contracts.mjs",
+        "rawBytesVerified": true,
+        "rawSha256": "7b90d681dbb055a15348495657cd853dbcfff72833c4b5a81c45cd6c6fdbd26c",
+        "runtimeBlobId": "610913a85ec570672b0696bc6aa07ed4abd7705a",
+        "headBlobId": null,
+        "headRelation": "NOT_IN_HEAD_DIRTY_SNAPSHOT",
+        "logicalSha256": "7b90d681dbb055a15348495657cd853dbcfff72833c4b5a81c45cd6c6fdbd26c"
+      },
+      {
+        "file": "tools/three-body-stage-w-audit.mjs",
+        "rawBytesVerified": true,
+        "rawSha256": "94ee2864e7bdd42417320101f3ee8f85f21912fafc9ec45b4b65696d42a39028",
+        "runtimeBlobId": "09560928aea0eacbc44895a1fa5c088208c3c8a8",
+        "headBlobId": null,
+        "headRelation": "NOT_IN_HEAD_DIRTY_SNAPSHOT",
+        "logicalSha256": "94ee2864e7bdd42417320101f3ee8f85f21912fafc9ec45b4b65696d42a39028"
+      }
+    ],
+    "contract": "stage-w-source-1",
+    "bindingId": "f239f7ed23ca942d8561c155d1a7038383e0f030e5df877bff0623a9ffcc4e4a",
+    "headRelation": "RECORDED_DIRTY_DIAGNOSTIC_SNAPSHOT",
+    "attestationScope": "Snapshot runner actually selected by path/environment and rehashed before each trial; no kernel/V8 attestation or claim about unrecorded external dependencies",
+    "auditor": {
+      "revision": "stage-w-source-1",
+      "moduleSha256": "369b705cdb6750951c3cff8fbc20a73691e572bd3310bea26e13b011c74a4369",
+      "head": "1e2e895826e69ab0ce8ad06e92d3e8c60a081313",
+      "tree": "aebbe16609ae24e15b38e856942e0e23146681a2"
+    }
+  },
+  "auditor": {
+    "revision": "stage-v-w-audit-1",
+    "moduleSha256": "bb67f757c5ecaa385e96a80c27e9f38c46b289aff3c59e3377c4bec159535d87",
+    "sourceContract": "stage-w-source-1"
+  },
+  "artifactIndexStatus": "VERIFIED_IF_NO_ISSUES"
+}

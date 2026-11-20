@@ -1,0 +1,33 @@
+{
+  "run": "causal-chromium",
+  "ledger": [
+    {
+      "file": "tools/three-body-stage-p.mjs",
+      "expected": "52419fa53584694e5fec9386ede2e7da86d6f664077fcbf765fb5128f5ed880a",
+      "actual": "52419fa53584694e5fec9386ede2e7da86d6f664077fcbf765fb5128f5ed880a",
+      "matches": true,
+      "method": "reversed recorded post-window save/close patch; exact SHA verification"
+    },
+    {
+      "file": "tools/three-body-stage-p-browser.mjs",
+      "expected": "97fd611f61346ecce74f8e739a9ca4b2ffb51efb47fe7c95afd1da6e520fb13b",
+      "actual": "97fd611f61346ecce74f8e739a9ca4b2ffb51efb47fe7c95afd1da6e520fb13b",
+      "matches": true,
+      "method": "current exact source"
+    },
+    {
+      "file": "tools/three-body-stage-p-analysis.mjs",
+      "expected": "3b51bb3c7ac5e537896964ca41cbb8d94b4a89e8578479980ed15928a6b921bd",
+      "actual": "3b51bb3c7ac5e537896964ca41cbb8d94b4a89e8578479980ed15928a6b921bd",
+      "matches": true,
+      "method": "reversed recorded post-analysis wait-attribution patch; exact SHA verification"
+    },
+    {
+      "file": "tools/three-body-review-diagnostic.mjs",
+      "expected": "a151d1e58d50b8d90ed1fd27e618263806a1a9dbdf0b6dd11f19ade0774ecde4",
+      "actual": "a151d1e58d50b8d90ed1fd27e618263806a1a9dbdf0b6dd11f19ade0774ecde4",
+      "matches": true,
+      "method": "current exact source"
+    }
+  ]
+}

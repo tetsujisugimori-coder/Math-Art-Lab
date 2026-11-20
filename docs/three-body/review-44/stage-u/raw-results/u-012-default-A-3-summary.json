@@ -1,0 +1,136 @@
+{
+  "id": "u-012-default-A-3",
+  "plan": {
+    "id": "u-012-default-A-3",
+    "context": "default",
+    "operation": "A",
+    "block": 3,
+    "readback": false,
+    "repeat": 1
+  },
+  "status": "FAIL",
+  "issues": [
+    {
+      "category": "D_MEASUREMENT",
+      "code": "BROWSER_CLEANUP",
+      "error": "{\"begin\":127477.3145,\"budgetMs\":5000,\"graceMs\":10000,\"budgetExceeded\":true,\"closed\":true,\"closedAt\":136325.1121,\"finished\":136325.1939,\"error\":null,\"status\":\"FAIL\"}",
+      "at": 136325.2588,
+      "clock": "harness performance.now"
+    }
+  ],
+  "requests": [
+    {
+      "session": {
+        "logicalId": "u-012-default-A-3/page-session",
+        "targetId": "880DFDC2D212CA1C17937E669AA75D81",
+        "wireSessionId": "NOT_EXPOSED_BY_PUBLIC_PLAYWRIGHT_API",
+        "sameObjectForAllMeasuredRequests": true
+      },
+      "requestId": "u-012-default-A-3/page-session/request-1",
+      "method": "Page.getLayoutMetrics",
+      "params": {},
+      "start": 127365.2733,
+      "clock": "harness performance.now ms",
+      "timeoutMs": 5000,
+      "wireRequestId": "NOT_EXPOSED_BY_PUBLIC_PLAYWRIGHT_API",
+      "response": 127366.4557,
+      "finished": 127366.4557,
+      "elapsed": 1.1824000000051456,
+      "status": "PASS",
+      "lateReply": false,
+      "result": {
+        "layoutViewport": {
+          "pageX": 0,
+          "pageY": 0,
+          "clientWidth": 1280,
+          "clientHeight": 900
+        },
+        "visualViewport": {
+          "offsetX": 0,
+          "offsetY": 0,
+          "pageX": 0,
+          "pageY": 0,
+          "clientWidth": 1280,
+          "clientHeight": 900,
+          "scale": 1,
+          "zoom": 1
+        },
+        "contentSize": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 900
+        },
+        "cssLayoutViewport": {
+          "pageX": 0,
+          "pageY": 0,
+          "clientWidth": 1280,
+          "clientHeight": 900
+        },
+        "cssVisualViewport": {
+          "offsetX": 0,
+          "offsetY": 0,
+          "pageX": 0,
+          "pageY": 0,
+          "clientWidth": 1280,
+          "clientHeight": 900,
+          "scale": 1,
+          "zoom": 1
+        },
+        "cssContentSize": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 900
+        }
+      }
+    }
+  ],
+  "gap": null,
+  "captureStatus": "NOT_REQUESTED",
+  "image": {
+    "acquisition": "NOT_REQUESTED"
+  },
+  "before": {
+    "step": 30,
+    "bStep": 30,
+    "ab": true,
+    "playing": false,
+    "disposed": false,
+    "timer": false,
+    "raf": false,
+    "trail": 0,
+    "graph": 0,
+    "b": "30",
+    "a": "30",
+    "observed": "30"
+  },
+  "after": {
+    "step": 30,
+    "bStep": 30,
+    "ab": true,
+    "playing": false,
+    "disposed": false,
+    "timer": false,
+    "raf": false,
+    "trail": 0,
+    "graph": 0,
+    "b": "30",
+    "a": "30",
+    "observed": "30"
+  },
+  "later": {
+    "step": 30,
+    "bStep": 30,
+    "ab": true,
+    "playing": false,
+    "disposed": false,
+    "timer": false,
+    "raf": false,
+    "trail": 0,
+    "graph": 0,
+    "b": "30",
+    "a": "30",
+    "observed": "30"
+  }
+}

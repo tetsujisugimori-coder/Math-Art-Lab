@@ -1,0 +1,21 @@
+import fs from 'node:fs';import {execFileSync} from 'node:child_process';import {createHash} from 'node:crypto';import {fileURLToPath} from 'node:url';
+export const hash=b=>createHash('sha256').update(b).digest('hex');
+export const requiredSources=['tools/three-body-stage-ab-gate.mjs','tools/three-body-stage-aa-entry.mjs','tools/three-body-stage-aa-source-audit.mjs','tools/three-body-stage-aa-provenance.mjs','tools/three-body-regression-evidence.mjs','tools/three-body-stage-x-contracts.mjs','tools/three-body-stage-aa-cohort.mjs','tools/three-body-stage-aa-result.mjs','tools/three-body-stage-aa-fixture.mjs','tools/three-body-stage-aa-original.mjs','tools/three-body-stage-aa-arguments.mjs','tools/three-body-stage-w-source.mjs','tools/three-body-stage-y-control.mjs','tools/three-body-stage-ab-fixture.mjs','tools/three-body-stage-ab-locator.mjs','tools/three-body-stage-ab-observation.mjs','tools/three-body-stage-ab-review.mjs','tools/three-body-stage-ab-review-policy.json'];
+export function validateApproval(local,remote,subject,policy){const e=[],repo='tetsujisugimori-coder/Math-Art-Lab';
+ if(local?.schema!=='execution-approval-1'||local.repository!==repo||local.pr!==44||local.reviewId!==subject.reviewId||local.decision!=='PASS'||local.execute!=='YES')e.push('LOCAL_APPROVAL_FORMAT');
+ if(policy?.executionAuthorized!==true||!Array.isArray(policy.trustedReviewerIds)||!policy.trustedReviewerIds.includes(remote?.user?.id))e.push('REVIEWER_NOT_AUTHORIZED');
+ if(remote?.id!==subject.reviewId||remote.state!=='APPROVED'||remote.commit_id!==subject.head||remote.html_url!==`https://github.com/${repo}/pull/44#pullrequestreview-${subject.reviewId}`||remote.pull_request_url!==`https://api.github.com/repos/${repo}/pulls/44`)e.push('GITHUB_REFERENCE');
+ if(!remote?.user?.id||!subject.authorId||remote.user.id===subject.authorId)e.push('NOT_INDEPENDENT_IDENTITY');
+ if(local?.reviewer?.id!==remote?.user?.id||local?.reviewer?.login!==remote?.user?.login||local?.remoteBodySha256!==hash(remote?.body??''))e.push('REVIEW_BODY_OR_AUTHOR');
+ let approval;try{const matches=[...(remote.body??'').matchAll(/<!-- math-art-execution-approval-v1 -->\s*```json\s*([\s\S]*?)\s*```/g)];if(matches.length!==1)throw Error('STRUCTURED_RECORD');approval=JSON.parse(matches[0][1]);}catch{e.push('REMOTE_APPROVAL_FORMAT');}
+ for(const key of ['head','tree','planSha256','sourceSha256'])if(local?.[key]!==subject[key]||approval?.[key]!==subject[key])e.push('SUBJECT_'+key);
+ if(approval?.schema!=='execution-approval-1'||approval?.decision!=='PASS'||approval?.execute!=='YES'||approval?.reviewer?.id!==remote?.user?.id||approval?.reviewer?.login!==remote?.user?.login)e.push('REMOTE_NOT_APPROVED');
+ return{status:e.length?'FAIL':'PASS',errors:e};
+}
+const live=relative=>{const raw=execFileSync('gh',['api','repos/tetsujisugimori-coder/Math-Art-Lab/'+relative],{timeout:15000,maxBuffer:8000000});return{value:JSON.parse(raw),rawSha256:hash(raw),obtainedUTC:new Date().toISOString()};};
+export function reviewGate(config,transport=live){try{
+ if(!Number.isSafeInteger(config.reviewId)||config.reviewId<=0||!config.reviewFile||!config.reviewPlanFile||!/^[a-f0-9]{40}$/.test(config.expectedHead))throw Error('REVIEW_INPUT_REQUIRED');
+ const local=JSON.parse(fs.readFileSync(config.reviewFile)),plan=fs.readFileSync(config.reviewPlanFile),sources=requiredSources.map(file=>({file,sha256:hash(fs.readFileSync(file))}));
+ const policy=JSON.parse(fs.readFileSync(fileURLToPath(new URL('./three-body-stage-ab-review-policy.json',import.meta.url)))),review=transport('pulls/44/reviews/'+config.reviewId),commit=transport('commits/'+config.expectedHead),subject={reviewId:config.reviewId,head:config.expectedHead,tree:execFileSync('git',['rev-parse',config.expectedHead+'^{tree}'],{encoding:'utf8'}).trim(),planSha256:hash(plan),sourceSha256:hash(JSON.stringify(sources)),authorId:commit.value.author?.id};
+ const result=validateApproval(local,review.value,subject,policy);if(commit.value.sha!==subject.head||commit.value.commit?.tree?.sha!==subject.tree){result.status='FAIL';result.errors.push('REMOTE_SOURCE');}return{...result,subject,sources,reviewReceipt:{id:review.value.id,rawSha256:review.rawSha256,obtainedUTC:review.obtainedUTC},commitReceipt:{rawSha256:commit.rawSha256,obtainedUTC:commit.obtainedUTC}};
+ }catch(error){return{status:'FAIL',errors:[String(error)]};}}

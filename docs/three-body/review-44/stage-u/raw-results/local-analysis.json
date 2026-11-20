@@ -1,0 +1,1295 @@
+{
+  "schema": 1,
+  "head": "7c5f7845e7b5db31c915b4a3e2749d18b2c1be20",
+  "ciRunId": null,
+  "environment": {
+    "os": "win32",
+    "release": "10.0.26300",
+    "cpu": "Intel(R) Core(TM) i7-14650HX",
+    "node": "v24.20.0",
+    "pid": 32116,
+    "timeOrigin": 1794404530885.033
+  },
+  "browser": {
+    "version": "145.0.7632.6",
+    "playwrightVersion": "1.58.2"
+  },
+  "fixture": {
+    "base": "b07ccec1205ca99a1112ab8db951efbe94a51f74",
+    "sourcePhysicsStep": 26000,
+    "tapeSha256": "3080cf71635e04f98f62d13927de156c142c7828a0674b548e2a65e512129291",
+    "commands": [
+      3181,
+      3181
+    ],
+    "comparisonSha256": "1385ebb110bf08d20b1b3bb67e5a903106ab9e8b0b8bac4e5025c05f6fc0e782",
+    "livePhysics": false,
+    "canonicalSha256": "84857a2c6dd89bf0f0d0f38b30baf56d46deedfc4a2e194ac864a96765e2b9a0"
+  },
+  "sources": [
+    {
+      "file": "tools/three-body-stage-u.mjs",
+      "copy": "sources/fae28237d52d7d05d20bfa8f2a270a35fc62b0d918e76fb071fffe210c47771a-three-body-stage-u.mjs",
+      "bytes": 14853,
+      "sha256": "fae28237d52d7d05d20bfa8f2a270a35fc62b0d918e76fb071fffe210c47771a"
+    },
+    {
+      "file": "tools/three-body-stage-u-contracts.mjs",
+      "copy": "sources/6c46da76943dd5c5994c736c4892cf41ea85549e786940d2e2545d40dcf44793-three-body-stage-u-contracts.mjs",
+      "bytes": 3721,
+      "sha256": "6c46da76943dd5c5994c736c4892cf41ea85549e786940d2e2545d40dcf44793"
+    },
+    {
+      "file": "tools/three-body-stage-u-fixture.mjs",
+      "copy": "sources/5ff720f6a7920dd19eaa3381ddd9a8472d742696568fc50fea1f09c99b0f800b-three-body-stage-u-fixture.mjs",
+      "bytes": 3727,
+      "sha256": "5ff720f6a7920dd19eaa3381ddd9a8472d742696568fc50fea1f09c99b0f800b"
+    },
+    {
+      "file": "tools/three-body-stage-u-audit.mjs",
+      "copy": "sources/96c442c23fee027221ad239bf7634f0c39fea63525b1cbd11de1e7399da8d9ca-three-body-stage-u-audit.mjs",
+      "bytes": 7543,
+      "sha256": "96c442c23fee027221ad239bf7634f0c39fea63525b1cbd11de1e7399da8d9ca"
+    },
+    {
+      "file": "tools/three-body-stage-q-browser.mjs",
+      "copy": "sources/b02815e672719b8c311ca0a3c928c66d50b3a9ca5b4979119e52bf8d1c5021b4-three-body-stage-q-browser.mjs",
+      "bytes": 11527,
+      "sha256": "b02815e672719b8c311ca0a3c928c66d50b3a9ca5b4979119e52bf8d1c5021b4"
+    },
+    {
+      "file": "tools/three-body-stage-q-capture.mjs",
+      "copy": "sources/97a12f522d9d765109d8bc4aff52e6209e93d7b0abdc344bc84656a62674780b-three-body-stage-q-capture.mjs",
+      "bytes": 2908,
+      "sha256": "97a12f522d9d765109d8bc4aff52e6209e93d7b0abdc344bc84656a62674780b"
+    }
+  ],
+  "counts": {
+    "planned": 24,
+    "completed": 24,
+    "failed": 12,
+    "unexecuted": 0
+  },
+  "requests": {
+    "layout": {
+      "planned": 16,
+      "sent": 12,
+      "pass": 12
+    },
+    "capture": {
+      "planned": 16,
+      "sent": 12,
+      "pass": 8,
+      "timeout": 4,
+      "protocolError": 0,
+      "notSent": 4
+    },
+    "mainOperationsNotSent": 6
+  },
+  "images": {
+    "acquired": 8,
+    "pngSha256": [
+      "2cb119d896d25f11ec827aa83d7f9936530fa3658baf594d8ac6acacc5c784e7"
+    ],
+    "decodedBitmapSha256": [
+      "25ebc206d4acb7f558660793330b655ec5775c2f78591c72defde7bdfcad7f96"
+    ],
+    "zeroCanvasChannelDifferences": true,
+    "zeroBeforeAfterDifferences": true
+  },
+  "audit": {
+    "status": "FAIL",
+    "counts": {
+      "planned": 24,
+      "completed": 24,
+      "failed": 12,
+      "unexecuted": 0
+    },
+    "issues": [
+      {
+        "category": "D_MEASUREMENT",
+        "code": "BROWSER_CLEANUP",
+        "error": "Error: fresh browser cleanup timeout 5000ms",
+        "at": 9684.2807,
+        "clock": "harness performance.now",
+        "id": "u-001-default-A-0"
+      },
+      {
+        "category": "E_SCREENSHOT",
+        "code": "TIMEOUT",
+        "error": "Page.captureScreenshot timeout 5000ms",
+        "at": 9246.6105,
+        "clock": "harness performance.now",
+        "id": "u-002-default-B-0"
+      },
+      {
+        "category": "E_SCREENSHOT",
+        "code": "TIMEOUT",
+        "error": "Page.captureScreenshot timeout 5000ms",
+        "at": 23351.3278,
+        "clock": "harness performance.now",
+        "id": "u-003-default-C-0"
+      },
+      {
+        "category": "D_MEASUREMENT",
+        "code": "TRIAL_EXCEPTION",
+        "error": "Error: explicit readback timeout 5000ms",
+        "at": 35000.2407,
+        "clock": "harness performance.now",
+        "id": "u-004-default-C-1"
+      },
+      {
+        "category": "G_NOT_ACQUIRED",
+        "code": "MEASUREMENT_ABSENT",
+        "error": "raw/u-004-default-C-1.json.gz",
+        "id": "u-004-default-C-1"
+      },
+      {
+        "category": "D_MEASUREMENT",
+        "code": "TRIAL_EXCEPTION",
+        "error": "Error: explicit readback timeout 5000ms",
+        "at": 46946.1128,
+        "clock": "harness performance.now",
+        "id": "u-005-default-B-1"
+      },
+      {
+        "category": "G_NOT_ACQUIRED",
+        "code": "MEASUREMENT_ABSENT",
+        "error": "raw/u-005-default-B-1.json.gz",
+        "id": "u-005-default-B-1"
+      },
+      {
+        "category": "D_MEASUREMENT",
+        "code": "TRIAL_EXCEPTION",
+        "error": "Error: explicit readback timeout 5000ms",
+        "at": 59833.0712,
+        "clock": "harness performance.now",
+        "id": "u-006-default-A-1"
+      },
+      {
+        "category": "G_NOT_ACQUIRED",
+        "code": "MEASUREMENT_ABSENT",
+        "error": "raw/u-006-default-A-1.json.gz",
+        "id": "u-006-default-A-1"
+      },
+      {
+        "category": "D_MEASUREMENT",
+        "code": "TRIAL_EXCEPTION",
+        "error": "Error: explicit readback timeout 5000ms",
+        "at": 71765.3385,
+        "clock": "harness performance.now",
+        "id": "u-007-default-A-2"
+      },
+      {
+        "category": "G_NOT_ACQUIRED",
+        "code": "MEASUREMENT_ABSENT",
+        "error": "raw/u-007-default-A-2.json.gz",
+        "id": "u-007-default-A-2"
+      },
+      {
+        "category": "D_MEASUREMENT",
+        "code": "TRIAL_EXCEPTION",
+        "error": "Error: explicit readback timeout 5000ms",
+        "at": 84325.8424,
+        "clock": "harness performance.now",
+        "id": "u-008-default-B-2"
+      },
+      {
+        "category": "G_NOT_ACQUIRED",
+        "code": "MEASUREMENT_ABSENT",
+        "error": "raw/u-008-default-B-2.json.gz",
+        "id": "u-008-default-B-2"
+      },
+      {
+        "category": "D_MEASUREMENT",
+        "code": "TRIAL_EXCEPTION",
+        "error": "Error: explicit readback timeout 5000ms",
+        "at": 96103.6157,
+        "clock": "harness performance.now",
+        "id": "u-009-default-C-2"
+      },
+      {
+        "category": "G_NOT_ACQUIRED",
+        "code": "MEASUREMENT_ABSENT",
+        "error": "raw/u-009-default-C-2.json.gz",
+        "id": "u-009-default-C-2"
+      },
+      {
+        "category": "E_SCREENSHOT",
+        "code": "TIMEOUT",
+        "error": "Page.captureScreenshot timeout 5000ms",
+        "at": 108870.1333,
+        "clock": "harness performance.now",
+        "id": "u-010-default-C-3"
+      },
+      {
+        "category": "E_SCREENSHOT",
+        "code": "TIMEOUT",
+        "error": "Page.captureScreenshot timeout 5000ms",
+        "at": 120485.3911,
+        "clock": "harness performance.now",
+        "id": "u-011-default-B-3"
+      },
+      {
+        "category": "D_MEASUREMENT",
+        "code": "BROWSER_CLEANUP",
+        "error": "{\"begin\":127477.3145,\"budgetMs\":5000,\"graceMs\":10000,\"budgetExceeded\":true,\"closed\":true,\"closedAt\":136325.1121,\"finished\":136325.1939,\"error\":null,\"status\":\"FAIL\"}",
+        "at": 136325.2588,
+        "clock": "harness performance.now",
+        "id": "u-012-default-A-3"
+      }
+    ],
+    "completeness": {
+      "allTrialsCompleted": true,
+      "rawAndSummaryVerified": true,
+      "measurementRecordsComplete": false,
+      "captureEvidenceComplete": false,
+      "acceptance": "NOT_ACCEPTED"
+    },
+    "scope": "Protocol RTT/frozen diagnostic frame only; no claim of product performance, internal CPU or live-physics validation"
+  },
+  "indexErrors": [],
+  "indexSha256": "aa65b2e806dcd6bc2f7961f7a614270c1d39709f2c3574766192e9546bc201a4",
+  "groups": [
+    {
+      "context": "default",
+      "operation": "A",
+      "readback": false,
+      "planned": 2,
+      "completed": 2,
+      "mainOperationNotSent": 0,
+      "trials": [
+        {
+          "id": "u-001-default-A-0",
+          "status": "BLOCKED",
+          "readbackStatus": "OFF",
+          "requests": [
+            {
+              "method": "Page.getLayoutMetrics",
+              "status": "PASS",
+              "start": 4456.8964,
+              "response": 4459.1429,
+              "finished": 4459.1429,
+              "deadlineObservationMs": 2.2465000000001965,
+              "roundTripMs": 2.2465000000001965
+            }
+          ],
+          "gap": null,
+          "image": {
+            "acquisition": "NOT_REQUESTED"
+          },
+          "issues": [
+            {
+              "category": "D_MEASUREMENT",
+              "code": "BROWSER_CLEANUP",
+              "error": "Error: fresh browser cleanup timeout 5000ms",
+              "at": 9684.2807,
+              "clock": "harness performance.now"
+            }
+          ],
+          "statesAcquired": true
+        },
+        {
+          "id": "u-012-default-A-3",
+          "status": "FAIL",
+          "readbackStatus": "OFF",
+          "requests": [
+            {
+              "method": "Page.getLayoutMetrics",
+              "status": "PASS",
+              "start": 127365.2733,
+              "response": 127366.4557,
+              "finished": 127366.4557,
+              "deadlineObservationMs": 1.1824000000051456,
+              "roundTripMs": 1.1824000000051456
+            }
+          ],
+          "gap": null,
+          "image": {
+            "acquisition": "NOT_REQUESTED"
+          },
+          "issues": [
+            {
+              "category": "D_MEASUREMENT",
+              "code": "BROWSER_CLEANUP",
+              "error": "{\"begin\":127477.3145,\"budgetMs\":5000,\"graceMs\":10000,\"budgetExceeded\":true,\"closed\":true,\"closedAt\":136325.1121,\"finished\":136325.1939,\"error\":null,\"status\":\"FAIL\"}",
+              "at": 136325.2588,
+              "clock": "harness performance.now"
+            }
+          ],
+          "statesAcquired": true
+        }
+      ]
+    },
+    {
+      "context": "default",
+      "operation": "A",
+      "readback": true,
+      "planned": 2,
+      "completed": 2,
+      "mainOperationNotSent": 2,
+      "trials": [
+        {
+          "id": "u-006-default-A-1",
+          "status": "FAIL",
+          "readbackStatus": "NO_REPLY_NATIVE_CALL_COUNT_UNKNOWN",
+          "gap": null,
+          "image": {
+            "acquisition": "NOT_REQUESTED"
+          },
+          "issues": [
+            {
+              "category": "D_MEASUREMENT",
+              "code": "TRIAL_EXCEPTION",
+              "error": "Error: explicit readback timeout 5000ms",
+              "at": 59833.0712,
+              "clock": "harness performance.now"
+            }
+          ],
+          "statesAcquired": false
+        },
+        {
+          "id": "u-007-default-A-2",
+          "status": "FAIL",
+          "readbackStatus": "NO_REPLY_NATIVE_CALL_COUNT_UNKNOWN",
+          "gap": null,
+          "image": {
+            "acquisition": "NOT_REQUESTED"
+          },
+          "issues": [
+            {
+              "category": "D_MEASUREMENT",
+              "code": "TRIAL_EXCEPTION",
+              "error": "Error: explicit readback timeout 5000ms",
+              "at": 71765.3385,
+              "clock": "harness performance.now"
+            }
+          ],
+          "statesAcquired": false
+        }
+      ]
+    },
+    {
+      "context": "default",
+      "operation": "B",
+      "readback": false,
+      "planned": 2,
+      "completed": 2,
+      "mainOperationNotSent": 0,
+      "trials": [
+        {
+          "id": "u-002-default-B-0",
+          "status": "FAIL",
+          "readbackStatus": "OFF",
+          "requests": [
+            {
+              "method": "Page.captureScreenshot",
+              "status": "TIMEOUT",
+              "start": 4137.2967,
+              "response": null,
+              "finished": 9246.0452,
+              "deadlineObservationMs": 5108.748500000001,
+              "roundTripMs": null
+            }
+          ],
+          "gap": null,
+          "image": {
+            "acquisition": "NOT_ACQUIRED"
+          },
+          "issues": [
+            {
+              "category": "E_SCREENSHOT",
+              "code": "TIMEOUT",
+              "error": "Page.captureScreenshot timeout 5000ms",
+              "at": 9246.6105,
+              "clock": "harness performance.now"
+            }
+          ],
+          "statesAcquired": true
+        },
+        {
+          "id": "u-011-default-B-3",
+          "status": "FAIL",
+          "readbackStatus": "OFF",
+          "requests": [
+            {
+              "method": "Page.captureScreenshot",
+              "status": "TIMEOUT",
+              "start": 115448.1189,
+              "response": null,
+              "finished": 120485.0431,
+              "deadlineObservationMs": 5036.924199999994,
+              "roundTripMs": null
+            }
+          ],
+          "gap": null,
+          "image": {
+            "acquisition": "NOT_ACQUIRED"
+          },
+          "issues": [
+            {
+              "category": "E_SCREENSHOT",
+              "code": "TIMEOUT",
+              "error": "Page.captureScreenshot timeout 5000ms",
+              "at": 120485.3911,
+              "clock": "harness performance.now"
+            }
+          ],
+          "statesAcquired": true
+        }
+      ]
+    },
+    {
+      "context": "default",
+      "operation": "B",
+      "readback": true,
+      "planned": 2,
+      "completed": 2,
+      "mainOperationNotSent": 2,
+      "trials": [
+        {
+          "id": "u-005-default-B-1",
+          "status": "FAIL",
+          "readbackStatus": "NO_REPLY_NATIVE_CALL_COUNT_UNKNOWN",
+          "gap": null,
+          "image": {
+            "acquisition": "NOT_TESTED"
+          },
+          "issues": [
+            {
+              "category": "D_MEASUREMENT",
+              "code": "TRIAL_EXCEPTION",
+              "error": "Error: explicit readback timeout 5000ms",
+              "at": 46946.1128,
+              "clock": "harness performance.now"
+            }
+          ],
+          "statesAcquired": false
+        },
+        {
+          "id": "u-008-default-B-2",
+          "status": "FAIL",
+          "readbackStatus": "NO_REPLY_NATIVE_CALL_COUNT_UNKNOWN",
+          "gap": null,
+          "image": {
+            "acquisition": "NOT_TESTED"
+          },
+          "issues": [
+            {
+              "category": "D_MEASUREMENT",
+              "code": "TRIAL_EXCEPTION",
+              "error": "Error: explicit readback timeout 5000ms",
+              "at": 84325.8424,
+              "clock": "harness performance.now"
+            }
+          ],
+          "statesAcquired": false
+        }
+      ]
+    },
+    {
+      "context": "default",
+      "operation": "C",
+      "readback": false,
+      "planned": 2,
+      "completed": 2,
+      "mainOperationNotSent": 0,
+      "trials": [
+        {
+          "id": "u-003-default-C-0",
+          "status": "FAIL",
+          "readbackStatus": "OFF",
+          "requests": [
+            {
+              "method": "Page.getLayoutMetrics",
+              "status": "PASS",
+              "start": 18335.1965,
+              "response": 18336.9378,
+              "finished": 18336.9378,
+              "deadlineObservationMs": 1.7413000000015018,
+              "roundTripMs": 1.7413000000015018
+            },
+            {
+              "method": "Page.captureScreenshot",
+              "status": "TIMEOUT",
+              "start": 18336.9933,
+              "response": null,
+              "finished": 23351.1506,
+              "deadlineObservationMs": 5014.157300000003,
+              "roundTripMs": null
+            }
+          ],
+          "gap": 0.05549999999857391,
+          "image": {
+            "acquisition": "NOT_ACQUIRED"
+          },
+          "issues": [
+            {
+              "category": "E_SCREENSHOT",
+              "code": "TIMEOUT",
+              "error": "Page.captureScreenshot timeout 5000ms",
+              "at": 23351.3278,
+              "clock": "harness performance.now"
+            }
+          ],
+          "statesAcquired": true
+        },
+        {
+          "id": "u-010-default-C-3",
+          "status": "FAIL",
+          "readbackStatus": "OFF",
+          "requests": [
+            {
+              "method": "Page.getLayoutMetrics",
+              "status": "PASS",
+              "start": 103798.3234,
+              "response": 103799.3888,
+              "finished": 103799.3888,
+              "deadlineObservationMs": 1.0654000000067754,
+              "roundTripMs": 1.0654000000067754
+            },
+            {
+              "method": "Page.captureScreenshot",
+              "status": "TIMEOUT",
+              "start": 103799.4438,
+              "response": null,
+              "finished": 108869.9463,
+              "deadlineObservationMs": 5070.502500000002,
+              "roundTripMs": null
+            }
+          ],
+          "gap": 0.05499999999301508,
+          "image": {
+            "acquisition": "NOT_ACQUIRED"
+          },
+          "issues": [
+            {
+              "category": "E_SCREENSHOT",
+              "code": "TIMEOUT",
+              "error": "Page.captureScreenshot timeout 5000ms",
+              "at": 108870.1333,
+              "clock": "harness performance.now"
+            }
+          ],
+          "statesAcquired": true
+        }
+      ]
+    },
+    {
+      "context": "default",
+      "operation": "C",
+      "readback": true,
+      "planned": 2,
+      "completed": 2,
+      "mainOperationNotSent": 2,
+      "trials": [
+        {
+          "id": "u-004-default-C-1",
+          "status": "FAIL",
+          "readbackStatus": "NO_REPLY_NATIVE_CALL_COUNT_UNKNOWN",
+          "gap": null,
+          "image": {
+            "acquisition": "NOT_TESTED"
+          },
+          "issues": [
+            {
+              "category": "D_MEASUREMENT",
+              "code": "TRIAL_EXCEPTION",
+              "error": "Error: explicit readback timeout 5000ms",
+              "at": 35000.2407,
+              "clock": "harness performance.now"
+            }
+          ],
+          "statesAcquired": false
+        },
+        {
+          "id": "u-009-default-C-2",
+          "status": "FAIL",
+          "readbackStatus": "NO_REPLY_NATIVE_CALL_COUNT_UNKNOWN",
+          "gap": null,
+          "image": {
+            "acquisition": "NOT_TESTED"
+          },
+          "issues": [
+            {
+              "category": "D_MEASUREMENT",
+              "code": "TRIAL_EXCEPTION",
+              "error": "Error: explicit readback timeout 5000ms",
+              "at": 96103.6157,
+              "clock": "harness performance.now"
+            }
+          ],
+          "statesAcquired": false
+        }
+      ]
+    },
+    {
+      "context": "readback",
+      "operation": "A",
+      "readback": false,
+      "planned": 2,
+      "completed": 2,
+      "mainOperationNotSent": 0,
+      "trials": [
+        {
+          "id": "u-013-readback-A-0",
+          "status": "PASS",
+          "readbackStatus": "OFF",
+          "requests": [
+            {
+              "method": "Page.getLayoutMetrics",
+              "status": "PASS",
+              "start": 139097.3042,
+              "response": 139100.0643,
+              "finished": 139100.0643,
+              "deadlineObservationMs": 2.760099999984959,
+              "roundTripMs": 2.760099999984959
+            }
+          ],
+          "gap": null,
+          "image": {
+            "acquisition": "NOT_REQUESTED"
+          },
+          "issues": [],
+          "statesAcquired": true
+        },
+        {
+          "id": "u-024-readback-A-3",
+          "status": "PASS",
+          "readbackStatus": "OFF",
+          "requests": [
+            {
+              "method": "Page.getLayoutMetrics",
+              "status": "PASS",
+              "start": 182295.0447,
+              "response": 182297.603,
+              "finished": 182297.603,
+              "deadlineObservationMs": 2.5583000000042375,
+              "roundTripMs": 2.5583000000042375
+            }
+          ],
+          "gap": null,
+          "image": {
+            "acquisition": "NOT_REQUESTED"
+          },
+          "issues": [],
+          "statesAcquired": true
+        }
+      ]
+    },
+    {
+      "context": "readback",
+      "operation": "A",
+      "readback": true,
+      "planned": 2,
+      "completed": 2,
+      "mainOperationNotSent": 0,
+      "trials": [
+        {
+          "id": "u-018-readback-A-1",
+          "status": "PASS",
+          "readbackStatus": "PASS",
+          "requests": [
+            {
+              "method": "Page.getLayoutMetrics",
+              "status": "PASS",
+              "start": 158868.8233,
+              "response": 158870.7416,
+              "finished": 158870.7416,
+              "deadlineObservationMs": 1.9183000000193715,
+              "roundTripMs": 1.9183000000193715
+            }
+          ],
+          "gap": null,
+          "image": {
+            "acquisition": "NOT_REQUESTED"
+          },
+          "issues": [],
+          "statesAcquired": true
+        },
+        {
+          "id": "u-019-readback-A-2",
+          "status": "PASS",
+          "readbackStatus": "PASS",
+          "requests": [
+            {
+              "method": "Page.getLayoutMetrics",
+              "status": "PASS",
+              "start": 162601.7975,
+              "response": 162602.5463,
+              "finished": 162602.5463,
+              "deadlineObservationMs": 0.7488000000012107,
+              "roundTripMs": 0.7488000000012107
+            }
+          ],
+          "gap": null,
+          "image": {
+            "acquisition": "NOT_REQUESTED"
+          },
+          "issues": [],
+          "statesAcquired": true
+        }
+      ]
+    },
+    {
+      "context": "readback",
+      "operation": "B",
+      "readback": false,
+      "planned": 2,
+      "completed": 2,
+      "mainOperationNotSent": 0,
+      "trials": [
+        {
+          "id": "u-014-readback-B-0",
+          "status": "PASS",
+          "readbackStatus": "OFF",
+          "requests": [
+            {
+              "method": "Page.captureScreenshot",
+              "status": "PASS",
+              "start": 142798.0525,
+              "response": 142998.8104,
+              "finished": 142998.8104,
+              "deadlineObservationMs": 200.75789999999688,
+              "roundTripMs": 200.75789999999688
+            }
+          ],
+          "gap": null,
+          "image": {
+            "acquisition": "ACQUIRED",
+            "file": "images/u-014-readback-B-0.png",
+            "bytes": 187524,
+            "sha256": "2cb119d896d25f11ec827aa83d7f9936530fa3658baf594d8ac6acacc5c784e7",
+            "width": 2560,
+            "height": 1800,
+            "bitmap": {
+              "imageWidth": 2560,
+              "imageHeight": 1800,
+              "expectedWidth": 2560,
+              "expectedHeight": 1800,
+              "dimensionsMatch": true,
+              "checks": [
+                {
+                  "width": 876,
+                  "height": 660,
+                  "differentChannels": 0,
+                  "maximumChannelError": 0
+                },
+                {
+                  "width": 876,
+                  "height": 660,
+                  "differentChannels": 0,
+                  "maximumChannelError": 0
+                }
+              ],
+              "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+            },
+            "postPixels": {
+              "decodedSha256": "25ebc206d4acb7f558660793330b655ec5775c2f78591c72defde7bdfcad7f96",
+              "beforeAfter": null,
+              "scope": "After the measured API; no pre-measurement digest or readback in OFF trials"
+            }
+          },
+          "issues": [],
+          "statesAcquired": true
+        },
+        {
+          "id": "u-023-readback-B-3",
+          "status": "PASS",
+          "readbackStatus": "OFF",
+          "requests": [
+            {
+              "method": "Page.captureScreenshot",
+              "status": "PASS",
+              "start": 178279.165,
+              "response": 178466.7122,
+              "finished": 178466.7122,
+              "deadlineObservationMs": 187.54720000000088,
+              "roundTripMs": 187.54720000000088
+            }
+          ],
+          "gap": null,
+          "image": {
+            "acquisition": "ACQUIRED",
+            "file": "images/u-023-readback-B-3.png",
+            "bytes": 187524,
+            "sha256": "2cb119d896d25f11ec827aa83d7f9936530fa3658baf594d8ac6acacc5c784e7",
+            "width": 2560,
+            "height": 1800,
+            "bitmap": {
+              "imageWidth": 2560,
+              "imageHeight": 1800,
+              "expectedWidth": 2560,
+              "expectedHeight": 1800,
+              "dimensionsMatch": true,
+              "checks": [
+                {
+                  "width": 876,
+                  "height": 660,
+                  "differentChannels": 0,
+                  "maximumChannelError": 0
+                },
+                {
+                  "width": 876,
+                  "height": 660,
+                  "differentChannels": 0,
+                  "maximumChannelError": 0
+                }
+              ],
+              "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+            },
+            "postPixels": {
+              "decodedSha256": "25ebc206d4acb7f558660793330b655ec5775c2f78591c72defde7bdfcad7f96",
+              "beforeAfter": null,
+              "scope": "After the measured API; no pre-measurement digest or readback in OFF trials"
+            }
+          },
+          "issues": [],
+          "statesAcquired": true
+        }
+      ]
+    },
+    {
+      "context": "readback",
+      "operation": "B",
+      "readback": true,
+      "planned": 2,
+      "completed": 2,
+      "mainOperationNotSent": 0,
+      "trials": [
+        {
+          "id": "u-017-readback-B-1",
+          "status": "PASS",
+          "readbackStatus": "PASS",
+          "requests": [
+            {
+              "method": "Page.captureScreenshot",
+              "status": "PASS",
+              "start": 154839.3431,
+              "response": 155025.6567,
+              "finished": 155025.6567,
+              "deadlineObservationMs": 186.31359999999404,
+              "roundTripMs": 186.31359999999404
+            }
+          ],
+          "gap": null,
+          "image": {
+            "acquisition": "ACQUIRED",
+            "file": "images/u-017-readback-B-1.png",
+            "bytes": 187524,
+            "sha256": "2cb119d896d25f11ec827aa83d7f9936530fa3658baf594d8ac6acacc5c784e7",
+            "width": 2560,
+            "height": 1800,
+            "bitmap": {
+              "imageWidth": 2560,
+              "imageHeight": 1800,
+              "expectedWidth": 2560,
+              "expectedHeight": 1800,
+              "dimensionsMatch": true,
+              "checks": [
+                {
+                  "width": 876,
+                  "height": 660,
+                  "differentChannels": 0,
+                  "maximumChannelError": 0
+                },
+                {
+                  "width": 876,
+                  "height": 660,
+                  "differentChannels": 0,
+                  "maximumChannelError": 0
+                }
+              ],
+              "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+            },
+            "postPixels": {
+              "decodedSha256": "25ebc206d4acb7f558660793330b655ec5775c2f78591c72defde7bdfcad7f96",
+              "beforeAfter": [
+                {
+                  "beforeSha256": "4fb9df062826220517e2bc5813fc183f77b0079e158130ea76bce90cf72f2b02",
+                  "afterSha256": "4fb9df062826220517e2bc5813fc183f77b0079e158130ea76bce90cf72f2b02",
+                  "differentChannels": 0
+                },
+                {
+                  "beforeSha256": "9c5785dfeaf202e679b008a195deaa19f460b39b218a95969afa9ffe1b7ca412",
+                  "afterSha256": "9c5785dfeaf202e679b008a195deaa19f460b39b218a95969afa9ffe1b7ca412",
+                  "differentChannels": 0
+                }
+              ],
+              "scope": "After the measured API; no pre-measurement digest or readback in OFF trials"
+            }
+          },
+          "issues": [],
+          "statesAcquired": true
+        },
+        {
+          "id": "u-020-readback-B-2",
+          "status": "PASS",
+          "readbackStatus": "PASS",
+          "requests": [
+            {
+              "method": "Page.captureScreenshot",
+              "status": "PASS",
+              "start": 166186.0836,
+              "response": 166366.6693,
+              "finished": 166366.6693,
+              "deadlineObservationMs": 180.585699999996,
+              "roundTripMs": 180.585699999996
+            }
+          ],
+          "gap": null,
+          "image": {
+            "acquisition": "ACQUIRED",
+            "file": "images/u-020-readback-B-2.png",
+            "bytes": 187524,
+            "sha256": "2cb119d896d25f11ec827aa83d7f9936530fa3658baf594d8ac6acacc5c784e7",
+            "width": 2560,
+            "height": 1800,
+            "bitmap": {
+              "imageWidth": 2560,
+              "imageHeight": 1800,
+              "expectedWidth": 2560,
+              "expectedHeight": 1800,
+              "dimensionsMatch": true,
+              "checks": [
+                {
+                  "width": 876,
+                  "height": 660,
+                  "differentChannels": 0,
+                  "maximumChannelError": 0
+                },
+                {
+                  "width": 876,
+                  "height": 660,
+                  "differentChannels": 0,
+                  "maximumChannelError": 0
+                }
+              ],
+              "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+            },
+            "postPixels": {
+              "decodedSha256": "25ebc206d4acb7f558660793330b655ec5775c2f78591c72defde7bdfcad7f96",
+              "beforeAfter": [
+                {
+                  "beforeSha256": "4fb9df062826220517e2bc5813fc183f77b0079e158130ea76bce90cf72f2b02",
+                  "afterSha256": "4fb9df062826220517e2bc5813fc183f77b0079e158130ea76bce90cf72f2b02",
+                  "differentChannels": 0
+                },
+                {
+                  "beforeSha256": "9c5785dfeaf202e679b008a195deaa19f460b39b218a95969afa9ffe1b7ca412",
+                  "afterSha256": "9c5785dfeaf202e679b008a195deaa19f460b39b218a95969afa9ffe1b7ca412",
+                  "differentChannels": 0
+                }
+              ],
+              "scope": "After the measured API; no pre-measurement digest or readback in OFF trials"
+            }
+          },
+          "issues": [],
+          "statesAcquired": true
+        }
+      ]
+    },
+    {
+      "context": "readback",
+      "operation": "C",
+      "readback": false,
+      "planned": 2,
+      "completed": 2,
+      "mainOperationNotSent": 0,
+      "trials": [
+        {
+          "id": "u-015-readback-C-0",
+          "status": "PASS",
+          "readbackStatus": "OFF",
+          "requests": [
+            {
+              "method": "Page.getLayoutMetrics",
+              "status": "PASS",
+              "start": 146830.5269,
+              "response": 146833.8085,
+              "finished": 146833.8085,
+              "deadlineObservationMs": 3.281600000016624,
+              "roundTripMs": 3.281600000016624
+            },
+            {
+              "method": "Page.captureScreenshot",
+              "status": "PASS",
+              "start": 146833.8664,
+              "response": 147033.1741,
+              "finished": 147033.1741,
+              "deadlineObservationMs": 199.30770000000484,
+              "roundTripMs": 199.30770000000484
+            }
+          ],
+          "gap": 0.05789999998523854,
+          "image": {
+            "acquisition": "ACQUIRED",
+            "file": "images/u-015-readback-C-0.png",
+            "bytes": 187524,
+            "sha256": "2cb119d896d25f11ec827aa83d7f9936530fa3658baf594d8ac6acacc5c784e7",
+            "width": 2560,
+            "height": 1800,
+            "bitmap": {
+              "imageWidth": 2560,
+              "imageHeight": 1800,
+              "expectedWidth": 2560,
+              "expectedHeight": 1800,
+              "dimensionsMatch": true,
+              "checks": [
+                {
+                  "width": 876,
+                  "height": 660,
+                  "differentChannels": 0,
+                  "maximumChannelError": 0
+                },
+                {
+                  "width": 876,
+                  "height": 660,
+                  "differentChannels": 0,
+                  "maximumChannelError": 0
+                }
+              ],
+              "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+            },
+            "postPixels": {
+              "decodedSha256": "25ebc206d4acb7f558660793330b655ec5775c2f78591c72defde7bdfcad7f96",
+              "beforeAfter": null,
+              "scope": "After the measured API; no pre-measurement digest or readback in OFF trials"
+            }
+          },
+          "issues": [],
+          "statesAcquired": true
+        },
+        {
+          "id": "u-022-readback-C-3",
+          "status": "PASS",
+          "readbackStatus": "OFF",
+          "requests": [
+            {
+              "method": "Page.getLayoutMetrics",
+              "status": "PASS",
+              "start": 174361.9896,
+              "response": 174364.5455,
+              "finished": 174364.5455,
+              "deadlineObservationMs": 2.555900000006659,
+              "roundTripMs": 2.555900000006659
+            },
+            {
+              "method": "Page.captureScreenshot",
+              "status": "PASS",
+              "start": 174364.6358,
+              "response": 174548.6853,
+              "finished": 174548.6853,
+              "deadlineObservationMs": 184.04950000002282,
+              "roundTripMs": 184.04950000002282
+            }
+          ],
+          "gap": 0.09029999998165295,
+          "image": {
+            "acquisition": "ACQUIRED",
+            "file": "images/u-022-readback-C-3.png",
+            "bytes": 187524,
+            "sha256": "2cb119d896d25f11ec827aa83d7f9936530fa3658baf594d8ac6acacc5c784e7",
+            "width": 2560,
+            "height": 1800,
+            "bitmap": {
+              "imageWidth": 2560,
+              "imageHeight": 1800,
+              "expectedWidth": 2560,
+              "expectedHeight": 1800,
+              "dimensionsMatch": true,
+              "checks": [
+                {
+                  "width": 876,
+                  "height": 660,
+                  "differentChannels": 0,
+                  "maximumChannelError": 0
+                },
+                {
+                  "width": 876,
+                  "height": 660,
+                  "differentChannels": 0,
+                  "maximumChannelError": 0
+                }
+              ],
+              "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+            },
+            "postPixels": {
+              "decodedSha256": "25ebc206d4acb7f558660793330b655ec5775c2f78591c72defde7bdfcad7f96",
+              "beforeAfter": null,
+              "scope": "After the measured API; no pre-measurement digest or readback in OFF trials"
+            }
+          },
+          "issues": [],
+          "statesAcquired": true
+        }
+      ]
+    },
+    {
+      "context": "readback",
+      "operation": "C",
+      "readback": true,
+      "planned": 2,
+      "completed": 2,
+      "mainOperationNotSent": 0,
+      "trials": [
+        {
+          "id": "u-016-readback-C-1",
+          "status": "PASS",
+          "readbackStatus": "PASS",
+          "requests": [
+            {
+              "method": "Page.getLayoutMetrics",
+              "status": "PASS",
+              "start": 150835.4755,
+              "response": 150837.4272,
+              "finished": 150837.4272,
+              "deadlineObservationMs": 1.9517000000050757,
+              "roundTripMs": 1.9517000000050757
+            },
+            {
+              "method": "Page.captureScreenshot",
+              "status": "PASS",
+              "start": 150837.5457,
+              "response": 151019.627,
+              "finished": 151019.627,
+              "deadlineObservationMs": 182.08130000001984,
+              "roundTripMs": 182.08130000001984
+            }
+          ],
+          "gap": 0.11849999998230487,
+          "image": {
+            "acquisition": "ACQUIRED",
+            "file": "images/u-016-readback-C-1.png",
+            "bytes": 187524,
+            "sha256": "2cb119d896d25f11ec827aa83d7f9936530fa3658baf594d8ac6acacc5c784e7",
+            "width": 2560,
+            "height": 1800,
+            "bitmap": {
+              "imageWidth": 2560,
+              "imageHeight": 1800,
+              "expectedWidth": 2560,
+              "expectedHeight": 1800,
+              "dimensionsMatch": true,
+              "checks": [
+                {
+                  "width": 876,
+                  "height": 660,
+                  "differentChannels": 0,
+                  "maximumChannelError": 0
+                },
+                {
+                  "width": 876,
+                  "height": 660,
+                  "differentChannels": 0,
+                  "maximumChannelError": 0
+                }
+              ],
+              "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+            },
+            "postPixels": {
+              "decodedSha256": "25ebc206d4acb7f558660793330b655ec5775c2f78591c72defde7bdfcad7f96",
+              "beforeAfter": [
+                {
+                  "beforeSha256": "4fb9df062826220517e2bc5813fc183f77b0079e158130ea76bce90cf72f2b02",
+                  "afterSha256": "4fb9df062826220517e2bc5813fc183f77b0079e158130ea76bce90cf72f2b02",
+                  "differentChannels": 0
+                },
+                {
+                  "beforeSha256": "9c5785dfeaf202e679b008a195deaa19f460b39b218a95969afa9ffe1b7ca412",
+                  "afterSha256": "9c5785dfeaf202e679b008a195deaa19f460b39b218a95969afa9ffe1b7ca412",
+                  "differentChannels": 0
+                }
+              ],
+              "scope": "After the measured API; no pre-measurement digest or readback in OFF trials"
+            }
+          },
+          "issues": [],
+          "statesAcquired": true
+        },
+        {
+          "id": "u-021-readback-C-2",
+          "status": "PASS",
+          "readbackStatus": "PASS",
+          "requests": [
+            {
+              "method": "Page.getLayoutMetrics",
+              "status": "PASS",
+              "start": 170351.5898,
+              "response": 170353.613,
+              "finished": 170353.613,
+              "deadlineObservationMs": 2.023200000025099,
+              "roundTripMs": 2.023200000025099
+            },
+            {
+              "method": "Page.captureScreenshot",
+              "status": "PASS",
+              "start": 170353.6725,
+              "response": 170546.1966,
+              "finished": 170546.1966,
+              "deadlineObservationMs": 192.52410000000964,
+              "roundTripMs": 192.52410000000964
+            }
+          ],
+          "gap": 0.05949999997392297,
+          "image": {
+            "acquisition": "ACQUIRED",
+            "file": "images/u-021-readback-C-2.png",
+            "bytes": 187524,
+            "sha256": "2cb119d896d25f11ec827aa83d7f9936530fa3658baf594d8ac6acacc5c784e7",
+            "width": 2560,
+            "height": 1800,
+            "bitmap": {
+              "imageWidth": 2560,
+              "imageHeight": 1800,
+              "expectedWidth": 2560,
+              "expectedHeight": 1800,
+              "dimensionsMatch": true,
+              "checks": [
+                {
+                  "width": 876,
+                  "height": 660,
+                  "differentChannels": 0,
+                  "maximumChannelError": 0
+                },
+                {
+                  "width": 876,
+                  "height": 660,
+                  "differentChannels": 0,
+                  "maximumChannelError": 0
+                }
+              ],
+              "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+            },
+            "postPixels": {
+              "decodedSha256": "25ebc206d4acb7f558660793330b655ec5775c2f78591c72defde7bdfcad7f96",
+              "beforeAfter": [
+                {
+                  "beforeSha256": "4fb9df062826220517e2bc5813fc183f77b0079e158130ea76bce90cf72f2b02",
+                  "afterSha256": "4fb9df062826220517e2bc5813fc183f77b0079e158130ea76bce90cf72f2b02",
+                  "differentChannels": 0
+                },
+                {
+                  "beforeSha256": "9c5785dfeaf202e679b008a195deaa19f460b39b218a95969afa9ffe1b7ca412",
+                  "afterSha256": "9c5785dfeaf202e679b008a195deaa19f460b39b218a95969afa9ffe1b7ca412",
+                  "differentChannels": 0
+                }
+              ],
+              "scope": "After the measured API; no pre-measurement digest or readback in OFF trials"
+            }
+          },
+          "issues": [],
+          "statesAcquired": true
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Only two samples per cell; no tail guarantees",
+    "Timeout with null response is a deadline observation, not an actual CDP round-trip measurement",
+    "CDP round trip includes harness/transport/browser execution and scheduling; internal CPU/native/OS cause UNKNOWN",
+    "Frozen fixture frame30 is not a live physics step",
+    "Old readback timeout telemetry zero completed calls does not establish zero actual native calls",
+    "Wire session/request IDs are not exposed by the public Playwright API; logical IDs and target ID are recorded"
+  ]
+}

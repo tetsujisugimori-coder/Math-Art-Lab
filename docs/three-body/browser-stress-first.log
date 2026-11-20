@@ -1,0 +1,6 @@
+First stress attempt, before display decimation (2026-11-08 JST).
+The stdout redirect was empty because the script did not log progress yet.
+The following failure was reported on stderr by exec (transcribed):
+page.waitForFunction: Timeout 30000ms exceeded.
+at tools/three-body-browser-profile.mjs:12:66
+No JSON results were saved by that initial script. Later versions preserve partial results and close browsers in finally.

@@ -1,0 +1,5260 @@
+{
+  "results": [
+    {
+      "group": "local",
+      "counts": {
+        "planned": 105,
+        "attempted": 41,
+        "completed": 41,
+        "failed": 0,
+        "unexecuted": 64
+      },
+      "completeness": {
+        "allRunsCompleted": false,
+        "analysisAcquired": true,
+        "analysisCompleted": true,
+        "analysisProcessSucceeded": true,
+        "analysisVerified": true,
+        "evidenceComplete": false,
+        "acceptance": "NOT_ACCEPTED"
+      },
+      "input": {
+        "app": {
+          "scheduledToSend": {
+            "n": 804,
+            "median": 7.133599999999888,
+            "p95": 85.21240000000034,
+            "p99": 306.83429999999953,
+            "max": 445.76990000000023,
+            "over50": 51,
+            "percentileIsGuarantee": false,
+            "missing": 0,
+            "unit": "elapsed ms",
+            "status": "OBSERVED"
+          },
+          "sendToReceive": {
+            "n": 804,
+            "median": 6.444699988075172,
+            "p95": 349.8009999821147,
+            "p99": 444.89944998805595,
+            "max": 466.32919999403566,
+            "over50": 156,
+            "percentileIsGuarantee": false,
+            "missing": 0,
+            "unit": "elapsed ms",
+            "status": "OBSERVED"
+          },
+          "scheduledToReceive": {
+            "n": 804,
+            "median": 15.428750005937218,
+            "p95": 394.5443999880754,
+            "p99": 454.64220001192007,
+            "max": 474.44439999403585,
+            "over50": 185,
+            "percentileIsGuarantee": false,
+            "missing": 0,
+            "unit": "elapsed ms",
+            "status": "OBSERVED"
+          }
+        },
+        "mini": {
+          "scheduledToSend": {
+            "n": 1568,
+            "median": 1.699999988079071,
+            "p95": 14,
+            "p99": 16.099999994039536,
+            "max": 27.5,
+            "over50": 0,
+            "percentileIsGuarantee": false,
+            "missing": 0,
+            "unit": "elapsed ms",
+            "status": "OBSERVED"
+          },
+          "sendToReceive": {
+            "n": 1568,
+            "median": 0.09999999403953552,
+            "p95": 2.5,
+            "p99": 5.4000000059604645,
+            "max": 22.899999976158142,
+            "over50": 0,
+            "percentileIsGuarantee": false,
+            "missing": 0,
+            "unit": "elapsed ms",
+            "status": "OBSERVED"
+          },
+          "scheduledToReceive": {
+            "n": 1568,
+            "median": 2.2000000178813934,
+            "p95": 14.300000011920929,
+            "p99": 19.100000023841858,
+            "max": 27.600000023841858,
+            "over50": 0,
+            "percentileIsGuarantee": false,
+            "missing": 0,
+            "unit": "elapsed ms",
+            "status": "OBSERVED"
+          }
+        }
+      },
+      "capture": {
+        "planned": 0,
+        "pass": 0,
+        "fail": 0,
+        "timeouts": 0,
+        "otherErrors": 0,
+        "byFactor": {}
+      },
+      "app": [
+        {
+          "id": "t-controls-chromium-033-anchor-0-native",
+          "input": {
+            "scheduledToSend": {
+              "n": 46,
+              "median": 5.188699999999926,
+              "p95": 12.079800000000432,
+              "p99": 14.328400000000101,
+              "max": 14.328400000000101,
+              "over50": 0,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "sendToReceive": {
+              "n": 46,
+              "median": 2.819249988091997,
+              "p95": 349.1675499761709,
+              "p99": 423.7504499821316,
+              "max": 423.7504499821316,
+              "over50": 6,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "scheduledToReceive": {
+              "n": 46,
+              "median": 11.869249994052552,
+              "p95": 354.66924997617116,
+              "p99": 427.5692499821316,
+              "max": 427.5692499821316,
+              "over50": 6,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            }
+          },
+          "paint": {
+            "n": 46,
+            "median": 1.5,
+            "p95": 5.5,
+            "p99": 242.59999999403954,
+            "max": 242.59999999403954,
+            "over50": 1,
+            "percentileIsGuarantee": false
+          },
+          "calculate": {
+            "n": 145,
+            "median": 0.10000002384185791,
+            "p95": 0.5,
+            "p99": 0.7000000178813934,
+            "max": 28.30000001192093,
+            "over50": 0,
+            "percentileIsGuarantee": false
+          },
+          "stepDelta": {
+            "kind": "integration during wall-clock window",
+            "delta": 8167
+          },
+          "stop": {
+            "sendReceive": 270.73334999405233,
+            "plannedSend": 11.13590000000022,
+            "receivePause": 1.0999999940395355,
+            "pauseBody": 0.09999999403953552,
+            "handler": 1.4000000059604645,
+            "stopReceipt": 12.099999994039536,
+            "extraWithinPause": 0,
+            "extraAfterStop": 0,
+            "atomic": true,
+            "target": "paint",
+            "targetHit": true,
+            "T4Kind": "same-step Canvas/DOM command receipt; not GPU presentation",
+            "uncertainty": 0.9631500000105007
+          },
+          "math": {
+            "phase": true,
+            "history": true,
+            "publicPosition": true,
+            "scope": "all recovered JSON doubles and histories, same engine baseline"
+          },
+          "draw": {
+            "a": true,
+            "b": true
+          },
+          "frames": {
+            "n": 46,
+            "mismatch": 0
+          },
+          "budget": {
+            "verdict": "PARTIAL",
+            "checks": {
+              "scheduledP95": 354.66924997617116,
+              "scheduledP99": 427.5692499821316,
+              "scheduledMax": 427.5692499821316,
+              "receiveStopMax": 1.0999999940395355,
+              "stopReceiptMax": 12.099999994039536
+            },
+            "targets": {
+              "scheduledP95": 100,
+              "scheduledP99": 200,
+              "scheduledMax": 250,
+              "receiveStopMax": 20,
+              "stopReceiptMax": 100
+            },
+            "failed": [
+              "scheduledP95",
+              "scheduledP99",
+              "scheduledMax"
+            ],
+            "missing": [],
+            "upperBoundGuaranteed": false,
+            "scope": "PRODUCT_OBSERVED_WINDOW"
+          }
+        },
+        {
+          "id": "t-controls-chromium-034-anchor-0-phase",
+          "input": {
+            "scheduledToSend": {
+              "n": 41,
+              "median": 4.916000000000167,
+              "p95": 12.097999999999956,
+              "p99": 12.9541999999999,
+              "max": 12.9541999999999,
+              "over50": 0,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "sendToReceive": {
+              "n": 41,
+              "median": 2.816400011919768,
+              "p95": 20.154999999998836,
+              "p99": 466.06899998807785,
+              "max": 466.06899998807785,
+              "over50": 2,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "scheduledToReceive": {
+              "n": 41,
+              "median": 11.41559999403853,
+              "p95": 28.815599999998994,
+              "p99": 467.01559998807807,
+              "max": 467.01559998807807,
+              "over50": 2,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            }
+          },
+          "paint": {
+            "n": 45,
+            "median": 1.300000011920929,
+            "p95": 5,
+            "p99": 426.5,
+            "max": 426.5,
+            "over50": 1,
+            "percentileIsGuarantee": false
+          },
+          "calculate": {
+            "n": 135,
+            "median": 0.10000002384185791,
+            "p95": 0.5,
+            "p99": 0.5999999940395355,
+            "max": 0.6000000238418579,
+            "over50": 0,
+            "percentileIsGuarantee": false
+          },
+          "stepDelta": {
+            "kind": "integration during wall-clock window",
+            "delta": 7524
+          },
+          "stop": {
+            "sendReceive": 419.108199988078,
+            "plannedSend": 11.407400000000052,
+            "receivePause": 1.2000000178813934,
+            "pauseBody": 0.20000001788139343,
+            "handler": 1.600000023841858,
+            "stopReceipt": 10.299999982118607,
+            "extraWithinPause": 0,
+            "extraAfterStop": 0,
+            "atomic": true,
+            "target": "paint",
+            "targetHit": true,
+            "T4Kind": "same-step Canvas/DOM command receipt; not GPU presentation",
+            "uncertainty": 0.877600000007078
+          },
+          "math": {
+            "phase": true,
+            "history": true,
+            "publicPosition": true,
+            "scope": "all recovered JSON doubles and histories, same engine baseline"
+          },
+          "draw": {
+            "a": true,
+            "b": true
+          },
+          "frames": {
+            "n": 45,
+            "mismatch": 0
+          },
+          "budget": {
+            "verdict": "PARTIAL",
+            "checks": {
+              "scheduledP95": 28.815599999998994,
+              "scheduledP99": 467.01559998807807,
+              "scheduledMax": 467.01559998807807,
+              "receiveStopMax": 1.2000000178813934,
+              "stopReceiptMax": 10.299999982118607
+            },
+            "targets": {
+              "scheduledP95": 100,
+              "scheduledP99": 200,
+              "scheduledMax": 250,
+              "receiveStopMax": 20,
+              "stopReceiptMax": 100
+            },
+            "failed": [
+              "scheduledP99",
+              "scheduledMax"
+            ],
+            "missing": [],
+            "upperBoundGuaranteed": false,
+            "scope": "PRODUCT_OBSERVED_WINDOW"
+          }
+        },
+        {
+          "id": "t-controls-chromium-035-anchor-0-off",
+          "input": {
+            "scheduledToSend": {
+              "n": 163,
+              "median": 8.19210000000021,
+              "p95": 103.60770000000048,
+              "p99": 261.96669999999995,
+              "max": 298.3235999999997,
+              "over50": 14,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "sendToReceive": {
+              "n": 163,
+              "median": 11.160000005959773,
+              "p95": 350.62989999403817,
+              "p99": 432.989499988078,
+              "max": 446.8640999940385,
+              "over50": 40,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "scheduledToReceive": {
+              "n": 163,
+              "median": 18.742200005959603,
+              "p95": 390.9421999940387,
+              "p99": 453.5421999880782,
+              "max": 454.64220001192007,
+              "over50": 49,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            }
+          },
+          "stepDelta": {
+            "kind": "integration during wall-clock window",
+            "delta": 20290
+          },
+          "stop": {
+            "sendReceive": 29.24939998807804,
+            "plannedSend": 4.79280000000017,
+            "receivePause": 1.2000000178813934,
+            "pauseBody": 0.09999999403953552,
+            "handler": 1.600000023841858,
+            "stopReceipt": 5.9000000059604645,
+            "extraWithinPause": 0,
+            "extraAfterStop": 0,
+            "atomic": true,
+            "target": "paint",
+            "targetHit": false,
+            "T4Kind": "same-step Canvas/DOM command receipt; not GPU presentation",
+            "uncertainty": 0.9222000000008848
+          },
+          "math": {
+            "phase": true,
+            "history": true,
+            "publicPosition": true,
+            "scope": "all recovered JSON doubles and histories, same engine baseline"
+          },
+          "draw": {
+            "a": true,
+            "b": true
+          },
+          "frames": {
+            "n": 0,
+            "mismatch": 0
+          },
+          "budget": {
+            "verdict": "PARTIAL",
+            "checks": {
+              "scheduledP95": 390.9421999940387,
+              "scheduledP99": 453.5421999880782,
+              "scheduledMax": 454.64220001192007,
+              "receiveStopMax": 1.2000000178813934,
+              "stopReceiptMax": 5.9000000059604645
+            },
+            "targets": {
+              "scheduledP95": 100,
+              "scheduledP99": 200,
+              "scheduledMax": 250,
+              "receiveStopMax": 20,
+              "stopReceiptMax": 100
+            },
+            "failed": [
+              "scheduledP95",
+              "scheduledP99",
+              "scheduledMax"
+            ],
+            "missing": [],
+            "upperBoundGuaranteed": false,
+            "scope": "PRODUCT_OBSERVED_WINDOW"
+          }
+        },
+        {
+          "id": "t-controls-chromium-036-anchor-1-native",
+          "input": {
+            "scheduledToSend": {
+              "n": 41,
+              "median": 5.640099999999848,
+              "p95": 14.025699999999915,
+              "p99": 14.76890000000003,
+              "max": 14.76890000000003,
+              "over50": 0,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "sendToReceive": {
+              "n": 41,
+              "median": 2.9826000059556463,
+              "p95": 33.52399999999534,
+              "p99": 459.83280001191633,
+              "max": 459.83280001191633,
+              "over50": 2,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "scheduledToReceive": {
+              "n": 41,
+              "median": 10.540400011916063,
+              "p95": 45.440399988074205,
+              "p99": 465.04040001191606,
+              "max": 465.04040001191606,
+              "over50": 2,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            }
+          },
+          "paint": {
+            "n": 45,
+            "median": 1.5,
+            "p95": 5.200000017881393,
+            "p99": 427.40000000596046,
+            "max": 427.40000000596046,
+            "over50": 1,
+            "percentileIsGuarantee": false
+          },
+          "calculate": {
+            "n": 134,
+            "median": 0.10000002384185791,
+            "p95": 0.5,
+            "p99": 0.5,
+            "max": 0.699999988079071,
+            "over50": 0,
+            "percentileIsGuarantee": false
+          },
+          "stepDelta": {
+            "kind": "integration during wall-clock window",
+            "delta": 7605
+          },
+          "stop": {
+            "sendReceive": 429.41179999403494,
+            "plannedSend": -0.571400000000267,
+            "receivePause": 1.2000000178813934,
+            "pauseBody": 0.20000001788139343,
+            "handler": 1.800000011920929,
+            "stopReceipt": 13.099999994039536,
+            "extraWithinPause": 0,
+            "extraAfterStop": 0,
+            "atomic": true,
+            "target": "paint",
+            "targetHit": true,
+            "T4Kind": "same-step Canvas/DOM command receipt; not GPU presentation",
+            "uncertainty": 1.1552000000083353
+          },
+          "math": {
+            "phase": true,
+            "history": true,
+            "publicPosition": true,
+            "scope": "all recovered JSON doubles and histories, same engine baseline"
+          },
+          "draw": {
+            "a": true,
+            "b": true
+          },
+          "frames": {
+            "n": 45,
+            "mismatch": 0
+          },
+          "budget": {
+            "verdict": "PARTIAL",
+            "checks": {
+              "scheduledP95": 45.440399988074205,
+              "scheduledP99": 465.04040001191606,
+              "scheduledMax": 465.04040001191606,
+              "receiveStopMax": 1.2000000178813934,
+              "stopReceiptMax": 13.099999994039536
+            },
+            "targets": {
+              "scheduledP95": 100,
+              "scheduledP99": 200,
+              "scheduledMax": 250,
+              "receiveStopMax": 20,
+              "stopReceiptMax": 100
+            },
+            "failed": [
+              "scheduledP99",
+              "scheduledMax"
+            ],
+            "missing": [],
+            "upperBoundGuaranteed": false,
+            "scope": "PRODUCT_OBSERVED_WINDOW"
+          }
+        },
+        {
+          "id": "t-controls-chromium-037-anchor-1-phase",
+          "input": {
+            "scheduledToSend": {
+              "n": 74,
+              "median": 6.781500000000051,
+              "p95": 14.017500000000155,
+              "p99": 16.61200000000008,
+              "max": 16.61200000000008,
+              "over50": 0,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "sendToReceive": {
+              "n": 74,
+              "median": 4.098200023834124,
+              "p95": 398.25040001191337,
+              "p99": 460.4039000059529,
+              "max": 460.4039000059529,
+              "over50": 13,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "scheduledToReceive": {
+              "n": 74,
+              "median": 13.293700005952815,
+              "p95": 401.6937000119133,
+              "p99": 470.2937000059528,
+              "max": 470.2937000059528,
+              "over50": 13,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            }
+          },
+          "paint": {
+            "n": 61,
+            "median": 2.0999999940395355,
+            "p95": 5.5999999940395355,
+            "p99": 437.59999999403954,
+            "max": 437.59999999403954,
+            "over50": 1,
+            "percentileIsGuarantee": false
+          },
+          "calculate": {
+            "n": 202,
+            "median": 0.19999998807907104,
+            "p95": 0.5999999940395355,
+            "p99": 0.699999988079071,
+            "max": 0.7000000178813934,
+            "over50": 0,
+            "percentileIsGuarantee": false
+          },
+          "stepDelta": {
+            "kind": "integration during wall-clock window",
+            "delta": 11149
+          },
+          "stop": {
+            "sendReceive": 436.1898000178735,
+            "plannedSend": 11.903900000000249,
+            "receivePause": 1.7999999821186066,
+            "pauseBody": 0.19999998807907104,
+            "handler": 2.199999988079071,
+            "stopReceipt": 12.400000005960464,
+            "extraWithinPause": 0,
+            "extraAfterStop": 0,
+            "atomic": true,
+            "target": "paint",
+            "targetHit": true,
+            "T4Kind": "same-step Canvas/DOM command receipt; not GPU presentation",
+            "uncertainty": 0.8971999999921536
+          },
+          "math": {
+            "phase": true,
+            "history": true,
+            "publicPosition": true,
+            "scope": "all recovered JSON doubles and histories, same engine baseline"
+          },
+          "draw": {
+            "a": true,
+            "b": true
+          },
+          "frames": {
+            "n": 61,
+            "mismatch": 0
+          },
+          "budget": {
+            "verdict": "PARTIAL",
+            "checks": {
+              "scheduledP95": 401.6937000119133,
+              "scheduledP99": 470.2937000059528,
+              "scheduledMax": 470.2937000059528,
+              "receiveStopMax": 1.7999999821186066,
+              "stopReceiptMax": 12.400000005960464
+            },
+            "targets": {
+              "scheduledP95": 100,
+              "scheduledP99": 200,
+              "scheduledMax": 250,
+              "receiveStopMax": 20,
+              "stopReceiptMax": 100
+            },
+            "failed": [
+              "scheduledP95",
+              "scheduledP99",
+              "scheduledMax"
+            ],
+            "missing": [],
+            "upperBoundGuaranteed": false,
+            "scope": "PRODUCT_OBSERVED_WINDOW"
+          }
+        },
+        {
+          "id": "t-controls-chromium-038-anchor-1-off",
+          "input": {
+            "scheduledToSend": {
+              "n": 163,
+              "median": 8.940999999999804,
+              "p95": 298.21109999999953,
+              "p99": 417.2565999999997,
+              "max": 445.76990000000023,
+              "over50": 25,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "sendToReceive": {
+              "n": 163,
+              "median": 13.536149999976715,
+              "p95": 257.26444999997693,
+              "p99": 437.2201499999769,
+              "max": 444.89944998805595,
+              "over50": 42,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "scheduledToReceive": {
+              "n": 163,
+              "median": 20.928750005937218,
+              "p95": 395.2287499880558,
+              "p99": 450.02874999997675,
+              "max": 471.9287500059372,
+              "over50": 50,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            }
+          },
+          "stepDelta": {
+            "kind": "integration during wall-clock window",
+            "delta": 19905
+          },
+          "stop": {
+            "sendReceive": 18.930949994016373,
+            "plannedSend": 10.197799999999916,
+            "receivePause": 1.199999988079071,
+            "pauseBody": 0.29999998211860657,
+            "handler": 1.5999999940395355,
+            "stopReceipt": 6.4000000059604645,
+            "extraWithinPause": 0,
+            "extraAfterStop": 0,
+            "atomic": true,
+            "target": "paint",
+            "targetHit": false,
+            "T4Kind": "same-step Canvas/DOM command receipt; not GPU presentation",
+            "uncertainty": 0.8561500000068918
+          },
+          "math": {
+            "phase": true,
+            "history": true,
+            "publicPosition": true,
+            "scope": "all recovered JSON doubles and histories, same engine baseline"
+          },
+          "draw": {
+            "a": true,
+            "b": true
+          },
+          "frames": {
+            "n": 0,
+            "mismatch": 0
+          },
+          "budget": {
+            "verdict": "PARTIAL",
+            "checks": {
+              "scheduledP95": 395.2287499880558,
+              "scheduledP99": 450.02874999997675,
+              "scheduledMax": 471.9287500059372,
+              "receiveStopMax": 1.199999988079071,
+              "stopReceiptMax": 6.4000000059604645
+            },
+            "targets": {
+              "scheduledP95": 100,
+              "scheduledP99": 200,
+              "scheduledMax": 250,
+              "receiveStopMax": 20,
+              "stopReceiptMax": 100
+            },
+            "failed": [
+              "scheduledP95",
+              "scheduledP99",
+              "scheduledMax"
+            ],
+            "missing": [],
+            "upperBoundGuaranteed": false,
+            "scope": "PRODUCT_OBSERVED_WINDOW"
+          }
+        },
+        {
+          "id": "t-controls-chromium-039-anchor-2-native",
+          "input": {
+            "scheduledToSend": {
+              "n": 40,
+              "median": 5.534700000000157,
+              "p95": 11.901200000000244,
+              "p99": 13.56899999999996,
+              "max": 13.56899999999996,
+              "over50": 0,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "sendToReceive": {
+              "n": 40,
+              "median": 2.8807500059222093,
+              "p95": 16.902750011882745,
+              "p99": 448.9304500238036,
+              "max": 448.9304500238036,
+              "over50": 1,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "scheduledToReceive": {
+              "n": 40,
+              "median": 10.903950005922297,
+              "p95": 28.80395001188299,
+              "p99": 448.6039500238039,
+              "max": 448.6039500238039,
+              "over50": 1,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            }
+          },
+          "paint": {
+            "n": 45,
+            "median": 1.5,
+            "p95": 5.199999988079071,
+            "p99": 445.5,
+            "max": 445.5,
+            "over50": 1,
+            "percentileIsGuarantee": false
+          },
+          "calculate": {
+            "n": 134,
+            "median": 0.10000002384185791,
+            "p95": 0.5,
+            "p99": 0.5999999940395355,
+            "max": 0.7000000178813934,
+            "over50": 0,
+            "percentileIsGuarantee": false
+          },
+          "stepDelta": {
+            "kind": "integration during wall-clock window",
+            "delta": 7577
+          },
+          "stop": {
+            "sendReceive": 448.9304500238036,
+            "plannedSend": -0.32649999999966894,
+            "receivePause": 1.5,
+            "pauseBody": 0.30000001192092896,
+            "handler": 1.7999999821186066,
+            "stopReceipt": 10.899999976158142,
+            "extraWithinPause": 0,
+            "extraAfterStop": 0,
+            "atomic": true,
+            "target": "paint",
+            "targetHit": true,
+            "T4Kind": "same-step Canvas/DOM command receipt; not GPU presentation",
+            "uncertainty": 0.5372500000084983
+          },
+          "math": {
+            "phase": true,
+            "history": true,
+            "publicPosition": true,
+            "scope": "all recovered JSON doubles and histories, same engine baseline"
+          },
+          "draw": {
+            "a": true,
+            "b": true
+          },
+          "frames": {
+            "n": 45,
+            "mismatch": 0
+          },
+          "budget": {
+            "verdict": "PARTIAL",
+            "checks": {
+              "scheduledP95": 28.80395001188299,
+              "scheduledP99": 448.6039500238039,
+              "scheduledMax": 448.6039500238039,
+              "receiveStopMax": 1.5,
+              "stopReceiptMax": 10.899999976158142
+            },
+            "targets": {
+              "scheduledP95": 100,
+              "scheduledP99": 200,
+              "scheduledMax": 250,
+              "receiveStopMax": 20,
+              "stopReceiptMax": 100
+            },
+            "failed": [
+              "scheduledP99",
+              "scheduledMax"
+            ],
+            "missing": [],
+            "upperBoundGuaranteed": false,
+            "scope": "PRODUCT_OBSERVED_WINDOW"
+          }
+        },
+        {
+          "id": "t-controls-chromium-040-anchor-2-phase",
+          "input": {
+            "scheduledToSend": {
+              "n": 73,
+              "median": 5.5026000000000295,
+              "p95": 12.98909999999978,
+              "p99": 16.1259,
+              "max": 16.1259,
+              "over50": 0,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "sendToReceive": {
+              "n": 73,
+              "median": 3.5621999821473764,
+              "p95": 362.1086000000287,
+              "p99": 450.0906999761869,
+              "max": 450.0906999761869,
+              "over50": 13,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "scheduledToReceive": {
+              "n": 73,
+              "median": 13.057799982147117,
+              "p95": 369.7578000000285,
+              "p99": 453.1577999761871,
+              "max": 453.1577999761871,
+              "over50": 13,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            }
+          },
+          "paint": {
+            "n": 61,
+            "median": 1.5,
+            "p95": 4.9000000059604645,
+            "p99": 433.5,
+            "max": 433.5,
+            "over50": 1,
+            "percentileIsGuarantee": false
+          },
+          "calculate": {
+            "n": 194,
+            "median": 0.19999998807907104,
+            "p95": 0.5999999940395355,
+            "p99": 0.699999988079071,
+            "max": 0.7000000178813934,
+            "over50": 0,
+            "percentileIsGuarantee": false
+          },
+          "stepDelta": {
+            "kind": "integration during wall-clock window",
+            "delta": 10715
+          },
+          "stop": {
+            "sendReceive": 450.0906999761869,
+            "plannedSend": 3.0671000000002095,
+            "receivePause": 1.5,
+            "pauseBody": 0.09999999403953552,
+            "handler": 2,
+            "stopReceipt": 11,
+            "extraWithinPause": 0,
+            "extraAfterStop": 0,
+            "atomic": true,
+            "target": "paint",
+            "targetHit": true,
+            "T4Kind": "same-step Canvas/DOM command receipt; not GPU presentation",
+            "uncertainty": 0.23250000001280569
+          },
+          "math": {
+            "phase": true,
+            "history": true,
+            "publicPosition": true,
+            "scope": "all recovered JSON doubles and histories, same engine baseline"
+          },
+          "draw": {
+            "a": true,
+            "b": true
+          },
+          "frames": {
+            "n": 61,
+            "mismatch": 0
+          },
+          "budget": {
+            "verdict": "PARTIAL",
+            "checks": {
+              "scheduledP95": 369.7578000000285,
+              "scheduledP99": 453.1577999761871,
+              "scheduledMax": 453.1577999761871,
+              "receiveStopMax": 1.5,
+              "stopReceiptMax": 11
+            },
+            "targets": {
+              "scheduledP95": 100,
+              "scheduledP99": 200,
+              "scheduledMax": 250,
+              "receiveStopMax": 20,
+              "stopReceiptMax": 100
+            },
+            "failed": [
+              "scheduledP95",
+              "scheduledP99",
+              "scheduledMax"
+            ],
+            "missing": [],
+            "upperBoundGuaranteed": false,
+            "scope": "PRODUCT_OBSERVED_WINDOW"
+          }
+        },
+        {
+          "id": "t-controls-chromium-041-anchor-2-off",
+          "input": {
+            "scheduledToSend": {
+              "n": 163,
+              "median": 7.539899999999989,
+              "p95": 84.34130000000005,
+              "p99": 300.3679000000002,
+              "max": 337.10549999999967,
+              "over50": 12,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "sendToReceive": {
+              "n": 163,
+              "median": 15.589899988075558,
+              "p95": 349.8009999821147,
+              "p99": 458.4160999999958,
+              "max": 466.32919999403566,
+              "over50": 37,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "scheduledToReceive": {
+              "n": 163,
+              "median": 22.844399999996313,
+              "p95": 401.44439999403585,
+              "p99": 470.8443999999963,
+              "max": 474.44439999403585,
+              "over50": 49,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            }
+          },
+          "stepDelta": {
+            "kind": "integration during wall-clock window",
+            "delta": 19870
+          },
+          "stop": {
+            "sendReceive": 15.435200005956176,
+            "plannedSend": 14.309200000000601,
+            "receivePause": 1.2999999821186066,
+            "pauseBody": 0.19999998807907104,
+            "handler": 1.699999988079071,
+            "stopReceipt": 6,
+            "extraWithinPause": 0,
+            "extraAfterStop": 0,
+            "atomic": true,
+            "target": "paint",
+            "targetHit": false,
+            "T4Kind": "same-step Canvas/DOM command receipt; not GPU presentation",
+            "uncertainty": 1.0014000000082888
+          },
+          "math": {
+            "phase": true,
+            "history": true,
+            "publicPosition": true,
+            "scope": "all recovered JSON doubles and histories, same engine baseline"
+          },
+          "draw": {
+            "a": true,
+            "b": true
+          },
+          "frames": {
+            "n": 0,
+            "mismatch": 0
+          },
+          "budget": {
+            "verdict": "PARTIAL",
+            "checks": {
+              "scheduledP95": 401.44439999403585,
+              "scheduledP99": 470.8443999999963,
+              "scheduledMax": 474.44439999403585,
+              "receiveStopMax": 1.2999999821186066,
+              "stopReceiptMax": 6
+            },
+            "targets": {
+              "scheduledP95": 100,
+              "scheduledP99": 200,
+              "scheduledMax": 250,
+              "receiveStopMax": 20,
+              "stopReceiptMax": 100
+            },
+            "failed": [
+              "scheduledP95",
+              "scheduledP99",
+              "scheduledMax"
+            ],
+            "missing": [],
+            "upperBoundGuaranteed": false,
+            "scope": "PRODUCT_OBSERVED_WINDOW"
+          }
+        }
+      ],
+      "stops": {
+        "n": 9,
+        "hit": 6,
+        "miss": 0,
+        "notTested": 3,
+        "unsafe": 0,
+        "sendReceive": {
+          "n": 9,
+          "median": 419.108199988078,
+          "p95": 450.0906999761869,
+          "p99": 450.0906999761869,
+          "max": 450.0906999761869,
+          "over50": 6,
+          "percentileIsGuarantee": false
+        },
+        "receiveStop": {
+          "n": 9,
+          "median": 1.2000000178813934,
+          "p95": 1.7999999821186066,
+          "p99": 1.7999999821186066,
+          "max": 1.7999999821186066,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "stopReceipt": {
+          "n": 9,
+          "median": 10.899999976158142,
+          "p95": 13.099999994039536,
+          "p99": 13.099999994039536,
+          "max": 13.099999994039536,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        }
+      },
+      "mathMismatches": 0,
+      "displayMismatches": 0
+    },
+    {
+      "group": "local-v2",
+      "counts": {
+        "planned": 105,
+        "attempted": 105,
+        "completed": 105,
+        "failed": 30,
+        "unexecuted": 0
+      },
+      "completeness": {
+        "allRunsCompleted": true,
+        "analysisAcquired": true,
+        "analysisCompleted": true,
+        "analysisProcessSucceeded": false,
+        "analysisVerified": true,
+        "evidenceComplete": false,
+        "acceptance": "NOT_ACCEPTED"
+      },
+      "input": {
+        "app": {
+          "scheduledToSend": {
+            "n": 1088,
+            "median": 7.664700000000266,
+            "p95": 150.3716000000004,
+            "p99": 331.6288999999997,
+            "max": 437.20589999999993,
+            "over50": 106,
+            "percentileIsGuarantee": false,
+            "missing": 0,
+            "unit": "elapsed ms",
+            "status": "OBSERVED"
+          },
+          "sendToReceive": {
+            "n": 1088,
+            "median": 12.526300005974917,
+            "p95": 354.22439998213304,
+            "p99": 439.6769500238429,
+            "max": 471.85395001789175,
+            "over50": 234,
+            "percentileIsGuarantee": false,
+            "missing": 0,
+            "unit": "elapsed ms",
+            "status": "OBSERVED"
+          },
+          "scheduledToReceive": {
+            "n": 1088,
+            "median": 18.94455001192182,
+            "p95": 405.8445500178823,
+            "p99": 464.45885001193164,
+            "max": 493.70640002382424,
+            "over50": 303,
+            "percentileIsGuarantee": false,
+            "missing": 0,
+            "unit": "elapsed ms",
+            "status": "OBSERVED"
+          }
+        },
+        "mini": {
+          "scheduledToSend": {
+            "n": 3680,
+            "median": 2.2999999821186066,
+            "p95": 14.099999994039536,
+            "p99": 16,
+            "max": 29.900000005960464,
+            "over50": 0,
+            "percentileIsGuarantee": false,
+            "missing": 0,
+            "unit": "elapsed ms",
+            "status": "OBSERVED"
+          },
+          "sendToReceive": {
+            "n": 3680,
+            "median": 0.09999999403953552,
+            "p95": 1.5,
+            "p99": 5,
+            "max": 22,
+            "over50": 0,
+            "percentileIsGuarantee": false,
+            "missing": 0,
+            "unit": "elapsed ms",
+            "status": "OBSERVED"
+          },
+          "scheduledToReceive": {
+            "n": 3680,
+            "median": 2.9000000059604645,
+            "p95": 14.399999976158142,
+            "p99": 16.5,
+            "max": 36,
+            "over50": 0,
+            "percentileIsGuarantee": false,
+            "missing": 0,
+            "unit": "elapsed ms",
+            "status": "OBSERVED"
+          }
+        }
+      },
+      "capture": {
+        "planned": 64,
+        "pass": 34,
+        "fail": 30,
+        "timeouts": 26,
+        "otherErrors": 4,
+        "byFactor": {
+          "readback-api-surface": [
+            {
+              "id": "t-capture-chromium-001-readback-api-surface-0",
+              "order": 0,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "captureApi": "playwright",
+                "factor": "readback-api-surface",
+                "order": 0,
+                "repeat": 0,
+                "name": "readback-api-surface-0"
+              },
+              "status": "PASS",
+              "apiMs": 936.6315999999997,
+              "image": {
+                "bytes": 208855,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-002-readback-api-surface-1",
+              "order": 1,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "captureApi": "cdp-surface",
+                "factor": "readback-api-surface",
+                "order": 1,
+                "repeat": 0,
+                "name": "readback-api-surface-1"
+              },
+              "status": "PASS",
+              "apiMs": 189.33510000000024,
+              "image": {
+                "bytes": 187524,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-003-readback-api-surface-2",
+              "order": 2,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "captureApi": "cdp-surface",
+                "factor": "readback-api-surface",
+                "order": 2,
+                "repeat": 1,
+                "name": "readback-api-surface-2"
+              },
+              "status": "PASS",
+              "apiMs": 578.8575000000001,
+              "image": {
+                "bytes": 187524,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-004-readback-api-surface-3",
+              "order": 3,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "captureApi": "playwright",
+                "factor": "readback-api-surface",
+                "order": 3,
+                "repeat": 1,
+                "name": "readback-api-surface-3"
+              },
+              "status": "PASS",
+              "apiMs": 477.3719000000019,
+              "image": {
+                "bytes": 208835,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            }
+          ],
+          "readback-api-view": [
+            {
+              "id": "t-capture-chromium-005-readback-api-view-0",
+              "order": 0,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "captureApi": "cdp-surface",
+                "factor": "readback-api-view",
+                "order": 0,
+                "repeat": 0,
+                "name": "readback-api-view-0"
+              },
+              "status": "PASS",
+              "apiMs": 229.75530000000072,
+              "image": {
+                "bytes": 187524,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-006-readback-api-view-1",
+              "order": 1,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "captureApi": "cdp-view",
+                "factor": "readback-api-view",
+                "order": 1,
+                "repeat": 0,
+                "name": "readback-api-view-1"
+              },
+              "status": "FAIL",
+              "apiMs": 196.88810000000012,
+              "errors": [
+                "Error: cdpSession.send: Protocol error (Page.captureScreenshot): Unable to capture screenshot"
+              ]
+            },
+            {
+              "id": "t-capture-chromium-007-readback-api-view-2",
+              "order": 2,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "captureApi": "cdp-view",
+                "factor": "readback-api-view",
+                "order": 2,
+                "repeat": 1,
+                "name": "readback-api-view-2"
+              },
+              "status": "FAIL",
+              "apiMs": 183.97469999999885,
+              "errors": [
+                "Error: cdpSession.send: Protocol error (Page.captureScreenshot): Unable to capture screenshot"
+              ]
+            },
+            {
+              "id": "t-capture-chromium-008-readback-api-view-3",
+              "order": 3,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "captureApi": "cdp-surface",
+                "factor": "readback-api-view",
+                "order": 3,
+                "repeat": 1,
+                "name": "readback-api-view-3"
+              },
+              "status": "PASS",
+              "apiMs": 197.79520000000048,
+              "image": {
+                "bytes": 208835,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            }
+          ],
+          "readback-metrics": [
+            {
+              "id": "t-capture-chromium-009-readback-metrics-0",
+              "order": 0,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "captureEmulation": false,
+                "factor": "readback-metrics",
+                "order": 0,
+                "repeat": 0,
+                "name": "readback-metrics-0"
+              },
+              "status": "PASS",
+              "apiMs": 187.0127999999968,
+              "image": {
+                "bytes": 198638,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-010-readback-metrics-1",
+              "order": 1,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "captureEmulation": true,
+                "factor": "readback-metrics",
+                "order": 1,
+                "repeat": 0,
+                "name": "readback-metrics-1"
+              },
+              "status": "PASS",
+              "apiMs": 188.3845999999976,
+              "image": {
+                "bytes": 208835,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-011-readback-metrics-2",
+              "order": 2,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "captureEmulation": true,
+                "factor": "readback-metrics",
+                "order": 2,
+                "repeat": 1,
+                "name": "readback-metrics-2"
+              },
+              "status": "PASS",
+              "apiMs": 302.81730000000243,
+              "image": {
+                "bytes": 208835,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-012-readback-metrics-3",
+              "order": 3,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "captureEmulation": false,
+                "factor": "readback-metrics",
+                "order": 3,
+                "repeat": 1,
+                "name": "readback-metrics-3"
+              },
+              "status": "PASS",
+              "apiMs": 199.58459999999468,
+              "image": {
+                "bytes": 187524,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            }
+          ],
+          "readback-trace-order": [
+            {
+              "id": "t-capture-chromium-013-readback-trace-order-0",
+              "order": 0,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "before-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "factor": "readback-trace-order",
+                "order": 0,
+                "repeat": 0,
+                "name": "readback-trace-order-0"
+              },
+              "status": "PASS",
+              "apiMs": 196.44550000000163,
+              "image": {
+                "bytes": 193170,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-014-readback-trace-order-1",
+              "order": 1,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "factor": "readback-trace-order",
+                "order": 1,
+                "repeat": 0,
+                "name": "readback-trace-order-1"
+              },
+              "status": "PASS",
+              "apiMs": 610.7906999999977,
+              "image": {
+                "bytes": 187524,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-015-readback-trace-order-2",
+              "order": 2,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "factor": "readback-trace-order",
+                "order": 2,
+                "repeat": 1,
+                "name": "readback-trace-order-2"
+              },
+              "status": "PASS",
+              "apiMs": 205.99839999999676,
+              "image": {
+                "bytes": 187524,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-016-readback-trace-order-3",
+              "order": 3,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "before-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "factor": "readback-trace-order",
+                "order": 3,
+                "repeat": 1,
+                "name": "readback-trace-order-3"
+              },
+              "status": "PASS",
+              "apiMs": 203.94959999999264,
+              "image": {
+                "bytes": 208835,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            }
+          ],
+          "readback-readback": [
+            {
+              "id": "t-capture-chromium-017-readback-readback-0",
+              "order": 0,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "preReadback": false,
+                "factor": "readback-readback",
+                "order": 0,
+                "repeat": 0,
+                "name": "readback-readback-0"
+              },
+              "status": "PASS",
+              "apiMs": 598.7820999999967,
+              "image": {
+                "bytes": 208835,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-018-readback-readback-1",
+              "order": 1,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "preReadback": true,
+                "factor": "readback-readback",
+                "order": 1,
+                "repeat": 0,
+                "name": "readback-readback-1"
+              },
+              "status": "PASS",
+              "apiMs": 599.8410000000003,
+              "image": {
+                "bytes": 208835,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-019-readback-readback-2",
+              "order": 2,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "preReadback": true,
+                "factor": "readback-readback",
+                "order": 2,
+                "repeat": 1,
+                "name": "readback-readback-2"
+              },
+              "status": "PASS",
+              "apiMs": 223.3304000000062,
+              "image": {
+                "bytes": 208835,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-020-readback-readback-3",
+              "order": 3,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "preReadback": false,
+                "factor": "readback-readback",
+                "order": 3,
+                "repeat": 1,
+                "name": "readback-readback-3"
+              },
+              "status": "PASS",
+              "apiMs": 503.50960000000487,
+              "image": {
+                "bytes": 187524,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            }
+          ],
+          "readback-dpr": [
+            {
+              "id": "t-capture-chromium-021-readback-dpr-0",
+              "order": 0,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "factor": "readback-dpr",
+                "order": 0,
+                "repeat": 0,
+                "name": "readback-dpr-0"
+              },
+              "status": "PASS",
+              "apiMs": 215.64010000000417,
+              "image": {
+                "bytes": 208835,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-022-readback-dpr-1",
+              "order": 1,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 1,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "factor": "readback-dpr",
+                "order": 1,
+                "repeat": 0,
+                "name": "readback-dpr-1"
+              },
+              "status": "PASS",
+              "apiMs": 64.1932000000088,
+              "image": {
+                "bytes": 75421,
+                "width": 1280,
+                "height": 900,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 1280,
+                "imageHeight": 900,
+                "expectedWidth": 1280,
+                "expectedHeight": 900,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 438,
+                    "height": 330,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 438,
+                    "height": 330,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-023-readback-dpr-2",
+              "order": 2,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 1,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "factor": "readback-dpr",
+                "order": 2,
+                "repeat": 1,
+                "name": "readback-dpr-2"
+              },
+              "status": "PASS",
+              "apiMs": 63.3234999999986,
+              "image": {
+                "bytes": 81987,
+                "width": 1280,
+                "height": 900,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 1280,
+                "imageHeight": 900,
+                "expectedWidth": 1280,
+                "expectedHeight": 900,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 438,
+                    "height": 330,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 438,
+                    "height": 330,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-024-readback-dpr-3",
+              "order": 3,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "factor": "readback-dpr",
+                "order": 3,
+                "repeat": 1,
+                "name": "readback-dpr-3"
+              },
+              "status": "PASS",
+              "apiMs": 315.4916000000085,
+              "image": {
+                "bytes": 193170,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            }
+          ],
+          "readback-release": [
+            {
+              "id": "t-capture-chromium-025-readback-release-0",
+              "order": 0,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "releaseResources": false,
+                "factor": "readback-release",
+                "order": 0,
+                "repeat": 0,
+                "name": "readback-release-0"
+              },
+              "status": "PASS",
+              "apiMs": 607.9343999999983,
+              "image": {
+                "bytes": 187524,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-026-readback-release-1",
+              "order": 1,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": false,
+                "releaseResources": true,
+                "factor": "readback-release",
+                "order": 1,
+                "repeat": 0,
+                "name": "readback-release-1"
+              },
+              "status": "PASS",
+              "apiMs": 546.8741000000009,
+              "image": {
+                "bytes": 162004,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-027-readback-release-2",
+              "order": 2,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": false,
+                "releaseResources": true,
+                "factor": "readback-release",
+                "order": 2,
+                "repeat": 1,
+                "name": "readback-release-2"
+              },
+              "status": "PASS",
+              "apiMs": 211.3961999999883,
+              "image": {
+                "bytes": 161987,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-028-readback-release-3",
+              "order": 3,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "releaseResources": false,
+                "factor": "readback-release",
+                "order": 3,
+                "repeat": 1,
+                "name": "readback-release-3"
+              },
+              "status": "PASS",
+              "apiMs": 201.82140000001527,
+              "image": {
+                "bytes": 187524,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            }
+          ],
+          "readback-commands": [
+            {
+              "id": "t-capture-chromium-029-readback-commands-0",
+              "order": 0,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "factor": "readback-commands",
+                "order": 0,
+                "repeat": 0,
+                "name": "readback-commands-0"
+              },
+              "status": "PASS",
+              "apiMs": 185.34639999998035,
+              "image": {
+                "bytes": 208835,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-030-readback-commands-1",
+              "order": 1,
+              "options": {
+                "mini": true,
+                "canvas": "bitmap",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "factor": "readback-commands",
+                "order": 1,
+                "repeat": 0,
+                "name": "readback-commands-1"
+              },
+              "status": "PASS",
+              "apiMs": 477.88730000000214,
+              "image": {
+                "bytes": 198638,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-031-readback-commands-2",
+              "order": 2,
+              "options": {
+                "mini": true,
+                "canvas": "bitmap",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "factor": "readback-commands",
+                "order": 2,
+                "repeat": 1,
+                "name": "readback-commands-2"
+              },
+              "status": "PASS",
+              "apiMs": 906.988400000002,
+              "image": {
+                "bytes": 198638,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-032-readback-commands-3",
+              "order": 3,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "readback",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "factor": "readback-commands",
+                "order": 3,
+                "repeat": 1,
+                "name": "readback-commands-3"
+              },
+              "status": "PASS",
+              "apiMs": 207.26739999998244,
+              "image": {
+                "bytes": 187524,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            }
+          ],
+          "default-api-surface": [
+            {
+              "id": "t-capture-chromium-033-default-api-surface-0",
+              "order": 0,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "captureApi": "playwright",
+                "factor": "default-api-surface",
+                "order": 0,
+                "repeat": 0,
+                "name": "default-api-surface-0"
+              },
+              "status": "FAIL",
+              "apiMs": 5323.265400000004,
+              "errors": [
+                "TimeoutError: page.screenshot: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+              ]
+            },
+            {
+              "id": "t-capture-chromium-034-default-api-surface-1",
+              "order": 1,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "captureApi": "cdp-surface",
+                "factor": "default-api-surface",
+                "order": 1,
+                "repeat": 0,
+                "name": "default-api-surface-1"
+              },
+              "status": "FAIL",
+              "apiMs": 5149.080399999977,
+              "errors": [
+                "Error: cdp-surface capture timeout 5000ms"
+              ]
+            },
+            {
+              "id": "t-capture-chromium-035-default-api-surface-2",
+              "order": 2,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "captureApi": "cdp-surface",
+                "factor": "default-api-surface",
+                "order": 2,
+                "repeat": 1,
+                "name": "default-api-surface-2"
+              },
+              "status": "FAIL",
+              "apiMs": 5005.7970000000205,
+              "errors": [
+                "Error: cdp-surface capture timeout 5000ms"
+              ]
+            },
+            {
+              "id": "t-capture-chromium-036-default-api-surface-3",
+              "order": 3,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "captureApi": "playwright",
+                "factor": "default-api-surface",
+                "order": 3,
+                "repeat": 1,
+                "name": "default-api-surface-3"
+              },
+              "status": "FAIL",
+              "apiMs": 5098.3315,
+              "errors": [
+                "TimeoutError: page.screenshot: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+              ]
+            }
+          ],
+          "default-api-view": [
+            {
+              "id": "t-capture-chromium-037-default-api-view-0",
+              "order": 0,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "captureApi": "cdp-surface",
+                "factor": "default-api-view",
+                "order": 0,
+                "repeat": 0,
+                "name": "default-api-view-0"
+              },
+              "status": "FAIL",
+              "apiMs": 5241.491599999979,
+              "errors": [
+                "Error: cdp-surface capture timeout 5000ms"
+              ]
+            },
+            {
+              "id": "t-capture-chromium-038-default-api-view-1",
+              "order": 1,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "captureApi": "cdp-view",
+                "factor": "default-api-view",
+                "order": 1,
+                "repeat": 0,
+                "name": "default-api-view-1"
+              },
+              "status": "FAIL",
+              "apiMs": 173.6024000000034,
+              "errors": [
+                "Error: cdpSession.send: Protocol error (Page.captureScreenshot): Unable to capture screenshot"
+              ]
+            },
+            {
+              "id": "t-capture-chromium-039-default-api-view-2",
+              "order": 2,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "captureApi": "cdp-view",
+                "factor": "default-api-view",
+                "order": 2,
+                "repeat": 1,
+                "name": "default-api-view-2"
+              },
+              "status": "FAIL",
+              "apiMs": 185.22259999997914,
+              "errors": [
+                "Error: cdpSession.send: Protocol error (Page.captureScreenshot): Unable to capture screenshot"
+              ]
+            },
+            {
+              "id": "t-capture-chromium-040-default-api-view-3",
+              "order": 3,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "captureApi": "cdp-surface",
+                "factor": "default-api-view",
+                "order": 3,
+                "repeat": 1,
+                "name": "default-api-view-3"
+              },
+              "status": "FAIL",
+              "apiMs": 5093.235000000015,
+              "errors": [
+                "Error: cdp-surface capture timeout 5000ms"
+              ]
+            }
+          ],
+          "default-metrics": [
+            {
+              "id": "t-capture-chromium-041-default-metrics-0",
+              "order": 0,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "captureEmulation": false,
+                "factor": "default-metrics",
+                "order": 0,
+                "repeat": 0,
+                "name": "default-metrics-0"
+              },
+              "status": "FAIL",
+              "apiMs": 6190.644499999995,
+              "errors": [
+                "TimeoutError: page.screenshot: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+              ]
+            },
+            {
+              "id": "t-capture-chromium-042-default-metrics-1",
+              "order": 1,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "captureEmulation": true,
+                "factor": "default-metrics",
+                "order": 1,
+                "repeat": 0,
+                "name": "default-metrics-1"
+              },
+              "status": "FAIL",
+              "apiMs": 5513.53820000001,
+              "errors": [
+                "TimeoutError: page.screenshot: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+              ]
+            },
+            {
+              "id": "t-capture-chromium-043-default-metrics-2",
+              "order": 2,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "captureEmulation": true,
+                "factor": "default-metrics",
+                "order": 2,
+                "repeat": 1,
+                "name": "default-metrics-2"
+              },
+              "status": "FAIL",
+              "apiMs": 5051.566999999981,
+              "errors": [
+                "TimeoutError: page.screenshot: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+              ]
+            },
+            {
+              "id": "t-capture-chromium-044-default-metrics-3",
+              "order": 3,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "captureEmulation": false,
+                "factor": "default-metrics",
+                "order": 3,
+                "repeat": 1,
+                "name": "default-metrics-3"
+              },
+              "status": "FAIL",
+              "apiMs": 5308.732900000003,
+              "errors": [
+                "TimeoutError: page.screenshot: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+              ]
+            }
+          ],
+          "default-trace-order": [
+            {
+              "id": "t-capture-chromium-045-default-trace-order-0",
+              "order": 0,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "before-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "factor": "default-trace-order",
+                "order": 0,
+                "repeat": 0,
+                "name": "default-trace-order-0"
+              },
+              "status": "FAIL",
+              "apiMs": 5391.863799999992,
+              "errors": [
+                "TimeoutError: page.screenshot: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+              ]
+            },
+            {
+              "id": "t-capture-chromium-046-default-trace-order-1",
+              "order": 1,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "factor": "default-trace-order",
+                "order": 1,
+                "repeat": 0,
+                "name": "default-trace-order-1"
+              },
+              "status": "FAIL",
+              "apiMs": 5269.389100000029,
+              "errors": [
+                "TimeoutError: page.screenshot: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+              ]
+            },
+            {
+              "id": "t-capture-chromium-047-default-trace-order-2",
+              "order": 2,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "factor": "default-trace-order",
+                "order": 2,
+                "repeat": 1,
+                "name": "default-trace-order-2"
+              },
+              "status": "FAIL",
+              "apiMs": 5451.937899999961,
+              "errors": [
+                "TimeoutError: page.screenshot: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+              ]
+            },
+            {
+              "id": "t-capture-chromium-048-default-trace-order-3",
+              "order": 3,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "before-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "factor": "default-trace-order",
+                "order": 3,
+                "repeat": 1,
+                "name": "default-trace-order-3"
+              },
+              "status": "FAIL",
+              "apiMs": 5149.830000000016,
+              "errors": [
+                "TimeoutError: page.screenshot: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+              ]
+            }
+          ],
+          "default-readback": [
+            {
+              "id": "t-capture-chromium-049-default-readback-0",
+              "order": 0,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "preReadback": false,
+                "factor": "default-readback",
+                "order": 0,
+                "repeat": 0,
+                "name": "default-readback-0"
+              },
+              "status": "FAIL",
+              "apiMs": 5789.59010000003,
+              "errors": [
+                "TimeoutError: page.screenshot: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+              ]
+            },
+            {
+              "id": "t-capture-chromium-050-default-readback-1",
+              "order": 1,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "preReadback": true,
+                "factor": "default-readback",
+                "order": 1,
+                "repeat": 0,
+                "name": "default-readback-1"
+              },
+              "status": "PASS",
+              "apiMs": 840.5096000000485,
+              "image": {
+                "bytes": 199222,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-051-default-readback-2",
+              "order": 2,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "preReadback": true,
+                "factor": "default-readback",
+                "order": 2,
+                "repeat": 1,
+                "name": "default-readback-2"
+              },
+              "status": "PASS",
+              "apiMs": 810.2691999999806,
+              "image": {
+                "bytes": 184324,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-052-default-readback-3",
+              "order": 3,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "preReadback": false,
+                "factor": "default-readback",
+                "order": 3,
+                "repeat": 1,
+                "name": "default-readback-3"
+              },
+              "status": "FAIL",
+              "apiMs": 5255.14029999997,
+              "errors": [
+                "TimeoutError: page.screenshot: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+              ]
+            }
+          ],
+          "default-dpr": [
+            {
+              "id": "t-capture-chromium-053-default-dpr-0",
+              "order": 0,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "factor": "default-dpr",
+                "order": 0,
+                "repeat": 0,
+                "name": "default-dpr-0"
+              },
+              "status": "FAIL",
+              "apiMs": 5120.135700000043,
+              "errors": [
+                "TimeoutError: page.screenshot: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+              ]
+            },
+            {
+              "id": "t-capture-chromium-054-default-dpr-1",
+              "order": 1,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 1,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "factor": "default-dpr",
+                "order": 1,
+                "repeat": 0,
+                "name": "default-dpr-1"
+              },
+              "status": "FAIL",
+              "apiMs": 6044.04250000004,
+              "errors": [
+                "TimeoutError: page.screenshot: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+              ]
+            },
+            {
+              "id": "t-capture-chromium-055-default-dpr-2",
+              "order": 2,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 1,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "factor": "default-dpr",
+                "order": 2,
+                "repeat": 1,
+                "name": "default-dpr-2"
+              },
+              "status": "FAIL",
+              "apiMs": 6700.57699999999,
+              "errors": [
+                "TimeoutError: page.screenshot: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+              ]
+            },
+            {
+              "id": "t-capture-chromium-056-default-dpr-3",
+              "order": 3,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "factor": "default-dpr",
+                "order": 3,
+                "repeat": 1,
+                "name": "default-dpr-3"
+              },
+              "status": "FAIL",
+              "apiMs": 5476.628800000006,
+              "errors": [
+                "TimeoutError: page.screenshot: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+              ]
+            }
+          ],
+          "default-release": [
+            {
+              "id": "t-capture-chromium-057-default-release-0",
+              "order": 0,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "releaseResources": false,
+                "factor": "default-release",
+                "order": 0,
+                "repeat": 0,
+                "name": "default-release-0"
+              },
+              "status": "FAIL",
+              "apiMs": 5050.875800000038,
+              "errors": [
+                "TimeoutError: page.screenshot: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+              ]
+            },
+            {
+              "id": "t-capture-chromium-058-default-release-1",
+              "order": 1,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": false,
+                "releaseResources": true,
+                "factor": "default-release",
+                "order": 1,
+                "repeat": 0,
+                "name": "default-release-1"
+              },
+              "status": "FAIL",
+              "apiMs": 5201.042699999991,
+              "errors": [
+                "TimeoutError: page.screenshot: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+              ]
+            },
+            {
+              "id": "t-capture-chromium-059-default-release-2",
+              "order": 2,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": false,
+                "releaseResources": true,
+                "factor": "default-release",
+                "order": 2,
+                "repeat": 1,
+                "name": "default-release-2"
+              },
+              "status": "FAIL",
+              "apiMs": 5110.135200000019,
+              "errors": [
+                "TimeoutError: page.screenshot: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+              ]
+            },
+            {
+              "id": "t-capture-chromium-060-default-release-3",
+              "order": 3,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "releaseResources": false,
+                "factor": "default-release",
+                "order": 3,
+                "repeat": 1,
+                "name": "default-release-3"
+              },
+              "status": "FAIL",
+              "apiMs": 5584.262600000016,
+              "errors": [
+                "TimeoutError: page.screenshot: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+              ]
+            }
+          ],
+          "default-commands": [
+            {
+              "id": "t-capture-chromium-061-default-commands-0",
+              "order": 0,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "factor": "default-commands",
+                "order": 0,
+                "repeat": 0,
+                "name": "default-commands-0"
+              },
+              "status": "FAIL",
+              "apiMs": 5645.080900000001,
+              "errors": [
+                "TimeoutError: page.screenshot: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+              ]
+            },
+            {
+              "id": "t-capture-chromium-062-default-commands-1",
+              "order": 1,
+              "options": {
+                "mini": true,
+                "canvas": "bitmap",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "factor": "default-commands",
+                "order": 1,
+                "repeat": 0,
+                "name": "default-commands-1"
+              },
+              "status": "PASS",
+              "apiMs": 531.7914999999339,
+              "image": {
+                "bytes": 205415,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-063-default-commands-2",
+              "order": 2,
+              "options": {
+                "mini": true,
+                "canvas": "bitmap",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "factor": "default-commands",
+                "order": 2,
+                "repeat": 1,
+                "name": "default-commands-2"
+              },
+              "status": "PASS",
+              "apiMs": 580.5286000000779,
+              "image": {
+                "bytes": 179601,
+                "width": 2560,
+                "height": 1800,
+                "format": "PNG"
+              },
+              "bitmap": {
+                "imageWidth": 2560,
+                "imageHeight": 1800,
+                "expectedWidth": 2560,
+                "expectedHeight": 1800,
+                "dimensionsMatch": true,
+                "checks": [
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  },
+                  {
+                    "width": 876,
+                    "height": 660,
+                    "differentChannels": 0,
+                    "maximumChannelError": 0
+                  }
+                ],
+                "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+              },
+              "errors": []
+            },
+            {
+              "id": "t-capture-chromium-064-default-commands-3",
+              "order": 3,
+              "options": {
+                "mini": true,
+                "canvas": "app",
+                "dom": "app",
+                "width": 438,
+                "height": 330,
+                "count": 2,
+                "period": 40,
+                "geometry": true,
+                "dpr": 2,
+                "context": "default",
+                "backend": "swiftshader",
+                "duration": 1200,
+                "captureStage": "after-trace-end",
+                "trace": true,
+                "pixelCheck": true,
+                "factor": "default-commands",
+                "order": 3,
+                "repeat": 1,
+                "name": "default-commands-3"
+              },
+              "status": "FAIL",
+              "apiMs": 5103.315900000045,
+              "errors": [
+                "TimeoutError: page.screenshot: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+              ]
+            }
+          ]
+        }
+      },
+      "app": [
+        {
+          "id": "t-controls-chromium-033-anchor-0-native",
+          "input": {
+            "scheduledToSend": {
+              "n": 51,
+              "median": 6.06060000000025,
+              "p95": 13.989900000000034,
+              "p99": 16.303800000000138,
+              "max": 16.303800000000138,
+              "over50": 0,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "sendToReceive": {
+              "n": 51,
+              "median": 3.723499994062877,
+              "p95": 380.6748999881024,
+              "p99": 439.5232999821419,
+              "max": 439.5232999821419,
+              "over50": 11,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "scheduledToReceive": {
+              "n": 51,
+              "median": 12.400599988102385,
+              "p95": 386.4005999881024,
+              "p99": 454.0005999821419,
+              "max": 454.0005999821419,
+              "over50": 11,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            }
+          },
+          "paint": {
+            "n": 46,
+            "median": 1.199999988079071,
+            "p95": 5.300000011920929,
+            "p99": 87,
+            "max": 87,
+            "over50": 1,
+            "percentileIsGuarantee": false
+          },
+          "calculate": {
+            "n": 145,
+            "median": 0.10000002384185791,
+            "p95": 0.5,
+            "p99": 0.7999999821186066,
+            "max": 139.90000000596046,
+            "over50": 1,
+            "percentileIsGuarantee": false
+          },
+          "stepDelta": {
+            "kind": "integration during wall-clock window",
+            "delta": 8172
+          },
+          "stop": {
+            "sendReceive": 80.7568999881023,
+            "plannedSend": 13.14370000000008,
+            "receivePause": 1.4000000059604645,
+            "pauseBody": 0.09999999403953552,
+            "handler": 1.699999988079071,
+            "stopReceipt": 9,
+            "extraWithinPause": 0,
+            "extraAfterStop": 0,
+            "atomic": true,
+            "target": "paint",
+            "targetHit": true,
+            "T4Kind": "same-step Canvas/DOM command receipt; not GPU presentation",
+            "uncertainty": 0.8350999999966007
+          },
+          "math": {
+            "phase": true,
+            "history": true,
+            "publicPosition": true,
+            "scope": "all recovered JSON doubles and histories, same engine baseline"
+          },
+          "draw": {
+            "a": true,
+            "b": true
+          },
+          "frames": {
+            "n": 46,
+            "mismatch": 0
+          },
+          "budget": {
+            "verdict": "PARTIAL",
+            "checks": {
+              "scheduledP95": 386.4005999881024,
+              "scheduledP99": 454.0005999821419,
+              "scheduledMax": 454.0005999821419,
+              "receiveStopMax": 1.4000000059604645,
+              "stopReceiptMax": 9
+            },
+            "targets": {
+              "scheduledP95": 100,
+              "scheduledP99": 200,
+              "scheduledMax": 250,
+              "receiveStopMax": 20,
+              "stopReceiptMax": 100
+            },
+            "failed": [
+              "scheduledP95",
+              "scheduledP99",
+              "scheduledMax"
+            ],
+            "missing": [],
+            "upperBoundGuaranteed": false,
+            "scope": "PRODUCT_OBSERVED_WINDOW"
+          }
+        },
+        {
+          "id": "t-controls-chromium-034-anchor-0-phase",
+          "input": {
+            "scheduledToSend": {
+              "n": 163,
+              "median": 9.089799999999968,
+              "p95": 215.71579999999994,
+              "p99": 400.41069999999945,
+              "max": 437.20589999999993,
+              "over50": 21,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "sendToReceive": {
+              "n": 163,
+              "median": 14.581199999992805,
+              "p95": 334.0498999940319,
+              "p99": 449.55550000595304,
+              "max": 460.6552999999931,
+              "over50": 31,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "scheduledToReceive": {
+              "n": 163,
+              "median": 24.177799999992658,
+              "p95": 406.9778000119136,
+              "p99": 467.6777999999922,
+              "max": 468.07780000595267,
+              "over50": 52,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            }
+          },
+          "paint": {
+            "n": 107,
+            "median": 4.300000011920929,
+            "p95": 5.699999988079071,
+            "p99": 7.299999982118607,
+            "max": 436.5,
+            "over50": 1,
+            "percentileIsGuarantee": false
+          },
+          "calculate": {
+            "n": 353,
+            "median": 0.4000000059604645,
+            "p95": 0.6000000238418579,
+            "p99": 1.5,
+            "max": 2.699999988079071,
+            "over50": 0,
+            "percentileIsGuarantee": false
+          },
+          "stepDelta": {
+            "kind": "integration during wall-clock window",
+            "delta": 19872
+          },
+          "stop": {
+            "sendReceive": 15.649800011913612,
+            "plannedSend": 11.82799999999952,
+            "receivePause": 1.399999976158142,
+            "pauseBody": 0.29999998211860657,
+            "handler": 1.699999988079071,
+            "stopReceipt": 6.200000017881393,
+            "extraWithinPause": 0,
+            "extraAfterStop": 0,
+            "atomic": true,
+            "target": "paint",
+            "targetHit": false,
+            "T4Kind": "same-step Canvas/DOM command receipt; not GPU presentation",
+            "uncertainty": 1.0537000000185799
+          },
+          "math": {
+            "phase": true,
+            "history": true,
+            "publicPosition": true,
+            "scope": "all recovered JSON doubles and histories, same engine baseline"
+          },
+          "draw": {
+            "a": true,
+            "b": true
+          },
+          "frames": {
+            "n": 107,
+            "mismatch": 0
+          },
+          "budget": {
+            "verdict": "PARTIAL",
+            "checks": {
+              "scheduledP95": 406.9778000119136,
+              "scheduledP99": 467.6777999999922,
+              "scheduledMax": 468.07780000595267,
+              "receiveStopMax": 1.399999976158142,
+              "stopReceiptMax": 6.200000017881393
+            },
+            "targets": {
+              "scheduledP95": 100,
+              "scheduledP99": 200,
+              "scheduledMax": 250,
+              "receiveStopMax": 20,
+              "stopReceiptMax": 100
+            },
+            "failed": [
+              "scheduledP95",
+              "scheduledP99",
+              "scheduledMax"
+            ],
+            "missing": [],
+            "upperBoundGuaranteed": false,
+            "scope": "PRODUCT_OBSERVED_WINDOW"
+          }
+        },
+        {
+          "id": "t-controls-chromium-035-anchor-0-off",
+          "input": {
+            "scheduledToSend": {
+              "n": 163,
+              "median": 8.295799999999872,
+              "p95": 108.65110000000004,
+              "p99": 182.8164000000006,
+              "max": 219.28460000000086,
+              "over50": 14,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "sendToReceive": {
+              "n": 163,
+              "median": 17.46155000597082,
+              "p95": 311.0414500000106,
+              "p99": 434.8035500119313,
+              "max": 471.85395001789175,
+              "over50": 48,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "scheduledToReceive": {
+              "n": 163,
+              "median": 25.35885001789211,
+              "p95": 410.1588500000107,
+              "p99": 483.0588500059712,
+              "max": 483.3588500178921,
+              "over50": 50,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            }
+          },
+          "stepDelta": {
+            "kind": "integration during wall-clock window",
+            "delta": 19528
+          },
+          "stop": {
+            "sendReceive": 3.5884500238526016,
+            "plannedSend": 0.6703999999999724,
+            "receivePause": 1.2999999821186066,
+            "pauseBody": 0.09999999403953552,
+            "handler": 1.7999999821186066,
+            "stopReceipt": 6.800000011920929,
+            "extraWithinPause": 0,
+            "extraAfterStop": 0,
+            "atomic": true,
+            "target": "paint",
+            "targetHit": false,
+            "T4Kind": "same-step Canvas/DOM command receipt; not GPU presentation",
+            "uncertainty": 0.6481499999936204
+          },
+          "math": {
+            "phase": true,
+            "history": true,
+            "publicPosition": true,
+            "scope": "all recovered JSON doubles and histories, same engine baseline"
+          },
+          "draw": {
+            "a": true,
+            "b": true
+          },
+          "frames": {
+            "n": 0,
+            "mismatch": 0
+          },
+          "budget": {
+            "verdict": "PARTIAL",
+            "checks": {
+              "scheduledP95": 410.1588500000107,
+              "scheduledP99": 483.0588500059712,
+              "scheduledMax": 483.3588500178921,
+              "receiveStopMax": 1.2999999821186066,
+              "stopReceiptMax": 6.800000011920929
+            },
+            "targets": {
+              "scheduledP95": 100,
+              "scheduledP99": 200,
+              "scheduledMax": 250,
+              "receiveStopMax": 20,
+              "stopReceiptMax": 100
+            },
+            "failed": [
+              "scheduledP95",
+              "scheduledP99",
+              "scheduledMax"
+            ],
+            "missing": [],
+            "upperBoundGuaranteed": false,
+            "scope": "PRODUCT_OBSERVED_WINDOW"
+          }
+        },
+        {
+          "id": "t-controls-chromium-036-anchor-1-native",
+          "input": {
+            "scheduledToSend": {
+              "n": 43,
+              "median": 6.334500000000162,
+              "p95": 13.89930000000004,
+              "p99": 15.54260000000022,
+              "max": 15.54260000000022,
+              "over50": 0,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "sendToReceive": {
+              "n": 43,
+              "median": 2.1134500119333097,
+              "p95": 12.69945001193355,
+              "p99": 439.33035001193366,
+              "max": 439.33035001193366,
+              "over50": 2,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "scheduledToReceive": {
+              "n": 43,
+              "median": 10.166050000012547,
+              "p95": 21.966050011933476,
+              "p99": 444.4660500119335,
+              "max": 444.4660500119335,
+              "over50": 2,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            }
+          },
+          "paint": {
+            "n": 46,
+            "median": 1.0999999940395355,
+            "p95": 4.199999988079071,
+            "p99": 408.2999999821186,
+            "max": 408.2999999821186,
+            "over50": 1,
+            "percentileIsGuarantee": false
+          },
+          "calculate": {
+            "n": 143,
+            "median": 0.09999999403953552,
+            "p95": 0.5,
+            "p99": 0.5999999940395355,
+            "max": 0.5999999940395355,
+            "over50": 0,
+            "percentileIsGuarantee": false
+          },
+          "stepDelta": {
+            "kind": "integration during wall-clock window",
+            "delta": 7908
+          },
+          "stop": {
+            "sendReceive": 408.3445500119333,
+            "plannedSend": -0.37849999999980355,
+            "receivePause": 1,
+            "pauseBody": 0.19999998807907104,
+            "handler": 1.5,
+            "stopReceipt": 11,
+            "extraWithinPause": 0,
+            "extraAfterStop": 0,
+            "atomic": true,
+            "target": "paint",
+            "targetHit": true,
+            "T4Kind": "same-step Canvas/DOM command receipt; not GPU presentation",
+            "uncertainty": 0.8601500000077067
+          },
+          "math": {
+            "phase": true,
+            "history": true,
+            "publicPosition": true,
+            "scope": "all recovered JSON doubles and histories, same engine baseline"
+          },
+          "draw": {
+            "a": true,
+            "b": true
+          },
+          "frames": {
+            "n": 46,
+            "mismatch": 0
+          },
+          "budget": {
+            "verdict": "PARTIAL",
+            "checks": {
+              "scheduledP95": 21.966050011933476,
+              "scheduledP99": 444.4660500119335,
+              "scheduledMax": 444.4660500119335,
+              "receiveStopMax": 1,
+              "stopReceiptMax": 11
+            },
+            "targets": {
+              "scheduledP95": 100,
+              "scheduledP99": 200,
+              "scheduledMax": 250,
+              "receiveStopMax": 20,
+              "stopReceiptMax": 100
+            },
+            "failed": [
+              "scheduledP99",
+              "scheduledMax"
+            ],
+            "missing": [],
+            "upperBoundGuaranteed": false,
+            "scope": "PRODUCT_OBSERVED_WINDOW"
+          }
+        },
+        {
+          "id": "t-controls-chromium-037-anchor-1-phase",
+          "input": {
+            "scheduledToSend": {
+              "n": 76,
+              "median": 6.91190000000006,
+              "p95": 14.346399999999903,
+              "p99": 294.4065999999998,
+              "max": 294.4065999999998,
+              "over50": 1,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "sendToReceive": {
+              "n": 76,
+              "median": 5.476200011902165,
+              "p95": 389.58550001190224,
+              "p99": 443.4843999999812,
+              "max": 443.4843999999812,
+              "over50": 14,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "scheduledToReceive": {
+              "n": 76,
+              "median": 15.223300017862584,
+              "p95": 397.8233000119021,
+              "p99": 451.02329999998165,
+              "max": 451.02329999998165,
+              "over50": 15,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            }
+          },
+          "paint": {
+            "n": 62,
+            "median": 1.899999976158142,
+            "p95": 6.200000017881393,
+            "p99": 112.2999999821186,
+            "max": 112.2999999821186,
+            "over50": 1,
+            "percentileIsGuarantee": false
+          },
+          "calculate": {
+            "n": 198,
+            "median": 0.20000001788139343,
+            "p95": 0.800000011920929,
+            "p99": 3.0999999940395355,
+            "max": 54.30000001192093,
+            "over50": 1,
+            "percentileIsGuarantee": false
+          },
+          "stepDelta": {
+            "kind": "integration during wall-clock window",
+            "delta": 10974
+          },
+          "stop": {
+            "sendReceive": 30.616699999981392,
+            "plannedSend": 294.4065999999998,
+            "receivePause": 1.0999999940395355,
+            "pauseBody": 0.19999998807907104,
+            "handler": 1.5,
+            "stopReceipt": 10.300000011920929,
+            "extraWithinPause": 0,
+            "extraAfterStop": 0,
+            "atomic": true,
+            "target": "paint",
+            "targetHit": true,
+            "T4Kind": "same-step Canvas/DOM command receipt; not GPU presentation",
+            "uncertainty": 0.8880999999964843
+          },
+          "math": {
+            "phase": true,
+            "history": true,
+            "publicPosition": true,
+            "scope": "all recovered JSON doubles and histories, same engine baseline"
+          },
+          "draw": {
+            "a": true,
+            "b": true
+          },
+          "frames": {
+            "n": 62,
+            "mismatch": 0
+          },
+          "budget": {
+            "verdict": "PARTIAL",
+            "checks": {
+              "scheduledP95": 397.8233000119021,
+              "scheduledP99": 451.02329999998165,
+              "scheduledMax": 451.02329999998165,
+              "receiveStopMax": 1.0999999940395355,
+              "stopReceiptMax": 10.300000011920929
+            },
+            "targets": {
+              "scheduledP95": 100,
+              "scheduledP99": 200,
+              "scheduledMax": 250,
+              "receiveStopMax": 20,
+              "stopReceiptMax": 100
+            },
+            "failed": [
+              "scheduledP95",
+              "scheduledP99",
+              "scheduledMax"
+            ],
+            "missing": [],
+            "upperBoundGuaranteed": false,
+            "scope": "PRODUCT_OBSERVED_WINDOW"
+          }
+        },
+        {
+          "id": "t-controls-chromium-038-anchor-1-off",
+          "input": {
+            "scheduledToSend": {
+              "n": 163,
+              "median": 7.5703999999996086,
+              "p95": 116.66270000000077,
+              "p99": 205.15079999999944,
+              "max": 207.16900000000078,
+              "over50": 16,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "sendToReceive": {
+              "n": 163,
+              "median": 16.750700005942235,
+              "p95": 292.2131000238237,
+              "p99": 437.3987000059424,
+              "max": 447.5140000119027,
+              "over50": 45,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "scheduledToReceive": {
+              "n": 163,
+              "median": 23.406400011903315,
+              "p95": 410.20640002382333,
+              "p99": 457.3064000178638,
+              "max": 493.70640002382424,
+              "over50": 50,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            }
+          },
+          "stepDelta": {
+            "kind": "integration during wall-clock window",
+            "delta": 19889
+          },
+          "stop": {
+            "sendReceive": 33.52340001786342,
+            "plannedSend": 12.282999999999447,
+            "receivePause": 1.2999999821186066,
+            "pauseBody": 0.09999999403953552,
+            "handler": 1.7999999821186066,
+            "stopReceipt": 7.200000017881393,
+            "extraWithinPause": 0,
+            "extraAfterStop": 0,
+            "atomic": true,
+            "target": "paint",
+            "targetHit": false,
+            "T4Kind": "same-step Canvas/DOM command receipt; not GPU presentation",
+            "uncertainty": 0.7951999999786494
+          },
+          "math": {
+            "phase": true,
+            "history": true,
+            "publicPosition": true,
+            "scope": "all recovered JSON doubles and histories, same engine baseline"
+          },
+          "draw": {
+            "a": true,
+            "b": true
+          },
+          "frames": {
+            "n": 0,
+            "mismatch": 0
+          },
+          "budget": {
+            "verdict": "PARTIAL",
+            "checks": {
+              "scheduledP95": 410.20640002382333,
+              "scheduledP99": 457.3064000178638,
+              "scheduledMax": 493.70640002382424,
+              "receiveStopMax": 1.2999999821186066,
+              "stopReceiptMax": 7.200000017881393
+            },
+            "targets": {
+              "scheduledP95": 100,
+              "scheduledP99": 200,
+              "scheduledMax": 250,
+              "receiveStopMax": 20,
+              "stopReceiptMax": 100
+            },
+            "failed": [
+              "scheduledP95",
+              "scheduledP99",
+              "scheduledMax"
+            ],
+            "missing": [],
+            "upperBoundGuaranteed": false,
+            "scope": "PRODUCT_OBSERVED_WINDOW"
+          }
+        },
+        {
+          "id": "t-controls-chromium-039-anchor-2-native",
+          "input": {
+            "scheduledToSend": {
+              "n": 163,
+              "median": 7.908699999999953,
+              "p95": 177.32359999999971,
+              "p99": 375.04110000000037,
+              "max": 410.8921,
+              "over50": 20,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "sendToReceive": {
+              "n": 163,
+              "median": 13.805900000013935,
+              "p95": 344.3315999940537,
+              "p99": 452.30630000597466,
+              "max": 463.77729998809355,
+              "over50": 35,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "scheduledToReceive": {
+              "n": 163,
+              "median": 22.13479998213279,
+              "p95": 391.9347999940537,
+              "p99": 463.73480000597465,
+              "max": 464.53479998809325,
+              "over50": 49,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            }
+          },
+          "paint": {
+            "n": 106,
+            "median": 4.0999999940395355,
+            "p95": 5.5999999940395355,
+            "p99": 6,
+            "max": 110.2000000178814,
+            "over50": 1,
+            "percentileIsGuarantee": false
+          },
+          "calculate": {
+            "n": 349,
+            "median": 0.3999999761581421,
+            "p95": 0.6000000238418579,
+            "p99": 1.5999999940395355,
+            "max": 161,
+            "over50": 1,
+            "percentileIsGuarantee": false
+          },
+          "stepDelta": {
+            "kind": "integration during wall-clock window",
+            "delta": 19825
+          },
+          "stop": {
+            "sendReceive": 23.982500000014625,
+            "plannedSend": 6.352299999999559,
+            "receivePause": 0.9000000059604645,
+            "pauseBody": 0.20000001788139343,
+            "handler": 1.2999999821186066,
+            "stopReceipt": 6.199999988079071,
+            "extraWithinPause": 0,
+            "extraAfterStop": 0,
+            "atomic": true,
+            "target": "paint",
+            "targetHit": false,
+            "T4Kind": "same-step Canvas/DOM command receipt; not GPU presentation",
+            "uncertainty": 0.9510000000154832
+          },
+          "math": {
+            "phase": true,
+            "history": true,
+            "publicPosition": true,
+            "scope": "all recovered JSON doubles and histories, same engine baseline"
+          },
+          "draw": {
+            "a": true,
+            "b": true
+          },
+          "frames": {
+            "n": 106,
+            "mismatch": 0
+          },
+          "budget": {
+            "verdict": "PARTIAL",
+            "checks": {
+              "scheduledP95": 391.9347999940537,
+              "scheduledP99": 463.73480000597465,
+              "scheduledMax": 464.53479998809325,
+              "receiveStopMax": 0.9000000059604645,
+              "stopReceiptMax": 6.199999988079071
+            },
+            "targets": {
+              "scheduledP95": 100,
+              "scheduledP99": 200,
+              "scheduledMax": 250,
+              "receiveStopMax": 20,
+              "stopReceiptMax": 100
+            },
+            "failed": [
+              "scheduledP95",
+              "scheduledP99",
+              "scheduledMax"
+            ],
+            "missing": [],
+            "upperBoundGuaranteed": false,
+            "scope": "PRODUCT_OBSERVED_WINDOW"
+          }
+        },
+        {
+          "id": "t-controls-chromium-040-anchor-2-phase",
+          "input": {
+            "scheduledToSend": {
+              "n": 103,
+              "median": 7.753900000000158,
+              "p95": 33.39130000000023,
+              "p99": 100.71640000000025,
+              "max": 362.9294,
+              "over50": 5,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "sendToReceive": {
+              "n": 103,
+              "median": 10.220750005946684,
+              "p95": 398.23905000594686,
+              "p99": 439.2723499940262,
+              "max": 452.87184998806515,
+              "over50": 25,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "scheduledToReceive": {
+              "n": 103,
+              "median": 18.088249994026228,
+              "p95": 404.88825000594716,
+              "p99": 447.5882499940262,
+              "max": 468.68824998806576,
+              "over50": 26,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            }
+          },
+          "paint": {
+            "n": 77,
+            "median": 4.0999999940395355,
+            "p95": 5.5999999940395355,
+            "p99": 208.09999999403954,
+            "max": 208.09999999403954,
+            "over50": 1,
+            "percentileIsGuarantee": false
+          },
+          "calculate": {
+            "n": 253,
+            "median": 0.30000001192092896,
+            "p95": 0.5999999940395355,
+            "p99": 0.800000011920929,
+            "max": 2.0999999940395355,
+            "over50": 0,
+            "percentileIsGuarantee": false
+          },
+          "stepDelta": {
+            "kind": "integration during wall-clock window",
+            "delta": 14063
+          },
+          "stop": {
+            "sendReceive": 38.358850011907634,
+            "plannedSend": 362.9294,
+            "receivePause": 1.2999999821186066,
+            "pauseBody": 0.19999998807907104,
+            "handler": 1.7999999821186066,
+            "stopReceipt": 13,
+            "extraWithinPause": 0,
+            "extraAfterStop": 0,
+            "atomic": true,
+            "target": "paint",
+            "targetHit": true,
+            "T4Kind": "same-step Canvas/DOM command receipt; not GPU presentation",
+            "uncertainty": 1.088850000029197
+          },
+          "math": {
+            "phase": true,
+            "history": true,
+            "publicPosition": true,
+            "scope": "all recovered JSON doubles and histories, same engine baseline"
+          },
+          "draw": {
+            "a": true,
+            "b": true
+          },
+          "frames": {
+            "n": 77,
+            "mismatch": 0
+          },
+          "budget": {
+            "verdict": "PARTIAL",
+            "checks": {
+              "scheduledP95": 404.88825000594716,
+              "scheduledP99": 447.5882499940262,
+              "scheduledMax": 468.68824998806576,
+              "receiveStopMax": 1.2999999821186066,
+              "stopReceiptMax": 13
+            },
+            "targets": {
+              "scheduledP95": 100,
+              "scheduledP99": 200,
+              "scheduledMax": 250,
+              "receiveStopMax": 20,
+              "stopReceiptMax": 100
+            },
+            "failed": [
+              "scheduledP95",
+              "scheduledP99",
+              "scheduledMax"
+            ],
+            "missing": [],
+            "upperBoundGuaranteed": false,
+            "scope": "PRODUCT_OBSERVED_WINDOW"
+          }
+        },
+        {
+          "id": "t-controls-chromium-041-anchor-2-off",
+          "input": {
+            "scheduledToSend": {
+              "n": 163,
+              "median": 6.406500000000051,
+              "p95": 246.01350000000002,
+              "p99": 372.22729999999956,
+              "max": 409.0622000000003,
+              "over50": 29,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "sendToReceive": {
+              "n": 163,
+              "median": 15.34655002384261,
+              "p95": 289.1786500178823,
+              "p99": 460.5306500178822,
+              "max": 464.90585001192176,
+              "over50": 23,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            },
+            "scheduledToReceive": {
+              "n": 163,
+              "median": 19.844550017882284,
+              "p95": 400.4445500119218,
+              "p99": 473.3445500178823,
+              "max": 478.4445500119218,
+              "over50": 48,
+              "percentileIsGuarantee": false,
+              "missing": 0,
+              "unit": "elapsed ms",
+              "status": "OBSERVED"
+            }
+          },
+          "stepDelta": {
+            "kind": "integration during wall-clock window",
+            "delta": 19898
+          },
+          "stop": {
+            "sendReceive": 32.4135500178827,
+            "plannedSend": 1.4309999999995853,
+            "receivePause": 1.0999999940395355,
+            "pauseBody": 0.19999998807907104,
+            "handler": 1.5,
+            "stopReceipt": 6.0999999940395355,
+            "extraWithinPause": 0,
+            "extraAfterStop": 0,
+            "atomic": true,
+            "target": "paint",
+            "targetHit": false,
+            "T4Kind": "same-step Canvas/DOM command receipt; not GPU presentation",
+            "uncertainty": 1.0078499999945052
+          },
+          "math": {
+            "phase": true,
+            "history": true,
+            "publicPosition": true,
+            "scope": "all recovered JSON doubles and histories, same engine baseline"
+          },
+          "draw": {
+            "a": true,
+            "b": true
+          },
+          "frames": {
+            "n": 0,
+            "mismatch": 0
+          },
+          "budget": {
+            "verdict": "PARTIAL",
+            "checks": {
+              "scheduledP95": 400.4445500119218,
+              "scheduledP99": 473.3445500178823,
+              "scheduledMax": 478.4445500119218,
+              "receiveStopMax": 1.0999999940395355,
+              "stopReceiptMax": 6.0999999940395355
+            },
+            "targets": {
+              "scheduledP95": 100,
+              "scheduledP99": 200,
+              "scheduledMax": 250,
+              "receiveStopMax": 20,
+              "stopReceiptMax": 100
+            },
+            "failed": [
+              "scheduledP95",
+              "scheduledP99",
+              "scheduledMax"
+            ],
+            "missing": [],
+            "upperBoundGuaranteed": false,
+            "scope": "PRODUCT_OBSERVED_WINDOW"
+          }
+        }
+      ],
+      "stops": {
+        "n": 9,
+        "hit": 3,
+        "miss": 2,
+        "notTested": 4,
+        "unsafe": 0,
+        "sendReceive": {
+          "n": 9,
+          "median": 32.4135500178827,
+          "p95": 408.3445500119333,
+          "p99": 408.3445500119333,
+          "max": 408.3445500119333,
+          "over50": 2,
+          "percentileIsGuarantee": false
+        },
+        "receiveStop": {
+          "n": 9,
+          "median": 1.2999999821186066,
+          "p95": 1.4000000059604645,
+          "p99": 1.4000000059604645,
+          "max": 1.4000000059604645,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "stopReceipt": {
+          "n": 9,
+          "median": 7.200000017881393,
+          "p95": 13,
+          "p99": 13,
+          "max": 13,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        }
+      },
+      "mathMismatches": 0,
+      "displayMismatches": 0
+    },
+    {
+      "group": "moving",
+      "counts": {
+        "planned": 4,
+        "attempted": 4,
+        "completed": 4,
+        "failed": 0,
+        "unexecuted": 0
+      },
+      "completeness": {
+        "allRunsCompleted": true,
+        "analysisAcquired": true,
+        "analysisCompleted": true,
+        "analysisProcessSucceeded": true,
+        "analysisVerified": true,
+        "evidenceComplete": true,
+        "acceptance": "NOT_ACCEPTED"
+      },
+      "input": {
+        "app": {
+          "scheduledToSend": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "max": null,
+            "over50": 0,
+            "percentileIsGuarantee": false,
+            "missing": 0,
+            "unit": "elapsed ms",
+            "status": "NOT_TESTED"
+          },
+          "sendToReceive": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "max": null,
+            "over50": 0,
+            "percentileIsGuarantee": false,
+            "missing": 0,
+            "unit": "elapsed ms",
+            "status": "NOT_TESTED"
+          },
+          "scheduledToReceive": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "max": null,
+            "over50": 0,
+            "percentileIsGuarantee": false,
+            "missing": 0,
+            "unit": "elapsed ms",
+            "status": "NOT_TESTED"
+          }
+        },
+        "mini": {
+          "scheduledToSend": {
+            "n": 328,
+            "median": 3.4000000059604645,
+            "p95": 100.60000002384186,
+            "p99": 233.80000001192093,
+            "max": 307.69999998807907,
+            "over50": 21,
+            "percentileIsGuarantee": false,
+            "missing": 0,
+            "unit": "elapsed ms",
+            "status": "OBSERVED"
+          },
+          "sendToReceive": {
+            "n": 328,
+            "median": 0.19999998807907104,
+            "p95": 23.30000001192093,
+            "p99": 275.7999999821186,
+            "max": 355.40000000596046,
+            "over50": 12,
+            "percentileIsGuarantee": false,
+            "missing": 0,
+            "unit": "elapsed ms",
+            "status": "OBSERVED"
+          },
+          "scheduledToReceive": {
+            "n": 328,
+            "median": 5.4000000059604645,
+            "p95": 182,
+            "p99": 332.40000000596046,
+            "max": 369.30000001192093,
+            "over50": 29,
+            "percentileIsGuarantee": false,
+            "missing": 0,
+            "unit": "elapsed ms",
+            "status": "OBSERVED"
+          }
+        }
+      },
+      "capture": {
+        "planned": 0,
+        "pass": 0,
+        "fail": 0,
+        "timeouts": 0,
+        "otherErrors": 0,
+        "byFactor": {}
+      },
+      "app": [],
+      "stops": {
+        "n": 0,
+        "hit": 0,
+        "miss": 0,
+        "notTested": 0,
+        "unsafe": 0,
+        "sendReceive": {
+          "n": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "receiveStop": {
+          "n": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        },
+        "stopReceipt": {
+          "n": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "over50": 0,
+          "percentileIsGuarantee": false
+        }
+      },
+      "mathMismatches": 0,
+      "displayMismatches": 0
+    }
+  ],
+  "scope": "Separate observational windows, not a matched product before/after. No improvement percentage."
+}

@@ -1,0 +1,7 @@
+# Actual PNGs and context differences
+
+Local6 normal PNG files plus4 actual late protocol PNG payloads were obtained; OFF old2 images are NOT_OBTAINED. Original acquisition/timeout classifications are unchanged. Offline analysis extracts late payload bytes with original raw SHA and lateCallbackAt, never invents a normal T4 or substitutes another capture API. PNGs2560x1800, DPR2, Canvas2 CSS438x330/backing876x660, same tape/state. Late images have no post-capture original-Canvas check: NOT_OBTAINED, not zero difference.
+
+Within each context the acquired RGBA hashes agree across observed trace treatments. Across old late images and current reference the decoded images differ in78,950 RGBA channels /31,226 pixels; maximum channel difference94. Bounding box x40..1755,y84..742. Compressed complete position/RGBA/reference/delta arrays and difference PNGs are retained in private analysis evidence, with hashes; representative diff is public. Missing images have no inferred pixels. The public pixel index identifies normal versus late comparisons and metadata limits.
+
+Command SHA equality is not bitmap identity. Each normal current PNG matches its own actual Canvas pixels; the old late PNG has no corresponding original bitmap readback. Thus the evidence does not assign differences to encoder, Canvas backend, antialiasing or color conversion. Different context outputs are not an equivalent-output product performance comparison. No drawing specification/API was changed to eliminate the difference.

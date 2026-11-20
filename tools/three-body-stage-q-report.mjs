@@ -1,0 +1,56 @@
+import fs from'node:fs';import path from'node:path';import{createHash}from'node:crypto';import{gunzipSync,brotliCompressSync,constants}from'node:zlib';import{execFileSync}from'node:child_process';
+import{build}from'esbuild';import{chromium,webkit}from'@playwright/test';
+import{inputStatistics,performanceVerdict,clockBracket}from'./three-body-stage-q-metrics.mjs';import{distribution,analyzeTrace}from'./three-body-stage-p-analysis.mjs';
+import { reportIssues } from './three-body-stage-q-contracts.mjs';
+import { attributeTrace } from './three-body-stage-s-attribution.mjs';
+const root=process.argv[2]??'.three-body-evidence/stage-q',out=process.argv[3]??root+'/report',base='b07ccec1205ca99a1112ab8db951efbe94a51f74';
+fs.mkdirSync(out,{recursive:true});const hash=b=>createHash('sha256').update(b).digest('hex'),write=(p,v)=>fs.writeFileSync(p,JSON.stringify(v,null,2)+'\n');
+const analysisSources=Object.fromEntries(['tools/three-body-stage-q-report.mjs','tools/three-body-stage-s-attribution.mjs','tools/three-body-stage-p-analysis.mjs','tools/three-body-stage-q-metrics.mjs'].map(file=>{
+ const bytes=fs.readFileSync(file),sha256=hash(bytes);fs.mkdirSync(out+'/sources',{recursive:true});fs.writeFileSync(`${out}/sources/${sha256}-${path.basename(file)}`,bytes);return[file,sha256];
+}));
+const walk=d=>fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(d,e.name)):[path.join(d,e.name)]);
+const files=walk(root).filter(f=>/[/\\](?:raw|raw-results)[/\\].*\.json\.gz$/.test(f));
+const code=await build({stdin:{contents:"export * from './src/three-body.ts';export * from './src/three-body-state.ts';",resolveDir:process.cwd()},bundle:true,platform:'browser',format:'iife',globalName:'__qReference',write:false,plugins:[{name:'base-reference',setup(b){b.onLoad({filter:/src[\\/].*\.ts$/},a=>({contents:execFileSync('git',['show',`${base}:src/${a.path.split(/[\\/]/).at(-1)}`],{encoding:'utf8'}),loader:'ts'}));}}]});
+const rows=[],rawIndex=[],requestsExport=[];let browser,reference,referenceEngine;
+for(const file of files){
+ global.gc?.();const bytes=fs.readFileSync(file),decoded=gunzipSync(bytes),r=JSON.parse(decoded),data=r.data??r.partial?.data,state=r.result?.state??r.partial?.state,requests=data?.requests??[],stop=r.result?.stop;
+ const input=inputStatistics(requests),row={id:r.id,file:file.replaceAll('\\','/'),options:r.options,browser:{name:r.browser?.name,version:r.browser?.version,gpu:r.browser?.gpuInfo?.gpu??'NOT_TESTED'},reference:r.reference??'Stage P public',errors:r.errors,missing:!data,input,budget:performanceVerdict(input,stop),before:r.before?.small,final:state?.small,layout:{before:r.before?.layout,after:state?.layout},fixture:r.fixture,source:r.options?.source??'worker',phase:Object.fromEntries([...new Set((data?.spans??[]).map(s=>s.name))].map(n=>[n,distribution(data.spans.filter(s=>s.name===n).map(s=>s.end-s.begin))])),clock:r.syncs??r.result?.syncs??[],hostClock:r.hostClock??null,transitions:r.transitions??[],lessonRestored:r.result?.lessonRestoredEqual??null};
+ row.budget.scope=r.options.positive?'SYNTHETIC_DETECTOR_NOT_PRODUCT':r.options.mini?'MINIMAL_NOT_PRODUCT':'PRODUCT_OBSERVED_WINDOW';
+ row.issues=reportIssues(r);row.capture=r.capture??{status:'NOT_TESTED',reason:'legacy record has no capture metadata'};
+ row.stop=stop?{sendReceive:stop.T1-stop.T0,plannedSend:Number.isFinite(stop.Tminus1)?stop.T0-stop.Tminus1:null,receivePause:stop.T3==null?null:stop.T3-stop.T1,pauseBody:stop.T3==null?null:stop.T3-stop.T2,handler:stop.handlerEnd==null?null:stop.handlerEnd-stop.T1,stopReceipt:stop.T3==null||stop.T4==null?null:stop.T4-stop.T3,extraWithinPause:stop.stop?stop.stop.after.step-stop.stop.before.step:null,extraAfterStop:stop.later.step-stop.after.step,atomic:!stop.later.ab||stop.later.bStep===stop.later.step,target:stop.target??null,targetHit:stop.targetHit??false,T4Kind:r.options.mini?'minimal diagnostic update acknowledgement (no physics)':stop.T4Kind??'same-step Canvas/DOM command receipt; not GPU presentation',uncertainty:stop.uncertainty}:null;
+ row.stepDelta=r.options.mini?{kind:'frame counter, no physics',delta:state?.small.step-r.before?.small.step}:r.options.lesson?{kind:'restoration; phase counter jump is not integration'}:{kind:'integration during wall-clock window',delta:state?.small.step-r.before?.small.step};
+ if(state&&!r.options.mini){
+  if(referenceEngine!==r.browser.name){await browser?.close();referenceEngine=r.browser.name;browser=await({chromium,webkit}[referenceEngine]).launch({headless:true,...(referenceEngine==='chromium'?{args:['--use-angle=swiftshader','--enable-unsafe-swiftshader']}: {})});reference=await browser.newPage();await reference.addScriptTag({content:code.outputFiles[0].text});}
+  const actual={ab:!!state.comparison||state.small.ab,n:state.e?.phase.steps??state.small.step,phase:state.e?JSON.stringify(state.e.phase):null,b:state.comparison?JSON.stringify(state.comparison.b.phase):null,history:state.e?JSON.stringify(state.comparison??state.e):null,position:state.domPositions};
+  row.math=await reference.evaluate(actual=>{const m=__qReference,c=actual.ab?m.createComparison(m.presets[0].config,0,'x',1e-6):m.createExperiment(m.presets[0].config);for(let i=0;i<actual.n;i+=2000)(actual.ab?m.advanceComparison:m.advance)(c,Math.min(2000,actual.n-i));const a=actual.ab?c.a:c;return{phase:actual.phase?actual.phase===JSON.stringify(a.phase)&&(!actual.b||actual.b===JSON.stringify(c.b.phase)):null,history:actual.history?actual.history===JSON.stringify(c):null,publicPosition:actual.position?actual.position===JSON.stringify(a.phase.bodies.map(({x,y})=>({x,y}))):null,scope:actual.phase?'all recovered JSON doubles and histories, same engine baseline':'public A positions only; full phase NOT_TESTED'};},actual);
+  if(r.options.action==='switch')row.math.publicPosition=null; // Removed Canvas/DOM is not a visible-state assertion.
+  const frames=data?.frames??[];row.frames={n:frames.length,mismatch:frames.filter(f=>f.observed!==String(f.step)||f.a!==String(f.step)||(f.ab&&f.b!==String(f.step))).length};
+  if(state.e&&r.options.action!=='switch'&&data?.lastDraw?.['tb-a']){const agrees=(d,p)=>d?.step===p.steps&&d.positions===JSON.stringify(p.bodies.map(({x,y})=>({x,y})));row.draw={a:agrees(data.lastDraw['tb-a'],state.e.phase),b:state.comparison?agrees(data.lastDraw['tb-b'],state.comparison.b.phase):null};}
+ }
+ if(r.trace?.file&&fs.existsSync(r.trace.file)){
+  const tr=JSON.parse(gunzipSync(fs.readFileSync(r.trace.file))),analysis=analyzeTrace(tr.traceEvents,data??{spans:[],marks:[]});
+  row.trace={file:r.trace.file,bytes:fs.statSync(r.trace.file).size,sha256:hash(fs.readFileSync(r.trace.file)),dataLoss:r.trace.dataLoss??null,clock:analysis.clock,task:analysis.tasks,gc:analysis.gc,coverage:analysis.coverage};
+  const attribution=attributeTrace(tr.traceEvents,data??{spans:[],marks:[]},r.capture);
+  write(`${out}/${r.id}-stage-s-attribution.json`,attribution);
+  row.trace.attribution={status:attribution.status,mainTaskWall:attribution.mainTaskWall,mainTaskCpu:attribution.mainTaskCpu,coverage:attribution.coverage,screenshotStatus:attribution.screenshot?.status};
+  row.trace.workerIdentity=(data?.workerMarks??[]).map(mark=>({name:mark.name,workerClock:{before:mark.before,after:mark.after},events:tr.traceEvents.filter(e=>e.name===mark.name).map(e=>({pid:e.pid,tid:e.tid,traceUs:e.ts,phase:e.ph})),scope:'Worker marker identifies thread; its performance.now is not the main-page clock'}));
+  // Small, reviewable excerpt; the unmodified full trace stays in local/CI raw storage.
+  write(`${out}/${r.id}-trace-excerpt.json`,{clock:analysis.clock,workerIdentity:row.trace.workerIdentity,window:analysis.window,task:analysis.tasks,gc:analysis.gc,long:analysis.long,wait:analysis.mainWaits,coverage:analysis.coverage,limitations:analysis.limitations});
+  if(r.os){const osClock=clockBracket(r.os.sync.slice(0,8)),pageClock=clockBracket(r.pageClock.slice(0,8)),main=[];for(const s of r.os.samples){const t=s.threads.find(t=>t.tid===analysis.clock.mainTid&&t.pid===analysis.clock.mainPid);if(t)main.push({...t,pageLow:s.begin*1000/s.frequency+osClock.low+pageClock.low,pageHigh:s.end*1000/s.frequency+osClock.high+pageClock.high});}
+   row.os={status:main.length?'SAMPLED':'NOT_TESTED',kind:r.os.kind,osClock,pageClock,endOsClock:clockBracket(r.os.sync.slice(8)),endPageClock:clockBracket(r.pageClock.slice(8)),sampleCount:main.length,states:main.reduce((a,t)=>(a[t.state]=(a[t.state]??0)+1,a),{}),mainSamples:main,kernelContextSwitch:'NOT_TESTED',readyEvents:'NOT_TESTED',hardFaultEvents:'NOT_TESTED',errors:r.os.errors};
+  }
+ }
+ rawIndex.push({id:r.id,file:row.file,bytes:bytes.length,sha256:hash(bytes),decodedSha256:hash(decoded),toolHashes:r.toolHashes??null,remoteCopy:'LOCAL_OR_CI_ARTIFACT; inspect submission run index for exact origin'});
+ requestsExport.push({id:r.id,source:row.source,requests:requests.map(q=>({seq:q.seq,Tminus1:q.Tminus1,T0:q.T0,T1:q.T1,T2:q.T2,T3:q.T3,T4:q.T4,uncertainty:q.uncertainty,target:q.target,targetHit:q.targetHit})),sourceEncodedSha256:hash(bytes)});
+ rows.push(row);console.log(JSON.stringify({analyzed:r.id,errors:r.errors.length,math:row.math?.phase,input:row.input.sendToReceive.max}));
+}
+await browser?.close();
+write(out+'/summary.json',{date:new Date().toISOString(),base,analysisSources,runs:rows});write(out+'/raw-index.json',rawIndex);
+fs.writeFileSync(out+'/request-times.json.br',brotliCompressSync(Buffer.from(JSON.stringify(requestsExport)),{params:{[constants.BROTLI_PARAM_QUALITY]:4}}));
+const errors=rows.filter(r=>r.errors.length||r.math?.phase===false||r.math?.history===false||r.math?.publicPosition===false||r.draw?.a===false||r.draw?.b===false||r.frames?.mismatch||r.stop?.extraAfterStop!==0||r.stop?.atomic===false||r.lessonRestored===false);
+write(out+'/checks.json',{runs:rows.length,failures:errors.map(r=>({id:r.id,errors:r.errors,math:r.math,draw:r.draw,stop:r.stop})),budgets:rows.filter(r=>r.budget.verdict!=='PASS_OBSERVED_WINDOW').map(r=>({id:r.id,budget:r.budget})),scope:'Functional checks are distinct from observational budgets. Budget success does not establish cause or a worst-case guarantee.'});
+const table=['# Stage Q 全run（観測値・ms、保証値ではない）','','| ID | errors | input n | T-1→T0 p50/p95/p99/max | T0→T1 p50/p95/p99/max | T-1→T1 p50/p95/p99/max | N before→after | budget |','|---|---:|---:|---|---|---|---|---|'];
+const stats=s=>['median','p95','p99','max'].map(k=>s[k]==null?'NOT_TESTED':s[k].toFixed(2)).join(' / ');
+for(const r of rows)table.push(`| ${r.id} | ${r.errors.length} | ${r.input.sendToReceive.n} | ${stats(r.input.scheduledToSend)} | ${stats(r.input.sendToReceive)} | ${stats(r.input.scheduledToReceive)} | ${r.before?.step??'—'}→${r.final?.step??'—'} | ${r.budget.verdict} |`);
+fs.writeFileSync(out+'/runs.md',table.join('\n')+'\n');
+console.log(JSON.stringify({runs:rows.length,functionalFailures:errors.length,budgetNotPassed:rows.filter(r=>r.budget.verdict!=='PASS_OBSERVED_WINDOW').length}));if(errors.length)process.exitCode=1;

@@ -1,0 +1,31 @@
+{
+  "schema": "ah-stop-1",
+  "state": "PLAN_ONLY",
+  "failurePolicy": "STOP_ON_FIRST_FAILURE",
+  "conditions": [
+    "PLAN_OR_SOURCE_DRIFT",
+    "ANY_NONZERO_EXIT",
+    "ANY_SIGNAL",
+    "RUNNER_FAIL_OR_TIMEOUT",
+    "SELECTION_OR_COUNT_MISMATCH",
+    "CLOCK_DOMAIN_OR_INVALID_VALUE",
+    "REQUIRED_END_EVENT_MISSING",
+    "WORKER_RESPONSE_MISSING",
+    "MONITOR_FAILURE",
+    "EVIDENCE_SAVE_FAILURE",
+    "RAW_BYTES_SIZE_SHA_OR_CHECKPOINT_MISMATCH",
+    "RUNTIME_ATTRIBUTION_NOT_VERIFIED",
+    "PARENT_SAFETY_30000MS",
+    "TOTAL_BUDGET_90000MS",
+    "EVENT_BUFFER_LIMIT",
+    "UNRESOLVED_ANOMALY",
+    "SCHEDULE_EXHAUSTED"
+  ],
+  "retry": 0,
+  "replacement": 0,
+  "reorder": false,
+  "remainingSlots": "BLOCKED",
+  "actualTerminationImplementation": "NOT_IMPLEMENTED",
+  "actualExecution": "NOT_TESTED",
+  "mockProgressOnly": true
+}

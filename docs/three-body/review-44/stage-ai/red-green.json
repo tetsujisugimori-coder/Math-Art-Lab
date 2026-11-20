@@ -1,0 +1,37 @@
+{
+  "revision": "ai-design-1-review-v2",
+  "priorStageRED": "NOT_APPLICABLE",
+  "initialAI": {
+    "passed": 407,
+    "failed": 1,
+    "cause": "raw CRLF vs logical LF seal"
+  },
+  "reviewV1RED": [
+    {
+      "id": "P2-AI01",
+      "input": "binding sources=[] wrong head/tree runtime VERIFIED",
+      "before": "DESIGN_VALID",
+      "expected": "DESIGN_INVALID"
+    },
+    {
+      "id": "P2-AI02",
+      "input": "all-null enrollment; runner.pass",
+      "before": "execution PASS failure false",
+      "expected": "UNKNOWN failure true"
+    },
+    {
+      "id": "P2-AI03",
+      "input": "exit.missing then exit.confirmed then release",
+      "before": "CONFIRMED RELEASED",
+      "expected": "UNCONFIRMED NOT_OBTAINED with late evidence"
+    },
+    {
+      "id": "P3-AI04",
+      "input": "expected EVERYTHING IS PASS",
+      "before": "DESIGN_VALID through validateDesign",
+      "expected": "DESIGN_INVALID"
+    }
+  ],
+  "after": "4 REVIEW_V1_RED -> 4 GREEN; prior-stage scope NOT_APPLICABLE",
+  "physical": "NOT_TESTED"
+}

@@ -1,0 +1,6977 @@
+{
+  "label": "before",
+  "revision": "cf80c3e8189f28b99beb96e80191446faf122d99",
+  "environment": {
+    "node": "v24.20.0",
+    "os": "win32",
+    "release": "10.0.26300",
+    "cpu": "Intel(R) Core(TM) i7-14650HX"
+  },
+  "runs": 192,
+  "errors": 0,
+  "note": "Per-call distribution of verlet/history/difference/domSetter is deterministic 1/32 sampling; maxAllCalls/count/total include every call. Nested intervals overlap. Host latency includes driver/transport/frame wait.",
+  "groups": [
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 1,
+      "condition": "full",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 2.300000000046566,
+          "totalMs": 32.600000000791624
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 7.699999999953434
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 24012,
+          "maxAllCalls": 0.5,
+          "totalMs": 9.800000000046566
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 5.5,
+          "p95": 8.5,
+          "max": 8.5,
+          "calls": 12,
+          "maxAllCalls": 8.5,
+          "totalMs": 69.2999999995809
+        },
+        "observe": {
+          "samples": 12,
+          "median": 0.8999999999068677,
+          "p95": 1,
+          "max": 1,
+          "calls": 12,
+          "maxAllCalls": 1,
+          "totalMs": 10.199999999953434
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0.20000000018626451,
+          "max": 0.20000000018626451,
+          "calls": 204,
+          "maxAllCalls": 0.39999999990686774,
+          "totalMs": 5
+        },
+        "paint": {
+          "samples": 12,
+          "median": 1.6999999999534339,
+          "p95": 2.0999999998603016,
+          "max": 2.0999999998603016,
+          "calls": 12,
+          "maxAllCalls": 2.0999999998603016,
+          "totalMs": 20.49999999953434
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 1,
+          "p95": 1.2000000001862645,
+          "max": 1.2000000001862645,
+          "calls": 12,
+          "maxAllCalls": 1.2000000001862645,
+          "totalMs": 11.90000000060536
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 2.199999999953434,
+        "p95": 19.100000000093132,
+        "max": 19.100000000093132
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 10.800000000046566,
+        "p95": 28.0999999998603,
+        "max": 28.0999999998603
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 1,
+      "condition": "single",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0.6000000000931323,
+          "calls": 24000,
+          "maxAllCalls": 0.6999999999534339,
+          "totalMs": 16.799999999348074
+        },
+        "history": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0.09999999986030161,
+          "calls": 24000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 6.400000001071021
+        },
+        "difference": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 2.300000000046566,
+          "p95": 5.199999999953434,
+          "max": 5.199999999953434,
+          "calls": 12,
+          "maxAllCalls": 5.199999999953434,
+          "totalMs": 31.899999999441206
+        },
+        "observe": {
+          "samples": 12,
+          "median": 0.20000000018626451,
+          "p95": 0.5,
+          "max": 0.5,
+          "calls": 12,
+          "maxAllCalls": 0.5,
+          "totalMs": 3.0999999998603016
+        },
+        "domSetter": {
+          "samples": 6,
+          "median": 0,
+          "p95": 0.10000000009313226,
+          "max": 0.10000000009313226,
+          "calls": 144,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 2.5
+        },
+        "paint": {
+          "samples": 12,
+          "median": 1.2999999998137355,
+          "p95": 2.1000000000931323,
+          "max": 2.1000000000931323,
+          "calls": 12,
+          "maxAllCalls": 2.1000000000931323,
+          "totalMs": 16.799999999813735
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 0.39999999990686774,
+          "p95": 0.7000000001862645,
+          "max": 0.7000000001862645,
+          "calls": 12,
+          "maxAllCalls": 0.7000000001862645,
+          "totalMs": 4.700000000419095
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 0.10000000009313226,
+        "p95": 14.5,
+        "max": 14.5
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 5,
+        "p95": 19.5999999998603,
+        "max": 19.5999999998603
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 1,
+      "condition": "short",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.39999999990686774,
+          "calls": 48000,
+          "maxAllCalls": 0.6000000000931323,
+          "totalMs": 64.89999999827705
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.4000000001396984,
+          "totalMs": 10.899999998975545
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0.2999999998137355,
+          "calls": 24012,
+          "maxAllCalls": 0.6000000000931323,
+          "totalMs": 22.600000001490116
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 11.199999999953434,
+          "p95": 14,
+          "max": 14,
+          "calls": 12,
+          "maxAllCalls": 14,
+          "totalMs": 118.79999999981374
+        },
+        "observe": {
+          "samples": 12,
+          "median": 0.4000000001396984,
+          "p95": 0.6999999999534339,
+          "max": 0.6999999999534339,
+          "calls": 12,
+          "maxAllCalls": 0.6999999999534339,
+          "totalMs": 5.600000000093132
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0.10000000009313226,
+          "max": 0.10000000009313226,
+          "calls": 204,
+          "maxAllCalls": 0.30000000004656613,
+          "totalMs": 3.3999999999068677
+        },
+        "paint": {
+          "samples": 12,
+          "median": 1.6999999999534339,
+          "p95": 2.5,
+          "max": 2.5,
+          "calls": 12,
+          "maxAllCalls": 2.5,
+          "totalMs": 22.0999999998603
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 0.6000000000931323,
+          "p95": 0.8000000000465661,
+          "max": 0.8000000000465661,
+          "calls": 12,
+          "maxAllCalls": 0.8000000000465661,
+          "totalMs": 7.100000000325963
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 0.10000000009313226,
+        "p95": 21.200000000186265,
+        "max": 21.200000000186265
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 13.600000000093132,
+        "p95": 38,
+        "max": 38
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 1,
+      "condition": "no-trail",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.5,
+          "totalMs": 28.399999998044223
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 8.299999999813735
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 24012,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 10.700000001117587
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 5.399999999906868,
+          "p95": 6.300000000046566,
+          "max": 6.300000000046566,
+          "calls": 12,
+          "maxAllCalls": 6.300000000046566,
+          "totalMs": 66.6999999997206
+        },
+        "observe": {
+          "samples": 12,
+          "median": 0.8000000000465661,
+          "p95": 0.8999999999068677,
+          "max": 0.8999999999068677,
+          "calls": 12,
+          "maxAllCalls": 0.8999999999068677,
+          "totalMs": 9.700000000186265
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0.10000000009313226,
+          "max": 0.10000000009313226,
+          "calls": 204,
+          "maxAllCalls": 0.30000000004656613,
+          "totalMs": 4.900000001303852
+        },
+        "paint": {
+          "samples": 12,
+          "median": 1.3000000000465661,
+          "p95": 2.0999999998603016,
+          "max": 2.0999999998603016,
+          "calls": 12,
+          "maxAllCalls": 2.0999999998603016,
+          "totalMs": 16.600000000325963
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 1,
+          "p95": 1,
+          "max": 1,
+          "calls": 12,
+          "maxAllCalls": 1,
+          "totalMs": 11.5
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 10,
+        "p95": 16.199999999953434,
+        "max": 16.199999999953434
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 17.4000000001397,
+        "p95": 23.9000000001397,
+        "max": 23.9000000001397
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 1,
+      "condition": "no-vector",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.5,
+          "totalMs": 27.499999999068677
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 9.00000000023283
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 24012,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 10.299999999813735
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 5.099999999860302,
+          "p95": 6.100000000093132,
+          "max": 6.100000000093132,
+          "calls": 12,
+          "maxAllCalls": 6.100000000093132,
+          "totalMs": 64.29999999981374
+        },
+        "observe": {
+          "samples": 12,
+          "median": 0.8000000000465661,
+          "p95": 1,
+          "max": 1,
+          "calls": 12,
+          "maxAllCalls": 1,
+          "totalMs": 9.300000000512227
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0.10000000009313226,
+          "p95": 0.19999999995343387,
+          "max": 0.19999999995343387,
+          "calls": 204,
+          "maxAllCalls": 0.30000000004656613,
+          "totalMs": 5.500000001164153
+        },
+        "paint": {
+          "samples": 12,
+          "median": 1.5999999998603016,
+          "p95": 1.9000000001396984,
+          "max": 1.9000000001396984,
+          "calls": 12,
+          "maxAllCalls": 1.9000000001396984,
+          "totalMs": 18.699999999720603
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 0.8999999999068677,
+          "p95": 1.1000000000931323,
+          "max": 1.1000000000931323,
+          "calls": 12,
+          "maxAllCalls": 1.1000000000931323,
+          "totalMs": 11
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 0.10000000009313226,
+        "p95": 10.699999999953434,
+        "max": 10.699999999953434
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 7.7999999998137355,
+        "p95": 18.100000000093132,
+        "max": 18.100000000093132
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 1,
+      "condition": "no-dom",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 4.300000000046566,
+          "totalMs": 38.19999999948777
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 9.299999999813735
+        },
+        "difference": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 24000,
+          "maxAllCalls": 0.6000000000931323,
+          "totalMs": 13.799999999813735
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 6,
+          "p95": 13.600000000093132,
+          "max": 13.600000000093132,
+          "calls": 12,
+          "maxAllCalls": 13.600000000093132,
+          "totalMs": 84.5
+        },
+        "observe": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "domSetter": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "paint": {
+          "samples": 12,
+          "median": 0.4000000001396984,
+          "p95": 0.5,
+          "max": 0.5,
+          "calls": 12,
+          "maxAllCalls": 0.5,
+          "totalMs": 5.100000000093132
+        },
+        "refresh": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 10.099999999860302,
+        "p95": 14.599999999860302,
+        "max": 14.599999999860302
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 17.199999999953434,
+        "p95": 28.800000000046566,
+        "max": 28.800000000046566
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 12
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 1,
+      "condition": "no-canvas",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.30000000004656613,
+          "calls": 48000,
+          "maxAllCalls": 0.30000000004656613,
+          "totalMs": 29.300000000512227
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 8.899999999906868
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 24012,
+          "maxAllCalls": 0.4000000001396984,
+          "totalMs": 9.99999999976717
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 5.5,
+          "p95": 6.100000000093132,
+          "max": 6.100000000093132,
+          "calls": 12,
+          "maxAllCalls": 6.100000000093132,
+          "totalMs": 65.69999999995343
+        },
+        "observe": {
+          "samples": 12,
+          "median": 0.8000000000465661,
+          "p95": 1,
+          "max": 1,
+          "calls": 12,
+          "maxAllCalls": 1,
+          "totalMs": 9.800000000279397
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0.10000000009313226,
+          "max": 0.10000000009313226,
+          "calls": 204,
+          "maxAllCalls": 0.30000000004656613,
+          "totalMs": 5.59999999916181
+        },
+        "paint": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 0.9000000001396984,
+          "p95": 1.1000000000931323,
+          "max": 1.1000000000931323,
+          "calls": 12,
+          "maxAllCalls": 1.1000000000931323,
+          "totalMs": 11.299999999813735
+        }
+      },
+      "frameWait": {
+        "samples": 0,
+        "median": null,
+        "p95": null,
+        "max": null
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 13.100000000093132,
+        "p95": 18.399999999906868,
+        "max": 18.399999999906868
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 12
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 1,
+      "condition": "neither",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.4000000001396984,
+          "calls": 48000,
+          "maxAllCalls": 0.9000000001396984,
+          "totalMs": 38.60000000265427
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 11.899999999208376
+        },
+        "difference": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 24000,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 15.499999998603016
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 5.800000000046566,
+          "p95": 18.5999999998603,
+          "max": 18.5999999998603,
+          "calls": 12,
+          "maxAllCalls": 18.5999999998603,
+          "totalMs": 91.30000000004657
+        },
+        "observe": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "domSetter": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "paint": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "refresh": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        }
+      },
+      "frameWait": {
+        "samples": 0,
+        "median": null,
+        "p95": null,
+        "max": null
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 12.800000000046566,
+        "p95": 28.5,
+        "max": 28.5
+      },
+      "immediateMismatch": 0,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 2,
+      "condition": "full",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 26.400000002933666
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 8.299999999348074
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 24012,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 10.799999999813735
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 5.199999999953434,
+          "p95": 5.900000000139698,
+          "max": 5.900000000139698,
+          "calls": 12,
+          "maxAllCalls": 5.900000000139698,
+          "totalMs": 63.4000000001397
+        },
+        "observe": {
+          "samples": 12,
+          "median": 0.8000000000465661,
+          "p95": 0.9000000001396984,
+          "max": 0.9000000001396984,
+          "calls": 12,
+          "maxAllCalls": 0.9000000001396984,
+          "totalMs": 9.800000000279397
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0.09999999986030161,
+          "max": 0.09999999986030161,
+          "calls": 204,
+          "maxAllCalls": 0.30000000004656613,
+          "totalMs": 5
+        },
+        "paint": {
+          "samples": 12,
+          "median": 1.6999999999534339,
+          "p95": 2.199999999953434,
+          "max": 2.199999999953434,
+          "calls": 12,
+          "maxAllCalls": 2.199999999953434,
+          "totalMs": 20.600000000093132
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 1,
+          "p95": 1.0999999998603016,
+          "max": 1.0999999998603016,
+          "calls": 12,
+          "maxAllCalls": 1.0999999998603016,
+          "totalMs": 11.50000000023283
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 0.10000000009313226,
+        "p95": 20.799999999813735,
+        "max": 20.799999999813735
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 8.199999999953434,
+        "p95": 29.5,
+        "max": 29.5
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 2,
+      "condition": "single",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 24000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 17.600000001024455
+        },
+        "history": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0.09999999986030161,
+          "calls": 24000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 4.899999999208376
+        },
+        "difference": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 2.5,
+          "p95": 3.2000000001862645,
+          "max": 3.2000000001862645,
+          "calls": 12,
+          "maxAllCalls": 3.2000000001862645,
+          "totalMs": 29.99999999976717
+        },
+        "observe": {
+          "samples": 12,
+          "median": 0.19999999995343387,
+          "p95": 0.30000000004656613,
+          "max": 0.30000000004656613,
+          "calls": 12,
+          "maxAllCalls": 0.30000000004656613,
+          "totalMs": 2.4999999997671694
+        },
+        "domSetter": {
+          "samples": 6,
+          "median": 0,
+          "p95": 0.19999999995343387,
+          "max": 0.19999999995343387,
+          "calls": 144,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 1.6999999999534339
+        },
+        "paint": {
+          "samples": 12,
+          "median": 1.2999999998137355,
+          "p95": 1.7000000001862645,
+          "max": 1.7000000001862645,
+          "calls": 12,
+          "maxAllCalls": 1.7000000001862645,
+          "totalMs": 15.400000000372529
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 0.39999999990686774,
+          "p95": 0.4000000001396984,
+          "max": 0.4000000001396984,
+          "calls": 12,
+          "maxAllCalls": 0.4000000001396984,
+          "totalMs": 4.300000000046566
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 0.10000000009313226,
+        "p95": 15.899999999906868,
+        "max": 15.899999999906868
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 4.800000000046566,
+        "p95": 19.899999999906868,
+        "max": 19.899999999906868
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 2,
+      "condition": "short",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.30000000004656613,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 71.20000000367872
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.4000000001396984,
+          "totalMs": 12.800000000046566
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0.39999999990686774,
+          "calls": 24012,
+          "maxAllCalls": 0.5999999998603016,
+          "totalMs": 23.799999999348074
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 11.800000000046566,
+          "p95": 17.0999999998603,
+          "max": 17.0999999998603,
+          "calls": 12,
+          "maxAllCalls": 17.0999999998603,
+          "totalMs": 129.80000000004657
+        },
+        "observe": {
+          "samples": 12,
+          "median": 0.5,
+          "p95": 0.6999999999534339,
+          "max": 0.6999999999534339,
+          "calls": 12,
+          "maxAllCalls": 0.6999999999534339,
+          "totalMs": 6.300000000512227
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0.09999999986030161,
+          "max": 0.09999999986030161,
+          "calls": 204,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 3.600000001024455
+        },
+        "paint": {
+          "samples": 12,
+          "median": 2.0999999998603016,
+          "p95": 3.2000000001862645,
+          "max": 3.2000000001862645,
+          "calls": 12,
+          "maxAllCalls": 3.2000000001862645,
+          "totalMs": 25.9000000001397
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 0.6999999999534339,
+          "p95": 0.9000000001396984,
+          "max": 0.9000000001396984,
+          "calls": 12,
+          "maxAllCalls": 0.9000000001396984,
+          "totalMs": 8.199999999720603
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 0.10000000009313226,
+        "p95": 23.0999999998603,
+        "max": 23.0999999998603
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 16,
+        "p95": 40.60000000009313,
+        "max": 40.60000000009313
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 2,
+      "condition": "no-trail",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 27.90000000409782
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 9.899999999208376
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 24012,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 10.699999999254942
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 5.199999999953434,
+          "p95": 8.899999999906868,
+          "max": 8.899999999906868,
+          "calls": 12,
+          "maxAllCalls": 8.899999999906868,
+          "totalMs": 65.90000000037253
+        },
+        "observe": {
+          "samples": 12,
+          "median": 0.7999999998137355,
+          "p95": 0.9000000001396984,
+          "max": 0.9000000001396984,
+          "calls": 12,
+          "maxAllCalls": 0.9000000001396984,
+          "totalMs": 9.499999999534339
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0.10000000009313226,
+          "max": 0.10000000009313226,
+          "calls": 204,
+          "maxAllCalls": 0.39999999990686774,
+          "totalMs": 5.100000000325963
+        },
+        "paint": {
+          "samples": 12,
+          "median": 1.2999999998137355,
+          "p95": 1.5999999998603016,
+          "max": 1.5999999998603016,
+          "calls": 12,
+          "maxAllCalls": 1.5999999998603016,
+          "totalMs": 15.400000000372529
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 1,
+          "p95": 1,
+          "max": 1,
+          "calls": 12,
+          "maxAllCalls": 1,
+          "totalMs": 11.199999999953434
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 10.199999999953434,
+        "p95": 18.4000000001397,
+        "max": 18.4000000001397
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 17.199999999953434,
+        "p95": 26.199999999953434,
+        "max": 26.199999999953434
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 2,
+      "condition": "no-vector",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 25.500000000931323
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 9.500000000465661
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 24012,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 11.600000000791624
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 5.100000000093132,
+          "p95": 5.7999999998137355,
+          "max": 5.7999999998137355,
+          "calls": 12,
+          "maxAllCalls": 5.7999999998137355,
+          "totalMs": 62.49999999976717
+        },
+        "observe": {
+          "samples": 12,
+          "median": 0.8000000000465661,
+          "p95": 0.9000000001396984,
+          "max": 0.9000000001396984,
+          "calls": 12,
+          "maxAllCalls": 0.9000000001396984,
+          "totalMs": 9.800000000279397
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0.10000000009313226,
+          "max": 0.10000000009313226,
+          "calls": 204,
+          "maxAllCalls": 0.30000000004656613,
+          "totalMs": 5.499999999767169
+        },
+        "paint": {
+          "samples": 12,
+          "median": 1.6000000000931323,
+          "p95": 1.8000000000465661,
+          "max": 1.8000000000465661,
+          "calls": 12,
+          "maxAllCalls": 1.8000000000465661,
+          "totalMs": 19.100000000093132
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 1,
+          "p95": 1.1000000000931323,
+          "max": 1.1000000000931323,
+          "calls": 12,
+          "maxAllCalls": 1.1000000000931323,
+          "totalMs": 11.400000000372529
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 6.399999999906868,
+        "p95": 10.300000000046566,
+        "max": 10.300000000046566
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 14.599999999860302,
+        "p95": 18,
+        "max": 18
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 2,
+      "condition": "no-dom",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.20000000018626451,
+          "totalMs": 28.499999997904524
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 7.900000000139698
+        },
+        "difference": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 24000,
+          "maxAllCalls": 0.20000000018626451,
+          "totalMs": 10.700000001583248
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 5.399999999906868,
+          "p95": 6,
+          "max": 6,
+          "calls": 12,
+          "maxAllCalls": 6,
+          "totalMs": 64.9000000001397
+        },
+        "observe": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "domSetter": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "paint": {
+          "samples": 12,
+          "median": 0.4000000001396984,
+          "p95": 0.5,
+          "max": 0.5,
+          "calls": 12,
+          "maxAllCalls": 0.5,
+          "totalMs": 4.500000000232831
+        },
+        "refresh": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 0.19999999995343387,
+        "p95": 10,
+        "max": 10
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 6.199999999953434,
+        "p95": 15.799999999813735,
+        "max": 15.799999999813735
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 12
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 2,
+      "condition": "no-canvas",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 26.00000000046566
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 8.000000000698492
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 24012,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 11.40000000083819
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 5.300000000046566,
+          "p95": 5.599999999860302,
+          "max": 5.599999999860302,
+          "calls": 12,
+          "maxAllCalls": 5.599999999860302,
+          "totalMs": 62.5999999998603
+        },
+        "observe": {
+          "samples": 12,
+          "median": 0.8000000000465661,
+          "p95": 1,
+          "max": 1,
+          "calls": 12,
+          "maxAllCalls": 1,
+          "totalMs": 9.90000000060536
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0.10000000009313226,
+          "max": 0.10000000009313226,
+          "calls": 204,
+          "maxAllCalls": 0.30000000004656613,
+          "totalMs": 5.400000001536682
+        },
+        "paint": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 1,
+          "p95": 1.1999999999534339,
+          "max": 1.1999999999534339,
+          "calls": 12,
+          "maxAllCalls": 1.1999999999534339,
+          "totalMs": 12.00000000023283
+        }
+      },
+      "frameWait": {
+        "samples": 0,
+        "median": null,
+        "p95": null,
+        "max": null
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 6.599999999860302,
+        "p95": 18.5999999998603,
+        "max": 18.5999999998603
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 12
+    },
+    {
+      "browser": "chromium",
+      "session": "fresh",
+      "dpr": 2,
+      "condition": "neither",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 32.40000000176951
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 9.700000001117587
+        },
+        "difference": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 24000,
+          "maxAllCalls": 0.30000000004656613,
+          "totalMs": 10.899999999906868
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 5.599999999860302,
+          "p95": 8.299999999813735,
+          "max": 8.299999999813735,
+          "calls": 12,
+          "maxAllCalls": 8.299999999813735,
+          "totalMs": 71.5999999998603
+        },
+        "observe": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "domSetter": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "paint": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "refresh": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        }
+      },
+      "frameWait": {
+        "samples": 0,
+        "median": null,
+        "p95": null,
+        "max": null
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 7.2000000001862645,
+        "p95": 18.899999999906868,
+        "max": 18.899999999906868
+      },
+      "immediateMismatch": 0,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 1,
+      "condition": "full",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.4000000001396984,
+          "calls": 48000,
+          "maxAllCalls": 0.5999999998603016,
+          "totalMs": 33.29999999841675
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 10.000000001396984
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 24012,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 15.300000000279397
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 5.899999999906868,
+          "p95": 10.300000000046566,
+          "max": 10.300000000046566,
+          "calls": 12,
+          "maxAllCalls": 10.300000000046566,
+          "totalMs": 81.19999999948777
+        },
+        "observe": {
+          "samples": 12,
+          "median": 0.8000000000465661,
+          "p95": 1.3999999999068677,
+          "max": 1.3999999999068677,
+          "calls": 12,
+          "maxAllCalls": 1.3999999999068677,
+          "totalMs": 10.899999999906868
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0.09999999986030161,
+          "max": 0.09999999986030161,
+          "calls": 204,
+          "maxAllCalls": 0.4000000001396984,
+          "totalMs": 5.799999999580905
+        },
+        "paint": {
+          "samples": 12,
+          "median": 2,
+          "p95": 2.800000000046566,
+          "max": 2.800000000046566,
+          "calls": 12,
+          "maxAllCalls": 2.800000000046566,
+          "totalMs": 24.00000000023283
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 1,
+          "p95": 1.5,
+          "max": 1.5,
+          "calls": 12,
+          "maxAllCalls": 1.5,
+          "totalMs": 12.900000000139698
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 5.600000000093132,
+        "p95": 18.199999999953434,
+        "max": 18.199999999953434
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 16.399999999906868,
+        "p95": 26.699999999953434,
+        "max": 26.699999999953434
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 1,
+      "condition": "single",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 24000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 17.299999999813735
+        },
+        "history": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 24000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 6.900000001303852
+        },
+        "difference": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 2.300000000046566,
+          "p95": 4.5,
+          "max": 4.5,
+          "calls": 12,
+          "maxAllCalls": 4.5,
+          "totalMs": 33.700000000186265
+        },
+        "observe": {
+          "samples": 12,
+          "median": 0.30000000004656613,
+          "p95": 0.4000000001396984,
+          "max": 0.4000000001396984,
+          "calls": 12,
+          "maxAllCalls": 0.4000000001396984,
+          "totalMs": 3.300000000046566
+        },
+        "domSetter": {
+          "samples": 6,
+          "median": 0.09999999986030161,
+          "p95": 0.10000000009313226,
+          "max": 0.10000000009313226,
+          "calls": 144,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 2.7000000001862645
+        },
+        "paint": {
+          "samples": 12,
+          "median": 1.3000000000465661,
+          "p95": 1.8000000000465661,
+          "max": 1.8000000000465661,
+          "calls": 12,
+          "maxAllCalls": 1.8000000000465661,
+          "totalMs": 16.09999999962747
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 0.4000000001396984,
+          "p95": 0.5,
+          "max": 0.5,
+          "calls": 12,
+          "maxAllCalls": 0.5,
+          "totalMs": 5.000000000232831
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 0.10000000009313226,
+        "p95": 14.699999999953434,
+        "max": 14.699999999953434
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 6,
+        "p95": 20.5999999998603,
+        "max": 20.5999999998603
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 1,
+      "condition": "short",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.19999999995343387,
+          "calls": 48000,
+          "maxAllCalls": 0.7000000001862645,
+          "totalMs": 82.10000000009313
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.39999999990686774,
+          "totalMs": 14.30000000144355
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0.2999999998137355,
+          "calls": 24012,
+          "maxAllCalls": 0.5,
+          "totalMs": 22.99999999953434
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 12,
+          "p95": 22.199999999953434,
+          "max": 22.199999999953434,
+          "calls": 12,
+          "maxAllCalls": 22.199999999953434,
+          "totalMs": 150.89999999990687
+        },
+        "observe": {
+          "samples": 12,
+          "median": 0.6000000000931323,
+          "p95": 1,
+          "max": 1,
+          "calls": 12,
+          "maxAllCalls": 1,
+          "totalMs": 7.600000000093132
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0.09999999986030161,
+          "max": 0.09999999986030161,
+          "calls": 204,
+          "maxAllCalls": 0.20000000018626451,
+          "totalMs": 3.9000000001396984
+        },
+        "paint": {
+          "samples": 12,
+          "median": 2.5,
+          "p95": 4,
+          "max": 4,
+          "calls": 12,
+          "maxAllCalls": 4,
+          "totalMs": 31
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 0.7000000001862645,
+          "p95": 1.1999999999534339,
+          "max": 1.1999999999534339,
+          "calls": 12,
+          "maxAllCalls": 1.1999999999534339,
+          "totalMs": 9.500000000465661
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 1.8999999999068677,
+        "p95": 16.100000000093132,
+        "max": 16.100000000093132
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 17.799999999813735,
+        "p95": 34.5,
+        "max": 34.5
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 1,
+      "condition": "no-trail",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.2999999998137355,
+          "totalMs": 42.29999999864958
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 12.100000000325963
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0.09999999986030161,
+          "calls": 24012,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 16.09999999892898
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 7.699999999953434,
+          "p95": 11.5,
+          "max": 11.5,
+          "calls": 12,
+          "maxAllCalls": 11.5,
+          "totalMs": 95.30000000004657
+        },
+        "observe": {
+          "samples": 12,
+          "median": 1.1999999999534339,
+          "p95": 1.5,
+          "max": 1.5,
+          "calls": 12,
+          "maxAllCalls": 1.5,
+          "totalMs": 12.800000000512227
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0.10000000009313226,
+          "max": 0.10000000009313226,
+          "calls": 204,
+          "maxAllCalls": 0.4000000001396984,
+          "totalMs": 5.999999999534339
+        },
+        "paint": {
+          "samples": 12,
+          "median": 1.5,
+          "p95": 2.4000000001396984,
+          "max": 2.4000000001396984,
+          "calls": 12,
+          "maxAllCalls": 2.4000000001396984,
+          "totalMs": 20.600000000093132
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 1.2999999998137355,
+          "p95": 1.7000000001862645,
+          "max": 1.7000000001862645,
+          "calls": 12,
+          "maxAllCalls": 1.7000000001862645,
+          "totalMs": 15
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 6.100000000093132,
+        "p95": 15.899999999906868,
+        "max": 15.899999999906868
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 16.5,
+        "p95": 31.0999999998603,
+        "max": 31.0999999998603
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 1,
+      "condition": "no-vector",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.4000000001396984,
+          "totalMs": 36.90000000130385
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 10.899999998044223
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0.09999999986030161,
+          "calls": 24012,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 13.299999999115244
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 6.2999999998137355,
+          "p95": 10.800000000046566,
+          "max": 10.800000000046566,
+          "calls": 12,
+          "maxAllCalls": 10.800000000046566,
+          "totalMs": 82.49999999930151
+        },
+        "observe": {
+          "samples": 12,
+          "median": 0.8999999999068677,
+          "p95": 1.6000000000931323,
+          "max": 1.6000000000931323,
+          "calls": 12,
+          "maxAllCalls": 1.6000000000931323,
+          "totalMs": 11.799999999813735
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0.10000000009313226,
+          "max": 0.10000000009313226,
+          "calls": 204,
+          "maxAllCalls": 0.5,
+          "totalMs": 6.999999999068677
+        },
+        "paint": {
+          "samples": 12,
+          "median": 1.6999999999534339,
+          "p95": 2.8999999999068677,
+          "max": 2.8999999999068677,
+          "calls": 12,
+          "maxAllCalls": 2.8999999999068677,
+          "totalMs": 23.49999999976717
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 1,
+          "p95": 1.8000000000465661,
+          "max": 1.8000000000465661,
+          "calls": 12,
+          "maxAllCalls": 1.8000000000465661,
+          "totalMs": 13.100000000325963
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 5.5,
+        "p95": 13.799999999813735,
+        "max": 13.799999999813735
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 16.600000000093132,
+        "p95": 29.300000000046566,
+        "max": 29.300000000046566
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 1,
+      "condition": "no-dom",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 28.30000000144355
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 8.799999996786937
+        },
+        "difference": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 24000,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 11.90000000083819
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 5.600000000093132,
+          "p95": 6.5,
+          "max": 6.5,
+          "calls": 12,
+          "maxAllCalls": 6.5,
+          "totalMs": 68.50000000046566
+        },
+        "observe": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "domSetter": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "paint": {
+          "samples": 12,
+          "median": 0.39999999990686774,
+          "p95": 0.5,
+          "max": 0.5,
+          "calls": 12,
+          "maxAllCalls": 0.5,
+          "totalMs": 4.300000000046566
+        },
+        "refresh": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 8,
+        "p95": 17.5,
+        "max": 17.5
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 13.800000000046566,
+        "p95": 24.300000000046566,
+        "max": 24.300000000046566
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 12
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 1,
+      "condition": "no-canvas",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 25.30000000144355
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 7.699999997857958
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 24012,
+          "maxAllCalls": 0.8000000000465661,
+          "totalMs": 10.49999999976717
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 5.5,
+          "p95": 6,
+          "max": 6,
+          "calls": 12,
+          "maxAllCalls": 6,
+          "totalMs": 65.20000000018626
+        },
+        "observe": {
+          "samples": 12,
+          "median": 0.8000000000465661,
+          "p95": 0.9000000001396984,
+          "max": 0.9000000001396984,
+          "calls": 12,
+          "maxAllCalls": 0.9000000001396984,
+          "totalMs": 9.200000000419095
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0.10000000009313226,
+          "max": 0.10000000009313226,
+          "calls": 204,
+          "maxAllCalls": 0.30000000004656613,
+          "totalMs": 5.099999999860302
+        },
+        "paint": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 0.8999999999068677,
+          "p95": 1,
+          "max": 1,
+          "calls": 12,
+          "maxAllCalls": 1,
+          "totalMs": 10.399999999906868
+        }
+      },
+      "frameWait": {
+        "samples": 0,
+        "median": null,
+        "p95": null,
+        "max": null
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 6.699999999953434,
+        "p95": 18.199999999953434,
+        "max": 18.199999999953434
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 12
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 1,
+      "condition": "neither",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.39999999990686774,
+          "totalMs": 30.59999999962747
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 9.399999999674037
+        },
+        "difference": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0.19999999995343387,
+          "calls": 24000,
+          "maxAllCalls": 0.30000000004656613,
+          "totalMs": 12.699999999720603
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 5.5,
+          "p95": 8.699999999953434,
+          "max": 8.699999999953434,
+          "calls": 12,
+          "maxAllCalls": 8.699999999953434,
+          "totalMs": 71.79999999981374
+        },
+        "observe": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "domSetter": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "paint": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "refresh": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        }
+      },
+      "frameWait": {
+        "samples": 0,
+        "median": null,
+        "p95": null,
+        "max": null
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 8.899999999906868,
+        "p95": 19.699999999953434,
+        "max": 19.699999999953434
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 12
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 2,
+      "condition": "full",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.4000000001396984,
+          "totalMs": 40.30000000074506
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 11.499999999068677
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 24012,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 17.300000000279397
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 8,
+          "p95": 11.300000000046566,
+          "max": 11.300000000046566,
+          "calls": 12,
+          "maxAllCalls": 11.300000000046566,
+          "totalMs": 94.30000000004657
+        },
+        "observe": {
+          "samples": 12,
+          "median": 1,
+          "p95": 2.199999999953434,
+          "max": 2.199999999953434,
+          "calls": 12,
+          "maxAllCalls": 2.199999999953434,
+          "totalMs": 13.199999999953434
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0.19999999995343387,
+          "max": 0.19999999995343387,
+          "calls": 204,
+          "maxAllCalls": 0.6999999999534339,
+          "totalMs": 6.600000000093132
+        },
+        "paint": {
+          "samples": 12,
+          "median": 2.4000000001396984,
+          "p95": 4.099999999860302,
+          "max": 4.099999999860302,
+          "calls": 12,
+          "maxAllCalls": 4.099999999860302,
+          "totalMs": 29.100000000093132
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 1.1999999999534339,
+          "p95": 2.5999999998603016,
+          "max": 2.5999999998603016,
+          "calls": 12,
+          "maxAllCalls": 2.5999999998603016,
+          "totalMs": 15.299999999813735
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 7.199999999953434,
+        "p95": 13.699999999953434,
+        "max": 13.699999999953434
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 15.900000000139698,
+        "p95": 28.5,
+        "max": 28.5
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 2,
+      "condition": "single",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 24000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 16.399999999208376
+        },
+        "history": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 7.100000001024455
+        },
+        "difference": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 2.9000000001396984,
+          "p95": 3.800000000046566,
+          "max": 3.800000000046566,
+          "calls": 12,
+          "maxAllCalls": 3.800000000046566,
+          "totalMs": 34
+        },
+        "observe": {
+          "samples": 12,
+          "median": 0.20000000018626451,
+          "p95": 0.5,
+          "max": 0.5,
+          "calls": 12,
+          "maxAllCalls": 0.5,
+          "totalMs": 3.199999999953434
+        },
+        "domSetter": {
+          "samples": 6,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 144,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 2.1000000000931323
+        },
+        "paint": {
+          "samples": 12,
+          "median": 1.3999999999068677,
+          "p95": 1.8000000000465661,
+          "max": 1.8000000000465661,
+          "calls": 12,
+          "maxAllCalls": 1.8000000000465661,
+          "totalMs": 16.199999999953434
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 0.4000000001396984,
+          "p95": 0.6000000000931323,
+          "max": 0.6000000000931323,
+          "calls": 12,
+          "maxAllCalls": 0.6000000000931323,
+          "totalMs": 5.299999999580905
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 0.10000000009313226,
+        "p95": 15.600000000093132,
+        "max": 15.600000000093132
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 5.600000000093132,
+        "p95": 21.199999999953434,
+        "max": 21.199999999953434
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 2,
+      "condition": "short",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.5,
+          "calls": 48000,
+          "maxAllCalls": 0.6000000000931323,
+          "totalMs": 71.30000000051223
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.30000000004656613,
+          "totalMs": 14.500000000465661
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0.39999999990686774,
+          "calls": 24012,
+          "maxAllCalls": 0.6000000000931323,
+          "totalMs": 21.200000000186265
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 11.899999999906868,
+          "p95": 14.199999999953434,
+          "max": 14.199999999953434,
+          "calls": 12,
+          "maxAllCalls": 14.199999999953434,
+          "totalMs": 129.9000000001397
+        },
+        "observe": {
+          "samples": 12,
+          "median": 0.5,
+          "p95": 1,
+          "max": 1,
+          "calls": 12,
+          "maxAllCalls": 1,
+          "totalMs": 6.900000000139698
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 204,
+          "maxAllCalls": 0.20000000018626451,
+          "totalMs": 3.3999999999068677
+        },
+        "paint": {
+          "samples": 12,
+          "median": 2.5,
+          "p95": 4.099999999860302,
+          "max": 4.099999999860302,
+          "calls": 12,
+          "maxAllCalls": 4.099999999860302,
+          "totalMs": 31.399999999441206
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 0.6999999999534339,
+          "p95": 1.1999999999534339,
+          "max": 1.1999999999534339,
+          "calls": 12,
+          "maxAllCalls": 1.1999999999534339,
+          "totalMs": 8.600000000093132
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 2.8999999999068677,
+        "p95": 15.699999999953434,
+        "max": 15.699999999953434
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 18.300000000046566,
+        "p95": 31.899999999906868,
+        "max": 31.899999999906868
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 2,
+      "condition": "no-trail",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.39999999990686774,
+          "totalMs": 33.30000000214204
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 9.399999998277053
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 24012,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 12.800000000512227
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 5.7999999998137355,
+          "p95": 9.600000000093132,
+          "max": 9.600000000093132,
+          "calls": 12,
+          "maxAllCalls": 9.600000000093132,
+          "totalMs": 77.5999999998603
+        },
+        "observe": {
+          "samples": 12,
+          "median": 0.9000000001396984,
+          "p95": 1.2999999998137355,
+          "max": 1.2999999998137355,
+          "calls": 12,
+          "maxAllCalls": 1.2999999998137355,
+          "totalMs": 10.600000000558794
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0.10000000009313226,
+          "max": 0.10000000009313226,
+          "calls": 204,
+          "maxAllCalls": 0.39999999990686774,
+          "totalMs": 5.59999999939464
+        },
+        "paint": {
+          "samples": 12,
+          "median": 1.3000000000465661,
+          "p95": 1.5999999998603016,
+          "max": 1.5999999998603016,
+          "calls": 12,
+          "maxAllCalls": 1.5999999998603016,
+          "totalMs": 16.299999999580905
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 1,
+          "p95": 1.5,
+          "max": 1.5,
+          "calls": 12,
+          "maxAllCalls": 1.5,
+          "totalMs": 12.400000000139698
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 4.900000000139698,
+        "p95": 11.399999999906868,
+        "max": 11.399999999906868
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 15.199999999953434,
+        "p95": 19.299999999813735,
+        "max": 19.299999999813735
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 2,
+      "condition": "no-vector",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.19999999995343387,
+          "calls": 48000,
+          "maxAllCalls": 0.39999999990686774,
+          "totalMs": 33.499999998370185
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 9.299999999115244
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 24012,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 13.700000000884756
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 5.800000000046566,
+          "p95": 11.899999999906868,
+          "max": 11.899999999906868,
+          "calls": 12,
+          "maxAllCalls": 11.899999999906868,
+          "totalMs": 80.39999999990687
+        },
+        "observe": {
+          "samples": 12,
+          "median": 0.9000000001396984,
+          "p95": 1.5999999998603016,
+          "max": 1.5999999998603016,
+          "calls": 12,
+          "maxAllCalls": 1.5999999998603016,
+          "totalMs": 11.600000000093132
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0.09999999986030161,
+          "p95": 0.10000000009313226,
+          "max": 0.10000000009313226,
+          "calls": 204,
+          "maxAllCalls": 0.6999999999534339,
+          "totalMs": 7.09999999939464
+        },
+        "paint": {
+          "samples": 12,
+          "median": 2.0999999998603016,
+          "p95": 3.800000000046566,
+          "max": 3.800000000046566,
+          "calls": 12,
+          "maxAllCalls": 3.800000000046566,
+          "totalMs": 26.699999999953434
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 1,
+          "p95": 1.6999999999534339,
+          "max": 1.6999999999534339,
+          "calls": 12,
+          "maxAllCalls": 1.6999999999534339,
+          "totalMs": 13.200000000186265
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 7.5,
+        "p95": 14.599999999860302,
+        "max": 14.599999999860302
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 16.5,
+        "p95": 28.699999999953434,
+        "max": 28.699999999953434
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 2,
+      "condition": "no-dom",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 33.49999999930151
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 9.400000000372529
+        },
+        "difference": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 24000,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 13.800000000046566
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 5.800000000046566,
+          "p95": 9.100000000093132,
+          "max": 9.100000000093132,
+          "calls": 12,
+          "maxAllCalls": 9.100000000093132,
+          "totalMs": 75.50000000023283
+        },
+        "observe": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "domSetter": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "paint": {
+          "samples": 12,
+          "median": 0.39999999990686774,
+          "p95": 0.5,
+          "max": 0.5,
+          "calls": 12,
+          "maxAllCalls": 0.5,
+          "totalMs": 4.400000000372529
+        },
+        "refresh": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 6,
+        "p95": 14.800000000046566,
+        "max": 14.800000000046566
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 13.600000000093132,
+        "p95": 20.9000000001397,
+        "max": 20.9000000001397
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 12
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 2,
+      "condition": "no-canvas",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 33.99999999883585
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 10.100000000558794
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0.19999999995343387,
+          "calls": 24012,
+          "maxAllCalls": 0.19999999995343387,
+          "totalMs": 13.500000001164153
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 5.599999999860302,
+          "p95": 16.5,
+          "max": 16.5,
+          "calls": 12,
+          "maxAllCalls": 16.5,
+          "totalMs": 82.20000000018626
+        },
+        "observe": {
+          "samples": 12,
+          "median": 0.7999999998137355,
+          "p95": 1.5,
+          "max": 1.5,
+          "calls": 12,
+          "maxAllCalls": 1.5,
+          "totalMs": 10.59999999939464
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0.10000000009313226,
+          "max": 0.10000000009313226,
+          "calls": 204,
+          "maxAllCalls": 0.39999999990686774,
+          "totalMs": 6.299999998882413
+        },
+        "paint": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 0.8999999999068677,
+          "p95": 1.8000000000465661,
+          "max": 1.8000000000465661,
+          "calls": 12,
+          "maxAllCalls": 1.8000000000465661,
+          "totalMs": 12.499999999301508
+        }
+      },
+      "frameWait": {
+        "samples": 0,
+        "median": null,
+        "p95": null,
+        "max": null
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 15.100000000093132,
+        "p95": 19.600000000093132,
+        "max": 19.600000000093132
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 12
+    },
+    {
+      "browser": "chromium",
+      "session": "accumulated",
+      "dpr": 2,
+      "condition": "neither",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.30000000004656613,
+          "totalMs": 26.200000000186265
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 48000,
+          "maxAllCalls": 0.10000000009313226,
+          "totalMs": 9.799999999813735
+        },
+        "difference": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0.10000000009313226,
+          "calls": 24000,
+          "maxAllCalls": 0.30000000004656613,
+          "totalMs": 12.300000000745058
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 5.5,
+          "p95": 8.800000000046566,
+          "max": 8.800000000046566,
+          "calls": 12,
+          "maxAllCalls": 8.800000000046566,
+          "totalMs": 67.60000000009313
+        },
+        "observe": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "domSetter": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "paint": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "refresh": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        }
+      },
+      "frameWait": {
+        "samples": 0,
+        "median": null,
+        "p95": null,
+        "max": null
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 6.5,
+        "p95": 19.800000000046566,
+        "max": 19.800000000046566
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 12
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 1,
+      "condition": "full",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 48000,
+          "maxAllCalls": 1.0000000000001137,
+          "totalMs": 28.000000000000057
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 8
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 24012,
+          "maxAllCalls": 1,
+          "totalMs": 15
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 6,
+          "p95": 8.000000000000114,
+          "max": 8.000000000000114,
+          "calls": 12,
+          "maxAllCalls": 8.000000000000114,
+          "totalMs": 72.00000000000006
+        },
+        "observe": {
+          "samples": 12,
+          "median": 1,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 17
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 204,
+          "maxAllCalls": 1,
+          "totalMs": 13
+        },
+        "paint": {
+          "samples": 12,
+          "median": 2,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 21
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 2,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 20
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 11,
+        "p95": 14,
+        "max": 14
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 20,
+        "p95": 22,
+        "max": 22
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 1,
+      "condition": "single",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24000,
+          "maxAllCalls": 1,
+          "totalMs": 19
+        },
+        "history": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24000,
+          "maxAllCalls": 1.0000000000000568,
+          "totalMs": 8.000000000000057
+        },
+        "difference": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 3,
+          "p95": 3,
+          "max": 3,
+          "calls": 12,
+          "maxAllCalls": 3,
+          "totalMs": 31.000000000000057
+        },
+        "observe": {
+          "samples": 12,
+          "median": 0,
+          "p95": 1,
+          "max": 1,
+          "calls": 12,
+          "maxAllCalls": 1,
+          "totalMs": 5
+        },
+        "domSetter": {
+          "samples": 6,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 144,
+          "maxAllCalls": 1,
+          "totalMs": 2
+        },
+        "paint": {
+          "samples": 12,
+          "median": 1,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 14
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 1,
+          "p95": 1,
+          "max": 1,
+          "calls": 12,
+          "maxAllCalls": 1,
+          "totalMs": 7
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 16,
+        "p95": 30,
+        "max": 30
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 20,
+        "p95": 34,
+        "max": 34
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 1,
+      "condition": "short",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 48000,
+          "maxAllCalls": 2,
+          "totalMs": 54.00000000000006
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 48000,
+          "maxAllCalls": 3,
+          "totalMs": 26
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24012,
+          "maxAllCalls": 1,
+          "totalMs": 11
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 9,
+          "p95": 17,
+          "max": 17,
+          "calls": 12,
+          "maxAllCalls": 17,
+          "totalMs": 113.99999999999994
+        },
+        "observe": {
+          "samples": 12,
+          "median": 1,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 9.000000000000114
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 204,
+          "maxAllCalls": 2,
+          "totalMs": 7.000000000000057
+        },
+        "paint": {
+          "samples": 12,
+          "median": 2,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 20
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 1,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 15.000000000000114
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 9,
+        "p95": 12,
+        "max": 12
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 20,
+        "p95": 31,
+        "max": 31
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 1,
+      "condition": "no-trail",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 33.999999999999886
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 9
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24012,
+          "maxAllCalls": 2,
+          "totalMs": 16
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 6,
+          "p95": 9,
+          "max": 9,
+          "calls": 12,
+          "maxAllCalls": 9,
+          "totalMs": 75.99999999999989
+        },
+        "observe": {
+          "samples": 12,
+          "median": 1,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 15.999999999999943
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 204,
+          "maxAllCalls": 1,
+          "totalMs": 10.999999999999943
+        },
+        "paint": {
+          "samples": 12,
+          "median": 1,
+          "p95": 1,
+          "max": 1,
+          "calls": 12,
+          "maxAllCalls": 1,
+          "totalMs": 7
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 2,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 19.999999999999943
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 8,
+        "p95": 9,
+        "max": 9
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 16,
+        "p95": 19,
+        "max": 19
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 1,
+      "condition": "no-vector",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 48000,
+          "maxAllCalls": 3,
+          "totalMs": 36
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 18.999999999999943
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24012,
+          "maxAllCalls": 1,
+          "totalMs": 11
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 6,
+          "p95": 10.000000000000057,
+          "max": 10.000000000000057,
+          "calls": 12,
+          "maxAllCalls": 10.000000000000057,
+          "totalMs": 78.99999999999994
+        },
+        "observe": {
+          "samples": 12,
+          "median": 1,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 14
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 1,
+          "max": 1,
+          "calls": 204,
+          "maxAllCalls": 1,
+          "totalMs": 5
+        },
+        "paint": {
+          "samples": 12,
+          "median": 2,
+          "p95": 3,
+          "max": 3,
+          "calls": 12,
+          "maxAllCalls": 3,
+          "totalMs": 23
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 2,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 18
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 10,
+        "p95": 12,
+        "max": 12
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 20,
+        "p95": 21,
+        "max": 21
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 1,
+      "condition": "no-dom",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 48000,
+          "maxAllCalls": 1.0000000000001137,
+          "totalMs": 36.00000000000034
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 17
+        },
+        "difference": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24000,
+          "maxAllCalls": 1,
+          "totalMs": 9
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 6.000000000000057,
+          "p95": 10.000000000000114,
+          "max": 10.000000000000114,
+          "calls": 12,
+          "maxAllCalls": 10.000000000000114,
+          "totalMs": 80.0000000000004
+        },
+        "observe": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "domSetter": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "paint": {
+          "samples": 12,
+          "median": 2,
+          "p95": 2.9999999999998863,
+          "max": 2.9999999999998863,
+          "calls": 12,
+          "maxAllCalls": 2.9999999999998863,
+          "totalMs": 18.999999999999886
+        },
+        "refresh": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 12,
+        "p95": 24.999999999999943,
+        "max": 24.999999999999943
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 19,
+        "p95": 34.00000000000006,
+        "max": 34.00000000000006
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 12
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 1,
+      "condition": "no-canvas",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 28
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1.0000000000000568,
+          "totalMs": 12.000000000000057
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24012,
+          "maxAllCalls": 1,
+          "totalMs": 15
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 7,
+          "p95": 8,
+          "max": 8,
+          "calls": 12,
+          "maxAllCalls": 8,
+          "totalMs": 78.00000000000006
+        },
+        "observe": {
+          "samples": 12,
+          "median": 1,
+          "p95": 3,
+          "max": 3,
+          "calls": 12,
+          "maxAllCalls": 3,
+          "totalMs": 17.000000000000057
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 1,
+          "max": 1,
+          "calls": 204,
+          "maxAllCalls": 1.0000000000000568,
+          "totalMs": 6.000000000000057
+        },
+        "paint": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 2,
+          "p95": 3,
+          "max": 3,
+          "calls": 12,
+          "maxAllCalls": 3,
+          "totalMs": 19.000000000000057
+        }
+      },
+      "frameWait": {
+        "samples": 0,
+        "median": null,
+        "p95": null,
+        "max": null
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 18,
+        "p95": 20,
+        "max": 20
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 12
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 1,
+      "condition": "neither",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 38.99999999999994
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 11
+        },
+        "difference": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24000,
+          "maxAllCalls": 1,
+          "totalMs": 17
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 7,
+          "p95": 10,
+          "max": 10,
+          "calls": 12,
+          "maxAllCalls": 10,
+          "totalMs": 84.99999999999989
+        },
+        "observe": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "domSetter": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "paint": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "refresh": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        }
+      },
+      "frameWait": {
+        "samples": 0,
+        "median": null,
+        "p95": null,
+        "max": null
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 16,
+        "p95": 31,
+        "max": 31
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 12
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 2,
+      "condition": "full",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1.0000000000000568,
+          "totalMs": 35.000000000000114
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 13
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24012,
+          "maxAllCalls": 2,
+          "totalMs": 10
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 6,
+          "p95": 10,
+          "max": 10,
+          "calls": 12,
+          "maxAllCalls": 10,
+          "totalMs": 73.00000000000011
+        },
+        "observe": {
+          "samples": 12,
+          "median": 1,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 15
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 204,
+          "maxAllCalls": 1,
+          "totalMs": 12
+        },
+        "paint": {
+          "samples": 12,
+          "median": 2,
+          "p95": 2.000000000000057,
+          "max": 2.000000000000057,
+          "calls": 12,
+          "maxAllCalls": 2.000000000000057,
+          "totalMs": 20.999999999999943
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 2,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 21
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 3,
+        "p95": 13,
+        "max": 13
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 12,
+        "p95": 27,
+        "max": 27
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 2,
+      "condition": "single",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24000,
+          "maxAllCalls": 1,
+          "totalMs": 14
+        },
+        "history": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24000,
+          "maxAllCalls": 2,
+          "totalMs": 5
+        },
+        "difference": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 2,
+          "p95": 3,
+          "max": 3,
+          "calls": 12,
+          "maxAllCalls": 3,
+          "totalMs": 25
+        },
+        "observe": {
+          "samples": 12,
+          "median": 1,
+          "p95": 1,
+          "max": 1,
+          "calls": 12,
+          "maxAllCalls": 1,
+          "totalMs": 6
+        },
+        "domSetter": {
+          "samples": 6,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 144,
+          "maxAllCalls": 1,
+          "totalMs": 6
+        },
+        "paint": {
+          "samples": 12,
+          "median": 1,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 14
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 1,
+          "p95": 1,
+          "max": 1,
+          "calls": 12,
+          "maxAllCalls": 1,
+          "totalMs": 10
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 2,
+        "p95": 16,
+        "max": 16
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 6,
+        "p95": 20,
+        "max": 20
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 2,
+      "condition": "short",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 48000,
+          "maxAllCalls": 1.0000000000000568,
+          "totalMs": 51.00000000000006
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1.0000000000000568,
+          "totalMs": 16.000000000000057
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24012,
+          "maxAllCalls": 2,
+          "totalMs": 16.999999999999943
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 8,
+          "p95": 11.999999999999943,
+          "max": 11.999999999999943,
+          "calls": 12,
+          "maxAllCalls": 11.999999999999943,
+          "totalMs": 95.00000000000006
+        },
+        "observe": {
+          "samples": 12,
+          "median": 1,
+          "p95": 1,
+          "max": 1,
+          "calls": 12,
+          "maxAllCalls": 1,
+          "totalMs": 8
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 204,
+          "maxAllCalls": 1,
+          "totalMs": 4
+        },
+        "paint": {
+          "samples": 12,
+          "median": 2,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 20
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 1,
+          "p95": 1.0000000000000568,
+          "max": 1.0000000000000568,
+          "calls": 12,
+          "maxAllCalls": 1.0000000000000568,
+          "totalMs": 12.000000000000057
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 2,
+        "p95": 8.999999999999943,
+        "max": 8.999999999999943
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 13.000000000000057,
+        "p95": 20,
+        "max": 20
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 2,
+      "condition": "no-trail",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 2,
+          "totalMs": 37.99999999999994
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 9
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24012,
+          "maxAllCalls": 1,
+          "totalMs": 8.999999999999943
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 6,
+          "p95": 8,
+          "max": 8,
+          "calls": 12,
+          "maxAllCalls": 8,
+          "totalMs": 70.99999999999994
+        },
+        "observe": {
+          "samples": 12,
+          "median": 1,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 15.999999999999943
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 204,
+          "maxAllCalls": 1,
+          "totalMs": 8
+        },
+        "paint": {
+          "samples": 12,
+          "median": 0,
+          "p95": 1,
+          "max": 1,
+          "calls": 12,
+          "maxAllCalls": 1,
+          "totalMs": 4
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 1.9999999999999432,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 17.999999999999943
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 6.999999999999943,
+        "p95": 12,
+        "max": 12
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 13.999999999999943,
+        "p95": 19,
+        "max": 19
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 2,
+      "condition": "no-vector",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 48000,
+          "maxAllCalls": 1.0000000000000568,
+          "totalMs": 34.000000000000114
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 5
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 24012,
+          "maxAllCalls": 1,
+          "totalMs": 11
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 5.000000000000057,
+          "p95": 7,
+          "max": 7,
+          "calls": 12,
+          "maxAllCalls": 7,
+          "totalMs": 65.00000000000006
+        },
+        "observe": {
+          "samples": 12,
+          "median": 1,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 15
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 1,
+          "max": 1,
+          "calls": 204,
+          "maxAllCalls": 1,
+          "totalMs": 14
+        },
+        "paint": {
+          "samples": 12,
+          "median": 1,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 17
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 2,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 20
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 3,
+        "p95": 12,
+        "max": 12
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 13,
+        "p95": 20,
+        "max": 20
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 2,
+      "condition": "no-dom",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1.0000000000000568,
+          "totalMs": 34
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 11
+        },
+        "difference": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24000,
+          "maxAllCalls": 1,
+          "totalMs": 6
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 5.000000000000057,
+          "p95": 8.000000000000057,
+          "max": 8.000000000000057,
+          "calls": 12,
+          "maxAllCalls": 8.000000000000057,
+          "totalMs": 68.00000000000006
+        },
+        "observe": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "domSetter": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "paint": {
+          "samples": 12,
+          "median": 1,
+          "p95": 3,
+          "max": 3,
+          "calls": 12,
+          "maxAllCalls": 3,
+          "totalMs": 17
+        },
+        "refresh": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 17.999999999999943,
+        "p95": 43,
+        "max": 43
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 23.999999999999943,
+        "p95": 50.999999999999886,
+        "max": 50.999999999999886
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 12
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 2,
+      "condition": "no-canvas",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 42.99999999999994
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1.0000000000000568,
+          "totalMs": 10.000000000000057
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24012,
+          "maxAllCalls": 1,
+          "totalMs": 16
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 8,
+          "p95": 13,
+          "max": 13,
+          "calls": 12,
+          "maxAllCalls": 13,
+          "totalMs": 93
+        },
+        "observe": {
+          "samples": 12,
+          "median": 2,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 18.999999999999943
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 1,
+          "max": 1,
+          "calls": 204,
+          "maxAllCalls": 1,
+          "totalMs": 13
+        },
+        "paint": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 2,
+          "p95": 3,
+          "max": 3,
+          "calls": 12,
+          "maxAllCalls": 3,
+          "totalMs": 22.999999999999943
+        }
+      },
+      "frameWait": {
+        "samples": 0,
+        "median": null,
+        "p95": null,
+        "max": null
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 18,
+        "p95": 33,
+        "max": 33
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 12
+    },
+    {
+      "browser": "webkit",
+      "session": "fresh",
+      "dpr": 2,
+      "condition": "neither",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 34.999999999999886
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 8
+        },
+        "difference": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24000,
+          "maxAllCalls": 1,
+          "totalMs": 12
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 6,
+          "p95": 9,
+          "max": 9,
+          "calls": 12,
+          "maxAllCalls": 9,
+          "totalMs": 73.99999999999989
+        },
+        "observe": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "domSetter": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "paint": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "refresh": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        }
+      },
+      "frameWait": {
+        "samples": 0,
+        "median": null,
+        "p95": null,
+        "max": null
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 17,
+        "p95": 44,
+        "max": 44
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 12
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 1,
+      "condition": "full",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 26.999999999999886
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 14
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24012,
+          "maxAllCalls": 1,
+          "totalMs": 15
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 6,
+          "p95": 8,
+          "max": 8,
+          "calls": 12,
+          "maxAllCalls": 8,
+          "totalMs": 72.99999999999989
+        },
+        "observe": {
+          "samples": 12,
+          "median": 2,
+          "p95": 2.000000000000057,
+          "max": 2.000000000000057,
+          "calls": 12,
+          "maxAllCalls": 2.000000000000057,
+          "totalMs": 18.000000000000227
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 204,
+          "maxAllCalls": 1.0000000000000568,
+          "totalMs": 8.000000000000057
+        },
+        "paint": {
+          "samples": 12,
+          "median": 2,
+          "p95": 3,
+          "max": 3,
+          "calls": 12,
+          "maxAllCalls": 3,
+          "totalMs": 23.999999999999773
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 2,
+          "p95": 2.0000000000001137,
+          "max": 2.0000000000001137,
+          "calls": 12,
+          "maxAllCalls": 2.0000000000001137,
+          "totalMs": 19.00000000000034
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 10,
+        "p95": 12,
+        "max": 12
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 20,
+        "p95": 22,
+        "max": 22
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 1,
+      "condition": "single",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24000,
+          "maxAllCalls": 1,
+          "totalMs": 21.999999999999943
+        },
+        "history": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24000,
+          "maxAllCalls": 1,
+          "totalMs": 7
+        },
+        "difference": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 3,
+          "p95": 7.999999999999943,
+          "max": 7.999999999999943,
+          "calls": 12,
+          "maxAllCalls": 7.999999999999943,
+          "totalMs": 35.99999999999994
+        },
+        "observe": {
+          "samples": 12,
+          "median": 0,
+          "p95": 1,
+          "max": 1,
+          "calls": 12,
+          "maxAllCalls": 1,
+          "totalMs": 5
+        },
+        "domSetter": {
+          "samples": 6,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 144,
+          "maxAllCalls": 1,
+          "totalMs": 4
+        },
+        "paint": {
+          "samples": 12,
+          "median": 1,
+          "p95": 1.0000000000001137,
+          "max": 1.0000000000001137,
+          "calls": 12,
+          "maxAllCalls": 1.0000000000001137,
+          "totalMs": 12.000000000000114
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 1,
+          "p95": 1,
+          "max": 1,
+          "calls": 12,
+          "maxAllCalls": 1,
+          "totalMs": 9
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 17,
+        "p95": 29,
+        "max": 29
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 22,
+        "p95": 33,
+        "max": 33
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 1,
+      "condition": "short",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 48000,
+          "maxAllCalls": 1.0000000000000568,
+          "totalMs": 50.00000000000006
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 11.999999999999943
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 24012,
+          "maxAllCalls": 1,
+          "totalMs": 18
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 8,
+          "p95": 11,
+          "max": 11,
+          "calls": 12,
+          "maxAllCalls": 11,
+          "totalMs": 94
+        },
+        "observe": {
+          "samples": 12,
+          "median": 1,
+          "p95": 3,
+          "max": 3,
+          "calls": 12,
+          "maxAllCalls": 3,
+          "totalMs": 12.000000000000057
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 204,
+          "maxAllCalls": 2,
+          "totalMs": 9.000000000000057
+        },
+        "paint": {
+          "samples": 12,
+          "median": 2,
+          "p95": 4,
+          "max": 4,
+          "calls": 12,
+          "maxAllCalls": 4,
+          "totalMs": 24
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 1,
+          "p95": 3,
+          "max": 3,
+          "calls": 12,
+          "maxAllCalls": 3,
+          "totalMs": 15.000000000000057
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 10,
+        "p95": 15.999999999999943,
+        "max": 15.999999999999943
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 20,
+        "p95": 30,
+        "max": 30
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 1,
+      "condition": "no-trail",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1.0000000000000568,
+          "totalMs": 35.00000000000006
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 8
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 24012,
+          "maxAllCalls": 1,
+          "totalMs": 5.999999999999886
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 6,
+          "p95": 7,
+          "max": 7,
+          "calls": 12,
+          "maxAllCalls": 7,
+          "totalMs": 67.99999999999994
+        },
+        "observe": {
+          "samples": 12,
+          "median": 1,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 16
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 204,
+          "maxAllCalls": 1,
+          "totalMs": 11
+        },
+        "paint": {
+          "samples": 12,
+          "median": 0,
+          "p95": 1,
+          "max": 1,
+          "calls": 12,
+          "maxAllCalls": 1,
+          "totalMs": 4
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 2,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 18
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 11,
+        "p95": 12,
+        "max": 12
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 18.999999999999886,
+        "p95": 19.000000000000057,
+        "max": 19.000000000000057
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 1,
+      "condition": "no-vector",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 37
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 16
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24012,
+          "maxAllCalls": 1,
+          "totalMs": 6
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 6,
+          "p95": 8,
+          "max": 8,
+          "calls": 12,
+          "maxAllCalls": 8,
+          "totalMs": 75.00000000000006
+        },
+        "observe": {
+          "samples": 12,
+          "median": 2,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 18
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 204,
+          "maxAllCalls": 1,
+          "totalMs": 9
+        },
+        "paint": {
+          "samples": 12,
+          "median": 2,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 19.999999999999943
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 2,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 20
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 10,
+        "p95": 12,
+        "max": 12
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 20,
+        "p95": 21,
+        "max": 21
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 1,
+      "condition": "no-dom",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 48000,
+          "maxAllCalls": 2,
+          "totalMs": 43.999999999999886
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1.0000000000000568,
+          "totalMs": 16.000000000000057
+        },
+        "difference": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 24000,
+          "maxAllCalls": 1,
+          "totalMs": 16
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 7,
+          "p95": 14.999999999999886,
+          "max": 14.999999999999886,
+          "calls": 12,
+          "maxAllCalls": 14.999999999999886,
+          "totalMs": 85.99999999999994
+        },
+        "observe": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "domSetter": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "paint": {
+          "samples": 12,
+          "median": 1,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 14.00000000000017
+        },
+        "refresh": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 10,
+        "p95": 26.000000000000114,
+        "max": 26.000000000000114
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 17.999999999999886,
+        "p95": 34,
+        "max": 34
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 12
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 1,
+      "condition": "no-canvas",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 22
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 8
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24012,
+          "maxAllCalls": 1,
+          "totalMs": 18
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 6,
+          "p95": 9,
+          "max": 9,
+          "calls": 12,
+          "maxAllCalls": 9,
+          "totalMs": 73
+        },
+        "observe": {
+          "samples": 12,
+          "median": 1,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 14
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 204,
+          "maxAllCalls": 1,
+          "totalMs": 7
+        },
+        "paint": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 2,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 18
+        }
+      },
+      "frameWait": {
+        "samples": 0,
+        "median": null,
+        "p95": null,
+        "max": null
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 18,
+        "p95": 19,
+        "max": 19
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 12
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 1,
+      "condition": "neither",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 48000,
+          "maxAllCalls": 1.0000000000000568,
+          "totalMs": 34.999999999999886
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 12
+        },
+        "difference": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24000,
+          "maxAllCalls": 1,
+          "totalMs": 10
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 6,
+          "p95": 8,
+          "max": 8,
+          "calls": 12,
+          "maxAllCalls": 8,
+          "totalMs": 72.99999999999989
+        },
+        "observe": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "domSetter": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "paint": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "refresh": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        }
+      },
+      "frameWait": {
+        "samples": 0,
+        "median": null,
+        "p95": null,
+        "max": null
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 30.999999999999886,
+        "p95": 48,
+        "max": 48
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 12
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 2,
+      "condition": "full",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 48000,
+          "maxAllCalls": 2,
+          "totalMs": 53
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 19
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 24012,
+          "maxAllCalls": 1,
+          "totalMs": 16
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 9,
+          "p95": 16,
+          "max": 16,
+          "calls": 12,
+          "maxAllCalls": 16,
+          "totalMs": 115
+        },
+        "observe": {
+          "samples": 12,
+          "median": 2,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 19
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 204,
+          "maxAllCalls": 1,
+          "totalMs": 13
+        },
+        "paint": {
+          "samples": 12,
+          "median": 3,
+          "p95": 6,
+          "max": 6,
+          "calls": 12,
+          "maxAllCalls": 6,
+          "totalMs": 36
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 2,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 21
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 63,
+        "p95": 86,
+        "max": 86
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 77,
+        "p95": 98,
+        "max": 98
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 2,
+      "condition": "single",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24000,
+          "maxAllCalls": 1,
+          "totalMs": 27
+        },
+        "history": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24000,
+          "maxAllCalls": 1,
+          "totalMs": 7
+        },
+        "difference": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 3,
+          "p95": 9,
+          "max": 9,
+          "calls": 12,
+          "maxAllCalls": 9,
+          "totalMs": 44.99999999999994
+        },
+        "observe": {
+          "samples": 12,
+          "median": 1,
+          "p95": 1.0000000000002274,
+          "max": 1.0000000000002274,
+          "calls": 12,
+          "maxAllCalls": 1.0000000000002274,
+          "totalMs": 7.000000000000227
+        },
+        "domSetter": {
+          "samples": 6,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 144,
+          "maxAllCalls": 1.0000000000002274,
+          "totalMs": 7.000000000000227
+        },
+        "paint": {
+          "samples": 12,
+          "median": 1,
+          "p95": 3.0000000000002274,
+          "max": 3.0000000000002274,
+          "calls": 12,
+          "maxAllCalls": 3.0000000000002274,
+          "totalMs": 18.000000000000227
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 1,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 12.000000000000227
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 75,
+        "p95": 86,
+        "max": 86
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 81,
+        "p95": 97,
+        "max": 97
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 2,
+      "condition": "short",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 48000,
+          "maxAllCalls": 2,
+          "totalMs": 85.99999999999977
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1.0000000000002274,
+          "totalMs": 18.000000000000455
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 1.0000000000001137,
+          "calls": 24012,
+          "maxAllCalls": 1.0000000000002274,
+          "totalMs": 32.99999999999966
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 11,
+          "p95": 26.999999999999886,
+          "max": 26.999999999999886,
+          "calls": 12,
+          "maxAllCalls": 26.999999999999886,
+          "totalMs": 151.9999999999999
+        },
+        "observe": {
+          "samples": 12,
+          "median": 1,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 10.999999999999886
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 204,
+          "maxAllCalls": 1.0000000000002274,
+          "totalMs": 8.000000000000114
+        },
+        "paint": {
+          "samples": 12,
+          "median": 2.0000000000002274,
+          "p95": 6,
+          "max": 6,
+          "calls": 12,
+          "maxAllCalls": 6,
+          "totalMs": 32
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 1,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 14.000000000000114
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 74.00000000000023,
+        "p95": 97,
+        "max": 97
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 91.00000000000023,
+        "p95": 107,
+        "max": 107
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 2,
+      "condition": "no-trail",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 48000,
+          "maxAllCalls": 2,
+          "totalMs": 48.000000000000114
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 9.999999999999773
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24012,
+          "maxAllCalls": 1.0000000000001137,
+          "totalMs": 17
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 9,
+          "p95": 13.000000000000114,
+          "max": 13.000000000000114,
+          "calls": 12,
+          "maxAllCalls": 13.000000000000114,
+          "totalMs": 102.99999999999989
+        },
+        "observe": {
+          "samples": 12,
+          "median": 1.0000000000001137,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 17.000000000000114
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 204,
+          "maxAllCalls": 1,
+          "totalMs": 12
+        },
+        "paint": {
+          "samples": 12,
+          "median": 1,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 11.999999999999545
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 2,
+          "p95": 3,
+          "max": 3,
+          "calls": 12,
+          "maxAllCalls": 3,
+          "totalMs": 19.000000000000114
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 62,
+        "p95": 74,
+        "max": 74
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 73,
+        "p95": 86,
+        "max": 86
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 2,
+      "condition": "no-vector",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 48000,
+          "maxAllCalls": 2,
+          "totalMs": 74
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 2,
+          "totalMs": 24
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 24012,
+          "maxAllCalls": 1,
+          "totalMs": 30.999999999999773
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 13,
+          "p95": 24,
+          "max": 24,
+          "calls": 12,
+          "maxAllCalls": 24,
+          "totalMs": 149.99999999999977
+        },
+        "observe": {
+          "samples": 12,
+          "median": 2,
+          "p95": 3,
+          "max": 3,
+          "calls": 12,
+          "maxAllCalls": 3,
+          "totalMs": 19
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 1,
+          "max": 1,
+          "calls": 204,
+          "maxAllCalls": 1,
+          "totalMs": 14
+        },
+        "paint": {
+          "samples": 12,
+          "median": 4,
+          "p95": 5,
+          "max": 5,
+          "calls": 12,
+          "maxAllCalls": 5,
+          "totalMs": 44.00000000000034
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 2,
+          "p95": 4,
+          "max": 4,
+          "calls": 12,
+          "maxAllCalls": 4,
+          "totalMs": 27
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 65.00000000000023,
+        "p95": 75,
+        "max": 75
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 84.00000000000023,
+        "p95": 95,
+        "max": 95
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 0
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 2,
+      "condition": "no-dom",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1.0000000000002274,
+          "calls": 48000,
+          "maxAllCalls": 2,
+          "totalMs": 52
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 48000,
+          "maxAllCalls": 2,
+          "totalMs": 15.999999999999773
+        },
+        "difference": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 24000,
+          "maxAllCalls": 1.0000000000002274,
+          "totalMs": 16.999999999999773
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 9,
+          "p95": 14,
+          "max": 14,
+          "calls": 12,
+          "maxAllCalls": 14,
+          "totalMs": 115.99999999999977
+        },
+        "observe": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "domSetter": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "paint": {
+          "samples": 12,
+          "median": 2,
+          "p95": 3,
+          "max": 3,
+          "calls": 12,
+          "maxAllCalls": 3,
+          "totalMs": 20.000000000000114
+        },
+        "refresh": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        }
+      },
+      "frameWait": {
+        "samples": 12,
+        "median": 36.000000000000114,
+        "p95": 58.999999999999886,
+        "max": 58.999999999999886
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 43.000000000000114,
+        "p95": 68.99999999999989,
+        "max": 68.99999999999989
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 12
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 2,
+      "condition": "no-canvas",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 48000,
+          "maxAllCalls": 1.0000000000001137,
+          "totalMs": 31.99999999999966
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 48000,
+          "maxAllCalls": 1.0000000000002274,
+          "totalMs": 9.999999999999659
+        },
+        "difference": {
+          "samples": 753,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24012,
+          "maxAllCalls": 2,
+          "totalMs": 17
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 7,
+          "p95": 10,
+          "max": 10,
+          "calls": 12,
+          "maxAllCalls": 10,
+          "totalMs": 89.99999999999989
+        },
+        "observe": {
+          "samples": 12,
+          "median": 1,
+          "p95": 2,
+          "max": 2,
+          "calls": 12,
+          "maxAllCalls": 2,
+          "totalMs": 16.999999999999886
+        },
+        "domSetter": {
+          "samples": 9,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 204,
+          "maxAllCalls": 1,
+          "totalMs": 10
+        },
+        "paint": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "refresh": {
+          "samples": 12,
+          "median": 1.9999999999998863,
+          "p95": 3,
+          "max": 3,
+          "calls": 12,
+          "maxAllCalls": 3,
+          "totalMs": 18.999999999999886
+        }
+      },
+      "frameWait": {
+        "samples": 0,
+        "median": null,
+        "p95": null,
+        "max": null
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 50.00000000000023,
+        "p95": 61,
+        "max": 61
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 12
+    },
+    {
+      "browser": "webkit",
+      "session": "accumulated",
+      "dpr": 2,
+      "condition": "neither",
+      "runs": 3,
+      "errors": [],
+      "metrics": {
+        "verlet": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 1,
+          "calls": 48000,
+          "maxAllCalls": 2,
+          "totalMs": 41.000000000000114
+        },
+        "history": {
+          "samples": 1500,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 48000,
+          "maxAllCalls": 1,
+          "totalMs": 10.999999999999886
+        },
+        "difference": {
+          "samples": 750,
+          "median": 0,
+          "p95": 0,
+          "max": 0,
+          "calls": 24000,
+          "maxAllCalls": 2,
+          "totalMs": 17.999999999999886
+        },
+        "calculate": {
+          "samples": 12,
+          "median": 7.000000000000114,
+          "p95": 11,
+          "max": 11,
+          "calls": 12,
+          "maxAllCalls": 11,
+          "totalMs": 92
+        },
+        "observe": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "domSetter": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "paint": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        },
+        "refresh": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "calls": 0,
+          "maxAllCalls": null,
+          "totalMs": 0
+        }
+      },
+      "frameWait": {
+        "samples": 0,
+        "median": null,
+        "p95": null,
+        "max": null
+      },
+      "batchWall": {
+        "samples": 12,
+        "median": 17.000000000000114,
+        "p95": 36.999999999999886,
+        "max": 36.999999999999886
+      },
+      "immediateMismatch": 12,
+      "settledMismatch": 12
+    }
+  ],
+  "stops": [
+    {
+      "browser": "chromium",
+      "dpr": 1,
+      "action": "pause",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 62,
+        "p95": 75,
+        "max": 75
+      },
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "dpr": 1,
+      "action": "escape",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 18,
+        "p95": 23,
+        "max": 23
+      },
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "dpr": 1,
+      "action": "visibility",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 20,
+        "p95": 26,
+        "max": 26
+      },
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "dpr": 1,
+      "action": "motion",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 46,
+        "p95": 52,
+        "max": 52
+      },
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "dpr": 1,
+      "action": "switch",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 115,
+        "p95": 115,
+        "max": 115
+      },
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "dpr": 1,
+      "action": "dispose",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 20,
+        "p95": 47,
+        "max": 47
+      },
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "dpr": 2,
+      "action": "pause",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 61,
+        "p95": 72,
+        "max": 72
+      },
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "dpr": 2,
+      "action": "escape",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 22,
+        "p95": 27,
+        "max": 27
+      },
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "dpr": 2,
+      "action": "visibility",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 26,
+        "p95": 31,
+        "max": 31
+      },
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "dpr": 2,
+      "action": "motion",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 24,
+        "p95": 41,
+        "max": 41
+      },
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "dpr": 2,
+      "action": "switch",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 110,
+        "p95": 149,
+        "max": 149
+      },
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "dpr": 2,
+      "action": "dispose",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 29,
+        "p95": 36,
+        "max": 36
+      },
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": true
+        },
+        {
+          "timer": false,
+          "raf": true
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "dpr": 1,
+      "action": "pause",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 296,
+        "p95": 298,
+        "max": 298
+      },
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "dpr": 1,
+      "action": "escape",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 55,
+        "p95": 60,
+        "max": 60
+      },
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "dpr": 1,
+      "action": "visibility",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 47,
+        "p95": 55,
+        "max": 55
+      },
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "dpr": 1,
+      "action": "motion",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 58,
+        "p95": 74,
+        "max": 74
+      },
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "dpr": 1,
+      "action": "switch",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 90,
+        "p95": 93,
+        "max": 93
+      },
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": true
+        },
+        {
+          "timer": false,
+          "raf": true
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "dpr": 1,
+      "action": "dispose",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 59,
+        "p95": 73,
+        "max": 73
+      },
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": true
+        },
+        {
+          "timer": false,
+          "raf": true
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "dpr": 2,
+      "action": "pause",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 262,
+        "p95": 305,
+        "max": 305
+      },
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "dpr": 2,
+      "action": "escape",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 55,
+        "p95": 58,
+        "max": 58
+      },
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "dpr": 2,
+      "action": "visibility",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 44,
+        "p95": 56,
+        "max": 56
+      },
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "dpr": 2,
+      "action": "motion",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 47,
+        "p95": 61,
+        "max": 61
+      },
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "dpr": 2,
+      "action": "switch",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 75,
+        "p95": 80,
+        "max": 80
+      },
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": true
+        },
+        {
+          "timer": false,
+          "raf": true
+        },
+        {
+          "timer": false,
+          "raf": true
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "dpr": 2,
+      "action": "dispose",
+      "runs": 3,
+      "errors": [],
+      "hostToSettled": {
+        "samples": 3,
+        "median": 70,
+        "p95": 76,
+        "max": 76
+      },
+      "postStopExtraSteps": [
+        0,
+        0,
+        0
+      ],
+      "stopped": true,
+      "atomic": true,
+      "pendingHandles": [
+        {
+          "timer": false,
+          "raf": false
+        },
+        {
+          "timer": false,
+          "raf": true
+        },
+        {
+          "timer": false,
+          "raf": false
+        }
+      ]
+    }
+  ]
+}

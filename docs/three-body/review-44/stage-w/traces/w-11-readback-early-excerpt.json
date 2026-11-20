@@ -1,0 +1,312 @@
+{
+  "id": "w-11-readback-early",
+  "traceSha256": "2c2f02fc8a174a8312ddbf96c8297d446e8a00a03b31059460449400e4cf922d",
+  "traceBytes": 705229,
+  "clock": {
+    "status": "BRACKETED",
+    "mainPid": 15748,
+    "mainTid": 22552,
+    "browserPid": 12732,
+    "browserTid": 7128,
+    "anchors": [
+      {
+        "name": "w-11-readback-early/page-before-0",
+        "kind": "page",
+        "phase": "before",
+        "begin": 71100.3997,
+        "end": 71101.6164,
+        "status": "PASS",
+        "pid": 15748,
+        "tid": 22552,
+        "traceMs": 18081643.304,
+        "low": 18010541.6876,
+        "high": 18010542.9043
+      },
+      {
+        "name": "w-11-readback-early/browser-before-0",
+        "kind": "browser",
+        "phase": "before",
+        "begin": 71101.6326,
+        "end": 71102.1587,
+        "status": "PASS",
+        "pid": 12732,
+        "tid": 7128,
+        "traceMs": 18081643.893,
+        "low": 18010541.7343,
+        "high": 18010542.2604
+      },
+      {
+        "name": "w-11-readback-early/browser-before-1",
+        "kind": "browser",
+        "phase": "before",
+        "begin": 71102.1853,
+        "end": 71102.8567,
+        "status": "PASS",
+        "pid": 12732,
+        "tid": 7128,
+        "traceMs": 18081644.745,
+        "low": 18010541.8883,
+        "high": 18010542.5597
+      },
+      {
+        "name": "w-11-readback-early/browser-after-0",
+        "kind": "browser",
+        "phase": "after",
+        "begin": 71347.9476,
+        "end": 71349.78,
+        "status": "PASS",
+        "pid": 12732,
+        "tid": 7128,
+        "traceMs": 18081891.276,
+        "low": 18010541.496,
+        "high": 18010543.3284
+      },
+      {
+        "name": "w-11-readback-early/browser-after-1",
+        "kind": "browser",
+        "phase": "after",
+        "begin": 71349.818,
+        "end": 71351.8318,
+        "status": "PASS",
+        "pid": 12732,
+        "tid": 7128,
+        "traceMs": 18081893.246,
+        "low": 18010541.4142,
+        "high": 18010543.428
+      },
+      {
+        "name": "w-11-readback-early/page-after-0",
+        "kind": "page",
+        "phase": "after",
+        "begin": 71351.8945,
+        "end": 71353.6129,
+        "status": "PASS",
+        "pid": 15748,
+        "tid": 22552,
+        "traceMs": 18081895.039,
+        "low": 18010541.4261,
+        "high": 18010543.144500002
+      }
+    ],
+    "errors": [],
+    "offsetLow": 18010541.8883,
+    "offsetHigh": 18010542.2604,
+    "uncertaintyMs": 0.18604999966919422,
+    "domain": "Chrome trace TimeTicks microseconds -> harness performance.now milliseconds via observed marker brackets",
+    "cpuTimeDomain": "tts/tdur are per-thread CPU microseconds when present; never subtracted into a named wait",
+    "crossProcessAssumption": "Chrome integrated trace ts clock; no independent kernel clock calibration",
+    "accuracyGuaranteed": false
+  },
+  "traceStartStage": "BEFORE_NAVIGATION_AND_DRAW",
+  "earlyStartAckBeforeNavigation": true,
+  "windowBounds": [
+    {
+      "name": "pre-freeze",
+      "beginTraceMs": 18080092.324500002,
+      "endTraceMs": 18081532.0058,
+      "coverage": "WITHIN_RECORDING_IF_EVENTS_AVAILABLE"
+    },
+    {
+      "name": "frozen-to-request",
+      "beginTraceMs": 18081531.633700002,
+      "endTraceMs": 18081701.8459,
+      "coverage": "WITHIN_RECORDING_IF_EVENTS_AVAILABLE"
+    },
+    {
+      "name": "request-decision",
+      "beginTraceMs": 18081701.4738,
+      "endTraceMs": 18081890.078500003,
+      "coverage": "WITHIN_RECORDING_IF_EVENTS_AVAILABLE"
+    }
+  ],
+  "selectedCount": 14,
+  "selection": "First120 own marks and named candidates, not full trace. No causal request endpoint assigned.",
+  "events": [
+    {
+      "args": {
+        "data": {
+          "callTime": 18081643319,
+          "navigationId": "4E325638E53AB5FEC838136FC533100D",
+          "sampleTraceId": 5966106515944611,
+          "startTime": 1548.5
+        }
+      },
+      "cat": "blink.user_timing",
+      "name": "w-11-readback-early/page-before-0",
+      "ph": "I",
+      "pid": 15748,
+      "s": "t",
+      "tid": 22552,
+      "ts": 18081643304,
+      "tts": 244050
+    },
+    {
+      "args": {
+        "call_id": 37,
+        "method": "Page.captureScreenshot"
+      },
+      "cat": "devtools",
+      "dur": 224,
+      "name": "DevToolsSession::HandleCommand in Browser",
+      "ph": "X",
+      "pid": 12732,
+      "tdur": 213,
+      "tid": 7128,
+      "ts": 18081702054,
+      "tts": 56946
+    },
+    {
+      "args": {},
+      "cat": "viz",
+      "dur": 8303,
+      "name": "SkiaOutputSurfaceImplOnGpu::CopyOutput",
+      "ph": "X",
+      "pid": 19396,
+      "tdur": 8259,
+      "tid": 29536,
+      "ts": 18081718084,
+      "tts": 141447
+    },
+    {
+      "args": {},
+      "cat": "viz",
+      "dur": 6174,
+      "name": "viz::mojom::CopyOutputResultSender::SendResult",
+      "ph": "X",
+      "pid": 19396,
+      "tdur": 6162,
+      "tid": 8752,
+      "ts": 18081796095,
+      "tts": 13511
+    },
+    {
+      "args": {},
+      "cat": "viz",
+      "dur": 17,
+      "name": "CopyOutputResultSenderImpl::SendResult",
+      "ph": "X",
+      "pid": 12732,
+      "tdur": 16,
+      "tid": 31436,
+      "ts": 18081802390,
+      "tts": 10559
+    },
+    {
+      "args": {},
+      "cat": "devtools",
+      "dur": 85180,
+      "name": "EncodeBitmapAsPngSlow",
+      "ph": "X",
+      "pid": 12732,
+      "tdur": 84478,
+      "tid": 7128,
+      "ts": 18081802538,
+      "tts": 58117
+    },
+    {
+      "args": {
+        "data": {
+          "callTime": 18081895042,
+          "navigationId": "4E325638E53AB5FEC838136FC533100D",
+          "sampleTraceId": 5966106515944679,
+          "startTime": 1800.199999999255
+        }
+      },
+      "cat": "blink.user_timing",
+      "name": "w-11-readback-early/page-after-0",
+      "ph": "I",
+      "pid": 15748,
+      "s": "t",
+      "tid": 22552,
+      "ts": 18081895039,
+      "tts": 245279
+    },
+    {
+      "args": {
+        "sync_id": "w-11-readback-early/browser-before-0"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 12732,
+      "tid": 7128,
+      "ts": 18081643893,
+      "tts": 56820
+    },
+    {
+      "args": {
+        "sync_id": "w-11-readback-early/browser-before-1"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 12732,
+      "tid": 7128,
+      "ts": 18081644745,
+      "tts": 56858
+    },
+    {
+      "args": {
+        "sync_id": "w-11-readback-early/browser-after-0"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 12732,
+      "tid": 7128,
+      "ts": 18081891276,
+      "tts": 146115
+    },
+    {
+      "args": {
+        "sync_id": "w-11-readback-early/browser-after-1"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 12732,
+      "tid": 7128,
+      "ts": 18081893246,
+      "tts": 146662
+    },
+    {
+      "args": {},
+      "cat": "viz",
+      "id2": {
+        "local": "0x67"
+      },
+      "name": "CopyOutputRequest",
+      "ph": "b",
+      "pid": 12732,
+      "tid": 7128,
+      "ts": 18081702246
+    },
+    {
+      "args": {
+        "has_provided_task_runner": true,
+        "success": true
+      },
+      "cat": "viz",
+      "id2": {
+        "local": "0x68"
+      },
+      "name": "CopyOutputRequest",
+      "ph": "b",
+      "pid": 19396,
+      "tid": 29132,
+      "ts": 18081702315
+    },
+    {
+      "args": {},
+      "cat": "viz",
+      "id2": {
+        "local": "0x68"
+      },
+      "name": "CopyOutputRequest",
+      "ph": "e",
+      "pid": 19396,
+      "tid": 29132,
+      "ts": 18081795934
+    }
+  ]
+}

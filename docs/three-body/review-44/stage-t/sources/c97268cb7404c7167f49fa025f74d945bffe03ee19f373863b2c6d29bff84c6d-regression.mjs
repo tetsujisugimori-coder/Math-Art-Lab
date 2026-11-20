@@ -1,0 +1,20 @@
+﻿import fs from 'node:fs';import path from 'node:path';import {spawn} from 'node:child_process';
+import {executeNode} from '../../../tools/three-body-stage-q-pipeline.mjs';
+const root='.three-body-evidence/stage-t',dir=root+'/regression';fs.mkdirSync(dir,{recursive:true});const records=[];
+const run=async(name,args)=>{const start=new Date().toISOString();let result;
+if(name.startsWith('gui-')){
+ const out=fs.openSync(dir+'/'+name+'.log','w'),err=fs.openSync(dir+'/'+name+'.stderr.log','w');
+ result=await new Promise(resolve=>{const p=spawn(process.execPath,args,{windowsHide:true,stdio:['ignore',out,err]});p.on('close',(code,signal)=>{fs.closeSync(out);fs.closeSync(err);resolve({code,signal});});});
+}else result=await executeNode(args,dir+'/'+name+'.log');records.push({name,args,start,finish:new Date().toISOString(),...result});fs.writeFileSync(dir+'/processes.json',JSON.stringify(records,null,2));console.log(JSON.stringify(records.at(-1)));};
+process.env.TB_NUMERICAL_BASE='34c4f781d3e02e91a7933f7c9f27553153c199bd';process.env.TB_NUMERICAL_DIR=dir;process.env.TB_NUMERICAL_OUTPUT=dir+'/numerical-reference.json';
+await run('numerical-bitwise',['tools/three-body-review-numerics.mjs']);
+await run('numerical-reference',['--experimental-strip-types','tools/three-body-measure.mjs']);
+await run('unit',['node_modules/vitest/vitest.mjs','run','src']);
+await run('typecheck',['node_modules/typescript/bin/tsc','--noEmit']);
+await run('build-development',['node_modules/vite/bin/vite.js','build','--mode','development','--outDir',root+'/dist-development']);
+await run('build-production',['node_modules/vite/bin/vite.js','build']);
+process.env.TB_EVIDENCE=dir+'/screenshots-development';
+await run('gui-development',['node_modules/@playwright/test/cli.js','test','three-body','--reporter=json','--output='+dir+'/gui-development-output']);
+process.env.TB_EVIDENCE=dir+'/screenshots-production';
+await run('gui-production',['node_modules/@playwright/test/cli.js','test','--config','playwright.production.config.ts','three-body','--reporter=json','--output='+dir+'/gui-production-output']);
+if(records.some(r=>r.code!==0))process.exitCode=1;

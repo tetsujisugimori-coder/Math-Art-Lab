@@ -1,0 +1,107 @@
+{
+  "id": "v-p8-default-off",
+  "plan": {
+    "id": "v-p8-default-off",
+    "kind": "capture",
+    "context": "default",
+    "trace": false,
+    "readback": false,
+    "repeat": 2
+  },
+  "status": "FAIL",
+  "issues": [
+    {
+      "category": "E_SCREENSHOT",
+      "code": "TIMEOUT",
+      "error": "Page.captureScreenshot timeout 5000ms",
+      "at": 49082.0743,
+      "clock": "harness performance.now ms"
+    }
+  ],
+  "request": {
+    "session": {
+      "logicalId": "v-p8-default-off/page",
+      "targetId": "9C150712CF59382B6E491D5A978C51B6",
+      "wireSessionId": "NOT_EXPOSED_BY_PUBLIC_PLAYWRIGHT_API"
+    },
+    "requestId": "v-p8-default-off/primary",
+    "wireRequestId": "NOT_EXPOSED_BY_PUBLIC_PLAYWRIGHT_API",
+    "method": "Page.captureScreenshot",
+    "params": {
+      "format": "png",
+      "fromSurface": true,
+      "clip": {
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 900,
+        "scale": 1
+      },
+      "captureBeyondViewport": false
+    },
+    "start": 44081.6532,
+    "clock": "harness performance.now ms",
+    "timeoutMs": 5000,
+    "response": null,
+    "finished": 49081.8998,
+    "elapsed": 5000.246599999999,
+    "status": "TIMEOUT",
+    "error": {
+      "name": "TimeoutError",
+      "message": "Page.captureScreenshot timeout 5000ms"
+    },
+    "lateReply": "NOT_TESTED_AFTER_DEADLINE"
+  },
+  "timestamps": {
+    "T0": 44081.6532,
+    "T1": null,
+    "T2": null,
+    "T3": null,
+    "T4": null,
+    "T1toT3Status": "NOT_OBTAINED",
+    "deadlineFinished": 49081.8998,
+    "clockT0T4": "harness performance.now ms"
+  },
+  "image": {
+    "acquisition": "NOT_OBTAINED"
+  },
+  "readback": {
+    "contextName": "default",
+    "explicitBeforePrimary": false,
+    "auxiliary": false,
+    "actualCompletedCalls": null
+  },
+  "before": {
+    "step": 30,
+    "bStep": 30,
+    "ab": true,
+    "playing": false,
+    "disposed": false,
+    "timer": false,
+    "raf": false,
+    "trail": 0,
+    "graph": 0,
+    "b": "30",
+    "a": "30",
+    "observed": "30"
+  },
+  "after": {
+    "step": 30,
+    "bStep": 30,
+    "ab": true,
+    "playing": false,
+    "disposed": false,
+    "timer": false,
+    "raf": false,
+    "trail": 0,
+    "graph": 0,
+    "b": "30",
+    "a": "30",
+    "observed": "30"
+  },
+  "trace": {
+    "requested": false,
+    "status": "OFF",
+    "bufferUsage": []
+  }
+}

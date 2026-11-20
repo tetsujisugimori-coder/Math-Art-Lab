@@ -1,0 +1,249 @@
+{
+  "claims": {
+    "version": "ag-static-1",
+    "staticScope": "STATIC_CORRESPONDENCE_ONLY",
+    "runtimeAttribution": "NOT_OBTAINED",
+    "originalBodyTiming": "NOT_OBTAINED",
+    "commonClock": "NOT_OBTAINED",
+    "timeComparison": "NOT_COMPARABLE",
+    "nativeAndOS": "UNKNOWN",
+    "workerRuntime": "NOT_OBTAINED",
+    "rootCause": "UNKNOWN",
+    "performanceImprovement": "NOT_TESTED",
+    "originalStop": "NOT_TESTED",
+    "oldSixOriginals": "NOT_OBTAINED",
+    "wholeHistory": "LOCAL_BACKUP_PARTIAL_ORIGINAL_GAPS",
+    "remoteBackup": "REMOTE_BACKUP_NOT_UPLOADED",
+    "oldW": "BLOCKED",
+    "oldX": "FAIL",
+    "originalTimeoutMs": 5000,
+    "aeSafetyTimeoutMs": 30000
+  },
+  "rows": [
+    {
+      "stage": 1,
+      "name": "discovery/collection",
+      "original": "Vitest src glob and collectTests",
+      "ae": "AST named it extraction only",
+      "relation": "DIFFERENT",
+      "originalSources": [
+        "src/three-body.test.ts",
+        "package.json",
+        "vite.config.ts",
+        "node_modules/@vitest/runner/dist/chunk-hooks.js"
+      ],
+      "aeSources": [
+        "tools/three-body-stage-ae-prepare.mjs"
+      ],
+      "originalExecutor": "Vitest collection/worker/runner; historical effective configuration NOT_OBTAINED",
+      "aeExecutor": "prepare Node process",
+      "originalTiming": "NOT_OBTAINED",
+      "aeTiming": "AST extraction not timed",
+      "evidence": "pinned prepare source plus frozen entry/reference snapshots",
+      "attribution": "POSTHOC_STATIC_ONLY; HISTORICAL_RUNTIME_NOT_OBTAINED"
+    },
+    {
+      "stage": 2,
+      "name": "TS transform/import resolution",
+      "original": "Vitest/Vite module transform",
+      "ae": "esbuild Node24 ESM bundle",
+      "relation": "DIFFERENT",
+      "originalSources": [
+        "src/three-body.test.ts",
+        "package.json",
+        "vite.config.ts",
+        "node_modules/@vitest/runner/dist/chunk-hooks.js"
+      ],
+      "aeSources": [
+        "tools/three-body-stage-ae-prepare.mjs"
+      ],
+      "originalExecutor": "Vitest collection/worker/runner; historical effective configuration NOT_OBTAINED",
+      "aeExecutor": "prepare Node process",
+      "originalTiming": "NOT_OBTAINED",
+      "aeTiming": "esbuild build not timed",
+      "evidence": "pinned prepare source plus frozen entry/reference snapshots",
+      "attribution": "POSTHOC_STATIC_ONLY; HISTORICAL_RUNTIME_NOT_OBTAINED"
+    },
+    {
+      "stage": 3,
+      "name": "module initialization",
+      "original": "Full test imports and modules",
+      "ae": "Bundled subset import in fresh Node",
+      "relation": "DIFFERENT",
+      "originalSources": [
+        "src/three-body.test.ts",
+        "package.json",
+        "vite.config.ts",
+        "node_modules/@vitest/runner/dist/chunk-hooks.js"
+      ],
+      "aeSources": [
+        "tools/three-body-stage-ae-bootstrap.mjs",
+        "tools/three-body-stage-ae-observer.mjs"
+      ],
+      "originalExecutor": "Vitest collection/worker/runner; historical effective configuration NOT_OBTAINED",
+      "aeExecutor": "standalone child Node process",
+      "originalTiming": "NOT_OBTAINED",
+      "aeTiming": "clock before-import to after-import",
+      "evidence": "frozen AE result/clock/manifest/cohort and AF posthoc audit",
+      "attribution": "POSTHOC_STATIC_ONLY; HISTORICAL_RUNTIME_NOT_OBTAINED"
+    },
+    {
+      "stage": 4,
+      "name": "describe/it registration",
+      "original": "Vitest task registration",
+      "ae": "No describe/it tasks",
+      "relation": "DIFFERENT",
+      "originalSources": [
+        "src/three-body.test.ts",
+        "package.json",
+        "vite.config.ts",
+        "node_modules/@vitest/runner/dist/chunk-hooks.js"
+      ],
+      "aeSources": [
+        "tools/three-body-stage-ae-bootstrap.mjs",
+        "tools/three-body-stage-ae-observer.mjs"
+      ],
+      "originalExecutor": "Vitest collection/worker/runner; historical effective configuration NOT_OBTAINED",
+      "aeExecutor": "standalone child Node process",
+      "originalTiming": "NOT_OBTAINED",
+      "aeTiming": "registration absent",
+      "evidence": "frozen AE result/clock/manifest/cohort and AF posthoc audit",
+      "attribution": "POSTHOC_STATIC_ONLY; HISTORICAL_RUNTIME_NOT_OBTAINED"
+    },
+    {
+      "stage": 5,
+      "name": "setup/hooks/worker",
+      "original": "Vitest worker/fixtures/setup lifecycle",
+      "ae": "Standalone bootstrap; adapter state init",
+      "relation": "DIFFERENT",
+      "originalSources": [
+        "src/three-body.test.ts",
+        "package.json",
+        "vite.config.ts",
+        "node_modules/@vitest/runner/dist/chunk-hooks.js"
+      ],
+      "aeSources": [
+        "tools/three-body-stage-ae-bootstrap.mjs",
+        "tools/three-body-stage-ae-observer.mjs"
+      ],
+      "originalExecutor": "Vitest collection/worker/runner; historical effective configuration NOT_OBTAINED",
+      "aeExecutor": "standalone child Node process",
+      "originalTiming": "NOT_OBTAINED",
+      "aeTiming": "adapter module initialization inside import; other setup NOT_OBTAINED",
+      "evidence": "frozen AE result/clock/manifest/cohort and AF posthoc audit",
+      "attribution": "POSTHOC_STATIC_ONLY; HISTORICAL_RUNTIME_NOT_OBTAINED"
+    },
+    {
+      "stage": 6,
+      "name": "test body",
+      "original": "Target callback statements",
+      "ae": "Same statements in IIFE plus return {p,max}",
+      "relation": "STATIC_MATCH",
+      "originalSources": [
+        "src/three-body.test.ts",
+        "package.json",
+        "vite.config.ts",
+        "node_modules/@vitest/runner/dist/chunk-hooks.js"
+      ],
+      "aeSources": [
+        "tools/three-body-stage-ae-bootstrap.mjs",
+        "tools/three-body-stage-ae-observer.mjs"
+      ],
+      "originalExecutor": "Vitest collection/worker/runner; historical effective configuration NOT_OBTAINED",
+      "aeExecutor": "standalone child Node process",
+      "originalTiming": "NOT_OBTAINED",
+      "aeTiming": "start.at to end.at body envelope",
+      "evidence": "frozen AE result/clock/manifest/cohort and AF posthoc audit",
+      "attribution": "POSTHOC_STATIC_ONLY; HISTORICAL_RUNTIME_NOT_OBTAINED"
+    },
+    {
+      "stage": 7,
+      "name": "Verlet/energy/RK4/RMS",
+      "original": "Production functions and reference",
+      "ae": "Delegating wrappers; hash/counters and two RK4 counters",
+      "relation": "STATIC_MATCH_WITH_INSTRUMENTATION",
+      "originalSources": [
+        "src/three-body.test.ts",
+        "src/three-body.ts",
+        "tools/three-body-reference.ts"
+      ],
+      "aeSources": [
+        "tools/three-body-stage-ae-bootstrap.mjs",
+        "tools/three-body-stage-ae-observer.mjs"
+      ],
+      "originalExecutor": "Vitest collection/worker/runner; historical effective configuration NOT_OBTAINED",
+      "aeExecutor": "standalone child Node process",
+      "originalTiming": "NOT_OBTAINED",
+      "aeTiming": "ON category wall ms/process and thread CPU us; OFF NOT_OBTAINED_TIMING_OFF",
+      "evidence": "frozen AE result/clock/manifest/cohort and AF posthoc audit",
+      "attribution": "POSTHOC_STATIC_ONLY; HISTORICAL_RUNTIME_NOT_OBTAINED"
+    },
+    {
+      "stage": 8,
+      "name": "assertion/matcher",
+      "original": "Vitest expect with test context",
+      "ae": "Installed Chai/Vitest plugins via diagnostic adapter; toBeNull/toBeLessThan only",
+      "relation": "DIFFERENT",
+      "originalSources": [
+        "src/three-body.test.ts",
+        "node_modules/@vitest/runner/dist/chunk-hooks.js"
+      ],
+      "aeSources": [
+        "tools/three-body-stage-ae-bootstrap.mjs",
+        "tools/three-body-stage-ae-observer.mjs",
+        "tools/three-body-stage-ae-expect.mjs"
+      ],
+      "originalExecutor": "Vitest collection/worker/runner; historical effective configuration NOT_OBTAINED",
+      "aeExecutor": "standalone child Node process",
+      "originalTiming": "NOT_OBTAINED",
+      "aeTiming": "expect construction and two matchers; counter/hash overhead differs",
+      "evidence": "frozen AE result/clock/manifest/cohort and AF posthoc audit",
+      "attribution": "POSTHOC_STATIC_ONLY; HISTORICAL_RUNTIME_NOT_OBTAINED"
+    },
+    {
+      "stage": 9,
+      "name": "cleanup/report",
+      "original": "Vitest hooks/task aggregation/report",
+      "ae": "Telemetry serialization, result/clock files and parent checkpoint",
+      "relation": "DIFFERENT",
+      "originalSources": [
+        "src/three-body.test.ts",
+        "package.json",
+        "vite.config.ts",
+        "node_modules/@vitest/runner/dist/chunk-hooks.js"
+      ],
+      "aeSources": [
+        "tools/three-body-stage-ae-bootstrap.mjs",
+        "tools/three-body-stage-ae-observer.mjs"
+      ],
+      "originalExecutor": "Vitest collection/worker/runner; historical effective configuration NOT_OBTAINED",
+      "aeExecutor": "standalone child Node process",
+      "originalTiming": "NOT_OBTAINED",
+      "aeTiming": "after-body to result-saved covers serialization/save; remaining cleanup NOT_OBTAINED",
+      "evidence": "frozen AE result/clock/manifest/cohort and AF posthoc audit",
+      "attribution": "POSTHOC_STATIC_ONLY; HISTORICAL_RUNTIME_NOT_OBTAINED"
+    },
+    {
+      "stage": 10,
+      "name": "timeout/termination",
+      "original": "Vitest 5000ms test deadline",
+      "ae": "spawnSync 30000ms parent safety bound",
+      "relation": "DIFFERENT",
+      "originalSources": [
+        "src/three-body.test.ts",
+        "package.json",
+        "vite.config.ts",
+        "node_modules/@vitest/runner/dist/chunk-hooks.js"
+      ],
+      "aeSources": [
+        "tools/three-body-stage-ae-run.mjs"
+      ],
+      "originalExecutor": "Vitest collection/worker/runner; historical effective configuration NOT_OBTAINED",
+      "aeExecutor": "parent Node spawnSync",
+      "originalTiming": "NOT_OBTAINED",
+      "aeTiming": "parent spawnSync 30000ms safety; parent performance.now interval",
+      "evidence": "frozen AE result/clock/manifest/cohort and AF posthoc audit",
+      "attribution": "POSTHOC_STATIC_ONLY; HISTORICAL_RUNTIME_NOT_OBTAINED"
+    }
+  ]
+}

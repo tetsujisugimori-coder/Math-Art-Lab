@@ -1,0 +1,1 @@
+export function nodeCommand(script,args=[]){const quote=s=>{if(typeof s!=='string'||/["\r\n\0%&|<>^]/.test(s))throw Error('UNSAFE_SHELL_ARGUMENT');return '"'+s+'"';};return[process.execPath,script,...args].map(quote).join(' ');}

@@ -1,0 +1,5 @@
+# Evidence preservation
+
+Complete Stage W raw, all8 local traces,6 normal and4 late PNG bytes, full RGBA difference positions/masks, source snapshots/Git relationships, RED/first failures/GREEN, independent Python audit, numerical/GUI raw, pinned sources, final CI ZIPs/IDs/digests/expires_at are kept in isolated Stage W roots. Public review copies are projected/anonymized and indexed, not replacements for originals.
+
+Approved Windows archive gets a new stage-w folder; prior P–V folders/history are immutable. Before copying inventory and capacity are checked, collisions stop rather than overwrite. Original and destination file sets/sizes/SHA are reread, followed by a separate-process verification. LOCAL_BACKUP_VERIFIED is conditional on that actual final receipt; final counts/collection/manifest SHA and real artifact metadata are posted on Issue43/PR44. Remote complete replication remains REMOTE_BACKUP_NOT_UPLOADED. Artifact expires_at is the real API value, not a permanence guarantee. No private absolute paths in public GitHub text.

@@ -1,0 +1,239 @@
+{
+  "id": "v-p6-default-on",
+  "originalTraceSha256": "2d967ba7c7107cb9d7e777278de6df3e6607cc866760c16d61d0204c1286249c",
+  "traceBytes": 111862,
+  "selection": "Named scopes/own markers only; absence here is not absence in the full trace. No endpoint assignment from event names.",
+  "events": [
+    {
+      "args": {
+        "data": {
+          "callTime": 5240768373,
+          "navigationId": "14242EA302E53B213E6CCD9F0D5BBD57",
+          "sampleTraceId": 7444939566547178,
+          "startTime": 1527.9000000003725
+        }
+      },
+      "cat": "blink.user_timing",
+      "name": "v-p6-default-on/page-before-0",
+      "ph": "I",
+      "pid": 24520,
+      "s": "t",
+      "tid": 18792,
+      "ts": 5240768359,
+      "tts": 141196
+    },
+    {
+      "args": {
+        "call_id": 37,
+        "method": "Page.captureScreenshot"
+      },
+      "cat": "devtools",
+      "dur": 294,
+      "name": "DevToolsSession::HandleCommand in Browser",
+      "ph": "X",
+      "pid": 19720,
+      "tdur": 289,
+      "tid": 29360,
+      "ts": 5240770100,
+      "tts": 60868
+    },
+    {
+      "args": {},
+      "cat": "viz",
+      "dur": 12109,
+      "name": "SkiaOutputSurfaceImplOnGpu::CopyOutput",
+      "ph": "X",
+      "pid": 16656,
+      "tdur": 12087,
+      "tid": 9584,
+      "ts": 5240793508,
+      "tts": 179331
+    },
+    {
+      "args": {
+        "data": {
+          "callTime": 5245802559,
+          "navigationId": "14242EA302E53B213E6CCD9F0D5BBD57",
+          "sampleTraceId": 7444939566547163,
+          "startTime": 6562
+        }
+      },
+      "cat": "blink.user_timing",
+      "name": "v-p6-default-on/page-after-0",
+      "ph": "I",
+      "pid": 24520,
+      "s": "t",
+      "tid": 18792,
+      "ts": 5245802552,
+      "tts": 146309
+    },
+    {
+      "args": {
+        "sync_id": "v-p6-default-on/browser-before-0"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 19720,
+      "tid": 29360,
+      "ts": 5240769149,
+      "tts": 60743
+    },
+    {
+      "args": {
+        "sync_id": "v-p6-default-on/browser-before-1"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 19720,
+      "tid": 29360,
+      "ts": 5240769625,
+      "tts": 60812
+    },
+    {
+      "args": {
+        "sync_id": "v-p6-default-on/browser-after-0"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 19720,
+      "tid": 29360,
+      "ts": 5245782272,
+      "tts": 68113
+    },
+    {
+      "args": {
+        "sync_id": "v-p6-default-on/browser-after-1"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 19720,
+      "tid": 29360,
+      "ts": 5245798387,
+      "tts": 68387
+    },
+    {
+      "args": {},
+      "cat": "viz",
+      "id2": {
+        "local": "0x2c"
+      },
+      "name": "CopyOutputRequest",
+      "ph": "b",
+      "pid": 19720,
+      "tid": 29360,
+      "ts": 5240770341
+    },
+    {
+      "args": {},
+      "cat": "viz",
+      "id2": {
+        "local": "0x32"
+      },
+      "name": "CopyOutputRequest",
+      "ph": "b",
+      "pid": 16656,
+      "tid": 28636,
+      "ts": 5240770600
+    }
+  ],
+  "selectedCount": 10,
+  "clock": {
+    "status": "BRACKETED",
+    "mainPid": 24520,
+    "mainTid": 18792,
+    "browserPid": 19720,
+    "browserTid": 29360,
+    "anchors": [
+      {
+        "name": "v-p6-default-on/page-before-0",
+        "kind": "page",
+        "phase": "before",
+        "begin": 31305.8891,
+        "end": 31306.9617,
+        "status": "PASS",
+        "pid": 24520,
+        "tid": 18792,
+        "traceMs": 5240768.359,
+        "low": 5209461.3973,
+        "high": 5209462.4699
+      },
+      {
+        "name": "v-p6-default-on/browser-before-0",
+        "kind": "browser",
+        "phase": "before",
+        "begin": 31306.9935,
+        "end": 31307.5272,
+        "status": "PASS",
+        "pid": 19720,
+        "tid": 29360,
+        "traceMs": 5240769.149,
+        "low": 5209461.6218,
+        "high": 5209462.1555
+      },
+      {
+        "name": "v-p6-default-on/browser-before-1",
+        "kind": "browser",
+        "phase": "before",
+        "begin": 31307.54,
+        "end": 31307.9809,
+        "status": "PASS",
+        "pid": 19720,
+        "tid": 29360,
+        "traceMs": 5240769.625,
+        "low": 5209461.6441,
+        "high": 5209462.085
+      },
+      {
+        "name": "v-p6-default-on/browser-after-0",
+        "kind": "browser",
+        "phase": "after",
+        "begin": 36319.0675,
+        "end": 36321.329,
+        "status": "PASS",
+        "pid": 19720,
+        "tid": 29360,
+        "traceMs": 5245782.272,
+        "low": 5209460.943,
+        "high": 5209463.2045
+      },
+      {
+        "name": "v-p6-default-on/browser-after-1",
+        "kind": "browser",
+        "phase": "after",
+        "begin": 36321.402,
+        "end": 36337.4131,
+        "status": "PASS",
+        "pid": 19720,
+        "tid": 29360,
+        "traceMs": 5245798.387,
+        "low": 5209460.973900001,
+        "high": 5209476.985
+      },
+      {
+        "name": "v-p6-default-on/page-after-0",
+        "kind": "page",
+        "phase": "after",
+        "begin": 36337.5078,
+        "end": 36495.0717,
+        "status": "PASS",
+        "pid": 24520,
+        "tid": 18792,
+        "traceMs": 5245802.552,
+        "low": 5209307.4803,
+        "high": 5209465.0442
+      }
+    ],
+    "errors": [],
+    "offsetLow": 5209461.6441,
+    "offsetHigh": 5209462.085,
+    "uncertaintyMs": 0.22044999990612268,
+    "domain": "Chrome trace TimeTicks microseconds -> harness performance.now milliseconds via observed marker brackets",
+    "cpuTimeDomain": "tts/tdur are per-thread CPU microseconds when present; never subtracted into a named wait",
+    "crossProcessAssumption": "Chrome integrated trace ts clock; no independent kernel clock calibration",
+    "accuracyGuaranteed": false
+  }
+}

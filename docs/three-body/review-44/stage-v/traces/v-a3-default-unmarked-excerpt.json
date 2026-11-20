@@ -1,0 +1,314 @@
+{
+  "id": "v-a3-default-unmarked",
+  "originalTraceSha256": "b83ddc30af1fa8af3e9a5cdb2170bb82fcc9e89ef363cd8e8405761ac0d8c800",
+  "traceBytes": 59151,
+  "selection": "Named scopes/own markers only; absence here is not absence in the full trace. No endpoint assignment from event names.",
+  "events": [
+    {
+      "args": {
+        "data": {
+          "callTime": 5273733959,
+          "navigationId": "70036B4139E680459480224352A0967C",
+          "sampleTraceId": 6764087177464405,
+          "startTime": 1497
+        }
+      },
+      "cat": "blink.user_timing",
+      "name": "v-a3-default-unmarked/page-before-0",
+      "ph": "I",
+      "pid": 13712,
+      "s": "t",
+      "tid": 1840,
+      "ts": 5273733932,
+      "tts": 138504
+    },
+    {
+      "args": {},
+      "cat": "gpu",
+      "dur": 6461790,
+      "name": "RasterImplementation::ReadbackImagePixels",
+      "ph": "X",
+      "pid": 13712,
+      "tdur": 3715,
+      "tid": 1840,
+      "ts": 5273736216,
+      "tts": 139031
+    },
+    {
+      "args": {},
+      "cat": "gpu",
+      "dur": 6458099,
+      "name": "ImplementationBase::WaitForCmd",
+      "ph": "X",
+      "pid": 13712,
+      "tdur": 150,
+      "tid": 1840,
+      "ts": 5273736313,
+      "tts": 139127
+    },
+    {
+      "args": {},
+      "cat": "gpu",
+      "dur": 6458093,
+      "name": "CommandBufferHelper::Finish",
+      "ph": "X",
+      "pid": 13712,
+      "tdur": 146,
+      "tid": 1840,
+      "ts": 5273736316,
+      "tts": 139129
+    },
+    {
+      "args": {
+        "end": 2035,
+        "start": 2035
+      },
+      "cat": "gpu",
+      "dur": 6458027,
+      "name": "CommandBufferProxyImpl::WaitForGetOffset",
+      "ph": "X",
+      "pid": 13712,
+      "tdur": 119,
+      "tid": 1840,
+      "ts": 5273736344,
+      "tts": 139152
+    },
+    {
+      "args": {},
+      "cat": "gpu",
+      "dur": 6457144,
+      "name": "RasterDecoderImpl::DoReadbackARGBImagePixelsINTERNAL",
+      "ph": "X",
+      "pid": 28212,
+      "tdur": 18247,
+      "tid": 29588,
+      "ts": 5273736695,
+      "tts": 179846
+    },
+    {
+      "args": {},
+      "cat": "gpu",
+      "dur": 15059,
+      "name": "RasterImplementation::ReadbackImagePixels",
+      "ph": "X",
+      "pid": 13712,
+      "tdur": 3709,
+      "tid": 1840,
+      "ts": 5280198420,
+      "tts": 143154
+    },
+    {
+      "args": {},
+      "cat": "gpu",
+      "dur": 11499,
+      "name": "ImplementationBase::WaitForCmd",
+      "ph": "X",
+      "pid": 13712,
+      "tdur": 163,
+      "tid": 1840,
+      "ts": 5280198639,
+      "tts": 143371
+    },
+    {
+      "args": {},
+      "cat": "gpu",
+      "dur": 11489,
+      "name": "CommandBufferHelper::Finish",
+      "ph": "X",
+      "pid": 13712,
+      "tdur": 156,
+      "tid": 1840,
+      "ts": 5280198647,
+      "tts": 143376
+    },
+    {
+      "args": {
+        "end": 2054,
+        "start": 2054
+      },
+      "cat": "gpu",
+      "dur": 11419,
+      "name": "CommandBufferProxyImpl::WaitForGetOffset",
+      "ph": "X",
+      "pid": 13712,
+      "tdur": 99,
+      "tid": 1840,
+      "ts": 5280198707,
+      "tts": 143429
+    },
+    {
+      "args": {},
+      "cat": "gpu",
+      "dur": 10418,
+      "name": "RasterDecoderImpl::DoReadbackARGBImagePixelsINTERNAL",
+      "ph": "X",
+      "pid": 28212,
+      "tdur": 3722,
+      "tid": 29588,
+      "ts": 5280199367,
+      "tts": 200932
+    },
+    {
+      "args": {
+        "data": {
+          "callTime": 5280215129,
+          "navigationId": "70036B4139E680459480224352A0967C",
+          "sampleTraceId": 6764087177464389,
+          "startTime": 7978.200000000186
+        }
+      },
+      "cat": "blink.user_timing",
+      "name": "v-a3-default-unmarked/page-after-0",
+      "ph": "I",
+      "pid": 13712,
+      "s": "t",
+      "tid": 1840,
+      "ts": 5280215123,
+      "tts": 148312
+    },
+    {
+      "args": {
+        "sync_id": "v-a3-default-unmarked/browser-before-0"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 24648,
+      "tid": 29600,
+      "ts": 5273734855,
+      "tts": 58886
+    },
+    {
+      "args": {
+        "sync_id": "v-a3-default-unmarked/browser-before-1"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 24648,
+      "tid": 29600,
+      "ts": 5273735301,
+      "tts": 58951
+    },
+    {
+      "args": {
+        "sync_id": "v-a3-default-unmarked/browser-after-0"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 24648,
+      "tid": 29600,
+      "ts": 5279070969,
+      "tts": 61972
+    },
+    {
+      "args": {
+        "sync_id": "v-a3-default-unmarked/browser-after-1"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 24648,
+      "tid": 29600,
+      "ts": 5279462463,
+      "tts": 62399
+    }
+  ],
+  "selectedCount": 16,
+  "clock": {
+    "status": "BRACKETED",
+    "mainPid": 13712,
+    "mainTid": 1840,
+    "browserPid": 24648,
+    "browserTid": 29600,
+    "anchors": [
+      {
+        "name": "v-a3-default-unmarked/page-before-0",
+        "kind": "page",
+        "phase": "before",
+        "begin": 64271.2847,
+        "end": 64272.6606,
+        "status": "PASS",
+        "pid": 13712,
+        "tid": 1840,
+        "traceMs": 5273733.932,
+        "low": 5209461.2714,
+        "high": 5209462.6473
+      },
+      {
+        "name": "v-a3-default-unmarked/browser-before-0",
+        "kind": "browser",
+        "phase": "before",
+        "begin": 64272.6878,
+        "end": 64273.2176,
+        "status": "PASS",
+        "pid": 24648,
+        "tid": 29600,
+        "traceMs": 5273734.855,
+        "low": 5209461.6374,
+        "high": 5209462.1672
+      },
+      {
+        "name": "v-a3-default-unmarked/browser-before-1",
+        "kind": "browser",
+        "phase": "before",
+        "begin": 64273.229,
+        "end": 64273.6373,
+        "status": "PASS",
+        "pid": 24648,
+        "tid": 29600,
+        "traceMs": 5273735.301,
+        "low": 5209461.6637,
+        "high": 5209462.072
+      },
+      {
+        "name": "v-a3-default-unmarked/browser-after-0",
+        "kind": "browser",
+        "phase": "after",
+        "begin": 69404.7705,
+        "end": 69814.4754,
+        "status": "PASS",
+        "pid": 24648,
+        "tid": 29600,
+        "traceMs": 5279070.969,
+        "low": 5209256.4936,
+        "high": 5209666.1985
+      },
+      {
+        "name": "v-a3-default-unmarked/browser-after-1",
+        "kind": "browser",
+        "phase": "after",
+        "begin": 69814.5483,
+        "end": 70394.3501,
+        "status": "PASS",
+        "pid": 24648,
+        "tid": 29600,
+        "traceMs": 5279462.463,
+        "low": 5209068.1129,
+        "high": 5209647.914700001
+      },
+      {
+        "name": "v-a3-default-unmarked/page-after-0",
+        "kind": "page",
+        "phase": "after",
+        "begin": 70400.0506,
+        "end": 70754.2997,
+        "status": "PASS",
+        "pid": 13712,
+        "tid": 1840,
+        "traceMs": 5280215.123,
+        "low": 5209460.823299999,
+        "high": 5209815.0724
+      }
+    ],
+    "errors": [],
+    "offsetLow": 5209461.6637,
+    "offsetHigh": 5209462.072,
+    "uncertaintyMs": 0.20414999965578318,
+    "domain": "Chrome trace TimeTicks microseconds -> harness performance.now milliseconds via observed marker brackets",
+    "cpuTimeDomain": "tts/tdur are per-thread CPU microseconds when present; never subtracted into a named wait",
+    "crossProcessAssumption": "Chrome integrated trace ts clock; no independent kernel clock calibration",
+    "accuracyGuaranteed": false
+  }
+}

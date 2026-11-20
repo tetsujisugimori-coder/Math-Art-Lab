@@ -1,0 +1,290 @@
+{
+  "id": "v-p2-readback-on",
+  "originalTraceSha256": "b5cb767d369a897b943d2a40434c37e90fcbd9cebf8822fd45a3b6be2843804d",
+  "traceBytes": 88498,
+  "selection": "Named scopes/own markers only; absence here is not absence in the full trace. No endpoint assignment from event names.",
+  "events": [
+    {
+      "args": {
+        "data": {
+          "callTime": 5222896471,
+          "navigationId": "BC280D7A7C2EE786333FE5722A20650E",
+          "sampleTraceId": 62662216531675,
+          "startTime": 1533.2000000001863
+        }
+      },
+      "cat": "blink.user_timing",
+      "name": "v-p2-readback-on/page-before-0",
+      "ph": "I",
+      "pid": 5188,
+      "s": "t",
+      "tid": 16832,
+      "ts": 5222896454,
+      "tts": 248771
+    },
+    {
+      "args": {
+        "call_id": 37,
+        "method": "Page.captureScreenshot"
+      },
+      "cat": "devtools",
+      "dur": 186,
+      "name": "DevToolsSession::HandleCommand in Browser",
+      "ph": "X",
+      "pid": 13032,
+      "tdur": 181,
+      "tid": 10236,
+      "ts": 5222900752,
+      "tts": 54709
+    },
+    {
+      "args": {},
+      "cat": "viz",
+      "dur": 6198,
+      "name": "SkiaOutputSurfaceImplOnGpu::CopyOutput",
+      "ph": "X",
+      "pid": 18860,
+      "tdur": 6184,
+      "tid": 18084,
+      "ts": 5222926616,
+      "tts": 130975
+    },
+    {
+      "args": {},
+      "cat": "viz",
+      "dur": 6722,
+      "name": "viz::mojom::CopyOutputResultSender::SendResult",
+      "ph": "X",
+      "pid": 18860,
+      "tdur": 6618,
+      "tid": 19684,
+      "ts": 5223004263,
+      "tts": 13226
+    },
+    {
+      "args": {},
+      "cat": "viz",
+      "dur": 20,
+      "name": "CopyOutputResultSenderImpl::SendResult",
+      "ph": "X",
+      "pid": 13032,
+      "tdur": 20,
+      "tid": 25916,
+      "ts": 5223011189,
+      "tts": 11880
+    },
+    {
+      "args": {},
+      "cat": "devtools",
+      "dur": 82279,
+      "name": "EncodeBitmapAsPngSlow",
+      "ph": "X",
+      "pid": 13032,
+      "tdur": 81982,
+      "tid": 10236,
+      "ts": 5223011400,
+      "tts": 56362
+    },
+    {
+      "args": {
+        "data": {
+          "callTime": 5223101790,
+          "navigationId": "BC280D7A7C2EE786333FE5722A20650E",
+          "sampleTraceId": 62662216530176,
+          "startTime": 1738.5
+        }
+      },
+      "cat": "blink.user_timing",
+      "name": "v-p2-readback-on/page-after-0",
+      "ph": "I",
+      "pid": 5188,
+      "s": "t",
+      "tid": 16832,
+      "ts": 5223101788,
+      "tts": 250521
+    },
+    {
+      "args": {
+        "sync_id": "v-p2-readback-on/browser-before-0"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 13032,
+      "tid": 10236,
+      "ts": 5222898193,
+      "tts": 54570
+    },
+    {
+      "args": {
+        "sync_id": "v-p2-readback-on/browser-before-1"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 13032,
+      "tid": 10236,
+      "ts": 5222899574,
+      "tts": 54682
+    },
+    {
+      "args": {
+        "sync_id": "v-p2-readback-on/browser-after-0"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 13032,
+      "tid": 10236,
+      "ts": 5223098358,
+      "tts": 141688
+    },
+    {
+      "args": {
+        "sync_id": "v-p2-readback-on/browser-after-1"
+      },
+      "cat": "__metadata",
+      "name": "clock_sync",
+      "ph": "c",
+      "pid": 13032,
+      "tid": 10236,
+      "ts": 5223099948,
+      "tts": 141733
+    },
+    {
+      "args": {},
+      "cat": "viz",
+      "id2": {
+        "local": "0x2a"
+      },
+      "name": "CopyOutputRequest",
+      "ph": "b",
+      "pid": 13032,
+      "tid": 10236,
+      "ts": 5222900908
+    },
+    {
+      "args": {
+        "has_provided_task_runner": true,
+        "success": true
+      },
+      "cat": "viz",
+      "id2": {
+        "local": "0x32"
+      },
+      "name": "CopyOutputRequest",
+      "ph": "b",
+      "pid": 18860,
+      "tid": 2212,
+      "ts": 5222901512
+    },
+    {
+      "args": {},
+      "cat": "viz",
+      "id2": {
+        "local": "0x32"
+      },
+      "name": "CopyOutputRequest",
+      "ph": "e",
+      "pid": 18860,
+      "tid": 2212,
+      "ts": 5223004058
+    }
+  ],
+  "selectedCount": 14,
+  "clock": {
+    "status": "BRACKETED",
+    "mainPid": 5188,
+    "mainTid": 16832,
+    "browserPid": 13032,
+    "browserTid": 10236,
+    "anchors": [
+      {
+        "name": "v-p2-readback-on/page-before-0",
+        "kind": "page",
+        "phase": "before",
+        "begin": 13433.1407,
+        "end": 13435.2877,
+        "status": "PASS",
+        "pid": 5188,
+        "tid": 16832,
+        "traceMs": 5222896.454,
+        "low": 5209461.1663,
+        "high": 5209463.3133
+      },
+      {
+        "name": "v-p2-readback-on/browser-before-0",
+        "kind": "browser",
+        "phase": "before",
+        "begin": 13435.4296,
+        "end": 13436.9334,
+        "status": "PASS",
+        "pid": 13032,
+        "tid": 10236,
+        "traceMs": 5222898.193,
+        "low": 5209461.2595999995,
+        "high": 5209462.7634
+      },
+      {
+        "name": "v-p2-readback-on/browser-before-1",
+        "kind": "browser",
+        "phase": "before",
+        "begin": 13437.0132,
+        "end": 13438.1516,
+        "status": "PASS",
+        "pid": 13032,
+        "tid": 10236,
+        "traceMs": 5222899.574,
+        "low": 5209461.4224,
+        "high": 5209462.5608
+      },
+      {
+        "name": "v-p2-readback-on/browser-after-0",
+        "kind": "browser",
+        "phase": "after",
+        "begin": 13635.5051,
+        "end": 13636.9604,
+        "status": "PASS",
+        "pid": 13032,
+        "tid": 10236,
+        "traceMs": 5223098.358,
+        "low": 5209461.3976,
+        "high": 5209462.8529
+      },
+      {
+        "name": "v-p2-readback-on/browser-after-1",
+        "kind": "browser",
+        "phase": "after",
+        "begin": 13637.0317,
+        "end": 13638.5794,
+        "status": "PASS",
+        "pid": 13032,
+        "tid": 10236,
+        "traceMs": 5223099.948,
+        "low": 5209461.3686,
+        "high": 5209462.9163
+      },
+      {
+        "name": "v-p2-readback-on/page-after-0",
+        "kind": "page",
+        "phase": "after",
+        "begin": 13638.6566,
+        "end": 13640.5051,
+        "status": "PASS",
+        "pid": 5188,
+        "tid": 16832,
+        "traceMs": 5223101.788,
+        "low": 5209461.2829,
+        "high": 5209463.131399999
+      }
+    ],
+    "errors": [],
+    "offsetLow": 5209461.4224,
+    "offsetHigh": 5209462.5608,
+    "uncertaintyMs": 0.5692000002600253,
+    "domain": "Chrome trace TimeTicks microseconds -> harness performance.now milliseconds via observed marker brackets",
+    "cpuTimeDomain": "tts/tdur are per-thread CPU microseconds when present; never subtracted into a named wait",
+    "crossProcessAssumption": "Chrome integrated trace ts clock; no independent kernel clock calibration",
+    "accuracyGuaranteed": false
+  }
+}

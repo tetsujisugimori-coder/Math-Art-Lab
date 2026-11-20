@@ -1,0 +1,67 @@
+{
+  "label": "readback-long",
+  "revision": "working-tree",
+  "environment": {
+    "node": "v24.20.0",
+    "os": "win32",
+    "release": "10.0.26300",
+    "cpu": "Intel(R) Core(TM) i7-14650HX",
+    "totalMemory": 16869351424,
+    "freeMemory": 1167978496
+  },
+  "runs": 0,
+  "errors": 0,
+  "originalStopErrors": 0,
+  "stopRepair": null,
+  "note": "High-frequency per-call distributions use deterministic 1/32 sampling; maxAllCalls/count/total include every call. Nested intervals overlap. Host latency includes driver/transport/frame wait. Synthetic event queue time does not measure native hidden-tab delivery. Worker queueDelay measures independent request to main-thread message handling.",
+  "groups": [],
+  "stops": [],
+  "live": [
+    {
+      "browser": "chromium",
+      "condition": "full",
+      "runs": 1,
+      "errors": [],
+      "queueDelay": {
+        "samples": 1,
+        "median": 27.60009765625,
+        "p95": 27.60009765625,
+        "max": 27.60009765625
+      },
+      "steps": {
+        "samples": 1,
+        "median": 164863,
+        "p95": 164863,
+        "max": 164863
+      },
+      "postStopExtraSteps": [
+        0
+      ],
+      "maxPaint": 433.5,
+      "maxCalculate": 432.5
+    },
+    {
+      "browser": "webkit",
+      "condition": "full",
+      "runs": 1,
+      "errors": [],
+      "queueDelay": {
+        "samples": 1,
+        "median": 10,
+        "p95": 10,
+        "max": 10
+      },
+      "steps": {
+        "samples": 1,
+        "median": 239823,
+        "p95": 239823,
+        "max": 239823
+      },
+      "postStopExtraSteps": [
+        0
+      ],
+      "maxPaint": 26.000000000007276,
+      "maxCalculate": 14
+    }
+  ]
+}

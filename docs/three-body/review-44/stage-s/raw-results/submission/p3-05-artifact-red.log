@@ -1,0 +1,62 @@
+
+ RUN  v3.2.7 C:/Users/tetsu/.codex/worktrees/da2c/Math-Art-Lab
+
+ ❯ src/three-body-stage-q-pipeline.test.js (32 tests | 1 failed | 31 skipped) 19ms
+   ↓ legacy screenshot errors retain E classification without inventing a physics failure
+   ↓ screenshot failure preserves complete run evidence and permits the next independent suite
+   ↓ mandatory environment failure blocks later suites without attempting their child process
+   ↓ corrupted raw evidence blocks downstream acquisition
+   ↓ missing run summaries are evidence failures even when the child exited successfully
+   ↓ absent suites report NOT_TESTED and preserve the planned count
+   ↓ analysis separately reports baseline mismatch and observational budget excess
+   ↓ artifact index records partial completeness and detects byte changes
+   ↓ actual nonzero child exit is retained in a readable log
+   ↓ retrying a completed suite cannot overwrite its recorded result
+   ↓ dedicated sender has a separate PID and retains scheduled and actual send times
+   ↓ finalization retains a nonzero child exit when recovered raw data all pass
+   ↓ finalization retains checker failure independently of raw acceptance
+   ↓ unfinished manifest and run status disagreement cannot be accepted as full evidence
+   ↓ analysis row duplication is detected even when the row count matches
+   ↓ sender delivery errors produce FAIL while retaining actual request timestamps
+   ↓ existing analysis files cannot substitute for unfinished checker execution
+   ↓ CDP metrics preparation is included in the five second capture deadline
+   ↓ P3-05: corrupt summary.json cannot report analysis acquired
+   ↓ P3-05: corrupt raw-index.json cannot report analysis acquired
+   ↓ P3-05: healthy evidence distinguishes acquisition, process completion, success and verification
+   ↓ P3-05: missing summary retains the remaining raw index availability
+   ↓ P3-05: parseable but invalid summary.json schema cannot be acquired as analysis
+   ↓ P3-05: parseable but invalid raw-index.json schema cannot be acquired as analysis
+   ↓ P3-05: readable duplicate run set is acquired but not verified
+   ↓ P3-05: readable missing run set is acquired but not verified
+   ↓ P3-05: abnormal report exit is completed but unsuccessful with complete readable evidence
+   ↓ P3-05: abnormal check exit is completed but unsuccessful with complete readable evidence
+   ↓ P3-05: interrupted report process cannot imply completed analysis
+   ↓ P3-05: inconsistent process status cannot override an abnormal exit code
+   ↓ P3-05: artifact byte change during finalization persists failed completeness
+   × P3-05: unreadable artifact index cannot leave a PASS manifest 19ms
+     → expected 'PASS' to be 'FAIL' // Object.is equality
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/three-body-stage-q-pipeline.test.js > P3-05: unreadable artifact index cannot leave a PASS manifest
+AssertionError: expected 'PASS' to be 'FAIL' // Object.is equality
+
+Expected: "FAIL"
+Received: "PASS"
+
+ ❯ src/three-body-stage-q-pipeline.test.js:342:27
+    340|   });
+    341|   try { expect(() => finalize(manifest, root)).toThrow(); } finally { …
+    342|   expect(manifest.status).toBe('FAIL');
+       |                           ^
+    343|   expect(manifest.completeness.evidenceComplete).toBe(false);
+    344|   expect(manifest.completeness.acceptance).toBe('NOT_ACCEPTED');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 31 skipped (32)
+   Start at  16:45:15
+   Duration  460ms (transform 43ms, setup 0ms, collect 53ms, tests 19ms, environment 0ms, prepare 100ms)
+

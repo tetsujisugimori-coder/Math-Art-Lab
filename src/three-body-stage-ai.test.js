@@ -1,0 +1,27 @@
+import {describe,it,expect} from 'vitest';
+import fs from 'node:fs';
+import {validateDesign,executionGate,reduceTrace,identityKeys} from '../tools/three-body-stage-ai-contract.mjs';
+import {digest,classifyFixture} from '../tools/three-body-stage-ah-contract.mjs';
+import {loadBundle} from '../tools/three-body-stage-ah-audit.mjs';
+import {p2Cases,matches} from '../tools/three-body-stage-ah-p2-fixtures.mjs';
+import {audit} from '../tools/three-body-stage-ai-audit.mjs';
+const design=JSON.parse(fs.readFileSync('docs/three-body/review-44/stage-ai/design-contract.json'));
+const identity={...Object.fromEntries(identityKeys.map((k,i)=>[k,k==='pid'?42:`bound-${i}`])),role:'monitor',head:'a'.repeat(40),tree:'b'.repeat(40),planSha:'c'.repeat(64),sourceSha:'d'.repeat(64)};
+const trace=types=>types.map((type,i)=>({type,id:`event-${i}`,seq:i,at:i,synthetic:true,identity:{...identity}}));
+describe('Stage AI pure design contract',()=>{
+  it('valid design and immutable prior sources',()=>expect(audit().status).toBe('DESIGN_VALID'));
+  for(const [id,mutate] of Object.entries({state:d=>d.runtime='PASS',authorization:d=>d.executionAuthorized=true,timeout:d=>d.limits.originalMs=6000,retry:d=>d.limits.retry=1,slots:d=>d.limits.slots=3,identity:d=>d.pidAloneAuthorizes=true,clock:d=>d.crossProcessSubtract=true,zero:d=>d.missingAsZero=true,residual:d=>d.residualAllocation=true,monitor:d=>d.monitorOutsideJob=false,guarantee:d=>d.monitorHangGuarantee='GUARANTEED',storage:d=>d.storageBlocksStop=true,continue:d=>d.remainingAfterFailure='CONTINUE',component:d=>d.components.pop(),implementation:d=>d.components[0].implementation='VERIFIED',acceptance:d=>d.acceptance.pop(),qualification:d=>d.qualification.authorized=true,version:d=>d.dependencies.node='v22'}))it('rejects '+id,()=>{const d=structuredClone(design);mutate(d);expect(validateDesign(d).status).toBe('DESIGN_INVALID');});
+  for(const request of [{},{action:'EXECUTE'},{approved:true},{status:'DESIGN_VALID'}])it('always denies '+JSON.stringify(request),()=>expect(executionGate(request)).toMatchObject({allowed:false,status:'BLOCKED',approval:'APPROVAL_MISSING'}));
+  for(const c of p2Cases(loadBundle()))it('AH outcome integration '+c.id,()=>expect(matches(classifyFixture(c.packet,loadBundle()),{...c.expectedCore,...c.expected})).toBe(true));
+  it('request/send/ack never proves exit',()=>expect(reduceTrace(identity,trace(['stop.request','stop.sent','stop.ack']))).toMatchObject({stop:'ACKED',exit:'NOT_OBTAINED',physical:'NOT_TESTED'}));
+  it('exit then release; no storage needed to stop',()=>expect(reduceTrace(identity,trace(['save.failed','stop.request','stop.sent','exit.confirmed','resources.released']))).toMatchObject({exit:'CONFIRMED',resources:'RELEASED',storage:'FAILED',remaining:'BLOCKED'}));
+  for(const type of ['monitor.failed','worker.silent','parent.silent','communication.failed','buffer.overflow','stop.send-failed','stop.refused','exit.missing','save.failed'])it(type+' blocks remaining',()=>expect(reduceTrace(identity,trace(['runner.fail',type,'runner.pass']))).toMatchObject({execution:'FAIL',failure:true,remaining:'BLOCKED'}));
+  for(const key of identityKeys)it('reject foreign '+key,()=>{const es=trace(['exit.confirmed']);es[0].identity[key]='other';expect(reduceTrace(identity,es)).toMatchObject({exit:'NOT_OBTAINED',failure:true});});
+  for(const kind of ['duplicate','reverse','missing','not-synthetic'])it('reject '+kind,()=>{const es=trace(['stop.request','stop.sent']);if(kind==='duplicate')es[1].id=es[0].id;if(kind==='reverse')es.reverse();if(kind==='missing')delete es[0].identity.incarnation;if(kind==='not-synthetic')es[0].synthetic=false;expect(reduceTrace(identity,es).failure).toBe(true);});
+  it('cannot release before confirmed exit',()=>expect(reduceTrace(identity,trace(['resources.released'])).resources).toBe('NOT_OBTAINED'));
+  for(const fault of ['normal','size','sha','missing','receipt'])it('raw receipt '+fault,()=>{const es=trace(['save.begin','save.commit']);const raw=['clock','result'].map(name=>({name,base64:'e30=',bytes:2,sha256:digest('{}')}));es[1].raw=raw;es[1].receipt=structuredClone(raw);if(fault==='size')raw[0].bytes=3;if(fault==='sha')raw[0].sha256='0'.repeat(64);if(fault==='missing')raw.pop();if(fault==='receipt')es[1].receipt=[];expect(reduceTrace(identity,es).storage).toBe(fault==='normal'?'COMMITTED':'INCOMPLETE');});
+  it('runtime-capable imports absent',()=>{for(const f of ['contract','audit']){const s=fs.readFileSync(`tools/three-body-stage-ai-${f}.mjs`,'utf8');expect(s).not.toMatch(/child_process|worker_threads|node:net|\.kill\(|spawn\(|execFile\(/);}});
+  it('rejects null enrollment',()=>expect(reduceTrace(Object.fromEntries(identityKeys.map(k=>[k,null])),trace(['runner.pass']))).toMatchObject({failure:true,execution:'UNKNOWN'}));
+  it('rejects acceptance outcome promotion',()=>{const d=structuredClone(design);d.acceptance[0].expected='EVERYTHING IS PASS';expect(validateDesign(d).status).toBe('DESIGN_INVALID');});
+  it('late exit evidence cannot reopen terminal uncertainty',()=>{const r=reduceTrace(identity,trace(['exit.missing','exit.confirmed','resources.released']));expect(r).toMatchObject({exit:'UNCONFIRMED',resources:'NOT_OBTAINED',remaining:'BLOCKED'});expect(r.lateEvidence).toHaveLength(1);});
+});

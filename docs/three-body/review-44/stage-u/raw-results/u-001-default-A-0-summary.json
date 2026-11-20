@@ -1,0 +1,136 @@
+{
+  "id": "u-001-default-A-0",
+  "plan": {
+    "id": "u-001-default-A-0",
+    "context": "default",
+    "operation": "A",
+    "block": 0,
+    "readback": false,
+    "repeat": 0
+  },
+  "status": "BLOCKED",
+  "issues": [
+    {
+      "category": "D_MEASUREMENT",
+      "code": "BROWSER_CLEANUP",
+      "error": "Error: fresh browser cleanup timeout 5000ms",
+      "at": 9684.2807,
+      "clock": "harness performance.now"
+    }
+  ],
+  "requests": [
+    {
+      "session": {
+        "logicalId": "u-001-default-A-0/page-session",
+        "targetId": "3370C5D13180A3A648FC7ADF9069A5A3",
+        "wireSessionId": "NOT_EXPOSED_BY_PUBLIC_PLAYWRIGHT_API",
+        "sameObjectForAllMeasuredRequests": true
+      },
+      "requestId": "u-001-default-A-0/page-session/request-1",
+      "method": "Page.getLayoutMetrics",
+      "params": {},
+      "start": 4456.8964,
+      "clock": "harness performance.now ms",
+      "timeoutMs": 5000,
+      "wireRequestId": "NOT_EXPOSED_BY_PUBLIC_PLAYWRIGHT_API",
+      "response": 4459.1429,
+      "finished": 4459.1429,
+      "elapsed": 2.2465000000001965,
+      "status": "PASS",
+      "lateReply": false,
+      "result": {
+        "layoutViewport": {
+          "pageX": 0,
+          "pageY": 0,
+          "clientWidth": 1280,
+          "clientHeight": 900
+        },
+        "visualViewport": {
+          "offsetX": 0,
+          "offsetY": 0,
+          "pageX": 0,
+          "pageY": 0,
+          "clientWidth": 1280,
+          "clientHeight": 900,
+          "scale": 1,
+          "zoom": 1
+        },
+        "contentSize": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 900
+        },
+        "cssLayoutViewport": {
+          "pageX": 0,
+          "pageY": 0,
+          "clientWidth": 1280,
+          "clientHeight": 900
+        },
+        "cssVisualViewport": {
+          "offsetX": 0,
+          "offsetY": 0,
+          "pageX": 0,
+          "pageY": 0,
+          "clientWidth": 1280,
+          "clientHeight": 900,
+          "scale": 1,
+          "zoom": 1
+        },
+        "cssContentSize": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 900
+        }
+      }
+    }
+  ],
+  "gap": null,
+  "captureStatus": "NOT_REQUESTED",
+  "image": {
+    "acquisition": "NOT_REQUESTED"
+  },
+  "before": {
+    "step": 30,
+    "bStep": 30,
+    "ab": true,
+    "playing": false,
+    "disposed": false,
+    "timer": false,
+    "raf": false,
+    "trail": 0,
+    "graph": 0,
+    "b": "30",
+    "a": "30",
+    "observed": "30"
+  },
+  "after": {
+    "step": 30,
+    "bStep": 30,
+    "ab": true,
+    "playing": false,
+    "disposed": false,
+    "timer": false,
+    "raf": false,
+    "trail": 0,
+    "graph": 0,
+    "b": "30",
+    "a": "30",
+    "observed": "30"
+  },
+  "later": {
+    "step": 30,
+    "bStep": 30,
+    "ab": true,
+    "playing": false,
+    "disposed": false,
+    "timer": false,
+    "raf": false,
+    "trail": 0,
+    "graph": 0,
+    "b": "30",
+    "a": "30",
+    "observed": "30"
+  }
+}

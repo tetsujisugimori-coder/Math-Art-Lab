@@ -38,7 +38,11 @@ jobs:
         run: npm run typecheck
       - name: Build for GitHub Pages
         run: npm run build
+      - name: Enforce committed browser policy
+        if: ${{ ((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}
+        run: node tools/three-body-stage-ac-ci.mjs
       - name: Install Playwright browsers and system dependencies
+        if: ${{ ((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}
         run: |
           # Slow Azure mirror downloads exhausted the job budget before E2E (Issue #18).
           # Keep Ubuntu suites/signatures; change only the runner's download mirror.
@@ -47,21 +51,44 @@ jobs:
           fi
           npx playwright install --with-deps chromium webkit
       - name: Development regression tests
+        if: ${{ ((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}
+        id: development_tests
         env:
           CL_EVIDENCE: test-results/cooperation-development
         run: npm run test:e2e -- --output=test-results/development
       - name: Production build smoke tests
+        if: ${{ ((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}
+        id: production_tests
         env:
           CL_EVIDENCE: test-results/cooperation-production
         run: npm run test:e2e:production -- --output=test-results/production
+      - name: Inventory regression evidence including last-run records
+        id: evidence_inventory
+        if: ${{ always() && (((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->')) }}
+        run: node tools/three-body-regression-evidence.mjs create test-results '${{ steps.development_tests.outcome }}' '${{ steps.production_tests.outcome }}'
       - name: Preserve regression evidence
-        if: always()
+        id: evidence_upload
+        if: always() && steps.evidence_inventory.outcome == 'success'
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: regression-evidence-${{ github.sha }}
           path: test-results/
-          if-no-files-found: ignore
+          include-hidden-files: true
+          if-no-files-found: error
           retention-days: 14
+      - name: Retrieve regression evidence for byte verification
+        id: evidence_download
+        if: always() && steps.evidence_upload.outcome == 'success'
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: regression-evidence-${{ github.sha }}
+          path: regression-evidence-readback
+      - name: Verify uploaded regression evidence set size and SHA
+        if: always() && steps.evidence_download.outcome == 'success'
+        run: node tools/three-body-regression-evidence.mjs verify regression-evidence-readback
+      - name: Record browser prohibition (not GUI acceptance)
+        if: ${{ !(((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->')) }}
+        run: echo 'Stage AB browser launches prohibited; development/production GUI NOT_RUN. Unit/type/build success is not full regression acceptance.' >> "$GITHUB_STEP_SUMMARY"
       - name: Save validated build
         if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2

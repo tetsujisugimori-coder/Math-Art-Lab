@@ -1,0 +1,178 @@
+{
+  "id": "ablation-chromium-007-F-no-canvas-light",
+  "options": {
+    "name": "F-no-canvas",
+    "ab": true,
+    "saturated": true,
+    "dom": true,
+    "canvas": false,
+    "duration": 3000,
+    "repeat": 1,
+    "trace": false
+  },
+  "errors": [],
+  "elapsed": 3128,
+  "steps": {
+    "step": 37955,
+    "bStep": 37955,
+    "ab": true,
+    "playing": false,
+    "disposed": false,
+    "clockEpoch": 2,
+    "safetyEpoch": 0,
+    "timer": false,
+    "raf": false,
+    "observed": "37955",
+    "a": "0",
+    "trail": 6000,
+    "graph": 1200
+  },
+  "phases": {
+    "calculate": {
+      "n": 219,
+      "median": 0.19999999925494194,
+      "p95": 0.4000000022351742,
+      "p99": 0.7000000029802322,
+      "max": 1.5,
+      "over50": 0,
+      "percentileIsGuarantee": false
+    },
+    "paint": {
+      "n": 62,
+      "median": 0,
+      "p95": 0.10000000149011612,
+      "p99": 0.10000000149011612,
+      "max": 0.10000000149011612,
+      "over50": 0,
+      "percentileIsGuarantee": false
+    },
+    "observe": {
+      "n": 62,
+      "median": 0.8000000007450581,
+      "p95": 1.5,
+      "p99": 2.199999999254942,
+      "max": 2.199999999254942,
+      "over50": 0,
+      "percentileIsGuarantee": false
+    },
+    "refresh": {
+      "n": 62,
+      "median": 0.10000000149011612,
+      "p95": 0.30000000074505806,
+      "p99": 0.3999999985098839,
+      "max": 0.3999999985098839,
+      "over50": 0,
+      "percentileIsGuarantee": false
+    }
+  },
+  "latency": {
+    "n": 81,
+    "median": 0.10000000149011612,
+    "p95": 1.800000000745058,
+    "p99": 2.900000002235174,
+    "max": 2.900000002235174,
+    "over50": 0,
+    "percentileIsGuarantee": false
+  },
+  "stop": {
+    "type": "request",
+    "seq": 81,
+    "T0": 4738.199999999255,
+    "deadline": true,
+    "T0Worker": 3012.300000000745,
+    "T1": 4738.199999999255,
+    "uncertainty": 0,
+    "stepAtReceive": {
+      "step": 37955,
+      "bStep": 37955,
+      "ab": true,
+      "playing": true,
+      "disposed": false,
+      "clockEpoch": 1,
+      "safetyEpoch": 0,
+      "timer": true,
+      "raf": false,
+      "observed": "37955",
+      "a": "0",
+      "trail": 6000,
+      "graph": 1200
+    },
+    "overlapId": null,
+    "targetHit": false,
+    "T2": 4738.5,
+    "T3": 4738.5,
+    "stop": {
+      "begin": 4738.5,
+      "end": 4738.5,
+      "before": {
+        "step": 37955,
+        "bStep": 37955,
+        "ab": true,
+        "playing": true,
+        "disposed": false,
+        "clockEpoch": 1,
+        "safetyEpoch": 0,
+        "timer": true,
+        "raf": false,
+        "observed": "37955",
+        "a": "0",
+        "trail": 6000,
+        "graph": 1200
+      },
+      "after": {
+        "step": 37955,
+        "bStep": 37955,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "clockEpoch": 2,
+        "safetyEpoch": 0,
+        "timer": false,
+        "raf": false,
+        "observed": "37955",
+        "a": "0",
+        "trail": 6000,
+        "graph": 1200
+      }
+    },
+    "after": {
+      "step": 37955,
+      "bStep": 37955,
+      "ab": true,
+      "playing": false,
+      "disposed": false,
+      "clockEpoch": 2,
+      "safetyEpoch": 0,
+      "timer": false,
+      "raf": false,
+      "observed": "37955",
+      "a": "0",
+      "trail": 6000,
+      "graph": 1200
+    },
+    "later": {
+      "step": 37955,
+      "bStep": 37955,
+      "ab": true,
+      "playing": false,
+      "disposed": false,
+      "clockEpoch": 2,
+      "safetyEpoch": 0,
+      "timer": false,
+      "raf": false,
+      "observed": "37955",
+      "a": "0",
+      "trail": 6000,
+      "graph": 1200
+    }
+  },
+  "frameIntervals": {
+    "n": 61,
+    "median": 50.399999998509884,
+    "p95": 67.30000000074506,
+    "p99": 69.60000000149012,
+    "max": 69.60000000149012,
+    "over50": 32,
+    "percentileIsGuarantee": false
+  }
+}

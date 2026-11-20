@@ -1,0 +1,10 @@
+import fs from 'node:fs';import {pathToFileURL} from 'node:url';import path from 'node:path';
+import {loadBundle} from './three-body-stage-ah-audit.mjs';
+import {classifyFixture} from './three-body-stage-ah-contract.mjs';
+import {p2Cases,matches} from './three-body-stage-ah-p2-fixtures.mjs';
+const [phase,out]=process.argv.slice(2);if(!['before','after'].includes(phase)||!out)throw Error('USAGE before|after NEW_JSON');
+const bundle=loadBundle();
+const classify=phase==='before'?(await import(pathToFileURL(path.resolve('.three-body-evidence/stage-ah-p2/before-tools/three-body-stage-ah-contract.mjs')).href)).classifyFixture:classifyFixture;
+const rows=p2Cases(bundle).map(c=>{const actual=classify(c.packet,bundle),coreMatches=matches(actual,c.expectedCore),fullMatches=matches(actual,{...c.expectedCore,...c.expected});return {...c,actual,coreMatches,newContractMatches:fullMatches,verdict:phase==='before'?(coreMatches?'BASELINE_PASS':'RED'):(fullMatches?'GREEN':'FAIL'),newFieldsInBaseline:phase==='before'?'NOT_APPLICABLE_NEW_INTERFACE':undefined};});
+const result={phase,scope:'SYNTHETIC_CLASSIFICATION_ONLY',baselineHead:'9fb0b1d759b8558f6d3ee30cd607af12ea26f634',rows,counts:Object.fromEntries(['RED','BASELINE_PASS','GREEN','FAIL'].map(s=>[s,rows.filter(r=>r.verdict===s).length])),actualExecution:'NOT_TESTED',measurements:0};
+fs.writeFileSync(out,JSON.stringify(result,null,2),{flag:'wx'});console.log(JSON.stringify(result.counts));if(phase==='after'&&rows.some(r=>r.verdict!=='GREEN'))process.exitCode=1;

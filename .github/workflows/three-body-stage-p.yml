@@ -1,0 +1,52 @@
+name: Three-body Stage P evidence
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tools/three-body-stage-p*'
+      - 'src/three-body-stage-p.test.js'
+      - 'docs/three-body/review-44/stage-p/**'
+      - '.github/workflows/three-body-stage-p.yml'
+      - 'tools/three-body-stage-q*'
+      - 'src/three-body-stage-q.test.js'
+      - 'docs/three-body/review-44/stage-q/**'
+permissions:
+  contents: read
+jobs:
+  diagnostic-contract:
+    # Stage AB explicitly prohibits browser launches; NOT_RUN, never regression PASS.
+    if: ${{ ((github.event_name == 'pull_request' && github.event.pull_request.number > 0 && github.head_ref != '' && github.ref != '') || ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && startsWith(github.ref, 'refs/heads/'))) && github.event.pull_request.number != 44 && github.event.number != 44 && github.head_ref != 'feat/017-three-body-dance' && github.ref != 'refs/heads/feat/017-three-body-dance' && !startsWith(github.ref, 'refs/pull/44/') && !contains(github.event.pull_request.body, '<!-- stage-ab:no-browser -->') }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Enforce committed browser policy
+        run: node tools/three-body-stage-ac-ci.mjs
+      - name: Install isolated Chromium
+        run: |
+          if [ -f /etc/apt/apt-mirrors.txt ]; then
+            sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu|https://archive.ubuntu.com/ubuntu|g' /etc/apt/apt-mirrors.txt
+          fi
+          npx playwright install --with-deps chromium
+      - name: Trace and independent-input positive control
+        run: node --expose-gc tools/three-body-stage-p.mjs --suite=smoke --browser=chromium --output=test-results/stage-p
+      - name: Repeat stop event routing
+        run: node --expose-gc tools/three-body-stage-p.mjs --suite=stops --browser=chromium --output=test-results/stage-p
+      - name: Check clock, mathematical identity, display and stop evidence
+        run: |
+          node tools/three-body-stage-p-report.mjs test-results/stage-p
+          node tools/three-body-stage-p-check.mjs test-results/stage-p
+      - name: Preserve raw trace and evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: three-body-stage-p-${{ github.sha }}
+          path: test-results/stage-p/
+          retention-days: 14

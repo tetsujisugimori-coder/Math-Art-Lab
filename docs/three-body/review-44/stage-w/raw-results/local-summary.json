@@ -1,0 +1,2237 @@
+{
+  "baseline": "1e2e895826e69ab0ce8ad06e92d3e8c60a081313",
+  "head": "1e2e895826e69ab0ce8ad06e92d3e8c60a081313",
+  "tree": "aebbe16609ae24e15b38e856942e0e23146681a2",
+  "counts": {
+    "all": {
+      "planned": 12,
+      "completed": 12,
+      "failed": 6,
+      "unexecuted": 0
+    },
+    "primary": {
+      "planned": 12,
+      "completed": 12,
+      "failed": 6,
+      "unexecuted": 0
+    },
+    "auxiliary": {
+      "planned": 0,
+      "completed": 0,
+      "failed": 0,
+      "unexecuted": 0
+    }
+  },
+  "sourceBindingId": "f239f7ed23ca942d8561c155d1a7038383e0f030e5df877bff0623a9ffcc4e4a",
+  "scope": "Projected local raw; full originals/late PNG payloads and sources remain immutable in private archive",
+  "rows": [
+    {
+      "id": "w-01-default-off",
+      "order": 0,
+      "plan": {
+        "id": "w-01-default-off",
+        "kind": "capture",
+        "context": "default",
+        "traceMode": "off",
+        "trace": false,
+        "readback": false,
+        "repeat": 1
+      },
+      "status": "FAIL",
+      "request": {
+        "status": "TIMEOUT",
+        "start": 3520.0323,
+        "wrapperStartedAt": 3519.837,
+        "response": null,
+        "finished": 8675.1794,
+        "elapsed": 5155.147100000001,
+        "timeoutMs": 5000,
+        "params": {
+          "format": "png",
+          "fromSurface": true,
+          "clip": {
+            "x": 0,
+            "y": 0,
+            "width": 1280,
+            "height": 900,
+            "scale": 1
+          },
+          "captureBeyondViewport": false
+        },
+        "method": "Page.captureScreenshot"
+      },
+      "timestamps": {
+        "contract": "stage-w-timing-1",
+        "T0": 3520.0323,
+        "T1": null,
+        "T2": null,
+        "T3": null,
+        "T4": null,
+        "wrapperStartedAt": 3519.837,
+        "deadlineAt": 8520.032299999999,
+        "deadlineObservedAt": 8675.1794,
+        "callbackObservedAt": 10487.5847,
+        "lateCallbackAt": 10487.5847,
+        "responseKind": "PROTOCOL_REJECTION",
+        "responsePhase": "BROWSER_CLEANUP",
+        "T1toT3Status": "NOT_OBTAINED",
+        "clockT0T4": "harness performance.now ms",
+        "transportScope": "send invocation and normal within-deadline resolve callback, not exact wire or browser processing"
+      },
+      "sourceReference": {
+        "bindingId": "f239f7ed23ca942d8561c155d1a7038383e0f030e5df877bff0623a9ffcc4e4a",
+        "executionHead": "1e2e895826e69ab0ce8ad06e92d3e8c60a081313",
+        "executionTree": "aebbe16609ae24e15b38e856942e0e23146681a2",
+        "diagnosticRevision": "stage-w-1",
+        "runtimeSourceVerified": true,
+        "runner": "tools/three-body-stage-w.mjs",
+        "runnerSha256": "64e398081bfb7acfa1d27ef6ac5b9350a63d7c96acacaec6a7a5a3ccf0003053"
+      },
+      "fixtureWindows": {
+        "preNavigationWaitBegin": 1797.9179,
+        "preNavigationWaitEnd": 1854.3194,
+        "navigationInvokedAt": 1854.3284,
+        "frozenReadyObservedAt": 3342.8806,
+        "frozenWaitBegin": 3342.8834,
+        "frozenWaitEnd": 3451.3839,
+        "captureTreatmentWaitBegin": 3451.5087,
+        "captureTreatmentWaitEnd": 3519.4324
+      },
+      "context": {
+        "canvases": [
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": false
+            }
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": false
+            }
+          }
+        ],
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "dpr": 2
+      },
+      "image": {
+        "acquisition": "NOT_OBTAINED"
+      },
+      "before": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "after": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "trace": {
+        "status": "OFF"
+      },
+      "clock": {
+        "status": "NOT_OBTAINED_TRACE_OFF"
+      },
+      "issues": [
+        {
+          "category": "E_SCREENSHOT",
+          "code": "TIMEOUT",
+          "error": "Page.captureScreenshot timeout 5000ms",
+          "at": 8676.0222,
+          "clock": "harness performance.now ms"
+        }
+      ]
+    },
+    {
+      "id": "w-02-readback-early",
+      "order": 1,
+      "plan": {
+        "id": "w-02-readback-early",
+        "kind": "capture",
+        "context": "readback",
+        "traceMode": "early",
+        "trace": true,
+        "readback": false,
+        "repeat": 1
+      },
+      "status": "PASS",
+      "request": {
+        "status": "PASS",
+        "start": 13318.6634,
+        "wrapperStartedAt": 13318.6055,
+        "response": 13518.8972,
+        "finished": 13518.8972,
+        "elapsed": 200.23379999999997,
+        "timeoutMs": 5000,
+        "params": {
+          "format": "png",
+          "fromSurface": true,
+          "clip": {
+            "x": 0,
+            "y": 0,
+            "width": 1280,
+            "height": 900,
+            "scale": 1
+          },
+          "captureBeyondViewport": false
+        },
+        "method": "Page.captureScreenshot"
+      },
+      "timestamps": {
+        "contract": "stage-w-timing-1",
+        "T0": 13318.6634,
+        "T1": null,
+        "T2": null,
+        "T3": null,
+        "T4": 13518.8972,
+        "wrapperStartedAt": 13318.6055,
+        "deadlineAt": 18318.663399999998,
+        "deadlineObservedAt": null,
+        "callbackObservedAt": 13518.8972,
+        "lateCallbackAt": null,
+        "responseKind": "PROTOCOL_REPLY",
+        "responsePhase": "MEASURED_REQUEST",
+        "T1toT3Status": "NOT_OBTAINED",
+        "clockT0T4": "harness performance.now ms",
+        "transportScope": "send invocation and normal within-deadline resolve callback, not exact wire or browser processing"
+      },
+      "sourceReference": {
+        "bindingId": "f239f7ed23ca942d8561c155d1a7038383e0f030e5df877bff0623a9ffcc4e4a",
+        "executionHead": "1e2e895826e69ab0ce8ad06e92d3e8c60a081313",
+        "executionTree": "aebbe16609ae24e15b38e856942e0e23146681a2",
+        "diagnosticRevision": "stage-w-1",
+        "runtimeSourceVerified": true,
+        "runner": "tools/three-body-stage-w.mjs",
+        "runnerSha256": "64e398081bfb7acfa1d27ef6ac5b9350a63d7c96acacaec6a7a5a3ccf0003053"
+      },
+      "fixtureWindows": {
+        "preNavigationWaitBegin": 11559.4124,
+        "preNavigationWaitEnd": 11645.0397,
+        "navigationInvokedAt": 11645.0427,
+        "frozenReadyObservedAt": 13141.9329,
+        "frozenWaitBegin": 13141.9386,
+        "frozenWaitEnd": 13256.7037,
+        "captureTreatmentWaitBegin": 13264.5509,
+        "captureTreatmentWaitEnd": 13318.4892
+      },
+      "context": {
+        "canvases": [
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": true
+            }
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": true
+            }
+          }
+        ],
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "dpr": 2
+      },
+      "image": {
+        "acquisition": "ACQUIRED",
+        "file": "images/w-02-readback-early.png",
+        "bytes": 187524,
+        "sha256": "2cb119d896d25f11ec827aa83d7f9936530fa3658baf594d8ac6acacc5c784e7",
+        "bitmap": {
+          "imageWidth": 2560,
+          "imageHeight": 1800,
+          "expectedWidth": 2560,
+          "expectedHeight": 1800,
+          "dimensionsMatch": true,
+          "checks": [
+            {
+              "width": 876,
+              "height": 660,
+              "differentChannels": 0,
+              "maximumChannelError": 0
+            },
+            {
+              "width": 876,
+              "height": 660,
+              "differentChannels": 0,
+              "maximumChannelError": 0
+            }
+          ],
+          "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+        }
+      },
+      "before": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "after": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "trace": {
+        "status": "ACQUIRED",
+        "file": "traces/w-02-readback-early.json.gz",
+        "bytes": 711049,
+        "sha256": "5534f6c33e643608c50e362b65dad750a4da7aab98d76004997649d56501e164",
+        "startStage": "BEFORE_NAVIGATION_AND_DRAW",
+        "startAcknowledgedAt": 11593.3367,
+        "endRequested": 13524.6614,
+        "finished": 13891.5267
+      },
+      "clock": {
+        "status": "BRACKETED",
+        "mainPid": 22400,
+        "mainTid": 22776,
+        "browserPid": 19840,
+        "browserTid": 5540,
+        "offsetLow": 18010541.6846,
+        "offsetHigh": 18010543.2582,
+        "uncertaintyMs": 0.7868000008165836
+      },
+      "issues": []
+    },
+    {
+      "id": "w-03-default-late",
+      "order": 2,
+      "plan": {
+        "id": "w-03-default-late",
+        "kind": "capture",
+        "context": "default",
+        "traceMode": "late",
+        "trace": true,
+        "readback": false,
+        "repeat": 1
+      },
+      "status": "FAIL",
+      "request": {
+        "status": "TIMEOUT",
+        "start": 16977.237,
+        "wrapperStartedAt": 16977.1793,
+        "response": null,
+        "finished": 21989.1841,
+        "elapsed": 5011.947099999998,
+        "timeoutMs": 5000,
+        "params": {
+          "format": "png",
+          "fromSurface": true,
+          "clip": {
+            "x": 0,
+            "y": 0,
+            "width": 1280,
+            "height": 900,
+            "scale": 1
+          },
+          "captureBeyondViewport": false
+        },
+        "method": "Page.captureScreenshot"
+      },
+      "timestamps": {
+        "contract": "stage-w-timing-1",
+        "T0": 16977.237,
+        "T1": null,
+        "T2": null,
+        "T3": null,
+        "T4": null,
+        "wrapperStartedAt": 16977.1793,
+        "deadlineAt": 21977.237,
+        "deadlineObservedAt": 21989.1841,
+        "callbackObservedAt": 24160.5146,
+        "lateCallbackAt": 24160.5146,
+        "responseKind": "PROTOCOL_REPLY",
+        "responsePhase": "POST_DEADLINE",
+        "T1toT3Status": "NOT_OBTAINED",
+        "clockT0T4": "harness performance.now ms",
+        "transportScope": "send invocation and normal within-deadline resolve callback, not exact wire or browser processing"
+      },
+      "sourceReference": {
+        "bindingId": "f239f7ed23ca942d8561c155d1a7038383e0f030e5df877bff0623a9ffcc4e4a",
+        "executionHead": "1e2e895826e69ab0ce8ad06e92d3e8c60a081313",
+        "executionTree": "aebbe16609ae24e15b38e856942e0e23146681a2",
+        "diagnosticRevision": "stage-w-1",
+        "runtimeSourceVerified": true,
+        "runner": "tools/three-body-stage-w.mjs",
+        "runnerSha256": "64e398081bfb7acfa1d27ef6ac5b9350a63d7c96acacaec6a7a5a3ccf0003053"
+      },
+      "fixtureWindows": {
+        "preNavigationWaitBegin": 15206.8138,
+        "preNavigationWaitEnd": 15270.3551,
+        "navigationInvokedAt": 15270.3609,
+        "frozenReadyObservedAt": 16773.9429,
+        "frozenWaitBegin": 16773.9442,
+        "frozenWaitEnd": 16884.8979,
+        "captureTreatmentWaitBegin": 16925.9659,
+        "captureTreatmentWaitEnd": 16977.0912
+      },
+      "context": {
+        "canvases": [
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": false
+            }
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": false
+            }
+          }
+        ],
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "dpr": 2
+      },
+      "image": {
+        "acquisition": "NOT_OBTAINED"
+      },
+      "before": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "after": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "trace": {
+        "status": "ACQUIRED",
+        "file": "traces/w-03-default-late.json.gz",
+        "bytes": 110268,
+        "sha256": "75cfdea13b598b391b4144a7cac434e4f62d8df549f5e86c429e4b19aeb0f110",
+        "startStage": "AFTER_FROZEN_FRAME30",
+        "startAcknowledgedAt": 16923.0664,
+        "endRequested": 22028.1765,
+        "finished": 24354.9528
+      },
+      "clock": {
+        "status": "BRACKETED",
+        "mainPid": 28288,
+        "mainTid": 30824,
+        "browserPid": 11420,
+        "browserTid": 13324,
+        "offsetLow": 18010541.7968,
+        "offsetHigh": 18010542.4187,
+        "uncertaintyMs": 0.31094999983906746
+      },
+      "issues": [
+        {
+          "category": "E_SCREENSHOT",
+          "code": "TIMEOUT",
+          "error": "Page.captureScreenshot timeout 5000ms",
+          "at": 21989.3487,
+          "clock": "harness performance.now ms"
+        }
+      ]
+    },
+    {
+      "id": "w-04-readback-off",
+      "order": 3,
+      "plan": {
+        "id": "w-04-readback-off",
+        "kind": "capture",
+        "context": "readback",
+        "traceMode": "off",
+        "trace": false,
+        "readback": false,
+        "repeat": 1
+      },
+      "status": "PASS",
+      "request": {
+        "status": "PASS",
+        "start": 27147.5819,
+        "wrapperStartedAt": 27147.5531,
+        "response": 27345.6471,
+        "finished": 27345.6471,
+        "elapsed": 198.06519999999728,
+        "timeoutMs": 5000,
+        "params": {
+          "format": "png",
+          "fromSurface": true,
+          "clip": {
+            "x": 0,
+            "y": 0,
+            "width": 1280,
+            "height": 900,
+            "scale": 1
+          },
+          "captureBeyondViewport": false
+        },
+        "method": "Page.captureScreenshot"
+      },
+      "timestamps": {
+        "contract": "stage-w-timing-1",
+        "T0": 27147.5819,
+        "T1": null,
+        "T2": null,
+        "T3": null,
+        "T4": 27345.6471,
+        "wrapperStartedAt": 27147.5531,
+        "deadlineAt": 32147.5819,
+        "deadlineObservedAt": null,
+        "callbackObservedAt": 27345.6471,
+        "lateCallbackAt": null,
+        "responseKind": "PROTOCOL_REPLY",
+        "responsePhase": "MEASURED_REQUEST",
+        "T1toT3Status": "NOT_OBTAINED",
+        "clockT0T4": "harness performance.now ms",
+        "transportScope": "send invocation and normal within-deadline resolve callback, not exact wire or browser processing"
+      },
+      "sourceReference": {
+        "bindingId": "f239f7ed23ca942d8561c155d1a7038383e0f030e5df877bff0623a9ffcc4e4a",
+        "executionHead": "1e2e895826e69ab0ce8ad06e92d3e8c60a081313",
+        "executionTree": "aebbe16609ae24e15b38e856942e0e23146681a2",
+        "diagnosticRevision": "stage-w-1",
+        "runtimeSourceVerified": true,
+        "runner": "tools/three-body-stage-w.mjs",
+        "runnerSha256": "64e398081bfb7acfa1d27ef6ac5b9350a63d7c96acacaec6a7a5a3ccf0003053"
+      },
+      "fixtureWindows": {
+        "preNavigationWaitBegin": 25442.6096,
+        "preNavigationWaitEnd": 25502.6912,
+        "navigationInvokedAt": 25502.696,
+        "frozenReadyObservedAt": 26972.6307,
+        "frozenWaitBegin": 26972.6324,
+        "frozenWaitEnd": 27084.7774,
+        "captureTreatmentWaitBegin": 27084.8004,
+        "captureTreatmentWaitEnd": 27147.4807
+      },
+      "context": {
+        "canvases": [
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": true
+            }
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": true
+            }
+          }
+        ],
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "dpr": 2
+      },
+      "image": {
+        "acquisition": "ACQUIRED",
+        "file": "images/w-04-readback-off.png",
+        "bytes": 187524,
+        "sha256": "2cb119d896d25f11ec827aa83d7f9936530fa3658baf594d8ac6acacc5c784e7",
+        "bitmap": {
+          "imageWidth": 2560,
+          "imageHeight": 1800,
+          "expectedWidth": 2560,
+          "expectedHeight": 1800,
+          "dimensionsMatch": true,
+          "checks": [
+            {
+              "width": 876,
+              "height": 660,
+              "differentChannels": 0,
+              "maximumChannelError": 0
+            },
+            {
+              "width": 876,
+              "height": 660,
+              "differentChannels": 0,
+              "maximumChannelError": 0
+            }
+          ],
+          "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+        }
+      },
+      "before": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "after": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "trace": {
+        "status": "OFF"
+      },
+      "clock": {
+        "status": "NOT_OBTAINED_TRACE_OFF"
+      },
+      "issues": []
+    },
+    {
+      "id": "w-05-default-early",
+      "order": 4,
+      "plan": {
+        "id": "w-05-default-early",
+        "kind": "capture",
+        "context": "default",
+        "traceMode": "early",
+        "trace": true,
+        "readback": false,
+        "repeat": 1
+      },
+      "status": "FAIL",
+      "request": {
+        "status": "TIMEOUT",
+        "start": 30247.2833,
+        "wrapperStartedAt": 30247.2501,
+        "response": null,
+        "finished": 35298.7009,
+        "elapsed": 5051.417600000004,
+        "timeoutMs": 5000,
+        "params": {
+          "format": "png",
+          "fromSurface": true,
+          "clip": {
+            "x": 0,
+            "y": 0,
+            "width": 1280,
+            "height": 900,
+            "scale": 1
+          },
+          "captureBeyondViewport": false
+        },
+        "method": "Page.captureScreenshot"
+      },
+      "timestamps": {
+        "contract": "stage-w-timing-1",
+        "T0": 30247.2833,
+        "T1": null,
+        "T2": null,
+        "T3": null,
+        "T4": null,
+        "wrapperStartedAt": 30247.2501,
+        "deadlineAt": 35247.283299999996,
+        "deadlineObservedAt": 35298.7009,
+        "callbackObservedAt": 37123.6443,
+        "lateCallbackAt": 37123.6443,
+        "responseKind": "PROTOCOL_REPLY",
+        "responsePhase": "POST_DEADLINE",
+        "T1toT3Status": "NOT_OBTAINED",
+        "clockT0T4": "harness performance.now ms",
+        "transportScope": "send invocation and normal within-deadline resolve callback, not exact wire or browser processing"
+      },
+      "sourceReference": {
+        "bindingId": "f239f7ed23ca942d8561c155d1a7038383e0f030e5df877bff0623a9ffcc4e4a",
+        "executionHead": "1e2e895826e69ab0ce8ad06e92d3e8c60a081313",
+        "executionTree": "aebbe16609ae24e15b38e856942e0e23146681a2",
+        "diagnosticRevision": "stage-w-1",
+        "runtimeSourceVerified": true,
+        "runner": "tools/three-body-stage-w.mjs",
+        "runnerSha256": "64e398081bfb7acfa1d27ef6ac5b9350a63d7c96acacaec6a7a5a3ccf0003053"
+      },
+      "fixtureWindows": {
+        "preNavigationWaitBegin": 28457.9371,
+        "preNavigationWaitEnd": 28552.2964,
+        "navigationInvokedAt": 28552.303,
+        "frozenReadyObservedAt": 30075.1535,
+        "frozenWaitBegin": 30075.156,
+        "frozenWaitEnd": 30184.223,
+        "captureTreatmentWaitBegin": 30187.0469,
+        "captureTreatmentWaitEnd": 30247.1749
+      },
+      "context": {
+        "canvases": [
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": false
+            }
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": false
+            }
+          }
+        ],
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "dpr": 2
+      },
+      "image": {
+        "acquisition": "NOT_OBTAINED"
+      },
+      "before": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "after": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "trace": {
+        "status": "ACQUIRED",
+        "file": "traces/w-05-default-early.json.gz",
+        "bytes": 713588,
+        "sha256": "9e3df185dc488b6c788145084ba3b02d754838f05e859d1b79aff40aa68ad164",
+        "startStage": "BEFORE_NAVIGATION_AND_DRAW",
+        "startAcknowledgedAt": 28493.6039,
+        "endRequested": 35814.6971,
+        "finished": 38057.8093
+      },
+      "clock": {
+        "status": "BRACKETED",
+        "mainPid": 30616,
+        "mainTid": 3032,
+        "browserPid": 1916,
+        "browserTid": 29132,
+        "offsetLow": 18010541.8036,
+        "offsetHigh": 18010542.3644,
+        "uncertaintyMs": 0.28040000051259995
+      },
+      "issues": [
+        {
+          "category": "E_SCREENSHOT",
+          "code": "TIMEOUT",
+          "error": "Page.captureScreenshot timeout 5000ms",
+          "at": 35300.4805,
+          "clock": "harness performance.now ms"
+        }
+      ]
+    },
+    {
+      "id": "w-06-readback-late",
+      "order": 5,
+      "plan": {
+        "id": "w-06-readback-late",
+        "kind": "capture",
+        "context": "readback",
+        "traceMode": "late",
+        "trace": true,
+        "readback": false,
+        "repeat": 1
+      },
+      "status": "PASS",
+      "request": {
+        "status": "PASS",
+        "start": 41122.9839,
+        "wrapperStartedAt": 41122.8884,
+        "response": 41314.8207,
+        "finished": 41314.8207,
+        "elapsed": 191.8367999999973,
+        "timeoutMs": 5000,
+        "params": {
+          "format": "png",
+          "fromSurface": true,
+          "clip": {
+            "x": 0,
+            "y": 0,
+            "width": 1280,
+            "height": 900,
+            "scale": 1
+          },
+          "captureBeyondViewport": false
+        },
+        "method": "Page.captureScreenshot"
+      },
+      "timestamps": {
+        "contract": "stage-w-timing-1",
+        "T0": 41122.9839,
+        "T1": null,
+        "T2": null,
+        "T3": null,
+        "T4": 41314.8207,
+        "wrapperStartedAt": 41122.8884,
+        "deadlineAt": 46122.9839,
+        "deadlineObservedAt": null,
+        "callbackObservedAt": 41314.8207,
+        "lateCallbackAt": null,
+        "responseKind": "PROTOCOL_REPLY",
+        "responsePhase": "MEASURED_REQUEST",
+        "T1toT3Status": "NOT_OBTAINED",
+        "clockT0T4": "harness performance.now ms",
+        "transportScope": "send invocation and normal within-deadline resolve callback, not exact wire or browser processing"
+      },
+      "sourceReference": {
+        "bindingId": "f239f7ed23ca942d8561c155d1a7038383e0f030e5df877bff0623a9ffcc4e4a",
+        "executionHead": "1e2e895826e69ab0ce8ad06e92d3e8c60a081313",
+        "executionTree": "aebbe16609ae24e15b38e856942e0e23146681a2",
+        "diagnosticRevision": "stage-w-1",
+        "runtimeSourceVerified": true,
+        "runner": "tools/three-body-stage-w.mjs",
+        "runnerSha256": "64e398081bfb7acfa1d27ef6ac5b9350a63d7c96acacaec6a7a5a3ccf0003053"
+      },
+      "fixtureWindows": {
+        "preNavigationWaitBegin": 39399.3205,
+        "preNavigationWaitEnd": 39452.6289,
+        "navigationInvokedAt": 39452.634,
+        "frozenReadyObservedAt": 40925.8276,
+        "frozenWaitBegin": 40925.8301,
+        "frozenWaitEnd": 41033.8222,
+        "captureTreatmentWaitBegin": 41064.8921,
+        "captureTreatmentWaitEnd": 41122.7861
+      },
+      "context": {
+        "canvases": [
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": true
+            }
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": true
+            }
+          }
+        ],
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "dpr": 2
+      },
+      "image": {
+        "acquisition": "ACQUIRED",
+        "file": "images/w-06-readback-late.png",
+        "bytes": 187524,
+        "sha256": "2cb119d896d25f11ec827aa83d7f9936530fa3658baf594d8ac6acacc5c784e7",
+        "bitmap": {
+          "imageWidth": 2560,
+          "imageHeight": 1800,
+          "expectedWidth": 2560,
+          "expectedHeight": 1800,
+          "dimensionsMatch": true,
+          "checks": [
+            {
+              "width": 876,
+              "height": 660,
+              "differentChannels": 0,
+              "maximumChannelError": 0
+            },
+            {
+              "width": 876,
+              "height": 660,
+              "differentChannels": 0,
+              "maximumChannelError": 0
+            }
+          ],
+          "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+        }
+      },
+      "before": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "after": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "trace": {
+        "status": "ACQUIRED",
+        "file": "traces/w-06-readback-late.json.gz",
+        "bytes": 88740,
+        "sha256": "31744206cc24765eda79b3f251b63f8760ca8b95e80a68493b505317aa167f02",
+        "startStage": "AFTER_FROZEN_FRAME30",
+        "startAcknowledgedAt": 41062.3618,
+        "endRequested": 41320.1681,
+        "finished": 41426.5891
+      },
+      "clock": {
+        "status": "BRACKETED",
+        "mainPid": 8636,
+        "mainTid": 30616,
+        "browserPid": 28384,
+        "browserTid": 30004,
+        "offsetLow": 18010541.8316,
+        "offsetHigh": 18010542.236700002,
+        "uncertaintyMs": 0.2025500014424324
+      },
+      "issues": []
+    },
+    {
+      "id": "w-07-readback-late",
+      "order": 6,
+      "plan": {
+        "id": "w-07-readback-late",
+        "kind": "capture",
+        "context": "readback",
+        "traceMode": "late",
+        "trace": true,
+        "readback": false,
+        "repeat": 2
+      },
+      "status": "PASS",
+      "request": {
+        "status": "PASS",
+        "start": 44179.1754,
+        "wrapperStartedAt": 44179.1168,
+        "response": 44382.4717,
+        "finished": 44382.4717,
+        "elapsed": 203.2963000000018,
+        "timeoutMs": 5000,
+        "params": {
+          "format": "png",
+          "fromSurface": true,
+          "clip": {
+            "x": 0,
+            "y": 0,
+            "width": 1280,
+            "height": 900,
+            "scale": 1
+          },
+          "captureBeyondViewport": false
+        },
+        "method": "Page.captureScreenshot"
+      },
+      "timestamps": {
+        "contract": "stage-w-timing-1",
+        "T0": 44179.1754,
+        "T1": null,
+        "T2": null,
+        "T3": null,
+        "T4": 44382.4717,
+        "wrapperStartedAt": 44179.1168,
+        "deadlineAt": 49179.1754,
+        "deadlineObservedAt": null,
+        "callbackObservedAt": 44382.4717,
+        "lateCallbackAt": null,
+        "responseKind": "PROTOCOL_REPLY",
+        "responsePhase": "MEASURED_REQUEST",
+        "T1toT3Status": "NOT_OBTAINED",
+        "clockT0T4": "harness performance.now ms",
+        "transportScope": "send invocation and normal within-deadline resolve callback, not exact wire or browser processing"
+      },
+      "sourceReference": {
+        "bindingId": "f239f7ed23ca942d8561c155d1a7038383e0f030e5df877bff0623a9ffcc4e4a",
+        "executionHead": "1e2e895826e69ab0ce8ad06e92d3e8c60a081313",
+        "executionTree": "aebbe16609ae24e15b38e856942e0e23146681a2",
+        "diagnosticRevision": "stage-w-1",
+        "runtimeSourceVerified": true,
+        "runner": "tools/three-body-stage-w.mjs",
+        "runnerSha256": "64e398081bfb7acfa1d27ef6ac5b9350a63d7c96acacaec6a7a5a3ccf0003053"
+      },
+      "fixtureWindows": {
+        "preNavigationWaitBegin": 42417.4024,
+        "preNavigationWaitEnd": 42483.5643,
+        "navigationInvokedAt": 42483.5693,
+        "frozenReadyObservedAt": 43975.574,
+        "frozenWaitBegin": 43975.5758,
+        "frozenWaitEnd": 44085.5846,
+        "captureTreatmentWaitBegin": 44122.4969,
+        "captureTreatmentWaitEnd": 44178.9945
+      },
+      "context": {
+        "canvases": [
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": true
+            }
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": true
+            }
+          }
+        ],
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "dpr": 2
+      },
+      "image": {
+        "acquisition": "ACQUIRED",
+        "file": "images/w-07-readback-late.png",
+        "bytes": 187524,
+        "sha256": "2cb119d896d25f11ec827aa83d7f9936530fa3658baf594d8ac6acacc5c784e7",
+        "bitmap": {
+          "imageWidth": 2560,
+          "imageHeight": 1800,
+          "expectedWidth": 2560,
+          "expectedHeight": 1800,
+          "dimensionsMatch": true,
+          "checks": [
+            {
+              "width": 876,
+              "height": 660,
+              "differentChannels": 0,
+              "maximumChannelError": 0
+            },
+            {
+              "width": 876,
+              "height": 660,
+              "differentChannels": 0,
+              "maximumChannelError": 0
+            }
+          ],
+          "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+        }
+      },
+      "before": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "after": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "trace": {
+        "status": "ACQUIRED",
+        "file": "traces/w-07-readback-late.json.gz",
+        "bytes": 91770,
+        "sha256": "cbbe5d57c03d15c71a087e49d44a71cfd9a13d8ee76e8ca6c850b74dcad0bb43",
+        "startStage": "AFTER_FROZEN_FRAME30",
+        "startAcknowledgedAt": 44118.1628,
+        "endRequested": 44388.0977,
+        "finished": 44470.3485
+      },
+      "clock": {
+        "status": "BRACKETED",
+        "mainPid": 22828,
+        "mainTid": 28960,
+        "browserPid": 24504,
+        "browserTid": 8604,
+        "offsetLow": 18010541.697100002,
+        "offsetHigh": 18010542.7753,
+        "uncertaintyMs": 0.5390999987721443
+      },
+      "issues": []
+    },
+    {
+      "id": "w-08-default-early",
+      "order": 7,
+      "plan": {
+        "id": "w-08-default-early",
+        "kind": "capture",
+        "context": "default",
+        "traceMode": "early",
+        "trace": true,
+        "readback": false,
+        "repeat": 2
+      },
+      "status": "FAIL",
+      "request": {
+        "status": "TIMEOUT",
+        "start": 47428.3866,
+        "wrapperStartedAt": 47428.3309,
+        "response": null,
+        "finished": 52437.7551,
+        "elapsed": 5009.368500000004,
+        "timeoutMs": 5000,
+        "params": {
+          "format": "png",
+          "fromSurface": true,
+          "clip": {
+            "x": 0,
+            "y": 0,
+            "width": 1280,
+            "height": 900,
+            "scale": 1
+          },
+          "captureBeyondViewport": false
+        },
+        "method": "Page.captureScreenshot"
+      },
+      "timestamps": {
+        "contract": "stage-w-timing-1",
+        "T0": 47428.3866,
+        "T1": null,
+        "T2": null,
+        "T3": null,
+        "T4": null,
+        "wrapperStartedAt": 47428.3309,
+        "deadlineAt": 52428.3866,
+        "deadlineObservedAt": 52437.7551,
+        "callbackObservedAt": 54658.3967,
+        "lateCallbackAt": 54658.3967,
+        "responseKind": "PROTOCOL_REPLY",
+        "responsePhase": "POST_DEADLINE",
+        "T1toT3Status": "NOT_OBTAINED",
+        "clockT0T4": "harness performance.now ms",
+        "transportScope": "send invocation and normal within-deadline resolve callback, not exact wire or browser processing"
+      },
+      "sourceReference": {
+        "bindingId": "f239f7ed23ca942d8561c155d1a7038383e0f030e5df877bff0623a9ffcc4e4a",
+        "executionHead": "1e2e895826e69ab0ce8ad06e92d3e8c60a081313",
+        "executionTree": "aebbe16609ae24e15b38e856942e0e23146681a2",
+        "diagnosticRevision": "stage-w-1",
+        "runtimeSourceVerified": true,
+        "runner": "tools/three-body-stage-w.mjs",
+        "runnerSha256": "64e398081bfb7acfa1d27ef6ac5b9350a63d7c96acacaec6a7a5a3ccf0003053"
+      },
+      "fixtureWindows": {
+        "preNavigationWaitBegin": 45677.1578,
+        "preNavigationWaitEnd": 45765.3597,
+        "navigationInvokedAt": 45765.3627,
+        "frozenReadyObservedAt": 47256.6227,
+        "frozenWaitBegin": 47256.625,
+        "frozenWaitEnd": 47367.0834,
+        "captureTreatmentWaitBegin": 47370.0648,
+        "captureTreatmentWaitEnd": 47428.2004
+      },
+      "context": {
+        "canvases": [
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": false
+            }
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": false
+            }
+          }
+        ],
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "dpr": 2
+      },
+      "image": {
+        "acquisition": "NOT_OBTAINED"
+      },
+      "before": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "after": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "trace": {
+        "status": "ACQUIRED",
+        "file": "traces/w-08-default-early.json.gz",
+        "bytes": 736610,
+        "sha256": "1420c70595b03638e92161d775bb5af1aafb6432731ca232e7241f3845488ae8",
+        "startStage": "BEFORE_NAVIGATION_AND_DRAW",
+        "startAcknowledgedAt": 45704.8697,
+        "endRequested": 52823.2059,
+        "finished": 55435.2977
+      },
+      "clock": {
+        "status": "BRACKETED",
+        "mainPid": 24412,
+        "mainTid": 31000,
+        "browserPid": 5856,
+        "browserTid": 13324,
+        "offsetLow": 18010541.8317,
+        "offsetHigh": 18010542.3449,
+        "uncertaintyMs": 0.2565999999642372
+      },
+      "issues": [
+        {
+          "category": "E_SCREENSHOT",
+          "code": "TIMEOUT",
+          "error": "Page.captureScreenshot timeout 5000ms",
+          "at": 52620.589,
+          "clock": "harness performance.now ms"
+        }
+      ]
+    },
+    {
+      "id": "w-09-readback-off",
+      "order": 8,
+      "plan": {
+        "id": "w-09-readback-off",
+        "kind": "capture",
+        "context": "readback",
+        "traceMode": "off",
+        "trace": false,
+        "readback": false,
+        "repeat": 2
+      },
+      "status": "PASS",
+      "request": {
+        "status": "PASS",
+        "start": 58321.1645,
+        "wrapperStartedAt": 58320.9962,
+        "response": 58525.9683,
+        "finished": 58525.9683,
+        "elapsed": 204.8038000000015,
+        "timeoutMs": 5000,
+        "params": {
+          "format": "png",
+          "fromSurface": true,
+          "clip": {
+            "x": 0,
+            "y": 0,
+            "width": 1280,
+            "height": 900,
+            "scale": 1
+          },
+          "captureBeyondViewport": false
+        },
+        "method": "Page.captureScreenshot"
+      },
+      "timestamps": {
+        "contract": "stage-w-timing-1",
+        "T0": 58321.1645,
+        "T1": null,
+        "T2": null,
+        "T3": null,
+        "T4": 58525.9683,
+        "wrapperStartedAt": 58320.9962,
+        "deadlineAt": 63321.1645,
+        "deadlineObservedAt": null,
+        "callbackObservedAt": 58525.9683,
+        "lateCallbackAt": null,
+        "responseKind": "PROTOCOL_REPLY",
+        "responsePhase": "MEASURED_REQUEST",
+        "T1toT3Status": "NOT_OBTAINED",
+        "clockT0T4": "harness performance.now ms",
+        "transportScope": "send invocation and normal within-deadline resolve callback, not exact wire or browser processing"
+      },
+      "sourceReference": {
+        "bindingId": "f239f7ed23ca942d8561c155d1a7038383e0f030e5df877bff0623a9ffcc4e4a",
+        "executionHead": "1e2e895826e69ab0ce8ad06e92d3e8c60a081313",
+        "executionTree": "aebbe16609ae24e15b38e856942e0e23146681a2",
+        "diagnosticRevision": "stage-w-1",
+        "runtimeSourceVerified": true,
+        "runner": "tools/three-body-stage-w.mjs",
+        "runnerSha256": "64e398081bfb7acfa1d27ef6ac5b9350a63d7c96acacaec6a7a5a3ccf0003053"
+      },
+      "fixtureWindows": {
+        "preNavigationWaitBegin": 56633.3649,
+        "preNavigationWaitEnd": 56697.0758,
+        "navigationInvokedAt": 56697.0789,
+        "frozenReadyObservedAt": 58155.9483,
+        "frozenWaitBegin": 58155.9512,
+        "frozenWaitEnd": 58256.9902,
+        "captureTreatmentWaitBegin": 58257.023,
+        "captureTreatmentWaitEnd": 58320.7731
+      },
+      "context": {
+        "canvases": [
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": true
+            }
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": true
+            }
+          }
+        ],
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "dpr": 2
+      },
+      "image": {
+        "acquisition": "ACQUIRED",
+        "file": "images/w-09-readback-off.png",
+        "bytes": 187524,
+        "sha256": "2cb119d896d25f11ec827aa83d7f9936530fa3658baf594d8ac6acacc5c784e7",
+        "bitmap": {
+          "imageWidth": 2560,
+          "imageHeight": 1800,
+          "expectedWidth": 2560,
+          "expectedHeight": 1800,
+          "dimensionsMatch": true,
+          "checks": [
+            {
+              "width": 876,
+              "height": 660,
+              "differentChannels": 0,
+              "maximumChannelError": 0
+            },
+            {
+              "width": 876,
+              "height": 660,
+              "differentChannels": 0,
+              "maximumChannelError": 0
+            }
+          ],
+          "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+        }
+      },
+      "before": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "after": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "trace": {
+        "status": "OFF"
+      },
+      "clock": {
+        "status": "NOT_OBTAINED_TRACE_OFF"
+      },
+      "issues": []
+    },
+    {
+      "id": "w-10-default-late",
+      "order": 9,
+      "plan": {
+        "id": "w-10-default-late",
+        "kind": "capture",
+        "context": "default",
+        "traceMode": "late",
+        "trace": true,
+        "readback": false,
+        "repeat": 2
+      },
+      "status": "FAIL",
+      "request": {
+        "status": "TIMEOUT",
+        "start": 61187.0288,
+        "wrapperStartedAt": 61186.987,
+        "response": null,
+        "finished": 66199.3085,
+        "elapsed": 5012.279699999999,
+        "timeoutMs": 5000,
+        "params": {
+          "format": "png",
+          "fromSurface": true,
+          "clip": {
+            "x": 0,
+            "y": 0,
+            "width": 1280,
+            "height": 900,
+            "scale": 1
+          },
+          "captureBeyondViewport": false
+        },
+        "method": "Page.captureScreenshot"
+      },
+      "timestamps": {
+        "contract": "stage-w-timing-1",
+        "T0": 61187.0288,
+        "T1": null,
+        "T2": null,
+        "T3": null,
+        "T4": null,
+        "wrapperStartedAt": 61186.987,
+        "deadlineAt": 66187.0288,
+        "deadlineObservedAt": 66199.3085,
+        "callbackObservedAt": 68373.1284,
+        "lateCallbackAt": 68373.1284,
+        "responseKind": "PROTOCOL_REPLY",
+        "responsePhase": "POST_DEADLINE",
+        "T1toT3Status": "NOT_OBTAINED",
+        "clockT0T4": "harness performance.now ms",
+        "transportScope": "send invocation and normal within-deadline resolve callback, not exact wire or browser processing"
+      },
+      "sourceReference": {
+        "bindingId": "f239f7ed23ca942d8561c155d1a7038383e0f030e5df877bff0623a9ffcc4e4a",
+        "executionHead": "1e2e895826e69ab0ce8ad06e92d3e8c60a081313",
+        "executionTree": "aebbe16609ae24e15b38e856942e0e23146681a2",
+        "diagnosticRevision": "stage-w-1",
+        "runtimeSourceVerified": true,
+        "runner": "tools/three-body-stage-w.mjs",
+        "runnerSha256": "64e398081bfb7acfa1d27ef6ac5b9350a63d7c96acacaec6a7a5a3ccf0003053"
+      },
+      "fixtureWindows": {
+        "preNavigationWaitBegin": 59389.7038,
+        "preNavigationWaitEnd": 59444.7039,
+        "navigationInvokedAt": 59444.7085,
+        "frozenReadyObservedAt": 60988.1902,
+        "frozenWaitBegin": 60988.1924,
+        "frozenWaitEnd": 61093.0872,
+        "captureTreatmentWaitBegin": 61135.1634,
+        "captureTreatmentWaitEnd": 61186.8977
+      },
+      "context": {
+        "canvases": [
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": false
+            }
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": false
+            }
+          }
+        ],
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "dpr": 2
+      },
+      "image": {
+        "acquisition": "NOT_OBTAINED"
+      },
+      "before": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "after": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "trace": {
+        "status": "ACQUIRED",
+        "file": "traces/w-10-default-late.json.gz",
+        "bytes": 118298,
+        "sha256": "ed5db8a89d64c63aa9bbc9362c5c89156a8e10a3abe54182bb80ed78b7c7932d",
+        "startStage": "AFTER_FROZEN_FRAME30",
+        "startAcknowledgedAt": 61132.5567,
+        "endRequested": 66958.2024,
+        "finished": 68482.8535
+      },
+      "clock": {
+        "status": "BRACKETED",
+        "mainPid": 31040,
+        "mainTid": 26764,
+        "browserPid": 19100,
+        "browserTid": 5944,
+        "offsetLow": 18010541.8405,
+        "offsetHigh": 18010542.3926,
+        "uncertaintyMs": 0.2760499995201826
+      },
+      "issues": [
+        {
+          "category": "E_SCREENSHOT",
+          "code": "TIMEOUT",
+          "error": "Page.captureScreenshot timeout 5000ms",
+          "at": 66199.5493,
+          "clock": "harness performance.now ms"
+        }
+      ]
+    },
+    {
+      "id": "w-11-readback-early",
+      "order": 10,
+      "plan": {
+        "id": "w-11-readback-early",
+        "kind": "capture",
+        "context": "readback",
+        "traceMode": "early",
+        "trace": true,
+        "readback": false,
+        "repeat": 2
+      },
+      "status": "PASS",
+      "request": {
+        "status": "PASS",
+        "start": 71159.5855,
+        "wrapperStartedAt": 71159.5466,
+        "response": 71347.8181,
+        "finished": 71347.8181,
+        "elapsed": 188.232600000003,
+        "timeoutMs": 5000,
+        "params": {
+          "format": "png",
+          "fromSurface": true,
+          "clip": {
+            "x": 0,
+            "y": 0,
+            "width": 1280,
+            "height": 900,
+            "scale": 1
+          },
+          "captureBeyondViewport": false
+        },
+        "method": "Page.captureScreenshot"
+      },
+      "timestamps": {
+        "contract": "stage-w-timing-1",
+        "T0": 71159.5855,
+        "T1": null,
+        "T2": null,
+        "T3": null,
+        "T4": 71347.8181,
+        "wrapperStartedAt": 71159.5466,
+        "deadlineAt": 76159.5855,
+        "deadlineObservedAt": null,
+        "callbackObservedAt": 71347.8181,
+        "lateCallbackAt": null,
+        "responseKind": "PROTOCOL_REPLY",
+        "responsePhase": "MEASURED_REQUEST",
+        "T1toT3Status": "NOT_OBTAINED",
+        "clockT0T4": "harness performance.now ms",
+        "transportScope": "send invocation and normal within-deadline resolve callback, not exact wire or browser processing"
+      },
+      "sourceReference": {
+        "bindingId": "f239f7ed23ca942d8561c155d1a7038383e0f030e5df877bff0623a9ffcc4e4a",
+        "executionHead": "1e2e895826e69ab0ce8ad06e92d3e8c60a081313",
+        "executionTree": "aebbe16609ae24e15b38e856942e0e23146681a2",
+        "diagnosticRevision": "stage-w-1",
+        "runtimeSourceVerified": true,
+        "runner": "tools/three-body-stage-w.mjs",
+        "runnerSha256": "64e398081bfb7acfa1d27ef6ac5b9350a63d7c96acacaec6a7a5a3ccf0003053"
+      },
+      "fixtureWindows": {
+        "preNavigationWaitBegin": 69467.5699,
+        "preNavigationWaitEnd": 69550.4217,
+        "navigationInvokedAt": 69550.4362,
+        "frozenReadyObservedAt": 70989.7454,
+        "frozenWaitBegin": 70989.7494,
+        "frozenWaitEnd": 71100.3389,
+        "captureTreatmentWaitBegin": 71102.8756,
+        "captureTreatmentWaitEnd": 71159.4677
+      },
+      "context": {
+        "canvases": [
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": true
+            }
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": true
+            }
+          }
+        ],
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "dpr": 2
+      },
+      "image": {
+        "acquisition": "ACQUIRED",
+        "file": "images/w-11-readback-early.png",
+        "bytes": 187524,
+        "sha256": "2cb119d896d25f11ec827aa83d7f9936530fa3658baf594d8ac6acacc5c784e7",
+        "bitmap": {
+          "imageWidth": 2560,
+          "imageHeight": 1800,
+          "expectedWidth": 2560,
+          "expectedHeight": 1800,
+          "dimensionsMatch": true,
+          "checks": [
+            {
+              "width": 876,
+              "height": 660,
+              "differentChannels": 0,
+              "maximumChannelError": 0
+            },
+            {
+              "width": 876,
+              "height": 660,
+              "differentChannels": 0,
+              "maximumChannelError": 0
+            }
+          ],
+          "scope": "Post-capture readback; this readback may affect the backend and is outside the measured window"
+        }
+      },
+      "before": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "after": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "trace": {
+        "status": "ACQUIRED",
+        "file": "traces/w-11-readback-early.json.gz",
+        "bytes": 705229,
+        "sha256": "2c2f02fc8a174a8312ddbf96c8297d446e8a00a03b31059460449400e4cf922d",
+        "startStage": "BEFORE_NAVIGATION_AND_DRAW",
+        "startAcknowledgedAt": 69492.468,
+        "endRequested": 71353.6669,
+        "finished": 71772.3385
+      },
+      "clock": {
+        "status": "BRACKETED",
+        "mainPid": 15748,
+        "mainTid": 22552,
+        "browserPid": 12732,
+        "browserTid": 7128,
+        "offsetLow": 18010541.8883,
+        "offsetHigh": 18010542.2604,
+        "uncertaintyMs": 0.18604999966919422
+      },
+      "issues": []
+    },
+    {
+      "id": "w-12-default-off",
+      "order": 11,
+      "plan": {
+        "id": "w-12-default-off",
+        "kind": "capture",
+        "context": "default",
+        "traceMode": "off",
+        "trace": false,
+        "readback": false,
+        "repeat": 2
+      },
+      "status": "FAIL",
+      "request": {
+        "status": "TIMEOUT",
+        "start": 74849.476,
+        "wrapperStartedAt": 74849.4137,
+        "response": null,
+        "finished": 79894.539,
+        "elapsed": 5045.063000000009,
+        "timeoutMs": 5000,
+        "params": {
+          "format": "png",
+          "fromSurface": true,
+          "clip": {
+            "x": 0,
+            "y": 0,
+            "width": 1280,
+            "height": 900,
+            "scale": 1
+          },
+          "captureBeyondViewport": false
+        },
+        "method": "Page.captureScreenshot"
+      },
+      "timestamps": {
+        "contract": "stage-w-timing-1",
+        "T0": 74849.476,
+        "T1": null,
+        "T2": null,
+        "T3": null,
+        "T4": null,
+        "wrapperStartedAt": 74849.4137,
+        "deadlineAt": 79849.476,
+        "deadlineObservedAt": 79894.539,
+        "callbackObservedAt": 80399.0872,
+        "lateCallbackAt": 80399.0872,
+        "responseKind": "PROTOCOL_REJECTION",
+        "responsePhase": "BROWSER_CLEANUP",
+        "T1toT3Status": "NOT_OBTAINED",
+        "clockT0T4": "harness performance.now ms",
+        "transportScope": "send invocation and normal within-deadline resolve callback, not exact wire or browser processing"
+      },
+      "sourceReference": {
+        "bindingId": "f239f7ed23ca942d8561c155d1a7038383e0f030e5df877bff0623a9ffcc4e4a",
+        "executionHead": "1e2e895826e69ab0ce8ad06e92d3e8c60a081313",
+        "executionTree": "aebbe16609ae24e15b38e856942e0e23146681a2",
+        "diagnosticRevision": "stage-w-1",
+        "runtimeSourceVerified": true,
+        "runner": "tools/three-body-stage-w.mjs",
+        "runnerSha256": "64e398081bfb7acfa1d27ef6ac5b9350a63d7c96acacaec6a7a5a3ccf0003053"
+      },
+      "fixtureWindows": {
+        "preNavigationWaitBegin": 73122.2759,
+        "preNavigationWaitEnd": 73178.7993,
+        "navigationInvokedAt": 73178.8033,
+        "frozenReadyObservedAt": 74688.8317,
+        "frozenWaitBegin": 74688.8323,
+        "frozenWaitEnd": 74796.7541,
+        "captureTreatmentWaitBegin": 74796.7693,
+        "captureTreatmentWaitEnd": 74849.3214
+      },
+      "context": {
+        "canvases": [
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": false
+            }
+          },
+          {
+            "width": 876,
+            "height": 660,
+            "styleWidth": "438px",
+            "styleHeight": "330px",
+            "context": {
+              "alpha": true,
+              "colorSpace": "srgb",
+              "colorType": "unorm8",
+              "desynchronized": false,
+              "toneMapping": {
+                "mode": "standard"
+              },
+              "willReadFrequently": false
+            }
+          }
+        ],
+        "innerWidth": 1280,
+        "innerHeight": 900,
+        "dpr": 2
+      },
+      "image": {
+        "acquisition": "NOT_OBTAINED"
+      },
+      "before": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "after": {
+        "step": 30,
+        "bStep": 30,
+        "ab": true,
+        "playing": false,
+        "disposed": false,
+        "timer": false,
+        "raf": false,
+        "trail": 0,
+        "graph": 0,
+        "b": "30",
+        "a": "30",
+        "observed": "30"
+      },
+      "trace": {
+        "status": "OFF"
+      },
+      "clock": {
+        "status": "NOT_OBTAINED_TRACE_OFF"
+      },
+      "issues": [
+        {
+          "category": "E_SCREENSHOT",
+          "code": "TIMEOUT",
+          "error": "Page.captureScreenshot timeout 5000ms",
+          "at": 79894.7278,
+          "clock": "harness performance.now ms"
+        }
+      ]
+    }
+  ],
+  "rawIndex": [
+    {
+      "id": "w-01-default-off",
+      "raw": "raw/w-01-default-off.json.gz",
+      "sha256": "35b39c178c1f338545891db395e29a20a9797df0317189cfcc2fb8a92b208cf9",
+      "decodedSha256": "be93ea97e304361f09998b04bf5b3a478de979313dfdc8c221285c33764819bf",
+      "summarySha256": "f3f820a05ca983845afa3f52d92379b0a00d054d551d1d3f6094da2fc852ccfa",
+      "bytes": 6503
+    },
+    {
+      "id": "w-02-readback-early",
+      "raw": "raw/w-02-readback-early.json.gz",
+      "sha256": "ab769ad564aa9d7305ff38596cbbd34d53512ff9975e085215e7a924acc5aaa2",
+      "decodedSha256": "e2b70e9179fe9488e9f1dc713db26f400596aaa6365977c13376bea8832749e6",
+      "summarySha256": "ec334146e16246a16e9312f7a16765342d040d6b41a2d45d76253e6446154ee9",
+      "bytes": 358789
+    },
+    {
+      "id": "w-03-default-late",
+      "raw": "raw/w-03-default-late.json.gz",
+      "sha256": "b7759f11982ac39a46c2db18636bb64925478d083fb189e0bca8ce7cf69d7f70",
+      "decodedSha256": "cbc7d76d9205aa29f6367fc2fc48ededfd5a0378818b5c3e2b48d25d5b7238a4",
+      "summarySha256": "9948a88bff18dba762c28fb6e4ec4041d0d5a29d7ee84f0a07a91bf30168a465",
+      "bytes": 178858
+    },
+    {
+      "id": "w-04-readback-off",
+      "raw": "raw/w-04-readback-off.json.gz",
+      "sha256": "5896d73b00606aa48570d26efe8012e74fc413c9c82031cf1dde3ddac591ed74",
+      "decodedSha256": "4854ec1f638b31fae353a57dc3ee1242823484164d23cbc51b0625cfcc24302b",
+      "summarySha256": "f8536cfc0a3877478c712d9e58483175e33f81b658acf04ed79779285f9666f1",
+      "bytes": 347090
+    },
+    {
+      "id": "w-05-default-early",
+      "raw": "raw/w-05-default-early.json.gz",
+      "sha256": "dbbbf1221536c83ea53294fb93930b86069969cff5180d915e3bb4550ebe2de1",
+      "decodedSha256": "4b9aeef14ca3338042b33e8ac43ca766bb158f48b5a1455a6b8deab06280102e",
+      "summarySha256": "2240a334101ceeb11f570bda940547f59c4d0bbb76e898049cf9f04c869707a4",
+      "bytes": 178911
+    },
+    {
+      "id": "w-06-readback-late",
+      "raw": "raw/w-06-readback-late.json.gz",
+      "sha256": "34e3f48cdd6c6c27ed90256c4a8e7849eebda9e92ace239e7de4f079efea1946",
+      "decodedSha256": "33c28e51f9e9933a6db4564890459114147123e3f7ccccf611e487951db4a81e",
+      "summarySha256": "db32e4e237420b27d08b93041bc460ed8b5e30db1dab00b007794fbf65d5793a",
+      "bytes": 358540
+    },
+    {
+      "id": "w-07-readback-late",
+      "raw": "raw/w-07-readback-late.json.gz",
+      "sha256": "182ebd1f4349590ed168a3b945eea723f4780b4afaff26e21716f0db06d6c463",
+      "decodedSha256": "5df1a0d48d8c3a97611f22c775e37e7d744fec184a3f788763fae4447e3c829e",
+      "summarySha256": "ac2d0207a20f2f5eed036f2c66b05da624f8ca4f0746ed2f9fa5fd5f939baaf8",
+      "bytes": 358435
+    },
+    {
+      "id": "w-08-default-early",
+      "raw": "raw/w-08-default-early.json.gz",
+      "sha256": "16abf0daf671b5a2f6060502e1b768a30d63cf8cc20065a47d1437dd0e289c63",
+      "decodedSha256": "6f1fd06a82060cbec86b0976d1ff66d765840575878f71861c25c213c76fed02",
+      "summarySha256": "147a61523d23b4141ba346ae7e2dd199c34323ebe0db84159aa046b3df9f888c",
+      "bytes": 178937
+    },
+    {
+      "id": "w-09-readback-off",
+      "raw": "raw/w-09-readback-off.json.gz",
+      "sha256": "d4c45b4474b010856f99631b63dae2c3dbb863494c1a41d30420c625fc956e67",
+      "decodedSha256": "27b14376452170b04d0e7e912225969c84afd0e7e137a4ad7fd5977fbeab01c1",
+      "summarySha256": "99212338e5ed8b62f5a075bf67bd1ac681ee20bd1d78a83d93495388a183fc05",
+      "bytes": 347103
+    },
+    {
+      "id": "w-10-default-late",
+      "raw": "raw/w-10-default-late.json.gz",
+      "sha256": "e900892d9a3027128b6e86e60d1dd249b5e52ddc0875a12823f8bc5eb9063a3c",
+      "decodedSha256": "713e5579143720731ddb5a31654a5fd23d3a2c689d96a8dfd252bf2a15fa54dd",
+      "summarySha256": "9a9d7a2f1d9001a082324be9c3a087d596e384598887af79557b66afd5748b8c",
+      "bytes": 178745
+    },
+    {
+      "id": "w-11-readback-early",
+      "raw": "raw/w-11-readback-early.json.gz",
+      "sha256": "5c5a1cb0e3a2fd7e1edf5b2926b19eae7d36330108ff48364ab56e9cac86c43f",
+      "decodedSha256": "85e49ee690262e742ef4a51df4ffd6342de695758efd7f26c93bf3d9a7409df9",
+      "summarySha256": "a9bba48c19654ef24673b034b25ccd32dd6c156ff4705a982cf0e82a7e2d7ecc",
+      "bytes": 357566
+    },
+    {
+      "id": "w-12-default-off",
+      "raw": "raw/w-12-default-off.json.gz",
+      "sha256": "bf46f415e91f3be31acf9ee5193e999c0bc00ffb2ff0cee87dc03b0702ddba0f",
+      "decodedSha256": "4ed70fbeb55d6a9e41c4deeba7a4048212964a0b1171c7054cd0b3f175161383",
+      "summarySha256": "c405db4ce412416d37f60302709bbc0edb01551fa3ee7dc10078c4ab906fbd5a",
+      "bytes": 6527
+    }
+  ]
+}
