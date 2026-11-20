@@ -6,9 +6,10 @@ type State={preset:Preset;k:number;step:number;speed:number;original:boolean;cir
 const lessons=[
  ['1本の腕','横は r cos(2πft+φ)、縦は r sin(2πft+φ)。1本の腕の先端は円を描きます。ここでは半径0.68、f=+1の既知の円です。'],
  ['動きを足す','3本の腕を先端からつなぎます。f=+1、−2、+3の動きを足すと、最後の先端が新しい線を描きます。正は反時計回り、負は時計回りです。円同士が物理的に転がる仕組みではありません。'],
- ['輪郭を分ける','魚の閉じた輪郭を弧長で128点へ再標本化し、DFTで分けます。半径は係数の大きさ、周波数は回数と向き、位相は出発角度。項を選んで図と値を比べましょう。'],
- ['円を増やして描き直す','同じ魚と固定尺度でK=4・16・64を比較しましょう。振幅が大きい順の追加です。周波数順ではなく、各点のずれが必ず小さくなるわけでもありません。128標本上の平均二乗誤差は増えません。']
+ ['輪郭を分ける','選択した輪郭「{preset}」を弧長で128点へ再標本化し、DFTで分けます。半径は係数の大きさ、周波数は回数と向き、位相は出発角度。項を選んで図と値を比べましょう。'],
+ ['円を増やして描き直す','同じ輪郭「{preset}」を固定尺度でK=4・16・64を比較しましょう。振幅が大きい順の追加です。周波数順ではなく、各点のずれが必ず小さくなるわけでもありません。128標本上の平均二乗誤差は増えません。']
 ] as const;
+const lessonDescription=(stage:number,preset:Preset)=>lessons[stage][1].replace('{preset}',presetNames[preset]);
 const symbolNotes:Record<string,string>={center:'c₀ は128点の平均位置。回転円の数Kには含めず、連鎖の出発点を四角で示します。',radius:'|cₖ| は腕の長さと円の半径です。選択した項は太線・四角・番号でも示します。',frequency:'fₖ は1周の間に回る回数と向き。上が正の平面で、正は反時計回り、負は時計回りです。',phase:'arg(cₖ) は t=0 の出発角度。現在の角度は 2πfₖt+arg(cₖ) です。',sum:'Σ は動きの足し算。腕を先端から順につなぎます。中心から先端への破線は和を示します。'};
 
 export function mountFourier(host:HTMLElement):()=>void{
@@ -46,6 +47,7 @@ export function mountFourier(host:HTMLElement):()=>void{
   canvas.dataset.renderMs=String(performance.now()-start);
  }
  function sync(){
+  if(lesson>=0)$('lesson-text').textContent=lessonDescription(lesson,state.preset);
   const tip=path[state.step];canvas.dataset.step=String(state.step);canvas.dataset.k=String(state.k);canvas.dataset.points=String(state.step+1);canvas.dataset.extent=String(model.extent);canvas.dataset.x=String(tip.x);canvas.dataset.y=String(tip.y);
   $('observation').textContent=`位相 t=${state.step}/512 (${format(state.step/STEPS)}) · K=${state.k} · 先端 (x, y)=(${format(tip.x)}, ${format(tip.y)}) · c₀=(${format(model.center.x)}, ${format(model.center.y)})`;
   // Live status and focused button names only mutate on a state transition.
@@ -79,7 +81,7 @@ export function mountFourier(host:HTMLElement):()=>void{
  termSelect.onchange=()=>{state.selected=termSelect.value===''?null:Number(termSelect.value);render();};
  $('clear').onclick=()=>{state.selected=null;state.symbol='';render();};
  host.querySelectorAll<HTMLButtonElement>('[data-fourier-symbol]').forEach(b=>b.onclick=()=>{state.symbol=b.dataset.fourierSymbol!;if(['radius','frequency','phase'].includes(state.symbol)&&state.selected===null)state.selected=0;render();});
- function showLesson(i:number){stop();lesson=i;state.step=0;state.selected=null;state.symbol=i<2?'sum':'';state.original=i>=2;state.circles=true;state.preset='fish';state.k=i===0?1:i===1?3:i===2?16:4;model=i<2?lessonModel(i===0?1:3):createModel('fish');rebuild();$('lesson-title').textContent=`${i+1}. ${lessons[i][0]}`;$('lesson-text').textContent=lessons[i][1];$('compare').hidden=i!==3;host.querySelectorAll<HTMLElement>('[data-fourier-lesson]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.fourierLesson)===i)));render();}
+ function showLesson(i:number){stop();lesson=i;state.step=0;state.selected=null;state.symbol=i<2?'sum':'';state.original=i>=2;state.circles=true;state.preset='fish';state.k=i===0?1:i===1?3:i===2?16:4;model=i<2?lessonModel(i===0?1:3):createModel('fish');rebuild();$('lesson-title').textContent=`${i+1}. ${lessons[i][0]}`;$('compare').hidden=i!==3;host.querySelectorAll<HTMLElement>('[data-fourier-lesson]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.fourierLesson)===i)));render();}
  $('lesson').onclick=()=>{saved=structuredClone(state);forcedStop=false;stop();$('lesson-panel').hidden=false;$('lesson').hidden=true;showLesson(0);$('lesson-title').focus({preventScroll:true});};
  function closeLesson(){if(!saved)return;stop();state=saved;saved=null;lesson=-1;model=createModel(state.preset);rebuild();state.playing=state.playing&&!forcedStop&&!motion.matches&&!document.hidden&&!!ctx;previous=null;$('lesson-panel').hidden=true;$('lesson').hidden=false;render();$('lesson').focus({preventScroll:true});schedule();}
  $('close').onclick=closeLesson;host.querySelectorAll<HTMLButtonElement>('[data-fourier-lesson]').forEach(b=>b.onclick=()=>showLesson(Number(b.dataset.fourierLesson)));
