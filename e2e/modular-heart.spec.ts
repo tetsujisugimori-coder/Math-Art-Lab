@@ -14,7 +14,7 @@ async function openWork(page: Page, width: number, reducedMotion: 'reduce' | 'no
   return { picker, work, stage, art };
 }
 
-test('modular heart opening, pause/resume and three original frames at 390px', async ({ page }, testInfo) => {
+test('modular heart opening, pause/resume and completion at 390px', async ({ page }, testInfo) => {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   const { work, stage, art } = await openWork(page, 390, 'no-preference');
@@ -44,29 +44,55 @@ test('modular heart opening, pause/resume and three original frames at 390px', a
   await expect(art).toHaveAttribute('data-visible', String(pausedCount));
   await button('再開').click();
   await expect(art).toHaveAttribute('data-draw-complete', 'true');
-  // Capture the completed canvas with a fully faded-in title. Freeze via the
-  // public pause button in the same frame to avoid Playwright scroll latency.
-  await work.evaluate(element => new Promise<void>(resolve => {
-    function check() {
-      const title = element.querySelector<HTMLElement>('.mh-title')!;
-      if (Number(title.style.opacity) >= 1) {
-        element.querySelector<HTMLButtonElement>('#mh-play')!.click();
-        resolve();
-        return;
-      }
-      requestAnimationFrame(check);
-    }
-    requestAnimationFrame(check);
-  }));
-  await expect(art).toHaveAttribute('data-phase', 'title');
-  await capture('03-title');
-  await button('再開').click();
+  // Completion is a persistent state. The transient title is tested
+  // separately with Playwright's controllable animation clock.
   await expect(art).toHaveAttribute('data-phase', 'complete');
   await expect(art).toHaveAttribute('data-visible', '280');
+  await capture('03-complete');
   await button('リセット').click();
   await expect(art).toHaveAttribute('data-phase', 'dawn');
   await expect(art).toHaveAttribute('data-visible', '0');
   await expect(work.getByRole('combobox', { name: '描画速度' })).toHaveValue('1');
+  expect(errors).toEqual([]);
+});
+
+test('modular heart title is captured at 14.5s with 280 chords at 390px', async ({ page }, testInfo) => {
+  // Install before navigation, then pause only after the work has loaded.
+  // runFor advances requestAnimationFrame in controlled steps. At 2x speed,
+  // 7.3 seconds of clock time places the opening at about 14.5 seconds.
+  await page.clock.install({ time: new Date('2026-11-21T00:00:00Z') });
+  const { work, stage, art } = await openWork(page, 390, 'no-preference');
+  await page.clock.pauseAt(new Date('2026-11-21T00:05:00Z'));
+  await work.getByRole('combobox', { name: '描画速度' }).selectOption('2');
+  await work.getByRole('button', { name: '再生', exact: true }).click();
+  await page.clock.runFor(7_300);
+
+  await expect(art).toHaveAttribute('data-phase', 'title');
+  await expect(art).toHaveAttribute('data-visible', '280');
+  await expect(art).toHaveAttribute('data-draw-complete', 'true');
+  const title = stage.locator('.mh-title');
+  await expect(title).toHaveCSS('opacity', '1');
+  await expect(title).toContainText('余りが描く心臓');
+  const target = testInfo.outputPath('03-title.png');
+  await stage.screenshot({ path: target });
+  await testInfo.attach('03-title', { path: target, contentType: 'image/png' });
+  // The screenshot must not silently advance the scene into completion.
+  await expect(art).toHaveAttribute('data-phase', 'title');
+});
+
+test('modular heart reaches completion after real-time 15-second playback at 390px', async ({ page }) => {
+  test.setTimeout(45_000);
+  const errors: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  const { work, art } = await openWork(page, 390, 'no-preference');
+  await expect(work.getByRole('combobox', { name: '描画速度' })).toHaveValue('1');
+  const start = Date.now();
+  await work.getByRole('button', { name: '再生', exact: true }).click();
+  await expect(art).toHaveAttribute('data-phase', 'complete', { timeout: 25_000 });
+  expect(Date.now() - start).toBeGreaterThanOrEqual(14_000);
+  await expect(art).toHaveAttribute('data-draw-complete', 'true');
+  await expect(art).toHaveAttribute('data-visible', '280');
+  await expect(work.getByRole('button', { name: 'もう一度再生', exact: true })).toBeVisible();
   expect(errors).toEqual([]);
 });
 
