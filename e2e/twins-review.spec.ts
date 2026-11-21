@@ -6,6 +6,34 @@ test.beforeEach(async({page})=>{
  await page.goto('/');await page.locator('#experiment').selectOption('twins');await twinsReady(page);
 });
 
+test('review a resize commits current-size bitmap pixels, not the previous frame',async({page})=>{
+ const stage=page.locator(mstage),canvas=stage.locator('canvas');
+ const snapshot=()=>canvas.evaluate(element=>{
+  const c=element as HTMLCanvasElement,ctx=c.getContext('2d')!;
+  const x=Math.floor(c.width*.93),y=Math.floor(c.height*.5);
+  return {width:c.width,height:c.height,image:c.toDataURL(),
+   sample:Array.from(ctx.getImageData(x,y,1,1).data)};
+ });
+ const original=await snapshot();
+ await page.setViewportSize({width:375,height:1000});
+ await stage.evaluate(el=>{el.style.width='calc(100% - 0.375px)';});
+ await twinsReady(page);
+ const narrow=await snapshot();
+ expect(narrow.width).toBeLessThan(original.width);
+ expect(narrow.height).toBeLessThan(original.height);
+ expect(narrow.image).not.toBe(original.image);
+ // A colored escape pixel proves a real Worker bitmap was painted, not
+ // merely a resized (background-filled) canvas with updated metadata.
+ expect(narrow.sample).not.toEqual([6,11,23,255]);
+ await page.setViewportSize({width:1280,height:1000});
+ await twinsReady(page);
+ const wide=await snapshot();
+ expect(wide.width).toBeGreaterThan(narrow.width);
+ expect(wide.image).not.toBe(narrow.image);
+ expect(wide.sample).not.toEqual([6,11,23,255]);
+});
+
+
 for(const width of [320,375,390,1280])for(const colorScheme of ['dark','light'] as const)test(`review UI ${width}px ${colorScheme}`,async({page})=>{
  test.setTimeout(90000);
  await page.setViewportSize({width,height:1000});await page.emulateMedia({colorScheme,reducedMotion:'reduce'});await twinsReady(page);

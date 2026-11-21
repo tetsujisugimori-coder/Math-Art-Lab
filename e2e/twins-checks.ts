@@ -1,6 +1,28 @@
 import {expect,type Page} from '@playwright/test';
+import {rasterSize} from '../src/twins';
 export const mstage='#twins-mandelbrot-stage',jstage='#twins-julia-stage';
-export async function twinsReady(page:Page){for(const id of [mstage,jstage]){await expect(page.locator(id)).toHaveAttribute('data-status','ready',{timeout:20000});const target=await page.locator(id).getAttribute('data-target');await expect(page.locator(id)).toHaveAttribute('data-render',target!);}}
+// Wait for the rendered bitmap to match the *current* DOM size, not a target
+// captured before ResizeObserver has processed a viewport/style change.
+export async function twinsReady(page:Page){
+ for(const id of [mstage,jstage]){
+  await expect.poll(async()=>{
+   const snapshot=await page.locator(id).evaluate(stage=>{
+    const canvas=stage.querySelector('canvas')!;
+    const bounds=canvas.getBoundingClientRect();
+    return {status:stage.dataset.status,target:stage.dataset.target,render:stage.dataset.render,
+     cssWidth:bounds.width,cssHeight:bounds.height,canvasWidth:canvas.width,canvasHeight:canvas.height,
+     dpr:window.devicePixelRatio};
+   });
+   if(snapshot.status!=='ready'||!snapshot.target||snapshot.render!==snapshot.target||
+      snapshot.cssWidth<=0||snapshot.cssHeight<=0)return false;
+   const expected=rasterSize(snapshot.cssWidth,snapshot.cssHeight,snapshot.dpr);
+   const target=JSON.parse(snapshot.target) as {width:number;height:number;aspect:number};
+   return target.width===expected.width&&target.height===expected.height&&
+     snapshot.canvasWidth===expected.width&&snapshot.canvasHeight===expected.height&&
+     Math.abs(target.aspect-snapshot.cssWidth/snapshot.cssHeight)<1e-10;
+  },{timeout:20000}).toBe(true);
+ }
+}
 export async function twinsPixel(page:Page,stage:string,u:number,v:number){return page.locator(`${stage} canvas`).evaluate((element,point)=>{const canvas=element as HTMLCanvasElement;return Array.from(canvas.getContext('2d')!.getImageData(Math.min(canvas.width-1,Math.floor(point.u*canvas.width)),Math.min(canvas.height-1,Math.floor(point.v*canvas.height)),1,1).data);},{u,v});}
 export async function twinsApply(page:Page,re:string,im:string,n='200'){await page.locator('#twins-real').fill(re);await page.locator('#twins-imaginary').fill(im);await page.locator('#twins-iterations').fill(n);await page.locator('#twins-form button').click();await twinsReady(page);}
 export async function assertCirclePixels(page:Page){
