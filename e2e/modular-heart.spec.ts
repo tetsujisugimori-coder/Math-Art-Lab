@@ -73,6 +73,12 @@ test('modular heart title is captured at 14.5s with 280 chords at 390px', async 
   const title = stage.locator('.mh-title');
   await expect(title).toHaveCSS('opacity', '1');
   await expect(title).toContainText('余りが描く心臓');
+  // Keep the verified frame through the app's public pause control before
+  // releasing the fake clock: locator.screenshot needs live animation frames
+  // for its stability check, but the title must not advance or disappear.
+  await work.locator('#mh-play').evaluate((button: HTMLButtonElement) => button.click());
+  await page.clock.resume();
+  await expect(work.getByRole('button', { name: '再開', exact: true })).toBeVisible();
   const target = testInfo.outputPath('03-title.png');
   await stage.screenshot({ path: target });
   await testInfo.attach('03-title', { path: target, contentType: 'image/png' });
