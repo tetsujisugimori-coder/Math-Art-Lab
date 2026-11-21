@@ -1,3 +1,4 @@
+import {mountModularHeart} from './modular-heart-view';
 import {mountPenrose} from './penrose-view';
 import {mountCooperation} from './cooperation-view';
 import {mountSegregation} from './segregation-view';
@@ -28,6 +29,7 @@ select.add(new Option('014 · 需要と供給の蜘蛛の巣','cobweb'));
 select.add(new Option('015 · 分断のモザイク','segregation'));
 select.add(new Option('016 · 協力の格子','cooperation'));
 select.add(new Option('018 · 黄金比の星屑','penrose'));
-const mounts={fractal:mountFractal,harmonograph:mountHarmonograph,garden:mountGarden,knot:mountKnot,lorenz:mountLorenz,twins:mountTwins,wave:mountWave,flow:mountFlowField,reaction:mountReactionDiffusion,fourier:mountFourier,voronoi:mountVoronoi,sand:mountSand,ripple:mountRipple,cobweb:mountCobweb,segregation:mountSegregation,cooperation:mountCooperation,penrose:mountPenrose};
+select.add(new Option('019 · 余りが描く心臓','modular-heart'));
+const mounts={fractal:mountFractal,harmonograph:mountHarmonograph,garden:mountGarden,knot:mountKnot,lorenz:mountLorenz,twins:mountTwins,wave:mountWave,flow:mountFlowField,reaction:mountReactionDiffusion,fourier:mountFourier,voronoi:mountVoronoi,sand:mountSand,ripple:mountRipple,cobweb:mountCobweb,segregation:mountSegregation,cooperation:mountCooperation,penrose:mountPenrose,"modular-heart":mountModularHeart};
 select.onchange=()=>{dispose();dispose=(mounts[select.value as keyof typeof mounts]??mountHarmonograph)(host);};
 window.addEventListener('pagehide',event=>{if(!event.persisted)dispose();});
