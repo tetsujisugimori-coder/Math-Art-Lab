@@ -56,3 +56,36 @@ test('cooperation: fixed boundary, mean scoring and all comparison controls',asy
   await open(page);await page.locator('#cl-boundary').selectOption('fixed');await page.locator('#cl-scoring').selectOption('mean');await page.locator('#cl-settings button').click();await expect(page.locator('#cl-equation')).toContainText('合計を 3人で割る');
   for(const key of ['neighbors','rule','T','temperature','mutation','boundary','scoring']){await page.locator('#cl-compare-key').selectOption(key);await page.locator('#cl-compare').click();await expect(page.locator('#cl-right')).toBeVisible();await expect(page.locator('#cl-error')).toBeEmpty();await expect(page.locator('#cl-difference')).toContainText('差分1項目');await step(page);await expect(page.locator('#cl-right')).toHaveAttribute('data-painted-generation','1');}
 });
+
+for (const [key, label, applied, suggested] of [
+  ['T', 'T · 誘惑', '-1000', '-999'],
+  ['T', 'T · 誘惑', '999.9', '998.9'],
+  ['T', 'T · 誘惑', '1000', '999'],
+  ['T', 'T · 誘惑', '5.14', '6.1'],
+  ['temperature', 'Fermi温度 K', '0.001', '0.002'],
+  ['temperature', 'Fermi温度 K', '500.002', '250.001'],
+  ['temperature', 'Fermi温度 K', '1000', '500'],
+  ['temperature', 'Fermi温度 K', '1.0001', '2'],
+] as const) {
+  test(`cooperation: valid comparison B default for ${key}=${applied}`, async ({ page }) => {
+    await open(page);
+    if (key === 'temperature') await page.locator('#cl-rule').selectOption('fermi');
+    const setting = page.locator(`#cl-${key}`);
+    await setting.fill(applied);
+    await page.locator('#cl-compare-key').selectOption(key);
+    await page.locator('#cl-settings button').click();
+    const initial = await raster(page);
+    await step(page);
+
+    const answer = page.locator('#cl-compare-value');
+    await expect(answer).toHaveValue(suggested, { timeout: 1000 });
+    expect(await answer.evaluate((field: HTMLInputElement) => field.validity.valid)).toBe(true);
+    await page.locator('#cl-compare').click();
+    await expect(page.locator('#cl-error')).toBeEmpty();
+    await expect(page.locator('#cl-difference')).toContainText(`差分1項目：${label} A=${applied} → B=${suggested}。`);
+    await expect(page.locator('#cl-left')).toHaveAttribute('data-painted-generation', '0');
+    await expect(page.locator('#cl-right')).toHaveAttribute('data-painted-generation', '0');
+    expect(await raster(page)).toEqual(initial);
+    expect(await raster(page, '#cl-right')).toEqual(initial);
+  });
+}
