@@ -257,6 +257,7 @@ test('020 bloom reduced-motion controls, presets, lesson restore and lifecycle a
   await press(control('immersive'));
   const immersive = control('immersive-dialog');
   await expect(immersive).toBeVisible();
+  await expect(lesson).not.toBeVisible();
   await expect(immersive.locator('canvas')).toBeVisible();
   await expect(immersive.locator('canvas')).not.toHaveJSProperty('width', 0);
   await press(control('immersive-close'));

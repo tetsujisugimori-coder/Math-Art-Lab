@@ -22,7 +22,7 @@ function options<T extends {name:string}>(values: Record<string,T>) {
 }
 function drawCircle(ctx: CanvasRenderingContext2D,circle:BloomCircle,x:number,y:number,scale:number,theme:Theme,outline:boolean,outer=false) {
   const radius=circle.radius*scale;
-  if (radius<.65) return false;
+  if (radius<.65 || (outer && !outline)) return false;
   const hue=themes[theme].hue[circle.generation], sat=theme==='mono'?8:72;
   const px=x+circle.x*scale, py=y+circle.y*scale;
   ctx.beginPath();
@@ -141,10 +141,16 @@ export function mountApollonianBloom(host: HTMLElement) {
     if(disposed||state!=='playing'||document.hidden||lessonDialog.open){previous=null;return;}
     if(previous!==null)elapsed=Math.min(BLOOM_MS,elapsed+Math.max(0,now-previous)*speed);
     previous=now;
-    if(elapsed===BLOOM_MS){state='finished';previous=null;}
+    if(elapsed===BLOOM_MS){complete();return;}
     render();schedule();
   }
-  function complete(){halt();state='finished';elapsed=BLOOM_MS;render();}
+  function complete(){
+    halt();state='finished';elapsed=BLOOM_MS;
+    // The same one-pass raster is used for natural finish and static completion.
+    // Canvas compositing can round colors differently when a frame flush splits the draw list.
+    canvas.width=canvas.width;
+    dirty=true;render();
+  }
   function restart(){halt();if(media.matches){complete();return;}elapsed=0;state='idle';render();}
   function updateModel(){model=modelFor(preset,depth);dirty=true;restart();}
   on(button('play'),'click',()=>{
@@ -180,12 +186,17 @@ export function mountApollonianBloom(host: HTMLElement) {
     resize();
   });
   on(button('immersive-close'),'click',()=>immersive.close());
-  on(immersive,'close',()=>{if(disposed)return;home.append(stage);resize();button('immersive').focus();});
+  function restoreFocusIfLost(closed:HTMLDialogElement,opener:HTMLButtonElement){
+    const active=document.activeElement;
+    // Native close restores its opener before the queued close event; don't steal newer focus.
+    if(!root.contains(active)||closed.contains(active))opener.focus();
+  }
+  on(immersive,'close',()=>{if(disposed||immersive.open)return;home.append(stage);resize();restoreFocusIfLost(immersive,button('immersive'));});
   on(button('lesson'),'click',()=>{
     halt();lessonStep=1;renderLesson();lessonDialog.showModal();
   });
   on(button('lesson-close'),'click',()=>lessonDialog.close());
-  on(lessonDialog,'close',()=>{if(disposed)return;button('lesson').focus();schedule();});
+  on(lessonDialog,'close',()=>{if(disposed||lessonDialog.open)return;restoreFocusIfLost(lessonDialog,button('lesson'));schedule();});
   on(button('lesson-next'),'click',()=>{if(lessonStep<4){lessonStep++;renderLesson();}});
   on(button('lesson-prev'),'click',()=>{if(lessonStep>1){lessonStep--;renderLesson();}});
   function renderLesson(){
