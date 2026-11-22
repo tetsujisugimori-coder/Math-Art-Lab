@@ -1,5 +1,9 @@
 # Math-Art-Lab
 
+## Experiment 020: 無限に咲く円の花（Apollonian Bloom）
+
+作品メニュー「020」で、三つの接円が残す隙間に、次の円が咲く約15秒の演出を鑑賞できます。4つの幾何プリセット、5つの配色、1〜6段、完成静止図、4段階の教材を収録。[数式と再現手順](docs/apollonian-bloom/README.md)。
+
 ## Experiment 019: 余りが描く心臓（Modular String Art）
 
 作品メニュー「019」で、円周上の点を剰余で結び、15秒で心臓形が浮かぶオープニングを鑑賞できます。倍率・点数・速度・レイヤーを操作でき、完成図や全画面鑑賞にも切り替えられます。[数学と再現手順](docs/modular-heart/README.md)。
