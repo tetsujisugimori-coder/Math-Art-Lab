@@ -1,0 +1,113 @@
+name: Issue 55 WebKit comparative diagnostic
+
+on:
+  pull_request:
+    branches: [diagnostic-base/55-webkit]
+
+permissions:
+  contents: read
+
+jobs:
+  compare-007:
+    name: WebKit 007 baseline and PR57 at fixed refs
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Checkout main baseline fixed
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: 9858ba16d922c5b16490e61763d482f4783e18a3
+          path: baseline
+          persist-credentials: false
+      - name: Checkout PR57 fixed HEAD
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: e9254f1ec98d102ba5f26c77f85750f88694e172
+          path: proposed
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+      - name: Install exact dependencies in both trees
+        run: |
+          (cd baseline && npm ci)
+          (cd proposed && npm ci)
+      - name: Prepare WebKit and OS dependencies
+        run: |
+          if [ -f /etc/apt/apt-mirrors.txt ]; then
+            sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu|https://archive.ubuntu.com/ubuntu|g' /etc/apt/apt-mirrors.txt
+          fi
+          (cd proposed && npx playwright install --with-deps webkit)
+      - name: Compare identical 007 condition three times on each ref
+        shell: bash
+        env:
+          CI: 'true'
+        run: |
+          set +e
+          (cd baseline && npm run test:e2e -- e2e/wave-review.spec.ts --project=webkit --grep 'review: hidden while playing pauses until explicit resume' --repeat-each=3 --reporter=list --output=test-results/diagnostic-007-baseline)
+          baseline_status=$?
+          (cd proposed && npm run test:e2e -- e2e/wave-review.spec.ts --project=webkit --grep 'review: hidden while playing pauses until explicit resume' --repeat-each=3 --reporter=list --output=test-results/diagnostic-007-pr57)
+          proposed_status=$?
+          echo "main baseline exit: $baseline_status"
+          echo "PR57 proposed exit: $proposed_status"
+          printf 'baseline_exit=%s\nproposed_exit=%s\n' "$baseline_status" "$proposed_status" > diagnostic-results.txt
+          {
+            echo '### Fixed ref WebKit 007 comparison'
+            echo '- Main: 9858ba16d922c5b16490e61763d482f4783e18a3'
+            echo '- PR57: e9254f1ec98d102ba5f26c77f85750f88694e172'
+            echo '- Same OS, node, Playwright version, one test, --repeat-each=3'
+            echo "- Baseline exit: $baseline_status"
+            echo "- Proposed exit: $proposed_status"
+            echo 'Failure is an observed test result; this comparison step exits zero to preserve both sides.'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit 0
+      - name: Preserve comparison evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: issue-55-webkit-007-comparison
+          path: |
+            diagnostic-results.txt
+            baseline/test-results/diagnostic-007-baseline/
+            proposed/test-results/diagnostic-007-pr57/
+          if-no-files-found: warn
+          retention-days: 14
+
+  production-pr57:
+    name: PR57 fixed ref full Pages smoke
+    runs-on: ubuntu-24.04
+    timeout-minutes: 50
+    steps:
+      - name: Checkout PR57 fixed HEAD
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: e9254f1ec98d102ba5f26c77f85750f88694e172
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Build for GitHub Pages
+        run: npm run build
+      - name: Prepare Chromium and WebKit
+        run: |
+          if [ -f /etc/apt/apt-mirrors.txt ]; then
+            sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu|https://archive.ubuntu.com/ubuntu|g' /etc/apt/apt-mirrors.txt
+          fi
+          npx playwright install --with-deps chromium webkit
+      - name: Production build smoke Chromium and WebKit
+        env:
+          CI: 'true'
+        run: npm run test:e2e:production -- --output=test-results/diagnostic-production --reporter=list
+      - name: Preserve smoke evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: issue-55-pr57-production-smoke
+          path: test-results/diagnostic-production/
+          if-no-files-found: ignore
+          retention-days: 14
