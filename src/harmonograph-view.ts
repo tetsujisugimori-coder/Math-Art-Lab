@@ -48,6 +48,7 @@ export function mountHarmonograph(root:HTMLElement):()=>void{
   $('#harm-status').textContent=complete?'完成形を表示しています。回して眺められます。':state.mode==='paused'?'一時停止中。軌跡と位置を保持しています。':'光の糸を描いています。';stage.dataset.playback=state.mode;
  }
  function fitCamera(){
+  if(disposed)return;
   const width=stage.clientWidth,height=stage.clientHeight;if(!width||!height)return;
   // Retain the initial drawing-buffer budget. CSS and camera aspect follow layout changes;
   // resizing a reused WebGL surface can blank stationary frames in Windows WebKit.
@@ -81,7 +82,7 @@ export function mountHarmonograph(root:HTMLElement):()=>void{
  renderer.domElement.addEventListener('wheel',event=>{event.preventDefault();if(lesson.active)return;zoom=THREE.MathUtils.clamp(zoom+event.deltaY*.001,.6,1.8);fitCamera();},{passive:false,signal:lifecycle.signal});
  document.addEventListener('visibilitychange',()=>{previous=null;if(document.hidden&&raf!==null){cancelAnimationFrame(raf);raf=null;}else invalidate();},{signal:lifecycle.signal});
  motion.addEventListener('change',event=>{if(event.matches){if(lesson.active){pauseArtworkOnReturn=true;lesson.pause();previous=null;invalidate();return;}state={time:shape.duration,mode:'complete'};previous=null;syncControls();invalidate();}},{signal:lifecycle.signal});
- const resize=new ResizeObserver(fitCamera);resize.observe(stage);
+ let resize:ResizeObserver|null=null;
  function invalidate(){if(!disposed&&!document.hidden&&raf===null)raf=requestAnimationFrame(frame);}
  function frame(now:number){
   raf=null;if(disposed||document.hidden){previous=null;return;}
@@ -93,10 +94,25 @@ export function mountHarmonograph(root:HTMLElement):()=>void{
   if(oldMode!==state.mode)syncControls();pivot.updateMatrixWorld(true);guide.update(index,camera);renderer.render(scene,camera);
   if(state.mode==='drawing')invalidate();
  }
- updateShape();
- return()=>{
-  disposed=true;if(raf!==null)cancelAnimationFrame(raf);resize.disconnect();lesson.dispose();inspector.dispose();lifecycle.abort();
+ function dispose(){
+  if(disposed)return;
+  disposed=true;
+  lifecycle.abort();
+  if(raf!==null){cancelAnimationFrame(raf);raf=null;}
+  resize?.disconnect();
+  lesson.dispose();inspector.dispose();
   scene.traverse(object=>{const drawable=object as THREE.Mesh;drawable.geometry?.dispose();if(drawable.material)for(const material of Array.isArray(drawable.material)?drawable.material:[drawable.material])material.dispose();});
   glowTexture.dispose();renderer.dispose();renderer.forceContextLoss();root.replaceChildren();
- };
+ }
+ // The initial camera resize can throw after listeners and observers are registered.
+ // Clean up inside this mount as the caller has not yet received dispose().
+ try{
+  resize=new ResizeObserver(fitCamera);
+  resize.observe(stage);
+  updateShape();
+ }catch(error){
+  dispose();
+  throw error;
+ }
+ return dispose;
 }
