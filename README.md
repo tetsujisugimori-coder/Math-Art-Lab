@@ -280,11 +280,11 @@ previewの表示先は `http://127.0.0.1:4174/Math-Art-Lab/`。previewを終了�
 | Actionsから手動実行、ブランチmain | 同じ検証 | 検証成功後に実行 |
 | 手動実行、main以外 | ジョブを実行しない | 実行しない |
 
-検証ジョブの権限は `contents: read`。`pages: write` と `id-token: write` はデプロイジョブだけに付与する。検証済み `dist` をartifact経由で渡し、再ビルドせず `configure-pages` → `upload-pages-artifact` → `deploy-pages` で公開する。デプロイは同時に1件とし、実行中の公開は途中キャンセルしない。公式Actionsは確認した安定版のコミットSHAで固定する。[GitHub公式のカスタムPagesワークフロー](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)を参照。
+検証ジョブの権限は `contents: read`。`pages: write` と `id-token: write` はデプロイジョブだけに付与する。検証済み `dist` をartifact経由で渡し、`configure-pages` と `upload-pages-artifact` を実行する。公開要求は検証済みのPages artifact IDを指定して送信する。デプロイは同時に1件とし、後続ジョブの到着によるキャンセルは行わない。公式Actionsは確認した安定版のコミットSHAで固定する。再実行の条件は[Pages再実行耐性](docs/pages-rerun-safety.md)を参照。[GitHub公式のカスタムPagesワークフロー](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)を参照。
 
 手動で再デプロイする場合は、**Actions > GitHub Pages > Run workflow** でブランチ **main** を選ぶ。ワークフローがmainに取り込まれるまでは手動実行のボタンが表示されない場合がある。
 
-公開に失敗した場合はActionsの該当runを開き、最初に失敗したステップを確認する。検証失敗時は公開されない。デプロイ失敗時はSource、environmentのブランチ制限・承認待ち、Pages / OIDC権限、artifactの有無を確認する。公開URLでアセットが404になる場合は `base` と `dist/index.html` の `/Math-Art-Lab/assets/` を確認する。
+公開に失敗した場合はActionsの該当runを開き、最初に失敗したステップを確認する。検証失敗時は公開されない。デプロイ失敗時はSource、environmentのブランチ制限・承認待ち、Pages / OIDC権限、artifactの有無を確認する。公開要求の結果が不明なら、公開状態を照合してから次のRunの扱いを判断する。公開URLでアセットが404になる場合は `base` と `dist/index.html` の `/Math-Art-Lab/assets/` を確認する。
 
 PRのCI成功は本番公開の成功を意味しない。マージ後にmainのrunで **Validate** と **Deploy to GitHub Pages** が成功したことを確認し、公開予定URLでデスクトップ・モバイルの描画、パラメータ変更と数式同期、リセット、停止再開、回転・ズーム、開発者ツールのエラー・404を受入確認する。
 

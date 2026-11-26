@@ -140,7 +140,7 @@ def exercise(path):
 
         def run(name, stop=None, *, attempt=1, build_attempt=1, build_id=101,
                 pages_id=201, modified_archive=False, altered_tree=False,
-                submitted=False, mutator=None):
+                submitted=False, page_url=PAGE_URL, mutator=None):
             work = root / str(len(cases))
             work.mkdir()
             raw = work / "validated.zip"
@@ -194,7 +194,9 @@ def exercise(path):
             okay = stopped == stop and payloads == ([payload] if expect_post else [])
             if stop is None and fixed:
                 output = work / "output"
-                okay &= output.exists() and output.read_text() == f"page_url={PAGE_URL}\n"
+                expected_output = f"page_url={page_url}\n" if page_url else ""
+                actual_output = output.read_text() if output.exists() else ""
+                okay &= actual_output == expected_output
             cases.append(okay)
             print(f"{'PASS' if okay else 'FAIL'} {name} | stop={stopped} | submissions={len(payloads)}")
             if not okay:
@@ -261,6 +263,11 @@ def exercise(path):
             mutator=lambda f, e, b, p: f["jobs"].update({"1": paginated("jobs", [])}))
         run("prior deploy step missing", retry, attempt=2,
             mutator=lambda f, e, b, p: f["jobs"]["1"][0]["jobs"][0].update(steps=[]))
+        run("prior job marked skipped but deployment ran", retry, attempt=2,
+            mutator=lambda f, e, b, p: f["jobs"]["1"][0]["jobs"][0].update(conclusion="skipped", steps=[
+                {"name": "Deploy Pages", "status": "completed", "conclusion": "success"}]))
+        run("prior skipped job has malformed step history", retry, attempt=2,
+            mutator=lambda f, e, b, p: f["jobs"]["1"][0]["jobs"][0].update(conclusion="skipped", steps=False))
         run("prior deploy job belongs to another attempt", retry, attempt=2,
             mutator=lambda f, e, b, p: f["jobs"]["1"][0]["jobs"][0].update(run_attempt=2))
         for conclusion in ("failure", "cancelled", "success"):
@@ -271,6 +278,10 @@ def exercise(path):
         run("main reference API fails", main,
             mutator=lambda f, e, b, p: f.update(main=None))
         if fixed:
+            run("confirmed success without display URL", page_url=None,
+                mutator=lambda f, e, b, p: f.update(response={"id": "deploy-1"}))
+            run("confirmed success with a bare hostname display URL", page_url=None,
+                mutator=lambda f, e, b, p: f.update(response={"id": "deploy-1", "page_url": "example.invalid"}))
             run("OIDC response missing token", main, mutator=lambda f, e, b, p: f.update(oidc=None))
             run("response lost after submission, no resend", main, submitted=True,
                 mutator=lambda f, e, b, p: f.update(lost_reply=True))

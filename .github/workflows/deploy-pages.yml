@@ -134,9 +134,11 @@ jobs:
               length == 1 and
               (.[0] | .status == "completed" and (.run_id | tostring) == $run and
                 (.run_attempt | tostring) == $attempt and
-                (.conclusion == "skipped" or
-                  ([.steps[]? | select(.name == "Deploy Pages")] |
-                    length == 1 and .[0].status == "completed" and .[0].conclusion == "skipped")))
+                (.steps | . == null or type == "array") and
+                (.conclusion as $job_conclusion |
+                  [.steps[]? | select(.name == "Deploy Pages")] |
+                  (length == 0 and $job_conclusion == "skipped") or
+                  (length == 1 and .[0].status == "completed" and .[0].conclusion == "skipped")))
             ' <<< "$jobs" >/dev/null || {
               echo "::error::Prior deployment eligibility is unknown or the deployment action was entered; reconcile before any new publication."
               exit 1
@@ -239,7 +241,11 @@ jobs:
             echo '::error::Pages deployment outcome is unknown; reconcile before any new publication.'
             exit 1
           fi
-          deployment_id="$(jq -er '.id | select(type == "string" or type == "number") | tostring | select(test("^[A-Za-z0-9][A-Za-z0-9_-]*$"))' <<< "$response")"
+          if ! deployment_id="$(jq -er '.id | select(type == "string" or type == "number") | tostring | select(test("^[A-Za-z0-9][A-Za-z0-9_-]*$"))' <<< "$response")"; then
+            echo '::error::Pages did not return a deployment ID; reconcile before any new publication.'
+            exit 1
+          fi
+          printf 'Pages deployment ID: %s\n' "$deployment_id"
           deployment_url="$endpoint/$deployment_id"
           cancel_deployment() {
             "${api[@]}" --request POST "$deployment_url/cancel" >/dev/null || true
@@ -251,8 +257,9 @@ jobs:
             if status="$("${api[@]}" "$deployment_url" | jq -er '.status | strings')"; then
               case "$status" in
                 succeed)
-                  page_url="$(jq -er '.page_url | strings | select(test("^https?://[^[:space:]]+$"))' <<< "$response")"
-                  printf 'page_url=%s\n' "$page_url" >> "$GITHUB_OUTPUT"
+                  if page_url="$(jq -er '.page_url | strings | select(test("^https?://[^[:space:]]+$"))' <<< "$response")"; then
+                    printf 'page_url=%s\n' "$page_url" >> "$GITHUB_OUTPUT"
+                  fi
                   exit 0
                   ;;
                 deployment_failed|deployment_content_failed|deployment_cancelled|deployment_lost)
