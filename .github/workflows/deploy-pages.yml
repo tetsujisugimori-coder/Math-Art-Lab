@@ -20,6 +20,11 @@ jobs:
     # pixel matrix (20 more cases per environment; initial 18 took 5.4m locally).
     # Keep all regressions and existing test timeouts; allow the full job to finish.
     timeout-minutes: 50
+    outputs:
+      build-id: ${{ steps.validated.outputs.artifact-id }}
+      build-digest: ${{ steps.validated.outputs.artifact-digest }}
+      build-attempt: ${{ steps.build_identity.outputs.attempt }}
+      build-tree-digest: ${{ steps.build_identity.outputs.tree-digest }}
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -58,15 +63,26 @@ jobs:
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: regression-evidence-${{ github.sha }}
+          name: regression-evidence-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
           path: test-results/
           if-no-files-found: ignore
           retention-days: 14
+      - name: Record validated build identity
+        id: build_identity
+        if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f dist/index.html
+          test -z "$(find dist ! -type f ! -type d -print -quit)"
+          tree_digest="$(cd dist && find . -type f -print0 | LC_ALL=C sort -z | xargs -0 -r sha256sum | sha256sum | cut -d' ' -f1)"
+          printf 'attempt=%s\ntree-digest=%s\n' "$GITHUB_RUN_ATTEMPT" "$tree_digest" >> "$GITHUB_OUTPUT"
       - name: Save validated build
+        id: validated
         if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: validated-dist
+          name: validated-dist-${{ github.run_id }}-${{ github.run_attempt }}
           path: dist
           if-no-files-found: error
           retention-days: 1
@@ -79,6 +95,7 @@ jobs:
     timeout-minutes: 10
     permissions:
       contents: read
+      actions: read
       pages: write
       id-token: write
     concurrency:
@@ -87,18 +104,173 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      BUILD_ID: ${{ needs.validate.outputs.build-id }}
+      BUILD_DIGEST: ${{ needs.validate.outputs.build-digest }}
+      BUILD_ATTEMPT: ${{ needs.validate.outputs.build-attempt }}
+      BUILD_TREE_DIGEST: ${{ needs.validate.outputs.build-tree-digest }}
+      PAGES_NAME: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+      CHECK_PAGINATION: |
+        def complete($key):
+          . as $pages | [.[].[$key][]] as $items |
+          length > 0 and
+          all($pages[]; (.[$key] | type == "array") and .total_count == ($items | length)) and
+          all($items[]; .id | type == "number") and
+          ($items | map(.id) | unique | length) == ($items | length);
     steps:
+      - name: Verify retry eligibility
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          # Fail closed if any prior attempt may have entered the deployment action.
+          # A new run after an uncertain deployment requires operator reconciliation.
+          for ((attempt=1; attempt<GITHUB_RUN_ATTEMPT; attempt++)); do
+            jobs="$(gh api --paginate --slurp "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/attempts/$attempt/jobs?per_page=100")"
+            jq -e --arg run "$GITHUB_RUN_ID" --arg attempt "$attempt" "$CHECK_PAGINATION"'
+              select(complete("jobs")) |
+              [.[].jobs[] | select(.name == "Deploy to GitHub Pages")] |
+              length == 1 and
+              (.[0] | .status == "completed" and (.run_id | tostring) == $run and
+                (.run_attempt | tostring) == $attempt and
+                (.steps | . == null or type == "array") and
+                (.conclusion as $job_conclusion |
+                  [.steps[]? | select(.name == "Deploy Pages")] |
+                  (length == 0 and $job_conclusion == "skipped") or
+                  (length == 1 and .[0].status == "completed" and .[0].conclusion == "skipped")))
+            ' <<< "$jobs" >/dev/null || {
+              echo "::error::Prior deployment eligibility is unknown or the deployment action was entered; reconcile before any new publication."
+              exit 1
+            }
+          done
+      - name: Verify validated artifact identity
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          [[ "$BUILD_ID" =~ ^[1-9][0-9]*$ ]]
+          [[ "$BUILD_ATTEMPT" =~ ^[1-9][0-9]*$ ]]
+          (( BUILD_ATTEMPT <= GITHUB_RUN_ATTEMPT ))
+          [[ "$BUILD_DIGEST" =~ ^[a-f0-9]{64}$ ]]
+          [[ "$BUILD_TREE_DIGEST" =~ ^[a-f0-9]{64}$ ]]
+          name="validated-dist-$GITHUB_RUN_ID-$BUILD_ATTEMPT"
+          artifacts="$(gh api --paginate --slurp "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts?per_page=100")"
+          jq -e --arg name "$name" --arg id "$BUILD_ID" --arg digest "sha256:$BUILD_DIGEST" --arg run "$GITHUB_RUN_ID" --arg sha "$GITHUB_SHA" "$CHECK_PAGINATION"'
+            select(complete("artifacts")) |
+            [.[].artifacts[] | select(.name == $name)] |
+            length == 1 and
+            (.[0] | (.id | tostring) == $id and .expired == false and .digest == $digest
+              and (.workflow_run.id | tostring) == $run and .workflow_run.head_sha == $sha)
+          ' <<< "$artifacts" >/dev/null
       - name: Download validated build
         uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
-          name: validated-dist
-          path: dist
+          artifact-ids: ${{ needs.validate.outputs.build-id }}
+          digest-mismatch: error
+          skip-decompress: true
+          path: validated-archive
+      - name: Verify downloaded build tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob dotglob
+          archives=(validated-archive/*)
+          test "${#archives[@]}" -eq 1
+          test -f "${archives[0]}"
+          test ! -L "${archives[0]}"
+          archive_digest="$(sha256sum -- "${archives[0]}" | cut -d' ' -f1)"
+          test "$archive_digest" = "$BUILD_DIGEST"
+          mkdir dist
+          unzip -q -- "${archives[0]}" -d dist
+          test -f dist/index.html
+          test -z "$(find dist ! -type f ! -type d -print -quit)"
+          actual="$(cd dist && find . -type f -print0 | LC_ALL=C sort -z | xargs -0 -r sha256sum | sha256sum | cut -d' ' -f1)"
+          test "$actual" = "$BUILD_TREE_DIGEST"
       - name: Configure Pages
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
       - name: Upload Pages artifact
+        id: pages_artifact
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
+          name: ${{ env.PAGES_NAME }}
           path: dist
+      - name: Verify Pages artifact identity
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PAGES_ID: ${{ steps.pages_artifact.outputs.artifact_id }}
+        run: |
+          set -euo pipefail
+          [[ "$PAGES_ID" =~ ^[1-9][0-9]*$ ]]
+          artifacts="$(gh api --paginate --slurp "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts?per_page=100")"
+          jq -e --arg name "$PAGES_NAME" --arg id "$PAGES_ID" --arg run "$GITHUB_RUN_ID" --arg sha "$GITHUB_SHA" "$CHECK_PAGINATION"'
+            select(complete("artifacts")) |
+            [.[].artifacts[] | select(.name == $name)] |
+            length == 1 and
+            (.[0] | (.id | tostring) == $id and .expired == false
+              and (.digest | type == "string" and test("^sha256:[a-f0-9]{64}$"))
+              and (.workflow_run.id | tostring) == $run and .workflow_run.head_sha == $sha)
+          ' <<< "$artifacts" >/dev/null
       - name: Deploy Pages
         id: deployment
-        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PAGES_ID: ${{ steps.pages_artifact.outputs.artifact_id }}
+        run: |
+          set -euo pipefail
+          [[ "$PAGES_ID" =~ ^[1-9][0-9]*$ ]]
+          endpoint="$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/pages/deployments"
+          api=(curl --disable --fail --silent --show-error --connect-timeout 5 --max-time 15
+            --header 'Accept: application/vnd.github+json' --header "Authorization: Bearer $GH_TOKEN")
+          payload="$(curl --disable --fail --silent --show-error --connect-timeout 5 --max-time 15 \
+            --header "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL" |
+            jq -ce --argjson id "$PAGES_ID" --arg sha "$GITHUB_SHA" '
+              select(.value | type == "string" and length > 0) |
+              {artifact_id: $id, pages_build_version: $sha, oidc_token: .value}
+            ')"
+          current="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq '.object.sha')"
+          test "$current" = "$GITHUB_SHA" || {
+            echo "::error::main advanced; do not publish an obsolete commit."
+            exit 1
+          }
+          # Submit the verified ID exactly once. Lost replies require reconciliation.
+          if ! response="$(printf '%s' "$payload" | "${api[@]}" --header 'Content-Type: application/json' --data-binary @- "$endpoint")"; then
+            echo '::error::Pages deployment outcome is unknown; reconcile before any new publication.'
+            exit 1
+          fi
+          if ! deployment_id="$(jq -er '.id | select(type == "string" or type == "number") | tostring | select(test("^[A-Za-z0-9][A-Za-z0-9_-]*$"))' <<< "$response")"; then
+            echo '::error::Pages did not return a deployment ID; reconcile before any new publication.'
+            exit 1
+          fi
+          printf 'Pages deployment ID: %s\n' "$deployment_id"
+          deployment_url="$endpoint/$deployment_id"
+          cancel_deployment() {
+            "${api[@]}" --request POST "$deployment_url/cancel" >/dev/null || true
+          }
+          trap 'cancel_deployment; exit 1' INT TERM
+          deadline=$((SECONDS + 420))
+          interval=5
+          while (( SECONDS < deadline )); do
+            if status="$("${api[@]}" "$deployment_url" | jq -er '.status | strings')"; then
+              case "$status" in
+                succeed)
+                  if page_url="$(jq -er '.page_url | strings | select(test("^https?://[^[:space:]]+$"))' <<< "$response")"; then
+                    printf 'page_url=%s\n' "$page_url" >> "$GITHUB_OUTPUT"
+                  fi
+                  exit 0
+                  ;;
+                deployment_failed|deployment_content_failed|deployment_cancelled|deployment_lost)
+                  echo "::error::Pages reported terminal status: $status"
+                  exit 1
+                  ;;
+              esac
+            fi
+            sleep "$interval"
+            interval=$(( interval < 15 ? interval * 2 : 30 ))
+          done
+          cancel_deployment
+          echo '::error::Pages deployment status timed out; reconcile before any new publication.'
+          exit 1
