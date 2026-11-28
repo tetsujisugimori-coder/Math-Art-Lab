@@ -1,0 +1,56 @@
+.prime-atlas {
+  --prime-page:#f3f5f9; --prime-fg:#152238; --prime-muted:#445774; --prime-panel:#fff;
+  --prime-line:#bbc9dd; --prime-button:#e8eef7; --prime-focus:#7353b2;
+  background:var(--prime-page); color:var(--prime-fg); padding:clamp(.75rem,2.8vw,2rem);
+  min-width:0; font-family:system-ui,sans-serif;
+}
+@media(prefers-color-scheme:dark){
+  .prime-atlas{--prime-page:#0c111d;--prime-fg:#e3edff;--prime-muted:#afbdd7;--prime-panel:#131b2a;--prime-line:#445470;--prime-button:#1e2c43;--prime-focus:#eac174}
+}
+.prime-atlas [hidden]{display:none!important}
+.prime-head,.prime-layout{max-width:1320px;margin-inline:auto}
+.prime-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;margin-bottom:1.3rem}
+.prime-head h1{font-family:Georgia,'Yu Mincho','Hiragino Mincho ProN',serif; font-size:clamp(2rem,5vw,4rem);letter-spacing:.12em;line-height:1.1;margin:.2em 0}
+.prime-head p,.prime-head span{color:var(--prime-muted);margin:.25rem 0}
+.prime-head p:first-child,.prime-head span,.prime-hud,.prime-title span{letter-spacing:.16em;font-size:.72rem}
+.prime-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(14rem,18rem);gap:1rem;align-items:start}
+.prime-figure{margin:0;min-width:0}
+.prime-stage{position:relative;height:clamp(320px,68vh,760px);overflow:hidden;background:#020409;border:1px solid #475875;border-radius:14px;isolation:isolate}
+.prime-stage canvas{width:100%;height:100%;display:block;touch-action:none}
+.prime-stage canvas:focus-visible{outline:3px solid #f5d394;outline-offset:-5px}
+.prime-hud{position:absolute;inset:1rem 1rem auto;display:flex;justify-content:space-between;gap:.5rem;color:#9fb8d9;pointer-events:none}
+.prime-title{position:absolute;inset:auto 0 3%;display:grid;justify-items:center;gap:.32rem;color:#eff4ff;text-shadow:0 1px 5px #000;pointer-events:none;opacity:0;text-align:center}
+.prime-title strong{font:clamp(1.15rem,4vw,2.4rem)/1.2 Georgia,'Yu Mincho',serif;letter-spacing:.18em}
+.prime-title span{color:#f5d796}
+.prime-figure figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.4rem;padding:.8rem .15rem;color:var(--prime-muted)}
+.prime-legend{font-size:.85em}
+.prime-controls,.prime-atlas dialog{background:var(--prime-panel);color:var(--prime-fg);border:1px solid var(--prime-line);border-radius:12px;padding:1rem}
+.prime-controls{display:grid;gap:.65rem;min-width:0}
+.prime-controls h2,.prime-dialog-head h2{margin:0}
+.prime-controls label,.prime-atlas dialog label{display:grid;gap:.25rem;min-width:0}
+.prime-atlas select,.prime-atlas button,.prime-atlas input[type=number]{font:inherit;color:inherit;background:var(--prime-button);border:1px solid var(--prime-line);border-radius:7px;padding:.38em .45em;min-height:2.65rem;min-width:0;max-width:100%}
+.prime-atlas button{cursor:pointer;overflow-wrap:anywhere}
+.prime-atlas button:disabled{opacity:.55;cursor:default}
+.prime-atlas :is(button,input,select):focus-visible{outline:2px solid var(--prime-focus);outline-offset:2px}
+.prime-controls output{min-height:1.4em;color:var(--prime-muted);overflow-wrap:anywhere}
+.prime-buttons,.prime-pair{display:flex;flex-wrap:wrap;gap:.45rem;align-items:end}
+.prime-buttons>* ,.prime-pair>*{flex:1 1 auto;min-width:0}
+.prime-controls fieldset{min-width:0;margin:0;padding:.45rem .6rem;border:1px solid var(--prime-line);border-radius:8px;display:flex;gap:.35em .7em;flex-wrap:wrap}
+.prime-controls fieldset label{display:flex;align-items:center;min-height:1.8rem}
+.prime-controls form{display:flex;flex-wrap:wrap;gap:.45rem;align-items:end}
+.prime-controls form label{flex:1 1 8rem}
+.prime-atlas dialog{width:min(720px,calc(100% - 2rem));max-height:calc(100dvh - 2rem);box-sizing:border-box;overflow:auto}
+.prime-atlas dialog::backdrop{background:#03070cda}
+.prime-dialog-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.6rem}
+.prime-atlas dialog canvas:not(#prime-art){width:100%;height:auto;display:block;margin-top:.7rem;border-radius:9px}
+.prime-atlas dialog.prime-full{width:calc(100% - 1rem);max-width:none;padding:.5rem;background:#090e19;color:#eff4ff}
+.prime-full button{margin-bottom:.5rem;background:#17233b}
+.prime-full .prime-stage{height:calc(100dvh - 7rem)}
+@media(max-width:850px){.prime-layout{grid-template-columns:minmax(0,1fr)}.prime-head>span{display:none}.prime-stage{height:clamp(300px,70vw,590px)}}
+@media(max-width:440px){.prime-title span,.prime-hud{letter-spacing:.06em}.prime-hud{inset:.75rem .65rem auto}}
+/* Scope overrides to 021 rather than changing other experiments' shared controls. */
+.prime-atlas .prime-controls{max-height:none;overflow:visible;scrollbar-gutter:auto}
+.prime-atlas .prime-controls label,.prime-atlas dialog label{grid-template-columns:minmax(0,1fr);margin:0}
+.prime-atlas label select,.prime-atlas input[type=number]{width:100%}
+.prime-atlas input[type=checkbox]{width:auto;margin:0 .32rem 0 0;flex:0 0 auto}
+.prime-atlas button{margin:0}

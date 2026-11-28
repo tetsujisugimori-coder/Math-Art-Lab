@@ -1,5 +1,9 @@
 # Math-Art-Lab 開発・研究記録
 
+## 2026-11-28 JST — 第021作「素数の星図」
+
+main `4f84db018c3bd2f371cc66bffdd89a88bcb62b32` を基準に、[Issue #61](https://github.com/tetsujisugimori-coder/Math-Art-Lab/issues/61) の作品を専用ブランチで実装。Canvas 2D、三配置、15秒の作品時計、四段階教材。PR #60の公開構成、依存・lockfile・workflowは変更しない。登録数19→20に伴う既存の厳密なメニュー件数だけ更新した。詳細は[作品文書](docs/prime-constellation/README.md)。正式CIはDraft PR作成で自動起動するため、予算と承認条件は局所試験とは別に審査する。
+
 ## 2026-11-06 JST — PR #40 P2-01：文字拡大時のMathML横溢れ
 
 レビュー対象caa3f0aとlocal／PR HEAD一致、main dd66a7fe、未コミット変更なしを確認。独立レビューFAIL、CI42215659609の開発516成功＋2失敗＋既存2skip、本番未実施を確認した。旧Windows成功をLinuxへ流用せず、同一製品ソースに診断だけを加えた1b88325でLinux/WebKitの375px・両テーマ・20判断・比較ON・200%を再現。root/body386px、MathML右385.90625px・幅354.90625px、親visible overflowの伝播を測定し、局所表の突出と区別した。

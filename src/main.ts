@@ -1,3 +1,4 @@
+import {mountPrimeConstellation} from './prime-constellation-view';
 import {mountApollonianBloom} from './apollonian-bloom-view';
 import {mountModularHeart} from './modular-heart-view';
 import {mountPenrose} from './penrose-view';
@@ -31,7 +32,8 @@ select.add(new Option('016 · 協力の格子','cooperation'));
 select.add(new Option('018 · 黄金比の星屑','penrose'));
 select.add(new Option('019 · 余りが描く心臓','modular-heart'));
 select.add(new Option('020 · 無限に咲く円の花','apollonian-bloom'));
-const mounts={fractal:mountFractal,harmonograph:mountHarmonograph,garden:mountGarden,knot:mountKnot,lorenz:mountLorenz,twins:mountTwins,wave:mountWave,flow:mountFlowField,reaction:mountReactionDiffusion,fourier:mountFourier,voronoi:mountVoronoi,sand:mountSand,ripple:mountRipple,cobweb:mountCobweb,segregation:mountSegregation,cooperation:mountCooperation,penrose:mountPenrose,"modular-heart":mountModularHeart,"apollonian-bloom":mountApollonianBloom};
+select.add(new Option('021 · 素数の星図','prime-constellation'));
+const mounts={fractal:mountFractal,harmonograph:mountHarmonograph,garden:mountGarden,knot:mountKnot,lorenz:mountLorenz,twins:mountTwins,wave:mountWave,flow:mountFlowField,reaction:mountReactionDiffusion,fourier:mountFourier,voronoi:mountVoronoi,sand:mountSand,ripple:mountRipple,cobweb:mountCobweb,segregation:mountSegregation,cooperation:mountCooperation,penrose:mountPenrose,"modular-heart":mountModularHeart,"apollonian-bloom":mountApollonianBloom,"prime-constellation":mountPrimeConstellation};
 let dispose:()=>void=()=>{};
 
 function displayMountError(error:unknown) {

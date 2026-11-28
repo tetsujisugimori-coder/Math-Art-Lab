@@ -11,7 +11,7 @@ for (const width of [375, 390]) {
 
     await page.goto('./');
     const picker = page.locator('#experiment');
-    await expect(picker.locator('option')).toHaveCount(19);
+    await expect(picker.locator('option')).toHaveCount(20);
     await expect(page.getByRole('alert')).toContainText('injected WebGL resize failure');
     const afterFailure = await harmonographProbe(page);
     expect(afterFailure).toMatchObject({
