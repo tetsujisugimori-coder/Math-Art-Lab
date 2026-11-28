@@ -1,5 +1,9 @@
 # Math-Art-Lab
 
+## Experiment 021: 素数の星図（Constellation of Primes）
+
+作品メニュー「021」で、1万までの整数から素数が灯り、15秒で星図が現れます。ウラムの螺旋・極座標螺旋・整数格子を切り替え、双子素数や篩を観察できます。[数理・鑑賞・再現手順](docs/prime-constellation/README.md)。
+
 ## Experiment 020: 無限に咲く円の花（Apollonian Bloom）
 
 作品メニュー「020」で、三つの接円が残す隙間に、次の円が咲く約15秒の演出を鑑賞できます。4つの幾何プリセット、5つの配色、1〜6段、完成静止図、4段階の教材を収録。[数式と再現手順](docs/apollonian-bloom/README.md)。

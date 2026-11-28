@@ -9,7 +9,7 @@ test('Pages 002 partial WebGL resize failure: tab return and resize cannot distu
   page.on('pageerror', error => errors.push(error.message));
   await page.goto('./');
   const picker = page.locator('#experiment');
-  await expect(picker.locator('option')).toHaveCount(19);
+  await expect(picker.locator('option')).toHaveCount(20);
   await expect(page.getByRole('alert')).toContainText('injected WebGL resize failure');
   expect(await harmonographProbe(page)).toMatchObject({
     injected: 1, visibilityRegistrations: 1, stageObservations: 1, stageDisconnects: 1,

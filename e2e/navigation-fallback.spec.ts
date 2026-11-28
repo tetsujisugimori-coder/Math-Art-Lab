@@ -3,7 +3,7 @@ import { expect, test, type Page } from '@playwright/test';
 const registered = [
   'harmonograph', 'fractal', 'garden', 'knot', 'lorenz', 'twins', 'wave',
   'flow', 'reaction', 'fourier', 'voronoi', 'sand', 'ripple', 'cobweb',
-  'segregation', 'cooperation', 'penrose', 'modular-heart', 'apollonian-bloom',
+  'segregation', 'cooperation', 'penrose', 'modular-heart', 'apollonian-bloom', 'prime-constellation',
 ];
 
 async function disableWebGL(page: Page) {

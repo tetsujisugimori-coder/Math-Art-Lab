@@ -14,7 +14,7 @@ test('Pages production build: WebGL startup failure does not block Canvas 2D wor
   page.on('pageerror', error => uncaught.push(error.message));
   await page.goto('./');
   const picker = page.locator('#experiment');
-  await expect(picker.locator('option')).toHaveCount(19);
+  await expect(picker.locator('option')).toHaveCount(20);
   await expect(page.getByRole('alert')).toContainText(/WebGL/i);
   await picker.selectOption('apollonian-bloom');
   await expect(page.getByRole('alert')).toHaveCount(0);
